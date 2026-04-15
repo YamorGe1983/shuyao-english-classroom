@@ -4811,8 +4811,14 @@ const App = {
                 this.renderWelcomePage();
             } else {
                 const currentUser = UserModule.getCurrentUser();
-                if (currentUser) { this.initUser(currentUser); }
-                else { this.renderUserSelectPage(); }
+                if (currentUser) { 
+                    this.initUser(currentUser); 
+                    this.elements.nav.style.display = 'flex';
+                    this.renderHome(); 
+                }
+                else { 
+                    this.renderUserSelectPage(); 
+                }
             }
             this.bindEvents();
             window._ld&&window._ld.hide();
