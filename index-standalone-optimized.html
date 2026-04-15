@@ -3268,12 +3268,15 @@ const GRADES = {
 // ==================== 四年级上册 ====================
     // [Lazy] 四年级上册 - 详细数据按需加载
     'grade4_1': {id:'grade4_1',name:'四年级上',modules:[],units:{}},
+,
 
     // [Lazy] 四年级下册 - 详细数据按需加载
     'grade4_2': {id:'grade4_2',name:'四年级下册',modules:[],units:{}},
+,
 
     // [Lazy] 五年级上册 - 详细数据按需加载
     'grade5_1': {id:'grade5_1',name:'五年级上册',modules:[],units:{}},
+,
 
     // [Lazy] 五年级下册 - 详细数据按需加载
     'grade5_2': {id:'grade5_2',name:'五年级下册',modules:[],units:{}},
@@ -3962,7 +3965,6 @@ const Storage = {
 
 /**
  * TTS (Text-to-Speech) 发音模块
- * 优先级：ResponsiveVoice > 百度TTS > Google TTS
  */
 
 const TTSModule = {
@@ -3972,9 +3974,6 @@ const TTSModule = {
         rate: 0.85,
         pitch: 1.0
     },
-    
-    // 标记ResponsiveVoice是否可用
-    responsiveVoiceReady: false,
     
     availableVoices: [
         { id: 'US English Female', name: '美式女声', lang: 'en-US' },
@@ -3987,12 +3986,8 @@ const TTSModule = {
     
     init() {
         return new Promise((resolve) => {
-            // 预热音频上下文
-            this.warmUpAudio();
-            
             if (typeof responsiveVoice !== 'undefined') {
                 console.log('✓ ResponsiveVoice 已加载');
-                this.responsiveVoiceReady = true;
                 resolve(true);
                 return;
             }
@@ -4001,34 +3996,14 @@ const TTSModule = {
             script.src = 'https://code.responsivevoice.org/responsivevoice.js?key=free-non-commercial-use';
             script.onload = () => {
                 console.log('✓ ResponsiveVoice 加载成功');
-                this.responsiveVoiceReady = true;
                 setTimeout(() => resolve(true), 500);
             };
             script.onerror = () => {
-                console.warn('ResponsiveVoice 加载失败，使用百度TTS/Google TTS');
-                this.responsiveVoiceReady = false;
+                console.warn('ResponsiveVoice 加载失败');
                 resolve(false);
             };
             document.head.appendChild(script);
         });
-    },
-    
-    // 预热音频上下文
-    warmUpAudio() {
-        // 创建一个静音的音频来激活音频系统
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            gainNode.gain.value = 0;
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            oscillator.start();
-            oscillator.stop();
-            audioContext.close();
-        } catch (e) {
-            // 忽略错误
-        }
     },
     
     containsChinese(text) {
@@ -4046,63 +4021,32 @@ const TTSModule = {
         return new Promise((resolve, reject) => {
             const voice = options.voice || this.autoDetectVoice(text);
             const rate = options.rate || this.config.rate;
+            const pitch = options.pitch || this.config.pitch;
             
-            // 优先使用 ResponsiveVoice
-            if (this.responsiveVoiceReady && typeof responsiveVoice !== 'undefined') {
+            if (typeof responsiveVoice !== 'undefined') {
                 responsiveVoice.speak(text, voice, {
                     rate: rate,
-                    pitch: options.pitch || this.config.pitch,
+                    pitch: pitch,
                     onend: () => resolve(),
                     onerror: (e) => {
-                        console.error('ResponsiveVoice错误:', e);
-                        // 失败时fallback到百度/Google
-                        this.speakWithBaiduOrGoogle(text).then(resolve);
+                        console.error('TTS错误:', e);
+                        resolve();
                     }
                 });
             } 
-            // Fallback: 百度TTS（中文）或 Google TTS（英文）
+            else if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = this.containsChinese(text) ? 'zh-CN' : 'en-US';
+                utterance.rate = rate;
+                utterance.pitch = pitch;
+                utterance.onend = () => resolve();
+                utterance.onerror = () => resolve();
+                speechSynthesis.speak(utterance);
+            } 
             else {
-                this.speakWithBaiduOrGoogle(text).then(resolve);
+                console.warn('无可用的语音合成服务');
+                resolve();
             }
-        });
-    },
-    
-    // 使用百度TTS（中文）或 Google TTS（英文）
-    speakWithBaiduOrGoogle(text) {
-        return new Promise((resolve) => {
-            const isChinese = this.containsChinese(text);
-            let audioUrl;
-            
-            if (isChinese) {
-                // 百度TTS - 中文效果好
-                // per: 0=女声, 1=男声, 3=情感合成-度逍遥, 4=情感合成-度丫丫
-                // vol: 音量 0-15
-                // rate: 语速 0-15
-                audioUrl = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=zh&ctp=1&pdt=301&vol=9&rate=5&per=0`;
-            } else {
-                // Google Translate TTS - 英文效果好
-                // 注意：这个API可能有跨域限制
-                audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
-            }
-            
-            this.currentAudio = new Audio(audioUrl);
-            
-            this.currentAudio.onended = () => {
-                this.currentAudio = null;
-                resolve();
-            };
-            this.currentAudio.onerror = () => {
-                console.warn('在线TTS加载失败');
-                this.currentAudio = null;
-                resolve();
-            };
-            
-            // 尝试播放
-            this.currentAudio.play().catch(e => {
-                console.warn('音频播放被阻止，请先点击页面');
-                this.currentAudio = null;
-                resolve();
-            });
         });
     },
     
@@ -4110,24 +4054,19 @@ const TTSModule = {
         return this.speak(text, { ...options, voice: this.config.chineseVoice });
     },
     
-    // 当前播放的音频元素
-    currentAudio: null,
-    
     cancel() {
-        if (this.responsiveVoiceReady && typeof responsiveVoice !== 'undefined') {
+        if (typeof responsiveVoice !== 'undefined') {
             responsiveVoice.cancel();
-        }
-        if (this.currentAudio) {
-            this.currentAudio.pause();
-            this.currentAudio = null;
+        } else if ('speechSynthesis' in window) {
+            speechSynthesis.cancel();
         }
     },
     
     isSpeaking() {
-        if (this.responsiveVoiceReady && typeof responsiveVoice !== 'undefined') {
+        if (typeof responsiveVoice !== 'undefined') {
             return responsiveVoice.isPlaying();
         }
-        return this.currentAudio && !this.currentAudio.paused;
+        return 'speechSynthesis' in window && speechSynthesis.speaking;
     },
     
     speakWord(word, phonetic = '') {
