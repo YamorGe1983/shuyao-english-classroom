@@ -3979,7 +3979,8 @@ const Storage = {
 
 /**
  * TTS (Text-to-Speech) 发音模块
- * 优先级：ResponsiveVoice > 百度TTS > Google TTS
+ * 优先级：ResponsiveVoice > 百度TTS
+ * 页面初始化时加载ResponsiveVoice，失败则使用百度TTS
  */
 
 const TTSModule = {
@@ -4002,25 +4003,14 @@ const TTSModule = {
         { id: 'Chinese Male', name: '中文男声', lang: 'zh-CN' }
     ],
     
-    // 延迟加载标记
-    _initStarted: false,
-    
+    // 页面初始化时加载TTS
     init() {
-        // 不在页面初始化时加载，改为第一次使用时加载
-        return Promise.resolve(true);
-    },
-    
-    // 确保TTS已初始化（首次播放时调用）
-    ensureInit() {
-        if (this._initStarted) return Promise.resolve(this.responsiveVoiceReady);
-        this._initStarted = true;
-        
         return new Promise((resolve) => {
-            // 设置超时，3秒内没加载成功就fallback
+            // 设置超时，5秒内没加载成功就使用百度TTS
             const timeout = setTimeout(() => {
-                console.warn('ResponsiveVoice 加载超时，使用备用TTS');
+                console.warn('ResponsiveVoice 加载超时，将使用百度TTS');
                 resolve(false);
-            }, 3000);
+            }, 5000);
             
             if (typeof responsiveVoice !== 'undefined') {
                 clearTimeout(timeout);
@@ -4040,7 +4030,7 @@ const TTSModule = {
             };
             script.onerror = () => {
                 clearTimeout(timeout);
-                console.warn('ResponsiveVoice 加载失败，使用百度TTS/Google TTS');
+                console.warn('ResponsiveVoice 加载失败，将使用百度TTS');
                 this.responsiveVoiceReady = false;
                 resolve(false);
             };
@@ -4099,14 +4089,6 @@ const TTSModule = {
             const voice = options.voice || this.autoDetectVoice(text);
             const rate = options.rate || this.config.rate;
             
-            // 首次播放时初始化TTS（带超时）
-            if (!this._initStarted) {
-                const initResult = await Promise.race([
-                    this.ensureInit(),
-                    new Promise(r => setTimeout(() => r(false), 2000))
-                ]);
-            }
-            
             // 优先使用 ResponsiveVoice
             if (this.responsiveVoiceReady && typeof responsiveVoice !== 'undefined') {
                 responsiveVoice.speak(text, voice, {
@@ -4115,31 +4097,28 @@ const TTSModule = {
                     onend: () => resolve(),
                     onerror: (e) => {
                         console.error('ResponsiveVoice错误:', e);
-                        // 失败时fallback到百度/Google
-                        this.speakWithBaiduOrGoogle(text).then(resolve);
+                        // 失败时fallback到百度TTS
+                        this.speakWithBaidu(text).then(resolve);
                     }
                 });
             } 
-            // Fallback: 百度TTS（中文）或 Google TTS（英文）
+            // Fallback: 百度TTS
             else {
-                this.speakWithBaiduOrGoogle(text).then(resolve);
+                this.speakWithBaidu(text).then(resolve);
             }
         });
     },
     
-    // 使用百度TTS（中文）或 Google TTS（英文），最后fallback到浏览器原生TTS
-    speakWithBaiduOrGoogle(text) {
+    // 使用百度TTS
+    speakWithBaidu(text) {
         return new Promise((resolve) => {
             const isChinese = this.containsChinese(text);
             let audioUrl;
             
-            if (isChinese) {
-                // 百度TTS - 中文效果好
-                audioUrl = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=zh&ctp=1&pdt=301&vol=9&rate=5&per=0`;
-            } else {
-                // Google Translate TTS - 英文效果好
-                audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
-            }
+            // 百度TTS支持中英文
+            // per=0 女声, per=1 男声, per=3 情感合成-度逍遥, per=4 情感合成-度丫丫
+            // vol=9 音量, rate=5 语速
+            audioUrl = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=${isChinese ? 'zh' : 'en'}&ctp=1&pdt=301&vol=9&rate=5&per=0`;
             
             this.currentAudio = new Audio(audioUrl);
             
@@ -4148,52 +4127,17 @@ const TTSModule = {
                 resolve();
             };
             this.currentAudio.onerror = () => {
-                console.warn('在线TTS加载失败，使用浏览器原生TTS');
+                console.warn('百度TTS加载失败');
                 this.currentAudio = null;
-                // Fallback to browser native TTS
-                this.speakWithBrowser(text).then(resolve);
+                resolve(); // 即使失败也resolve，不阻塞流程
             };
             
             // 尝试播放
             this.currentAudio.play().catch(e => {
-                console.warn('音频播放被阻止，使用浏览器原生TTS');
+                console.warn('百度TTS播放失败:', e.message);
                 this.currentAudio = null;
-                // Fallback to browser native TTS
-                this.speakWithBrowser(text).then(resolve);
-            });
-        });
-    },
-    
-    // 浏览器原生TTS（最后的备用方案）
-    speakWithBrowser(text) {
-        return new Promise((resolve) => {
-            if (!('speechSynthesis' in window)) {
-                console.warn('浏览器不支持TTS');
                 resolve();
-                return;
-            }
-            
-            const utterance = new SpeechSynthesisUtterance(text);
-            const isChinese = this.containsChinese(text);
-            utterance.lang = isChinese ? 'zh-CN' : 'en-US';
-            utterance.rate = this.config.rate;
-            utterance.pitch = this.config.pitch;
-            
-            // 尝试找到合适的声音
-            const voices = speechSynthesis.getVoices();
-            const targetLang = isChinese ? 'zh-CN' : 'en-US';
-            const voice = voices.find(v => v.lang.startsWith(targetLang));
-            if (voice) {
-                utterance.voice = voice;
-            }
-            
-            utterance.onend = () => resolve();
-            utterance.onerror = () => resolve();
-            
-            // 某些浏览器需要延迟执行
-            setTimeout(() => {
-                speechSynthesis.speak(utterance);
-            }, 100);
+            });
         });
     },
     
@@ -4935,7 +4879,14 @@ const App = {
     initUser(user) {
         StorageModule.init();
         TTSModule.loadSettings();
-        // TTS初始化改为按需加载，不在页面初始化时加载
+        // 页面初始化时加载TTS
+        TTSModule.init().then(ready => {
+            if (ready) {
+                console.log('✓ TTS初始化成功 (ResponsiveVoice)');
+            } else {
+                console.log('TTS将使用百度TTS');
+            }
+        });
     },
     
     cacheElements() {
