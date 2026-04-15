@@ -2653,7 +2653,7 @@ h1, h2, h3, h4, h5, h6 {
         <div id="toast"></div>
     </div>
     <script>
-!function(){var s,t;document.addEventListener("DOMContentLoaded",function(){s=document.getElementById("loadingScreen");t=document.getElementById("loadingText")});window._ld={status:function(x){t&&(t.textContent=x)},hide:function(){s&&(s.style.opacity="0",s.style.transition="opacity .3s",setTimeout(function(){s.style.display="none"},300))},error:function(m){s&&(s.innerHTML='<div style="text-align:center;color:#fff;padding:20px"><div style="font-size:64px;margin-bottom:16px">😕</div><p style="font-size:20px;margin-bottom:16px">加载遇到问题</p><p style="font-size:14px;opacity:.8;margin-bottom:24px">'+(m||"")+'</p><button onclick="location.reload()" style="padding:12px 24px;border:none;border-radius:8px;background:#fff;color:#FF6B6B;font-size:16px;cursor:pointer">重新加载</button></div>')}};window.onerror=function(m){console.error(m);window._ld&&window._ld.error("应用加载失败");return true};var r=["localStorage","Promise","addEventListener"];for(var i=0;i<r.length;i++)if(!window[r[i]]){document.body.innerHTML='<div style="padding:40px;text-align:center;background:linear-gradient(135deg,#FF6B6B,#FFE66D);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:18px"><div style="font-size:64px;margin-bottom:24px">😕</div><h2>浏览器版本过低</h2><p style="margin-top:16px">请使用 Chrome、Safari 或 Firefox 最新版本</p></div>';throw new Error("Unsupported Browser")}}();
+!function(){var s,t;document.addEventListener("DOMContentLoaded",function(){s=document.getElementById("loadingScreen");t=document.getElementById("loadingText")});window._ld={status:function(x){t&&(t.textContent=x)},hide:function(){s&&(s.style.opacity="0",s.style.transition="opacity .3s",setTimeout(function(){s.style.display="none"},300))},error:function(m){s&&(s.innerHTML='<div style="text-align:center;color:#fff;padding:20px"><div style="font-size:64px;margin-bottom:16px">😕</div><p style="font-size:20px;margin-bottom:16px">加载遇到问题</p><p style="font-size:14px;opacity:.8;margin-bottom:24px">'+(m||"")+'</p><button onclick="location.reload()" style="padding:12px 24px;border:none;border-radius:8px;background:#fff;color:#FF6B6B;font-size:16px;cursor:pointer">重新加载</button></div>')}};window.onerror=function(m,u,l,c,e){var ignorePatterns=["AudioContext","webkitAudioContext","gesture","Script error"];for(var i=0;i<ignorePatterns.length;i++)if(m&&m.indexOf&&m.indexOf(ignorePatterns[i])!==-1)return true;console.error("JS错误:",m);window._ld&&window._ld.error("应用加载失败");return true};var r=["localStorage","Promise","addEventListener"];for(var i=0;i<r.length;i++)if(!window[r[i]]){document.body.innerHTML='<div style="padding:40px;text-align:center;background:linear-gradient(135deg,#FF6B6B,#FFE66D);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:18px"><div style="font-size:64px;margin-bottom:24px">😕</div><h2>浏览器版本过低</h2><p style="margin-top:16px">请使用 Chrome、Safari 或 Firefox 最新版本</p></div>';throw new Error("Unsupported Browser")}}();
 
 /**
  * 牛津上海版三年级下册 课本数据
@@ -3987,8 +3987,7 @@ const TTSModule = {
     
     init() {
         return new Promise((resolve) => {
-            // 预热音频上下文
-            this.warmUpAudio();
+            // 不在初始化时预热音频，等用户交互后再处理
             
             if (typeof responsiveVoice !== 'undefined') {
                 console.log('✓ ResponsiveVoice 已加载');
@@ -4013,22 +4012,11 @@ const TTSModule = {
         });
     },
     
-    // 预热音频上下文
-    warmUpAudio() {
-        // 创建一个静音的音频来激活音频系统
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            gainNode.gain.value = 0;
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            oscillator.start();
-            oscillator.stop();
-            audioContext.close();
-        } catch (e) {
-            // 忽略错误
-        }
+    // 用户交互后激活音频（由外部调用）
+    activateAudioAfterGesture() {
+        if (this._audioActivated) return;
+        this._audioActivated = true;
+        console.log('✓ 音频系统已激活');
     },
     
     containsChinese(text) {
