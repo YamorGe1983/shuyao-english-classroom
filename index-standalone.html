@@ -2722,21 +2722,21 @@ const GRADES = {
         },
         {
             id: "module3",
-            name: "My colourful life",
-            nameCN: "我多彩的生活",
+            name: "Things around us",
+            nameCN: "我们周围的事物",
             units: [
-                { id: "unit7", name: "Hobbies", nameCN: "爱好" },
-                { id: "unit8", name: "Happy birthday", nameCN: "生日快乐" },
-                { id: "unit9", name: "A day on the farm", nameCN: "农场的一天" }
+                { id: "unit7", name: "Shapes", nameCN: "形状" },
+                { id: "unit8", name: "Seasons", nameCN: "季节" },
+                { id: "unit9", name: "Clothes", nameCN: "衣服" }
             ]
         },
         {
             id: "module4",
-            name: "Things we enjoy",
-            nameCN: "我们喜欢的事物",
+            name: "More things to learn",
+            nameCN: "更多学习内容",
             units: [
                 { id: "unit10", name: "Funny cartoons", nameCN: "有趣的卡通" },
-                { id: "unit11", name: "Mother's Day", nameCN: "母亲节" },
+                { id: "unit11", name: "My day", nameCN: "我的一天" },
                 { id: "unit12", name: "Three little pigs", nameCN: "三只小猪" }
             ]
         }
@@ -3013,132 +3013,124 @@ const GRADES = {
         "unit7": {
             id: "unit7",
             module: "module3",
-            name: "Hobbies",
-            nameCN: "爱好",
-            topic: "学习描述自己的爱好",
+            name: "Shapes",
+            nameCN: "形状",
+            topic: "学习各种形状的名称",
             vocabulary: [
-                { word: "hobby", chinese: "爱好", phonetic: "/ˈhɑːbi/", audio: "hobby", letterSounds: [{letters:"o",sound:"/ɑː/"},{letters:"by",sound:"/bi/"}] },
-                { word: "draw", chinese: "画画", phonetic: "/drɔː/", audio: "draw", letterSounds: [{letters:"dr",sound:"/dr/"},{letters:"aw",sound:"/ɔː/"}] },
-                { word: "read", chinese: "阅读", phonetic: "/riːd/", audio: "read", letterSounds: [{letters:"ea",sound:"/iː/"},{letters:"d",sound:"/d/"}] },
-                { word: "swim", chinese: "游泳", phonetic: "/swɪm/", audio: "swim", letterSounds: [{letters:"sw",sound:"/sw/"},{letters:"i",sound:"/ɪ/"},{letters:"m",sound:"/m/"}] },
-                { word: "dance", chinese: "跳舞", phonetic: "/dæns/", audio: "dance", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"nce",sound:"/ns/"}] },
-                { word: "sing", chinese: "唱歌", phonetic: "/sɪŋ/", audio: "sing", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"ng",sound:"/ŋ/"}] },
-                { word: "play football", chinese: "踢足球", phonetic: "/pleɪ ˈfʊtbɔːl/", audio: "play_football", letterSounds: [{letters:"ay",sound:"/eɪ/"}] },
-                { word: "like", chinese: "喜欢", phonetic: "/laɪk/", audio: "like", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"ke",sound:"/k/"}] },
-                { word: "love", chinese: "热爱", phonetic: "/lʌv/", audio: "love", letterSounds: [{letters:"o",sound:"/ʌ/"},{letters:"ve",sound:"/v/"}] },
-                { word: "fun", chinese: "有趣的", phonetic: "/fʌn/", audio: "fun", letterSounds: [{letters:"u",sound:"/ʌ/"},{letters:"n",sound:"/n/"}] }
+                { word: "circle", chinese: "圆，圆形", phonetic: "/ˈsɜːkl/", audio: "circle", letterSounds: [{letters:"ir",sound:"/ɜː/"},{letters:"cle",sound:"/kl/"}] },
+                { word: "square", chinese: "正方形", phonetic: "/skweər/", audio: "square", letterSounds: [{letters:"squ",sound:"/skw/"},{letters:"are",sound:"/eər/"}] },
+                { word: "triangle", chinese: "三角形", phonetic: "/ˈtraɪæŋɡl/", audio: "triangle", letterSounds: [{letters:"tri",sound:"/traɪ/"},{letters:"angle",sound:"/æŋɡl/"}] },
+                { word: "star", chinese: "星，星形", phonetic: "/stɑːr/", audio: "star", letterSounds: [{letters:"st",sound:"/st/"},{letters:"ar",sound:"/ɑːr/"}] },
+                { word: "rectangle", chinese: "长方形", phonetic: "/ˈrektæŋɡl/", audio: "rectangle", letterSounds: [{letters:"rec",sound:"/rek/"},{letters:"tan",sound:"/tæn/"},{letters:"gle",sound:"/ɡl/"}] },
+                { word: "house", chinese: "房子", phonetic: "/haʊs/", audio: "house", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"se",sound:"/s/"}] }
             ],
             sentences: [
-                { english: "What is your hobby?", chinese: "你的爱好是什么？", audio: "what_is_your_hobby" },
-                { english: "I like drawing pictures.", chinese: "我喜欢画画。", audio: "i_like_drawing_pictures" },
-                { english: "She loves singing songs.", chinese: "她喜欢唱歌。", audio: "she_loves_singing_songs" },
-                { english: "He can swim very well.", chinese: "他游泳游得很好。", audio: "he_can_swim_very_well" },
-                { english: "We all like playing football.", chinese: "我们都喜欢踢足球。", audio: "we_all_like_playing_football" },
-                { english: "Dancing is so much fun!", chinese: "跳舞真有趣！", audio: "dancing_is_so_much_fun" }
+                { english: "What shape is it?", chinese: "它是什么形状？", audio: "what_shape_is_it" },
+                { english: "It's a circle.", chinese: "它是圆形。", audio: "its_a_circle" },
+                { english: "I can see a square.", chinese: "我能看到一个正方形。", audio: "i_can_see_a_square" },
+                { english: "How many stars?", chinese: "有多少颗星星？", audio: "how_many_stars" },
+                { english: "The house has a triangle roof.", chinese: "房子有三角形的屋顶。", audio: "the_house_has_a_triangle_roof" },
+                { english: "How many triangles?", chinese: "有多少个三角形？", audio: "how_many_triangles" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Talking about hobbies",
-                    participants: ["Alice", "Ben"],
+                    title: "Dialogue 1: Shapes",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Alice", text: "Ben, what is your hobby?", audio: "ben_what_is_your_hobby" },
-                        { speaker: "Ben", text: "I like playing football. What about you?", audio: "i_like_playing_football_what_about_you" },
-                        { speaker: "Alice", text: "I love drawing and reading books.", audio: "i_love_drawing_and_reading_books" },
-                        { speaker: "Ben", text: "Great! We all have nice hobbies.", audio: "great_we_all_have_nice_hobbies" }
+                        { speaker: "Ben", text: "What shape is it?", audio: "what_shape_is_it" },
+                        { speaker: "Kitty", text: "It's a circle.", audio: "its_a_circle" },
+                        { speaker: "Ben", text: "What shape is this?", audio: "what_shape_is_this" },
+                        { speaker: "Kitty", text: "It's a triangle.", audio: "its_a_triangle" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'爱好'用英语怎么说？", options: ["Hobby", "Homework", "House"], answer: "Hobby", audio: "hobby" },
-                { type: "choice", question: "'游泳'用英语怎么说？", options: ["Swim", "Sing", "Draw"], answer: "Swim", audio: "swim" }
+                { type: "choice", question: "'圆形'用英语怎么说？", options: ["Circle", "Square", "Triangle"], answer: "Circle", audio: "circle" },
+                { type: "choice", question: "'三角形'用英语怎么说？", options: ["Star", "Rectangle", "Triangle"], answer: "Triangle", audio: "triangle" }
             ]
         },
 
         "unit8": {
             id: "unit8",
             module: "module3",
-            name: "Happy birthday",
-            nameCN: "生日快乐",
-            topic: "学习生日相关的表达",
+            name: "Clothes",
+            nameCN: "衣服",
+            topic: "学习衣服相关的词汇",
             vocabulary: [
-                { word: "birthday", chinese: "生日", phonetic: "/ˈbɜːrθdeɪ/", audio: "birthday", letterSounds: [{letters:"ir",sound:"/ɜːr/"},{letters:"th",sound:"/θ/"},{letters:"day",sound:"/deɪ/"}] },
-                { word: "happy", chinese: "快乐的", phonetic: "/ˈhæpi/", audio: "happy", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"pp",sound:"/p/"},{letters:"y",sound:"/i/"}] },
-                { word: "present", chinese: "礼物", phonetic: "/ˈprezənt/", audio: "present", letterSounds: [{letters:"e",sound:"/e/"},{letters:"en",sound:"/ən/"},{letters:"t",sound:"/t/"}] },
-                { word: "cake", chinese: "蛋糕", phonetic: "/keɪk/", audio: "cake", letterSounds: [{letters:"a",sound:"/eɪ/"},{letters:"ke",sound:"/k/"}] },
-                { word: "candle", chinese: "蜡烛", phonetic: "/ˈkændəl/", audio: "candle", letterSounds: [{letters:"an",sound:"/æn/"},{letters:"dle",sound:"/dl/"}] },
-                { word: "wish", chinese: "愿望", phonetic: "/wɪʃ/", audio: "wish", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"sh",sound:"/ʃ/"}] },
-                { word: "party", chinese: "派对", phonetic: "/ˈpɑːrti/", audio: "party", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"ty",sound:"/ti/"}] },
-                { word: "friend", chinese: "朋友", phonetic: "/frend/", audio: "friend", letterSounds: [{letters:"fr",sound:"/fr/"},{letters:"ien",sound:"/end/"}] },
-                { word: "card", chinese: "卡片", phonetic: "/kɑːrd/", audio: "card", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"d",sound:"/d/"}] },
-                { word: "open", chinese: "打开", phonetic: "/ˈoʊpən/", audio: "open", letterSounds: [{letters:"o",sound:"/oʊ/"},{letters:"pen",sound:"/pən/"}] }
+                { word: "hat", chinese: "帽子", phonetic: "/hæt/", audio: "hat", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"t",sound:"/t/"}] },
+                { word: "scarf", chinese: "围巾", phonetic: "/skɑːf/", audio: "scarf", letterSounds: [{letters:"sc",sound:"/sk/"},{letters:"arf",sound:"/ɑːf/"}] },
+                { word: "jacket", chinese: "夹克衫", phonetic: "/ˈdʒækɪt/", audio: "jacket", letterSounds: [{letters:"ja",sound:"/dʒæ/"},{letters:"cket",sound:"/kɪt/"}] },
+                { word: "a pair of gloves", chinese: "一副手套", phonetic: "/ə peər ɒv ɡlʌvz/", audio: "a_pair_of_gloves", letterSounds: [] },
+                { word: "a pair of shoes", chinese: "一双鞋", phonetic: "/ə peər ɒv ʃuːz/", audio: "a_pair_of_shoes", letterSounds: [] },
+                { word: "a pair of socks", chinese: "一双袜子", phonetic: "/ə peər ɒv sɒks/", audio: "a_pair_of_socks", letterSounds: [] },
+                { word: "funny", chinese: "滑稽的", phonetic: "/ˈfʌni/", audio: "funny", letterSounds: [{letters:"u",sound:"/ʌ/"},{letters:"nn",sound:"/n/"},{letters:"y",sound:"/i/"}] },
+                { word: "his", chinese: "他的", phonetic: "/hɪz/", audio: "his", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"s",sound:"/z/"}] }
             ],
             sentences: [
-                { english: "Happy birthday to you!", chinese: "祝你生日快乐！", audio: "happy_birthday_to_you" },
-                { english: "How old are you?", chinese: "你几岁了？", audio: "how_old_are_you" },
-                { english: "I'm nine years old.", chinese: "我九岁了。", audio: "im_nine_years_old" },
-                { english: "This is for you.", chinese: "这是给你的。", audio: "this_is_for_you" },
-                { english: "Make a wish and blow out the candles.", chinese: "许个愿然后吹蜡烛。", audio: "make_a_wish_and_blow_out_the_candles" },
-                { english: "Thank you for the lovely present.", chinese: "谢谢你可爱的礼物。", audio: "thank_you_for_the_lovely_present" }
+                { english: "I have a hat.", chinese: "我有一顶帽子。", audio: "i_have_a_hat" },
+                { english: "This is my scarf.", chinese: "这是我的围巾。", audio: "this_is_my_scarf" },
+                { english: "Look at his jacket.", chinese: "看他的夹克衫。", audio: "look_at_his_jacket" },
+                { english: "I need a pair of gloves.", chinese: "我需要一副手套。", audio: "i_need_a_pair_of_gloves" },
+                { english: "Put on your shoes.", chinese: "穿上你的鞋子。", audio: "put_on_your_shoes" },
+                { english: "The socks are funny.", chinese: "这双袜子很滑稽。", audio: "the_socks_are_funny" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Birthday party",
-                    participants: ["Alice", "Ben"],
+                    title: "Dialogue 1: Buying clothes",
+                    participants: ["Mum", "Kitty"],
                     lines: [
-                        { speaker: "Alice", text: "Happy birthday, Ben!", audio: "happy_birthday_ben" },
-                        { speaker: "Ben", text: "Thank you, Alice! Come in, please.", audio: "thank_you_come_in" },
-                        { speaker: "Alice", text: "Here is a present for you.", audio: "here_is_a_present_for_you" },
-                        { speaker: "Ben", text: "How nice! Let me open it.", audio: "how_nice_let_me_open_it" }
+                        { speaker: "Mum", text: "Do you like this hat?", audio: "do_you_like_this_hat" },
+                        { speaker: "Kitty", text: "Yes, I like it. It's nice.", audio: "yes_i_like_it_its_nice" },
+                        { speaker: "Mum", text: "What about this scarf?", audio: "what_about_this_scarf" },
+                        { speaker: "Kitty", text: "It's beautiful! Thank you, Mum.", audio: "its_beautiful_thank_you_mum" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'生日'用英语怎么说？", options: ["Birthday", "Party", "Holiday"], answer: "Birthday", audio: "birthday" },
-                { type: "choice", question: "'蛋糕'用英语怎么说？", options: ["Cake", "Bread", "Candy"], answer: "Cake", audio: "cake" }
+                { type: "choice", question: "'帽子'用英语怎么说？", options: ["Hat", "Cap", "Scarf"], answer: "Hat", audio: "hat" },
+                { type: "choice", question: "'围巾'用英语怎么说？", options: ["Jacket", "Scarf", "Gloves"], answer: "Scarf", audio: "scarf" }
             ]
         },
 
         "unit9": {
             id: "unit9",
             module: "module3",
-            name: "A day on the farm",
-            nameCN: "农场的一天",
-            topic: "学习农场相关的词汇和活动",
+            name: "Seasons",
+            nameCN: "季节",
+            topic: "学习季节和活动相关词汇",
             vocabulary: [
-                { word: "farm", chinese: "农场", phonetic: "/fɑːrm/", audio: "farm", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"m",sound:"/m/"}] },
-                { word: "cow", chinese: "奶牛", phonetic: "/kaʊ/", audio: "cow", letterSounds: [{letters:"ow",sound:"/aʊ/"}] },
-                { word: "pig", chinese: "猪", phonetic: "/pɪɡ/", audio: "pig", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"g",sound:"/ɡ/"}] },
-                { word: "horse", chinese: "马", phonetic: "/hɔːrs/", audio: "horse", letterSounds: [{letters:"or",sound:"/ɔːr/"},{letters:"se",sound:"/s/"}] },
-                { word: "sheep", chinese: "绵羊", phonetic: "/ʃiːp/", audio: "sheep", letterSounds: [{letters:"ee",sound:"/iː/"},{letters:"p",sound:"/p/"}] },
-                { word: "chicken", chinese: "鸡", phonetic: "/ˈtʃɪkɪn/", audio: "chicken", letterSounds: [{letters:"chi",sound:"/tʃɪ/"},{letters:"cken",sound:"/kɪn/"}] },
-                { word: "duck", chinese: "鸭子", phonetic: "/dʌk/", audio: "duck", letterSounds: [{letters:"u",sound:"/ʌ/"},{letters:"ck",sound:"/k/"}] },
-                { word: "farmer", chinese: "农民", phonetic: "/ˈfɑːrmər/", audio: "farmer", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"mer",sound:"/mər/"}] },
-                { word: "milk", chinese: "挤奶", phonetic: "/mɪlk/", audio: "milk", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"lk",sound:"/lk/"}] },
-                { word: "feed", chinese: "喂养", phonetic: "/fiːd/", audio: "feed", letterSounds: [{letters:"ee",sound:"/iː/"},{letters:"d",sound:"/d/"}] }
+                { word: "sky", chinese: "天空", phonetic: "/skaɪ/", audio: "sky", letterSounds: [{letters:"sk",sound:"/sk/"},{letters:"y",sound:"/aɪ/"}] },
+                { word: "sea", chinese: "大海", phonetic: "/siː/", audio: "sea", letterSounds: [{letters:"ea",sound:"/iː/"}] },
+                { word: "mountain", chinese: "山", phonetic: "/ˈmaʊntən/", audio: "mountain", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"ntain",sound:"/ntən/"}] },
+                { word: "river", chinese: "河，江", phonetic: "/ˈrɪvər/", audio: "river", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"ver",sound:"/vər/"}] },
+                { word: "plant a tree", chinese: "种树", phonetic: "/plɑːnt ə triː/", audio: "plant_a_tree", letterSounds: [] },
+                { word: "have a picnic", chinese: "野餐", phonetic: "/hæv ə ˈpɪknɪk/", audio: "have_a_picnic", letterSounds: [] },
+                { word: "ice-skate", chinese: "滑冰", phonetic: "/ˈaɪs skeɪt/", audio: "ice_skate", letterSounds: [{letters:"ice",sound:"/aɪs/"},{letters:"skate",sound:"/skeɪt/"}] },
+                { word: "ski", chinese: "滑雪", phonetic: "/skiː/", audio: "ski", letterSounds: [{letters:"s",sound:"/s/"},{letters:"ki",sound:"/kiː/"}] }
             ],
             sentences: [
-                { english: "I live on a farm.", chinese: "我住在农场。", audio: "i_live_on_a_farm" },
-                { english: "The cows give us milk.", chinese: "奶牛给我们提供牛奶。", audio: "the_cows_give_us_milk" },
-                { english: "The farmer feeds the animals every day.", chinese: "农民每天喂养动物。", audio: "the_farmer_feeds_the_animals" },
-                { english: "Look at the cute little pigs!", chinese: "看那些可爱的小猪！", audio: "look_at_the_cute_little_pigs" },
-                { english: "The horses run very fast.", chinese: "马跑得很快。", audio: "the_horses_run_very_fast" },
-                { english: "We have fresh eggs every morning.", chinese: "我们每天早晨都有新鲜的鸡蛋。", audio: "we_have_fresh_eggs_every_morning" }
+                { english: "Look at the sky.", chinese: "看天空。", audio: "look_at_the_sky" },
+                { english: "The sea is blue.", chinese: "大海是蓝色的。", audio: "the_sea_is_blue" },
+                { english: "I can see mountains.", chinese: "我能看到山。", audio: "i_can_see_mountains" },
+                { english: "Let's plant a tree.", chinese: "让我们种一棵树。", audio: "lets_plant_a_tree" },
+                { english: "We can have a picnic.", chinese: "我们可以野餐。", audio: "we_can_have_a_picnic" },
+                { english: "I like to ice-skate.", chinese: "我喜欢滑冰。", audio: "i_like_to_ice_skate" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Visiting the farm",
-                    participants: ["Tom", "Farmer"],
+                    title: "Dialogue 1: Outdoors",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Tom", text: "Hello! Welcome to my farm.", audio: "welcome_to_my_farm" },
-                        { speaker: "Farmer", text: "Thank you! What animals do you have?", audio: "what_animals_do_you_have" },
-                        { speaker: "Tom", text: "We have cows, pigs, horses and sheep.", audio: "we_have_cows_pigs_horses_and_sheep" },
-                        { speaker: "Farmer", text: "Can I feed the chickens?", audio: "can_i_feed_the_chickens" }
+                        { speaker: "Ben", text: "Look at the sky. It's blue.", audio: "look_at_the_sky_its_blue" },
+                        { speaker: "Kitty", text: "I can see mountains too.", audio: "i_can_see_mountains_too" },
+                        { speaker: "Ben", text: "Let's have a picnic.", audio: "lets_have_a_picnic" },
+                        { speaker: "Kitty", text: "Good idea!", audio: "good_idea" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'农场'用英语怎么说？", options: ["Farm", "School", "Home"], answer: "Farm", audio: "farm" },
-                { type: "choice", question: "'猪'用英语怎么说？", options: ["Pig", "Cow", "Horse"], answer: "Pig", audio: "pig" }
+                { type: "choice", question: "'天空'用英语怎么说？", options: ["Sky", "Sea", "River"], answer: "Sky", audio: "sky" },
+                { type: "choice", question: "'滑冰'用英语怎么说？", options: ["Ski", "Ice-skate", "Swim"], answer: "Ice-skate", audio: "ice_skate" }
             ]
         },
 
@@ -3147,86 +3139,83 @@ const GRADES = {
             module: "module4",
             name: "Funny cartoons",
             nameCN: "有趣的卡通",
-            topic: "学习谈论喜欢的卡通人物",
+            topic: "学习身体部位词汇",
             vocabulary: [
-                { word: "cartoon", chinese: "卡通", phonetic: "/kɑːrˈtuːn/", audio: "cartoon", letterSounds: [{letters:"toon",sound:"/tuːn/"}] },
-                { word: "character", chinese: "人物", phonetic: "/ˈkærəktər/", audio: "character", letterSounds: [{letters:"cha",sound:"/kær/"},{letters:"racter",sound:"/əktər/"}] },
-                { word: "funny", chinese: "有趣的", phonetic: "/ˈfʌni/", audio: "funny", letterSounds: [{letters:"u",sound:"/ʌ/"},{letters:"nn",sound:"/n/"},{letters:"y",sound:"/i/"}] },
-                { word: "watch", chinese: "观看", phonetic: "/wɑːtʃ/", audio: "watch", letterSounds: [{letters:"a",sound:"/ɑː/"},{letters:"tch",sound:"/tʃ/"}] },
-                { word: "TV", chinese: "电视", phonetic: "/ˌtiːˈviː/", audio: "tv", letterSounds: [{letters:"TV",sound:"/tiː viː/"}] },
-                { word: "Mickey", chinese: "米奇", phonetic: "/ˈmɪki/", audio: "mickey", letterSounds: [{letters:"Mi",sound:"/mɪ/"},{letters:"ckey",sound:"/ki/"}] },
-                { word: "Donald", chinese: "唐老鸭", phonetic: "/ˈdɑːnəld/", audio: "donald", letterSounds: [{letters:"Do",sound:"/dɑː/"},{letters:"nald",sound:"/nəld/"}] },
-                { word: "Princess", chinese: "公主", phonetic: "/ˈprɪnses/", audio: "princess", letterSounds: [{letters:"Prin",sound:"/prɪn/"},{letters:"cess",sound:"/səs/"}] },
-                { word: "hero", chinese: "英雄", phonetic: "/ˈhɪəroʊ/", audio: "hero", letterSounds: [{letters:"e",sound:"/ɪə/"},{letters:"ro",sound:"/roʊ/"}] },
-                { word: "story", chinese: "故事", phonetic: "/ˈstɔːri/", audio: "story", letterSounds: [{letters:"or",sound:"/ɔːr/"},{letters:"y",sound:"/i/"}] }
+                { word: "body", chinese: "身体", phonetic: "/ˈbɒdi/", audio: "body", letterSounds: [{letters:"o",sound:"/ɒ/"},{letters:"dy",sound:"/di/"}] },
+                { word: "head", chinese: "头", phonetic: "/hed/", audio: "head", letterSounds: [{letters:"ea",sound:"/e/"},{letters:"d",sound:"/d/"}] },
+                { word: "shoulder", chinese: "肩膀", phonetic: "/ˈʃəʊldər/", audio: "shoulder", letterSounds: [{letters:"ou",sound:"/əʊ/"},{letters:"lder",sound:"/ldər/"}] },
+                { word: "arm", chinese: "胳膊", phonetic: "/ɑːrm/", audio: "arm", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"m",sound:"/m/"}] },
+                { word: "finger", chinese: "手指", phonetic: "/ˈfɪŋɡər/", audio: "finger", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"nger",sound:"/ŋɡər/"}] },
+                { word: "hand", chinese: "手", phonetic: "/hænd/", audio: "hand", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"nd",sound:"/nd/"}] },
+                { word: "knee", chinese: "膝盖", phonetic: "/niː/", audio: "knee", letterSounds: [{letters:"ee",sound:"/iː/"}] },
+                { word: "leg", chinese: "腿", phonetic: "/leɡ/", audio: "leg", letterSounds: [{letters:"e",sound:"/e/"},{letters:"g",sound:"/ɡ/"}] },
+                { word: "foot", chinese: "脚", phonetic: "/fʊt/", audio: "foot", letterSounds: [{letters:"oo",sound:"/ʊ/"},{letters:"t",sound:"/t/"}] }
             ],
             sentences: [
-                { english: "I like watching cartoons.", chinese: "我喜欢看卡通片。", audio: "i_like_watching_cartoons" },
-                { english: "Mickey Mouse is very funny.", chinese: "米老鼠很有趣。", audio: "mickey_mouse_is_very_funny" },
-                { english: "Who is your favourite character?", chinese: "你最喜欢的人物是谁？", audio: "who_is_your_favourite_character" },
-                { english: "I love this cartoon story.", chinese: "我喜欢这个卡通故事。", audio: "i_love_this_cartoon_story" },
-                { english: "The cartoon is very interesting.", chinese: "这个卡通很有趣。", audio: "the_cartoon_is_very_interesting" },
-                { english: "Let's watch cartoons together.", chinese: "让我们一起看卡通片吧。", audio: "lets_watch_cartoons_together" }
+                { english: "This is my head.", chinese: "这是我的头。", audio: "this_is_my_head" },
+                { english: "I have two arms.", chinese: "我有两只胳膊。", audio: "i_have_two_arms" },
+                { english: "Touch your nose.", chinese: "摸摸你的鼻子。", audio: "touch_your_nose" },
+                { english: "Clap your hands.", chinese: "拍拍你的手。", audio: "clap_your_hands" },
+                { english: "Stamp your foot.", chinese: "跺跺你的脚。", audio: "stamp_your_foot" },
+                { english: "Shake your body.", chinese: "摇摇你的身体。", audio: "shake_your_body" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Talking about cartoons",
-                    participants: ["Alice", "Ben"],
+                    title: "Dialogue 1: Body parts",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Alice", text: "Ben, do you like cartoons?", audio: "ben_do_you_like_cartoons" },
-                        { speaker: "Ben", text: "Yes, I love cartoons! How about you?", audio: "yes_i_love_cartoons_how_about_you" },
-                        { speaker: "Alice", text: "I like them too. My favourite is Mickey Mouse.", audio: "my_favourite_is_mickey_mouse" },
-                        { speaker: "Ben", text: "Mickey is so cute and funny!", audio: "mickey_is_so_cute_and_funny" }
+                        { speaker: "Ben", text: "Touch your head.", audio: "touch_your_head" },
+                        { speaker: "Kitty", text: "OK. This is my head.", audio: "ok_this_is_my_head" },
+                        { speaker: "Ben", text: "Touch your arms.", audio: "touch_your_arms" },
+                        { speaker: "Kitty", text: "I have two arms.", audio: "i_have_two_arms" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'卡通'用英语怎么说？", options: ["Cartoon", "Movie", "Book"], answer: "Cartoon", audio: "cartoon" },
-                { type: "choice", question: "'有趣的'用英语怎么说？", options: ["Funny", "Boring", "Scary"], answer: "Funny", audio: "funny" }
+                { type: "choice", question: "'头'用英语怎么说？", options: ["Head", "Hand", "Foot"], answer: "Head", audio: "head" },
+                { type: "choice", question: "'手'用英语怎么说？", options: ["Arm", "Hand", "Leg"], answer: "Hand", audio: "hand" }
             ]
         },
 
         "unit11": {
             id: "unit11",
             module: "module4",
-            name: "Mother's Day",
-            nameCN: "母亲节",
-            topic: "学习母亲节相关的表达",
+            name: "My day",
+            nameCN: "我的一天",
+            topic: "学习出行和活动相关词汇",
             vocabulary: [
-                { word: "mother", chinese: "妈妈", phonetic: "/ˈmʌðər/", audio: "mother", letterSounds: [{letters:"o",sound:"/ʌ/"},{letters:"ther",sound:"/ðər/"}] },
-                { word: "father", chinese: "爸爸", phonetic: "/ˈfɑːðər/", audio: "father", letterSounds: [{letters:"a",sound:"/ɑː/"},{letters:"ther",sound:"/ðər/"}] },
-                { word: "parent", chinese: "父母", phonetic: "/ˈperənt/", audio: "parent", letterSounds: [{letters:"pa",sound:"/pe/"},{letters:"rent",sound:"/rənt/"}] },
-                { word: "love", chinese: "爱", phonetic: "/lʌv/", audio: "love", letterSounds: [{letters:"o",sound:"/ʌ/"},{letters:"ve",sound:"/v/"}] },
-                { word: "gift", chinese: "礼物", phonetic: "/ɡɪft/", audio: "gift", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"ft",sound:"/ft/"}] },
-                { word: "flower", chinese: "花", phonetic: "/ˈflaʊər/", audio: "flower", letterSounds: [{letters:"ow",sound:"/aʊ/"},{letters:"er",sound:"/ər/"}] },
-                { word: "cook", chinese: "做饭", phonetic: "/kʊk/", audio: "cook", letterSounds: [{letters:"oo",sound:"/ʊ/"},{letters:"k",sound:"/k/"}] },
-                { word: "help", chinese: "帮助", phonetic: "/help/", audio: "help", letterSounds: [{letters:"e",sound:"/e/"},{letters:"lp",sound:"/lp/"}] },
-                { word: "kind", chinese: "善良的", phonetic: "/kaɪnd/", audio: "kind", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"nd",sound:"/nd/"}] },
-                { word: "beautiful", chinese: "美丽的", phonetic: "/ˈbjuːtɪfəl/", audio: "beautiful", letterSounds: [{letters:"eau",sound:"/juː/"},{letters:"ti",sound:"/tɪ/"},{letters:"ful",sound:"/fəl/"}] }
+                { word: "park", chinese: "公园", phonetic: "/pɑːrk/", audio: "park", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"k",sound:"/k/"}] },
+                { word: "cinema", chinese: "电影院", phonetic: "/ˈsɪnəmə/", audio: "cinema", letterSounds: [{letters:"ci",sound:"/sɪ/"},{letters:"nema",sound:"/nəmə/"}] },
+                { word: "zoo", chinese: "动物园", phonetic: "/zuː/", audio: "zoo", letterSounds: [{letters:"oo",sound:"/uː/"}] },
+                { word: "our", chinese: "我们的", phonetic: "/aʊər/", audio: "our", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"r",sound:"/ər/"}] },
+                { word: "class", chinese: "班级", phonetic: "/klɑːs/", audio: "class", letterSounds: [{letters:"cl",sound:"/kl/"},{letters:"ass",sound:"/ɑːs/"}] },
+                { word: "party", chinese: "聚会，派对", phonetic: "/ˈpɑːrti/", audio: "party", letterSounds: [{letters:"ar",sound:"/ɑːr/"},{letters:"ty",sound:"/ti/"}] },
+                { word: "take a photograph", chinese: "拍照", phonetic: "/teɪk ə ˈfəʊtəɡrɑːf/", audio: "take_a_photograph", letterSounds: [] },
+                { word: "parent", chinese: "父亲；母亲", phonetic: "/ˈperənt/", audio: "parent", letterSounds: [{letters:"pa",sound:"/pe/"},{letters:"rent",sound:"/rənt/"}] }
             ],
             sentences: [
-                { english: "I love my mother.", chinese: "我爱我的妈妈。", audio: "i_love_my_mother" },
-                { english: "Happy Mother's Day!", chinese: "母亲节快乐！", audio: "happy_mothers_day" },
-                { english: "This flower is for you, Mum.", chinese: "这朵花是给你的，妈妈。", audio: "this_flower_is_for_you_mum" },
-                { english: "Mum is very kind.", chinese: "妈妈很善良。", audio: "mum_is_very_kind" },
-                { english: "I want to help Mum cook.", chinese: "我想帮妈妈做饭。", audio: "i_want_to_help_mum_cook" },
-                { english: "Thank you, Mum. I love you.", chinese: "谢谢你，妈妈。我爱你。", audio: "thank_you_mum_i_love_you" }
+                { english: "Let's go to the park.", chinese: "让我们去公园吧。", audio: "lets_go_to_the_park" },
+                { english: "I like the zoo.", chinese: "我喜欢动物园。", audio: "i_like_the_zoo" },
+                { english: "This is our class.", chinese: "这是我们的班级。", audio: "this_is_our_class" },
+                { english: "We can take a photograph.", chinese: "我们可以拍照。", audio: "we_can_take_a_photograph" },
+                { english: "Let's have a party.", chinese: "让我们开个派对吧。", audio: "lets_have_a_party" },
+                { english: "My parent is coming.", chinese: "我的家长来了。", audio: "my_parent_is_coming" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Mother's Day morning",
-                    participants: ["Tom", "Mum"],
+                    title: "Dialogue 1: Let's go out",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Tom", text: "Happy Mother's Day, Mum!", audio: "happy_mothers_day_mum" },
-                        { speaker: "Mum", text: "Thank you, Tom! You're so sweet.", audio: "thank_you_tom_youre_so_sweet" },
-                        { speaker: "Tom", text: "I made a card for you.", audio: "i_made_a_card_for_you" },
-                        { speaker: "Mum", text: "How beautiful! I love it.", audio: "how_beautiful_i_love_it" }
+                        { speaker: "Ben", text: "Let's go to the park.", audio: "lets_go_to_the_park" },
+                        { speaker: "Kitty", text: "Good idea! I like the park.", audio: "good_idea_i_like_the_park" },
+                        { speaker: "Ben", text: "We can take a photograph.", audio: "we_can_take_a_photograph" },
+                        { speaker: "Kitty", text: "Yes! Let's go!", audio: "yes_lets_go" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'妈妈'用英语怎么说？", options: ["Mother", "Father", "Sister"], answer: "Mother", audio: "mother" },
-                { type: "choice", question: "'花'用英语怎么说？", options: ["Flower", "Tree", "Grass"], answer: "Flower", audio: "flower" }
+                { type: "choice", question: "'公园'用英语怎么说？", options: ["Park", "Zoo", "Cinema"], answer: "Park", audio: "park" },
+                { type: "choice", question: "'动物园'用英语怎么说？", options: ["Park", "Zoo", "Class"], answer: "Zoo", audio: "zoo" }
             ]
         },
 
