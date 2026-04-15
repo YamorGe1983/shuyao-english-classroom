@@ -2839,42 +2839,41 @@ const GRADES = {
             module: "module1",
             name: "Sounds",
             nameCN: "声音",
-            topic: "学习描述各种声音",
+            topic: "学习交通工具和相关声音词汇",
             vocabulary: [
+                { word: "bike", chinese: "自行车", phonetic: "/baɪk/", audio: "bike", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"ke",sound:"/k/"}] },
+                { word: "bus", chinese: "公共汽车", phonetic: "/bʌs/", audio: "bus", letterSounds: [{letters:"u",sound:"/ʌ/"},{letters:"s",sound:"/s/"}] },
+                { word: "plane", chinese: "飞机", phonetic: "/pleɪn/", audio: "plane", letterSounds: [{letters:"pl",sound:"/pl/"},{letters:"a",sound:"/eɪ/"},{letters:"ne",sound:"/n/"}] },
+                { word: "ship", chinese: "船", phonetic: "/ʃɪp/", audio: "ship", letterSounds: [{letters:"sh",sound:"/ʃ/"},{letters:"i",sound:"/ɪ/"},{letters:"p",sound:"/p/"}] },
+                { word: "car", chinese: "小汽车", phonetic: "/kɑːr/", audio: "car", letterSounds: [{letters:"ar",sound:"/ɑːr/"}] },
+                { word: "train", chinese: "火车", phonetic: "/treɪn/", audio: "train", letterSounds: [{letters:"tr",sound:"/tr/"},{letters:"ai",sound:"/eɪ/"},{letters:"n",sound:"/n/"}] },
+                { word: "can", chinese: "能，会", phonetic: "/kæn/", audio: "can", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"n",sound:"/n/"}] },
                 { word: "hear", chinese: "听见", phonetic: "/hɪər/", audio: "hear", letterSounds: [{letters:"ea",sound:"/ɪə/"},{letters:"r",sound:"/r/"}] },
-                { word: "listen", chinese: "听", phonetic: "/ˈlɪsən/", audio: "listen", letterSounds: [{letters:"li",sound:"/lɪ/"},{letters:"sten",sound:"/sən/"}] },
-                { word: "sound", chinese: "声音", phonetic: "/saʊnd/", audio: "sound", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"nd",sound:"/nd/"}] },
-                { word: "quiet", chinese: "安静的", phonetic: "/ˈkwaɪət/", audio: "quiet", letterSounds: [{letters:"qu",sound:"/kw/"},{letters:"ie",sound:"/aɪ/"},{letters:"t",sound:"/t/"}] },
-                { word: "loud", chinese: "响亮的", phonetic: "/laʊd/", audio: "loud", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"d",sound:"/d/"}] },
-                { word: "bird", chinese: "鸟", phonetic: "/bɜːrd/", audio: "bird", letterSounds: [{letters:"ir",sound:"/ɜːr/"},{letters:"d",sound:"/d/"}] },
-                { word: "bell", chinese: "铃铛", phonetic: "/bel/", audio: "bell", letterSounds: [{letters:"e",sound:"/e/"},{letters:"ll",sound:"/l/"}] },
-                { word: "music", chinese: "音乐", phonetic: "/ˈmjuːzɪk/", audio: "music", letterSounds: [{letters:"mu",sound:"/mjuː/"},{letters:"sic",sound:"/zɪk/"}] },
-                { word: "sing", chinese: "唱歌", phonetic: "/sɪŋ/", audio: "sing", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"ng",sound:"/ŋ/"}] },
-                { word: "cry", chinese: "哭", phonetic: "/kraɪ/", audio: "cry", letterSounds: [{letters:"cr",sound:"/kr/"},{letters:"y",sound:"/aɪ/"}] }
+                { word: "listen", chinese: "听", phonetic: "/ˈlɪsən/", audio: "listen", letterSounds: [{letters:"li",sound:"/lɪ/"},{letters:"sten",sound:"/sən/"}] }
             ],
             sentences: [
-                { english: "I can hear a bird.", chinese: "我能听见一只鸟。", audio: "i_can_hear_a_bird" },
-                { english: "Listen! The bell is ringing.", chinese: "听！铃铛在响。", audio: "listen_the_bell_is_ringing" },
-                { english: "The music is beautiful.", chinese: "音乐很美。", audio: "the_music_is_beautiful" },
-                { english: "Please be quiet.", chinese: "请安静。", audio: "please_be_quiet" },
-                { english: "The dog is barking loudly.", chinese: "狗在大声叫。", audio: "the_dog_is_barking_loudly" },
-                { english: "Can you hear me?", chinese: "你能听到我吗？", audio: "can_you_hear_me" }
+                { english: "What can you hear?", chinese: "你能听到什么？", audio: "what_can_you_hear" },
+                { english: "I can hear a plane.", chinese: "我能听到飞机的声音。", audio: "i_can_hear_a_plane" },
+                { english: "I can hear a bus.", chinese: "我能听到公共汽车的声音。", audio: "i_can_hear_a_bus" },
+                { english: "I can hear a ship.", chinese: "我能听到船的声音。", audio: "i_can_hear_a_ship" },
+                { english: "Listen! What can you hear?", chinese: "听！你能听到什么？", audio: "listen_what_can_you_hear" },
+                { english: "I can hear bikes.", chinese: "我能听到自行车的声音。", audio: "i_can_hear_bikes" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: In the park",
-                    participants: ["Mum", "Tom"],
+                    title: "Dialogue 1: What can you hear?",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Mum", text: "Tom, what can you hear?", audio: "what_can_you_hear" },
-                        { speaker: "Tom", text: "I can hear birds singing.", audio: "i_can_hear_birds_singing" },
-                        { speaker: "Mum", text: "The birds are singing beautifully.", audio: "the_birds_are_singing_beautifully" },
-                        { speaker: "Tom", text: "Yes! I love the sounds of nature.", audio: "i_love_the_sounds_of_nature" }
+                        { speaker: "Ben", text: "Listen! What can you hear?", audio: "listen_what_can_you_hear" },
+                        { speaker: "Kitty", text: "I can hear a plane.", audio: "i_can_hear_a_plane" },
+                        { speaker: "Ben", text: "I can hear a bus.", audio: "i_can_hear_a_bus" },
+                        { speaker: "Kitty", text: "I can hear cars too.", audio: "i_can_hear_cars_too" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'听见'用英语怎么说？", options: ["Hear", "See", "Speak"], answer: "Hear", audio: "hear" },
-                { type: "choice", question: "'大声的'用英语怎么说？", options: ["Quiet", "Loud", "Soft"], answer: "Loud", audio: "loud" }
+                { type: "choice", question: "'自行车'用英语怎么说？", options: ["Bike", "Bus", "Car"], answer: "Bike", audio: "bike" },
+                { type: "choice", question: "'火车'用英语怎么说？", options: ["Train", "Plane", "Ship"], answer: "Train", audio: "train" }
             ]
         },
 
@@ -2883,42 +2882,43 @@ const GRADES = {
             module: "module2",
             name: "Animals",
             nameCN: "动物",
-            topic: "学习常见的动物名称和描述",
+            topic: "学习动物园里的动物名称和描述",
             vocabulary: [
-                { word: "cat", chinese: "猫", phonetic: "/kæt/", audio: "cat", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"t",sound:"/t/"}] },
-                { word: "dog", chinese: "狗", phonetic: "/dɔːɡ/", audio: "dog", letterSounds: [{letters:"o",sound:"/ɔː/"},{letters:"g",sound:"/ɡ/"}] },
-                { word: "bird", chinese: "鸟", phonetic: "/bɜːrd/", audio: "bird", letterSounds: [{letters:"ir",sound:"/ɜːr/"},{letters:"d",sound:"/d/"}] },
-                { word: "fish", chinese: "鱼", phonetic: "/fɪʃ/", audio: "fish", letterSounds: [{letters:"i",sound:"/ɪ/"},{letters:"sh",sound:"/ʃ/"}] },
-                { word: "rabbit", chinese: "兔子", phonetic: "/ˈræbɪt/", audio: "rabbit", letterSounds: [{letters:"ra",sound:"/ræ/"},{letters:"bbi",sound:"/bɪ/"},{letters:"t",sound:"/t/"}] },
-                { word: "turtle", chinese: "乌龟", phonetic: "/ˈtɜːrtəl/", audio: "turtle", letterSounds: [{letters:"tu",sound:"/tɜːr/"},{letters:"rle",sound:"/təl/"}] },
-                { word: "hamster", chinese: "仓鼠", phonetic: "/ˈhæmstər/", audio: "hamster", letterSounds: [{letters:"ha",sound:"/hæ/"},{letters:"mster",sound:"/mstər/"}] },
-                { word: "pet", chinese: "宠物", phonetic: "/pet/", audio: "pet", letterSounds: [{letters:"e",sound:"/e/"},{letters:"t",sound:"/t/"}] },
-                { word: "small", chinese: "小的", phonetic: "/smɔːl/", audio: "small", letterSounds: [{letters:"sm",sound:"/sm/"},{letters:"all",sound:"/ɔːl/"}] },
-                { word: "cute", chinese: "可爱的", phonetic: "/kjuːt/", audio: "cute", letterSounds: [{letters:"u",sound:"/juː/"},{letters:"te",sound:"/t/"}] }
+                { word: "bear", chinese: "熊", phonetic: "/beər/", audio: "bear", letterSounds: [{letters:"ea",sound:"/eə/"},{letters:"r",sound:"/r/"}] },
+                { word: "elephant", chinese: "大象", phonetic: "/ˈelɪfənt/", audio: "elephant", letterSounds: [{letters:"e",sound:"/e/"},{letters:"le",sound:"/lɪ/"},{letters:"phant",sound:"/fənt/"}] },
+                { word: "lion", chinese: "狮子", phonetic: "/ˈlaɪən/", audio: "lion", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"on",sound:"/ən/"}] },
+                { word: "monkey", chinese: "猴子", phonetic: "/ˈmʌŋki/", audio: "monkey", letterSounds: [{letters:"o",sound:"/ʌ/"},{letters:"nkey",sound:"/ŋki/"}] },
+                { word: "panda", chinese: "熊猫", phonetic: "/ˈpændə/", audio: "panda", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"n",sound:"/n/"},{letters:"da",sound:"/də/"}] },
+                { word: "tiger", chinese: "老虎", phonetic: "/ˈtaɪɡər/", audio: "tiger", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"ger",sound:"/ɡər/"}] },
+                { word: "like", chinese: "喜欢", phonetic: "/laɪk/", audio: "like", letterSounds: [{letters:"i",sound:"/aɪ/"},{letters:"ke",sound:"/k/"}] },
+                { word: "man", chinese: "男人", phonetic: "/mæn/", audio: "man", letterSounds: [{letters:"a",sound:"/æ/"},{letters:"n",sound:"/n/"}] },
+                { word: "old", chinese: "老的", phonetic: "/əʊld/", audio: "old", letterSounds: [{letters:"o",sound:"/əʊ/"},{letters:"ld",sound:"/ld/"}] },
+                { word: "our", chinese: "我们的", phonetic: "/aʊər/", audio: "our", letterSounds: [{letters:"ou",sound:"/aʊ/"},{letters:"r",sound:"/ər/"}] },
+                { word: "strong", chinese: "强壮的", phonetic: "/strɒŋ/", audio: "strong", letterSounds: [{letters:"str",sound:"/str/"},{letters:"ong",sound:"/ɒŋ/"}] }
             ],
             sentences: [
-                { english: "I have a pet.", chinese: "我有一只宠物。", audio: "i_have_a_pet" },
-                { english: "It's a cute cat.", chinese: "它是一只可爱的猫。", audio: "its_a_cute_cat" },
-                { english: "What pet do you have?", chinese: "你有什么宠物？", audio: "what_pet_do_you_have" },
-                { english: "The rabbit is small and white.", chinese: "兔子又小又白。", audio: "the_rabbit_is_small_and_white" },
-                { english: "I like animals.", chinese: "我喜欢动物。", audio: "i_like_animals" },
-                { english: "The fish can swim.", chinese: "鱼会游泳。", audio: "the_fish_can_swim" }
+                { english: "Look at the bears.", chinese: "看那些熊。", audio: "look_at_the_bears" },
+                { english: "I like pandas.", chinese: "我喜欢熊猫。", audio: "i_like_pandas" },
+                { english: "The lion is strong.", chinese: "狮子很强壮。", audio: "the_lion_is_strong" },
+                { english: "Do you like monkeys?", chinese: "你喜欢猴子吗？", audio: "do_you_like_monkeys" },
+                { english: "The elephant is big.", chinese: "大象很大。", audio: "the_elephant_is_big" },
+                { english: "Look at the tiger.", chinese: "看那只老虎。", audio: "look_at_the_tiger" }
             ],
             dialogues: [
                 {
-                    title: "Dialogue 1: Talking about pets",
-                    participants: ["Alice", "Ben"],
+                    title: "Dialogue 1: At the zoo",
+                    participants: ["Ben", "Kitty"],
                     lines: [
-                        { speaker: "Alice", text: "Do you have a pet, Ben?", audio: "do_you_have_a_pet" },
-                        { speaker: "Ben", text: "Yes, I have a little dog.", audio: "yes_i_have_a_little_dog" },
-                        { speaker: "Alice", text: "What's its name?", audio: "whats_its_name" },
-                        { speaker: "Ben", text: "It's called Bobby. It's so cute!", audio: "its_called_bobby_its_so_cute" }
+                        { speaker: "Ben", text: "Look at the bears.", audio: "look_at_the_bears" },
+                        { speaker: "Kitty", text: "They're big and strong.", audio: "theyre_big_and_strong" },
+                        { speaker: "Ben", text: "I like pandas. They're cute.", audio: "i_like_pandas_theyre_cute" },
+                        { speaker: "Kitty", text: "I like monkeys too.", audio: "i_like_monkeys_too" }
                     ]
                 }
             ],
             exercises: [
-                { type: "choice", question: "'猫'用英语怎么说？", options: ["Dog", "Cat", "Bird"], answer: "Cat", audio: "cat" },
-                { type: "choice", question: "'兔子'用英语怎么说？", options: ["Fish", "Rabbit", "Turtle"], answer: "Rabbit", audio: "rabbit" }
+                { type: "choice", question: "'熊'用英语怎么说？", options: ["Bear", "Panda", "Lion"], answer: "Bear", audio: "bear" },
+                { type: "choice", question: "'熊猫'用英语怎么说？", options: ["Tiger", "Panda", "Elephant"], answer: "Panda", audio: "panda" }
             ]
         },
 
