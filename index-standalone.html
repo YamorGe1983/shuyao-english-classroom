@@ -4012,11 +4012,39 @@ const TTSModule = {
         });
     },
     
-    // 用户交互后激活音频（由外部调用）
+    // 用户交互后激活音频（iOS Safari需要这个来解锁音频）
     activateAudioAfterGesture() {
         if (this._audioActivated) return;
         this._audioActivated = true;
+        
+        // iOS Safari 音频解锁
+        // 创建一个静音的AudioContext并resume
+        try {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+                const tempContext = new AudioContextClass();
+                tempContext.resume().then(() => {
+                    console.log('✓ AudioContext已解锁');
+                    tempContext.close();
+                }).catch(() => {});
+            }
+        } catch (e) {}
+        
+        // 播放一个静音音频来解锁iOS音频
+        try {
+            const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA');
+            silentAudio.play().then(() => {
+                console.log('✓ iOS音频已解锁');
+            }).catch(() => {});
+        } catch (e) {}
+        
         console.log('✓ 音频系统已激活');
+    },
+    
+    // 检测是否是iOS设备
+    isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     },
     
     containsChinese(text) {
@@ -4055,7 +4083,7 @@ const TTSModule = {
         });
     },
     
-    // 使用百度TTS（中文）或 Google TTS（英文）
+    // 使用百度TTS（中文）或 Google TTS（英文），最后fallback到浏览器原生TTS
     speakWithBaiduOrGoogle(text) {
         return new Promise((resolve) => {
             const isChinese = this.containsChinese(text);
@@ -4063,13 +4091,9 @@ const TTSModule = {
             
             if (isChinese) {
                 // 百度TTS - 中文效果好
-                // per: 0=女声, 1=男声, 3=情感合成-度逍遥, 4=情感合成-度丫丫
-                // vol: 音量 0-15
-                // rate: 语速 0-15
                 audioUrl = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=zh&ctp=1&pdt=301&vol=9&rate=5&per=0`;
             } else {
                 // Google Translate TTS - 英文效果好
-                // 注意：这个API可能有跨域限制
                 audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
             }
             
@@ -4080,17 +4104,52 @@ const TTSModule = {
                 resolve();
             };
             this.currentAudio.onerror = () => {
-                console.warn('在线TTS加载失败');
+                console.warn('在线TTS加载失败，使用浏览器原生TTS');
                 this.currentAudio = null;
-                resolve();
+                // Fallback to browser native TTS
+                this.speakWithBrowser(text).then(resolve);
             };
             
             // 尝试播放
             this.currentAudio.play().catch(e => {
-                console.warn('音频播放被阻止，请先点击页面');
+                console.warn('音频播放被阻止，使用浏览器原生TTS');
                 this.currentAudio = null;
-                resolve();
+                // Fallback to browser native TTS
+                this.speakWithBrowser(text).then(resolve);
             });
+        });
+    },
+    
+    // 浏览器原生TTS（最后的备用方案）
+    speakWithBrowser(text) {
+        return new Promise((resolve) => {
+            if (!('speechSynthesis' in window)) {
+                console.warn('浏览器不支持TTS');
+                resolve();
+                return;
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            const isChinese = this.containsChinese(text);
+            utterance.lang = isChinese ? 'zh-CN' : 'en-US';
+            utterance.rate = this.config.rate;
+            utterance.pitch = this.config.pitch;
+            
+            // 尝试找到合适的声音
+            const voices = speechSynthesis.getVoices();
+            const targetLang = isChinese ? 'zh-CN' : 'en-US';
+            const voice = voices.find(v => v.lang.startsWith(targetLang));
+            if (voice) {
+                utterance.voice = voice;
+            }
+            
+            utterance.onend = () => resolve();
+            utterance.onerror = () => resolve();
+            
+            // 某些浏览器需要延迟执行
+            setTimeout(() => {
+                speechSynthesis.speak(utterance);
+            }, 100);
         });
     },
     
@@ -4849,6 +4908,15 @@ const App = {
     },
     
     bindEvents() {
+        // iOS音频解锁 - 第一次点击时激活音频系统
+        const unlockAudio = () => {
+            TTSModule.activateAudioAfterGesture();
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        };
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio, { passive: true });
+        
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 const view = e.currentTarget.dataset.view;
