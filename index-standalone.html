@@ -4096,48 +4096,49 @@ const TTSModule = {
                     pitch: options.pitch || this.config.pitch,
                     onend: () => resolve(),
                     onerror: (e) => {
-                        console.error('ResponsiveVoice错误:', e);
-                        // 失败时fallback到百度TTS
-                        this.speakWithBaidu(text).then(resolve);
+                        console.warn('ResponsiveVoice错误，fallback到Web Speech API:', e);
+                        // 失败时fallback到Web Speech API
+                        this.speakWithBrowser(text).then(resolve);
                     }
                 });
             } 
-            // Fallback: 百度TTS
+            // Fallback: Web Speech API
             else {
-                this.speakWithBaidu(text).then(resolve);
+                this.speakWithBrowser(text).then(resolve);
             }
         });
     },
     
-    // 使用百度TTS
-    speakWithBaidu(text) {
+    // 浏览器原生TTS（最后的备用方案）
+    speakWithBrowser(text) {
         return new Promise((resolve) => {
+            if (!('speechSynthesis' in window)) {
+                console.warn('浏览器不支持TTS');
+                resolve();
+                return;
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
             const isChinese = this.containsChinese(text);
-            let audioUrl;
+            utterance.lang = isChinese ? 'zh-CN' : 'en-US';
+            utterance.rate = this.config.rate;
+            utterance.pitch = this.config.pitch;
             
-            // 百度TTS支持中英文
-            // per=0 女声, per=1 男声, per=3 情感合成-度逍遥, per=4 情感合成-度丫丫
-            // vol=9 音量, rate=5 语速
-            audioUrl = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=${isChinese ? 'zh' : 'en'}&ctp=1&pdt=301&vol=9&rate=5&per=0`;
+            // 尝试找到合适的声音
+            const voices = speechSynthesis.getVoices();
+            const targetLang = isChinese ? 'zh-CN' : 'en-US';
+            const voice = voices.find(v => v.lang.startsWith(targetLang));
+            if (voice) {
+                utterance.voice = voice;
+            }
             
-            this.currentAudio = new Audio(audioUrl);
+            utterance.onend = () => resolve();
+            utterance.onerror = () => resolve();
             
-            this.currentAudio.onended = () => {
-                this.currentAudio = null;
-                resolve();
-            };
-            this.currentAudio.onerror = () => {
-                console.warn('百度TTS加载失败');
-                this.currentAudio = null;
-                resolve(); // 即使失败也resolve，不阻塞流程
-            };
-            
-            // 尝试播放
-            this.currentAudio.play().catch(e => {
-                console.warn('百度TTS播放失败:', e.message);
-                this.currentAudio = null;
-                resolve();
-            });
+            // 某些浏览器需要延迟执行
+            setTimeout(() => {
+                speechSynthesis.speak(utterance);
+            }, 100);
         });
     },
     
