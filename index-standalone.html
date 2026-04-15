@@ -7,6 +7,18 @@
     <meta name="theme-color" content="#FF6B6B">
     <title>舒窈小课堂</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👧</text></svg>">
+    
+    <!-- DNS预解析和预连接 - 加速外部资源 -->
+    <link rel="dns-prefetch" href="https://code.responsivevoice.org">
+    <link rel="dns-prefetch" href="https://tts.baidu.com">
+    <link rel="dns-prefetch" href="https://translate.google.com">
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+    <link rel="preconnect" href="https://code.responsivevoice.org" crossorigin>
+    <link rel="preconnect" href="https://tts.baidu.com" crossorigin>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="data:application/javascript," as="script">
+    
     <style>
 /**
  * 小学英语学习App - 样式表
@@ -2637,7 +2649,12 @@ h1, h2, h3, h4, h5, h6 {
 </style>
 </head>
 <body>
-<div class="loading-screen" id="loadingScreen"><div class="loading-icon">👧</div><p class="loading-text" id="loadingText">正在加载舒窈小课堂</p><div class="loading-spinner"></div></div>
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-icon">👧</div>
+    <p class="loading-text" id="loadingText">正在加载舒窈小课堂</p>
+    <div class="loading-spinner"></div>
+    <p class="loading-tip" id="loadingTip" style="font-size:12px;color:rgba(255,255,255,0.7);margin-top:16px;"></p>
+</div>
 
     <div id="app">
         <main id="content">
@@ -2653,7 +2670,7 @@ h1, h2, h3, h4, h5, h6 {
         <div id="toast"></div>
     </div>
     <script>
-!function(){var s,t;document.addEventListener("DOMContentLoaded",function(){s=document.getElementById("loadingScreen");t=document.getElementById("loadingText")});window._ld={status:function(x){t&&(t.textContent=x)},hide:function(){s&&(s.style.opacity="0",s.style.transition="opacity .3s",setTimeout(function(){s.style.display="none"},300))},error:function(m){s&&(s.innerHTML='<div style="text-align:center;color:#fff;padding:20px"><div style="font-size:64px;margin-bottom:16px">😕</div><p style="font-size:20px;margin-bottom:16px">加载遇到问题</p><p style="font-size:14px;opacity:.8;margin-bottom:24px">'+(m||"")+'</p><button onclick="location.reload()" style="padding:12px 24px;border:none;border-radius:8px;background:#fff;color:#FF6B6B;font-size:16px;cursor:pointer">重新加载</button></div>')}};window.onerror=function(m,u,l,c,e){var ignorePatterns=["AudioContext","webkitAudioContext","gesture","Script error"];for(var i=0;i<ignorePatterns.length;i++)if(m&&m.indexOf&&m.indexOf(ignorePatterns[i])!==-1)return true;console.error("JS错误:",m);window._ld&&window._ld.error("应用加载失败");return true};var r=["localStorage","Promise","addEventListener"];for(var i=0;i<r.length;i++)if(!window[r[i]]){document.body.innerHTML='<div style="padding:40px;text-align:center;background:linear-gradient(135deg,#FF6B6B,#FFE66D);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:18px"><div style="font-size:64px;margin-bottom:24px">😕</div><h2>浏览器版本过低</h2><p style="margin-top:16px">请使用 Chrome、Safari 或 Firefox 最新版本</p></div>';throw new Error("Unsupported Browser")}}();
+!function(){var s,t,tip,loadStart=Date.now();document.addEventListener("DOMContentLoaded",function(){s=document.getElementById("loadingScreen");t=document.getElementById("loadingText");tip=document.getElementById("loadingTip");loadStart=Date.now()});window._ld={status:function(x){t&&(t.textContent=x)},tip:function(x){tip&&(tip.textContent=x)},hide:function(){s&&(s.style.opacity="0",s.style.transition="opacity .3s",setTimeout(function(){s.style.display="none"},300))},error:function(m){s&&(s.innerHTML='<div style="text-align:center;color:#fff;padding:20px"><div style="font-size:64px;margin-bottom:16px">😕</div><p style="font-size:20px;margin-bottom:16px">加载遇到问题</p><p style="font-size:14px;opacity:.8;margin-bottom:24px">'+(m||"网络可能不稳定")+'</p><button onclick="location.reload()" style="padding:12px 24px;border:none;border-radius:8px;background:#fff;color:#FF6B6B;font-size:16px;cursor:pointer;margin-right:8px">重新加载</button><button onclick="App.init()" style="padding:12px 24px;border:none;border-radius:8px;background:#FFE66D;color:#333;font-size:16px;cursor:pointer">重试</button></div>')}};window.onerror=function(m,u,l,c,e){var ignorePatterns=["AudioContext","webkitAudioContext","gesture","Script error","responsivevoice"];for(var i=0;i<ignorePatterns.length;i++)if(m&&m.indexOf&&m.indexOf(ignorePatterns[i])!==-1)return true;console.error("JS错误:",m);window._ld&&window._ld.error("应用加载失败");return true};var r=["localStorage","Promise","addEventListener"];for(var i=0;i<r.length;i++)if(!window[r[i]]){document.body.innerHTML='<div style="padding:40px;text-align:center;background:linear-gradient(135deg,#FF6B6B,#FFE66D);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:18px"><div style="font-size:64px;margin-bottom:24px">😕</div><h2>浏览器版本过低</h2><p style="margin-top:16px">请使用 Chrome、Safari 或 Firefox 最新版本</p></div>';throw new Error("Unsupported Browser")};setTimeout(function(){if(s&&s.style.display!=="none"){window._ld&&window._ld.tip("加载时间较长，请检查网络...")}},5000);setTimeout(function(){if(s&&s.style.display!=="none"){window._ld&&window._ld.error("加载超时，请检查网络连接")}},15000)}();
 
 /**
  * 牛津上海版三年级下册 课本数据
@@ -3985,11 +4002,28 @@ const TTSModule = {
         { id: 'Chinese Male', name: '中文男声', lang: 'zh-CN' }
     ],
     
+    // 延迟加载标记
+    _initStarted: false,
+    
     init() {
+        // 不在页面初始化时加载，改为第一次使用时加载
+        return Promise.resolve(true);
+    },
+    
+    // 确保TTS已初始化（首次播放时调用）
+    ensureInit() {
+        if (this._initStarted) return Promise.resolve(this.responsiveVoiceReady);
+        this._initStarted = true;
+        
         return new Promise((resolve) => {
-            // 不在初始化时预热音频，等用户交互后再处理
+            // 设置超时，3秒内没加载成功就fallback
+            const timeout = setTimeout(() => {
+                console.warn('ResponsiveVoice 加载超时，使用备用TTS');
+                resolve(false);
+            }, 3000);
             
             if (typeof responsiveVoice !== 'undefined') {
+                clearTimeout(timeout);
                 console.log('✓ ResponsiveVoice 已加载');
                 this.responsiveVoiceReady = true;
                 resolve(true);
@@ -3999,11 +4033,13 @@ const TTSModule = {
             const script = document.createElement('script');
             script.src = 'https://code.responsivevoice.org/responsivevoice.js?key=free-non-commercial-use';
             script.onload = () => {
+                clearTimeout(timeout);
                 console.log('✓ ResponsiveVoice 加载成功');
                 this.responsiveVoiceReady = true;
-                setTimeout(() => resolve(true), 500);
+                setTimeout(() => resolve(true), 300);
             };
             script.onerror = () => {
+                clearTimeout(timeout);
                 console.warn('ResponsiveVoice 加载失败，使用百度TTS/Google TTS');
                 this.responsiveVoiceReady = false;
                 resolve(false);
@@ -4059,9 +4095,17 @@ const TTSModule = {
     },
     
     speak(text, options = {}) {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const voice = options.voice || this.autoDetectVoice(text);
             const rate = options.rate || this.config.rate;
+            
+            // 首次播放时初始化TTS（带超时）
+            if (!this._initStarted) {
+                const initResult = await Promise.race([
+                    this.ensureInit(),
+                    new Promise(r => setTimeout(() => r(false), 2000))
+                ]);
+            }
             
             // 优先使用 ResponsiveVoice
             if (this.responsiveVoiceReady && typeof responsiveVoice !== 'undefined') {
@@ -4891,10 +4935,7 @@ const App = {
     initUser(user) {
         StorageModule.init();
         TTSModule.loadSettings();
-        
-        TTSModule.init().then(() => {
-            console.log('✓ TTS初始化完成');
-        });
+        // TTS初始化改为按需加载，不在页面初始化时加载
     },
     
     cacheElements() {
