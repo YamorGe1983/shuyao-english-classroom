@@ -2786,20 +2786,6 @@ const GRADES = {
                     }
                 ]
             }
-        ],
-        "_units": [
-            "unit1",
-            "unit2",
-            "unit3",
-            "unit4",
-            "unit5",
-            "unit6",
-            "unit7",
-            "unit8",
-            "unit9",
-            "unit10",
-            "unit11",
-            "unit12"
         ]
     },
     "grade4_2": {
@@ -2900,20 +2886,6 @@ const GRADES = {
                     }
                 ]
             }
-        ],
-        "_units": [
-            "unit1",
-            "unit2",
-            "unit3",
-            "unit4",
-            "unit5",
-            "unit6",
-            "unit7",
-            "unit8",
-            "unit9",
-            "unit10",
-            "unit11",
-            "unit12"
         ]
     },
     "grade5_2": {
@@ -3014,415 +2986,58 @@ const GRADES = {
                     }
                 ]
             }
-        ],
-        "_units": [
-            "unit1",
-            "unit2",
-            "unit3",
-            "unit4",
-            "unit5",
-            "unit6",
-            "unit7",
-            "unit8",
-            "unit9",
-            "unit10",
-            "unit11",
-            "unit12"
         ]
     }
-}
+};
 
-
-// ==================== Data Loader Module ====================
+// ==================== DataLoader Module ====================
 const DataLoader = {
-    // 内存缓存
-    _memoryCache: {},
+    _cache: {},
+    VERSION: '1.0.0',
     
-    // 数据版本（用于缓存控制）
-    VERSION_KEY: 'grade_data_version',
-    DEFAULT_VERSION: '1.0.0',
-    
-    // 获取当前数据版本
-    getVersion() {
-        return localStorage.getItem(this.VERSION_KEY) || this.DEFAULT_VERSION;
-    },
-    
-    // 检查localStorage缓存
-    _checkLocalCache(gradeId) {
-        try {
-            const cached = localStorage.getItem(`englearn_grade_${gradeId}`);
-            if (cached) {
+    async loadGrade(gradeId) {
+        // 内存缓存
+        if (this._cache[gradeId]) {
+            return this._cache[gradeId];
+        }
+        
+        // localStorage缓存
+        const cacheKey = `englearn_${gradeId}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            try {
                 const data = JSON.parse(cached);
-                // 检查版本
-                if (data._version === this.getVersion()) {
+                if (data._version === this.VERSION) {
+                    this._cache[gradeId] = data;
                     return data;
                 }
-            }
-        } catch (e) {
-            console.warn('Cache read error:', e);
-        }
-        return null;
-    },
-    
-    // 保存到localStorage
-    _saveToCache(gradeId, data) {
-        try {
-            data._version = this.getVersion();
-            localStorage.setItem(`englearn_grade_${gradeId}`, JSON.stringify(data));
-        } catch (e) {
-            console.warn('Cache save error:', e);
-        }
-    },
-    
-    // 从服务器加载数据
-    async _loadFromServer(gradeId) {
-        const url = `./data/english/${gradeId}.json`;
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Failed to load ${gradeId}: ${response.status}`);
-        }
-        return await response.json();
-    },
-    
-    // 加载年级数据（主要接口）
-    async loadGrade(gradeId) {
-        // 1. 检查内存缓存
-        if (this._memoryCache[gradeId]) {
-            console.log(`[DataLoader] Memory cache hit: ${gradeId}`);
-            return this._memoryCache[gradeId];
+            } catch (e) {}
         }
         
-        // 2. 检查localStorage
-        let data = this._checkLocalCache(gradeId);
-        if (data) {
-            console.log(`[DataLoader] LocalStorage cache hit: ${gradeId}`);
-            this._memoryCache[gradeId] = data;
-            return data;
-        }
+        // 从服务器加载
+        const response = await fetch(`./data/english/${gradeId}.json`);
+        const data = await response.json();
+        data._version = this.VERSION;
         
-        // 3. 从服务器加载
-        console.log(`[DataLoader] Loading from server: ${gradeId}`);
+        // 缓存
+        this._cache[gradeId] = data;
         try {
-            data = await this._loadFromServer(gradeId);
-            this._memoryCache[gradeId] = data;
-            this._saveToCache(gradeId, data);
-            return data;
-        } catch (error) {
-            console.error(`[DataLoader] Error loading ${gradeId}:`, error);
-            throw error;
-        }
+            localStorage.setItem(cacheKey, JSON.stringify(data));
+        } catch (e) {}
+        
+        return data;
     },
     
-    // 预加载所有年级数据
-    async preloadAllGrades() {
-        const gradeIds = Object.keys(GRADES);
-        const promises = gradeIds.map(id => this.loadGrade(id));
-        await Promise.all(promises);
-        console.log('[DataLoader] All grades preloaded');
-    },
-    
-    // 获取已缓存的年级列表
-    getCachedGrades() {
-        return Object.keys(this._memoryCache);
-    },
-    
-    // 清除所有缓存
-    clearCache() {
-        this._memoryCache = {};
-        Object.keys(localStorage).forEach(key => {
-            if (key.startsWith('englearn_grade_')) {
-                localStorage.removeItem(key);
-            }
-        });
-        console.log('[DataLoader] Cache cleared');
+    async preloadAll() {
+        return Promise.all(Object.keys(GRADES).map(id => this.loadGrade(id)));
     }
 };
 
-// ==================== Updated Functions ====================
-
-// 获取当前年级的教材数据（异步版本）
+// 异步获取教材数据
 async function getCurrentTextbookAsync() {
-    const currentGradeId = StorageModule.getCurrentGrade();
-    return await DataLoader.loadGrade(currentGradeId);
+    const gradeId = StorageModule.getCurrentGrade();
+    return await DataLoader.loadGrade(gradeId);
 }
-
-
-// 同步获取年级数据（确保已加载）
-function ensureGradeLoaded(gradeId) {
-    const data = DataLoader._memoryCache[gradeId];
-    if (data) return data;
-    
-    // 如果缓存中有，尝试获取
-    const cached = DataLoader._checkLocalCache(gradeId);
-    if (cached) {
-        DataLoader._memoryCache[gradeId] = cached;
-        return cached;
-    }
-    
-    // 数据尚未加载，返回简化版本
-    return GRADES[gradeId];
-}
-
-// 更新getCurrentTextbook使用ensureGradeLoaded
-function getCurrentTextbook() {
-    const currentGradeId = StorageModule.getCurrentGrade();
-    return ensureGradeLoaded(currentGradeId);
-}
-
-// 获取当前年级名称
-function getCurrentGradeName() {
-    const currentGradeId = StorageModule.getCurrentGrade();
-    return GRADES[currentGradeId]?.name || '三年级下';
-}
-
-
-// 同步获取年级数据（确保已加载）
-function ensureGradeLoaded(gradeId) {
-    const data = DataLoader._memoryCache[gradeId];
-    if (data) return data;
-    
-    // 如果缓存中有，尝试获取
-    const cached = DataLoader._checkLocalCache(gradeId);
-    if (cached) {
-        DataLoader._memoryCache[gradeId] = cached;
-        return cached;
-    }
-    
-    // 数据尚未加载，返回简化版本
-    return GRADES[gradeId];
-}
-
-
-
-/**
- * 音标练习数据
- * 包含48个国际音标：20个元音 + 28个辅音
- * 音频来源：GitHub joshstephenson/PhoneticFlashCards (CC BY-SA 3.0)
- */
-const PHONETIC_DATA = {
-    vowels: {
-        title: '元音',
-        description: '20个元音音标',
-        categories: [
-            {
-                name: '前元音',
-                sounds: [
-                    { symbol: '/iː/', example: 'see', description: '长元音，类似"衣"的音', audio: 'i' },
-                    { symbol: '/ɪ/', example: 'sit', description: '短元音', audio: 'ɪ' },
-                    { symbol: '/e/', example: 'bed', description: '短元音', audio: 'e' },
-                    { symbol: '/æ/', example: 'cat', description: '大口梅花音', audio: 'æ' }
-                ]
-            },
-            {
-                name: '中元音',
-                sounds: [
-                    { symbol: '/ɜː/', example: 'bird', description: '长元音', audio: 'ɜ' },
-                    { symbol: '/ə/', example: 'about', description: '中央元音', audio: 'ə' },
-                    { symbol: '/ʌ/', example: 'cup', description: '短元音', audio: 'ʌ' }
-                ]
-            },
-            {
-                name: '后元音',
-                sounds: [
-                    { symbol: '/ɑː/', example: 'car', description: '长元音', audio: 'ɑ' },
-                    { symbol: '/ɒ/', example: 'hot', description: '短元音', audio: 'ɒ' },
-                    { symbol: '/ɔː/', example: 'door', description: '长元音', audio: 'ɔ' },
-                    { symbol: '/ʊ/', example: 'put', description: '短元音', audio: 'ʊ' },
-                    { symbol: '/uː/', example: 'too', description: '长元音', audio: 'u' }
-                ]
-            },
-            {
-                name: '双元音',
-                sounds: [
-                    { symbol: '/eɪ/', example: 'day', description: '合口双元音', audio: 'eɪ' },
-                    { symbol: '/aɪ/', example: 'my', description: '合口双元音', audio: 'aɪ' },
-                    { symbol: '/ɔɪ/', example: 'boy', description: '合口双元音', audio: 'ɔɪ' },
-                    { symbol: '/aʊ/', example: 'now', description: '合口双元音', audio: 'aʊ' },
-                    { symbol: '/əʊ/', example: 'go', description: '合口双元音', audio: 'əʊ' },
-                    { symbol: '/ɪə/', example: 'ear', description: '集中双元音', audio: 'ɪə' },
-                    { symbol: '/eə/', example: 'air', description: '集中双元音', audio: 'eə' },
-                    { symbol: '/ʊə/', example: 'sure', description: '集中双元音', audio: 'ʊə' }
-                ]
-            }
-        ]
-    },
-    consonants: {
-        title: '辅音',
-        description: '28个辅音音标',
-        categories: [
-            {
-                name: '爆破音',
-                sounds: [
-                    { symbol: '/p/', example: 'pen', description: '清辅音', audio: 'p' },
-                    { symbol: '/b/', example: 'bad', description: '浊辅音', audio: 'b' },
-                    { symbol: '/t/', example: 'tea', description: '清辅音', audio: 't' },
-                    { symbol: '/d/', example: 'dog', description: '浊辅音', audio: 'd' },
-                    { symbol: '/k/', example: 'cat', description: '清辅音', audio: 'k' },
-                    { symbol: '/g/', example: 'get', description: '浊辅音', audio: 'ɡ' }
-                ]
-            },
-            {
-                name: '摩擦音',
-                sounds: [
-                    { symbol: '/f/', example: 'fat', description: '清辅音', audio: 'f' },
-                    { symbol: '/v/', example: 'van', description: '浊辅音', audio: 'v' },
-                    { symbol: '/θ/', example: 'think', description: '清辅音', audio: 'θ' },
-                    { symbol: '/ð/', example: 'this', description: '浊辅音', audio: 'ð' },
-                    { symbol: '/s/', example: 'see', description: '清辅音', audio: 's' },
-                    { symbol: '/z/', example: 'zoo', description: '浊辅音', audio: 'z' },
-                    { symbol: '/ʃ/', example: 'she', description: '清辅音', audio: 'ʃ' },
-                    { symbol: '/ʒ/', example: 'vision', description: '浊辅音', audio: 'ʒ' },
-                    { symbol: '/h/', example: 'hat', description: '清辅音', audio: 'h' },
-                    { symbol: '/r/', example: 'red', description: '浊辅音', audio: 'r' }
-                ]
-            },
-            {
-                name: '破擦音',
-                sounds: [
-                    { symbol: '/tʃ/', example: 'church', description: '清辅音', audio: 'tʃ' },
-                    { symbol: '/dʒ/', example: 'judge', description: '浊辅音', audio: 'dʒ' },
-                    { symbol: '/tr/', example: 'tree', description: '清辅音', audio: 'tr' },
-                    { symbol: '/dr/', example: 'draw', description: '浊辅音', audio: 'dr' },
-                    { symbol: '/ts/', example: 'cats', description: '清辅音', audio: 'ts' },
-                    { symbol: '/dz/', example: 'dogs', description: '浊辅音', audio: 'dz' }
-                ]
-            },
-            {
-                name: '鼻音',
-                sounds: [
-                    { symbol: '/m/', example: 'man', description: '浊辅音', audio: 'm' },
-                    { symbol: '/n/', example: 'no', description: '浊辅音', audio: 'n' },
-                    { symbol: '/ŋ/', example: 'sing', description: '浊辅音', audio: 'ŋ' }
-                ]
-            },
-            {
-                name: '舌边音',
-                sounds: [
-                    { symbol: '/l/', example: 'leg', description: '浊辅音', audio: 'l' }
-                ]
-            },
-            {
-                name: '半元音',
-                sounds: [
-                    { symbol: '/w/', example: 'wet', description: '浊辅音', audio: 'w' },
-                    { symbol: '/j/', example: 'yes', description: '浊辅音', audio: 'j' }
-                ]
-            }
-        ]
-    }
-};
-
-// 音标音频URL获取函数
-function getPhoneticAudioUrl(audioName) {
-    return `https://raw.githubusercontent.com/joshstephenson/PhoneticFlashCards/master/ipa_audio/${encodeURIComponent(audioName)}.mp3`;
-}
-
-/**
- * 用户管理模块
- * 处理用户创建、切换、删除等操作
- */
-
-const UserModule = {
-    STORAGE_KEYS: {
-        USERS: 'users',
-        CURRENT_USER: 'current_user'
-    },
-    
-    AVATARS: ['👧', '👦', '👸', '🦸', '🐱', '🐶', '🐰', '🦊'],
-    
-    // 获取所有用户
-    getUsers() {
-        const users = localStorage.getItem(this.STORAGE_KEYS.USERS);
-        return users ? JSON.parse(users) : [];
-    },
-    
-    // 保存用户列表
-    saveUsers(users) {
-        localStorage.setItem(this.STORAGE_KEYS.USERS, JSON.stringify(users));
-    },
-    
-    // 获取当前用户
-    getCurrentUser() {
-        const currentUserId = localStorage.getItem(this.STORAGE_KEYS.CURRENT_USER);
-        if (!currentUserId) return null;
-        
-        const users = this.getUsers();
-        return users.find(u => u.id === currentUserId) || null;
-    },
-    
-    // 设置当前用户
-    setCurrentUser(userId) {
-        localStorage.setItem(this.STORAGE_KEYS.CURRENT_USER, userId);
-    },
-    
-    // 创建新用户
-    createUser(name, avatar) {
-        const users = this.getUsers();
-        const newUser = {
-            id: 'user_' + Date.now(),
-            name: name || '新用户',
-            avatar: avatar || this.AVATARS[0],
-            createdAt: new Date().toISOString()
-        };
-        
-        users.push(newUser);
-        this.saveUsers(users);
-        this.setCurrentUser(newUser.id);
-        
-        // 初始化用户数据
-        StorageModule.initForUser(newUser.id);
-        
-        return newUser;
-    },
-    
-    // 删除用户
-    deleteUser(userId) {
-        const users = this.getUsers();
-        const filteredUsers = users.filter(u => u.id !== userId);
-        this.saveUsers(filteredUsers);
-        
-        // 清除用户数据
-        StorageModule.clearUserData(userId);
-        
-        // 如果删除的是当前用户，切换到第一个用户
-        if (this.getCurrentUser()?.id === userId) {
-            if (filteredUsers.length > 0) {
-                this.setCurrentUser(filteredUsers[0].id);
-            } else {
-                localStorage.removeItem(this.STORAGE_KEYS.CURRENT_USER);
-            }
-        }
-    },
-    
-    // 检查是否有用户
-    hasUsers() {
-        return this.getUsers().length > 0;
-    },
-    
-    // 获取用户统计数据
-    getUserStats(userId) {
-        // 临时切换到该用户以获取数据
-        const originalUser = this.getCurrentUser();
-        this.setCurrentUser(userId);
-        
-        const stats = {
-            totalWordsLearned: StorageModule.getStatistics().totalWordsLearned || 0,
-            totalReviewsDone: StorageModule.getStatistics().totalReviewsDone || 0,
-            streakDays: StorageModule.getStreakDays()
-        };
-        
-        // 恢复原始用户
-        if (originalUser) {
-            this.setCurrentUser(originalUser.id);
-        }
-        
-        return stats;
-    }
-};
-
-/**
- * 本地存储模块（支持多用户）
- */
 
 const StorageModule = {
     PREFIX: 'englearn_',
@@ -4738,14 +4353,6 @@ const App = {
         window._ld&&window._ld.status("正在初始化...");
         try {
             this.cacheElements();
-            window._ld&&window._ld.status("加载教材数据...");
-            
-            // 预加载当前年级数据
-            const currentGradeId = StorageModule.getCurrentGrade();
-            DataLoader.loadGrade(currentGradeId).catch(err => {
-                console.warn('预加载当前年级失败:', err);
-            });
-            
             window._ld&&window._ld.status("加载用户数据...");
             if (!UserModule.hasUsers()) {
                 this.renderWelcomePage();
@@ -4945,11 +4552,6 @@ const App = {
     // 显示年级选择页面
     showGradeSelectPage() {
         const grades = Object.values(GRADES);
-        
-        // 预加载所有年级数据（后台进行）
-        DataLoader.preloadAllGrades().catch(err => {
-            console.warn('Preload warning:', err);
-        });
         const currentGradeId = StorageModule.getCurrentGrade();
         
         const html = `
@@ -4982,21 +4584,19 @@ const App = {
     // 选择年级
     async selectGrade(gradeId) {
         StorageModule.setCurrentGrade(gradeId);
-        this.elements.nav.style.display = 'flex';
         
-        // 显示加载提示
-        this.showToast('正在加载教材数据...');
-        
-        // 预加载新年级数据
+        // 预加载该年级数据
         try {
             await DataLoader.loadGrade(gradeId);
-            this.showToast(`已切换到${GRADES[gradeId].name}`);
-        } catch (error) {
-            this.showToast('加载失败，请重试');
-            console.error('Grade load error:', error);
+        } catch (e) {
+            console.error('加载数据失败:', e);
+            this.showToast('加载数据失败');
+            return;
         }
-        
+        this.elements.nav.style.display = 'flex';
         this.renderHome();
+        const grade = GRADES[gradeId];
+        this.showToast(`已切换到${grade.name}`);
     },
     
     // 删除当前用户（从设置页面调用）
@@ -5281,7 +4881,6 @@ const App = {
     // ==================== 模块详情 ====================
     
     async renderModuleDetail(moduleId) {
-        // 异步获取教材数据
         const textbook = await getCurrentTextbookAsync();
         const module = textbook.modules.find(m => m.id === moduleId);
         if (!module) return;
@@ -5343,8 +4942,7 @@ const App = {
     },
     
     renderUnitDetail(unitId) {
-        // 异步获取教材数据
-        const textbook = await getCurrentTextbookAsync();
+        const textbook = getCurrentTextbook();
         const unit = textbook.units[unitId];
         if (!unit) return;
         
@@ -5402,8 +5000,7 @@ const App = {
     // ==================== 单词学习 ====================
     
     startUnitVocabulary(unitId) {
-        // 异步获取教材数据
-        const textbook = await getCurrentTextbookAsync();
+        const textbook = getCurrentTextbook();
         const unit = textbook.units[unitId];
         if (!unit || !unit.vocabulary) return;
         
