@@ -759,6 +759,61 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
+/* 最小对立体辨析样式 */
+.minimal-pair-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin: var(--space-lg) 0;
+}
+
+.minimal-pair-word {
+    font-size: var(--font-xxl);
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--bg-card);
+    padding: var(--space-lg) var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 120px;
+    text-align: center;
+    border: 3px solid transparent;
+}
+
+.minimal-pair-word:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.minimal-pair-word:active,
+.minimal-pair-word.selected {
+    border-color: var(--primary);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.minimal-pair-word.correct {
+    border-color: var(--success);
+    background: rgba(0, 184, 148, 0.1);
+    color: var(--success);
+}
+
+.minimal-pair-word.wrong {
+    border-color: var(--danger);
+    background: rgba(225, 112, 85, 0.1);
+    color: var(--danger);
+}
+
+.phonetic-question-tip {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+}
+
 /* 听音按钮 */
 .play-audio-btn {
     display: inline-flex;
@@ -21366,7 +21421,8 @@ const QUESTION_TYPES = {
     CN_TO_EN: 'cn_to_en',
     LISTEN_CHOOSE: 'listen_choose',
     SPELLING: 'spelling',
-    PHONETIC: 'phonetic'
+    PHONETIC: 'phonetic',
+    MINIMAL_PAIR: 'minimal_pair'  // 最小对立体辨析
 };
 
 /**
@@ -21598,7 +21654,7 @@ const PHONETIC_DATA = {
             {
                 name: '前元音',
                 sounds: [
-                    { symbol: '/iː/', examples: [{word:'see',highlight:[1,2]},{word:'tea',highlight:[1,2]},{word:'me',highlight:[1,2]},{word:'he',highlight:[1,2]}] },
+                    { symbol: '/iː/', examples: [{word:'see',highlight:[1,3]},{word:'tea',highlight:[1,3]},{word:'me',highlight:[1,2]},{word:'he',highlight:[1,2]}] },
                     { symbol: '/ɪ/', examples: [{word:'sit',highlight:[1,2]},{word:'it',highlight:[0,1]},{word:'big',highlight:[1,2]},{word:'his',highlight:[1,2]}] },
                     { symbol: '/e/', examples: [{word:'bed',highlight:[1,2]},{word:'pen',highlight:[1,2]},{word:'red',highlight:[1,2]},{word:'get',highlight:[1,2]}] },
                     { symbol: '/æ/', examples: [{word:'cat',highlight:[1,2]},{word:'hat',highlight:[1,2]},{word:'map',highlight:[1,2]},{word:'bag',highlight:[1,2]}] }
@@ -21617,9 +21673,9 @@ const PHONETIC_DATA = {
                 sounds: [
                     { symbol: '/ɑː/', examples: [{word:'car',highlight:[1,2]},{word:'far',highlight:[1,2]},{word:'star',highlight:[2,3]},{word:'arm',highlight:[1,2]}] },
                     { symbol: '/ɒ/', examples: [{word:'hot',highlight:[1,2]},{word:'dog',highlight:[1,2]},{word:'box',highlight:[1,2]},{word:'stop',highlight:[2,3]}] },
-                    { symbol: '/ɔː/', examples: [{word:'door',highlight:[2,3]},{word:'four',highlight:[2,3]},{word:'ball',highlight:[2,3]},{word:'tall',highlight:[2,3]}] },
-                    { symbol: '/ʊ/', examples: [{word:'put',highlight:[1,2]},{word:'book',highlight:[2,3]},{word:'look',highlight:[2,3]},{word:'foot',highlight:[2,3]}] },
-                    { symbol: '/uː/', examples: [{word:'too',highlight:[1,2]},{word:'food',highlight:[2,3]},{word:'moon',highlight:[2,3]},{word:'school',highlight:[3,5]}] }
+                    { symbol: '/ɔː/', examples: [{word:'door',highlight:[2,4]},{word:'four',highlight:[2,4]},{word:'ball',highlight:[1,4]},{word:'tall',highlight:[1,4]}] },
+                    { symbol: '/ʊ/', examples: [{word:'put',highlight:[1,2]},{word:'book',highlight:[2,4]},{word:'look',highlight:[2,4]},{word:'foot',highlight:[2,4]}] },
+                    { symbol: '/uː/', examples: [{word:'too',highlight:[1,3]},{word:'food',highlight:[2,4]},{word:'moon',highlight:[2,4]},{word:'school',highlight:[3,5]}] }
                 ]
             },
             {
@@ -21702,6 +21758,73 @@ const PHONETIC_DATA = {
         ]
     }
 };
+
+/**
+ * 最小对立体词库
+ * 用于音标辨析练习，显示两个形似词，播放其中一个，用户点击听到的词
+ */
+const MINIMAL_PAIRS = [
+    // 元音对比
+    { word1: 'ship', word2: 'sheep', sound1: '/ɪ/', sound2: '/iː/', tip: '区分短音/ɪ/和长音/iː/' },
+    { word1: 'bit', word2: 'beat', sound1: '/ɪ/', sound2: '/iː/', tip: '区分短音/ɪ/和长音/iː/' },
+    { word1: 'sit', word2: 'seat', sound1: '/ɪ/', sound2: '/iː/', tip: '区分短音/ɪ/和长音/iː/' },
+    { word1: 'bed', word2: 'bad', sound1: '/e/', sound2: '/æ/', tip: '区分/e/和/æ/' },
+    { word1: 'pen', word2: 'pan', sound1: '/e/', sound2: '/æ/', tip: '区分/e/和/æ/' },
+    { word1: 'het', word2: 'hat', sound1: '/e/', sound2: '/æ/', tip: '区分/e/和/æ/' },
+    { word1: 'full', word2: 'fool', sound1: '/ʊ/', sound2: '/uː/', tip: '区分短音/ʊ/和长音/uː/' },
+    { word1: 'pull', word2: 'pool', sound1: '/ʊ/', sound2: '/uː/', tip: '区分短音/ʊ/和长音/uː/' },
+    { word1: 'book', word2: 'boot', sound1: '/ʊ/', sound2: '/uː/', tip: '区分短音/ʊ/和长音/uː/' },
+    { word1: 'look', word2: 'moon', sound1: '/ʊ/', sound2: '/uː/', tip: '区分短音/ʊ/和长音/uː/' },
+    { word1: 'cut', word2: 'cart', sound1: '/ʌ/', sound2: '/ɑː/', tip: '区分短音/ʌ/和长音/ɑː/' },
+    { word1: 'cup', word2: 'cop', sound1: '/ʌ/', sound2: '/ɒ/', tip: '区分/ʌ/和/ɒ/' },
+    
+    // 辅音对比
+    { word1: 'light', word2: 'right', sound1: '/l/', sound2: '/r/', tip: '区分/l/和/r/' },
+    { word1: 'leaf', word2: 'reef', sound1: '/l/', sound2: '/r/', tip: '区分/l/和/r/' },
+    { word1: 'left', word2: 'raft', sound1: '/l/', sound2: '/r/', tip: '区分/l/和/r/' },
+    { word1: 'pig', word2: 'big', sound1: '/p/', sound2: '/b/', tip: '区分清辅音/p/和浊辅音/b/' },
+    { word1: 'ten', word2: 'den', sound1: '/t/', sound2: '/d/', tip: '区分清辅音/t/和浊辅音/d/' },
+    { word1: 'came', word2: 'game', sound1: '/k/', sound2: '/g/', tip: '区分清辅音/k/和浊辅音/g/' },
+    { word1: 'fan', word2: 'van', sound1: '/f/', sound2: '/v/', tip: '区分清辅音/f/和浊辅音/v/' },
+    { word1: 'think', word2: 'sink', sound1: '/θ/', sound2: '/s/', tip: '区分/θ/和/s/' },
+    { word1: 'three', word2: 'free', sound1: '/θ/', sound2: '/f/', tip: '区分/θ/和/f/' },
+    { word1: 'she', word2: 'see', sound1: '/ʃ/', sound2: '/s/', tip: '区分/ʃ/和/s/' },
+    { word1: 'ship', word2: 'sip', sound1: '/ʃ/', sound2: '/s/', tip: '区分/ʃ/和/s/' },
+    { word1: 'chin', word2: 'sin', sound1: '/tʃ/', sound2: '/s/', tip: '区分/tʃ/和/s/' },
+    { word1: 'cheap', word2: 'ship', sound1: '/tʃ/', sound2: '/ʃ/', tip: '区分/tʃ/和/ʃ/' },
+    { word1: 'sun', word2: 'gun', sound1: '/s/', sound2: '/g/', tip: '区分/s/和/g/' },
+    { word1: 'so', word2: 'go', sound1: '/s/', sound2: '/g/', tip: '区分/s/和/g/' },
+    { word1: 'zip', word2: 'sip', sound1: '/z/', sound2: '/s/', tip: '区分/z/和/s/' },
+    { word1: 'wine', word2: 'vine', sound1: '/w/', sound2: '/v/', tip: '区分/w/和/v/' },
+    { word1: 'very', word2: 'wery', sound1: '/v/', sound2: '/w/', tip: '区分/v/和/w/' },
+    
+    // 辅音群
+    { word1: 'tree', word2: 'free', sound1: '/tr/', sound2: '/fr/', tip: '区分/tr/和/fr/' },
+    { word1: 'try', word2: 'fry', sound1: '/tr/', sound2: '/fr/', tip: '区分/tr/和/fr/' },
+    { word1: 'dress', word2: 'press', sound1: '/dr/', sound2: '/pr/', tip: '区分/dr/和/pr/' },
+    { word1: 'dream', word2: 'cream', sound1: '/dr/', sound2: '/kr/', tip: '区分/dr/和/kr/' },
+    
+    // 年级常见词
+    { word1: 'cat', word2: 'cut', sound1: '/æ/', sound2: '/ʌ/', tip: '区分/æ/和/ʌ/' },
+    { word1: 'hat', word2: 'hot', sound1: '/æ/', sound2: '/ɒ/', tip: '区分/æ/和/ɒ/' },
+    { word1: 'not', word2: 'nut', sound1: '/ɒ/', sound2: '/ʌ/', tip: '区分/ɒ/和/ʌ/' },
+    { word1: 'hi', word2: 'hey', sound1: '/aɪ/', sound2: '/eɪ/', tip: '区分/aɪ/和/eɪ/' },
+    { word1: 'me', word2: 'may', sound1: '/iː/', sound2: '/eɪ/', tip: '区分/iː/和/eɪ/' },
+    { word1: 'no', word2: 'know', sound1: '/əʊ/', sound2: '/nəʊ/', tip: '区分/n/和/nəʊ/' },
+    { word1: 'in', word2: 'on', sound1: '/ɪ/', sound2: '/ɒ/', tip: '区分/ɪ/和/ɒ/' },
+    { word1: 'it', word2: 'at', sound1: '/ɪ/', sound2: '/æ/', tip: '区分/ɪ/和/æ/' },
+    { word1: 'up', word2: 'apple', sound1: '/ʌ/', sound2: '/æ/', tip: '区分/ʌ/和/æ/' },
+    { word1: 'bus', word2: 'boss', sound1: '/ʌ/', sound2: '/ɒ/', tip: '区分/ʌ/和/ɒ/' },
+    { word1: 'see', word2: 'say', sound1: '/iː/', sound2: '/eɪ/', tip: '区分/iː/和/eɪ/' },
+    { word1: 'red', word2: 'read', sound1: '/e/', sound2: '/iː/', tip: '区分/e/和/iː/' },
+    { word1: 'head', word2: 'had', sound1: '/e/', sound2: '/æ/', tip: '区分/e/和/æ/' },
+    { word1: 'sing', word2: 'thing', sound1: '/s/', sound2: '/θ/', tip: '区分/s/和/θ/' },
+    { word1: 'this', word2: 'these', sound1: '/ð/', sound2: '/iːz/', tip: '区分/ð/和/iːz/' },
+    { word1: 'that', word2: 'what', sound1: '/ð/', sound2: '/w/', tip: '区分/ð/和/w/' },
+    { word1: 'three', word2: 'tree', sound1: '/θ/', sound2: '/tr/', tip: '区分/θ/和/tr/' },
+    { word1: 'wall', word2: 'war', sound1: '/l/', sound2: '/r/', tip: '区分/l/和/r/' },
+    { word1: 'ball', word2: 'boy', sound1: '/l/', sound2: '/b/', tip: '区分/l/和/b/' }
+];
 
 /**
  * 用户管理模块
@@ -24123,6 +24246,62 @@ const App = {
         this.renderPhoneticQuestion();
     },
     
+    // 从年级单词库查找含有特定音标的单词
+    getWordsWithSoundFromGrade(soundSymbol, maxWords = 10) {
+        const words = [];
+        try {
+            const textbook = getCurrentTextbook();
+            if (!textbook || !textbook.units) return words;
+            
+            for (const unit of Object.values(textbook.units)) {
+                if (unit.vocabulary && Array.isArray(unit.vocabulary)) {
+                    for (const word of unit.vocabulary) {
+                        if (word.letterSounds && Array.isArray(word.letterSounds)) {
+                            // 查找匹配该音标的字母组合
+                            const matchingSound = word.letterSounds.find(ls => ls.sound === soundSymbol);
+                            if (matchingSound) {
+                                // 计算highlight位置
+                                const highlight = this.findHighlightPosition(word.word, matchingSound.letters);
+                                words.push({
+                                    word: word.word,
+                                    chinese: word.chinese,
+                                    highlight: highlight,
+                                    letterSound: matchingSound
+                                });
+                                if (words.length >= maxWords) break;
+                            }
+                        }
+                    }
+                }
+                if (words.length >= maxWords) break;
+            }
+        } catch (e) {
+            console.warn('从年级单词库获取单词失败:', e);
+        }
+        return words;
+    },
+    
+    // 查找字母组合在单词中的位置
+    findHighlightPosition(word, letters) {
+        // 尝试直接匹配
+        const index = word.indexOf(letters);
+        if (index !== -1) {
+            return [index, index + letters.length];
+        }
+        // 尝试不区分大小写匹配
+        const lowerWord = word.toLowerCase();
+        const lowerLetters = letters.toLowerCase();
+        const lowerIndex = lowerWord.indexOf(lowerLetters);
+        if (lowerIndex !== -1) {
+            return [lowerIndex, lowerIndex + letters.length];
+        }
+        // 如果找不到，尝试单字符匹配
+        if (letters.length === 1) {
+            return [0, 1];
+        }
+        return null;
+    },
+    
     generatePhoneticQuestions(sounds) {
         const questions = [];
         const allSounds = this.getAllPhoneticSounds();
@@ -24175,8 +24354,17 @@ const App = {
             
             const confusables = CONFUSABLE_PHONETICS[sound.symbol] || [];
             
+            // 优先从年级单词库获取单词，如果没有则使用默认示例
+            const gradeWords = this.getWordsWithSoundFromGrade(sound.symbol, 5);
+            const useGradeWords = gradeWords.length >= 2; // 只有当年级单词库有足够单词时才使用
+            
             // 题型A：看单词选音标 - 用易混淆音标作干扰项
-            const exampleA = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            let exampleA;
+            if (useGradeWords) {
+                exampleA = gradeWords[Math.floor(Math.random() * gradeWords.length)];
+            } else {
+                exampleA = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            }
             let distractorsA = confusables
                 .map(symbol => allSounds.find(s => s.symbol === symbol))
                 .filter(Boolean)
@@ -24204,7 +24392,16 @@ const App = {
             });
             
             // 题型C：看音标选单词 - 用易混淆音标的单词作干扰项
-            const exampleC = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            let exampleC;
+            if (useGradeWords) {
+                // 使用不同的单词避免重复
+                const availableWords = gradeWords.filter(w => w.word !== exampleA.word);
+                exampleC = availableWords.length > 0 
+                    ? availableWords[Math.floor(Math.random() * availableWords.length)]
+                    : sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            } else {
+                exampleC = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            }
             let distractorsC = confusables
                 .flatMap(symbol => {
                     const s = allSounds.find(x => x.symbol === symbol);
@@ -24235,37 +24432,40 @@ const App = {
                 correctAnswer: exampleC.word
             });
             
-            // 题型D：音标填空
-            const exampleD = sound.examples[Math.floor(Math.random() * sound.examples.length)];
-            if (exampleD.highlight && exampleD.word.length > 2) {
-                const blankWord = exampleD.word.substring(0, exampleD.highlight[0]) + 
-                                  '_' + 
-                                  exampleD.word.substring(exampleD.highlight[1]);
-                const fillInLetter = exampleD.word.substring(exampleD.highlight[0], exampleD.highlight[1]);
-                const letterOptions = this.generateLetterOptions(fillInLetter);
-                
-                questions.push({
-                    type: 'fill_blank',
-                    sound: sound,
-                    question: `听发音，填写正确的字母`,
-                    blankWord: blankWord,
-                    fullWord: exampleD.word,
-                    options: this.shuffle(letterOptions.map(l => ({ text: l, isCorrect: l === fillInLetter }))),
-                    correctAnswer: fillInLetter
-                });
-            }
-            
             // 题型E：找出不同的音 - 两个相同音标 + 一个易混淆音标
-            if (confusables.length > 0 && sound.examples.length >= 2) {
-                // 从当前音标选2个示例
-                const sameExamples = sound.examples.slice(0, 2);
+            if (confusables.length > 0 && (useGradeWords || sound.examples.length >= 2)) {
+                // 从当前音标选2个示例（优先使用年级单词）
+                let sameExamples;
+                if (useGradeWords && gradeWords.length >= 2) {
+                    sameExamples = this.shuffle([...gradeWords]).slice(0, 2);
+                } else {
+                    sameExamples = sound.examples.slice(0, 2);
+                }
                 
                 // 从易混淆音标中选1个
                 const diffSymbol = confusables[Math.floor(Math.random() * confusables.length)];
                 const diffSound = allSounds.find(s => s.symbol === diffSymbol);
                 
-                if (diffSound && diffSound.examples && diffSound.examples.length > 0) {
-                    const diffExample = diffSound.examples[Math.floor(Math.random() * diffSound.examples.length)];
+                // 获取易混淆音标对应的年级单词
+                let diffWords = [];
+                if (useGradeWords) {
+                    diffWords = this.getWordsWithSoundFromGrade(diffSymbol, 5);
+                }
+                
+                if (diffSound && (diffSound.examples.length > 0 || diffWords.length > 0)) {
+                    let diffExample;
+                    if (diffWords.length > 0) {
+                        diffExample = diffWords[Math.floor(Math.random() * diffWords.length)];
+                    } else {
+                        diffExample = diffSound.examples[Math.floor(Math.random() * diffSound.examples.length)];
+                    }
+                    
+                    // 避免重复单词
+                    const usedWords = [sameExamples[0].word, sameExamples[1].word];
+                    if (usedWords.includes(diffExample.word)) {
+                        // 跳过这个题目
+                        return;
+                    }
                     
                     const allWords = this.shuffle([
                         { word: sameExamples[0].word, highlight: sameExamples[0].highlight, isDifferent: false },
@@ -24286,7 +24486,38 @@ const App = {
             }
         });
         
+        // 题型F：最小对立体辨析
+        this.addMinimalPairQuestions(questions);
+        
         return this.shuffle(questions);
+    },
+    
+    // 添加最小对立体辨析题目
+    addMinimalPairQuestions(questions) {
+        if (!MINIMAL_PAIRS || MINIMAL_PAIRS.length === 0) return;
+        
+        // 随机选择2-3对最小对立词
+        const shuffledPairs = this.shuffle([...MINIMAL_PAIRS]).slice(0, 3);
+        
+        shuffledPairs.forEach(pair => {
+            // 随机选择播放哪个词
+            const playFirst = Math.random() > 0.5;
+            const correctWord = playFirst ? pair.word1 : pair.word2;
+            
+            questions.push({
+                type: 'minimal_pair',
+                question: '听音辨词',
+                tip: pair.tip,
+                word1: pair.word1,
+                word2: pair.word2,
+                playWord: correctWord,
+                options: this.shuffle([
+                    { text: pair.word1, isCorrect: pair.word1 === correctWord },
+                    { text: pair.word2, isCorrect: pair.word2 === correctWord }
+                ]),
+                correctAnswer: correctWord
+            });
+        });
     },
     
     getAllPhoneticSounds() {
@@ -24369,6 +24600,18 @@ const App = {
                     <p class="phonetic-question-text">${q.question}</p>
                 `;
                 break;
+                
+            case 'minimal_pair':
+                // 题型F：最小对立体辨析 - 使用单词作为可点击选项
+                questionContent = `
+                    <div class="phonetic-question-type">🎧 听音辨词</div>
+                    <p class="phonetic-question-tip">${q.tip || '听一听，选出你听到的单词'}</p>
+                    <button class="phonetic-audio-btn" id="minimal-audio-btn" onclick="App.playMinimalPairAudio('${q.playWord}')" style="margin-bottom: var(--space-lg);">
+                        🔊 点击听发音
+                    </button>
+                `;
+                // 最小对立体题型不使用phonetic-options-grid，而是将单词本身作为选项
+                break;
         }
         
         const html = `
@@ -24388,18 +24631,66 @@ const App = {
                     ${questionContent}
                 </div>
                 
-                <div class="phonetic-options-grid" id="phonetic-options">
-                    ${q.options.map((opt, idx) => `
-                        <div class="phonetic-option" onclick="App.selectPhoneticAnswer(${idx})" id="phonetic-option-${idx}">
-                            ${opt.text}
-                        </div>
-                    `).join('')}
-                </div>
+                ${q.type === 'minimal_pair' ? `
+                    <div class="phonetic-options-grid" id="phonetic-options">
+                        ${q.options.map((opt, idx) => `
+                            <div class="phonetic-option" onclick="App.selectMinimalPairAnswer('${opt.text}', ${opt.isCorrect})" id="phonetic-option-${idx}" data-word="${opt.text}">
+                                ${opt.text}
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : `
+                    <div class="phonetic-options-grid" id="phonetic-options">
+                        ${q.options.map((opt, idx) => `
+                            <div class="phonetic-option" onclick="App.selectPhoneticAnswer(${idx})" id="phonetic-option-${idx}">
+                                ${opt.text}
+                            </div>
+                        `).join('')}
+                    </div>
+                `}
                 
                 <div id="phonetic-feedback"></div>
             </div>
         `;
         this.setContent(html);
+    },
+    
+    // 选择最小对立体答案
+    selectMinimalPairAnswer(selectedWord, isCorrect) {
+        const state = this.phoneticState;
+        const q = state.questions[state.currentIndex];
+        
+        // 禁用所有选项
+        document.querySelectorAll('.phonetic-option').forEach((el) => {
+            el.onclick = null;
+            const word = el.dataset.word;
+            if (word === q.correctAnswer) {
+                el.classList.add('correct');
+            } else if (word === selectedWord && !isCorrect) {
+                el.classList.add('wrong');
+            }
+        });
+        
+        if (isCorrect) {
+            state.correctCount++;
+        } else {
+            state.wrongCount++;
+        }
+        
+        // 显示反馈
+        const feedback = document.getElementById('phonetic-feedback');
+        feedback.innerHTML = `
+            <div class="phonetic-feedback ${isCorrect ? 'correct' : 'wrong'}">
+                <div class="phonetic-feedback-icon">${isCorrect ? '✅' : '❌'}</div>
+                <div>${isCorrect ? '回答正确！' : `回答错误，正确答案是：${q.correctAnswer}`}</div>
+                <div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
+                    ${q.tip || ''}
+                </div>
+            </div>
+            <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
+                ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
+            </button>
+        `;
     },
     
     highlightWord(word, highlight) {
@@ -24417,6 +24708,22 @@ const App = {
         PhoneticAudioModule.play(audioName).finally(() => {
             if (btn) {
                 btn.classList.remove('playing');
+            }
+        });
+    },
+    
+    // 播放最小对立体音频
+    playMinimalPairAudio(word) {
+        const btn = document.getElementById('minimal-audio-btn');
+        if (btn) {
+            btn.classList.add('playing');
+            btn.textContent = '🔊 播放中...';
+        }
+        
+        TTS.speak(word).finally(() => {
+            if (btn) {
+                btn.classList.remove('playing');
+                btn.textContent = '🔊 点击再听一次';
             }
         });
     },
