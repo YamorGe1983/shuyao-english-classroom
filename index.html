@@ -20692,7 +20692,7 @@ const Storage = {
 
 const TTSModule = {
     config: {
-        voice: 'US English Female',
+        voice: 'UK English Female',  // 使用英式发音，与国际音标一致
         chineseVoice: 'Chinese Female',
         rate: 0.85,
         pitch: 1.0
@@ -20861,14 +20861,19 @@ const TTSModule = {
             
             const utterance = new SpeechSynthesisUtterance(text);
             const isChinese = this.containsChinese(text);
-            utterance.lang = isChinese ? 'zh-CN' : 'en-US';
+            // 使用英式英语，与国际音标一致
+            utterance.lang = isChinese ? 'zh-CN' : 'en-GB';
             utterance.rate = this.config.rate;
             utterance.pitch = this.config.pitch;
             
             // 尝试找到合适的声音
             const voices = speechSynthesis.getVoices();
-            const targetLang = isChinese ? 'zh-CN' : 'en-US';
-            const voice = voices.find(v => v.lang.startsWith(targetLang));
+            const targetLang = isChinese ? 'zh-CN' : 'en-GB';
+            // 优先找英式英语声音，找不到则用任意英语声音
+            let voice = voices.find(v => v.lang === 'en-GB');
+            if (!voice && !isChinese) {
+                voice = voices.find(v => v.lang.startsWith('en'));
+            }
             if (voice) {
                 utterance.voice = voice;
             }
