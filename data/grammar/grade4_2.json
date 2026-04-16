@@ -5,6 +5,7 @@
     {
       "id": "g4_2_01",
       "type": "A",
+      "grammarPoint": "一般将来时",
       "content": {
         "scrambled": ["I", "am", "going", "to", "visit", "my", "grandma", "."],
         "sentence": "将单词组成正确的句子"
@@ -16,6 +17,7 @@
     {
       "id": "g4_2_02",
       "type": "C",
+      "grammarPoint": "一般将来时",
       "content": {
         "sentence": "It ____ (is going to/will) rain tomorrow.",
         "choices": ["is going to", "will"],
@@ -28,6 +30,7 @@
     {
       "id": "g4_2_03",
       "type": "B",
+      "grammarPoint": "比较级最高级",
       "content": {
         "left": ["taller", "shorter", "bigger", "smaller", "happier"],
         "right": ["更高的", "更矮的", "更大的", "更小的", "更快乐的"]
@@ -45,6 +48,7 @@
     {
       "id": "g4_2_04",
       "type": "A",
+      "grammarPoint": "比较级最高级",
       "content": {
         "scrambled": ["This", "book", "is", "the", "biggest", "of", "all", "."],
         "sentence": "将单词组成正确的句子"
@@ -56,6 +60,7 @@
     {
       "id": "g4_2_05",
       "type": "C",
+      "grammarPoint": "时间介词",
       "content": {
         "sentence": "I get up ____ (in/at/on) six o'clock.",
         "choices": ["in", "at", "on"],
@@ -68,6 +73,7 @@
     {
       "id": "g4_2_06",
       "type": "B",
+      "grammarPoint": "时间介词",
       "content": {
         "left": ["in June", "on Monday", "at noon", "in the morning", "on the weekend"],
         "right": ["在六月", "在星期一", "在中午", "在早上", "在周末"]
@@ -85,6 +91,7 @@
     {
       "id": "g4_2_07",
       "type": "A",
+      "grammarPoint": "进阶疑问句",
       "content": {
         "scrambled": ["When", "do", "you", "go", "to", "bed", "?"],
         "sentence": "将单词组成正确的句子"
@@ -96,6 +103,7 @@
     {
       "id": "g4_2_08",
       "type": "C",
+      "grammarPoint": "进阶疑问句",
       "content": {
         "sentence": "____ (What/Where) is your brother?",
         "choices": ["What", "Where"],

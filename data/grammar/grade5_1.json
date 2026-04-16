@@ -5,6 +5,7 @@
     {
       "id": "g5_1_01",
       "type": "A",
+      "grammarPoint": "频率副词",
       "content": {
         "scrambled": ["He", "plays", "football", "every", "Saturday", "."],
         "sentence": "将单词组成正确的句子"
@@ -16,6 +17,7 @@
     {
       "id": "g5_1_02",
       "type": "B",
+      "grammarPoint": "频率副词",
       "content": {
         "left": ["always", "usually", "often", "sometimes", "never"],
         "right": ["总是", "通常", "经常", "有时", "从不"]
@@ -33,6 +35,7 @@
     {
       "id": "g5_1_03",
       "type": "C",
+      "grammarPoint": "一般过去时入门",
       "content": {
         "sentence": "She ____ (play/playes) the piano yesterday.",
         "choices": ["play", "played"],
@@ -45,6 +48,7 @@
     {
       "id": "g5_1_04",
       "type": "A",
+      "grammarPoint": "一般过去时入门",
       "content": {
         "scrambled": ["I", "visited", "my", "grandparents", "last", "weekend", "."],
         "sentence": "将单词组成正确的句子"
@@ -56,6 +60,7 @@
     {
       "id": "g5_1_05",
       "type": "C",
+      "grammarPoint": "动词不定式",
       "content": {
         "sentence": "My wish is ____ (eat/eating/to eat) dumplings.",
         "choices": ["eat", "eating", "to eat"],
@@ -68,6 +73,7 @@
     {
       "id": "g5_1_06",
       "type": "A",
+      "grammarPoint": "动词不定式",
       "content": {
         "scrambled": ["To", "learn", "English", "is", "fun", "."],
         "sentence": "将单词组成正确的句子"
@@ -79,6 +85,7 @@
     {
       "id": "g5_1_07",
       "type": "A",
+      "grammarPoint": "祈使句",
       "content": {
         "scrambled": ["Close", "the", "door", "please", "."],
         "sentence": "将单词组成正确的句子"
@@ -90,6 +97,7 @@
     {
       "id": "g5_1_08",
       "type": "C",
+      "grammarPoint": "祈使句",
       "content": {
         "sentence": "____ (Don't/Not) walk on the grass!",
         "choices": ["Don't", "Not"],

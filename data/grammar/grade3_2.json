@@ -5,6 +5,7 @@
     {
       "id": "g3_2_01",
       "type": "A",
+      "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["I", "am", "a", "student", "."],
         "sentence": "将单词组成正确的句子"
@@ -16,6 +17,7 @@
     {
       "id": "g3_2_02",
       "type": "A",
+      "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["She", "is", "my", "mother", "."],
         "sentence": "将单词组成正确的句子"
@@ -27,6 +29,7 @@
     {
       "id": "g3_2_03",
       "type": "B",
+      "grammarPoint": "be动词搭配",
       "content": {
         "left": ["They", "He", "She", "It", "We"],
         "right": ["are", "is", "is", "is", "are"]
@@ -38,6 +41,7 @@
     {
       "id": "g3_2_04",
       "type": "A",
+      "grammarPoint": "介词方位",
       "content": {
         "scrambled": ["We", "are", "in", "the", "classroom", "."],
         "sentence": "将单词组成正确的句子"
@@ -49,6 +53,7 @@
     {
       "id": "g3_2_05",
       "type": "C",
+      "grammarPoint": "名词复数",
       "content": {
         "sentence": "The cats ____ (is/are) cute.",
         "choices": ["is", "are"],
@@ -61,6 +66,7 @@
     {
       "id": "g3_2_06",
       "type": "A",
+      "grammarPoint": "现在进行时",
       "content": {
         "scrambled": ["The", "boy", "is", "playing", "football", "."],
         "sentence": "将单词组成正确的句子"
@@ -72,6 +78,7 @@
     {
       "id": "g3_2_07",
       "type": "C",
+      "grammarPoint": "现在进行时",
       "content": {
         "sentence": "I ____ (watch/watches) TV now.",
         "choices": ["watch", "watches"],
@@ -84,6 +91,7 @@
     {
       "id": "g3_2_08",
       "type": "B",
+      "grammarPoint": "介词方位",
       "content": {
         "left": ["on the desk", "under the chair", "in the box", "near the door"],
         "right": ["在桌子上", "在椅子下", "在盒子里", "在门附近"]

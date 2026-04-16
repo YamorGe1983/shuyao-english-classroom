@@ -196,6 +196,32 @@
         margin-bottom: var(--space-lg);
     }
 
+    /* 自适应练习说明 */
+    .adaptive-intro {
+        background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(126, 222, 215, 0.1) 100%);
+        border: 2px solid var(--secondary-light);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        margin-bottom: var(--space-lg);
+        text-align: left;
+    }
+
+    .adaptive-intro-title {
+        font-size: var(--font-md);
+        font-weight: 600;
+        color: var(--secondary-dark);
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .adaptive-intro-desc {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+
     .overview-stats {
         display: flex;
         justify-content: center;
@@ -327,6 +353,108 @@
         transition: width 0.3s ease;
     }
 
+    /* ==================== 自适应进度面板 ==================== */
+    .adaptive-progress {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        margin-bottom: var(--space-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .adaptive-progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-md);
+    }
+
+    .adaptive-progress-title {
+        font-size: var(--font-sm);
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .adaptive-stats {
+        display: flex;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-md);
+    }
+
+    .adaptive-stat {
+        flex: 1;
+        background: var(--bg-primary);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm);
+        text-align: center;
+    }
+
+    .adaptive-stat-num {
+        font-size: var(--font-lg);
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .adaptive-stat-label {
+        font-size: var(--font-xs);
+        color: var(--text-secondary);
+    }
+
+    .mastered-points {
+        margin-top: var(--space-md);
+    }
+
+    .mastered-points-title {
+        font-size: var(--font-xs);
+        color: var(--success);
+        margin-bottom: var(--space-xs);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+
+    .mastered-points-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
+
+    .mastered-tag {
+        background: rgba(0, 184, 148, 0.1);
+        color: var(--success);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-xs);
+    }
+
+    .weak-points {
+        margin-top: var(--space-sm);
+    }
+
+    .weak-points-title {
+        font-size: var(--font-xs);
+        color: var(--warning);
+        margin-bottom: var(--space-xs);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+
+    .weak-point-item {
+        background: rgba(253, 203, 110, 0.1);
+        color: var(--text-secondary);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-xs);
+        margin-bottom: var(--space-xs);
+        display: block;
+    }
+
+    .weak-point-rate {
+        color: var(--warning);
+        font-weight: 600;
+    }
+
     /* ==================== 题目卡片 ==================== */
     .question-card {
         background: var(--bg-card);
@@ -366,6 +494,42 @@
     .question-difficulty {
         font-size: var(--font-xs);
         color: var(--text-light);
+    }
+
+    /* 语法点标签 */
+    .grammar-point-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        background: linear-gradient(135deg, rgba(78, 205, 196, 0.15) 0%, rgba(126, 222, 215, 0.15) 100%);
+        color: var(--secondary-dark);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-md);
+        font-size: var(--font-xs);
+        font-weight: 500;
+        margin-bottom: var(--space-md);
+    }
+
+    /* 薄弱点提示 */
+    .weak-hint {
+        background: linear-gradient(135deg, rgba(253, 203, 110, 0.15) 0%, rgba(253, 203, 110, 0.1) 100%);
+        border: 1px solid rgba(253, 203, 110, 0.3);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm) var(--space-md);
+        margin-bottom: var(--space-md);
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .weak-hint-icon {
+        font-size: var(--font-lg);
+    }
+
+    .weak-hint-text {
+        flex: 1;
     }
 
     .question-title {
@@ -694,6 +858,12 @@
         box-shadow: var(--shadow-md);
     }
 
+    .btn-warning {
+        background: linear-gradient(135deg, var(--warning) 0%, #FFDA6B 100%);
+        color: var(--text-primary);
+        box-shadow: var(--shadow-md);
+    }
+
     .btn:disabled {
         opacity: 0.5;
         cursor: not-allowed;
@@ -770,7 +940,7 @@
         display: flex;
         justify-content: center;
         gap: var(--space-xl);
-        margin-bottom: var(--space-xxl);
+        margin-bottom: var(--space-xl);
     }
 
     .complete-stat {
@@ -805,6 +975,93 @@
         color: var(--danger);
     }
 
+    /* ==================== 语法点掌握情况 ==================== */
+    .grammar-progress-section {
+        background: var(--bg-card);
+        border-radius: var(--radius-xl);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        margin-bottom: var(--space-xl);
+        text-align: left;
+    }
+
+    .grammar-progress-title {
+        font-size: var(--font-lg);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--space-lg);
+        text-align: center;
+    }
+
+    .grammar-point-progress {
+        margin-bottom: var(--space-md);
+    }
+
+    .grammar-point-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-xs);
+    }
+
+    .grammar-point-name {
+        font-size: var(--font-sm);
+        font-weight: 500;
+        color: var(--text-primary);
+    }
+
+    .grammar-point-stats {
+        font-size: var(--font-xs);
+        color: var(--text-secondary);
+    }
+
+    .grammar-point-bar {
+        height: 8px;
+        background: var(--bg-primary);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .grammar-point-fill {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    .grammar-point-fill.mastered {
+        background: linear-gradient(90deg, var(--success) 0%, #00D9A5 100%);
+    }
+
+    .grammar-point-fill.learning {
+        background: linear-gradient(90deg, var(--warning) 0%, #FFDA6B 100%);
+    }
+
+    /* 学习建议 */
+    .learning-suggestion {
+        background: linear-gradient(135deg, rgba(116, 185, 255, 0.1) 0%, rgba(116, 185, 255, 0.05) 100%);
+        border: 1px solid rgba(116, 185, 255, 0.3);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+        text-align: left;
+    }
+
+    .learning-suggestion-title {
+        font-size: var(--font-md);
+        font-weight: 600;
+        color: var(--info);
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .learning-suggestion-content {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+
     /* ==================== 响应式布局 ==================== */
     @media (max-width: 480px) {
         .type-cards {
@@ -823,6 +1080,11 @@
         .overview-stats {
             flex-direction: column;
             gap: var(--space-md);
+        }
+
+        .adaptive-stats {
+            flex-direction: column;
+            gap: var(--space-sm);
         }
     }
 
@@ -926,6 +1188,17 @@
             <h2 class="overview-title">语法练习</h2>
             <p class="overview-desc">通过三种趣味题型练习语法</p>
             
+            <!-- 自适应练习说明 -->
+            <div class="adaptive-intro">
+                <div class="adaptive-intro-title">
+                    <span>🧠</span> 自适应练习
+                </div>
+                <div class="adaptive-intro-desc">
+                    系统会根据你的掌握情况智能出题<br>
+                    薄弱语法点会得到更多练习机会
+                </div>
+            </div>
+            
             <div class="overview-stats">
                 <div class="stat-item">
                     <span class="stat-num" id="totalQuestions">0</span>
@@ -979,6 +1252,39 @@
             <div class="header-spacer"></div>
         </div>
 
+        <!-- 自适应进度面板 -->
+        <div class="adaptive-progress">
+            <div class="adaptive-progress-header">
+                <span class="adaptive-progress-title">📊 学习进度</span>
+            </div>
+            <div class="adaptive-stats">
+                <div class="adaptive-stat">
+                    <div class="adaptive-stat-num" id="answeredCount">0</div>
+                    <div class="adaptive-stat-label">已答题</div>
+                </div>
+                <div class="adaptive-stat">
+                    <div class="adaptive-stat-num" id="accuracyDisplay">--%</div>
+                    <div class="adaptive-stat-label">正确率</div>
+                </div>
+                <div class="adaptive-stat">
+                    <div class="adaptive-stat-num" id="masteredCount">0</div>
+                    <div class="adaptive-stat-label">已掌握</div>
+                </div>
+            </div>
+
+            <!-- 已掌握的语法点 -->
+            <div class="mastered-points" id="masteredPointsContainer" style="display: none;">
+                <div class="mastered-points-title">✅ 已掌握</div>
+                <div class="mastered-points-list" id="masteredPointsList"></div>
+            </div>
+
+            <!-- 薄弱语法点 -->
+            <div class="weak-points" id="weakPointsContainer" style="display: none;">
+                <div class="weak-points-title">🔄 继续加油</div>
+                <div id="weakPointsList"></div>
+            </div>
+        </div>
+
         <div class="progress-container">
             <div class="progress-info">
                 <span class="progress-label">答题进度</span>
@@ -993,6 +1299,18 @@
             <div class="question-header">
                 <span class="question-type-badge" id="questionTypeBadge">A</span>
                 <span class="question-difficulty" id="questionDifficulty">★☆☆</span>
+            </div>
+
+            <!-- 语法点标签 -->
+            <div class="grammar-point-tag" id="grammarPointTag">
+                <span>📌</span>
+                <span id="grammarPointText">be动词搭配</span>
+            </div>
+            
+            <!-- 薄弱点提示 -->
+            <div class="weak-hint" id="weakHint" style="display: none;">
+                <span class="weak-hint-icon">💪</span>
+                <span class="weak-hint-text" id="weakHintText"></span>
             </div>
             
             <div id="questionContent"></div>
@@ -1020,6 +1338,11 @@
                 下一题 →
             </button>
         </div>
+
+        <!-- 提前结束按钮 -->
+        <button class="btn btn-warning" id="endEarlyBtn" onclick="endPracticeEarly()" style="margin-top: var(--space-md); width: 100%;">
+            我觉得差不多了，结束练习
+        </button>
     </div>
 
     <!-- ==================== 完成页面 ==================== -->
@@ -1044,6 +1367,22 @@
                     <div class="stat-icon">📊</div>
                     <div class="stat-num" id="accuracyRate">0%</div>
                     <div class="stat-label">正确率</div>
+                </div>
+            </div>
+
+            <!-- 语法点掌握情况 -->
+            <div class="grammar-progress-section">
+                <div class="grammar-progress-title">📈 语法点掌握情况</div>
+                <div id="grammarProgressList"></div>
+            </div>
+
+            <!-- 学习建议 -->
+            <div class="learning-suggestion" id="learningSuggestion">
+                <div class="learning-suggestion-title">
+                    <span>💡</span> 学习建议
+                </div>
+                <div class="learning-suggestion-content" id="suggestionContent">
+                    继续加油！
                 </div>
             </div>
 
@@ -1087,6 +1426,7 @@
     let correctCount = 0;
     let wrongCount = 0;
     let isAnswered = false;
+    let isPracticeEnded = false;  // 标记练习是否提前结束
 
     // 题型A状态
     let selectedWords = [];
@@ -1098,6 +1438,16 @@
 
     // 题型C状态
     let selectedChoice = null;
+
+    // ========== 自适应练习系统状态 ==========
+    // 记录各语法点的答题情况
+    let grammarPointStats = {};
+    // 总答题数
+    let totalAnswered = 0;
+    // 已掌握的语法点数量
+    let masteredCount = 0;
+    // 练习过的语法点列表
+    let practicedPoints = new Set();
 
     // 年级名称映射
     const gradeNames = {
@@ -1206,6 +1556,248 @@
         await loadGrammarData();
     }
 
+    // ==================== 自适应练习系统 ====================
+
+    /**
+     * 初始化语法点统计
+     */
+    function initGrammarPointStats() {
+        grammarPointStats = {};
+        totalAnswered = 0;
+        masteredCount = 0;
+        practicedPoints = new Set();
+        
+        if (!grammarData || !grammarData.grammar) return;
+        
+        // 为每个有grammarPoint的题目初始化统计
+        grammarData.grammar.forEach(q => {
+            if (q.grammarPoint) {
+                if (!grammarPointStats[q.grammarPoint]) {
+                    grammarPointStats[q.grammarPoint] = {
+                        attempted: 0,
+                        correct: 0,
+                        consecutiveCorrect: 0,
+                        mastered: false
+                    };
+                }
+            }
+        });
+    }
+
+    /**
+     * 判断某个语法点是否已掌握
+     * 掌握条件：
+     * 1. 连续答对3题，或
+     * 2. 正确率≥80%且至少答了5题
+     */
+    function isGrammarPointMastered(point) {
+        const stats = grammarPointStats[point];
+        if (!stats || stats.attempted < 3) return false;
+        
+        // 条件1：连续答对3题
+        if (stats.consecutiveCorrect >= 3) return true;
+        
+        // 条件2：正确率≥80%且至少答了5题
+        if (stats.attempted >= 5 && stats.correct / stats.attempted >= 0.8) return true;
+        
+        return false;
+    }
+
+    /**
+     * 更新语法点统计
+     */
+    function updateGrammarPointStats(point, isCorrect) {
+        if (!point) return;
+        
+        if (!grammarPointStats[point]) {
+            grammarPointStats[point] = {
+                attempted: 0,
+                correct: 0,
+                consecutiveCorrect: 0,
+                mastered: false
+            };
+        }
+        
+        practicedPoints.add(point);
+        totalAnswered++;
+        
+        const stats = grammarPointStats[point];
+        stats.attempted++;
+        
+        if (isCorrect) {
+            stats.correct++;
+            stats.consecutiveCorrect++;
+        } else {
+            stats.consecutiveCorrect = 0;  // 答错重置连续正确数
+        }
+        
+        // 检查是否掌握
+        const wasMastered = stats.mastered;
+        stats.mastered = isGrammarPointMastered(point);
+        
+        if (stats.mastered && !wasMastered) {
+            masteredCount++;
+        } else if (!stats.mastered && wasMastered) {
+            masteredCount--;
+        }
+    }
+
+    /**
+     * 获取语法点的正确率
+     */
+    function getGrammarPointAccuracy(point) {
+        const stats = grammarPointStats[point];
+        if (!stats || stats.attempted === 0) return 0;
+        return Math.round((stats.correct / stats.attempted) * 100);
+    }
+
+    /**
+     * 找出正确率最低的未掌握语法点
+     */
+    function findWeakestPoint() {
+        const unmasteredPoints = Object.keys(grammarPointStats)
+            .filter(p => !grammarPointStats[p].mastered && grammarPointStats[p].attempted > 0);
+        
+        if (unmasteredPoints.length === 0) return null;
+        
+        unmasteredPoints.sort((a, b) => {
+            const rateA = getGrammarPointAccuracy(a);
+            const rateB = getGrammarPointAccuracy(b);
+            return rateA - rateB;
+        });
+        
+        return unmasteredPoints[0];
+    }
+
+    /**
+     * 根据语法点查找对应题目
+     */
+    function findQuestionByGrammarPoint(point) {
+        const questions = grammarData.grammar.filter(q => q.grammarPoint === point);
+        if (questions.length === 0) return null;
+        
+        // 随机选择一题，且尽量不重复
+        const availableQuestions = questions.filter(q => !currentQuestions.includes(q));
+        const pool = availableQuestions.length > 0 ? availableQuestions : questions;
+        return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    /**
+     * 自适应选择下一题
+     */
+    function selectNextQuestion() {
+        // 1. 找出正确率最低的语法点（如果有练习过的）
+        const weakPoint = findWeakestPoint();
+        
+        // 2. 优先从薄弱点选题
+        if (weakPoint) {
+            const question = findQuestionByGrammarPoint(weakPoint);
+            if (question && !currentQuestions.includes(question)) {
+                return question;
+            }
+        }
+        
+        // 3. 如果薄弱点没有合适题目，从未练习过的语法点选
+        const unPracticedPoints = Object.keys(grammarPointStats)
+            .filter(p => grammarPointStats[p].attempted === 0);
+        
+        if (unPracticedPoints.length > 0) {
+            const randomPoint = unPracticedPoints[Math.floor(Math.random() * unPracticedPoints.length)];
+            const question = findQuestionByGrammarPoint(randomPoint);
+            if (question && !currentQuestions.includes(question)) {
+                return question;
+            }
+        }
+        
+        // 4. 如果所有语法点都练习过了，随机选一题
+        return getRandomQuestion();
+    }
+
+    /**
+     * 获取随机题目
+     */
+    function getRandomQuestion() {
+        const availableQuestions = grammarData.grammar.filter(q => !currentQuestions.includes(q));
+        if (availableQuestions.length === 0) {
+            // 所有题目都做过了，从头开始（但排除刚做过的）
+            return grammarData.grammar[Math.floor(Math.random() * grammarData.grammar.length)];
+        }
+        return availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+    }
+
+    /**
+     * 检查是否可以结束练习
+     * 结束条件：
+     * 1. 所有语法点都掌握，或
+     * 2. 所有题目都做过
+     */
+    function canEndPractice() {
+        const points = Object.keys(grammarPointStats);
+        if (points.length === 0) return false;
+        
+        // 所有语法点都已掌握
+        const allMastered = points.every(p => grammarPointStats[p].mastered);
+        if (allMastered) return true;
+        
+        // 或者所有题目都做过
+        const allAnswered = grammarData.grammar.every(q => 
+            !q.grammarPoint || grammarPointStats[q.grammarPoint].attempted > 0
+        );
+        return allAnswered;
+    }
+
+    /**
+     * 更新自适应进度显示
+     */
+    function updateAdaptiveProgress() {
+        document.getElementById('answeredCount').textContent = totalAnswered;
+        
+        // 计算总正确率
+        if (totalAnswered > 0) {
+            const totalCorrect = Object.values(grammarPointStats).reduce((sum, s) => sum + s.correct, 0);
+            const accuracy = Math.round((totalCorrect / totalAnswered) * 100);
+            document.getElementById('accuracyDisplay').textContent = accuracy + '%';
+        }
+        
+        document.getElementById('masteredCount').textContent = masteredCount;
+        
+        // 更新已掌握列表
+        const masteredContainer = document.getElementById('masteredPointsContainer');
+        const masteredList = document.getElementById('masteredPointsList');
+        const masteredPoints = Object.keys(grammarPointStats).filter(p => grammarPointStats[p].mastered);
+        
+        if (masteredPoints.length > 0) {
+            masteredContainer.style.display = 'block';
+            masteredList.innerHTML = masteredPoints.map(p => 
+                `<span class="mastered-tag">${p}</span>`
+            ).join('');
+        } else {
+            masteredContainer.style.display = 'none';
+        }
+        
+        // 更新薄弱点列表
+        const weakContainer = document.getElementById('weakPointsContainer');
+        const weakList = document.getElementById('weakPointsList');
+        const weakPoints = Object.keys(grammarPointStats)
+            .filter(p => !grammarPointStats[p].mastered && grammarPointStats[p].attempted > 0)
+            .sort((a, b) => getGrammarPointAccuracy(a) - getGrammarPointAccuracy(b))
+            .slice(0, 3);  // 只显示最弱的3个
+        
+        if (weakPoints.length > 0) {
+            weakContainer.style.display = 'block';
+            weakList.innerHTML = weakPoints.map(p => {
+                const rate = getGrammarPointAccuracy(p);
+                const stats = grammarPointStats[p];
+                const wrongCount = stats.attempted - stats.correct;
+                return `<span class="weak-point-item">
+                    ${p}（正确率<span class="weak-point-rate">${rate}%</span>，错${wrongCount}次）
+                </span>`;
+            }).join('');
+        } else {
+            weakContainer.style.display = 'none';
+        }
+    }
+
     // ==================== 开始练习 ====================
     function startPractice() {
         if (!grammarData || grammarData.grammar.length === 0) {
@@ -1213,15 +1805,23 @@
             return;
         }
 
-        currentQuestions = [...grammarData.grammar];
+        // 初始化自适应系统
+        initGrammarPointStats();
+        
+        currentQuestions = [];
         currentIndex = 0;
         correctCount = 0;
         wrongCount = 0;
+        isAnswered = false;
+        isPracticeEnded = false;
         
-        // 打乱题目顺序
-        shuffleArray(currentQuestions);
+        // 使用自适应选题获取第一题
+        const firstQuestion = selectNextQuestion();
+        currentQuestions.push(firstQuestion);
         
+        // 显示练习页面
         showPage('practicePage');
+        updateAdaptiveProgress();
         showQuestion();
     }
 
@@ -1235,8 +1835,13 @@
     // ==================== 显示题目 ====================
     function showQuestion() {
         if (currentIndex >= currentQuestions.length) {
-            showComplete();
-            return;
+            // 使用自适应选题获取下一题
+            const nextQuestion = selectNextQuestion();
+            if (!nextQuestion || canEndPractice()) {
+                showComplete();
+                return;
+            }
+            currentQuestions.push(nextQuestion);
         }
 
         isAnswered = false;
@@ -1255,13 +1860,25 @@
         const difficulty = '★'.repeat(question.difficulty) + '☆'.repeat(3 - question.difficulty);
         document.getElementById('questionDifficulty').textContent = difficulty;
         
+        // 更新语法点标签
+        if (question.grammarPoint) {
+            document.getElementById('grammarPointTag').style.display = '';
+            document.getElementById('grammarPointText').textContent = question.grammarPoint;
+        } else {
+            document.getElementById('grammarPointTag').style.display = 'none';
+        }
+        
+        // 显示薄弱点提示
+        updateWeakHint(question);
+        
         // 重置按钮状态
         document.getElementById('checkBtn').style.display = '';
         document.getElementById('checkBtn').disabled = true;
         document.getElementById('nextBtn').style.display = 'none';
         document.getElementById('resetBtn').style.display = '';
+        document.getElementById('endEarlyBtn').style.display = '';
         
-        // 隐藏提示
+        // 隐藏提示（每次新题都隐藏）
         document.getElementById('hintBox').style.display = 'none';
         document.getElementById('showHintBtn').style.display = '';
         document.getElementById('showHintBtn').textContent = '👁️ 显示语法提示';
@@ -1283,6 +1900,34 @@
         
         // 填充提示内容
         document.getElementById('hintContent').textContent = question.hint;
+    }
+
+    /**
+     * 更新薄弱点提示
+     */
+    function updateWeakHint(question) {
+        const weakHint = document.getElementById('weakHint');
+        const weakHintText = document.getElementById('weakHintText');
+        
+        if (!question.grammarPoint) {
+            weakHint.style.display = 'none';
+            return;
+        }
+        
+        const stats = grammarPointStats[question.grammarPoint];
+        if (!stats || stats.attempted === 0) {
+            weakHint.style.display = 'none';
+            return;
+        }
+        
+        const wrongCount = stats.attempted - stats.correct;
+        if (wrongCount > 0) {
+            weakHint.style.display = '';
+            weakHintText.textContent = `这道题考察的是${question.grammarPoint}，你已经做错${wrongCount}次了，加油！💪`;
+        } else {
+            weakHint.style.display = '';
+            weakHintText.textContent = `这道题考察的是${question.grammarPoint}，继续努力！`;
+        }
     }
 
     function getTypeLabel(type) {
@@ -1540,10 +2185,23 @@
             }, 500);
         }
         
+        // ========== 答错自动弹出讲解 ==========
+        if (!isCorrect) {
+            // 自动显示语法提示（讲解）
+            document.getElementById('hintBox').style.display = '';
+            document.getElementById('showHintBtn').style.display = 'none';
+            document.getElementById('showHintBtn').textContent = '🙈 隐藏语法提示';
+        }
+        
+        // 更新自适应系统统计
+        updateGrammarPointStats(question.grammarPoint, isCorrect);
+        updateAdaptiveProgress();
+        
         // 更新按钮
         document.getElementById('checkBtn').style.display = 'none';
         document.getElementById('resetBtn').style.display = 'none';
         document.getElementById('nextBtn').style.display = '';
+        document.getElementById('endEarlyBtn').style.display = 'none';
     }
 
     function checkTypeA(question) {
@@ -1583,19 +2241,40 @@
 
     // ==================== 下一题 ====================
     function nextQuestion() {
+        // 检查是否可以结束练习
+        if (canEndPractice()) {
+            showComplete();
+            return;
+        }
+        
         currentIndex++;
         showQuestion();
     }
 
+    // ==================== 提前结束练习 ====================
+    function endPracticeEarly() {
+        if (confirm('确定要提前结束练习吗？')) {
+            isPracticeEnded = true;
+            showComplete();
+        }
+    }
+
     // ==================== 完成页面 ====================
     function showComplete() {
-        const accuracy = currentQuestions.length > 0 
-            ? Math.round((correctCount / currentQuestions.length) * 100) 
+        const total = correctCount + wrongCount;
+        const accuracy = total > 0 
+            ? Math.round((correctCount / total) * 100) 
             : 0;
         
         document.getElementById('correctCount').textContent = correctCount;
         document.getElementById('wrongCount').textContent = wrongCount;
         document.getElementById('accuracyRate').textContent = `${accuracy}%`;
+        
+        // 生成语法点掌握情况
+        generateGrammarProgress();
+        
+        // 生成学习建议
+        generateLearningSuggestion(accuracy);
         
         // 根据正确率显示不同的表情
         const icon = document.getElementById('completeIcon');
@@ -1605,22 +2284,93 @@
         if (accuracy >= 90) {
             icon.textContent = '🏆';
             title.textContent = '太棒了！';
-            message.textContent = '你是语法小达人！继续保持！';
+            message.textContent = isPracticeEnded ? '你已经完成了本次练习，表现非常出色！' : '你是语法小达人！继续保持！';
         } else if (accuracy >= 70) {
             icon.textContent = '🎉';
             title.textContent = '做得很好！';
-            message.textContent = '语法基础很扎实，再接再厉！';
+            message.textContent = isPracticeEnded ? '你已经完成了本次练习，继续保持！' : '语法基础很扎实，再接再厉！';
         } else if (accuracy >= 50) {
             icon.textContent = '💪';
             title.textContent = '还不错！';
-            message.textContent = '继续练习，你会越来越棒！';
+            message.textContent = isPracticeEnded ? '你已经完成了本次练习，继续加油！' : '继续练习，你会越来越棒！';
         } else {
             icon.textContent = '📚';
             title.textContent = '加油！';
-            message.textContent = '多看看语法提示，下次一定进步！';
+            message.textContent = isPracticeEnded ? '你已经完成了本次练习，多看看语法提示！' : '多看看语法提示，下次一定进步！';
         }
         
         showPage('completePage');
+    }
+
+    /**
+     * 生成语法点掌握情况
+     */
+    function generateGrammarProgress() {
+        const container = document.getElementById('grammarProgressList');
+        const points = Object.keys(grammarPointStats).sort((a, b) => {
+            const rateA = getGrammarPointAccuracy(a);
+            const rateB = getGrammarPointAccuracy(b);
+            return rateB - rateA;
+        });
+        
+        if (points.length === 0) {
+            container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">暂无语法点数据</p>';
+            return;
+        }
+        
+        container.innerHTML = points.map(point => {
+            const stats = grammarPointStats[point];
+            const rate = getGrammarPointAccuracy(point);
+            const isMastered = stats.mastered;
+            
+            return `
+                <div class="grammar-point-progress">
+                    <div class="grammar-point-header">
+                        <span class="grammar-point-name">
+                            ${isMastered ? '✅ ' : ''}${point}
+                        </span>
+                        <span class="grammar-point-stats">
+                            ${stats.correct}/${stats.attempted}（${rate}%）
+                        </span>
+                    </div>
+                    <div class="grammar-point-bar">
+                        <div class="grammar-point-fill ${isMastered ? 'mastered' : 'learning'}" 
+                             style="width: ${rate}%"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    /**
+     * 生成学习建议
+     */
+    function generateLearningSuggestion(accuracy) {
+        const content = document.getElementById('suggestionContent');
+        
+        // 找出薄弱点
+        const weakPoints = Object.keys(grammarPointStats)
+            .filter(p => !grammarPointStats[p].mastered)
+            .sort((a, b) => getGrammarPointAccuracy(a) - getGrammarPointAccuracy(b))
+            .slice(0, 2);
+        
+        let suggestion = '';
+        
+        if (accuracy >= 90) {
+            suggestion = '🎯 恭喜你掌握了大部分语法点！可以尝试更高年级的练习，或者挑战更难的题目。';
+        } else if (accuracy >= 70) {
+            if (weakPoints.length > 0) {
+                suggestion = `📖 建议加强 ${weakPoints.join('、')} 的练习。多看看语法提示，理解规则后多加练习。`;
+            } else {
+                suggestion = '👍 继续保持！遇到易错题时，仔细阅读语法提示，理解规则。';
+            }
+        } else if (accuracy >= 50) {
+            suggestion = `💡 建议重点复习 ${weakPoints.length > 0 ? weakPoints.join('、') : '相关语法'}。每道题答错后自动显示的语法提示是你的好帮手！`;
+        } else {
+            suggestion = `📚 别灰心！建议先从 ${weakPoints.length > 0 ? weakPoints[0] : '基础'} 语法开始学习。答错时会自动显示讲解，记得认真看哦！`;
+        }
+        
+        content.textContent = suggestion;
     }
 
     // ==================== 启动 ====================

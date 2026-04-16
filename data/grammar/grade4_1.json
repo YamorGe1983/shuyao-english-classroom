@@ -5,6 +5,7 @@
     {
       "id": "g4_1_01",
       "type": "A",
+      "grammarPoint": "一般现在时单三",
       "content": {
         "scrambled": ["She", "likes", "apples", "very", "much", "."],
         "sentence": "将单词组成正确的句子"
@@ -16,6 +17,7 @@
     {
       "id": "g4_1_02",
       "type": "C",
+      "grammarPoint": "一般现在时单三",
       "content": {
         "sentence": "He ____ (go/goes) to school every day.",
         "choices": ["go", "goes"],
@@ -28,6 +30,7 @@
     {
       "id": "g4_1_03",
       "type": "A",
+      "grammarPoint": "There be句型",
       "content": {
         "scrambled": ["There", "is", "a", "book", "on", "the", "desk", "."],
         "sentence": "将单词组成正确的句子"
@@ -39,6 +42,7 @@
     {
       "id": "g4_1_04",
       "type": "C",
+      "grammarPoint": "There be句型",
       "content": {
         "sentence": "There ____ (is/are) some books on the desk.",
         "choices": ["is", "are"],
@@ -51,6 +55,7 @@
     {
       "id": "g4_1_05",
       "type": "B",
+      "grammarPoint": "物主代词",
       "content": {
         "left": ["my", "your", "his", "her", "our"],
         "right": ["我的", "你的", "他的", "她的", "我们的"]
@@ -68,6 +73,7 @@
     {
       "id": "g4_1_06",
       "type": "A",
+      "grammarPoint": "情态动词",
       "content": {
         "scrambled": ["I", "can", "swim", "very", "well", "."],
         "sentence": "将单词组成正确的句子"
@@ -79,6 +85,7 @@
     {
       "id": "g4_1_07",
       "type": "C",
+      "grammarPoint": "情态动词",
       "content": {
         "sentence": "You ____ (can/can to) speak English.",
         "choices": ["can", "can to"],
@@ -91,6 +98,7 @@
     {
       "id": "g4_1_08",
       "type": "A",
+      "grammarPoint": "名词所有格",
       "content": {
         "scrambled": ["This", "is", "Tom", "'s", "bag", "."],
         "sentence": "将单词组成正确的句子"

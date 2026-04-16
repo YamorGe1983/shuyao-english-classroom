@@ -5,6 +5,7 @@
     {
       "id": "g5_2_01",
       "type": "A",
+      "grammarPoint": "不规则动词过去式",
       "content": {
         "scrambled": ["I", "went", "to", "Beijing", "last", "year", "."],
         "sentence": "将单词组成正确的句子"
@@ -16,6 +17,7 @@
     {
       "id": "g5_2_02",
       "type": "B",
+      "grammarPoint": "不规则动词过去式",
       "content": {
         "left": ["go-went", "eat-ate", "see-saw", "buy-bought", "write-wrote"],
         "right": ["去", "吃", "看见", "买", "写"]
@@ -33,6 +35,7 @@
     {
       "id": "g5_2_03",
       "type": "C",
+      "grammarPoint": "不规则动词过去式",
       "content": {
         "sentence": "She ____ (go/went/going) to school yesterday.",
         "choices": ["go", "went", "going"],
@@ -45,6 +48,7 @@
     {
       "id": "g5_2_04",
       "type": "A",
+      "grammarPoint": "时态对比",
       "content": {
         "scrambled": ["What", "did", "you", "do", "yesterday", "?"],
         "sentence": "将单词组成正确的句子"
@@ -56,6 +60,7 @@
     {
       "id": "g5_2_05",
       "type": "C",
+      "grammarPoint": "时态对比",
       "content": {
         "sentence": "I usually ____ (walk/walked) to school, but today I ____ (take/took) a bus.",
         "choices": ["walk/took", "walked/take"],
@@ -68,6 +73,7 @@
     {
       "id": "g5_2_06",
       "type": "A",
+      "grammarPoint": "连词从句",
       "content": {
         "scrambled": ["Because", "it", "rained", ",", "we", "stayed", "at", "home", "."],
         "sentence": "将单词组成正确的句子"
@@ -79,6 +85,7 @@
     {
       "id": "g5_2_07",
       "type": "C",
+      "grammarPoint": "连词从句",
       "content": {
         "sentence": "If it ____ (is/was/will be) sunny tomorrow, I ____ (play/will play) outside.",
         "choices": ["is/play", "will be/play"],
@@ -91,6 +98,7 @@
     {
       "id": "g5_2_08",
       "type": "B",
+      "grammarPoint": "连词从句",
       "content": {
         "left": ["if", "because", "but", "and", "so"],
         "right": ["如果", "因为", "但是", "和/而且", "所以"]
