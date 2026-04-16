@@ -1,0 +1,103 @@
+{
+  "id": "grade5_1",
+  "name": "五年级上册",
+  "grammar": [
+    {
+      "id": "g5_1_01",
+      "type": "A",
+      "content": {
+        "scrambled": ["He", "plays", "football", "every", "Saturday", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "He plays football every Saturday.",
+      "hint": "频率副词usually/always/often放在动词前。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_1_02",
+      "type": "B",
+      "content": {
+        "left": ["always", "usually", "often", "sometimes", "never"],
+        "right": ["总是", "通常", "经常", "有时", "从不"]
+      },
+      "answer": {
+        "always": "总是",
+        "usually": "通常",
+        "often": "经常",
+        "sometimes": "有时",
+        "never": "从不"
+      },
+      "hint": "频率副词从高到低：always > usually > often > sometimes > never。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_1_03",
+      "type": "C",
+      "content": {
+        "sentence": "She ____ (play/playes) the piano yesterday.",
+        "choices": ["play", "played"],
+        "blank": "____"
+      },
+      "answer": "played",
+      "hint": "yesterday表示过去，用一般过去时，动词用过去式。",
+      "difficulty": 2
+    },
+    {
+      "id": "g5_1_04",
+      "type": "A",
+      "content": {
+        "scrambled": ["I", "visited", "my", "grandparents", "last", "weekend", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I visited my grandparents last weekend.",
+      "hint": "一般过去时：规则动词加-ed。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_1_05",
+      "type": "C",
+      "content": {
+        "sentence": "My wish is ____ (eat/eating/to eat) dumplings.",
+        "choices": ["eat", "eating", "to eat"],
+        "blank": "____"
+      },
+      "answer": "to eat",
+      "hint": "动词不定式：to + 动词原形，可作表语。",
+      "difficulty": 2
+    },
+    {
+      "id": "g5_1_06",
+      "type": "A",
+      "content": {
+        "scrambled": ["To", "learn", "English", "is", "fun", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "To learn English is fun.",
+      "hint": "动词不定式作主语：To + 动词原形。",
+      "difficulty": 2
+    },
+    {
+      "id": "g5_1_07",
+      "type": "A",
+      "content": {
+        "scrambled": ["Close", "the", "door", "please", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Close the door please.",
+      "hint": "祈使句：动词原形开头，表示命令或请求。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_1_08",
+      "type": "C",
+      "content": {
+        "sentence": "____ (Don't/Not) walk on the grass!",
+        "choices": ["Don't", "Not"],
+        "blank": "____"
+      },
+      "answer": "Don't",
+      "hint": "否定祈使句：Don't + 动词原形。",
+      "difficulty": 2
+    }
+  ]
+}

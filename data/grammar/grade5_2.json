@@ -1,0 +1,109 @@
+{
+  "id": "grade5_2",
+  "name": "五年级下册",
+  "grammar": [
+    {
+      "id": "g5_2_01",
+      "type": "A",
+      "content": {
+        "scrambled": ["I", "went", "to", "Beijing", "last", "year", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I went to Beijing last year.",
+      "hint": "一般过去时：go的过去式是went。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_2_02",
+      "type": "B",
+      "content": {
+        "left": ["go-went", "eat-ate", "see-saw", "buy-bought", "write-wrote"],
+        "right": ["去", "吃", "看见", "买", "写"]
+      },
+      "answer": {
+        "go-went": "去",
+        "eat-ate": "吃",
+        "see-saw": "看见",
+        "buy-bought": "买",
+        "write-wrote": "写"
+      },
+      "hint": "不规则动词的过去式需要特殊记忆。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_2_03",
+      "type": "C",
+      "content": {
+        "sentence": "She ____ (go/went/going) to school yesterday.",
+        "choices": ["go", "went", "going"],
+        "blank": "____"
+      },
+      "answer": "went",
+      "hint": "yesterday表示过去，用过去式went。",
+      "difficulty": 1
+    },
+    {
+      "id": "g5_2_04",
+      "type": "A",
+      "content": {
+        "scrambled": ["What", "did", "you", "do", "yesterday", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "What did you do yesterday?",
+      "hint": "过去时疑问句：What + did + 主语 + 动词原形？",
+      "difficulty": 2
+    },
+    {
+      "id": "g5_2_05",
+      "type": "C",
+      "content": {
+        "sentence": "I usually ____ (walk/walked) to school, but today I ____ (take/took) a bus.",
+        "choices": ["walk/took", "walked/take"],
+        "blank": "____ / ____"
+      },
+      "answer": "walk/took",
+      "hint": "usually表示习惯，用一般现在时；but后today表示今天，用一般过去时。",
+      "difficulty": 3
+    },
+    {
+      "id": "g5_2_06",
+      "type": "A",
+      "content": {
+        "scrambled": ["Because", "it", "rained", ",", "we", "stayed", "at", "home", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Because it rained, we stayed at home.",
+      "hint": "because引导原因状语从句，意思是'因为'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g5_2_07",
+      "type": "C",
+      "content": {
+        "sentence": "If it ____ (is/was/will be) sunny tomorrow, I ____ (play/will play) outside.",
+        "choices": ["is/play", "will be/play"],
+        "blank": "____ / ____"
+      },
+      "answer": "is/play",
+      "hint": "if引导的条件状语从句，主句用一般现在时表将来。",
+      "difficulty": 3
+    },
+    {
+      "id": "g5_2_08",
+      "type": "B",
+      "content": {
+        "left": ["if", "because", "but", "and", "so"],
+        "right": ["如果", "因为", "但是", "和/而且", "所以"]
+      },
+      "answer": {
+        "if": "如果",
+        "because": "因为",
+        "but": "但是",
+        "and": "和/而且",
+        "so": "所以"
+      },
+      "hint": "连词用于连接句子和从句：if表条件，because表原因，but表转折，and表并列，so表结果。",
+      "difficulty": 2
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "grade4_1",
+  "name": "四年级上册",
+  "grammar": [
+    {
+      "id": "g4_1_01",
+      "type": "A",
+      "content": {
+        "scrambled": ["She", "likes", "apples", "very", "much", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "She likes apples very much.",
+      "hint": "一般现在时第三人称单数：动词加-s或-es。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_1_02",
+      "type": "C",
+      "content": {
+        "sentence": "He ____ (go/goes) to school every day.",
+        "choices": ["go", "goes"],
+        "blank": "____"
+      },
+      "answer": "goes",
+      "hint": "He是第三人称单数，动词go要加-es变成goes。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_1_03",
+      "type": "A",
+      "content": {
+        "scrambled": ["There", "is", "a", "book", "on", "the", "desk", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "There is a book on the desk.",
+      "hint": "There be句型：单数用is，复数用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_1_04",
+      "type": "C",
+      "content": {
+        "sentence": "There ____ (is/are) some books on the desk.",
+        "choices": ["is", "are"],
+        "blank": "____"
+      },
+      "answer": "are",
+      "hint": "books是复数名词，所以用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_1_05",
+      "type": "B",
+      "content": {
+        "left": ["my", "your", "his", "her", "our"],
+        "right": ["我的", "你的", "他的", "她的", "我们的"]
+      },
+      "answer": {
+        "my": "我的",
+        "your": "你的",
+        "his": "他的",
+        "her": "她的",
+        "our": "我们的"
+      },
+      "hint": "物主代词表示所属关系：my我的是形容词性物主代词。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_1_06",
+      "type": "A",
+      "content": {
+        "scrambled": ["I", "can", "swim", "very", "well", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I can swim very well.",
+      "hint": "情态动词can表示能力，后接动词原形。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_1_07",
+      "type": "C",
+      "content": {
+        "sentence": "You ____ (can/can to) speak English.",
+        "choices": ["can", "can to"],
+        "blank": "____"
+      },
+      "answer": "can",
+      "hint": "情态动词can后直接接动词原形，不需要to。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_1_08",
+      "type": "A",
+      "content": {
+        "scrambled": ["This", "is", "Tom", "'s", "bag", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "This is Tom's bag.",
+      "hint": "所有格：名词+'s表示所属关系。",
+      "difficulty": 2
+    }
+  ]
+}

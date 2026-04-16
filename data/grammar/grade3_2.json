@@ -1,0 +1,101 @@
+{
+  "id": "grade3_2",
+  "name": "三年级下册",
+  "grammar": [
+    {
+      "id": "g3_2_01",
+      "type": "A",
+      "content": {
+        "scrambled": ["I", "am", "a", "student", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I am a student.",
+      "hint": "主语 + be动词 + 其他成分。I 用 am。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_02",
+      "type": "A",
+      "content": {
+        "scrambled": ["She", "is", "my", "mother", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "She is my mother.",
+      "hint": "She是第三人称女性，用is。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_03",
+      "type": "B",
+      "content": {
+        "left": ["They", "He", "She", "It", "We"],
+        "right": ["are", "is", "is", "is", "are"]
+      },
+      "answer": {"They": "are", "He": "is", "She": "is", "It": "is", "We": "are"},
+      "hint": "be动词搭配：I用am，you用are，he/she/it用is，复数人称用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_04",
+      "type": "A",
+      "content": {
+        "scrambled": ["We", "are", "in", "the", "classroom", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "We are in the classroom.",
+      "hint": "表示'在某地'用 in + 地点。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_05",
+      "type": "C",
+      "content": {
+        "sentence": "The cats ____ (is/are) cute.",
+        "choices": ["is", "are"],
+        "blank": "____"
+      },
+      "answer": "are",
+      "hint": "cats是复数名词，用are。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_06",
+      "type": "A",
+      "content": {
+        "scrambled": ["The", "boy", "is", "playing", "football", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "The boy is playing football.",
+      "hint": "现在进行时：主语 + is/am/are + 动词-ing。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_07",
+      "type": "C",
+      "content": {
+        "sentence": "I ____ (watch/watches) TV now.",
+        "choices": ["watch", "watches"],
+        "blank": "____"
+      },
+      "answer": "watch",
+      "hint": "now表示现在进行时，用watching或用一般现在时。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_08",
+      "type": "B",
+      "content": {
+        "left": ["on the desk", "under the chair", "in the box", "near the door"],
+        "right": ["在桌子上", "在椅子下", "在盒子里", "在门附近"]
+      },
+      "answer": {
+        "on the desk": "在桌子上",
+        "under the chair": "在椅子下",
+        "in the box": "在盒子里",
+        "near the door": "在门附近"
+      },
+      "hint": "介词表示位置关系：on在...上，under在...下，in在...里，near在...附近。",
+      "difficulty": 2
+    }
+  ]
+}

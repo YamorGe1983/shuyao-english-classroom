@@ -1,0 +1,109 @@
+{
+  "id": "grade4_2",
+  "name": "四年级下册",
+  "grammar": [
+    {
+      "id": "g4_2_01",
+      "type": "A",
+      "content": {
+        "scrambled": ["I", "am", "going", "to", "visit", "my", "grandma", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I am going to visit my grandma.",
+      "hint": "be going to表示将来计划或打算。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_2_02",
+      "type": "C",
+      "content": {
+        "sentence": "It ____ (is going to/will) rain tomorrow.",
+        "choices": ["is going to", "will"],
+        "blank": "____"
+      },
+      "answer": "is going to",
+      "hint": "be going to表示根据迹象推断将要发生的事。",
+      "difficulty": 1
+    },
+    {
+      "id": "g4_2_03",
+      "type": "B",
+      "content": {
+        "left": ["taller", "shorter", "bigger", "smaller", "happier"],
+        "right": ["更高的", "更矮的", "更大的", "更小的", "更快乐的"]
+      },
+      "answer": {
+        "taller": "更高的",
+        "shorter": "更矮的",
+        "bigger": "更大的",
+        "smaller": "更小的",
+        "happier": "更快乐的"
+      },
+      "hint": "比较级变化：形容词+-er或多音节词前加more。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_2_04",
+      "type": "A",
+      "content": {
+        "scrambled": ["This", "book", "is", "the", "biggest", "of", "all", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "This book is the biggest of all.",
+      "hint": "最高级：形容词+-est，前面加the。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_2_05",
+      "type": "C",
+      "content": {
+        "sentence": "I get up ____ (in/at/on) six o'clock.",
+        "choices": ["in", "at", "on"],
+        "blank": "____"
+      },
+      "answer": "at",
+      "hint": "具体时间点用at，如at six o'clock。in用于年、月、季节；on用于日期和星期。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_2_06",
+      "type": "B",
+      "content": {
+        "left": ["in June", "on Monday", "at noon", "in the morning", "on the weekend"],
+        "right": ["在六月", "在星期一", "在中午", "在早上", "在周末"]
+      },
+      "answer": {
+        "in June": "在六月",
+        "on Monday": "在星期一",
+        "at noon": "在中午",
+        "in the morning": "在早上",
+        "on the weekend": "在周末"
+      },
+      "hint": "时间介词：in用于较长时段，at用于具体时刻，on用于具体日期。",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_2_07",
+      "type": "A",
+      "content": {
+        "scrambled": ["When", "do", "you", "go", "to", "bed", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "When do you go to bed?",
+      "hint": "When用于询问时间，特殊疑问句结构：疑问词+助动词+主语+动词？",
+      "difficulty": 2
+    },
+    {
+      "id": "g4_2_08",
+      "type": "C",
+      "content": {
+        "sentence": "____ (What/Where) is your brother?",
+        "choices": ["What", "Where"],
+        "blank": "____"
+      },
+      "answer": "Where",
+      "hint": "Where询问地点，What询问事物。",
+      "difficulty": 2
+    }
+  ]
+}
