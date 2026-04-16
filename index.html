@@ -3751,16 +3751,50 @@ const TTSModule = {
                     pitch: options.pitch || this.config.pitch,
                     onend: () => resolve(),
                     onerror: (e) => {
-                        console.warn('ResponsiveVoice错误，fallback到Web Speech API:', e);
-                        // 失败时fallback到Web Speech API
-                        this.speakWithBrowser(text).then(resolve);
+                        console.warn('ResponsiveVoice错误，尝试百度TTS:', e);
+                        // 失败时fallback到百度TTS
+                        this.speakWithBaidu(text).then(resolve).catch(() => {
+                            this.speakWithBrowser(text).then(resolve);
+                        });
                     }
                 });
             } 
-            // Fallback: Web Speech API
+            // Fallback: 百度TTS → 浏览器原生TTS
             else {
-                this.speakWithBrowser(text).then(resolve);
+                this.speakWithBaidu(text).then(resolve).catch(() => {
+                    this.speakWithBrowser(text).then(resolve);
+                });
             }
+        });
+    },
+    
+    // 百度TTS（备用方案）
+    speakWithBaidu(text) {
+        return new Promise((resolve, reject) => {
+            const isChinese = this.containsChinese(text);
+            const lang = isChinese ? 'zh' : 'en';
+            
+            // 百度TTS公开接口
+            const url = `https://tts.baidu.com/text2audio?tex=${encodeURIComponent(text)}&cuid=baike&lan=${lang}&ctp=1&pdt=301&vol=9&rate=32&per=0`;
+            
+            const audio = new Audio(url);
+            this.currentAudio = audio;
+            
+            audio.onended = () => {
+                this.currentAudio = null;
+                resolve();
+            };
+            
+            audio.onerror = (e) => {
+                this.currentAudio = null;
+                console.warn('百度TTS失败:', e);
+                reject(e);
+            };
+            
+            audio.play().catch(e => {
+                this.currentAudio = null;
+                reject(e);
+            });
         });
     },
     
