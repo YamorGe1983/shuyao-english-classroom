@@ -5220,8 +5220,8 @@ const App = {
         this.setContent(html);
     },
     
-    renderUnitDetail(unitId) {
-        const textbook = getCurrentTextbook();
+    async renderUnitDetail(unitId) {
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
         if (!unit) return;
         
@@ -5278,8 +5278,8 @@ const App = {
 
     // ==================== 单词学习 ====================
     
-    startUnitVocabulary(unitId) {
-        const textbook = getCurrentTextbook();
+    async startUnitVocabulary(unitId) {
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
         if (!unit || !unit.vocabulary) return;
         
@@ -5425,8 +5425,9 @@ const App = {
         ]);
     },
     
-    showLearningComplete() {
-        const unit = getCurrentTextbook().units[AppState.currentUnit];
+    async showLearningComplete() {
+        const textbook = await getCurrentTextbookAsync();
+        const unit = textbook.units[AppState.currentUnit];
         const sessionTime = Math.round((Date.now() - AppState.sessionStartTime) / 1000 / 60);
         
         const html = `
@@ -5462,8 +5463,9 @@ const App = {
     
     // ==================== 答题复习系统 ====================
     
-    startQuizForUnit(unitId) {
-        const unit = getCurrentTextbook().units[unitId];
+    async startQuizForUnit(unitId) {
+        const textbook = await getCurrentTextbookAsync();
+        const unit = textbook.units[unitId];
         if (!unit || !unit.vocabulary) return;
         
         AppState.currentUnit = unitId;
@@ -5478,7 +5480,8 @@ const App = {
         this.renderQuizQuestion();
     },
     
-    startQuizReview() {
+    async startQuizReview() {
+        const textbook = await getCurrentTextbookAsync();
         const todayTasks = MemoryModule.getTodayReviewTasks(20);
         
         if (todayTasks.length === 0) {
@@ -5486,7 +5489,7 @@ const App = {
             const allProgress = StorageModule.getAllWordProgress();
             const words = Object.keys(allProgress).map(key => {
                 const [unitId, word] = key.split('_');
-                const unit = getCurrentTextbook().units[unitId];
+                const unit = textbook.units[unitId];
                 const vocab = unit?.vocabulary?.find(v => v.word === word);
                 return vocab ? { ...vocab, unitId, moduleId: unit?.module } : null;
             }).filter(Boolean);
@@ -5501,7 +5504,7 @@ const App = {
             // 从复习任务生成题目
             const words = todayTasks.map(task => {
                 const [unitId, word] = task.wordKey.split('_');
-                const unit = getCurrentTextbook().units[unitId];
+                const unit = textbook.units[unitId];
                 const vocab = unit?.vocabulary?.find(v => v.word === word);
                 return vocab ? { ...vocab, unitId, moduleId: unit?.module } : null;
             }).filter(Boolean);
@@ -5837,7 +5840,8 @@ const App = {
 
     // ==================== 进度页面 ====================
     
-    renderProgress() {
+    async renderProgress() {
+        const textbook = await getCurrentTextbookAsync();
         const stats = StorageModule.getStatistics();
         const reviewStats = MemoryModule.getReviewStats();
         const completedUnits = StorageModule.getCompletedUnits();
@@ -5906,12 +5910,12 @@ const App = {
                 <div class="progress-section">
                     <h3>📖 单元进度</h3>
                     <div class="units-progress">
-                        ${getCurrentTextbook().modules.map(mod => `
+                        ${textbook.modules.map(mod => `
                             <div class="module-progress">
                                 <h4>${mod.nameCN}</h4>
                                 <div class="module-units">
                                     ${mod.units.map(unit => {
-                                        const unitData = getCurrentTextbook().units[unit.id];
+                                        const unitData = textbook.units[unit.id];
                                         const wordCount = unitData?.vocabulary?.length || 0;
                                         const completion = StorageModule.getUnitCompletion(unit.id, wordCount);
                                         const isCompleted = completedUnits.includes(unit.id);
@@ -6209,13 +6213,14 @@ const App = {
         this.updateStartButton();
     },
     
-    toggleUnit(unitId) {
+    async toggleUnit(unitId) {
         event.stopPropagation();
         
         const checkbox = document.getElementById(`unit-${unitId}`);
         const isChecked = checkbox.checked;
         
-        const module = getCurrentTextbook().modules.find(m => 
+        const textbook = await getCurrentTextbookAsync();
+        const module = textbook.modules.find(m => 
             m.units.some(u => u.id === unitId)
         );
         
@@ -6250,12 +6255,13 @@ const App = {
         }
     },
     
-    showWordSelectPage() {
+    async showWordSelectPage() {
+        const textbook = await getCurrentTextbookAsync();
         const state = this.listeningState;
         
         const allWords = [];
         state.selectedUnits.forEach(unitId => {
-            const unitData = getCurrentTextbook().units[unitId];
+            const unitData = textbook.units[unitId];
             if (unitData && unitData.vocabulary) {
                 unitData.vocabulary.forEach(word => {
                     allWords.push({
@@ -6380,9 +6386,10 @@ const App = {
         }
     },
     
-    findExampleForWord(word, unitIds) {
+    async findExampleForWord(word, unitIds) {
+        const textbook = await getCurrentTextbookAsync();
         for (const unitId of unitIds) {
-            const unit = getCurrentTextbook().units[unitId];
+            const unit = textbook.units[unitId];
             if (unit && unit.sentences) {
                 const found = unit.sentences.find(s => 
                     s.english.toLowerCase().includes(word.toLowerCase())
