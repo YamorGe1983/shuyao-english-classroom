@@ -4658,8 +4658,14 @@ const UserModule = {
     
     // 获取所有用户
     getUsers() {
-        const users = localStorage.getItem(this.STORAGE_KEYS.USERS);
-        return users ? JSON.parse(users) : [];
+        try {
+            const users = localStorage.getItem(this.STORAGE_KEYS.USERS);
+            return users ? JSON.parse(users) : [];
+        } catch (e) {
+            console.warn('用户数据损坏，已重置:', e);
+            localStorage.removeItem(this.STORAGE_KEYS.USERS);
+            return [];
+        }
     },
     
     // 保存用户列表
