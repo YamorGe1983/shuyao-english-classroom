@@ -2210,7 +2210,7 @@
         // 标准化：去掉标点符号前的空格
         userAnswer = userAnswer.replace(/\s+([.,!?])/g, '$1');
         // 标准化答案也处理一下
-        const correctAnswer = question.answer.replace(/s+([.,!?])/g, '$1');
+        const correctAnswer = question.answer.replace(/\s+([.,!?])/g, '$1');
         return userAnswer === correctAnswer;
     }
 
