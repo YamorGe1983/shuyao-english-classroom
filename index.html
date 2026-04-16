@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="舒窈小课堂 - 小学三年级英语学习">
     <meta name="theme-color" content="#FF6B6B">
+    <!-- iOS PWA 配置 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="舒窈小课堂">
     <title>舒窈小课堂</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👧</text></svg>">
     
@@ -21659,28 +21663,53 @@ const TTSModule = {
         if (this._audioActivated) return;
         this._audioActivated = true;
         
-        // iOS Safari 音频解锁
-        // 创建一个静音的AudioContext并resume
+        console.log('🎵 开始激活音频系统...');
+        
+        // iOS Safari / PWA 独立模式 音频解锁
+        // 方法1: 创建一个静音的AudioContext并resume
         try {
             const AudioContextClass = window.AudioContext || window.webkitAudioContext;
             if (AudioContextClass) {
-                const tempContext = new AudioContextClass();
-                tempContext.resume().then(() => {
+                const ctx = new AudioContextClass();
+                ctx.resume().then(() => {
                     console.log('✓ AudioContext已解锁');
-                    tempContext.close();
-                }).catch(() => {});
+                    // 创建一个极短的静音音频节点播放
+                    const oscillator = ctx.createOscillator();
+                    const gainNode = ctx.createGain();
+                    gainNode.gain.value = 0; // 静音
+                    oscillator.connect(gainNode);
+                    gainNode.connect(ctx.destination);
+                    oscillator.start();
+                    oscillator.stop(ctx.currentTime + 0.001);
+                    ctx.close();
+                }).catch(e => console.warn('AudioContext解锁失败:', e));
             }
-        } catch (e) {}
+        } catch (e) { console.warn('AudioContext创建失败:', e); }
         
-        // 播放一个静音音频来解锁iOS音频
+        // 方法2: 播放一个静音音频来解锁iOS音频
         try {
             const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA');
+            silentAudio.volume = 0.01; // 几乎静音
             silentAudio.play().then(() => {
-                console.log('✓ iOS音频已解锁');
-            }).catch(() => {});
-        } catch (e) {}
+                console.log('✓ 静音音频播放成功，iOS音频已解锁');
+            }).catch(e => console.warn('静音音频播放失败:', e));
+        } catch (e) { console.warn('静音音频创建失败:', e); }
         
-        console.log('✓ 音频系统已激活');
+        // 方法3: 预加载speechSynthesis voices（iOS PWA需要）
+        try {
+            if ('speechSynthesis' in window) {
+                const voices = speechSynthesis.getVoices();
+                if (voices.length === 0) {
+                    speechSynthesis.addEventListener('voiceschanged', () => {
+                        console.log('✓ speechSynthesis voices已加载:', speechSynthesis.getVoices().length);
+                    }, { once: true });
+                } else {
+                    console.log('✓ speechSynthesis voices已就绪:', voices.length);
+                }
+            }
+        } catch (e) { console.warn('speechSynthesis激活失败:', e); }
+        
+        console.log('✅ 音频系统激活完成');
     },
     
     // 检测是否是iOS设备
