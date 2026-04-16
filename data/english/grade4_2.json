@@ -1,0 +1,3572 @@
+{
+  "id": "grade4_2",
+  "name": "四年级下册",
+  "metadata": {
+    "title": "Oxford English Primary 4 (Shanghai Edition)",
+    "subtitle": "牛津上海版小学英语四年级下册",
+    "totalUnits": 12,
+    "totalModules": 4
+  },
+  "modules": [
+    {
+      "id": "module1",
+      "name": "Using my five senses",
+      "nameCN": "运用我的五种感官",
+      "units": [
+        {
+          "id": "unit1",
+          "name": "Touch and feel",
+          "nameCN": "触摸和感受"
+        },
+        {
+          "id": "unit2",
+          "name": "Smell and taste",
+          "nameCN": "闻和尝"
+        },
+        {
+          "id": "unit3",
+          "name": "Look and see",
+          "nameCN": "看和观察"
+        }
+      ]
+    },
+    {
+      "id": "module2",
+      "name": "My favourite things",
+      "nameCN": "我最喜欢的东西",
+      "units": [
+        {
+          "id": "unit4",
+          "name": "Subjects",
+          "nameCN": "学科"
+        },
+        {
+          "id": "unit5",
+          "name": "Sport",
+          "nameCN": "运动"
+        },
+        {
+          "id": "unit6",
+          "name": "Music",
+          "nameCN": "音乐"
+        }
+      ]
+    },
+    {
+      "id": "module3",
+      "name": "My colourful life",
+      "nameCN": "我丰富多彩的生活",
+      "units": [
+        {
+          "id": "unit7",
+          "name": "My day",
+          "nameCN": "我的一天"
+        },
+        {
+          "id": "unit8",
+          "name": "My week",
+          "nameCN": "我的一周"
+        },
+        {
+          "id": "unit9",
+          "name": "Jobs",
+          "nameCN": "职业"
+        }
+      ]
+    },
+    {
+      "id": "module4",
+      "name": "Things we enjoy",
+      "nameCN": "我们喜欢的事物",
+      "units": [
+        {
+          "id": "unit10",
+          "name": "My family",
+          "nameCN": "我的家人"
+        },
+        {
+          "id": "unit11",
+          "name": "Feelings",
+          "nameCN": "感受"
+        },
+        {
+          "id": "unit12",
+          "name": "Abilities",
+          "nameCN": "能力"
+        }
+      ]
+    }
+  ],
+  "units": {
+    "unit1": {
+      "id": "unit1",
+      "module": "module1",
+      "name": "Touch and feel",
+      "nameCN": "触摸和感受",
+      "topic": "学习通过触觉描述物体的特征",
+      "vocabulary": [
+        {
+          "word": "touch",
+          "chinese": "触摸",
+          "phonetic": "/tʌtʃ/",
+          "audio": "touch",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "ch",
+              "sound": "/tʃ/"
+            }
+          ]
+        },
+        {
+          "word": "feel",
+          "chinese": "感觉",
+          "phonetic": "/fiːl/",
+          "audio": "feel",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "l",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "soft",
+          "chinese": "柔软的",
+          "phonetic": "/sɒft/",
+          "audio": "soft",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ɒ/"
+            },
+            {
+              "letters": "ft",
+              "sound": "/ft/"
+            }
+          ]
+        },
+        {
+          "word": "hard",
+          "chinese": "硬的",
+          "phonetic": "/hɑːd/",
+          "audio": "hard",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ar",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "thick",
+          "chinese": "厚的",
+          "phonetic": "/θɪk/",
+          "audio": "thick",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ck",
+              "sound": "/k/"
+            }
+          ]
+        },
+        {
+          "word": "thin",
+          "chinese": "薄的",
+          "phonetic": "/θɪn/",
+          "audio": "thin",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "blind",
+          "chinese": "失明的",
+          "phonetic": "/blaɪnd/",
+          "audio": "blind",
+          "letterSounds": [
+            {
+              "letters": "bl",
+              "sound": "/bl/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "nd",
+              "sound": "/nd/"
+            }
+          ]
+        },
+        {
+          "word": "noise",
+          "chinese": "噪音",
+          "phonetic": "/nɔɪz/",
+          "audio": "noise",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "oi",
+              "sound": "/ɔɪ/"
+            },
+            {
+              "letters": "se",
+              "sound": "/z/"
+            }
+          ]
+        },
+        {
+          "word": "young",
+          "chinese": "年轻的",
+          "phonetic": "/jʌŋ/",
+          "audio": "young",
+          "letterSounds": [
+            {
+              "letters": "y",
+              "sound": "/j/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "ng",
+              "sound": "/ŋ/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "Touch this. How does it feel?",
+          "chinese": "摸摸这个。它摸起来怎么样？",
+          "audio": "touch_this_how_does_it_feel"
+        },
+        {
+          "english": "It feels soft.",
+          "chinese": "它摸起来很软。",
+          "audio": "it_feels_soft"
+        },
+        {
+          "english": "This book is thick.",
+          "chinese": "这本书很厚。",
+          "audio": "this_book_is_thick"
+        },
+        {
+          "english": "The paper is thin.",
+          "chinese": "这张纸很薄。",
+          "audio": "the_paper_is_thin"
+        },
+        {
+          "english": "I can feel it.",
+          "chinese": "我能感觉到它。",
+          "audio": "i_can_feel_it"
+        },
+        {
+          "english": "Don't touch the hot pot.",
+          "chinese": "不要碰热锅。",
+          "audio": "dont_touch_the_hot_pot"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Feeling objects",
+          "participants": [
+            "Mum",
+            "Tom"
+          ],
+          "lines": [
+            {
+              "speaker": "Mum",
+              "text": "Tom, close your eyes and touch this.",
+              "audio": "tom_close_your_eyes_and_touch_this"
+            },
+            {
+              "speaker": "Tom",
+              "text": "OK, Mum. It feels soft. Is it a toy?",
+              "audio": "ok_mum_it_feels_soft_is_it_a_toy"
+            },
+            {
+              "speaker": "Mum",
+              "text": "No, it's not. It's a pillow.",
+              "audio": "no_its_not_its_a_pillow"
+            },
+            {
+              "speaker": "Tom",
+              "text": "A pillow! I like soft pillows.",
+              "audio": "a_pillow_i_like_soft_pillows"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'柔软的'用英语怎么说？",
+          "options": [
+            "Soft",
+            "Hard",
+            "Thick"
+          ],
+          "answer": "Soft",
+          "audio": "soft"
+        },
+        {
+          "type": "choice",
+          "question": "'厚的'用英语怎么说？",
+          "options": [
+            "Thin",
+            "Thick",
+            "Young"
+          ],
+          "answer": "Thick",
+          "audio": "thick"
+        },
+        {
+          "type": "choice",
+          "question": "什么可以用来触摸东西？",
+          "options": [
+            "Eyes",
+            "Nose",
+            "Hands"
+          ],
+          "answer": "Hands",
+          "audio": "hands"
+        }
+      ]
+    },
+    "unit2": {
+      "id": "unit2",
+      "module": "module1",
+      "name": "Smell and taste",
+      "nameCN": "闻和尝",
+      "topic": "学习描述食物的气味和味道",
+      "vocabulary": [
+        {
+          "word": "smell",
+          "chinese": "闻起来",
+          "phonetic": "/smel/",
+          "audio": "smell",
+          "letterSounds": [
+            {
+              "letters": "sm",
+              "sound": "/sm/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "ll",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "strawberry",
+          "chinese": "草莓",
+          "phonetic": "/ˈstrɔːbəri/",
+          "audio": "strawberry",
+          "letterSounds": [
+            {
+              "letters": "str",
+              "sound": "/str/"
+            },
+            {
+              "letters": "aw",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "ber",
+              "sound": "/bər/"
+            },
+            {
+              "letters": "ry",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "watermelon",
+          "chinese": "西瓜",
+          "phonetic": "/ˈwɔːtərmelən/",
+          "audio": "watermelon",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "a",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tər/"
+            },
+            {
+              "letters": "me",
+              "sound": "/mə/"
+            },
+            {
+              "letters": "lon",
+              "sound": "/lən/"
+            }
+          ]
+        },
+        {
+          "word": "grape",
+          "chinese": "葡萄",
+          "phonetic": "/ɡreɪp/",
+          "audio": "grape",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "a",
+              "sound": "/eɪ/"
+            },
+            {
+              "letters": "pe",
+              "sound": "/p/"
+            }
+          ]
+        },
+        {
+          "word": "fox",
+          "chinese": "狐狸",
+          "phonetic": "/fɒks/",
+          "audio": "fox",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ɒ/"
+            },
+            {
+              "letters": "x",
+              "sound": "/ks/"
+            }
+          ]
+        },
+        {
+          "word": "round",
+          "chinese": "圆的",
+          "phonetic": "/raʊnd/",
+          "audio": "round",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/aʊ/"
+            },
+            {
+              "letters": "nd",
+              "sound": "/nd/"
+            }
+          ]
+        },
+        {
+          "word": "purple",
+          "chinese": "紫色的",
+          "phonetic": "/ˈpɜːrpəl/",
+          "audio": "purple",
+          "letterSounds": [
+            {
+              "letters": "pur",
+              "sound": "/pɜːr/"
+            },
+            {
+              "letters": "ple",
+              "sound": "/pəl/"
+            }
+          ]
+        },
+        {
+          "word": "wait",
+          "chinese": "等待",
+          "phonetic": "/weɪt/",
+          "audio": "wait",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "ai",
+              "sound": "/eɪ/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "minute",
+          "chinese": "分钟",
+          "phonetic": "/ˈmɪnɪt/",
+          "audio": "minute",
+          "letterSounds": [
+            {
+              "letters": "mi",
+              "sound": "/mɪ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ute",
+              "sound": "/ɪt/"
+            }
+          ]
+        },
+        {
+          "word": "get",
+          "chinese": "得到",
+          "phonetic": "/ɡet/",
+          "audio": "get",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "those",
+          "chinese": "那些",
+          "phonetic": "/ðoʊz/",
+          "audio": "those",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/ð/"
+            },
+            {
+              "letters": "o",
+              "sound": "/oʊ/"
+            },
+            {
+              "letters": "se",
+              "sound": "/z/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "What does it smell like?",
+          "chinese": "它闻起来像什么？",
+          "audio": "what_does_it_smell_like"
+        },
+        {
+          "english": "It smells like strawberry.",
+          "chinese": "它闻起来像草莓。",
+          "audio": "it_smells_like_strawberry"
+        },
+        {
+          "english": "These grapes are sweet.",
+          "chinese": "这些葡萄很甜。",
+          "audio": "these_grapes_are_sweet"
+        },
+        {
+          "english": "Wait a minute, please.",
+          "chinese": "请稍等一下。",
+          "audio": "wait_a_minute_please"
+        },
+        {
+          "english": "Do you like watermelons?",
+          "chinese": "你喜欢西瓜吗？",
+          "audio": "do_you_like_watermelons"
+        },
+        {
+          "english": "Those are nice fruits.",
+          "chinese": "那些是不错的水果。",
+          "audio": "those_are_nice_fruits"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: At the fruit shop",
+          "participants": [
+            "Shopkeeper",
+            "Lily"
+          ],
+          "lines": [
+            {
+              "speaker": "Shopkeeper",
+              "text": "What can I do for you?",
+              "audio": "what_can_i_do_for_you"
+            },
+            {
+              "speaker": "Lily",
+              "text": "I'd like some strawberries, please.",
+              "audio": "id_like_some_strawberries_please"
+            },
+            {
+              "speaker": "Shopkeeper",
+              "text": "Here you are. These are fresh.",
+              "audio": "here_you_are_these_are_fresh"
+            },
+            {
+              "speaker": "Lily",
+              "text": "Thank you. Do you have grapes?",
+              "audio": "thank_you_do_you_have_grapes"
+            },
+            {
+              "speaker": "Shopkeeper",
+              "text": "Yes, the purple ones are sweet.",
+              "audio": "yes_the_purple_ones_are_sweet"
+            },
+            {
+              "speaker": "Lily",
+              "text": "I'll take them. Thank you.",
+              "audio": "ill_take_them_thank_you"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'草莓'用英语怎么说？",
+          "options": [
+            "Strawberry",
+            "Watermelon",
+            "Grape"
+          ],
+          "answer": "Strawberry",
+          "audio": "strawberry"
+        },
+        {
+          "type": "choice",
+          "question": "'紫色的'用英语怎么说？",
+          "options": [
+            "Round",
+            "Purple",
+            "Sweet"
+          ],
+          "answer": "Purple",
+          "audio": "purple"
+        },
+        {
+          "type": "choice",
+          "question": "'分钟'用英语怎么说？",
+          "options": [
+            "Wait",
+            "Minute",
+            "Those"
+          ],
+          "answer": "Minute",
+          "audio": "minute"
+        }
+      ]
+    },
+    "unit3": {
+      "id": "unit3",
+      "module": "module1",
+      "name": "Look and see",
+      "nameCN": "看和观察",
+      "topic": "学习描述一天中不同时间的景象",
+      "vocabulary": [
+        {
+          "word": "rise",
+          "chinese": "升起",
+          "phonetic": "/raɪz/",
+          "audio": "rise",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "se",
+              "sound": "/z/"
+            }
+          ]
+        },
+        {
+          "word": "shadow",
+          "chinese": "影子",
+          "phonetic": "/ˈʃædoʊ/",
+          "audio": "shadow",
+          "letterSounds": [
+            {
+              "letters": "sh",
+              "sound": "/ʃ/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "do",
+              "sound": "/doʊ/"
+            },
+            {
+              "letters": "w",
+              "sound": "/w/"
+            }
+          ]
+        },
+        {
+          "word": "noon",
+          "chinese": "中午",
+          "phonetic": "/nuːn/",
+          "audio": "noon",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "high",
+          "chinese": "高的",
+          "phonetic": "/haɪ/",
+          "audio": "high",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "igh",
+              "sound": "/aɪ/"
+            }
+          ]
+        },
+        {
+          "word": "sky",
+          "chinese": "天空",
+          "phonetic": "/skaɪ/",
+          "audio": "sky",
+          "letterSounds": [
+            {
+              "letters": "sk",
+              "sound": "/sk/"
+            },
+            {
+              "letters": "y",
+              "sound": "/aɪ/"
+            }
+          ]
+        },
+        {
+          "word": "evening",
+          "chinese": "傍晚",
+          "phonetic": "/ˈiːvnɪŋ/",
+          "audio": "evening",
+          "letterSounds": [
+            {
+              "letters": "ev",
+              "sound": "/iːv/"
+            },
+            {
+              "letters": "en",
+              "sound": "/ən/"
+            },
+            {
+              "letters": "ing",
+              "sound": "/ɪŋ/"
+            }
+          ]
+        },
+        {
+          "word": "again",
+          "chinese": "再次",
+          "phonetic": "/əˈɡen/",
+          "audio": "again",
+          "letterSounds": [
+            {
+              "letters": "a",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "ga",
+              "sound": "/ɡeɪ/"
+            },
+            {
+              "letters": "in",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "night",
+          "chinese": "夜晚",
+          "phonetic": "/naɪt/",
+          "audio": "night",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "igh",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "moon",
+          "chinese": "月亮",
+          "phonetic": "/muːn/",
+          "audio": "moon",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "him",
+          "chinese": "他（宾格）",
+          "phonetic": "/hɪm/",
+          "audio": "him",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "stop",
+          "chinese": "停止",
+          "phonetic": "/stɒp/",
+          "audio": "stop",
+          "letterSounds": [
+            {
+              "letters": "st",
+              "sound": "/st/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ɒ/"
+            },
+            {
+              "letters": "p",
+              "sound": "/p/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "The sun rises in the morning.",
+          "chinese": "太阳在早晨升起。",
+          "audio": "the_sun_rises_in_the_morning"
+        },
+        {
+          "english": "The shadow is long at noon.",
+          "chinese": "中午时影子很长。",
+          "audio": "the_shadow_is_long_at_noon"
+        },
+        {
+          "english": "The bird flies high in the sky.",
+          "chinese": "鸟儿在天空中高高飞翔。",
+          "audio": "the_bird_flies_high_in_the_sky"
+        },
+        {
+          "english": "Good evening!",
+          "chinese": "晚上好！",
+          "audio": "good_evening"
+        },
+        {
+          "english": "Look at the moon.",
+          "chinese": "看月亮。",
+          "audio": "look_at_the_moon"
+        },
+        {
+          "english": "Let's go home again.",
+          "chinese": "我们回家吧。",
+          "audio": "lets_go_home_again"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Watching the sun",
+          "participants": [
+            "Dad",
+            "Tom"
+          ],
+          "lines": [
+            {
+              "speaker": "Dad",
+              "text": "Look, Tom! The sun is rising.",
+              "audio": "look_tom_the_sun_is_rising"
+            },
+            {
+              "speaker": "Tom",
+              "text": "It's so beautiful, Dad.",
+              "audio": "its_so_beautiful_dad"
+            },
+            {
+              "speaker": "Dad",
+              "text": "At noon, the sun is high in the sky.",
+              "audio": "at_noon_the_sun_is_high_in_the_sky"
+            },
+            {
+              "speaker": "Tom",
+              "text": "And the shadow is short.",
+              "audio": "and_the_shadow_is_short"
+            },
+            {
+              "speaker": "Dad",
+              "text": "Yes, you're right.",
+              "audio": "yes_youre_right"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'影子'用英语怎么说？",
+          "options": [
+            "Shadow",
+            "Rise",
+            "Sky"
+          ],
+          "answer": "Shadow",
+          "audio": "shadow"
+        },
+        {
+          "type": "choice",
+          "question": "'夜晚'用英语怎么说？",
+          "options": [
+            "Morning",
+            "Evening",
+            "Night"
+          ],
+          "answer": "Night",
+          "audio": "night"
+        },
+        {
+          "type": "choice",
+          "question": "'月亮'用英语怎么说？",
+          "options": [
+            "Sun",
+            "Moon",
+            "Star"
+          ],
+          "answer": "Moon",
+          "audio": "moon"
+        }
+      ]
+    },
+    "unit4": {
+      "id": "unit4",
+      "module": "module2",
+      "name": "Subjects",
+      "nameCN": "学科",
+      "topic": "学习学校各个学科的名称",
+      "vocabulary": [
+        {
+          "word": "subject",
+          "chinese": "学科",
+          "phonetic": "/ˈsʌbdʒekt/",
+          "audio": "subject",
+          "letterSounds": [
+            {
+              "letters": "sub",
+              "sound": "/sʌb/"
+            },
+            {
+              "letters": "ject",
+              "sound": "/dʒekt/"
+            }
+          ]
+        },
+        {
+          "word": "lesson",
+          "chinese": "课",
+          "phonetic": "/ˈlesən/",
+          "audio": "lesson",
+          "letterSounds": [
+            {
+              "letters": "le",
+              "sound": "/le/"
+            },
+            {
+              "letters": "sson",
+              "sound": "/sən/"
+            }
+          ]
+        },
+        {
+          "word": "Chinese",
+          "chinese": "语文",
+          "phonetic": "/tʃaɪˈniːz/",
+          "audio": "chinese",
+          "letterSounds": [
+            {
+              "letters": "Ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "nese",
+              "sound": "/niːz/"
+            }
+          ]
+        },
+        {
+          "word": "Maths",
+          "chinese": "数学",
+          "phonetic": "/mæθs/",
+          "audio": "maths",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "s",
+              "sound": "/s/"
+            }
+          ]
+        },
+        {
+          "word": "English",
+          "chinese": "英语",
+          "phonetic": "/ˈɪŋɡlɪʃ/",
+          "audio": "english",
+          "letterSounds": [
+            {
+              "letters": "En",
+              "sound": "/ɪŋ/"
+            },
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "lish",
+              "sound": "/lɪʃ/"
+            }
+          ]
+        },
+        {
+          "word": "Science",
+          "chinese": "科学",
+          "phonetic": "/ˈsaɪəns/",
+          "audio": "science",
+          "letterSounds": [
+            {
+              "letters": "Sc",
+              "sound": "/saɪ/"
+            },
+            {
+              "letters": "ence",
+              "sound": "/əns/"
+            }
+          ]
+        },
+        {
+          "word": "PE",
+          "chinese": "体育",
+          "phonetic": "/piː iː/",
+          "audio": "pe",
+          "letterSounds": [
+            {
+              "letters": "PE",
+              "sound": "/piː iː/"
+            }
+          ]
+        },
+        {
+          "word": "Music",
+          "chinese": "音乐",
+          "phonetic": "/ˈmjuːzɪk/",
+          "audio": "music",
+          "letterSounds": [
+            {
+              "letters": "Mu",
+              "sound": "/mjuː/"
+            },
+            {
+              "letters": "sic",
+              "sound": "/zɪk/"
+            }
+          ]
+        },
+        {
+          "word": "Art",
+          "chinese": "美术",
+          "phonetic": "/ɑːrt/",
+          "audio": "art",
+          "letterSounds": [
+            {
+              "letters": "a",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "IT",
+          "chinese": "信息技术",
+          "phonetic": "/aɪ tiː/",
+          "audio": "it",
+          "letterSounds": [
+            {
+              "letters": "IT",
+              "sound": "/aɪ tiː/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "What's your favourite subject?",
+          "chinese": "你最喜欢的学科是什么？",
+          "audio": "whats_your_favourite_subject"
+        },
+        {
+          "english": "I like English best.",
+          "chinese": "我最喜欢英语。",
+          "audio": "i_like_english_best"
+        },
+        {
+          "english": "We have Maths every day.",
+          "chinese": "我们每天都有数学课。",
+          "audio": "we_have_maths_every_day"
+        },
+        {
+          "english": "Music class is fun.",
+          "chinese": "音乐课很有趣。",
+          "audio": "music_class_is_fun"
+        },
+        {
+          "english": "I can draw in Art class.",
+          "chinese": "我可以在美术课上画画。",
+          "audio": "i_can_draw_in_art_class"
+        },
+        {
+          "english": "We have six subjects.",
+          "chinese": "我们有六门学科。",
+          "audio": "we_have_six_subjects"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Talking about subjects",
+          "participants": [
+            "Amy",
+            "Ben"
+          ],
+          "lines": [
+            {
+              "speaker": "Amy",
+              "text": "What subjects do you have, Ben?",
+              "audio": "what_subjects_do_you_have_ben"
+            },
+            {
+              "speaker": "Ben",
+              "text": "I have Chinese, Maths, English, Science, PE and Music.",
+              "audio": "i_have_chinese_maths_english_science_pe_and_music"
+            },
+            {
+              "speaker": "Amy",
+              "text": "That's six subjects. What's your favourite?",
+              "audio": "thats_six_subjects_whats_your_favourite"
+            },
+            {
+              "speaker": "Ben",
+              "text": "I like Science. What about you?",
+              "audio": "i_like_science_what_about_you"
+            },
+            {
+              "speaker": "Amy",
+              "text": "I like Music and Art.",
+              "audio": "i_like_music_and_art"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'数学'用英语怎么说？",
+          "options": [
+            "Maths",
+            "Science",
+            "Chinese"
+          ],
+          "answer": "Maths",
+          "audio": "maths"
+        },
+        {
+          "type": "choice",
+          "question": "'体育'用英语怎么说？",
+          "options": [
+            "PE",
+            "IT",
+            "Art"
+          ],
+          "answer": "PE",
+          "audio": "pe"
+        },
+        {
+          "type": "choice",
+          "question": "'音乐'用英语怎么说？",
+          "options": [
+            "Music",
+            "Maths",
+            "PE"
+          ],
+          "answer": "Music",
+          "audio": "music"
+        }
+      ]
+    },
+    "unit5": {
+      "id": "unit5",
+      "module": "module2",
+      "name": "Sport",
+      "nameCN": "运动",
+      "topic": "学习各种运动项目和表达爱好",
+      "vocabulary": [
+        {
+          "word": "sport",
+          "chinese": "运动",
+          "phonetic": "/spɔːrt/",
+          "audio": "sport",
+          "letterSounds": [
+            {
+              "letters": "sp",
+              "sound": "/sp/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "football",
+          "chinese": "足球",
+          "phonetic": "/ˈfʊtbɔːl/",
+          "audio": "football",
+          "letterSounds": [
+            {
+              "letters": "foo",
+              "sound": "/fʊ/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "ball",
+              "sound": "/bɔːl/"
+            }
+          ]
+        },
+        {
+          "word": "club",
+          "chinese": "俱乐部",
+          "phonetic": "/klʌb/",
+          "audio": "club",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "u",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "b",
+              "sound": "/b/"
+            }
+          ]
+        },
+        {
+          "word": "join",
+          "chinese": "参加",
+          "phonetic": "/dʒɔɪn/",
+          "audio": "join",
+          "letterSounds": [
+            {
+              "letters": "j",
+              "sound": "/dʒ/"
+            },
+            {
+              "letters": "oi",
+              "sound": "/ɔɪ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "tell",
+          "chinese": "告诉",
+          "phonetic": "/tel/",
+          "audio": "tell",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "ll",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "about",
+          "chinese": "关于",
+          "phonetic": "/əˈbaʊt/",
+          "audio": "about",
+          "letterSounds": [
+            {
+              "letters": "a",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "bou",
+              "sound": "/baʊ/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "basketball",
+          "chinese": "篮球",
+          "phonetic": "/ˈbæskɪtbɔːl/",
+          "audio": "basketball",
+          "letterSounds": [
+            {
+              "letters": "ba",
+              "sound": "/bæ/"
+            },
+            {
+              "letters": "sket",
+              "sound": "/skɪt/"
+            },
+            {
+              "letters": "ball",
+              "sound": "/bɔːl/"
+            }
+          ]
+        },
+        {
+          "word": "volleyball",
+          "chinese": "排球",
+          "phonetic": "/ˈvɒlibɔːl/",
+          "audio": "volleyball",
+          "letterSounds": [
+            {
+              "letters": "vo",
+              "sound": "/vɒ/"
+            },
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "ley",
+              "sound": "/li/"
+            },
+            {
+              "letters": "ball",
+              "sound": "/bɔːl/"
+            }
+          ]
+        },
+        {
+          "word": "play",
+          "chinese": "玩/打/踢",
+          "phonetic": "/pleɪ/",
+          "audio": "play",
+          "letterSounds": [
+            {
+              "letters": "pl",
+              "sound": "/pl/"
+            },
+            {
+              "letters": "ay",
+              "sound": "/eɪ/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "I like playing football.",
+          "chinese": "我喜欢踢足球。",
+          "audio": "i_like_playing_football"
+        },
+        {
+          "english": "Do you want to join our club?",
+          "chinese": "你想加入我们的俱乐部吗？",
+          "audio": "do_you_want_to_join_our_club"
+        },
+        {
+          "english": "I can play basketball.",
+          "chinese": "我会打篮球。",
+          "audio": "i_can_play_basketball"
+        },
+        {
+          "english": "Let's play volleyball.",
+          "chinese": "我们打排球吧。",
+          "audio": "lets_play_volleyball"
+        },
+        {
+          "english": "Football is my favourite sport.",
+          "chinese": "足球是我最喜欢的运动。",
+          "audio": "football_is_my_favourite_sport"
+        },
+        {
+          "english": "Tell me about your hobby.",
+          "chinese": "告诉我你的爱好。",
+          "audio": "tell_me_about_your_hobby"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Joining a club",
+          "participants": [
+            "Tom",
+            "Coach"
+          ],
+          "lines": [
+            {
+              "speaker": "Tom",
+              "text": "I'd like to join the football club.",
+              "audio": "id_like_to_join_the_football_club"
+            },
+            {
+              "speaker": "Coach",
+              "text": "Great! Do you like playing football?",
+              "audio": "great_do_you_like_playing_football"
+            },
+            {
+              "speaker": "Tom",
+              "text": "Yes, I play football every weekend.",
+              "audio": "yes_i_play_football_every_weekend"
+            },
+            {
+              "speaker": "Coach",
+              "text": "That's wonderful. Welcome to the club!",
+              "audio": "thats_wonderful_welcome_to_the_club"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'足球'用英语怎么说？",
+          "options": [
+            "Football",
+            "Basketball",
+            "Volleyball"
+          ],
+          "answer": "Football",
+          "audio": "football"
+        },
+        {
+          "type": "choice",
+          "question": "'参加'用英语怎么说？",
+          "options": [
+            "Join",
+            "Tell",
+            "Play"
+          ],
+          "answer": "Join",
+          "audio": "join"
+        },
+        {
+          "type": "choice",
+          "question": "'俱乐部'用英语怎么说？",
+          "options": [
+            "Club",
+            "Sport",
+            "Ball"
+          ],
+          "answer": "Club",
+          "audio": "club"
+        }
+      ]
+    },
+    "unit6": {
+      "id": "unit6",
+      "module": "module2",
+      "name": "Music",
+      "nameCN": "音乐",
+      "topic": "学习各种乐器的名称",
+      "vocabulary": [
+        {
+          "word": "wonderful",
+          "chinese": "精彩的",
+          "phonetic": "/ˈwʌndərfəl/",
+          "audio": "wonderful",
+          "letterSounds": [
+            {
+              "letters": "won",
+              "sound": "/wʌn/"
+            },
+            {
+              "letters": "der",
+              "sound": "/dər/"
+            },
+            {
+              "letters": "ful",
+              "sound": "/fəl/"
+            }
+          ]
+        },
+        {
+          "word": "violin",
+          "chinese": "小提琴",
+          "phonetic": "/ˌvaɪəˈlɪn/",
+          "audio": "violin",
+          "letterSounds": [
+            {
+              "letters": "vi",
+              "sound": "/vaɪ/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "lin",
+              "sound": "/lɪn/"
+            }
+          ]
+        },
+        {
+          "word": "guitar",
+          "chinese": "吉他",
+          "phonetic": "/ɡɪˈtɑːr/",
+          "audio": "guitar",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "u",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "tar",
+              "sound": "/tɑːr/"
+            }
+          ]
+        },
+        {
+          "word": "whose",
+          "chinese": "谁的",
+          "phonetic": "/huːz/",
+          "audio": "whose",
+          "letterSounds": [
+            {
+              "letters": "wh",
+              "sound": "/h/"
+            },
+            {
+              "letters": "o",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "se",
+              "sound": "/z/"
+            }
+          ]
+        },
+        {
+          "word": "piano",
+          "chinese": "钢琴",
+          "phonetic": "/piˈænoʊ/",
+          "audio": "piano",
+          "letterSounds": [
+            {
+              "letters": "pi",
+              "sound": "/pi/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "no",
+              "sound": "/noʊ/"
+            }
+          ]
+        },
+        {
+          "word": "city",
+          "chinese": "城市",
+          "phonetic": "/ˈsɪti/",
+          "audio": "city",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/s/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ty",
+              "sound": "/ti/"
+            }
+          ]
+        },
+        {
+          "word": "bag",
+          "chinese": "包",
+          "phonetic": "/bæɡ/",
+          "audio": "bag",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            }
+          ]
+        },
+        {
+          "word": "gold",
+          "chinese": "金子",
+          "phonetic": "/ɡoʊld/",
+          "audio": "gold",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "o",
+              "sound": "/oʊ/"
+            },
+            {
+              "letters": "ld",
+              "sound": "/ld/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "The music is wonderful!",
+          "chinese": "音乐真精彩！",
+          "audio": "the_music_is_wonderful"
+        },
+        {
+          "english": "Whose guitar is this?",
+          "chinese": "这是谁的吉他？",
+          "audio": "whose_guitar_is_this"
+        },
+        {
+          "english": "I can play the piano.",
+          "chinese": "我会弹钢琴。",
+          "audio": "i_can_play_the_piano"
+        },
+        {
+          "english": "She plays the violin beautifully.",
+          "chinese": "她小提琴拉得很动听。",
+          "audio": "she_plays_the_violin_beautifully"
+        },
+        {
+          "english": "My bag is heavy.",
+          "chinese": "我的包很重。",
+          "audio": "my_bag_is_heavy"
+        },
+        {
+          "english": "The city is beautiful at night.",
+          "chinese": "夜晚的城市很美。",
+          "audio": "the_city_is_beautiful_at_night"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: In the music room",
+          "participants": [
+            "Lucy",
+            "Teacher"
+          ],
+          "lines": [
+            {
+              "speaker": "Teacher",
+              "text": "Whose violin is this?",
+              "audio": "whose_violin_is_this"
+            },
+            {
+              "speaker": "Lucy",
+              "text": "It's mine, Miss Wang.",
+              "audio": "its_mine_miss_wang"
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Can you play it?",
+              "audio": "can_you_play_it"
+            },
+            {
+              "speaker": "Lucy",
+              "text": "Yes, I can. I practice every day.",
+              "audio": "yes_i_can_i_practice_every_day"
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Wonderful! The music is beautiful.",
+              "audio": "wonderful_the_music_is_beautiful"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'钢琴'用英语怎么说？",
+          "options": [
+            "Piano",
+            "Violin",
+            "Guitar"
+          ],
+          "answer": "Piano",
+          "audio": "piano"
+        },
+        {
+          "type": "choice",
+          "question": "'精彩的'用英语怎么说？",
+          "options": [
+            "Wonderful",
+            "Heavy",
+            "Beautiful"
+          ],
+          "answer": "Wonderful",
+          "audio": "wonderful"
+        },
+        {
+          "type": "choice",
+          "question": "'谁的'用英语怎么说？",
+          "options": [
+            "Whose",
+            "Who",
+            "What"
+          ],
+          "answer": "Whose",
+          "audio": "whose"
+        }
+      ]
+    },
+    "unit7": {
+      "id": "unit7",
+      "module": "module3",
+      "name": "My day",
+      "nameCN": "我的一天",
+      "topic": "学习描述日常作息时间",
+      "vocabulary": [
+        {
+          "word": "get up",
+          "chinese": "起床",
+          "phonetic": "/ɡet ʌp/",
+          "audio": "get_up",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "have breakfast",
+          "chinese": "吃早餐",
+          "phonetic": "/hæv ˈbrekfəst/",
+          "audio": "have_breakfast",
+          "letterSounds": [
+            {
+              "letters": "br",
+              "sound": "/br/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/ek/"
+            },
+            {
+              "letters": "k",
+              "sound": "/k/"
+            },
+            {
+              "letters": "fast",
+              "sound": "/fəst/"
+            }
+          ]
+        },
+        {
+          "word": "go to school",
+          "chinese": "去上学",
+          "phonetic": "/ɡoʊ tuː skuːl/",
+          "audio": "go_to_school",
+          "letterSounds": [
+            {
+              "letters": "sch",
+              "sound": "/sk/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "l",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "have lunch",
+          "chinese": "吃午餐",
+          "phonetic": "/hæv lʌntʃ/",
+          "audio": "have_lunch",
+          "letterSounds": [
+            {
+              "letters": "lu",
+              "sound": "/lʌ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ch",
+              "sound": "/tʃ/"
+            }
+          ]
+        },
+        {
+          "word": "go home",
+          "chinese": "回家",
+          "phonetic": "/ɡoʊ hoʊm/",
+          "audio": "go_home",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "o",
+              "sound": "/oʊ/"
+            },
+            {
+              "letters": "me",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "have dinner",
+          "chinese": "吃晚餐",
+          "phonetic": "/hæv ˈdɪnər/",
+          "audio": "have_dinner",
+          "letterSounds": [
+            {
+              "letters": "di",
+              "sound": "/dɪ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ner",
+              "sound": "/nər/"
+            }
+          ]
+        },
+        {
+          "word": "go to bed",
+          "chinese": "上床睡觉",
+          "phonetic": "/ɡoʊ tuː bed/",
+          "audio": "go_to_bed",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "o'clock",
+          "chinese": "……点钟",
+          "phonetic": "/əˈklɒk/",
+          "audio": "oclock",
+          "letterSounds": [
+            {
+              "letters": "clo",
+              "sound": "/klɒ/"
+            },
+            {
+              "letters": "ck",
+              "sound": "/k/"
+            }
+          ]
+        },
+        {
+          "word": "half",
+          "chinese": "半",
+          "phonetic": "/hæf/",
+          "audio": "half",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "lf",
+              "sound": "/f/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "I get up at seven o'clock.",
+          "chinese": "我七点起床。",
+          "audio": "i_get_up_at_seven_oclock"
+        },
+        {
+          "english": "I have breakfast at half past seven.",
+          "chinese": "我七点半吃早餐。",
+          "audio": "i_have_breakfast_at_half_past_seven"
+        },
+        {
+          "english": "I go to school at eight o'clock.",
+          "chinese": "我八点去上学。",
+          "audio": "i_go_to_school_at_eight_oclock"
+        },
+        {
+          "english": "I have lunch at school.",
+          "chinese": "我在学校吃午餐。",
+          "audio": "i_have_lunch_at_school"
+        },
+        {
+          "english": "I go home at four o'clock.",
+          "chinese": "我四点回家。",
+          "audio": "i_go_home_at_four_oclock"
+        },
+        {
+          "english": "I go to bed at nine o'clock.",
+          "chinese": "我九点上床睡觉。",
+          "audio": "i_go_to_bed_at_nine_oclock"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Talking about daily routine",
+          "participants": [
+            "Mum",
+            "Tom"
+          ],
+          "lines": [
+            {
+              "speaker": "Mum",
+              "text": "Tom, what time do you get up?",
+              "audio": "tom_what_time_do_you_get_up"
+            },
+            {
+              "speaker": "Tom",
+              "text": "I get up at seven o'clock.",
+              "audio": "i_get_up_at_seven_oclock"
+            },
+            {
+              "speaker": "Mum",
+              "text": "When do you go to school?",
+              "audio": "when_do_you_go_to_school"
+            },
+            {
+              "speaker": "Tom",
+              "text": "I go to school at half past seven.",
+              "audio": "i_go_to_school_at_half_past_seven"
+            },
+            {
+              "speaker": "Mum",
+              "text": "What about lunch?",
+              "audio": "what_about_lunch"
+            },
+            {
+              "speaker": "Tom",
+              "text": "I have lunch at twelve o'clock.",
+              "audio": "i_have_lunch_at_twelve_oclock"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'起床'用英语怎么说？",
+          "options": [
+            "Get up",
+            "Go to bed",
+            "Have breakfast"
+          ],
+          "answer": "Get up",
+          "audio": "get_up"
+        },
+        {
+          "type": "choice",
+          "question": "'半'用英语怎么说？",
+          "options": [
+            "Half",
+            "O'clock",
+            "Past"
+          ],
+          "answer": "Half",
+          "audio": "half"
+        },
+        {
+          "type": "choice",
+          "question": "'回家'用英语怎么说？",
+          "options": [
+            "Go home",
+            "Go to school",
+            "Go to bed"
+          ],
+          "answer": "Go home",
+          "audio": "go_home"
+        }
+      ]
+    },
+    "unit8": {
+      "id": "unit8",
+      "module": "module3",
+      "name": "My week",
+      "nameCN": "我的一周",
+      "topic": "学习一周七天的名称",
+      "vocabulary": [
+        {
+          "word": "Monday",
+          "chinese": "星期一",
+          "phonetic": "/ˈmʌndeɪ/",
+          "audio": "monday",
+          "letterSounds": [
+            {
+              "letters": "Mon",
+              "sound": "/mʌn/"
+            },
+            {
+              "letters": "day",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Tuesday",
+          "chinese": "星期二",
+          "phonetic": "/ˈtuːzdeɪ/",
+          "audio": "tuesday",
+          "letterSounds": [
+            {
+              "letters": "Tue",
+              "sound": "/tuːz/"
+            },
+            {
+              "letters": "sday",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Wednesday",
+          "chinese": "星期三",
+          "phonetic": "/ˈwenzdeɪ/",
+          "audio": "wednesday",
+          "letterSounds": [
+            {
+              "letters": "Wed",
+              "sound": "/wenz/"
+            },
+            {
+              "letters": "nesday",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Thursday",
+          "chinese": "星期四",
+          "phonetic": "/ˈθɜːrzdeɪ/",
+          "audio": "thursday",
+          "letterSounds": [
+            {
+              "letters": "Thu",
+              "sound": "/θɜːr/"
+            },
+            {
+              "letters": "rsday",
+              "sound": "/zdeɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Friday",
+          "chinese": "星期五",
+          "phonetic": "/ˈfraɪdeɪ/",
+          "audio": "friday",
+          "letterSounds": [
+            {
+              "letters": "Fri",
+              "sound": "/fraɪ/"
+            },
+            {
+              "letters": "day",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Saturday",
+          "chinese": "星期六",
+          "phonetic": "/ˈsætərdeɪ/",
+          "audio": "saturday",
+          "letterSounds": [
+            {
+              "letters": "Sat",
+              "sound": "/sæt/"
+            },
+            {
+              "letters": "urday",
+              "sound": "/ərdeɪ/"
+            }
+          ]
+        },
+        {
+          "word": "Sunday",
+          "chinese": "星期日",
+          "phonetic": "/ˈsʌndeɪ/",
+          "audio": "sunday",
+          "letterSounds": [
+            {
+              "letters": "Sun",
+              "sound": "/sʌn/"
+            },
+            {
+              "letters": "day",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "week",
+          "chinese": "周/星期",
+          "phonetic": "/wiːk/",
+          "audio": "week",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "k",
+              "sound": "/k/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "What day is it today?",
+          "chinese": "今天是星期几？",
+          "audio": "what_day_is_it_today"
+        },
+        {
+          "english": "Today is Monday.",
+          "chinese": "今天是星期一。",
+          "audio": "today_is_monday"
+        },
+        {
+          "english": "I have PE on Wednesday.",
+          "chinese": "我星期三有体育课。",
+          "audio": "i_have_pe_on_wednesday"
+        },
+        {
+          "english": "Sunday is my favourite day.",
+          "chinese": "星期日是我最喜欢的一天。",
+          "audio": "sunday_is_my_favourite_day"
+        },
+        {
+          "english": "How many days are there in a week?",
+          "chinese": "一周有几天？",
+          "audio": "how_many_days_are_there_in_a_week"
+        },
+        {
+          "english": "There are seven days in a week.",
+          "chinese": "一周有七天。",
+          "audio": "there_are_seven_days_in_a_week"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: What's your favourite day?",
+          "participants": [
+            "Amy",
+            "Ben"
+          ],
+          "lines": [
+            {
+              "speaker": "Amy",
+              "text": "What day is it today?",
+              "audio": "what_day_is_it_today"
+            },
+            {
+              "speaker": "Ben",
+              "text": "It's Friday.",
+              "audio": "its_friday"
+            },
+            {
+              "speaker": "Amy",
+              "text": "Great! I love Fridays.",
+              "audio": "great_i_love_fridays"
+            },
+            {
+              "speaker": "Ben",
+              "text": "Why?",
+              "audio": "why"
+            },
+            {
+              "speaker": "Amy",
+              "text": "Because we have Art and Music.",
+              "audio": "because_we_have_art_and_music"
+            },
+            {
+              "speaker": "Ben",
+              "text": "That's nice!",
+              "audio": "thats_nice"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'星期一'用英语怎么说？",
+          "options": [
+            "Monday",
+            "Sunday",
+            "Friday"
+          ],
+          "answer": "Monday",
+          "audio": "monday"
+        },
+        {
+          "type": "choice",
+          "question": "'星期三'用英语怎么说？",
+          "options": [
+            "Wednesday",
+            "Thursday",
+            "Tuesday"
+          ],
+          "answer": "Wednesday",
+          "audio": "wednesday"
+        },
+        {
+          "type": "choice",
+          "question": "一周有几天？",
+          "options": [
+            "Seven",
+            "Five",
+            "Six"
+          ],
+          "answer": "Seven",
+          "audio": "seven"
+        }
+      ]
+    },
+    "unit9": {
+      "id": "unit9",
+      "module": "module3",
+      "name": "Jobs",
+      "nameCN": "职业",
+      "topic": "学习各种职业的名称",
+      "vocabulary": [
+        {
+          "word": "firefighter",
+          "chinese": "消防员",
+          "phonetic": "/ˈfaɪərfaɪtər/",
+          "audio": "firefighter",
+          "letterSounds": [
+            {
+              "letters": "fire",
+              "sound": "/faɪər/"
+            },
+            {
+              "letters": "fight",
+              "sound": "/faɪt/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ər/"
+            }
+          ]
+        },
+        {
+          "word": "police officer",
+          "chinese": "警察",
+          "phonetic": "/pəˈliːs ˈɒfɪsər/",
+          "audio": "police_officer",
+          "letterSounds": [
+            {
+              "letters": "po",
+              "sound": "/pə/"
+            },
+            {
+              "letters": "lice",
+              "sound": "/liːs/"
+            }
+          ]
+        },
+        {
+          "word": "farmer",
+          "chinese": "农民",
+          "phonetic": "/ˈfɑːrmər/",
+          "audio": "farmer",
+          "letterSounds": [
+            {
+              "letters": "far",
+              "sound": "/fɑːr/"
+            },
+            {
+              "letters": "mer",
+              "sound": "/mər/"
+            }
+          ]
+        },
+        {
+          "word": "doctor",
+          "chinese": "医生",
+          "phonetic": "/ˈdɒktər/",
+          "audio": "doctor",
+          "letterSounds": [
+            {
+              "letters": "do",
+              "sound": "/dɒ/"
+            },
+            {
+              "letters": "ct",
+              "sound": "/kt/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ər/"
+            }
+          ]
+        },
+        {
+          "word": "nurse",
+          "chinese": "护士",
+          "phonetic": "/nɜːrs/",
+          "audio": "nurse",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "urse",
+              "sound": "/ɜːrs/"
+            }
+          ]
+        },
+        {
+          "word": "teacher",
+          "chinese": "老师",
+          "phonetic": "/ˈtiːtʃər/",
+          "audio": "teacher",
+          "letterSounds": [
+            {
+              "letters": "te",
+              "sound": "/tiː/"
+            },
+            {
+              "letters": "ach",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ər/"
+            }
+          ]
+        },
+        {
+          "word": "cook",
+          "chinese": "厨师",
+          "phonetic": "/kʊk/",
+          "audio": "cook",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/ʊ/"
+            },
+            {
+              "letters": "k",
+              "sound": "/k/"
+            }
+          ]
+        },
+        {
+          "word": "driver",
+          "chinese": "司机",
+          "phonetic": "/ˈdraɪvər/",
+          "audio": "driver",
+          "letterSounds": [
+            {
+              "letters": "dr",
+              "sound": "/dr/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "ver",
+              "sound": "/vər/"
+            }
+          ]
+        },
+        {
+          "word": "job",
+          "chinese": "工作",
+          "phonetic": "/dʒɒb/",
+          "audio": "job",
+          "letterSounds": [
+            {
+              "letters": "j",
+              "sound": "/dʒ/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ɒ/"
+            },
+            {
+              "letters": "b",
+              "sound": "/b/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "What do you want to be?",
+          "chinese": "你想成为什么？",
+          "audio": "what_do_you_want_to_be"
+        },
+        {
+          "english": "I want to be a doctor.",
+          "chinese": "我想当医生。",
+          "audio": "i_want_to_be_a_doctor"
+        },
+        {
+          "english": "My father is a police officer.",
+          "chinese": "我爸爸是警察。",
+          "audio": "my_father_is_a_police_officer"
+        },
+        {
+          "english": "The firefighter helps people.",
+          "chinese": "消防员帮助人们。",
+          "audio": "the_firefighter_helps_people"
+        },
+        {
+          "english": "A farmer works in the field.",
+          "chinese": "农民在田里工作。",
+          "audio": "a_farmer_works_in_the_field"
+        },
+        {
+          "english": "Teaching is a good job.",
+          "chinese": "教书是一份好工作。",
+          "audio": "teaching_is_a_good_job"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: What do you want to be?",
+          "participants": [
+            "Teacher",
+            "Amy"
+          ],
+          "lines": [
+            {
+              "speaker": "Teacher",
+              "text": "Amy, what do you want to be?",
+              "audio": "amy_what_do_you_want_to_be"
+            },
+            {
+              "speaker": "Amy",
+              "text": "I want to be a doctor.",
+              "audio": "i_want_to_be_a_doctor"
+            },
+            {
+              "speaker": "Teacher",
+              "text": "Why?",
+              "audio": "why"
+            },
+            {
+              "speaker": "Amy",
+              "text": "Because doctors help sick people.",
+              "audio": "because_doctors_help_sick_people"
+            },
+            {
+              "speaker": "Teacher",
+              "text": "That's great! You can help many people.",
+              "audio": "thats_great_you_can_help_many_people"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'医生'用英语怎么说？",
+          "options": [
+            "Doctor",
+            "Nurse",
+            "Teacher"
+          ],
+          "answer": "Doctor",
+          "audio": "doctor"
+        },
+        {
+          "type": "choice",
+          "question": "'消防员'用英语怎么说？",
+          "options": [
+            "Firefighter",
+            "Police officer",
+            "Driver"
+          ],
+          "answer": "Firefighter",
+          "audio": "firefighter"
+        },
+        {
+          "type": "choice",
+          "question": "'老师'用英语怎么说？",
+          "options": [
+            "Teacher",
+            "Cook",
+            "Farmer"
+          ],
+          "answer": "Teacher",
+          "audio": "teacher"
+        }
+      ]
+    },
+    "unit10": {
+      "id": "unit10",
+      "module": "module4",
+      "name": "My family",
+      "nameCN": "我的家人",
+      "topic": "学习描述家庭成员",
+      "vocabulary": [
+        {
+          "word": "family",
+          "chinese": "家庭",
+          "phonetic": "/ˈfæməli/",
+          "audio": "family",
+          "letterSounds": [
+            {
+              "letters": "fa",
+              "sound": "/fæ/"
+            },
+            {
+              "letters": "mily",
+              "sound": "/məli/"
+            }
+          ]
+        },
+        {
+          "word": "parent",
+          "chinese": "父母",
+          "phonetic": "/ˈpeərənt/",
+          "audio": "parent",
+          "letterSounds": [
+            {
+              "letters": "pa",
+              "sound": "/peər/"
+            },
+            {
+              "letters": "rent",
+              "sound": "/ənt/"
+            }
+          ]
+        },
+        {
+          "word": "father",
+          "chinese": "父亲",
+          "phonetic": "/ˈfɑːðər/",
+          "audio": "father",
+          "letterSounds": [
+            {
+              "letters": "fa",
+              "sound": "/fɑː/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðər/"
+            }
+          ]
+        },
+        {
+          "word": "mother",
+          "chinese": "母亲",
+          "phonetic": "/ˈmʌðər/",
+          "audio": "mother",
+          "letterSounds": [
+            {
+              "letters": "mo",
+              "sound": "/mʌ/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðər/"
+            }
+          ]
+        },
+        {
+          "word": "sister",
+          "chinese": "姐妹",
+          "phonetic": "/ˈsɪstər/",
+          "audio": "sister",
+          "letterSounds": [
+            {
+              "letters": "sis",
+              "sound": "/sɪs/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tər/"
+            }
+          ]
+        },
+        {
+          "word": "brother",
+          "chinese": "兄弟",
+          "phonetic": "/ˈbrʌðər/",
+          "audio": "brother",
+          "letterSounds": [
+            {
+              "letters": "bro",
+              "sound": "/brʌ/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðər/"
+            }
+          ]
+        },
+        {
+          "word": "grandfather",
+          "chinese": "祖父/外祖父",
+          "phonetic": "/ˈɡrænfɑːðər/",
+          "audio": "grandfather",
+          "letterSounds": [
+            {
+              "letters": "grand",
+              "sound": "/ɡrænd/"
+            },
+            {
+              "letters": "fa",
+              "sound": "/fɑː/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðər/"
+            }
+          ]
+        },
+        {
+          "word": "grandmother",
+          "chinese": "祖母/外祖母",
+          "phonetic": "/ˈɡrænmʌðər/",
+          "audio": "grandmother",
+          "letterSounds": [
+            {
+              "letters": "grand",
+              "sound": "/ɡræn/"
+            },
+            {
+              "letters": "mo",
+              "sound": "/mʌ/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðər/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "This is my family.",
+          "chinese": "这是我的家人。",
+          "audio": "this_is_my_family"
+        },
+        {
+          "english": "I have a brother and a sister.",
+          "chinese": "我有一个哥哥和一个姐姐。",
+          "audio": "i_have_a_brother_and_a_sister"
+        },
+        {
+          "english": "My father is tall.",
+          "chinese": "我爸爸很高。",
+          "audio": "my_father_is_tall"
+        },
+        {
+          "english": "My mother is kind.",
+          "chinese": "我妈妈很善良。",
+          "audio": "my_mother_is_kind"
+        },
+        {
+          "english": "I love my family.",
+          "chinese": "我爱我的家人。",
+          "audio": "i_love_my_family"
+        },
+        {
+          "english": "My grandparents are old.",
+          "chinese": "我的祖父母年纪大了。",
+          "audio": "my_grandparents_are_old"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: Introducing my family",
+          "participants": [
+            "Tom",
+            "Lucy"
+          ],
+          "lines": [
+            {
+              "speaker": "Tom",
+              "text": "Lucy, this is my family photo.",
+              "audio": "lucy_this_is_my_family_photo"
+            },
+            {
+              "speaker": "Lucy",
+              "text": "Oh, how nice! Who is this?",
+              "audio": "oh_how_nice_who_is_this"
+            },
+            {
+              "speaker": "Tom",
+              "text": "This is my father and this is my mother.",
+              "audio": "this_is_my_father_and_this_is_my_mother"
+            },
+            {
+              "speaker": "Lucy",
+              "text": "Do you have any brothers or sisters?",
+              "audio": "do_you_have_any_brothers_or_sisters"
+            },
+            {
+              "speaker": "Tom",
+              "text": "Yes, I have a brother.",
+              "audio": "yes_i_have_a_brother"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'母亲'用英语怎么说？",
+          "options": [
+            "Mother",
+            "Father",
+            "Sister"
+          ],
+          "answer": "Mother",
+          "audio": "mother"
+        },
+        {
+          "type": "choice",
+          "question": "'兄弟'用英语怎么说？",
+          "options": [
+            "Brother",
+            "Sister",
+            "Parent"
+          ],
+          "answer": "Brother",
+          "audio": "brother"
+        },
+        {
+          "type": "choice",
+          "question": "'家庭'用英语怎么说？",
+          "options": [
+            "Family",
+            "School",
+            "Friend"
+          ],
+          "answer": "Family",
+          "audio": "family"
+        }
+      ]
+    },
+    "unit11": {
+      "id": "unit11",
+      "module": "module4",
+      "name": "Feelings",
+      "nameCN": "感受",
+      "topic": "学习表达身体和情绪感受",
+      "vocabulary": [
+        {
+          "word": "happy",
+          "chinese": "开心的",
+          "phonetic": "/ˈhæpi/",
+          "audio": "happy",
+          "letterSounds": [
+            {
+              "letters": "ha",
+              "sound": "/hæ/"
+            },
+            {
+              "letters": "ppy",
+              "sound": "/pi/"
+            }
+          ]
+        },
+        {
+          "word": "sad",
+          "chinese": "伤心的",
+          "phonetic": "/sæd/",
+          "audio": "sad",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "tired",
+          "chinese": "累的",
+          "phonetic": "/ˈtaɪərd/",
+          "audio": "tired",
+          "letterSounds": [
+            {
+              "letters": "ti",
+              "sound": "/taɪ/"
+            },
+            {
+              "letters": "red",
+              "sound": "/ərd/"
+            }
+          ]
+        },
+        {
+          "word": "hungry",
+          "chinese": "饿的",
+          "phonetic": "/ˈhʌŋɡri/",
+          "audio": "hungry",
+          "letterSounds": [
+            {
+              "letters": "hu",
+              "sound": "/hʌ/"
+            },
+            {
+              "letters": "ngry",
+              "sound": "/ŋɡri/"
+            }
+          ]
+        },
+        {
+          "word": "full",
+          "chinese": "饱的",
+          "phonetic": "/fʊl/",
+          "audio": "full",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "u",
+              "sound": "/ʊ/"
+            },
+            {
+              "letters": "ll",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "thirsty",
+          "chinese": "渴的",
+          "phonetic": "/ˈθɜːrsti/",
+          "audio": "thirsty",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "irst",
+              "sound": "/ɜːrst/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "bird",
+          "chinese": "鸟",
+          "phonetic": "/bɜːrd/",
+          "audio": "bird",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ir",
+              "sound": "/ɜːr/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "see",
+          "chinese": "看见",
+          "phonetic": "/siː/",
+          "audio": "see",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            }
+          ]
+        },
+        {
+          "word": "bottle",
+          "chinese": "瓶子",
+          "phonetic": "/ˈbɒtəl/",
+          "audio": "bottle",
+          "letterSounds": [
+            {
+              "letters": "bo",
+              "sound": "/bɒ/"
+            },
+            {
+              "letters": "ttle",
+              "sound": "/təl/"
+            }
+          ]
+        },
+        {
+          "word": "water",
+          "chinese": "水",
+          "phonetic": "/ˈwɔːtər/",
+          "audio": "water",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "a",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tər/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "I'm happy today.",
+          "chinese": "我今天很开心。",
+          "audio": "im_happy_today"
+        },
+        {
+          "english": "I'm tired. I want to sleep.",
+          "chinese": "我累了。我想睡觉。",
+          "audio": "im_tired_i_want_to_sleep"
+        },
+        {
+          "english": "I'm hungry. Can I have some food?",
+          "chinese": "我饿了。我可以吃点东西吗？",
+          "audio": "im_hungry_can_i_have_some_food"
+        },
+        {
+          "english": "I'm thirsty. I want some water.",
+          "chinese": "我渴了。我想喝水。",
+          "audio": "im_thirsty_i_want_some_water"
+        },
+        {
+          "english": "Don't be sad.",
+          "chinese": "不要伤心。",
+          "audio": "dont_be_sad"
+        },
+        {
+          "english": "I'm full. I can't eat any more.",
+          "chinese": "我饱了。我不能再吃了。",
+          "audio": "im_full_i_cant_eat_any_more"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: How are you feeling?",
+          "participants": [
+            "Mum",
+            "Tom"
+          ],
+          "lines": [
+            {
+              "speaker": "Mum",
+              "text": "Tom, how are you feeling?",
+              "audio": "tom_how_are_you_feeling"
+            },
+            {
+              "speaker": "Tom",
+              "text": "I'm tired, Mum.",
+              "audio": "im_tired_mum"
+            },
+            {
+              "speaker": "Mum",
+              "text": "Do you want to have a rest?",
+              "audio": "do_you_want_to_have_a_rest"
+            },
+            {
+              "speaker": "Tom",
+              "text": "Yes, please. But I'm also thirsty.",
+              "audio": "yes_please_but_im_also_thirsty"
+            },
+            {
+              "speaker": "Mum",
+              "text": "Here, have some water.",
+              "audio": "here_have_some_water"
+            },
+            {
+              "speaker": "Tom",
+              "text": "Thank you, Mum.",
+              "audio": "thank_you_mum"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'开心的'用英语怎么说？",
+          "options": [
+            "Happy",
+            "Sad",
+            "Tired"
+          ],
+          "answer": "Happy",
+          "audio": "happy"
+        },
+        {
+          "type": "choice",
+          "question": "'渴的'用英语怎么说？",
+          "options": [
+            "Thirsty",
+            "Hungry",
+            "Full"
+          ],
+          "answer": "Thirsty",
+          "audio": "thirsty"
+        },
+        {
+          "type": "choice",
+          "question": "'伤心的'用英语怎么说？",
+          "options": [
+            "Sad",
+            "Tired",
+            "Happy"
+          ],
+          "answer": "Sad",
+          "audio": "sad"
+        }
+      ]
+    },
+    "unit12": {
+      "id": "unit12",
+      "module": "module4",
+      "name": "Abilities",
+      "nameCN": "能力",
+      "topic": "学习用can表达能力",
+      "vocabulary": [
+        {
+          "word": "can",
+          "chinese": "会/能",
+          "phonetic": "/kæn/",
+          "audio": "can",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "an",
+              "sound": "/æn/"
+            }
+          ]
+        },
+        {
+          "word": "run",
+          "chinese": "跑",
+          "phonetic": "/rʌn/",
+          "audio": "run",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "u",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            }
+          ]
+        },
+        {
+          "word": "jump",
+          "chinese": "跳",
+          "phonetic": "/dʒʌmp/",
+          "audio": "jump",
+          "letterSounds": [
+            {
+              "letters": "j",
+              "sound": "/dʒ/"
+            },
+            {
+              "letters": "u",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "mp",
+              "sound": "/mp/"
+            }
+          ]
+        },
+        {
+          "word": "swim",
+          "chinese": "游泳",
+          "phonetic": "/swɪm/",
+          "audio": "swim",
+          "letterSounds": [
+            {
+              "letters": "sw",
+              "sound": "/sw/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "fly",
+          "chinese": "飞",
+          "phonetic": "/flaɪ/",
+          "audio": "fly",
+          "letterSounds": [
+            {
+              "letters": "fl",
+              "sound": "/fl/"
+            },
+            {
+              "letters": "y",
+              "sound": "/aɪ/"
+            }
+          ]
+        },
+        {
+          "word": "ride",
+          "chinese": "骑",
+          "phonetic": "/raɪd/",
+          "audio": "ride",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ide",
+              "sound": "/aɪd/"
+            }
+          ]
+        },
+        {
+          "word": "dance",
+          "chinese": "跳舞",
+          "phonetic": "/dæns/",
+          "audio": "dance",
+          "letterSounds": [
+            {
+              "letters": "d",
+              "sound": "/d/"
+            },
+            {
+              "letters": "an",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "ce",
+              "sound": "/s/"
+            }
+          ]
+        },
+        {
+          "word": "sing",
+          "chinese": "唱歌",
+          "phonetic": "/sɪŋ/",
+          "audio": "sing",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ng",
+              "sound": "/ŋ/"
+            }
+          ]
+        },
+        {
+          "word": "draw",
+          "chinese": "画画",
+          "phonetic": "/drɔː/",
+          "audio": "draw",
+          "letterSounds": [
+            {
+              "letters": "dr",
+              "sound": "/dr/"
+            },
+            {
+              "letters": "aw",
+              "sound": "/ɔː/"
+            }
+          ]
+        },
+        {
+          "word": "read",
+          "chinese": "阅读",
+          "phonetic": "/riːd/",
+          "audio": "read",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        {
+          "english": "I can run fast.",
+          "chinese": "我会跑得很快。",
+          "audio": "i_can_run_fast"
+        },
+        {
+          "english": "Can you swim?",
+          "chinese": "你会游泳吗？",
+          "audio": "can_you_swim"
+        },
+        {
+          "english": "Yes, I can.",
+          "chinese": "是的，我会。",
+          "audio": "yes_i_can"
+        },
+        {
+          "english": "Birds can fly.",
+          "chinese": "鸟儿会飞。",
+          "audio": "birds_can_fly"
+        },
+        {
+          "english": "I can jump high.",
+          "chinese": "我会跳得很高。",
+          "audio": "i_can_jump_high"
+        },
+        {
+          "english": "What can you do?",
+          "chinese": "你会做什么？",
+          "audio": "what_can_you_do"
+        }
+      ],
+      "dialogues": [
+        {
+          "title": "Dialogue 1: What can you do?",
+          "participants": [
+            "Amy",
+            "Tom"
+          ],
+          "lines": [
+            {
+              "speaker": "Amy",
+              "text": "Tom, what can you do?",
+              "audio": "tom_what_can_you_do"
+            },
+            {
+              "speaker": "Tom",
+              "text": "I can swim and run. What about you?",
+              "audio": "i_can_swim_and_run_what_about_you"
+            },
+            {
+              "speaker": "Amy",
+              "text": "I can dance and sing.",
+              "audio": "i_can_dance_and_sing"
+            },
+            {
+              "speaker": "Tom",
+              "text": "Can you draw?",
+              "audio": "can_you_draw"
+            },
+            {
+              "speaker": "Amy",
+              "text": "Yes, I can. I like drawing.",
+              "audio": "yes_i_can_i_like_drawing"
+            }
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'会/能'用英语怎么说？",
+          "options": [
+            "Can",
+            "Run",
+            "Jump"
+          ],
+          "answer": "Can",
+          "audio": "can"
+        },
+        {
+          "type": "choice",
+          "question": "'游泳'用英语怎么说？",
+          "options": [
+            "Swim",
+            "Run",
+            "Fly"
+          ],
+          "answer": "Swim",
+          "audio": "swim"
+        },
+        {
+          "type": "choice",
+          "question": "'跳'用英语怎么说？",
+          "options": [
+            "Jump",
+            "Swim",
+            "Sing"
+          ],
+          "answer": "Jump",
+          "audio": "jump"
+        }
+      ]
+    }
+  }
+}
