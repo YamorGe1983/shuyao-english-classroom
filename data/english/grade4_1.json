@@ -1,0 +1,3390 @@
+{
+  "id": "grade4_1",
+  "name": "四年级上册",
+  "metadata": {
+    "title": "Oxford English Primary 4 (Shanghai Edition)",
+    "subtitle": "牛津上海版小学英语四年级上册",
+    "totalUnits": 12,
+    "totalModules": 4
+  },
+  "modules": [
+    {
+      "id": "module1",
+      "name": "Getting to know you",
+      "nameCN": "认识你",
+      "units": [
+        {
+          "id": "unit1",
+          "name": "Hello",
+          "nameCN": "你好"
+        },
+        {
+          "id": "unit2",
+          "name": "Nice to meet you",
+          "nameCN": "很高兴认识你"
+        },
+        {
+          "id": "unit3",
+          "name": "How are you?",
+          "nameCN": "你好吗？"
+        }
+      ]
+    },
+    {
+      "id": "module2",
+      "name": "Me, my family and friends",
+      "nameCN": "我、我的家人和朋友",
+      "units": [
+        {
+          "id": "unit4",
+          "name": "My family",
+          "nameCN": "我的家人"
+        },
+        {
+          "id": "unit5",
+          "name": "My friends",
+          "nameCN": "我的朋友"
+        },
+        {
+          "id": "unit6",
+          "name": "My teachers",
+          "nameCN": "我的老师"
+        }
+      ]
+    },
+    {
+      "id": "module3",
+      "name": "Places and activities",
+      "nameCN": "地方和活动",
+      "units": [
+        {
+          "id": "unit7",
+          "name": "At school",
+          "nameCN": "在学校"
+        },
+        {
+          "id": "unit8",
+          "name": "In the classroom",
+          "nameCN": "在教室里"
+        },
+        {
+          "id": "unit9",
+          "name": "My home",
+          "nameCN": "我的家"
+        }
+      ]
+    },
+    {
+      "id": "module4",
+      "name": "The natural world",
+      "nameCN": "自然世界",
+      "units": [
+        {
+          "id": "unit10",
+          "name": "Animals",
+          "nameCN": "动物"
+        },
+        {
+          "id": "unit11",
+          "name": "Plants",
+          "nameCN": "植物"
+        },
+        {
+          "id": "unit12",
+          "name": "Weather",
+          "nameCN": "天气"
+        }
+      ]
+    }
+  ],
+  "units": {
+    "unit1": {
+      "id": "unit1",
+      "module": "module1",
+      "name": "Hello",
+      "nameCN": "你好",
+      "topic": "学习问候语和自我介绍",
+      "vocabulary": [
+        {
+          "word": "hello",
+          "chinese": "你好",
+          "phonetic": "/həˈləʊ/",
+          "audio": "hello",
+          "exampleSentence": "Hello, I'm Amy.",
+          "chineseSentence": "你好，我是艾米。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "e",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "ll",
+              "sound": "/l/"
+            },
+            {
+              "letters": "o",
+              "sound": "/əʊ/"
+            }
+          ]
+        },
+        {
+          "word": "goodbye",
+          "chinese": "再见",
+          "phonetic": "/ɡʊdˈbaɪ/",
+          "audio": "goodbye",
+          "exampleSentence": "Goodbye, see you tomorrow!",
+          "chineseSentence": "再见，明天见！",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/ʊ/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            },
+            {
+              "letters": "by",
+              "sound": "/baɪ/"
+            }
+          ]
+        },
+        {
+          "word": "morning",
+          "chinese": "早上",
+          "phonetic": "/ˈmɔːnɪŋ/",
+          "audio": "morning",
+          "exampleSentence": "Good morning, class!",
+          "chineseSentence": "早上好，同学们！",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ing",
+              "sound": "/ɪŋ/"
+            }
+          ]
+        },
+        {
+          "word": "afternoon",
+          "chinese": "下午",
+          "phonetic": "/ˌɑːftəˈnuːn/",
+          "audio": "afternoon",
+          "exampleSentence": "Good afternoon, Miss Li.",
+          "chineseSentence": "下午好，李老师。",
+          "letterSounds": [
+            {
+              "letters": "a",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "ft",
+              "sound": "/ft/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "noon",
+              "sound": "/nuːn/"
+            }
+          ]
+        },
+        {
+          "word": "evening",
+          "chinese": "晚上",
+          "phonetic": "/ˈiːvnɪŋ/",
+          "audio": "evening",
+          "exampleSentence": "Good evening, Mum.",
+          "chineseSentence": "晚上好，妈妈。",
+          "letterSounds": [
+            {
+              "letters": "e",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "v",
+              "sound": "/v/"
+            },
+            {
+              "letters": "en",
+              "sound": "/ən/"
+            },
+            {
+              "letters": "ing",
+              "sound": "/ɪŋ/"
+            }
+          ]
+        },
+        {
+          "word": "name",
+          "chinese": "名字",
+          "phonetic": "/neɪm/",
+          "audio": "name",
+          "exampleSentence": "What's your name?",
+          "chineseSentence": "你叫什么名字？",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ame",
+              "sound": "/eɪm/"
+            }
+          ]
+        },
+        {
+          "word": "I",
+          "chinese": "我",
+          "phonetic": "/aɪ/",
+          "audio": "I",
+          "exampleSentence": "I am a student.",
+          "chineseSentence": "我是一名学生。",
+          "letterSounds": [
+            {
+              "letters": "I",
+              "sound": "/aɪ/"
+            }
+          ]
+        },
+        {
+          "word": "am",
+          "chinese": "是",
+          "phonetic": "/æm/",
+          "audio": "am",
+          "exampleSentence": "I am Tom.",
+          "chineseSentence": "我是汤姆。",
+          "letterSounds": [
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "from",
+          "chinese": "来自",
+          "phonetic": "/frɒm/",
+          "audio": "from",
+          "exampleSentence": "I am from Shanghai.",
+          "chineseSentence": "我来自上海。",
+          "letterSounds": [
+            {
+              "letters": "fr",
+              "sound": "/fr/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ɒ/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "China",
+          "chinese": "中国",
+          "phonetic": "/ˈtʃaɪnə/",
+          "audio": "China",
+          "exampleSentence": "I'm from China.",
+          "chineseSentence": "我来自中国。",
+          "letterSounds": [
+            {
+              "letters": "Ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "na",
+              "sound": "/nə/"
+            }
+          ]
+        },
+        {
+          "word": "UK",
+          "chinese": "英国",
+          "phonetic": "/ˌjuːˈkeɪ/",
+          "audio": "UK",
+          "exampleSentence": "She is from the UK.",
+          "chineseSentence": "她来自英国。",
+          "letterSounds": [
+            {
+              "letters": "U",
+              "sound": "/juː/"
+            },
+            {
+              "letters": "K",
+              "sound": "/keɪ/"
+            }
+          ]
+        },
+        {
+          "word": "new",
+          "chinese": "新的",
+          "phonetic": "/njuː/",
+          "audio": "new",
+          "exampleSentence": "I have a new friend.",
+          "chineseSentence": "我有一个新朋友。",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ew",
+              "sound": "/juː/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit2": {
+      "id": "unit2",
+      "module": "module1",
+      "name": "Nice to meet you",
+      "nameCN": "很高兴认识你",
+      "topic": "学习如何介绍自己和他人",
+      "vocabulary": [
+        {
+          "word": "nice",
+          "chinese": "好的",
+          "phonetic": "/naɪs/",
+          "audio": "nice",
+          "exampleSentence": "Nice to meet you!",
+          "chineseSentence": "很高兴认识你！",
+          "letterSounds": [
+            {
+              "letters": "n",
+              "sound": "/n/"
+            },
+            {
+              "letters": "ice",
+              "sound": "/aɪs/"
+            }
+          ]
+        },
+        {
+          "word": "meet",
+          "chinese": "遇见",
+          "phonetic": "/miːt/",
+          "audio": "meet",
+          "exampleSentence": "Nice to meet you, Amy.",
+          "chineseSentence": "很高兴认识你，艾米。",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "too",
+          "chinese": "也",
+          "phonetic": "/tuː/",
+          "audio": "too",
+          "exampleSentence": "Nice to meet you too!",
+          "chineseSentence": "我也很高兴认识你！",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/uː/"
+            }
+          ]
+        },
+        {
+          "word": "this",
+          "chinese": "这",
+          "phonetic": "/ðɪs/",
+          "audio": "this",
+          "exampleSentence": "This is my friend, Tom.",
+          "chineseSentence": "这是我的朋友，汤姆。",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/ð/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "s",
+              "sound": "/s/"
+            }
+          ]
+        },
+        {
+          "word": "is",
+          "chinese": "是",
+          "phonetic": "/ɪz/",
+          "audio": "is",
+          "exampleSentence": "This is my teacher.",
+          "chineseSentence": "这是我的老师。",
+          "letterSounds": [
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "s",
+              "sound": "/z/"
+            }
+          ]
+        },
+        {
+          "word": "my",
+          "chinese": "我的",
+          "phonetic": "/maɪ/",
+          "audio": "my",
+          "exampleSentence": "This is my book.",
+          "chineseSentence": "这是我的书。",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "y",
+              "sound": "/aɪ/"
+            }
+          ]
+        },
+        {
+          "word": "friend",
+          "chinese": "朋友",
+          "phonetic": "/frend/",
+          "audio": "friend",
+          "exampleSentence": "She is my friend.",
+          "chineseSentence": "她是我的朋友。",
+          "letterSounds": [
+            {
+              "letters": "fr",
+              "sound": "/fr/"
+            },
+            {
+              "letters": "i",
+              "sound": "/e/"
+            },
+            {
+              "letters": "end",
+              "sound": "/nd/"
+            }
+          ]
+        },
+        {
+          "word": "teacher",
+          "chinese": "老师",
+          "phonetic": "/ˈtiːtʃə/",
+          "audio": "teacher",
+          "exampleSentence": "She is my teacher.",
+          "chineseSentence": "她是我的老师。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "boy",
+          "chinese": "男孩",
+          "phonetic": "/bɔɪ/",
+          "audio": "boy",
+          "exampleSentence": "He is a clever boy.",
+          "chineseSentence": "他是一个聪明的男孩。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "oy",
+              "sound": "/ɔɪ/"
+            }
+          ]
+        },
+        {
+          "word": "girl",
+          "chinese": "女孩",
+          "phonetic": "/ɡɜːl/",
+          "audio": "girl",
+          "exampleSentence": "The girl is my sister.",
+          "chineseSentence": "这个女孩是我的妹妹。",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "ir",
+              "sound": "/ɜː/"
+            },
+            {
+              "letters": "l",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "please",
+          "chinese": "请",
+          "phonetic": "/pliːz/",
+          "audio": "please",
+          "exampleSentence": "Please sit down.",
+          "chineseSentence": "请坐下。",
+          "letterSounds": [
+            {
+              "letters": "pl",
+              "sound": "/pl/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "se",
+              "sound": "/z/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit3": {
+      "id": "unit3",
+      "module": "module1",
+      "name": "How are you?",
+      "nameCN": "你好吗？",
+      "topic": "学习询问和回答近况",
+      "vocabulary": [
+        {
+          "word": "how",
+          "chinese": "怎样",
+          "phonetic": "/haʊ/",
+          "audio": "how",
+          "exampleSentence": "How are you today?",
+          "chineseSentence": "你今天好吗？",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ow",
+              "sound": "/aʊ/"
+            }
+          ]
+        },
+        {
+          "word": "are",
+          "chinese": "是",
+          "phonetic": "/ɑː/",
+          "audio": "are",
+          "exampleSentence": "How are you?",
+          "chineseSentence": "你好吗？",
+          "letterSounds": [
+            {
+              "letters": "ar",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "e",
+              "sound": "/"
+            }
+          ]
+        },
+        {
+          "word": "you",
+          "chinese": "你",
+          "phonetic": "/juː/",
+          "audio": "you",
+          "exampleSentence": "Are you a student?",
+          "chineseSentence": "你是一名学生吗？",
+          "letterSounds": [
+            {
+              "letters": "y",
+              "sound": "/j/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/uː/"
+            }
+          ]
+        },
+        {
+          "word": "fine",
+          "chinese": "好的",
+          "phonetic": "/faɪn/",
+          "audio": "fine",
+          "exampleSentence": "I'm fine, thank you.",
+          "chineseSentence": "我很好，谢谢你。",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "ine",
+              "sound": "/aɪn/"
+            }
+          ]
+        },
+        {
+          "word": "thank",
+          "chinese": "谢谢",
+          "phonetic": "/θæŋk/",
+          "audio": "thank",
+          "exampleSentence": "Thank you very much.",
+          "chineseSentence": "非常感谢你。",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "nk",
+              "sound": "/ŋk/"
+            }
+          ]
+        },
+        {
+          "word": "very",
+          "chinese": "非常",
+          "phonetic": "/ˈveri/",
+          "audio": "very",
+          "exampleSentence": "I am very happy.",
+          "chineseSentence": "我非常开心。",
+          "letterSounds": [
+            {
+              "letters": "v",
+              "sound": "/v/"
+            },
+            {
+              "letters": "er",
+              "sound": "/e/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "well",
+          "chinese": "好",
+          "phonetic": "/wel/",
+          "audio": "well",
+          "exampleSentence": "I'm not very well today.",
+          "chineseSentence": "我今天不太好。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "ll",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "today",
+          "chinese": "今天",
+          "phonetic": "/təˈdeɪ/",
+          "audio": "today",
+          "exampleSentence": "What day is it today?",
+          "chineseSentence": "今天星期几？",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "o",
+              "sound": "/ə/"
+            },
+            {
+              "letters": "day",
+              "sound": "/deɪ/"
+            }
+          ]
+        },
+        {
+          "word": "happy",
+          "chinese": "开心的",
+          "phonetic": "/ˈhæpi/",
+          "audio": "happy",
+          "exampleSentence": "I am very happy.",
+          "chineseSentence": "我非常开心。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "pp",
+              "sound": "/p/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "sad",
+          "chinese": "伤心的",
+          "phonetic": "/sæd/",
+          "audio": "sad",
+          "exampleSentence": "Don't be sad.",
+          "chineseSentence": "不要伤心。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "tired",
+          "chinese": "累的",
+          "phonetic": "/ˈtaɪəd/",
+          "audio": "tired",
+          "exampleSentence": "I'm very tired today.",
+          "chineseSentence": "我今天很累。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "ir",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "ed",
+              "sound": "/əd/"
+            }
+          ]
+        },
+        {
+          "word": "OK",
+          "chinese": "好的",
+          "phonetic": "/əʊˈkeɪ/",
+          "audio": "OK",
+          "exampleSentence": "I'm OK, thanks.",
+          "chineseSentence": "我还好，谢谢。",
+          "letterSounds": [
+            {
+              "letters": "O",
+              "sound": "/əʊ/"
+            },
+            {
+              "letters": "K",
+              "sound": "/keɪ/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit4": {
+      "id": "unit4",
+      "module": "module2",
+      "name": "My family",
+      "nameCN": "我的家人",
+      "topic": "学习家庭成员称呼",
+      "vocabulary": [
+        {
+          "word": "family",
+          "chinese": "家庭",
+          "phonetic": "/ˈfæməli/",
+          "audio": "family",
+          "exampleSentence": "This is my family.",
+          "chineseSentence": "这是我的家庭。",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "ily",
+              "sound": "/əli/"
+            }
+          ]
+        },
+        {
+          "word": "father",
+          "chinese": "父亲",
+          "phonetic": "/ˈfɑːðə/",
+          "audio": "father",
+          "exampleSentence": "My father is tall.",
+          "chineseSentence": "我的爸爸很高。",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "ath",
+              "sound": "/ɑːð/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "mother",
+          "chinese": "母亲",
+          "phonetic": "/ˈmʌðə/",
+          "audio": "mother",
+          "exampleSentence": "My mother is kind.",
+          "chineseSentence": "我的妈妈很善良。",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "oth",
+              "sound": "/ʌð/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "brother",
+          "chinese": "兄弟",
+          "phonetic": "/ˈbrʌðə/",
+          "audio": "brother",
+          "exampleSentence": "I have a brother.",
+          "chineseSentence": "我有一个兄弟。",
+          "letterSounds": [
+            {
+              "letters": "br",
+              "sound": "/br/"
+            },
+            {
+              "letters": "oth",
+              "sound": "/ʌð/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "sister",
+          "chinese": "姐妹",
+          "phonetic": "/ˈsɪstə/",
+          "audio": "sister",
+          "exampleSentence": "My sister is cute.",
+          "chineseSentence": "我的姐姐很可爱。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "is",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tə/"
+            }
+          ]
+        },
+        {
+          "word": "grandfather",
+          "chinese": "祖父",
+          "phonetic": "/ˈɡrænfɑːðə/",
+          "audio": "grandfather",
+          "exampleSentence": "My grandfather is old.",
+          "chineseSentence": "我的爷爷年纪大了。",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "and",
+              "sound": "/ænd/"
+            },
+            {
+              "letters": "fa",
+              "sound": "/fɑː/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðə/"
+            }
+          ]
+        },
+        {
+          "word": "grandmother",
+          "chinese": "祖母",
+          "phonetic": "/ˈɡrænmʌðə/",
+          "audio": "grandmother",
+          "exampleSentence": "My grandmother cooks well.",
+          "chineseSentence": "我的奶奶做饭很好吃。",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "and",
+              "sound": "/ænd/"
+            },
+            {
+              "letters": "mo",
+              "sound": "/mʌ/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðə/"
+            }
+          ]
+        },
+        {
+          "word": "uncle",
+          "chinese": "叔叔",
+          "phonetic": "/ˈʌŋkl/",
+          "audio": "uncle",
+          "exampleSentence": "My uncle is a doctor.",
+          "chineseSentence": "我的叔叔是一名医生。",
+          "letterSounds": [
+            {
+              "letters": "un",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "cle",
+              "sound": "/kl/"
+            }
+          ]
+        },
+        {
+          "word": "aunt",
+          "chinese": "阿姨",
+          "phonetic": "/ɑːnt/",
+          "audio": "aunt",
+          "exampleSentence": "My aunt is pretty.",
+          "chineseSentence": "我的阿姨很漂亮。",
+          "letterSounds": [
+            {
+              "letters": "au",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "nt",
+              "sound": "/nt/"
+            }
+          ]
+        },
+        {
+          "word": "cousin",
+          "chinese": "堂兄妹",
+          "phonetic": "/ˈkʌzɪn/",
+          "audio": "cousin",
+          "exampleSentence": "My cousin is my age.",
+          "chineseSentence": "我的堂兄妹和我同龄。",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "sin",
+              "sound": "/zɪn/"
+            }
+          ]
+        },
+        {
+          "word": "have",
+          "chinese": "有",
+          "phonetic": "/hæv/",
+          "audio": "have",
+          "exampleSentence": "I have a big family.",
+          "chineseSentence": "我有一个大家庭。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "a",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "ve",
+              "sound": "/v/"
+            }
+          ]
+        },
+        {
+          "word": "has",
+          "chinese": "有（第三人称）",
+          "phonetic": "/hæz/",
+          "audio": "has",
+          "exampleSentence": "She has long hair.",
+          "chineseSentence": "她有长头发。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "as",
+              "sound": "/æz/"
+            }
+          ]
+        },
+        {
+          "word": "tall",
+          "chinese": "高的",
+          "phonetic": "/tɔːl/",
+          "audio": "tall",
+          "exampleSentence": "My father is very tall.",
+          "chineseSentence": "我的爸爸非常高。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "all",
+              "sound": "/ɔːl/"
+            }
+          ]
+        },
+        {
+          "word": "short",
+          "chinese": "矮的",
+          "phonetic": "/ʃɔːt/",
+          "audio": "short",
+          "exampleSentence": "My brother is short.",
+          "chineseSentence": "我的弟弟比较矮。",
+          "letterSounds": [
+            {
+              "letters": "sh",
+              "sound": "/ʃ/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit5": {
+      "id": "unit5",
+      "module": "module2",
+      "name": "My friends",
+      "nameCN": "我的朋友",
+      "topic": "学习描述朋友的特征和爱好",
+      "vocabulary": [
+        {
+          "word": "friend",
+          "chinese": "朋友",
+          "phonetic": "/frend/",
+          "audio": "friend",
+          "exampleSentence": "She is my best friend.",
+          "chineseSentence": "她是我最好的朋友。",
+          "letterSounds": [
+            {
+              "letters": "fr",
+              "sound": "/fr/"
+            },
+            {
+              "letters": "i",
+              "sound": "/e/"
+            },
+            {
+              "letters": "end",
+              "sound": "/nd/"
+            }
+          ]
+        },
+        {
+          "word": "clever",
+          "chinese": "聪明的",
+          "phonetic": "/ˈklevə/",
+          "audio": "clever",
+          "exampleSentence": "My friend is very clever.",
+          "chineseSentence": "我的朋友很聪明。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "ver",
+              "sound": "/və/"
+            }
+          ]
+        },
+        {
+          "word": "kind",
+          "chinese": "善良的",
+          "phonetic": "/kaɪnd/",
+          "audio": "kind",
+          "exampleSentence": "She is very kind.",
+          "chineseSentence": "她非常善良。",
+          "letterSounds": [
+            {
+              "letters": "k",
+              "sound": "/k/"
+            },
+            {
+              "letters": "ind",
+              "sound": "/aɪnd/"
+            }
+          ]
+        },
+        {
+          "word": "funny",
+          "chinese": "有趣的",
+          "phonetic": "/ˈfʌni/",
+          "audio": "funny",
+          "exampleSentence": "He is very funny.",
+          "chineseSentence": "他很有趣。",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "un",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "ny",
+              "sound": "/ni/"
+            }
+          ]
+        },
+        {
+          "word": "young",
+          "chinese": "年轻的",
+          "phonetic": "/jʌŋ/",
+          "audio": "young",
+          "exampleSentence": "My friend is young.",
+          "chineseSentence": "我的朋友很年轻。",
+          "letterSounds": [
+            {
+              "letters": "y",
+              "sound": "/j/"
+            },
+            {
+              "letters": "ou",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "ng",
+              "sound": "/ŋ/"
+            }
+          ]
+        },
+        {
+          "word": "old",
+          "chinese": "年老的",
+          "phonetic": "/əʊld/",
+          "audio": "old",
+          "exampleSentence": "My grandfather is old.",
+          "chineseSentence": "我的爷爷年纪大了。",
+          "letterSounds": [
+            {
+              "letters": "o",
+              "sound": "/əʊ/"
+            },
+            {
+              "letters": "ld",
+              "sound": "/ld/"
+            }
+          ]
+        },
+        {
+          "word": "tall",
+          "chinese": "高的",
+          "phonetic": "/tɔːl/",
+          "audio": "tall",
+          "exampleSentence": "He is tall and thin.",
+          "chineseSentence": "他又高又瘦。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "all",
+              "sound": "/ɔːl/"
+            }
+          ]
+        },
+        {
+          "word": "thin",
+          "chinese": "瘦的",
+          "phonetic": "/θɪn/",
+          "audio": "thin",
+          "exampleSentence": "The boy is thin.",
+          "chineseSentence": "这个男孩很瘦。",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/θ/"
+            },
+            {
+              "letters": "in",
+              "sound": "/ɪn/"
+            }
+          ]
+        },
+        {
+          "word": "strong",
+          "chinese": "强壮的",
+          "phonetic": "/strɒŋ/",
+          "audio": "strong",
+          "exampleSentence": "My father is strong.",
+          "chineseSentence": "我的爸爸很强壮。",
+          "letterSounds": [
+            {
+              "letters": "str",
+              "sound": "/str/"
+            },
+            {
+              "letters": "ong",
+              "sound": "/ɒŋ/"
+            }
+          ]
+        },
+        {
+          "word": "hair",
+          "chinese": "头发",
+          "phonetic": "/heə/",
+          "audio": "hair",
+          "exampleSentence": "She has long hair.",
+          "chineseSentence": "她有长头发。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "air",
+              "sound": "/eə/"
+            }
+          ]
+        },
+        {
+          "word": "long",
+          "chinese": "长的",
+          "phonetic": "/lɒŋ/",
+          "audio": "long",
+          "exampleSentence": "I have long hair.",
+          "chineseSentence": "我有长头发。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "ong",
+              "sound": "/ɒŋ/"
+            }
+          ]
+        },
+        {
+          "word": "short",
+          "chinese": "短的",
+          "phonetic": "/ʃɔːt/",
+          "audio": "short",
+          "exampleSentence": "He has short hair.",
+          "chineseSentence": "他留着短发。",
+          "letterSounds": [
+            {
+              "letters": "sh",
+              "sound": "/ʃ/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "t",
+              "sound": "/t/"
+            }
+          ]
+        },
+        {
+          "word": "like",
+          "chinese": "喜欢",
+          "phonetic": "/laɪk/",
+          "audio": "like",
+          "exampleSentence": "I like my friends.",
+          "chineseSentence": "我喜欢我的朋友们。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "ike",
+              "sound": "/aɪk/"
+            }
+          ]
+        },
+        {
+          "word": "play",
+          "chinese": "玩",
+          "phonetic": "/pleɪ/",
+          "audio": "play",
+          "exampleSentence": "Let's play together!",
+          "chineseSentence": "我们一起玩吧！",
+          "letterSounds": [
+            {
+              "letters": "pl",
+              "sound": "/pl/"
+            },
+            {
+              "letters": "ay",
+              "sound": "/eɪ/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit6": {
+      "id": "unit6",
+      "module": "module2",
+      "name": "My teachers",
+      "nameCN": "我的老师",
+      "topic": "学习描述老师的外貌和性格",
+      "vocabulary": [
+        {
+          "word": "teacher",
+          "chinese": "老师",
+          "phonetic": "/ˈtiːtʃə/",
+          "audio": "teacher",
+          "exampleSentence": "She is my teacher.",
+          "chineseSentence": "她是我的老师。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "class",
+          "chinese": "班级",
+          "phonetic": "/klɑːs/",
+          "audio": "class",
+          "exampleSentence": "We are in Class One.",
+          "chineseSentence": "我们在一年级一班。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "ass",
+              "sound": "/ɑːs/"
+            }
+          ]
+        },
+        {
+          "word": "Miss",
+          "chinese": "女士（未婚女老师）",
+          "phonetic": "/mɪs/",
+          "audio": "Miss",
+          "exampleSentence": "Miss Li is our teacher.",
+          "chineseSentence": "李老师是我们的老师。",
+          "letterSounds": [
+            {
+              "letters": "M",
+              "sound": "/m/"
+            },
+            {
+              "letters": "iss",
+              "sound": "/ɪs/"
+            }
+          ]
+        },
+        {
+          "word": "Mr",
+          "chinese": "先生（男老师）",
+          "phonetic": "/ˈmɪstə/",
+          "audio": "Mr",
+          "exampleSentence": "Mr Wang teaches English.",
+          "chineseSentence": "王老师教英语。",
+          "letterSounds": [
+            {
+              "letters": "Mr",
+              "sound": "/ˈmɪstə/"
+            }
+          ]
+        },
+        {
+          "word": "Mrs",
+          "chinese": "夫人（已婚女老师）",
+          "phonetic": "/ˈmɪsɪz/",
+          "audio": "Mrs",
+          "exampleSentence": "Mrs Zhang is kind.",
+          "chineseSentence": "张老师很和蔼。",
+          "letterSounds": [
+            {
+              "letters": "Mrs",
+              "sound": "/ˈmɪsɪz/"
+            }
+          ]
+        },
+        {
+          "word": "English",
+          "chinese": "英语",
+          "phonetic": "/ˈɪŋɡlɪʃ/",
+          "audio": "English",
+          "exampleSentence": "I like English class.",
+          "chineseSentence": "我喜欢英语课。",
+          "letterSounds": [
+            {
+              "letters": "En",
+              "sound": "/ˈɪŋ/"
+            },
+            {
+              "letters": "glish",
+              "sound": "/ɡlɪʃ/"
+            }
+          ]
+        },
+        {
+          "word": "Chinese",
+          "chinese": "语文",
+          "phonetic": "/ˌtʃaɪˈniːz/",
+          "audio": "Chinese",
+          "exampleSentence": "Miss Wang teaches Chinese.",
+          "chineseSentence": "王老师教语文。",
+          "letterSounds": [
+            {
+              "letters": "Ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "nese",
+              "sound": "/niːz/"
+            }
+          ]
+        },
+        {
+          "word": "Maths",
+          "chinese": "数学",
+          "phonetic": "/mæθs/",
+          "audio": "Maths",
+          "exampleSentence": "I am good at Maths.",
+          "chineseSentence": "我数学很好。",
+          "letterSounds": [
+            {
+              "letters": "M",
+              "sound": "/m/"
+            },
+            {
+              "letters": "ath",
+              "sound": "/æθ/"
+            },
+            {
+              "letters": "s",
+              "sound": "/s/"
+            }
+          ]
+        },
+        {
+          "word": "science",
+          "chinese": "科学",
+          "phonetic": "/ˈsaɪəns/",
+          "audio": "science",
+          "exampleSentence": "Science is interesting.",
+          "chineseSentence": "科学很有趣。",
+          "letterSounds": [
+            {
+              "letters": "sc",
+              "sound": "/s/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "ence",
+              "sound": "/əns/"
+            }
+          ]
+        },
+        {
+          "word": "strict",
+          "chinese": "严格的",
+          "phonetic": "/strɪkt/",
+          "audio": "strict",
+          "exampleSentence": "Our teacher is strict.",
+          "chineseSentence": "我们的老师很严格。",
+          "letterSounds": [
+            {
+              "letters": "str",
+              "sound": "/str/"
+            },
+            {
+              "letters": "ict",
+              "sound": "/ɪkt/"
+            }
+          ]
+        },
+        {
+          "word": "friendly",
+          "chinese": "友好的",
+          "phonetic": "/ˈfrendli/",
+          "audio": "friendly",
+          "exampleSentence": "She is very friendly.",
+          "chineseSentence": "她非常友好。",
+          "letterSounds": [
+            {
+              "letters": "fr",
+              "sound": "/fr/"
+            },
+            {
+              "letters": "iend",
+              "sound": "/end/"
+            },
+            {
+              "letters": "ly",
+              "sound": "/li/"
+            }
+          ]
+        },
+        {
+          "word": "help",
+          "chinese": "帮助",
+          "phonetic": "/help/",
+          "audio": "help",
+          "exampleSentence": "Please help me.",
+          "chineseSentence": "请帮帮我。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "e",
+              "sound": "/e/"
+            },
+            {
+              "letters": "lp",
+              "sound": "/lp/"
+            }
+          ]
+        },
+        {
+          "word": "work",
+          "chinese": "工作",
+          "phonetic": "/wɜːk/",
+          "audio": "work",
+          "exampleSentence": "Teachers work hard.",
+          "chineseSentence": "老师们工作很努力。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "or",
+              "sound": "/ɜː/"
+            },
+            {
+              "letters": "k",
+              "sound": "/k/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit7": {
+      "id": "unit7",
+      "module": "module3",
+      "name": "At school",
+      "nameCN": "在学校",
+      "topic": "学习学校相关的词汇和表达",
+      "vocabulary": [
+        {
+          "word": "school",
+          "chinese": "学校",
+          "phonetic": "/skuːl/",
+          "audio": "school",
+          "exampleSentence": "I go to school every day.",
+          "chineseSentence": "我每天去学校。",
+          "letterSounds": [
+            {
+              "letters": "sch",
+              "sound": "/sk/"
+            },
+            {
+              "letters": "oo",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "l",
+              "sound": "/l/"
+            }
+          ]
+        },
+        {
+          "word": "classroom",
+          "chinese": "教室",
+          "phonetic": "/ˈklɑːsrʊm/",
+          "audio": "classroom",
+          "exampleSentence": "We learn in the classroom.",
+          "chineseSentence": "我们在教室里学习。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "ass",
+              "sound": "/ɑːs/"
+            },
+            {
+              "letters": "room",
+              "sound": "/rʊm/"
+            }
+          ]
+        },
+        {
+          "word": "playground",
+          "chinese": "操场",
+          "phonetic": "/ˈpleɪɡraʊnd/",
+          "audio": "playground",
+          "exampleSentence": "We play on the playground.",
+          "chineseSentence": "我们在操场上玩。",
+          "letterSounds": [
+            {
+              "letters": "pl",
+              "sound": "/pl/"
+            },
+            {
+              "letters": "ay",
+              "sound": "/eɪ/"
+            },
+            {
+              "letters": "ground",
+              "sound": "/ɡraʊnd/"
+            }
+          ]
+        },
+        {
+          "word": "library",
+          "chinese": "图书馆",
+          "phonetic": "/ˈlaɪbrəri/",
+          "audio": "library",
+          "exampleSentence": "I read books in the library.",
+          "chineseSentence": "我在图书馆看书。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "i",
+              "sound": "/aɪ/"
+            },
+            {
+              "letters": "brary",
+              "sound": "/brəri/"
+            }
+          ]
+        },
+        {
+          "word": "office",
+          "chinese": "办公室",
+          "phonetic": "/ˈɒfɪs/",
+          "audio": "office",
+          "exampleSentence": "The headmaster's office is big.",
+          "chineseSentence": "校长办公室很大。",
+          "letterSounds": [
+            {
+              "letters": "of",
+              "sound": "/ˈɒ/"
+            },
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "ice",
+              "sound": "/ɪs/"
+            }
+          ]
+        },
+        {
+          "word": "gate",
+          "chinese": "大门",
+          "phonetic": "/ɡeɪt/",
+          "audio": "gate",
+          "exampleSentence": "Meet me at the school gate.",
+          "chineseSentence": "在学校门口等我。",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "ate",
+              "sound": "/eɪt/"
+            }
+          ]
+        },
+        {
+          "word": "desk",
+          "chinese": "书桌",
+          "phonetic": "/desk/",
+          "audio": "desk",
+          "exampleSentence": "I sit at my desk.",
+          "chineseSentence": "我坐在我的书桌前。",
+          "letterSounds": [
+            {
+              "letters": "d",
+              "sound": "/d/"
+            },
+            {
+              "letters": "esk",
+              "sound": "/esk/"
+            }
+          ]
+        },
+        {
+          "word": "chair",
+          "chinese": "椅子",
+          "phonetic": "/tʃeə/",
+          "audio": "chair",
+          "exampleSentence": "Please sit on the chair.",
+          "chineseSentence": "请坐在椅子上。",
+          "letterSounds": [
+            {
+              "letters": "ch",
+              "sound": "/tʃ/"
+            },
+            {
+              "letters": "air",
+              "sound": "/eə/"
+            }
+          ]
+        },
+        {
+          "word": "blackboard",
+          "chinese": "黑板",
+          "phonetic": "/ˈblækbɔːd/",
+          "audio": "blackboard",
+          "exampleSentence": "The teacher writes on the blackboard.",
+          "chineseSentence": "老师在黑板上写字。",
+          "letterSounds": [
+            {
+              "letters": "bl",
+              "sound": "/bl/"
+            },
+            {
+              "letters": "ack",
+              "sound": "/æk/"
+            },
+            {
+              "letters": "board",
+              "sound": "/bɔːd/"
+            }
+          ]
+        },
+        {
+          "word": "window",
+          "chinese": "窗户",
+          "phonetic": "/ˈwɪndəʊ/",
+          "audio": "window",
+          "exampleSentence": "Open the window, please.",
+          "chineseSentence": "请打开窗户。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "in",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "dow",
+              "sound": "/dəʊ/"
+            }
+          ]
+        },
+        {
+          "word": "door",
+          "chinese": "门",
+          "phonetic": "/dɔː/",
+          "audio": "door",
+          "exampleSentence": "Close the door, please.",
+          "chineseSentence": "请关上门。",
+          "letterSounds": [
+            {
+              "letters": "d",
+              "sound": "/d/"
+            },
+            {
+              "letters": "oor",
+              "sound": "/ɔː/"
+            }
+          ]
+        },
+        {
+          "word": "clock",
+          "chinese": "时钟",
+          "phonetic": "/klɒk/",
+          "audio": "clock",
+          "exampleSentence": "Look at the clock.",
+          "chineseSentence": "看时钟。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "ock",
+              "sound": "/ɒk/"
+            }
+          ]
+        },
+        {
+          "word": "many",
+          "chinese": "许多",
+          "phonetic": "/ˈmeni/",
+          "audio": "many",
+          "exampleSentence": "There are many books.",
+          "chineseSentence": "有许多书。",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "any",
+              "sound": "/eni/"
+            }
+          ]
+        },
+        {
+          "word": "pupil",
+          "chinese": "小学生",
+          "phonetic": "/ˈpjuːpl/",
+          "audio": "pupil",
+          "exampleSentence": "I am a pupil.",
+          "chineseSentence": "我是一名小学生。",
+          "letterSounds": [
+            {
+              "letters": "p",
+              "sound": "/p/"
+            },
+            {
+              "letters": "u",
+              "sound": "/juː/"
+            },
+            {
+              "letters": "pil",
+              "sound": "/pɪl/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit8": {
+      "id": "unit8",
+      "module": "module3",
+      "name": "In the classroom",
+      "nameCN": "在教室里",
+      "topic": "学习教室物品和课堂指令",
+      "vocabulary": [
+        {
+          "word": "book",
+          "chinese": "书",
+          "phonetic": "/bʊk/",
+          "audio": "book",
+          "exampleSentence": "Open your books.",
+          "chineseSentence": "打开你们的书。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ook",
+              "sound": "/ʊk/"
+            }
+          ]
+        },
+        {
+          "word": "pen",
+          "chinese": "钢笔",
+          "phonetic": "/pen/",
+          "audio": "pen",
+          "exampleSentence": "I write with a pen.",
+          "chineseSentence": "我用钢笔写字。",
+          "letterSounds": [
+            {
+              "letters": "p",
+              "sound": "/p/"
+            },
+            {
+              "letters": "en",
+              "sound": "/en/"
+            }
+          ]
+        },
+        {
+          "word": "pencil",
+          "chinese": "铅笔",
+          "phonetic": "/ˈpensl/",
+          "audio": "pencil",
+          "exampleSentence": "I have a new pencil.",
+          "chineseSentence": "我有一支新铅笔。",
+          "letterSounds": [
+            {
+              "letters": "p",
+              "sound": "/p/"
+            },
+            {
+              "letters": "en",
+              "sound": "/en/"
+            },
+            {
+              "letters": "cil",
+              "sound": "/sl/"
+            }
+          ]
+        },
+        {
+          "word": "ruler",
+          "chinese": "尺子",
+          "phonetic": "/ˈruːlə/",
+          "audio": "ruler",
+          "exampleSentence": "My ruler is long.",
+          "chineseSentence": "我的尺子很长。",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "u",
+              "sound": "/uː/"
+            },
+            {
+              "letters": "ler",
+              "sound": "/lə/"
+            }
+          ]
+        },
+        {
+          "word": "eraser",
+          "chinese": "橡皮",
+          "phonetic": "/ɪˈreɪzə/",
+          "audio": "eraser",
+          "exampleSentence": "This is my eraser.",
+          "chineseSentence": "这是我的橡皮。",
+          "letterSounds": [
+            {
+              "letters": "e",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ra",
+              "sound": "/reɪ/"
+            },
+            {
+              "letters": "ser",
+              "sound": "/zə/"
+            }
+          ]
+        },
+        {
+          "word": "bag",
+          "chinese": "书包",
+          "phonetic": "/bæɡ/",
+          "audio": "bag",
+          "exampleSentence": "I carry my bag to school.",
+          "chineseSentence": "我背着书包去上学。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ag",
+              "sound": "/æɡ/"
+            }
+          ]
+        },
+        {
+          "word": "open",
+          "chinese": "打开",
+          "phonetic": "/ˈəʊpən/",
+          "audio": "open",
+          "exampleSentence": "Open the door, please.",
+          "chineseSentence": "请打开门。",
+          "letterSounds": [
+            {
+              "letters": "o",
+              "sound": "/əʊ/"
+            },
+            {
+              "letters": "pen",
+              "sound": "/pən/"
+            }
+          ]
+        },
+        {
+          "word": "close",
+          "chinese": "关闭",
+          "phonetic": "/kləʊz/",
+          "audio": "close",
+          "exampleSentence": "Close your books.",
+          "chineseSentence": "合上你们的书。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "ose",
+              "sound": "/əʊz/"
+            }
+          ]
+        },
+        {
+          "word": "listen",
+          "chinese": "听",
+          "phonetic": "/ˈlɪsn/",
+          "audio": "listen",
+          "exampleSentence": "Listen to the teacher.",
+          "chineseSentence": "听老师讲课。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "is",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ten",
+              "sound": "/tn/"
+            }
+          ]
+        },
+        {
+          "word": "look",
+          "chinese": "看",
+          "phonetic": "/lʊk/",
+          "audio": "look",
+          "exampleSentence": "Look at the blackboard.",
+          "chineseSentence": "看黑板。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "ook",
+              "sound": "/ʊk/"
+            }
+          ]
+        },
+        {
+          "word": "stand",
+          "chinese": "站",
+          "phonetic": "/stænd/",
+          "audio": "stand",
+          "exampleSentence": "Stand up, please.",
+          "chineseSentence": "请站起来。",
+          "letterSounds": [
+            {
+              "letters": "st",
+              "sound": "/st/"
+            },
+            {
+              "letters": "and",
+              "sound": "/ænd/"
+            }
+          ]
+        },
+        {
+          "word": "sit",
+          "chinese": "坐",
+          "phonetic": "/sɪt/",
+          "audio": "sit",
+          "exampleSentence": "Sit down, please.",
+          "chineseSentence": "请坐下。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "it",
+              "sound": "/ɪt/"
+            }
+          ]
+        },
+        {
+          "word": "read",
+          "chinese": "读",
+          "phonetic": "/riːd/",
+          "audio": "read",
+          "exampleSentence": "Read after me.",
+          "chineseSentence": "跟我读。",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ead",
+              "sound": "/iːd/"
+            }
+          ]
+        },
+        {
+          "word": "write",
+          "chinese": "写",
+          "phonetic": "/raɪt/",
+          "audio": "write",
+          "exampleSentence": "Write your name.",
+          "chineseSentence": "写你的名字。",
+          "letterSounds": [
+            {
+              "letters": "wr",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ite",
+              "sound": "/aɪt/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit9": {
+      "id": "unit9",
+      "module": "module3",
+      "name": "My home",
+      "nameCN": "我的家",
+      "topic": "学习家庭房间和物品",
+      "vocabulary": [
+        {
+          "word": "home",
+          "chinese": "家",
+          "phonetic": "/həʊm/",
+          "audio": "home",
+          "exampleSentence": "I love my home.",
+          "chineseSentence": "我爱我的家。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ome",
+              "sound": "/əʊm/"
+            }
+          ]
+        },
+        {
+          "word": "house",
+          "chinese": "房子",
+          "phonetic": "/haʊs/",
+          "audio": "house",
+          "exampleSentence": "This is my house.",
+          "chineseSentence": "这是我的房子。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ouse",
+              "sound": "/aʊs/"
+            }
+          ]
+        },
+        {
+          "word": "living room",
+          "chinese": "客厅",
+          "phonetic": "/ˈlɪvɪŋ ruːm/",
+          "audio": "livingroom",
+          "exampleSentence": "We watch TV in the living room.",
+          "chineseSentence": "我们在客厅看电视。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "iv",
+              "sound": "/ɪv/"
+            },
+            {
+              "letters": "room",
+              "sound": "/ruːm/"
+            }
+          ]
+        },
+        {
+          "word": "bedroom",
+          "chinese": "卧室",
+          "phonetic": "/ˈbedruːm/",
+          "audio": "bedroom",
+          "exampleSentence": "I sleep in my bedroom.",
+          "chineseSentence": "我在我的卧室睡觉。",
+          "letterSounds": [
+            {
+              "letters": "bed",
+              "sound": "/bed/"
+            },
+            {
+              "letters": "room",
+              "sound": "/ruːm/"
+            }
+          ]
+        },
+        {
+          "word": "kitchen",
+          "chinese": "厨房",
+          "phonetic": "/ˈkɪtʃɪn/",
+          "audio": "kitchen",
+          "exampleSentence": "My mother cooks in the kitchen.",
+          "chineseSentence": "我妈妈在厨房做饭。",
+          "letterSounds": [
+            {
+              "letters": "k",
+              "sound": "/k/"
+            },
+            {
+              "letters": "itch",
+              "sound": "/ɪtʃ/"
+            },
+            {
+              "letters": "en",
+              "sound": "/ɪn/"
+            }
+          ]
+        },
+        {
+          "word": "bathroom",
+          "chinese": "浴室",
+          "phonetic": "/ˈbɑːθruːm/",
+          "audio": "bathroom",
+          "exampleSentence": "I wash my hands in the bathroom.",
+          "chineseSentence": "我在浴室洗手。",
+          "letterSounds": [
+            {
+              "letters": "bath",
+              "sound": "/bɑːθ/"
+            },
+            {
+              "letters": "room",
+              "sound": "/ruːm/"
+            }
+          ]
+        },
+        {
+          "word": "garden",
+          "chinese": "花园",
+          "phonetic": "/ˈɡɑːdn/",
+          "audio": "garden",
+          "exampleSentence": "There are many flowers in the garden.",
+          "chineseSentence": "花园里有很多花。",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "ar",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "den",
+              "sound": "/dn/"
+            }
+          ]
+        },
+        {
+          "word": "bed",
+          "chinese": "床",
+          "phonetic": "/bed/",
+          "audio": "bed",
+          "exampleSentence": "I have a soft bed.",
+          "chineseSentence": "我有一张柔软的床。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ed",
+              "sound": "/ed/"
+            }
+          ]
+        },
+        {
+          "word": "table",
+          "chinese": "桌子",
+          "phonetic": "/ˈteɪbl/",
+          "audio": "table",
+          "exampleSentence": "We eat at the table.",
+          "chineseSentence": "我们在桌子上吃饭。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "able",
+              "sound": "/eɪbl/"
+            }
+          ]
+        },
+        {
+          "word": "sofa",
+          "chinese": "沙发",
+          "phonetic": "/ˈsəʊfə/",
+          "audio": "sofa",
+          "exampleSentence": "I sit on the sofa.",
+          "chineseSentence": "我坐在沙发上。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "ofa",
+              "sound": "/əʊfə/"
+            }
+          ]
+        },
+        {
+          "word": "TV",
+          "chinese": "电视",
+          "phonetic": "/ˌtiːˈviː/",
+          "audio": "TV",
+          "exampleSentence": "I watch TV every evening.",
+          "chineseSentence": "我每天晚上看电视。",
+          "letterSounds": [
+            {
+              "letters": "T",
+              "sound": "/tiː/"
+            },
+            {
+              "letters": "V",
+              "sound": "/viː/"
+            }
+          ]
+        },
+        {
+          "word": "fridge",
+          "chinese": "冰箱",
+          "phonetic": "/frɪdʒ/",
+          "audio": "fridge",
+          "exampleSentence": "The food is in the fridge.",
+          "chineseSentence": "食物在冰箱里。",
+          "letterSounds": [
+            {
+              "letters": "fr",
+              "sound": "/fr/"
+            },
+            {
+              "letters": "idge",
+              "sound": "/ɪdʒ/"
+            }
+          ]
+        },
+        {
+          "word": "there",
+          "chinese": "那里",
+          "phonetic": "/ðeə/",
+          "audio": "there",
+          "exampleSentence": "There is a bed in my room.",
+          "chineseSentence": "我的房间里有一张床。",
+          "letterSounds": [
+            {
+              "letters": "th",
+              "sound": "/ð/"
+            },
+            {
+              "letters": "ere",
+              "sound": "/eə/"
+            }
+          ]
+        },
+        {
+          "word": "here",
+          "chinese": "这里",
+          "phonetic": "/hɪə/",
+          "audio": "here",
+          "exampleSentence": "Here you are.",
+          "chineseSentence": "给你。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ere",
+              "sound": "/ɪə/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit10": {
+      "id": "unit10",
+      "module": "module4",
+      "name": "Animals",
+      "nameCN": "动物",
+      "topic": "学习常见动物名称和特征",
+      "vocabulary": [
+        {
+          "word": "animal",
+          "chinese": "动物",
+          "phonetic": "/ˈænɪml/",
+          "audio": "animal",
+          "exampleSentence": "I like animals.",
+          "chineseSentence": "我喜欢动物。",
+          "letterSounds": [
+            {
+              "letters": "an",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "i",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "mal",
+              "sound": "/ml/"
+            }
+          ]
+        },
+        {
+          "word": "dog",
+          "chinese": "狗",
+          "phonetic": "/dɒɡ/",
+          "audio": "dog",
+          "exampleSentence": "The dog is cute.",
+          "chineseSentence": "这只狗很可爱。",
+          "letterSounds": [
+            {
+              "letters": "d",
+              "sound": "/d/"
+            },
+            {
+              "letters": "og",
+              "sound": "/ɒɡ/"
+            }
+          ]
+        },
+        {
+          "word": "cat",
+          "chinese": "猫",
+          "phonetic": "/kæt/",
+          "audio": "cat",
+          "exampleSentence": "The cat likes fish.",
+          "chineseSentence": "猫喜欢吃鱼。",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "at",
+              "sound": "/æt/"
+            }
+          ]
+        },
+        {
+          "word": "rabbit",
+          "chinese": "兔子",
+          "phonetic": "/ˈræbɪt/",
+          "audio": "rabbit",
+          "exampleSentence": "The rabbit has long ears.",
+          "chineseSentence": "兔子有长耳朵。",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ab",
+              "sound": "/æb/"
+            },
+            {
+              "letters": "bit",
+              "sound": "/ɪt/"
+            }
+          ]
+        },
+        {
+          "word": "bird",
+          "chinese": "鸟",
+          "phonetic": "/bɜːd/",
+          "audio": "bird",
+          "exampleSentence": "The bird can fly.",
+          "chineseSentence": "鸟会飞。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ir",
+              "sound": "/ɜː/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "fish",
+          "chinese": "鱼",
+          "phonetic": "/fɪʃ/",
+          "audio": "fish",
+          "exampleSentence": "The fish is swimming.",
+          "chineseSentence": "鱼在游泳。",
+          "letterSounds": [
+            {
+              "letters": "f",
+              "sound": "/f/"
+            },
+            {
+              "letters": "ish",
+              "sound": "/ɪʃ/"
+            }
+          ]
+        },
+        {
+          "word": "elephant",
+          "chinese": "大象",
+          "phonetic": "/ˈelɪfənt/",
+          "audio": "elephant",
+          "exampleSentence": "The elephant is big.",
+          "chineseSentence": "大象很大。",
+          "letterSounds": [
+            {
+              "letters": "el",
+              "sound": "/ˈe/"
+            },
+            {
+              "letters": "eph",
+              "sound": "/ɪf/"
+            },
+            {
+              "letters": "ant",
+              "sound": "/ənt/"
+            }
+          ]
+        },
+        {
+          "word": "monkey",
+          "chinese": "猴子",
+          "phonetic": "/ˈmʌŋki/",
+          "audio": "monkey",
+          "exampleSentence": "The monkey likes bananas.",
+          "chineseSentence": "猴子喜欢吃香蕉。",
+          "letterSounds": [
+            {
+              "letters": "m",
+              "sound": "/m/"
+            },
+            {
+              "letters": "on",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "key",
+              "sound": "/ki/"
+            }
+          ]
+        },
+        {
+          "word": "panda",
+          "chinese": "熊猫",
+          "phonetic": "/ˈpændə/",
+          "audio": "panda",
+          "exampleSentence": "Pandas are from China.",
+          "chineseSentence": "熊猫来自中国。",
+          "letterSounds": [
+            {
+              "letters": "p",
+              "sound": "/p/"
+            },
+            {
+              "letters": "an",
+              "sound": "/æ/"
+            },
+            {
+              "letters": "da",
+              "sound": "/də/"
+            }
+          ]
+        },
+        {
+          "word": "lion",
+          "chinese": "狮子",
+          "phonetic": "/ˈlaɪən/",
+          "audio": "lion",
+          "exampleSentence": "The lion is the king of animals.",
+          "chineseSentence": "狮子是动物之王。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "ion",
+              "sound": "/aɪən/"
+            }
+          ]
+        },
+        {
+          "word": "tiger",
+          "chinese": "老虎",
+          "phonetic": "/ˈtaɪɡə/",
+          "audio": "tiger",
+          "exampleSentence": "The tiger is strong.",
+          "chineseSentence": "老虎很强壮。",
+          "letterSounds": [
+            {
+              "letters": "t",
+              "sound": "/t/"
+            },
+            {
+              "letters": "iger",
+              "sound": "/aɪɡə/"
+            }
+          ]
+        },
+        {
+          "word": "zebra",
+          "chinese": "斑马",
+          "phonetic": "/ˈzebrə/",
+          "audio": "zebra",
+          "exampleSentence": "The zebra has black and white stripes.",
+          "chineseSentence": "斑马有黑白条纹。",
+          "letterSounds": [
+            {
+              "letters": "z",
+              "sound": "/z/"
+            },
+            {
+              "letters": "ebra",
+              "sound": "/ebrə/"
+            }
+          ]
+        },
+        {
+          "word": "big",
+          "chinese": "大的",
+          "phonetic": "/bɪɡ/",
+          "audio": "big",
+          "exampleSentence": "The elephant is big.",
+          "chineseSentence": "大象很大。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "ig",
+              "sound": "/ɪɡ/"
+            }
+          ]
+        },
+        {
+          "word": "small",
+          "chinese": "小的",
+          "phonetic": "/smɔːl/",
+          "audio": "small",
+          "exampleSentence": "The mouse is small.",
+          "chineseSentence": "老鼠很小。",
+          "letterSounds": [
+            {
+              "letters": "sm",
+              "sound": "/sm/"
+            },
+            {
+              "letters": "all",
+              "sound": "/ɔːl/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit11": {
+      "id": "unit11",
+      "module": "module4",
+      "name": "Plants",
+      "nameCN": "植物",
+      "topic": "学习植物相关的词汇",
+      "vocabulary": [
+        {
+          "word": "tree",
+          "chinese": "树",
+          "phonetic": "/triː/",
+          "audio": "tree",
+          "exampleSentence": "The tree is tall.",
+          "chineseSentence": "这棵树很高。",
+          "letterSounds": [
+            {
+              "letters": "tr",
+              "sound": "/tr/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            }
+          ]
+        },
+        {
+          "word": "flower",
+          "chinese": "花",
+          "phonetic": "/ˈflaʊə/",
+          "audio": "flower",
+          "exampleSentence": "The flower is beautiful.",
+          "chineseSentence": "这朵花很漂亮。",
+          "letterSounds": [
+            {
+              "letters": "fl",
+              "sound": "/fl/"
+            },
+            {
+              "letters": "ow",
+              "sound": "/aʊ/"
+            },
+            {
+              "letters": "er",
+              "sound": "/ə/"
+            }
+          ]
+        },
+        {
+          "word": "grass",
+          "chinese": "草",
+          "phonetic": "/ɡrɑːs/",
+          "audio": "grass",
+          "exampleSentence": "The grass is green.",
+          "chineseSentence": "草是绿色的。",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "ass",
+              "sound": "/ɑːs/"
+            }
+          ]
+        },
+        {
+          "word": "leaf",
+          "chinese": "叶子",
+          "phonetic": "/liːf/",
+          "audio": "leaf",
+          "exampleSentence": "The leaf is green.",
+          "chineseSentence": "叶子是绿色的。",
+          "letterSounds": [
+            {
+              "letters": "l",
+              "sound": "/l/"
+            },
+            {
+              "letters": "eaf",
+              "sound": "/iːf/"
+            }
+          ]
+        },
+        {
+          "word": "plant",
+          "chinese": "植物",
+          "phonetic": "/plɑːnt/",
+          "audio": "plant",
+          "exampleSentence": "I water the plant every day.",
+          "chineseSentence": "我每天给植物浇水。",
+          "letterSounds": [
+            {
+              "letters": "pl",
+              "sound": "/pl/"
+            },
+            {
+              "letters": "ant",
+              "sound": "/ɑːnt/"
+            }
+          ]
+        },
+        {
+          "word": "garden",
+          "chinese": "花园",
+          "phonetic": "/ˈɡɑːdn/",
+          "audio": "garden",
+          "exampleSentence": "There are many flowers in the garden.",
+          "chineseSentence": "花园里有很多花。",
+          "letterSounds": [
+            {
+              "letters": "g",
+              "sound": "/ɡ/"
+            },
+            {
+              "letters": "ar",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "den",
+              "sound": "/dn/"
+            }
+          ]
+        },
+        {
+          "word": "seed",
+          "chinese": "种子",
+          "phonetic": "/siːd/",
+          "audio": "seed",
+          "exampleSentence": "Plant a seed.",
+          "chineseSentence": "种下一颗种子。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "ee",
+              "sound": "/iː/"
+            },
+            {
+              "letters": "d",
+              "sound": "/d/"
+            }
+          ]
+        },
+        {
+          "word": "grow",
+          "chinese": "生长",
+          "phonetic": "/ɡrəʊ/",
+          "audio": "grow",
+          "exampleSentence": "Plants grow in spring.",
+          "chineseSentence": "植物在春天生长。",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "ow",
+              "sound": "/əʊ/"
+            }
+          ]
+        },
+        {
+          "word": "water",
+          "chinese": "水",
+          "phonetic": "/ˈwɔːtə/",
+          "audio": "water",
+          "exampleSentence": "Water the flowers.",
+          "chineseSentence": "给花浇水。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "a",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tə/"
+            }
+          ]
+        },
+        {
+          "word": "green",
+          "chinese": "绿色的",
+          "phonetic": "/ɡriːn/",
+          "audio": "green",
+          "exampleSentence": "The leaves are green.",
+          "chineseSentence": "叶子是绿色的。",
+          "letterSounds": [
+            {
+              "letters": "gr",
+              "sound": "/ɡr/"
+            },
+            {
+              "letters": "een",
+              "sound": "/iːn/"
+            }
+          ]
+        },
+        {
+          "word": "beautiful",
+          "chinese": "美丽的",
+          "phonetic": "/ˈbjuːtɪfl/",
+          "audio": "beautiful",
+          "exampleSentence": "The garden is beautiful.",
+          "chineseSentence": "花园很美丽。",
+          "letterSounds": [
+            {
+              "letters": "b",
+              "sound": "/b/"
+            },
+            {
+              "letters": "eau",
+              "sound": "/juː/"
+            },
+            {
+              "letters": "tiful",
+              "sound": "/tɪfl/"
+            }
+          ]
+        },
+        {
+          "word": "pink",
+          "chinese": "粉色的",
+          "phonetic": "/pɪŋk/",
+          "audio": "pink",
+          "exampleSentence": "The flower is pink.",
+          "chineseSentence": "这朵花是粉色的。",
+          "letterSounds": [
+            {
+              "letters": "p",
+              "sound": "/p/"
+            },
+            {
+              "letters": "ink",
+              "sound": "/ɪŋk/"
+            }
+          ]
+        }
+      ]
+    },
+    "unit12": {
+      "id": "unit12",
+      "module": "module4",
+      "name": "Weather",
+      "nameCN": "天气",
+      "topic": "学习描述天气状况",
+      "vocabulary": [
+        {
+          "word": "weather",
+          "chinese": "天气",
+          "phonetic": "/ˈweðə/",
+          "audio": "weather",
+          "exampleSentence": "What is the weather like today?",
+          "chineseSentence": "今天天气怎么样？",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "ea",
+              "sound": "/e/"
+            },
+            {
+              "letters": "ther",
+              "sound": "/ðə/"
+            }
+          ]
+        },
+        {
+          "word": "sunny",
+          "chinese": "晴朗的",
+          "phonetic": "/ˈsʌni/",
+          "audio": "sunny",
+          "exampleSentence": "It is sunny today.",
+          "chineseSentence": "今天是晴天。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "un",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "ny",
+              "sound": "/ni/"
+            }
+          ]
+        },
+        {
+          "word": "cloudy",
+          "chinese": "多云的",
+          "phonetic": "/ˈklaʊdi/",
+          "audio": "cloudy",
+          "exampleSentence": "It is cloudy today.",
+          "chineseSentence": "今天是多云天。",
+          "letterSounds": [
+            {
+              "letters": "cl",
+              "sound": "/kl/"
+            },
+            {
+              "letters": "oud",
+              "sound": "/aʊd/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "rainy",
+          "chinese": "下雨的",
+          "phonetic": "/ˈreɪni/",
+          "audio": "rainy",
+          "exampleSentence": "It is rainy today.",
+          "chineseSentence": "今天下雨了。",
+          "letterSounds": [
+            {
+              "letters": "r",
+              "sound": "/r/"
+            },
+            {
+              "letters": "ain",
+              "sound": "/eɪn/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "windy",
+          "chinese": "刮风的",
+          "phonetic": "/ˈwɪndi/",
+          "audio": "windy",
+          "exampleSentence": "It is windy today.",
+          "chineseSentence": "今天刮风。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "ind",
+              "sound": "/ɪnd/"
+            },
+            {
+              "letters": "y",
+              "sound": "/i/"
+            }
+          ]
+        },
+        {
+          "word": "snowy",
+          "chinese": "下雪的",
+          "phonetic": "/ˈsnəʊi/",
+          "audio": "snowy",
+          "exampleSentence": "It is snowy in winter.",
+          "chineseSentence": "冬天下雪。",
+          "letterSounds": [
+            {
+              "letters": "sn",
+              "sound": "/sn/"
+            },
+            {
+              "letters": "owy",
+              "sound": "/əʊi/"
+            }
+          ]
+        },
+        {
+          "word": "hot",
+          "chinese": "热的",
+          "phonetic": "/hɒt/",
+          "audio": "hot",
+          "exampleSentence": "It is very hot in summer.",
+          "chineseSentence": "夏天很热。",
+          "letterSounds": [
+            {
+              "letters": "h",
+              "sound": "/h/"
+            },
+            {
+              "letters": "ot",
+              "sound": "/ɒt/"
+            }
+          ]
+        },
+        {
+          "word": "cold",
+          "chinese": "冷的",
+          "phonetic": "/kəʊld/",
+          "audio": "cold",
+          "exampleSentence": "It is very cold in winter.",
+          "chineseSentence": "冬天很冷。",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "old",
+              "sound": "/əʊld/"
+            }
+          ]
+        },
+        {
+          "word": "warm",
+          "chinese": "温暖的",
+          "phonetic": "/wɔːm/",
+          "audio": "warm",
+          "exampleSentence": "It is warm in spring.",
+          "chineseSentence": "春天很温暖。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "ar",
+              "sound": "/ɑː/"
+            },
+            {
+              "letters": "m",
+              "sound": "/m/"
+            }
+          ]
+        },
+        {
+          "word": "cool",
+          "chinese": "凉爽的",
+          "phonetic": "/kuːl/",
+          "audio": "cool",
+          "exampleSentence": "It is cool in autumn.",
+          "chineseSentence": "秋天很凉爽。",
+          "letterSounds": [
+            {
+              "letters": "c",
+              "sound": "/k/"
+            },
+            {
+              "letters": "ool",
+              "sound": "/uːl/"
+            }
+          ]
+        },
+        {
+          "word": "spring",
+          "chinese": "春天",
+          "phonetic": "/sprɪŋ/",
+          "audio": "spring",
+          "exampleSentence": "Flowers bloom in spring.",
+          "chineseSentence": "春天花开了。",
+          "letterSounds": [
+            {
+              "letters": "spr",
+              "sound": "/spr/"
+            },
+            {
+              "letters": "ing",
+              "sound": "/ɪŋ/"
+            }
+          ]
+        },
+        {
+          "word": "summer",
+          "chinese": "夏天",
+          "phonetic": "/ˈsʌmə/",
+          "audio": "summer",
+          "exampleSentence": "It is hot in summer.",
+          "chineseSentence": "夏天很热。",
+          "letterSounds": [
+            {
+              "letters": "s",
+              "sound": "/s/"
+            },
+            {
+              "letters": "um",
+              "sound": "/ʌ/"
+            },
+            {
+              "letters": "mer",
+              "sound": "/mə/"
+            }
+          ]
+        },
+        {
+          "word": "autumn",
+          "chinese": "秋天",
+          "phonetic": "/ˈɔːtəm/",
+          "audio": "autumn",
+          "exampleSentence": "Leaves fall in autumn.",
+          "chineseSentence": "秋天叶子落下。",
+          "letterSounds": [
+            {
+              "letters": "au",
+              "sound": "/ɔː/"
+            },
+            {
+              "letters": "tumn",
+              "sound": "/təm/"
+            }
+          ]
+        },
+        {
+          "word": "winter",
+          "chinese": "冬天",
+          "phonetic": "/ˈwɪntə/",
+          "audio": "winter",
+          "exampleSentence": "It is cold in winter.",
+          "chineseSentence": "冬天很冷。",
+          "letterSounds": [
+            {
+              "letters": "w",
+              "sound": "/w/"
+            },
+            {
+              "letters": "in",
+              "sound": "/ɪ/"
+            },
+            {
+              "letters": "ter",
+              "sound": "/tə/"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
