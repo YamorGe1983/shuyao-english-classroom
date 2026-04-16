@@ -4366,6 +4366,123 @@ const ReviewEngine = {
 };
 
 /**
+ * 音标数据
+ * 48个国际音标：20个元音 + 28个辅音
+ */
+const PHONETIC_DATA = {
+    vowels: {
+        title: '元音',
+        description: '20个元音音标',
+        categories: [
+            {
+                name: '前元音',
+                sounds: [
+                    { symbol: '/iː/', example: 'see', description: '长元音，类似"衣"的音', audio: 'i' },
+                    { symbol: '/ɪ/', example: 'sit', description: '短元音', audio: 'ɪ' },
+                    { symbol: '/e/', example: 'bed', description: '短元音', audio: 'e' },
+                    { symbol: '/æ/', example: 'cat', description: '大口梅花音', audio: 'æ' }
+                ]
+            },
+            {
+                name: '中元音',
+                sounds: [
+                    { symbol: '/ɜː/', example: 'bird', description: '长元音', audio: 'ɜ' },
+                    { symbol: '/ə/', example: 'about', description: '中央元音', audio: 'ə' },
+                    { symbol: '/ʌ/', example: 'cup', description: '短元音', audio: 'ʌ' }
+                ]
+            },
+            {
+                name: '后元音',
+                sounds: [
+                    { symbol: '/ɑː/', example: 'car', description: '长元音', audio: 'ɑ' },
+                    { symbol: '/ɒ/', example: 'hot', description: '短元音', audio: 'ɒ' },
+                    { symbol: '/ɔː/', example: 'door', description: '长元音', audio: 'ɔ' },
+                    { symbol: '/ʊ/', example: 'put', description: '短元音', audio: 'ʊ' },
+                    { symbol: '/uː/', example: 'too', description: '长元音', audio: 'u' }
+                ]
+            },
+            {
+                name: '双元音',
+                sounds: [
+                    { symbol: '/eɪ/', example: 'day', description: '合口双元音', audio: 'eɪ' },
+                    { symbol: '/aɪ/', example: 'my', description: '合口双元音', audio: 'aɪ' },
+                    { symbol: '/ɔɪ/', example: 'boy', description: '合口双元音', audio: 'ɔɪ' },
+                    { symbol: '/aʊ/', example: 'now', description: '合口双元音', audio: 'aʊ' },
+                    { symbol: '/əʊ/', example: 'go', description: '合口双元音', audio: 'əʊ' },
+                    { symbol: '/ɪə/', example: 'ear', description: '集中双元音', audio: 'ɪə' },
+                    { symbol: '/eə/', example: 'air', description: '集中双元音', audio: 'eə' },
+                    { symbol: '/ʊə/', example: 'sure', description: '集中双元音', audio: 'ʊə' }
+                ]
+            }
+        ]
+    },
+    consonants: {
+        title: '辅音',
+        description: '28个辅音音标',
+        categories: [
+            {
+                name: '爆破音',
+                sounds: [
+                    { symbol: '/p/', example: 'pen', description: '清辅音', audio: 'p' },
+                    { symbol: '/b/', example: 'bad', description: '浊辅音', audio: 'b' },
+                    { symbol: '/t/', example: 'tea', description: '清辅音', audio: 't' },
+                    { symbol: '/d/', example: 'dog', description: '浊辅音', audio: 'd' },
+                    { symbol: '/k/', example: 'cat', description: '清辅音', audio: 'k' },
+                    { symbol: '/g/', example: 'get', description: '浊辅音', audio: 'ɡ' }
+                ]
+            },
+            {
+                name: '摩擦音',
+                sounds: [
+                    { symbol: '/f/', example: 'fat', description: '清辅音', audio: 'f' },
+                    { symbol: '/v/', example: 'van', description: '浊辅音', audio: 'v' },
+                    { symbol: '/θ/', example: 'think', description: '清辅音', audio: 'θ' },
+                    { symbol: '/ð/', example: 'this', description: '浊辅音', audio: 'ð' },
+                    { symbol: '/s/', example: 'see', description: '清辅音', audio: 's' },
+                    { symbol: '/z/', example: 'zoo', description: '浊辅音', audio: 'z' },
+                    { symbol: '/ʃ/', example: 'she', description: '清辅音', audio: 'ʃ' },
+                    { symbol: '/ʒ/', example: 'vision', description: '浊辅音', audio: 'ʒ' },
+                    { symbol: '/h/', example: 'hat', description: '清辅音', audio: 'h' },
+                    { symbol: '/r/', example: 'red', description: '浊辅音', audio: 'r' }
+                ]
+            },
+            {
+                name: '破擦音',
+                sounds: [
+                    { symbol: '/tʃ/', example: 'church', description: '清辅音', audio: 'tʃ' },
+                    { symbol: '/dʒ/', example: 'judge', description: '浊辅音', audio: 'dʒ' },
+                    { symbol: '/tr/', example: 'tree', description: '清辅音', audio: 'tr' },
+                    { symbol: '/dr/', example: 'draw', description: '浊辅音', audio: 'dr' },
+                    { symbol: '/ts/', example: 'cats', description: '清辅音', audio: 'ts' },
+                    { symbol: '/dz/', example: 'dogs', description: '浊辅音', audio: 'dz' }
+                ]
+            },
+            {
+                name: '鼻音',
+                sounds: [
+                    { symbol: '/m/', example: 'man', description: '浊辅音', audio: 'm' },
+                    { symbol: '/n/', example: 'no', description: '浊辅音', audio: 'n' },
+                    { symbol: '/ŋ/', example: 'sing', description: '浊辅音', audio: 'ŋ' }
+                ]
+            },
+            {
+                name: '舌边音',
+                sounds: [
+                    { symbol: '/l/', example: 'leg', description: '浊辅音', audio: 'l' }
+                ]
+            },
+            {
+                name: '半元音',
+                sounds: [
+                    { symbol: '/w/', example: 'wet', description: '浊辅音', audio: 'w' },
+                    { symbol: '/j/', example: 'yes', description: '浊辅音', audio: 'j' }
+                ]
+            }
+        ]
+    }
+};
+
+/**
  * 用户管理模块
  */
 const UserModule = {
@@ -6023,7 +6140,10 @@ const App = {
         isPaused: false
     },
     
-    showUnitSelectPage() {
+    async showUnitSelectPage() {
+        // 确保数据已加载
+        const textbook = await getCurrentTextbookAsync();
+        
         const html = `
             <div class="unit-select-page">
                 <button class="back-btn" onclick="App.renderHome()">
@@ -6035,7 +6155,7 @@ const App = {
                     <p class="page-subtitle">选择学习单元</p>
                 </div>
                 
-                ${getCurrentTextbook().modules.map(mod => `
+                ${textbook.modules.map(mod => `
                     <div class="module-section" data-module="${mod.id}">
                         <div class="module-select-header">
                             <input type="checkbox" class="module-checkbox" 
@@ -6047,7 +6167,7 @@ const App = {
                         </div>
                         
                         ${mod.units.map(unit => {
-                            const unitData = getCurrentTextbook().units[unit.id];
+                            const unitData = textbook.units[unit.id];
                             const wordCount = unitData?.vocabulary?.length || 0;
                             return `
                                 <div class="unit-select-item" onclick="App.toggleUnit('${unit.id}')">
@@ -6073,8 +6193,9 @@ const App = {
         this.setContent(html);
     },
     
-    toggleModule(moduleId) {
-        const module = getCurrentTextbook().modules.find(m => m.id === moduleId);
+    async toggleModule(moduleId) {
+        const textbook = await getCurrentTextbookAsync();
+        const module = textbook.modules.find(m => m.id === moduleId);
         const checkbox = document.getElementById(`mod-${moduleId}`);
         const isChecked = checkbox.checked;
         
