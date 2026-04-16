@@ -3039,6 +3039,17 @@ async function getCurrentTextbookAsync() {
     return await DataLoader.loadGrade(gradeId);
 }
 
+// 同步获取教材数据（从缓存或GRADES元数据）
+function getCurrentTextbook() {
+    const gradeId = StorageModule.getCurrentGrade();
+    // 优先从DataLoader缓存获取
+    if (DataLoader._cache[gradeId]) {
+        return DataLoader._cache[gradeId];
+    }
+    // 否则返回GRADES中的元数据
+    return GRADES[gradeId] || GRADES['grade3_2'];
+}
+
 const StorageModule = {
     PREFIX: 'englearn_',
     
@@ -4361,6 +4372,10 @@ const App = {
                 if (currentUser) { 
                     this.initUser(currentUser); 
                     this.elements.nav.style.display = 'flex';
+                    // 先加载当前年级数据，再渲染首页
+                    window._ld&&window._ld.status("加载教材数据...");
+                    const gradeId = StorageModule.getCurrentGrade();
+                    await DataLoader.loadGrade(gradeId);
                     this.renderHome(); 
                 }
                 else { 
