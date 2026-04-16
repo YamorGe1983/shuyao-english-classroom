@@ -21768,32 +21768,64 @@ const TTSModule = {
                 return;
             }
             
-            const utterance = new SpeechSynthesisUtterance(text);
             const isChinese = this.containsChinese(text);
-            // 使用英式英语，与国际音标一致
-            utterance.lang = isChinese ? 'zh-CN' : 'en-GB';
-            utterance.rate = this.config.rate;
-            utterance.pitch = this.config.pitch;
-            
-            // 尝试找到合适的声音
-            const voices = speechSynthesis.getVoices();
             const targetLang = isChinese ? 'zh-CN' : 'en-GB';
-            // 优先找英式英语声音，找不到则用任意英语声音
-            let voice = voices.find(v => v.lang === 'en-GB');
-            if (!voice && !isChinese) {
-                voice = voices.find(v => v.lang.startsWith('en'));
-            }
-            if (voice) {
-                utterance.voice = voice;
-            }
             
-            utterance.onend = () => resolve();
-            utterance.onerror = () => resolve();
+            // 获取合适的语音（iOS需要等待voices加载）
+            const getBestVoice = () => {
+                const voices = speechSynthesis.getVoices();
+                // 优先找英式英语声音
+                let voice = voices.find(v => v.lang === 'en-GB');
+                // 找不到则用任意英语声音
+                if (!voice && !isChinese) {
+                    voice = voices.find(v => v.lang.startsWith('en'));
+                }
+                // 中文声音
+                if (isChinese) {
+                    voice = voices.find(v => v.lang === 'zh-CN') || 
+                            voices.find(v => v.lang.startsWith('zh'));
+                }
+                return voice;
+            };
             
-            // 某些浏览器需要延迟执行
-            setTimeout(() => {
-                speechSynthesis.speak(utterance);
-            }, 100);
+            const doSpeak = () => {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = targetLang;
+                utterance.rate = this.config.rate;
+                utterance.pitch = this.config.pitch;
+                
+                const voice = getBestVoice();
+                if (voice) {
+                    utterance.voice = voice;
+                }
+                
+                utterance.onend = () => resolve();
+                utterance.onerror = () => resolve();
+                
+                // iOS Safari/Chrome 需要取消之前的播放
+                speechSynthesis.cancel();
+                setTimeout(() => {
+                    speechSynthesis.speak(utterance);
+                }, 100);
+            };
+            
+            // iOS: voices 可能还没加载完，需要等待
+            const voices = speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                doSpeak();
+            } else {
+                // 等待 voices 加载（iOS 需要这个）
+                const onVoicesLoaded = () => {
+                    speechSynthesis.removeEventListener('voiceschanged', onVoicesLoaded);
+                    doSpeak();
+                };
+                speechSynthesis.addEventListener('voiceschanged', onVoicesLoaded);
+                // 超时保护
+                setTimeout(() => {
+                    speechSynthesis.removeEventListener('voiceschanged', onVoicesLoaded);
+                    doSpeak();
+                }, 1000);
+            }
         });
     },
     
