@@ -21712,19 +21712,27 @@ const TTSModule = {
                     pitch: options.pitch || this.config.pitch,
                     onend: () => resolve(),
                     onerror: (e) => {
-                        console.warn('ResponsiveVoice错误，尝试百度TTS:', e);
-                        // 失败时fallback到百度TTS
-                        this.speakWithBaidu(text).then(resolve).catch(() => {
+                        console.warn('ResponsiveVoice错误，尝试备用方案:', e);
+                        // iOS上跳过百度TTS，直接用Web Speech API
+                        if (this.isIOS()) {
                             this.speakWithBrowser(text).then(resolve);
-                        });
+                        } else {
+                            this.speakWithBaidu(text).then(resolve).catch(() => {
+                                this.speakWithBrowser(text).then(resolve);
+                            });
+                        }
                     }
                 });
             } 
-            // Fallback: 百度TTS → 浏览器原生TTS
+            // Fallback: iOS直接用Web Speech API，其他平台先尝试百度TTS
             else {
-                this.speakWithBaidu(text).then(resolve).catch(() => {
+                if (this.isIOS()) {
                     this.speakWithBrowser(text).then(resolve);
-                });
+                } else {
+                    this.speakWithBaidu(text).then(resolve).catch(() => {
+                        this.speakWithBrowser(text).then(resolve);
+                    });
+                }
             }
         });
     },
@@ -21776,7 +21784,11 @@ const TTSModule = {
                 const voices = speechSynthesis.getVoices();
                 // 优先找英式英语声音
                 let voice = voices.find(v => v.lang === 'en-GB');
-                // 找不到则用任意英语声音
+                // 找不到则用美式英语
+                if (!voice && !isChinese) {
+                    voice = voices.find(v => v.lang === 'en-US');
+                }
+                // 再找不到则用任意英语声音
                 if (!voice && !isChinese) {
                     voice = voices.find(v => v.lang.startsWith('en'));
                 }
@@ -21815,16 +21827,21 @@ const TTSModule = {
                 doSpeak();
             } else {
                 // 等待 voices 加载（iOS 需要这个）
+                let resolved = false;
                 const onVoicesLoaded = () => {
+                    if (resolved) return;
+                    resolved = true;
                     speechSynthesis.removeEventListener('voiceschanged', onVoicesLoaded);
                     doSpeak();
                 };
                 speechSynthesis.addEventListener('voiceschanged', onVoicesLoaded);
-                // 超时保护
+                // 超时保护（缩短到500ms，iOS一般很快）
                 setTimeout(() => {
+                    if (resolved) return;
+                    resolved = true;
                     speechSynthesis.removeEventListener('voiceschanged', onVoicesLoaded);
                     doSpeak();
-                }, 1000);
+                }, 500);
             }
         });
     },
