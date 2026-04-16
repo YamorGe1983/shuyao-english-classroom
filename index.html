@@ -24122,15 +24122,68 @@ const App = {
         const questions = [];
         const allSounds = this.getAllPhoneticSounds();
         
+        // 易混淆音标映射（用于生成更有挑战性的干扰选项）
+        const CONFUSABLE_PHONETICS = {
+            '/iː/': ['/ɪ/', '/e/', '/eɪ/'],
+            '/ɪ/': ['/iː/', '/e/', '/aɪ/'],
+            '/e/': ['/æ/', '/ɪ/', '/eɪ/'],
+            '/æ/': ['/e/', '/ʌ/', '/aɪ/'],
+            '/ɜː/': ['/ə/', '/ʌ/', '/ɔː/'],
+            '/ə/': ['/ɜː/', '/ʌ/', '/əʊ/'],
+            '/ʌ/': ['/æ/', '/ə/', '/e/'],
+            '/ɑː/': ['/ʌ/', '/ɒ/', '/ɔː/'],
+            '/ɒ/': ['/ɔː/', '/ɑː/', '/əʊ/'],
+            '/ɔː/': ['/ɒ/', '/əʊ/', '/ɜː/'],
+            '/ʊ/': ['/uː/', '/ʌ/', '/ə/'],
+            '/uː/': ['/ʊ/', '/aʊ/', '/əʊ/'],
+            '/eɪ/': ['/aɪ/', '/e/', '/eə/'],
+            '/aɪ/': ['/eɪ/', '/aʊ/', '/ɪ/'],
+            '/ɔɪ/': ['/eɪ/', '/aɪ/', '/ɪ/'],
+            '/aʊ/': ['/əʊ/', '/uː/', '/aɪ/'],
+            '/əʊ/': ['/aʊ/', '/ɔː/', '/ə/'],
+            '/ɪə/': ['/eə/', '/ʊə/', '/ɪ/'],
+            '/eə/': ['/ɪə/', '/eɪ/', '/æ/'],
+            '/ʊə/': ['/ɪə/', '/ə/', '/uː/'],
+            '/θ/': ['/s/', '/t/', '/ð/'],
+            '/ð/': ['/z/', '/d/', '/θ/'],
+            '/ʃ/': ['/s/', '/tʃ/', '/ʒ/'],
+            '/ʒ/': ['/z/', '/ʃ/', '/dʒ/'],
+            '/tʃ/': ['/ʃ/', '/tr/', '/dʒ/'],
+            '/dʒ/': ['/ʒ/', '/dr/', '/tʃ/'],
+            '/ŋ/': ['/n/', '/m/'],
+            '/s/': ['/z/', '/θ/', '/ʃ/'],
+            '/z/': ['/s/', '/ð/', '/ʒ/'],
+            '/p/': ['/b/', '/t/'],
+            '/b/': ['/p/', '/d/'],
+            '/t/': ['/d/', '/p/'],
+            '/d/': ['/t/', '/b/'],
+            '/k/': ['/g/', '/t/'],
+            '/g/': ['/k/', '/d/'],
+            '/f/': ['/v/', '/θ/'],
+            '/v/': ['/f/', '/ð/'],
+            '/tr/': ['/tʃ/', '/dr/'],
+            '/dr/': ['/dʒ/', '/tr/']
+        };
+        
         sounds.forEach(sound => {
             if (!sound.examples || sound.examples.length === 0) return;
             
-            // 题型A：看单词选音标（带下划线）
+            const confusables = CONFUSABLE_PHONETICS[sound.symbol] || [];
+            
+            // 题型A：看单词选音标 - 用易混淆音标作干扰项
             const exampleA = sound.examples[Math.floor(Math.random() * sound.examples.length)];
-            const distractorsA = allSounds
-                .filter(s => s.symbol !== sound.symbol)
-                .sort(() => Math.random() - 0.5)
+            let distractorsA = confusables
+                .map(symbol => allSounds.find(s => s.symbol === symbol))
+                .filter(Boolean)
                 .slice(0, 3);
+            
+            if (distractorsA.length < 3) {
+                const remaining = allSounds
+                    .filter(s => s.symbol !== sound.symbol && !distractorsA.includes(s))
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3 - distractorsA.length);
+                distractorsA = [...distractorsA, ...remaining];
+            }
             
             questions.push({
                 type: 'word_to_symbol',
@@ -24140,18 +24193,30 @@ const App = {
                 highlight: exampleA.highlight,
                 options: this.shuffle([
                     { text: sound.symbol, isCorrect: true },
-                    ...distractorsA.map(s => ({ text: s.symbol, isCorrect: false }))
+                    ...distractorsA.slice(0, 3).map(s => ({ text: s.symbol, isCorrect: false }))
                 ]),
                 correctAnswer: sound.symbol
             });
             
-            // 题型C：看音标选单词
+            // 题型C：看音标选单词 - 用易混淆音标的单词作干扰项
             const exampleC = sound.examples[Math.floor(Math.random() * sound.examples.length)];
-            const distractorsC = allSounds
-                .flatMap(s => s.examples.map(e => ({ word: e.word, symbol: s.symbol })))
-                .filter(e => e.symbol !== sound.symbol)
+            let distractorsC = confusables
+                .flatMap(symbol => {
+                    const s = allSounds.find(x => x.symbol === symbol);
+                    return s ? s.examples.slice(0, 2).map(e => ({ word: e.word, symbol: s.symbol })) : [];
+                })
+                .filter(e => e.word !== exampleC.word)
                 .sort(() => Math.random() - 0.5)
                 .slice(0, 3);
+            
+            if (distractorsC.length < 3) {
+                const remaining = allSounds
+                    .flatMap(s => s.examples.map(e => ({ word: e.word, symbol: s.symbol })))
+                    .filter(e => e.symbol !== sound.symbol && e.word !== exampleC.word && !distractorsC.find(d => d.word === e.word))
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3 - distractorsC.length);
+                distractorsC = [...distractorsC, ...remaining];
+            }
             
             questions.push({
                 type: 'symbol_to_word',
@@ -24160,7 +24225,7 @@ const App = {
                 symbol: sound.symbol,
                 options: this.shuffle([
                     { text: exampleC.word, isCorrect: true },
-                    ...distractorsC.map(e => ({ text: e.word, isCorrect: false }))
+                    ...distractorsC.slice(0, 3).map(e => ({ text: e.word, isCorrect: false }))
                 ]),
                 correctAnswer: exampleC.word
             });
@@ -24185,28 +24250,34 @@ const App = {
                 });
             }
             
-            // 题型E：找出不同的音
-            const sameSoundExamples = sound.examples.filter(e => e.word !== sound.examples[0].word);
-            const differentSounds = allSounds.filter(s => s.symbol !== sound.symbol);
-            
-            if (sameSoundExamples.length >= 2 && differentSounds.length >= 1) {
-                const diffSound = differentSounds[Math.floor(Math.random() * differentSounds.length)];
-                const diffExample = diffSound.examples[Math.floor(Math.random() * diffSound.examples.length)];
+            // 题型E：找出不同的音 - 两个相同音标 + 一个易混淆音标
+            if (confusables.length > 0 && sound.examples.length >= 2) {
+                // 从当前音标选2个示例
+                const sameExamples = sound.examples.slice(0, 2);
                 
-                const selectedSame = sameSoundExamples.slice(0, 2).map(e => e.word);
-                const allWords = this.shuffle([selectedSame[0], selectedSame[1], diffExample.word]);
+                // 从易混淆音标中选1个
+                const diffSymbol = confusables[Math.floor(Math.random() * confusables.length)];
+                const diffSound = allSounds.find(s => s.symbol === diffSymbol);
                 
-                questions.push({
-                    type: 'find_different',
-                    sound: sound,
-                    question: '哪个单词的划线部分发音不同？',
-                    words: allWords.map(w => {
-                        const ex = sound.examples.find(e => e.word === w) || diffSound.examples.find(e => e.word === w);
-                        return { word: w, isDifferent: w === diffExample.word, highlight: ex?.highlight || [0, 1] };
-                    }),
-                    options: allWords.map(w => ({ text: w, isCorrect: w === diffExample.word })),
-                    correctAnswer: diffExample.word
-                });
+                if (diffSound && diffSound.examples && diffSound.examples.length > 0) {
+                    const diffExample = diffSound.examples[Math.floor(Math.random() * diffSound.examples.length)];
+                    
+                    const allWords = this.shuffle([
+                        { word: sameExamples[0].word, highlight: sameExamples[0].highlight, isDifferent: false },
+                        { word: sameExamples[1].word, highlight: sameExamples[1].highlight, isDifferent: false },
+                        { word: diffExample.word, highlight: diffExample.highlight, isDifferent: true }
+                    ]);
+                    
+                    questions.push({
+                        type: 'find_different',
+                        sound: sound,
+                        diffSound: diffSound,
+                        question: '哪个单词的划线部分发音不同？',
+                        words: allWords,
+                        options: allWords.map(w => ({ text: w.word, isCorrect: w.isDifferent })),
+                        correctAnswer: diffExample.word
+                    });
+                }
             }
         });
         
