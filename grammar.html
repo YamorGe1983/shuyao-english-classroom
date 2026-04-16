@@ -1099,10 +1099,46 @@
     // 题型C状态
     let selectedChoice = null;
 
+    // 年级名称映射
+    const gradeNames = {
+        'grade3_2': '三年级下册',
+        'grade4_1': '四年级上册',
+        'grade4_2': '四年级下册',
+        'grade5_1': '五年级上册',
+        'grade5_2': '五年级下册'
+    };
+
     // ==================== 初始化 ====================
     async function init() {
+        // 从URL参数或localStorage获取年级
+        const urlParams = new URLSearchParams(window.location.search);
+        const gradeFromUrl = urlParams.get('grade');
+        
+        if (gradeFromUrl && gradeNames[gradeFromUrl]) {
+            currentGrade = gradeFromUrl;
+        } else {
+            // 从localStorage读取（与主页同步）
+            const savedGrade = localStorage.getItem('currentGrade');
+            if (savedGrade && gradeNames[savedGrade]) {
+                currentGrade = savedGrade;
+            }
+        }
+        
+        // 隐藏年级选择器（由主页统一管理）
+        document.querySelector('.grade-selector').style.display = 'none';
+        
+        // 更新标题显示当前年级
+        updateGradeDisplay();
+        
         await loadGrammarData();
         updateOverview();
+    }
+    
+    function updateGradeDisplay() {
+        const headerTitle = document.querySelector('.header-title');
+        if (headerTitle) {
+            headerTitle.textContent = `📝 语法练习 · ${gradeNames[currentGrade]}`;
+        }
     }
 
     async function loadGrammarData() {
@@ -1112,6 +1148,12 @@
             updateOverview();
         } catch (error) {
             console.error('加载语法数据失败:', error);
+            // 如果加载失败，显示提示
+            document.querySelector('.grammar-overview').innerHTML = `
+                <div class="overview-icon">⚠️</div>
+                <h2 class="overview-title">暂无数据</h2>
+                <p class="overview-desc">当前年级（${gradeNames[currentGrade]}）暂无语法练习题</p>
+            `;
         }
     }
 
