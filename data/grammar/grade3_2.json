@@ -41,6 +41,68 @@
     {
       "id": "g3_2_04",
       "type": "A",
+      "grammarPoint": "be动词搭配",
+      "content": {
+        "scrambled": ["You", "are", "my", "friend", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "You are my friend.",
+      "hint": "You总是用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_05",
+      "type": "C",
+      "grammarPoint": "be动词搭配",
+      "content": {
+        "sentence": "It ____ a nice cat. (is/are)",
+        "choices": ["is", "are"],
+        "blank": "____"
+      },
+      "answer": "is",
+      "hint": "It是单数，用is。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_06",
+      "type": "A",
+      "grammarPoint": "be动词搭配",
+      "content": {
+        "scrambled": ["We", "are", "happy", "today", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "We are happy today.",
+      "hint": "We是复数，用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_07",
+      "type": "C",
+      "grammarPoint": "be动词搭配",
+      "content": {
+        "sentence": "They ____ in the park. (is/are)",
+        "choices": ["is", "are"],
+        "blank": "____"
+      },
+      "answer": "are",
+      "hint": "They是复数，用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_08",
+      "type": "B",
+      "grammarPoint": "be动词搭配",
+      "content": {
+        "left": ["I", "You", "He", "She", "We"],
+        "right": ["am", "are", "is", "is", "are"]
+      },
+      "answer": {"I": "am", "You": "are", "He": "is", "She": "is", "We": "are"},
+      "hint": "记住口诀：I用am，you用are，he/she/it用is，复数都用are。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_09",
+      "type": "A",
       "grammarPoint": "介词方位",
       "content": {
         "scrambled": ["We", "are", "in", "the", "classroom", "."],
@@ -51,45 +113,19 @@
       "difficulty": 1
     },
     {
-      "id": "g3_2_05",
-      "type": "C",
-      "grammarPoint": "名词复数",
-      "content": {
-        "sentence": "The cats ____ (is/are) cute.",
-        "choices": ["is", "are"],
-        "blank": "____"
-      },
-      "answer": "are",
-      "hint": "cats是复数名词，用are。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_06",
+      "id": "g3_2_10",
       "type": "A",
-      "grammarPoint": "现在进行时",
+      "grammarPoint": "介词方位",
       "content": {
-        "scrambled": ["The", "boy", "is", "playing", "football", "."],
+        "scrambled": ["The", "cat", "is", "on", "the", "box", "."],
         "sentence": "将单词组成正确的句子"
       },
-      "answer": "The boy is playing football.",
-      "hint": "现在进行时：主语 + is/am/are + 动词-ing。",
-      "difficulty": 2
+      "answer": "The cat is on the box.",
+      "hint": "on表示'在...上面'。",
+      "difficulty": 1
     },
     {
-      "id": "g3_2_07",
-      "type": "C",
-      "grammarPoint": "现在进行时",
-      "content": {
-        "sentence": "I ____ (watch/watches) TV now.",
-        "choices": ["watch", "watches"],
-        "blank": "____"
-      },
-      "answer": "watch",
-      "hint": "now表示现在进行时，用watching或用一般现在时。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_08",
+      "id": "g3_2_11",
       "type": "B",
       "grammarPoint": "介词方位",
       "content": {
@@ -104,6 +140,931 @@
       },
       "hint": "介词表示位置关系：on在...上，under在...下，in在...里，near在...附近。",
       "difficulty": 2
+    },
+    {
+      "id": "g3_2_12",
+      "type": "C",
+      "grammarPoint": "介词方位",
+      "content": {
+        "sentence": "My book is ____ the table. (in/on/under)",
+        "choices": ["in", "on", "under"],
+        "blank": "____"
+      },
+      "answer": "on",
+      "hint": "书在桌子上面，用on。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_13",
+      "type": "A",
+      "grammarPoint": "介词方位",
+      "content": {
+        "scrambled": ["The", "ball", "is", "under", "the", "bed", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "The ball is under the bed.",
+      "hint": "under表示'在...下面'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_14",
+      "type": "B",
+      "grammarPoint": "介词方位",
+      "content": {
+        "left": ["The bird is ____ the tree.", "The fish is ____ the bowl.", "The picture is ____ the wall.", "The dog is ____ the door."],
+        "right": ["in", "in", "on", "near"]
+      },
+      "answer": {
+        "The bird is ____ the tree.": "in",
+        "The fish is ____ the bowl.": "in",
+        "The picture is ____ the wall.": "on",
+        "The dog is ____ the door.": "near"
+      },
+      "hint": "in用于封闭空间，on用于表面，near表示附近。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_15",
+      "type": "A",
+      "grammarPoint": "There be句型",
+      "content": {
+        "scrambled": ["There", "is", "a", "book", "on", "the", "desk", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "There is a book on the desk.",
+      "hint": "There be句型表示'某处有某物'，be动词根据后面名词决定。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_16",
+      "type": "C",
+      "grammarPoint": "There be句型",
+      "content": {
+        "sentence": "There ____ many flowers in the garden. (is/are)",
+        "choices": ["is", "are"],
+        "blank": "____"
+      },
+      "answer": "are",
+      "hint": "flowers是复数，用are。There are表示'有'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_17",
+      "type": "A",
+      "grammarPoint": "There be句型",
+      "content": {
+        "scrambled": ["There", "is", "an", "apple", "in", "the", "bag", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "There is an apple in the bag.",
+      "hint": "apple以元音开头，用an。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_18",
+      "type": "B",
+      "grammarPoint": "There be句型",
+      "content": {
+        "left": ["There is a cat.", "There are two dogs.", "There is some water.", "There are many stars."],
+        "right": ["一只猫", "两只狗", "一些水", "许多星星"]
+      },
+      "answer": {
+        "There is a cat.": "一只猫",
+        "There are two dogs.": "两只狗",
+        "There is some water.": "一些水",
+        "There are many stars.": "许多星星"
+      },
+      "hint": "There be句型翻译为'有'，注意单复数。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_19",
+      "type": "C",
+      "grammarPoint": "There be句型",
+      "content": {
+        "sentence": "____ there a pencil in your bag? (Is/Are)",
+        "choices": ["Is", "Are"],
+        "blank": "____"
+      },
+      "answer": "Is",
+      "hint": "pencil是单数，用Is there...？",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_20",
+      "type": "A",
+      "grammarPoint": "There be句型",
+      "content": {
+        "scrambled": ["There", "are", "three", "boys", "in", "the", "room", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "There are three boys in the room.",
+      "hint": "three boys是复数，用There are。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_21",
+      "type": "C",
+      "grammarPoint": "can动词",
+      "content": {
+        "sentence": "I ____ swim very well. (can/can't)",
+        "choices": ["can", "can't"],
+        "blank": "____"
+      },
+      "answer": "can",
+      "hint": "can表示'能/会'，用在动词前面。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_22",
+      "type": "A",
+      "grammarPoint": "can动词",
+      "content": {
+        "scrambled": ["She", "can", "dance", "very", "well", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "She can dance very well.",
+      "hint": "can + 动词原形，表示'会做某事'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_23",
+      "type": "B",
+      "grammarPoint": "can动词",
+      "content": {
+        "left": ["I can swim.", "You can run.", "He can sing.", "She can draw."],
+        "right": ["我会游泳", "你会跑步", "他会唱歌", "她会画画"]
+      },
+      "answer": {
+        "I can swim.": "我会游泳",
+        "You can run.": "你会跑步",
+        "He can sing.": "他会唱歌",
+        "She can draw.": "她会画画"
+      },
+      "hint": "can表示能力，翻译为'会/能'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_24",
+      "type": "C",
+      "grammarPoint": "can动词",
+      "content": {
+        "sentence": "____ you hear me? (Can/Can't)",
+        "choices": ["Can", "Can't"],
+        "blank": "____"
+      },
+      "answer": "Can",
+      "hint": "一般疑问句把can提前，Can you...？你能...吗？",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_25",
+      "type": "A",
+      "grammarPoint": "can动词",
+      "content": {
+        "scrambled": ["Can", "you", "see", "the", "bird", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Can you see the bird?",
+      "hint": "Can you...? 疑问句结构。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_26",
+      "type": "C",
+      "grammarPoint": "like动词",
+      "content": {
+        "sentence": "I ____ apples. They are sweet. (like/likes)",
+        "choices": ["like", "likes"],
+        "blank": "____"
+      },
+      "answer": "like",
+      "hint": "I后面的动词用原形like。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_27",
+      "type": "A",
+      "grammarPoint": "like动词",
+      "content": {
+        "scrambled": ["He", "likes", "to", "play", "football", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "He likes to play football.",
+      "hint": "He/She/It后面的动词要加s或es。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_28",
+      "type": "B",
+      "grammarPoint": "like动词",
+      "content": {
+        "left": ["I like oranges.", "She likes bananas.", "He likes apples.", "We like milk."],
+        "right": ["我喜欢橙子", "她喜欢香蕉", "他喜欢苹果", "我们喜欢牛奶"]
+      },
+      "answer": {
+        "I like oranges.": "我喜欢橙子",
+        "She likes bananas.": "她喜欢香蕉",
+        "He likes apples.": "他喜欢苹果",
+        "We like milk.": "我们喜欢牛奶"
+      },
+      "hint": "like表示喜欢，注意主谓一致。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_29",
+      "type": "C",
+      "grammarPoint": "like动词",
+      "content": {
+        "sentence": "Do you ____ ice cream? (like/likes)",
+        "choices": ["like", "likes"],
+        "blank": "____"
+      },
+      "answer": "like",
+      "hint": "Do you...? 动词用原形。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_30",
+      "type": "A",
+      "grammarPoint": "like动词",
+      "content": {
+        "scrambled": ["They", "like", "playing", "in", "the", "park", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "They like playing in the park.",
+      "hint": "They是复数，动词用原形like。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_31",
+      "type": "C",
+      "grammarPoint": "have/has动词",
+      "content": {
+        "sentence": "I ____ a new bike. (have/has)",
+        "choices": ["have", "has"],
+        "blank": "____"
+      },
+      "answer": "have",
+      "hint": "I用have，you用have，we用have。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_32",
+      "type": "A",
+      "grammarPoint": "have/has动词",
+      "content": {
+        "scrambled": ["She", "has", "a", "beautiful", "dress", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "She has a beautiful dress.",
+      "hint": "She/He/It用has。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_33",
+      "type": "B",
+      "grammarPoint": "have/has动词",
+      "content": {
+        "left": ["I have a book.", "He has a car.", "She has a dog.", "We have a home."],
+        "right": ["我有一本书", "他有一辆车", "她有一只狗", "我们有一个家"]
+      },
+      "answer": {
+        "I have a book.": "我有一本书",
+        "He has a car.": "他有一辆车",
+        "She has a dog.": "她有一只狗",
+        "We have a home.": "我们有一个家"
+      },
+      "hint": "have/has表示'有'，注意主谓一致。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_34",
+      "type": "C",
+      "grammarPoint": "have/has动词",
+      "content": {
+        "sentence": "He ____ a big house. (have/has)",
+        "choices": ["have", "has"],
+        "blank": "____"
+      },
+      "answer": "has",
+      "hint": "He是第三人称单数，用has。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_35",
+      "type": "A",
+      "grammarPoint": "have/has动词",
+      "content": {
+        "scrambled": ["We", "have", "English", "on", "Monday", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "We have English on Monday.",
+      "hint": "have English表示'上英语课'。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_36",
+      "type": "C",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "sentence": "____ is your name? (What/How)",
+        "choices": ["What", "How"],
+        "blank": "____"
+      },
+      "answer": "What",
+      "hint": "What's your name? 问'你叫什么名字？'用What。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_37",
+      "type": "A",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "scrambled": ["What", "is", "this", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "What is this?",
+      "hint": "What is this? 用来问'这是什么？'",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_38",
+      "type": "B",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "left": ["What is this?", "What is that?", "What is it?", "What's this?"],
+        "right": ["这是什么", "那是什么", "它是什么", "这是什么"]
+      },
+      "answer": {
+        "What is this?": "这是什么",
+        "What is that?": "那是什么",
+        "What is it?": "它是什么",
+        "What's this?": "这是什么"
+      },
+      "hint": "What问句用来询问事物。this/that/it都可用What提问。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_39",
+      "type": "C",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "sentence": "____ colour is the apple? (What/How)",
+        "choices": ["What", "How"],
+        "blank": "____"
+      },
+      "answer": "What",
+      "hint": "What colour...? 问'什么颜色'。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_40",
+      "type": "A",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "scrambled": ["What", "colour", "is", "your", "bag", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "What colour is your bag?",
+      "hint": "What colour is...? 问颜色。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_41",
+      "type": "C",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "sentence": "____ many books do you have? (What/How)",
+        "choices": ["What", "How"],
+        "blank": "____"
+      },
+      "answer": "How",
+      "hint": "How many...? 问数量多少。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_42",
+      "type": "A",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "scrambled": ["How", "many", "apples", "do", "you", "have", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "How many apples do you have?",
+      "hint": "How many + 复数名词 + do you have?",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_43",
+      "type": "B",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "left": ["How old are you?", "How are you?", "How is the weather?", "How do you go to school?"],
+        "right": ["你几岁", "你好吗", "天气怎么样", "你怎么去学校"]
+      },
+      "answer": {
+        "How old are you?": "你几岁",
+        "How are you?": "你好吗",
+        "How is the weather?": "天气怎么样",
+        "How do you go to school?": "你怎么去学校"
+      },
+      "hint": "How可以问年龄、状态、天气、交通方式等。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_44",
+      "type": "C",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "sentence": "____ shape is it? (What/How)",
+        "choices": ["What", "How"],
+        "blank": "____"
+      },
+      "answer": "What",
+      "hint": "What shape...? 问形状。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_45",
+      "type": "A",
+      "grammarPoint": "Wh-问句",
+      "content": {
+        "scrambled": ["What", "do", "you", "like", "to", "eat", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "What do you like to eat?",
+      "hint": "What do you like to do? 问喜欢做什么。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_46",
+      "type": "C",
+      "grammarPoint": "一般疑问句",
+      "content": {
+        "sentence": "____ you like oranges? (Do/Does)",
+        "choices": ["Do", "Does"],
+        "blank": "____"
+      },
+      "answer": "Do",
+      "hint": "Do you like...? 你喜欢...吗？",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_47",
+      "type": "A",
+      "grammarPoint": "一般疑问句",
+      "content": {
+        "scrambled": ["Do", "you", "like", "bananas", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Do you like bananas?",
+      "hint": "Do you like...? 的一般疑问句形式。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_48",
+      "type": "B",
+      "grammarPoint": "一般疑问句",
+      "content": {
+        "left": ["Do you like milk?", "Does he like apples?", "Are those your books?", "Is this your bag?"],
+        "right": ["你喜欢牛奶吗", "他喜欢苹果吗", "那些是你的书吗", "这是你的包吗"]
+      },
+      "answer": {
+        "Do you like milk?": "你喜欢牛奶吗",
+        "Does he like apples?": "他喜欢苹果吗",
+        "Are those your books?": "那些是你的书吗",
+        "Is this your bag?": "这是你的包吗"
+      },
+      "hint": "一般疑问句用Yes/No回答。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_49",
+      "type": "C",
+      "grammarPoint": "一般疑问句",
+      "content": {
+        "sentence": "____ those your pencils? (Are/Is)",
+        "choices": ["Are", "Is"],
+        "blank": "____"
+      },
+      "answer": "Are",
+      "hint": "those是复数，用Are those...?",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_50",
+      "type": "A",
+      "grammarPoint": "一般疑问句",
+      "content": {
+        "scrambled": ["Are", "they", "your", "friends", "?"],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Are they your friends?",
+      "hint": "Are they...? 复数疑问句。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_51",
+      "type": "C",
+      "grammarPoint": "指示代词",
+      "content": {
+        "sentence": "____ is an orange. It's big. (This/That)",
+        "choices": ["This", "That"],
+        "blank": "____"
+      },
+      "answer": "This",
+      "hint": "This指代近处的事物，That指远处。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_52",
+      "type": "A",
+      "grammarPoint": "指示代词",
+      "content": {
+        "scrambled": ["That", "is", "my", "father", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "That is my father.",
+      "hint": "That is = That's 那是...。",
+      "difficulty": 1
+    },
+    {
+      "id": "g3_2_53",
+      "type": "B",
+      "grammarPoint": "指示代词",
+      "content": {
+        "left": ["This is my teacher.", "That is my mother.", "These are my friends.", "Those are my books."],
+        "right": ["这是我的老师", "那是我的妈妈", "这些是我的朋友", "那些是我的书"]
+      },
+      "answer": {
+        "This is my teacher.": "这是我的老师",
+        "That is my mother.": "那是我的妈妈",
+        "These are my friends.": "这些是我的朋友",
+        "Those are my books.": "那些是我的书"
+      },
+      "hint": "this/that + is = 单数；these/those + are = 复数。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_54",
+      "type": "C",
+      "grammarPoint": "指示代词",
+      "content": {
+        "sentence": "____ are my new shoes. (These/Those)",
+        "choices": ["These", "Those"],
+        "blank": "____"
+      },
+      "answer": "These",
+      "hint": "近处的复数用These。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_55",
+      "type": "A",
+      "grammarPoint": "指示代词",
+      "content": {
+        "scrambled": ["These", "are", "red", "flowers", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "These are red flowers.",
+      "hint": "These are = These're 这些是...。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_56",
+      "type": "C",
+      "grammarPoint": "形容词",
+      "content": {
+        "sentence": "The soup is very ____. (hot/cold)",
+        "choices": ["hot", "cold"],
+        "blank": "____"
+      },
+      "answer": "hot",
+      "hint": "hot表示热的，cold表示冷的。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_57",
+      "type": "A",
+      "grammarPoint": "形容词",
+      "content": {
+        "scrambled": ["The", "flower", "is", "beautiful", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "The flower is beautiful.",
+      "hint": "形容词放在名词后面或be动词后面。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_58",
+      "type": "B",
+      "grammarPoint": "形容词",
+      "content": {
+        "left": ["The sun is bright.", "The night is dark.", "The cat is cute.", "The water is clean."],
+        "right": ["太阳是明亮的", "夜晚是黑暗的", "猫咪是可爱的", "水是干净的"]
+      },
+      "answer": {
+        "The sun is bright.": "太阳是明亮的",
+        "The night is dark.": "夜晚是黑暗的",
+        "The cat is cute.": "猫咪是可爱的",
+        "The water is clean.": "水是干净的"
+      },
+      "hint": "形容词描述事物的特征。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_59",
+      "type": "C",
+      "grammarPoint": "形容词",
+      "content": {
+        "sentence": "The coffee smells ____. (good/bad)",
+        "choices": ["good", "bad"],
+        "blank": "____"
+      },
+      "answer": "good",
+      "hint": "good表示好的，bad表示坏的。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_60",
+      "type": "A",
+      "grammarPoint": "形容词",
+      "content": {
+        "scrambled": ["The", "milk", "tastes", "sweet", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "The milk tastes sweet.",
+      "hint": "taste是感官动词，后面跟形容词。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_61",
+      "type": "C",
+      "grammarPoint": "祈使句",
+      "content": {
+        "sentence": "____ the door, please. (Open/Opens)",
+        "choices": ["Open", "Opens"],
+        "blank": "____"
+      },
+      "answer": "Open",
+      "hint": "祈使句用动词原形。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_62",
+      "type": "A",
+      "grammarPoint": "祈使句",
+      "content": {
+        "scrambled": ["Touch", "your", "nose", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Touch your nose.",
+      "hint": "祈使句以动词开头，表示命令。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_63",
+      "type": "B",
+      "grammarPoint": "祈使句",
+      "content": {
+        "left": ["Close the door.", "Open the window.", "Look at the blackboard.", "Listen to me."],
+        "right": ["关门", "开窗", "看黑板", "听我说"]
+      },
+      "answer": {
+        "Close the door.": "关门",
+        "Open the window.": "开窗",
+        "Look at the blackboard.": "看黑板",
+        "Listen to me.": "听我说"
+      },
+      "hint": "祈使句表示命令或请求。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_64",
+      "type": "C",
+      "grammarPoint": "祈使句",
+      "content": {
+        "sentence": "____ to the music! (Listen/Listenes)",
+        "choices": ["Listen", "Listenes"],
+        "blank": "____"
+      },
+      "answer": "Listen",
+      "hint": "Listen是动词原形，Listenes是错误的。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_65",
+      "type": "A",
+      "grammarPoint": "祈使句",
+      "content": {
+        "scrambled": ["Please", "sit", "down", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Please sit down.",
+      "hint": "Please放在句首或句末，表示礼貌。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_66",
+      "type": "C",
+      "grammarPoint": "人称代词和物主代词",
+      "content": {
+        "sentence": "This is ____ book. (my/me)",
+        "choices": ["my", "me"],
+        "blank": "____"
+      },
+      "answer": "my",
+      "hint": "my是物主代词，后面跟名词。me是宾格。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_67",
+      "type": "A",
+      "grammarPoint": "人称代词和物主代词",
+      "content": {
+        "scrambled": ["This", "is", "my", "bag", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "This is my bag.",
+      "hint": "my bag = 我的包，my是物主代词。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_68",
+      "type": "B",
+      "grammarPoint": "人称代词和物主代词",
+      "content": {
+        "left": ["my book", "your pen", "his car", "her doll"],
+        "right": ["我的书", "你的笔", "他的车", "她的娃娃"]
+      },
+      "answer": {
+        "my book": "我的书",
+        "your pen": "你的笔",
+        "his car": "他的车",
+        "her doll": "她的娃娃"
+      },
+      "hint": "my/your/his/her是物主代词，后面跟名词。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_69",
+      "type": "C",
+      "grammarPoint": "人称代词和物主代词",
+      "content": {
+        "sentence": "Look at ____. The boy is happy. (I/me)",
+        "choices": ["I", "me"],
+        "blank": "____"
+      },
+      "answer": "me",
+      "hint": "Look at是动词短语，后面用宾格me。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_70",
+      "type": "A",
+      "grammarPoint": "人称代词和物主代词",
+      "content": {
+        "scrambled": ["I", "talk", "to", "myself", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "I talk to myself.",
+      "hint": "myself是反身代词，表示'我自己'。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_71",
+      "type": "C",
+      "grammarPoint": "时间介词",
+      "content": {
+        "sentence": "I have class ____ Monday. (in/on/at)",
+        "choices": ["in", "on", "at"],
+        "blank": "____"
+      },
+      "answer": "on",
+      "hint": "具体的某一天用on，如on Monday，on Sunday。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_72",
+      "type": "A",
+      "grammarPoint": "时间介词",
+      "content": {
+        "scrambled": ["We", "play", "football", "on", "Saturday", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "We play football on Saturday.",
+      "hint": "on + 具体某一天。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_73",
+      "type": "B",
+      "grammarPoint": "时间介词",
+      "content": {
+        "left": ["in the morning", "on Monday", "at noon", "in the evening"],
+        "right": ["在早上", "在周一", "在中午", "在晚上"]
+      },
+      "answer": {
+        "in the morning": "在早上",
+        "on Monday": "在周一",
+        "at noon": "在中午",
+        "in the evening": "在晚上"
+      },
+      "hint": "in + 时段（morning/afternoon/evening），on + 具体日期，at + 时间点。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_74",
+      "type": "C",
+      "grammarPoint": "时间介词",
+      "content": {
+        "sentence": "I go to school ____ 8 o'clock. (in/on/at)",
+        "choices": ["in", "on", "at"],
+        "blank": "____"
+      },
+      "answer": "at",
+      "hint": "at + 具体时间点。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_75",
+      "type": "A",
+      "grammarPoint": "时间介词",
+      "content": {
+        "scrambled": ["We", "have", "dinner", "at", "home", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "We have dinner at home.",
+      "hint": "at home表示'在家'，是固定搭配。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_76",
+      "type": "C",
+      "grammarPoint": "序数词",
+      "content": {
+        "sentence": "Today is the ____ day of the week. (one/first)",
+        "choices": ["one", "first"],
+        "blank": "____"
+      },
+      "answer": "first",
+      "hint": "表示顺序用序数词，one是一，first是第一。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_77",
+      "type": "A",
+      "grammarPoint": "序数词",
+      "content": {
+        "scrambled": ["Monday", "is", "the", "first", "day", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "Monday is the first day.",
+      "hint": "Monday是一周的第一天。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_78",
+      "type": "B",
+      "grammarPoint": "序数词",
+      "content": {
+        "left": ["first (1st)", "second (2nd)", "third (3rd)", "fourth (4th)"],
+        "right": ["第一", "第二", "第三", "第四"]
+      },
+      "answer": {
+        "first (1st)": "第一",
+        "second (2nd)": "第二",
+        "third (3rd)": "第三",
+        "fourth (4th)": "第四"
+      },
+      "hint": "序数词表示顺序，前面通常加the。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_79",
+      "type": "C",
+      "grammarPoint": "序数词",
+      "content": {
+        "sentence": "She is the ____ student in our class. (two/second)",
+        "choices": ["two", "second"],
+        "blank": "____"
+      },
+      "answer": "second",
+      "hint": "表示排名或顺序时用序数词。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_80",
+      "type": "A",
+      "grammarPoint": "序数词",
+      "content": {
+        "scrambled": ["He", "came", "in", "second", "."],
+        "sentence": "将单词组成正确的句子"
+      },
+      "answer": "He came in second.",
+      "hint": "come in second表示'获得第二名'。",
+      "difficulty": 3
     }
   ]
 }

@@ -6759,7 +6759,7 @@ const App = {
                     ${cat.sounds.map(sound => `
                         <div class="phonetic-sound-item" 
                              onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}', '${sound.example}', '${sound.description}', '${sound.audio}')"
-                             id="sound_${sound.symbol.replace(/[\/\:]/g, '_')}">
+                             id="sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}">
                             <div class="phonetic-symbol">${sound.symbol}</div>
                             <div class="phonetic-example">${sound.example}</div>
                         </div>
@@ -6807,7 +6807,7 @@ const App = {
             cat.sounds.forEach(sound => {
                 if (!alreadySelected.includes(sound.symbol)) {
                     this.phoneticState.selectedSounds.push(sound);
-                    const item = document.getElementById(`sound_${sound.symbol.replace(/[\/\:]/g, '_')}`);
+                    const item = document.getElementById(`sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}`);
                     if (item) item.classList.add('selected');
                 }
             });
@@ -6828,7 +6828,7 @@ const App = {
         cat.sounds.forEach(sound => {
             if (!alreadySelected.includes(sound.symbol)) {
                 this.phoneticState.selectedSounds.push(sound);
-                const item = document.getElementById(`sound_${sound.symbol.replace(/[\/\:]/g, '_')}`);
+                const item = document.getElementById(`sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}`);
                 if (item) item.classList.add('selected');
             }
         });
@@ -6863,7 +6863,7 @@ const App = {
                             ${cat.sounds.map(sound => `
                                 <div class="phonetic-sound-item" 
                                      onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}', '${sound.example}', '${sound.description}', '${sound.audio}')"
-                                     id="sound_${sound.symbol.replace(/[\/\:]/g, '_')}">
+                                     id="sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}">
                                     <div class="phonetic-symbol">${sound.symbol}</div>
                                     <div class="phonetic-example">${sound.example}</div>
                                 </div>
@@ -6898,7 +6898,7 @@ const App = {
     },
     
     togglePhoneticSelect(symbol, example, description, audio) {
-        const soundId = symbol.replace(/[\/\:]/g, '_');
+        const soundId = symbol.replace(/[\/\:ː]/g, '_');
         const item = document.getElementById(`sound_${soundId}`);
         const key = `${symbol}|${example}|${description}|${audio}`;
         
