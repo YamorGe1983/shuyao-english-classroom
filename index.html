@@ -2592,6 +2592,75 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--space-sm);
 }
 
+/* 新题型样式 */
+.phonetic-word-large {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: var(--space-lg) 0;
+}
+
+.phonetic-symbol-large {
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--primary);
+    margin: var(--space-lg) 0;
+}
+
+.phonetic-blank-word {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: var(--space-lg) 0;
+    letter-spacing: 4px;
+}
+
+.phonetic-question-text {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin: var(--space-md) 0;
+}
+
+.phonetic-audio-btn-small {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: var(--space-sm);
+}
+
+.phonetic-audio-btn-small:hover {
+    opacity: 0.9;
+}
+
+.phonetic-highlight {
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    color: var(--primary);
+}
+
+.phonetic-words-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+    flex-wrap: wrap;
+}
+
+.phonetic-word-item {
+    font-size: 32px;
+    font-weight: bold;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
 .phonetic-complete-page {
     padding: var(--space-xl);
     text-align: center;
@@ -21514,6 +21583,7 @@ const ReviewEngine = {
 /**
  * 音标数据
  * 48个国际音标：20个元音 + 28个辅音
+ * examples: 示例单词列表，highlight为下划线位置[start, end]
  */
 const PHONETIC_DATA = {
     vowels: {
@@ -21523,41 +21593,41 @@ const PHONETIC_DATA = {
             {
                 name: '前元音',
                 sounds: [
-                    { symbol: '/iː/', example: 'see', description: '长元音，类似"衣"的音', audio: 'i' },
-                    { symbol: '/ɪ/', example: 'sit', description: '短元音', audio: 'ɪ' },
-                    { symbol: '/e/', example: 'bed', description: '短元音', audio: 'e' },
-                    { symbol: '/æ/', example: 'cat', description: '大口梅花音', audio: 'æ' }
+                    { symbol: '/iː/', examples: [{word:'see',highlight:[1,2]},{word:'tea',highlight:[1,2]},{word:'me',highlight:[1,2]},{word:'he',highlight:[1,2]}] },
+                    { symbol: '/ɪ/', examples: [{word:'sit',highlight:[1,2]},{word:'it',highlight:[0,1]},{word:'big',highlight:[1,2]},{word:'his',highlight:[1,2]}] },
+                    { symbol: '/e/', examples: [{word:'bed',highlight:[1,2]},{word:'pen',highlight:[1,2]},{word:'red',highlight:[1,2]},{word:'get',highlight:[1,2]}] },
+                    { symbol: '/æ/', examples: [{word:'cat',highlight:[1,2]},{word:'hat',highlight:[1,2]},{word:'map',highlight:[1,2]},{word:'bag',highlight:[1,2]}] }
                 ]
             },
             {
                 name: '中元音',
                 sounds: [
-                    { symbol: '/ɜː/', example: 'bird', description: '长元音', audio: 'ɜ' },
-                    { symbol: '/ə/', example: 'about', description: '中央元音', audio: 'ə' },
-                    { symbol: '/ʌ/', example: 'cup', description: '短元音', audio: 'ʌ' }
+                    { symbol: '/ɜː/', examples: [{word:'bird',highlight:[1,3]},{word:'girl',highlight:[1,3]},{word:'shirt',highlight:[2,4]},{word:'turn',highlight:[1,3]}] },
+                    { symbol: '/ə/', examples: [{word:'about',highlight:[0,1]},{word:'banana',highlight:[0,1]},{word:'teacher',highlight:[5,7]},{word:'doctor',highlight:[4,6]}] },
+                    { symbol: '/ʌ/', examples: [{word:'cup',highlight:[1,2]},{word:'bus',highlight:[1,2]},{word:'but',highlight:[1,2]},{word:'sun',highlight:[1,2]}] }
                 ]
             },
             {
                 name: '后元音',
                 sounds: [
-                    { symbol: '/ɑː/', example: 'car', description: '长元音', audio: 'ɑ' },
-                    { symbol: '/ɒ/', example: 'hot', description: '短元音', audio: 'ɒ' },
-                    { symbol: '/ɔː/', example: 'door', description: '长元音', audio: 'ɔ' },
-                    { symbol: '/ʊ/', example: 'put', description: '短元音', audio: 'ʊ' },
-                    { symbol: '/uː/', example: 'too', description: '长元音', audio: 'u' }
+                    { symbol: '/ɑː/', examples: [{word:'car',highlight:[1,2]},{word:'far',highlight:[1,2]},{word:'star',highlight:[2,3]},{word:'arm',highlight:[1,2]}] },
+                    { symbol: '/ɒ/', examples: [{word:'hot',highlight:[1,2]},{word:'dog',highlight:[1,2]},{word:'box',highlight:[1,2]},{word:'stop',highlight:[2,3]}] },
+                    { symbol: '/ɔː/', examples: [{word:'door',highlight:[2,3]},{word:'four',highlight:[2,3]},{word:'ball',highlight:[2,3]},{word:'tall',highlight:[2,3]}] },
+                    { symbol: '/ʊ/', examples: [{word:'put',highlight:[1,2]},{word:'book',highlight:[2,3]},{word:'look',highlight:[2,3]},{word:'foot',highlight:[2,3]}] },
+                    { symbol: '/uː/', examples: [{word:'too',highlight:[1,2]},{word:'food',highlight:[2,3]},{word:'moon',highlight:[2,3]},{word:'school',highlight:[3,5]}] }
                 ]
             },
             {
                 name: '双元音',
                 sounds: [
-                    { symbol: '/eɪ/', example: 'day', description: '合口双元音', audio: 'eɪ' },
-                    { symbol: '/aɪ/', example: 'my', description: '合口双元音', audio: 'aɪ' },
-                    { symbol: '/ɔɪ/', example: 'boy', description: '合口双元音', audio: 'ɔɪ' },
-                    { symbol: '/aʊ/', example: 'now', description: '合口双元音', audio: 'aʊ' },
-                    { symbol: '/əʊ/', example: 'go', description: '合口双元音', audio: 'əʊ' },
-                    { symbol: '/ɪə/', example: 'ear', description: '集中双元音', audio: 'ɪə' },
-                    { symbol: '/eə/', example: 'air', description: '集中双元音', audio: 'eə' },
-                    { symbol: '/ʊə/', example: 'sure', description: '集中双元音', audio: 'ʊə' }
+                    { symbol: '/eɪ/', examples: [{word:'day',highlight:[1,2]},{word:'cake',highlight:[2,3]},{word:'name',highlight:[2,3]},{word:'make',highlight:[2,3]}] },
+                    { symbol: '/aɪ/', examples: [{word:'my',highlight:[0,1]},{word:'bike',highlight:[1,2]},{word:'time',highlight:[1,2]},{word:'like',highlight:[1,2]}] },
+                    { symbol: '/ɔɪ/', examples: [{word:'boy',highlight:[1,2]},{word:'toy',highlight:[1,2]},{word:'coin',highlight:[2,3]},{word:'join',highlight:[2,3]}] },
+                    { symbol: '/aʊ/', examples: [{word:'now',highlight:[1,2]},{word:'house',highlight:[2,4]},{word:'cow',highlight:[1,2]},{word:'out',highlight:[0,1]}] },
+                    { symbol: '/əʊ/', examples: [{word:'go',highlight:[1,2]},{word:'home',highlight:[2,3]},{word:'no',highlight:[1,2]},{word:'boat',highlight:[2,3]}] },
+                    { symbol: '/ɪə/', examples: [{word:'ear',highlight:[0,2]},{word:'here',highlight:[2,3]},{word:'near',highlight:[2,3]},{word:'dear',highlight:[2,3]}] },
+                    { symbol: '/eə/', examples: [{word:'air',highlight:[0,2]},{word:'hair',highlight:[2,3]},{word:'chair',highlight:[3,4]},{word:'care',highlight:[2,3]}] },
+                    { symbol: '/ʊə/', examples: [{word:'sure',highlight:[2,3]},{word:'tour',highlight:[2,3]},{word:'poor',highlight:[2,3]}] }
                 ]
             }
         ]
@@ -21569,59 +21639,59 @@ const PHONETIC_DATA = {
             {
                 name: '爆破音',
                 sounds: [
-                    { symbol: '/p/', example: 'pen', description: '清辅音', audio: 'p' },
-                    { symbol: '/b/', example: 'bad', description: '浊辅音', audio: 'b' },
-                    { symbol: '/t/', example: 'tea', description: '清辅音', audio: 't' },
-                    { symbol: '/d/', example: 'dog', description: '浊辅音', audio: 'd' },
-                    { symbol: '/k/', example: 'cat', description: '清辅音', audio: 'k' },
-                    { symbol: '/g/', example: 'get', description: '浊辅音', audio: 'ɡ' }
+                    { symbol: '/p/', examples: [{word:'pen',highlight:[0,1]},{word:'map',highlight:[2,3]},{word:'cup',highlight:[2,3]},{word:'apple',highlight:[3,4]}] },
+                    { symbol: '/b/', examples: [{word:'bag',highlight:[0,1]},{word:'book',highlight:[0,1]},{word:'cab',highlight:[2,3]},{word:'job',highlight:[2,3]}] },
+                    { symbol: '/t/', examples: [{word:'tea',highlight:[0,1]},{word:'cat',highlight:[2,3]},{word:'sit',highlight:[2,3]},{word:'stop',highlight:[2,3]}] },
+                    { symbol: '/d/', examples: [{word:'dog',highlight:[0,1]},{word:'bed',highlight:[2,3]},{word:'red',highlight:[2,3]},{word:'hand',highlight:[3,4]}] },
+                    { symbol: '/k/', examples: [{word:'cat',highlight:[0,1]},{word:'book',highlight:[3,4]},{word:'milk',highlight:[3,4]},{word:'cake',highlight:[3,4]}] },
+                    { symbol: '/g/', examples: [{word:'go',highlight:[0,1]},{word:'dog',highlight:[2,3]},{word:'bag',highlight:[2,3]},{word:'big',highlight:[2,3]}] }
                 ]
             },
             {
                 name: '摩擦音',
                 sounds: [
-                    { symbol: '/f/', example: 'fat', description: '清辅音', audio: 'f' },
-                    { symbol: '/v/', example: 'van', description: '浊辅音', audio: 'v' },
-                    { symbol: '/θ/', example: 'think', description: '清辅音', audio: 'θ' },
-                    { symbol: '/ð/', example: 'this', description: '浊辅音', audio: 'ð' },
-                    { symbol: '/s/', example: 'see', description: '清辅音', audio: 's' },
-                    { symbol: '/z/', example: 'zoo', description: '浊辅音', audio: 'z' },
-                    { symbol: '/ʃ/', example: 'she', description: '清辅音', audio: 'ʃ' },
-                    { symbol: '/ʒ/', example: 'vision', description: '浊辅音', audio: 'ʒ' },
-                    { symbol: '/h/', example: 'hat', description: '清辅音', audio: 'h' },
-                    { symbol: '/r/', example: 'red', description: '浊辅音', audio: 'r' }
+                    { symbol: '/f/', examples: [{word:'fish',highlight:[0,1]},{word:'five',highlight:[0,1]},{word:'leaf',highlight:[3,4]},{word:'off',highlight:[2,3]}] },
+                    { symbol: '/v/', examples: [{word:'van',highlight:[0,1]},{word:'very',highlight:[0,1]},{word:'love',highlight:[3,4]},{word:'five',highlight:[3,4]}] },
+                    { symbol: '/θ/', examples: [{word:'think',highlight:[0,2]},{word:'three',highlight:[0,2]},{word:'mouth',highlight:[3,5]},{word:'thank',highlight:[0,2]}] },
+                    { symbol: '/ð/', examples: [{word:'this',highlight:[0,2]},{word:'that',highlight:[0,2]},{word:'mother',highlight:[2,4]},{word:'father',highlight:[2,4]}] },
+                    { symbol: '/s/', examples: [{word:'sun',highlight:[0,1]},{word:'see',highlight:[0,1]},{word:'bus',highlight:[2,3]},{word:'cats',highlight:[3,4]}] },
+                    { symbol: '/z/', examples: [{word:'zoo',highlight:[0,1]},{word:'zero',highlight:[0,1]},{word:'dogs',highlight:[3,4]},{word:'beds',highlight:[3,4]}] },
+                    { symbol: '/ʃ/', examples: [{word:'she',highlight:[0,2]},{word:'ship',highlight:[0,2]},{word:'fish',highlight:[2,4]},{word:'wash',highlight:[2,4]}] },
+                    { symbol: '/ʒ/', examples: [{word:'vision',highlight:[3,5]},{word:'pleasure',highlight:[4,6]},{word:'television',highlight:[6,8]}] },
+                    { symbol: '/h/', examples: [{word:'hat',highlight:[0,1]},{word:'hot',highlight:[0,1]},{word:'he',highlight:[0,1]},{word:'home',highlight:[0,1]}] },
+                    { symbol: '/r/', examples: [{word:'red',highlight:[0,1]},{word:'run',highlight:[0,1]},{word:'car',highlight:[2,3]},{word:'star',highlight:[2,3]}] }
                 ]
             },
             {
                 name: '破擦音',
                 sounds: [
-                    { symbol: '/tʃ/', example: 'church', description: '清辅音', audio: 'tʃ' },
-                    { symbol: '/dʒ/', example: 'judge', description: '浊辅音', audio: 'dʒ' },
-                    { symbol: '/tr/', example: 'tree', description: '清辅音', audio: 'tr' },
-                    { symbol: '/dr/', example: 'draw', description: '浊辅音', audio: 'dr' },
-                    { symbol: '/ts/', example: 'cats', description: '清辅音', audio: 'ts' },
-                    { symbol: '/dz/', example: 'dogs', description: '浊辅音', audio: 'dz' }
+                    { symbol: '/tʃ/', examples: [{word:'chair',highlight:[0,2]},{word:'child',highlight:[0,2]},{word:'watch',highlight:[3,5]},{word:'teach',highlight:[3,5]}] },
+                    { symbol: '/dʒ/', examples: [{word:'job',highlight:[0,2]},{word:'jump',highlight:[0,2]},{word:'page',highlight:[2,4]},{word:'age',highlight:[1,3]}] },
+                    { symbol: '/tr/', examples: [{word:'tree',highlight:[0,2]},{word:'train',highlight:[0,2]},{word:'try',highlight:[0,2]}] },
+                    { symbol: '/dr/', examples: [{word:'draw',highlight:[0,2]},{word:'dress',highlight:[0,2]},{word:'drink',highlight:[0,2]}] },
+                    { symbol: '/ts/', examples: [{word:'cats',highlight:[2,4]},{word:'hats',highlight:[2,4]},{word:'students',highlight:[6,8]}] },
+                    { symbol: '/dz/', examples: [{word:'beds',highlight:[2,4]},{word:'dogs',highlight:[2,4]},{word:'friends',highlight:[5,7]}] }
                 ]
             },
             {
                 name: '鼻音',
                 sounds: [
-                    { symbol: '/m/', example: 'man', description: '浊辅音', audio: 'm' },
-                    { symbol: '/n/', example: 'no', description: '浊辅音', audio: 'n' },
-                    { symbol: '/ŋ/', example: 'sing', description: '浊辅音', audio: 'ŋ' }
+                    { symbol: '/m/', examples: [{word:'map',highlight:[0,1]},{word:'moon',highlight:[0,1]},{word:'name',highlight:[3,4]},{word:'home',highlight:[3,4]}] },
+                    { symbol: '/n/', examples: [{word:'no',highlight:[0,1]},{word:'name',highlight:[0,1]},{word:'sun',highlight:[2,3]},{word:'pen',highlight:[2,3]}] },
+                    { symbol: '/ŋ/', examples: [{word:'sing',highlight:[2,4]},{word:'ring',highlight:[2,4]},{word:'king',highlight:[2,4]},{word:'morning',highlight:[5,7]}] }
                 ]
             },
             {
                 name: '舌边音',
                 sounds: [
-                    { symbol: '/l/', example: 'leg', description: '浊辅音', audio: 'l' }
+                    { symbol: '/l/', examples: [{word:'leg',highlight:[0,1]},{word:'like',highlight:[0,1]},{word:'ball',highlight:[3,4]},{word:'tall',highlight:[3,4]}] }
                 ]
             },
             {
                 name: '半元音',
                 sounds: [
-                    { symbol: '/w/', example: 'wet', description: '浊辅音', audio: 'w' },
-                    { symbol: '/j/', example: 'yes', description: '浊辅音', audio: 'j' }
+                    { symbol: '/w/', examples: [{word:'we',highlight:[0,1]},{word:'water',highlight:[0,1]},{word:'what',highlight:[0,1]}] },
+                    { symbol: '/j/', examples: [{word:'yes',highlight:[0,1]},{word:'you',highlight:[0,1]},{word:'yellow',highlight:[0,1]}] }
                 ]
             }
         ]
@@ -23806,14 +23876,16 @@ const App = {
                     <button class="cat-select-btn" onclick="App.selectSubCategory('${type}', '${cat.name}')">全选</button>
                 </div>
                 <div class="phonetic-sound-grid">
-                    ${cat.sounds.map(sound => `
+                    ${cat.sounds.map(sound => {
+                        const firstExample = sound.examples && sound.examples[0] ? sound.examples[0].word : '';
+                        return `
                         <div class="phonetic-sound-item" 
-                             onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}', '${sound.example}', '${sound.description}', '${sound.audio}')"
+                             onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}')"
                              id="sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}">
                             <div class="phonetic-symbol">${sound.symbol}</div>
-                            <div class="phonetic-example">${sound.example}</div>
+                            <div class="phonetic-example">${firstExample}</div>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </div>
             </div>
         `;
@@ -23910,14 +23982,16 @@ const App = {
                             <span class="phonetic-category-toggle" id="toggle_${type}_${cat.name}">▼</span>
                         </div>
                         <div class="phonetic-sound-grid" id="grid_${type}_${cat.name}">
-                            ${cat.sounds.map(sound => `
+                            ${cat.sounds.map(sound => {
+                                const firstExample = sound.examples && sound.examples[0] ? sound.examples[0].word : '';
+                                return `
                                 <div class="phonetic-sound-item" 
-                                     onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}', '${sound.example}', '${sound.description}', '${sound.audio}')"
+                                     onclick="event.stopPropagation();App.togglePhoneticSelect('${sound.symbol}', '${sound.symbol}')"
                                      id="sound_${sound.symbol.replace(/[\/\:ː]/g, '_')}">
                                     <div class="phonetic-symbol">${sound.symbol}</div>
-                                    <div class="phonetic-example">${sound.example}</div>
+                                    <div class="phonetic-example">${firstExample}</div>
                                 </div>
-                            `).join('')}
+                            `}).join('')}
                         </div>
                     </div>
                 `).join('')}
@@ -23947,21 +24021,39 @@ const App = {
         }
     },
     
-    togglePhoneticSelect(symbol, example, description, audio) {
+    togglePhoneticSelect(symbol) {
         const soundId = symbol.replace(/[\/\:ː]/g, '_');
         const item = document.getElementById(`sound_${soundId}`);
-        const key = `${symbol}|${example}|${description}|${audio}`;
         
         const index = this.phoneticState.selectedSounds.findIndex(s => s.symbol === symbol);
         if (index > -1) {
             this.phoneticState.selectedSounds.splice(index, 1);
             item.classList.remove('selected');
         } else {
-            this.phoneticState.selectedSounds.push({ symbol, example, description, audio });
+            // 从PHONETIC_DATA中找到完整的sound对象
+            const sound = this.findPhoneticSound(symbol);
+            if (sound) {
+                this.phoneticState.selectedSounds.push(sound);
+            } else {
+                this.phoneticState.selectedSounds.push({ symbol, examples: [] });
+            }
             item.classList.add('selected');
         }
         
         this.updatePhoneticSelectedUI();
+    },
+    
+    findPhoneticSound(symbol) {
+        for (const type of Object.values(PHONETIC_DATA)) {
+            for (const cat of type.categories) {
+                for (const sound of cat.sounds) {
+                    if (sound.symbol === symbol) {
+                        return sound;
+                    }
+                }
+            }
+        }
+        return null;
     },
     
     updatePhoneticSelectedUI() {
@@ -24028,53 +24120,124 @@ const App = {
     
     generatePhoneticQuestions(sounds) {
         const questions = [];
+        const allSounds = this.getAllPhoneticSounds();
         
-        // 生成听音标选描述的题目
         sounds.forEach(sound => {
-            const distractors = sounds
-                .filter(s => s.symbol !== sound.symbol)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 3)
-                .map(s => s.description);
+            if (!sound.examples || sound.examples.length === 0) return;
             
-            const options = this.shuffle([sound.description, ...distractors]);
-            
-            questions.push({
-                type: 'symbol_to_desc',
-                sound: sound,
-                question: '听音标，选择正确的描述',
-                playAudio: true,
-                audioName: sound.audio,
-                options: options.map(opt => ({ text: opt, isCorrect: opt === sound.description })),
-                correctAnswer: sound.description
-            });
-        });
-        
-        // 生成听单词选音标的题目
-        sounds.forEach(sound => {
-            const distractors = sounds
+            // 题型A：看单词选音标（带下划线）
+            const exampleA = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            const distractorsA = allSounds
                 .filter(s => s.symbol !== sound.symbol)
                 .sort(() => Math.random() - 0.5)
                 .slice(0, 3);
             
-            const options = this.shuffle([
-                { text: sound.symbol, isCorrect: true },
-                ...distractors.map(s => ({ text: s.symbol, isCorrect: false }))
-            ]);
-            
             questions.push({
                 type: 'word_to_symbol',
                 sound: sound,
-                question: `听到含${sound.symbol}音的单词，选择正确的音标`,
-                playAudio: true,
-                audioName: sound.audio,
-                word: sound.example,
-                options: options,
+                question: '划线部分的发音是？',
+                word: exampleA.word,
+                highlight: exampleA.highlight,
+                options: this.shuffle([
+                    { text: sound.symbol, isCorrect: true },
+                    ...distractorsA.map(s => ({ text: s.symbol, isCorrect: false }))
+                ]),
                 correctAnswer: sound.symbol
             });
+            
+            // 题型C：看音标选单词
+            const exampleC = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            const distractorsC = allSounds
+                .flatMap(s => s.examples.map(e => ({ word: e.word, symbol: s.symbol })))
+                .filter(e => e.symbol !== sound.symbol)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
+            
+            questions.push({
+                type: 'symbol_to_word',
+                sound: sound,
+                question: `哪个单词含有 ${sound.symbol} 音？`,
+                symbol: sound.symbol,
+                options: this.shuffle([
+                    { text: exampleC.word, isCorrect: true },
+                    ...distractorsC.map(e => ({ text: e.word, isCorrect: false }))
+                ]),
+                correctAnswer: exampleC.word
+            });
+            
+            // 题型D：音标填空
+            const exampleD = sound.examples[Math.floor(Math.random() * sound.examples.length)];
+            if (exampleD.highlight && exampleD.word.length > 2) {
+                const blankWord = exampleD.word.substring(0, exampleD.highlight[0]) + 
+                                  '_' + 
+                                  exampleD.word.substring(exampleD.highlight[1]);
+                const fillInLetter = exampleD.word.substring(exampleD.highlight[0], exampleD.highlight[1]);
+                const letterOptions = this.generateLetterOptions(fillInLetter);
+                
+                questions.push({
+                    type: 'fill_blank',
+                    sound: sound,
+                    question: `听发音，填写正确的字母`,
+                    blankWord: blankWord,
+                    fullWord: exampleD.word,
+                    options: this.shuffle(letterOptions.map(l => ({ text: l, isCorrect: l === fillInLetter }))),
+                    correctAnswer: fillInLetter
+                });
+            }
+            
+            // 题型E：找出不同的音
+            const sameSoundExamples = sound.examples.filter(e => e.word !== sound.examples[0].word);
+            const differentSounds = allSounds.filter(s => s.symbol !== sound.symbol);
+            
+            if (sameSoundExamples.length >= 2 && differentSounds.length >= 1) {
+                const diffSound = differentSounds[Math.floor(Math.random() * differentSounds.length)];
+                const diffExample = diffSound.examples[Math.floor(Math.random() * diffSound.examples.length)];
+                
+                const selectedSame = sameSoundExamples.slice(0, 2).map(e => e.word);
+                const allWords = this.shuffle([selectedSame[0], selectedSame[1], diffExample.word]);
+                
+                questions.push({
+                    type: 'find_different',
+                    sound: sound,
+                    question: '哪个单词的划线部分发音不同？',
+                    words: allWords.map(w => {
+                        const ex = sound.examples.find(e => e.word === w) || diffSound.examples.find(e => e.word === w);
+                        return { word: w, isDifferent: w === diffExample.word, highlight: ex?.highlight || [0, 1] };
+                    }),
+                    options: allWords.map(w => ({ text: w, isCorrect: w === diffExample.word })),
+                    correctAnswer: diffExample.word
+                });
+            }
         });
         
         return this.shuffle(questions);
+    },
+    
+    getAllPhoneticSounds() {
+        const sounds = [];
+        Object.values(PHONETIC_DATA).forEach(type => {
+            type.categories.forEach(cat => {
+                cat.sounds.forEach(sound => sounds.push(sound));
+            });
+        });
+        return sounds;
+    },
+    
+    generateLetterOptions(correctLetter) {
+        const vowels = ['a', 'e', 'i', 'o', 'u', 'ai', 'ay', 'ea', 'ee', 'oo', 'ou', 'ow'];
+        const consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'y', 'z', 'th', 'sh', 'ch', 'ng'];
+        
+        const allLetters = [...vowels, ...consonants];
+        const options = [correctLetter];
+        
+        while (options.length < 4) {
+            const randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];
+            if (!options.includes(randomLetter) && randomLetter !== correctLetter) {
+                options.push(randomLetter);
+            }
+        }
+        
+        return options;
     },
     
     renderPhoneticQuestion() {
@@ -24083,6 +24246,54 @@ const App = {
         const progress = state.currentIndex + 1;
         const total = state.questions.length;
         const percent = (progress / total) * 100;
+        
+        // 根据题型生成不同的题目内容
+        let questionContent = '';
+        
+        switch(q.type) {
+            case 'word_to_symbol':
+                // 题型A：看单词选音标（带下划线）
+                const highlighted = this.highlightWord(q.word, q.highlight);
+                questionContent = `
+                    <div class="phonetic-question-type">🔤 看单词选音标</div>
+                    <div class="phonetic-word-large">${highlighted}</div>
+                    <p class="phonetic-question-text">${q.question}</p>
+                    <button class="phonetic-audio-btn-small" onclick="TTS.speak('${q.word}')">🔊 听发音</button>
+                `;
+                break;
+                
+            case 'symbol_to_word':
+                // 题型C：看音标选单词
+                questionContent = `
+                    <div class="phonetic-question-type">🎯 看音标选单词</div>
+                    <div class="phonetic-symbol-large">${q.symbol}</div>
+                    <p class="phonetic-question-text">${q.question}</p>
+                `;
+                break;
+                
+            case 'fill_blank':
+                // 题型D：音标填空
+                questionContent = `
+                    <div class="phonetic-question-type">✏️ 音标填空</div>
+                    <div class="phonetic-blank-word">${q.blankWord}</div>
+                    <p class="phonetic-question-text">${q.question}</p>
+                    <button class="phonetic-audio-btn-small" onclick="TTS.speak('${q.fullWord}')">🔊 听发音</button>
+                `;
+                break;
+                
+            case 'find_different':
+                // 题型E：找出不同的音
+                const wordList = q.words.map(w => {
+                    const highlighted = this.highlightWord(w.word, w.highlight);
+                    return `<div class="phonetic-word-item">${highlighted}</div>`;
+                }).join('');
+                questionContent = `
+                    <div class="phonetic-question-type">🔍 找出不同的音</div>
+                    <div class="phonetic-words-row">${wordList}</div>
+                    <p class="phonetic-question-text">${q.question}</p>
+                `;
+                break;
+        }
         
         const html = `
             <div class="phonetic-practice-page">
@@ -24098,19 +24309,7 @@ const App = {
                 </div>
                 
                 <div class="phonetic-question-card">
-                    <div class="phonetic-question-type">
-                        ${q.type === 'symbol_to_desc' ? '🎧 听音标选描述' : '📝 听单词选音标'}
-                    </div>
-                    
-                    <button class="phonetic-audio-btn" id="phonetic-audio-btn" onclick="App.playPhoneticAudio('${q.audioName}')">
-                        🔊
-                    </button>
-                    
-                    <div class="phonetic-play-hint">点击播放音频</div>
-                    
-                    ${q.type === 'word_to_symbol' ? `
-                        <div class="phonetic-word-display">${q.word}</div>
-                    ` : ''}
+                    ${questionContent}
                 </div>
                 
                 <div class="phonetic-options-grid" id="phonetic-options">
@@ -24125,11 +24324,12 @@ const App = {
             </div>
         `;
         this.setContent(html);
-        
-        // 自动播放音频
-        setTimeout(() => {
-            this.playPhoneticAudio(q.audioName);
-        }, 500);
+    },
+    
+    highlightWord(word, highlight) {
+        if (!highlight) return word;
+        const [start, end] = highlight;
+        return `${word.substring(0, start)}<span class="phonetic-highlight">${word.substring(start, end)}</span>${word.substring(end)}`;
     },
     
     playPhoneticAudio(audioName) {
@@ -24168,14 +24368,15 @@ const App = {
         }
         
         // 显示反馈
+        const exampleWord = q.sound.examples && q.sound.examples[0] ? q.sound.examples[0].word : '';
         const feedback = document.getElementById('phonetic-feedback');
         feedback.innerHTML = `
             <div class="phonetic-feedback ${isCorrect ? 'correct' : 'wrong'}">
                 <div class="phonetic-feedback-icon">${isCorrect ? '✅' : '❌'}</div>
                 <div>${isCorrect ? '回答正确！' : '回答错误，正确答案是：' + q.correctAnswer}</div>
-                <div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
-                    音标: ${q.sound.symbol} | 示例: ${q.sound.example}
-                </div>
+                ${exampleWord ? `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
+                    音标: ${q.sound.symbol} | 示例: ${exampleWord}
+                </div>` : ''}
             </div>
             <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
                 ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
