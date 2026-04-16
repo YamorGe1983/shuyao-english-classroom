@@ -2768,6 +2768,507 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--danger);
 }
 
+/* ==================== 单词强化训练模块样式 ==================== */
+
+/* 入口卡片 */
+.word-memory-card {
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB4B4 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.word-memory-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(30deg);
+}
+
+.word-memory-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.word-memory-card:active {
+    transform: scale(0.98);
+}
+
+.word-memory-card .card-icon {
+    font-size: 40px;
+    margin-bottom: var(--space-sm);
+}
+
+.word-memory-card h3 {
+    color: white;
+    font-size: var(--font-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.word-memory-card p {
+    color: rgba(255,255,255,0.9);
+    font-size: var(--font-sm);
+}
+
+/* 单元选择页面 */
+.word-memory-select-page {
+    padding: var(--space-md);
+}
+
+.word-memory-select-page .page-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.word-memory-select-page .page-header h1 {
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
+}
+
+.word-memory-select-page .grade-info {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    display: inline-block;
+    margin-bottom: var(--space-lg);
+}
+
+.word-memory-select-page .section-title {
+    font-size: var(--font-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.unit-memory-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.unit-memory-item {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid transparent;
+}
+
+.unit-memory-item:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.unit-memory-item:active {
+    transform: scale(0.98);
+}
+
+.unit-memory-item.all-units {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: white;
+}
+
+.unit-memory-item.all-units .unit-memory-name,
+.unit-memory-item.all-units .unit-memory-count {
+    color: white;
+}
+
+.unit-memory-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.unit-memory-count {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+/* 单词记忆训练页面 */
+.word-memory-training {
+    padding: var(--space-md);
+    min-height: calc(100vh - var(--nav-height));
+}
+
+.word-memory-training .progress-bar {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    height: 24px;
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+    position: relative;
+}
+
+.word-memory-training .progress-fill {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+    height: 100%;
+    border-radius: var(--radius-lg);
+    transition: width 0.3s ease;
+}
+
+.word-memory-training .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.word-memory-card-display {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-lg);
+}
+
+.mode-label {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.mode-label.en-to-cn {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+}
+
+.mode-label.cn-to-en {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    color: white;
+}
+
+.word-memory-main {
+    margin-bottom: var(--space-lg);
+}
+
+.word-memory-word {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 3px;
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.word-memory-word:hover {
+    transform: scale(1.05);
+}
+
+.word-memory-word:active {
+    transform: scale(0.95);
+}
+
+.word-memory-phonetic {
+    font-size: var(--font-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+}
+
+.word-memory-phonetic:hover {
+    color: var(--secondary);
+}
+
+.word-memory-chinese {
+    font-size: var(--font-xl);
+    color: var(--text-primary);
+    margin-top: var(--space-md);
+}
+
+/* 熟练度按钮 */
+.proficiency-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--bg-primary);
+    border-bottom: 1px solid var(--bg-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.proficiency-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-md);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 80px;
+    background: var(--bg-primary);
+}
+
+.proficiency-btn:active {
+    transform: scale(0.95);
+}
+
+.proficiency-btn .emoji {
+    font-size: 28px;
+    margin-bottom: var(--space-xs);
+}
+
+.proficiency-btn .label {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.proficiency-btn.strange {
+    background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+}
+
+.proficiency-btn.strange:hover {
+    background: linear-gradient(135deg, #FFB4B4 0%, #FFD4D4 100%);
+}
+
+.proficiency-btn.strange:active {
+    background: var(--danger);
+}
+
+.proficiency-btn.strange:active .label {
+    color: white;
+}
+
+.proficiency-btn.vague {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFACD 100%);
+}
+
+.proficiency-btn.vague:hover {
+    background: linear-gradient(135deg, #FFD700 0%, #FFE44D 100%);
+}
+
+.proficiency-btn.vague:active {
+    background: var(--warning);
+}
+
+.proficiency-btn.vague:active .label {
+    color: white;
+}
+
+.proficiency-btn.mastered {
+    background: linear-gradient(135deg, #E8F8F5 0%, #D4EDDA 100%);
+}
+
+.proficiency-btn.mastered:hover {
+    background: linear-gradient(135deg, #00B894 0%, #55EFC4 100%);
+}
+
+.proficiency-btn.mastered:active {
+    background: var(--success);
+}
+
+.proficiency-btn.mastered:active .label {
+    color: white;
+}
+
+/* 选项区域 */
+.word-memory-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.word-memory-option {
+    padding: var(--space-lg);
+    background: var(--bg-card);
+    border: 3px solid var(--bg-primary);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-xl);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.word-memory-option:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.word-memory-option:active {
+    transform: scale(0.98);
+}
+
+.word-memory-option.selected {
+    border-color: var(--primary);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.word-memory-option.correct {
+    border-color: var(--success);
+    background: rgba(0, 184, 148, 0.15);
+    color: var(--success);
+}
+
+.word-memory-option.wrong {
+    border-color: var(--danger);
+    background: rgba(225, 112, 85, 0.15);
+    color: var(--danger);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+}
+
+/* 通关界面 */
+.word-memory-complete {
+    padding: var(--space-xl);
+    text-align: center;
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.word-memory-complete .complete-icon {
+    font-size: 100px;
+    margin-bottom: var(--space-lg);
+    animation: celebrate 0.6s ease;
+}
+
+@keyframes celebrate {
+    0% { transform: scale(0) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(10deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.word-memory-complete h1 {
+    font-size: var(--font-xxl);
+    color: var(--primary);
+    margin-bottom: var(--space-lg);
+}
+
+.word-memory-complete .stats-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.word-memory-complete .stats-title {
+    font-size: var(--font-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.word-memory-complete .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--bg-primary);
+}
+
+.word-memory-complete .stat-row:last-child {
+    border-bottom: none;
+}
+
+.word-memory-complete .stat-row .stat-label {
+    color: var(--text-secondary);
+}
+
+.word-memory-complete .stat-row .stat-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.word-memory-complete .stat-row .stat-value.highlight {
+    color: var(--primary);
+}
+
+.word-memory-complete .action-buttons {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.word-memory-complete .action-btn {
+    flex: 1;
+    padding: var(--space-lg);
+    border: none;
+    border-radius: var(--radius-xl);
+    font-size: var(--font-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.word-memory-complete .action-btn.primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.word-memory-complete .action-btn.secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--bg-primary);
+}
+
+.word-memory-complete .action-btn:active {
+    transform: scale(0.98);
+}
+
+/* 提示区域 */
+.memory-tip {
+    background: linear-gradient(135deg, #E8F8F5 0%, #D4EDDA 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    font-size: var(--font-sm);
+    color: var(--success);
+}
+
+@media (max-width: 400px) {
+    .word-memory-word {
+        font-size: 36px;
+    }
+    
+    .proficiency-buttons {
+        gap: var(--space-sm);
+    }
+    
+    .proficiency-btn {
+        min-width: 70px;
+        padding: var(--space-sm);
+    }
+    
+    .proficiency-btn .emoji {
+        font-size: 24px;
+    }
+}
+
 @media (max-width: 400px) {
     .phonetic-sound-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -22441,6 +22942,13 @@ const App = {
                     </div>
                 ` : ''}
                 
+                <!-- 单词强化训练入口 -->
+                <div class="word-memory-card" onclick="App.showWordMemoryUnitSelect()">
+                    <div class="card-icon">🎯</div>
+                    <h3>单词强化训练</h3>
+                    <p>双向检测 · 动态循环 · 科学记忆</p>
+                </div>
+                
                 <!-- 学习模块 -->
                 <div class="section-title">
                     <span>📖</span> 选择学习内容
@@ -24926,6 +25434,520 @@ const App = {
     }
 };
 
+// ==================== 单词强化训练模块 ====================
+
+const WordMemoryModule = {
+    // 模块状态
+    state: {
+        words: [],           // 单词列表
+        tasks: [],           // 任务列表 [{ wordIndex, direction, status }]
+        queue: [],           // 待学习队列（任务索引）
+        currentIndex: 0,     // 当前任务索引
+        stats: {
+            total: 0,
+            mastered: 0,
+            reviewed: 0
+        },
+        selectedUnit: null,   // 选中的单元
+        answerGiven: false,   // 是否已作答
+        correctAnswer: null   // 正确答案
+    },
+    
+    // 初始化模块
+    init(unitId = 'all') {
+        this.state.selectedUnit = unitId;
+        this.state.words = this.getWordsFromUnit(unitId);
+        
+        // 创建任务队列（每个单词两个任务：英译中+中译英）
+        this.state.tasks = [];
+        this.state.words.forEach((word, index) => {
+            this.state.tasks.push({ wordIndex: index, direction: 'en_to_cn', status: 0 });
+            this.state.tasks.push({ wordIndex: index, direction: 'cn_to_en', status: 0 });
+        });
+        
+        // 初始化队列（任务索引）
+        this.state.queue = this.state.tasks.map((_, i) => i);
+        this.shuffle(this.state.queue);
+        
+        // 重置统计
+        this.state.stats = {
+            total: this.state.tasks.length,
+            mastered: 0,
+            reviewed: 0
+        };
+        
+        this.state.currentIndex = 0;
+        this.state.answerGiven = false;
+        
+        return this.state.tasks.length > 0;
+    },
+    
+    // 从单元获取单词列表
+    getWordsFromUnit(unitId) {
+        const textbook = getCurrentTextbook();
+        if (!textbook) return [];
+        
+        if (unitId === 'all') {
+            // 所有单元的单词
+            const words = [];
+            Object.values(textbook.units).forEach(unit => {
+                if (unit.vocabulary) {
+                    words.push(...unit.vocabulary);
+                }
+            });
+            return words;
+        }
+        
+        return textbook.units[unitId]?.vocabulary || [];
+    },
+    
+    // 随机打乱数组
+    shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    },
+    
+    // 获取当前任务
+    getCurrentTask() {
+        if (this.state.queue.length === 0) return null;
+        const taskIndex = this.state.queue[0];
+        const task = this.state.tasks[taskIndex];
+        const word = this.state.words[task.wordIndex];
+        return { ...task, taskIndex, word };
+    },
+    
+    // 获取当前进度
+    getProgress() {
+        const total = this.state.stats.total;
+        const completed = total - this.state.queue.length;
+        return {
+            current: completed + 1,
+            total: total,
+            percentage: Math.round((completed / total) * 100)
+        };
+    },
+    
+    // 生成选项
+    generateOptions(currentTask) {
+        const { word, direction } = currentTask;
+        const correctAnswer = direction === 'en_to_cn' ? word.chinese : word.word;
+        
+        // 从同单元其他单词中随机选2个作为干扰项
+        const otherWords = this.state.words.filter((w, i) => i !== wordIndex);
+        const distractors = [];
+        
+        while (distractors.length < 2 && otherWords.length > 0) {
+            const randomIndex = Math.floor(Math.random() * otherWords.length);
+            const distractorWord = otherWords.splice(randomIndex, 1)[0];
+            const distractor = direction === 'en_to_cn' ? distractorWord.chinese : distractorWord.word;
+            if (!distractors.includes(distractor) && distractor !== correctAnswer) {
+                distractors.push(distractor);
+            }
+        }
+        
+        // 如果单词不够，使用一些通用干扰项
+        if (distractors.length < 2) {
+            const fallbackCn = ['苹果', '香蕉', '橙子', '葡萄', '西瓜', '草莓', '芒果', '菠萝'];
+            const fallbackEn = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'mango', 'pineapple'];
+            const fallback = direction === 'en_to_cn' ? fallbackCn : fallbackEn;
+            
+            while (distractors.length < 2) {
+                const randomFallback = fallback[Math.floor(Math.random() * fallback.length)];
+                if (!distractors.includes(randomFallback) && randomFallback !== correctAnswer) {
+                    distractors.push(randomFallback);
+                }
+            }
+        }
+        
+        // 打乱选项顺序
+        return this.shuffle([correctAnswer, ...distractors]);
+    },
+    
+    // 处理答题
+    handleAnswer(selectedAnswer) {
+        const currentTask = this.getCurrentTask();
+        if (!currentTask || this.state.answerGiven) return null;
+        
+        const { word, direction, taskIndex } = currentTask;
+        const correctAnswer = direction === 'en_to_cn' ? word.chinese : word.word;
+        
+        this.state.answerGiven = true;
+        this.state.correctAnswer = correctAnswer;
+        
+        const isCorrect = selectedAnswer === correctAnswer;
+        
+        if (!isCorrect) {
+            // 答错：自动标记为陌生
+            this.handleMemoryFeedback(0);
+        }
+        
+        return {
+            isCorrect,
+            correctAnswer,
+            selectedAnswer
+        };
+    },
+    
+    // 处理熟练度反馈
+    handleMemoryFeedback(status) {
+        const taskIndex = this.state.queue.shift();
+        this.state.tasks[taskIndex].status = status;
+        
+        if (status === 2) {
+            // 熟练：不再添加回队列
+            this.state.stats.mastered++;
+        } else if (status === 1) {
+            // 模糊：插到队列第3位后（间隔重复）
+            const insertPos = Math.min(3, this.state.queue.length);
+            this.state.queue.splice(insertPos, 0, taskIndex);
+        } else {
+            // 陌生：插到队首（优先再练）
+            this.state.queue.unshift(taskIndex);
+        }
+        
+        this.state.stats.reviewed++;
+        this.state.answerGiven = false;
+        this.state.correctAnswer = null;
+        
+        return this.state.queue.length === 0;
+    },
+    
+    // 检查是否通关
+    checkComplete() {
+        return this.state.queue.length === 0;
+    },
+    
+    // 获取统计数据
+    getStats() {
+        return {
+            ...this.state.stats,
+            avgReviewCount: this.state.stats.total > 0 
+                ? (this.state.stats.reviewed / this.state.stats.total).toFixed(1) 
+                : 0
+        };
+    },
+    
+    // 重置模块
+    reset() {
+        this.state = {
+            words: [],
+            tasks: [],
+            queue: [],
+            currentIndex: 0,
+            stats: {
+                total: 0,
+                mastered: 0,
+                reviewed: 0
+            },
+            selectedUnit: null,
+            answerGiven: false,
+            correctAnswer: null
+        };
+    }
+};
+
+// ==================== App中的单词记忆模块方法 ====================
+
+// 扩展App对象
+Object.assign(App, {
+    // 显示单词记忆模块入口
+    showWordMemoryEntrance() {
+        this.showWordMemoryUnitSelect();
+    },
+    
+    // 显示单元选择页面
+    async showWordMemoryUnitSelect() {
+        const textbook = await getCurrentTextbookAsync();
+        const gradeName = getCurrentGradeName();
+        
+        // 计算每个单元的单词数
+        const unitCounts = {};
+        Object.entries(textbook.units).forEach(([unitId, unit]) => {
+            unitCounts[unitId] = unit.vocabulary?.length || 0;
+        });
+        
+        // 全部单元单词数
+        const allWordsCount = Object.values(unitCounts).reduce((a, b) => a + b, 0);
+        
+        const html = `
+            <div class="word-memory-select-page">
+                <button class="back-btn" onclick="App.renderHome()">
+                    ← 返回首页
+                </button>
+                
+                <div class="page-header">
+                    <div class="card-icon" style="font-size:60px;margin-bottom:16px;">🎯</div>
+                    <h1>单词强化训练</h1>
+                    <p class="page-subtitle">通过双向检测强化记忆</p>
+                    <div class="grade-info">${gradeName}</div>
+                </div>
+                
+                <div class="section-title">
+                    <span>📚</span> 选择训练范围
+                </div>
+                
+                <div class="unit-memory-list">
+                    <div class="unit-memory-item all-units" onclick="App.startWordMemory('all')">
+                        <div>
+                            <div class="unit-memory-name">🎯 全部单元</div>
+                            <div class="unit-memory-count">${allWordsCount}个单词</div>
+                        </div>
+                        <div style="font-size:24px;">→</div>
+                    </div>
+                    
+                    ${Object.entries(textbook.units).map(([unitId, unit]) => {
+                        if (unitCounts[unitId] === 0) return '';
+                        return `
+                            <div class="unit-memory-item" onclick="App.startWordMemory('${unitId}')">
+                                <div>
+                                    <div class="unit-memory-name">Unit ${unitId.replace('unit', '')}: ${unit.name}</div>
+                                    <div class="unit-memory-count">${unitCounts[unitId]}个单词</div>
+                                </div>
+                                <div style="font-size:24px;">→</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            </div>
+        `;
+        
+        this.setContent(html);
+    },
+    
+    // 开始单词记忆训练
+    startWordMemory(unitId) {
+        const success = WordMemoryModule.init(unitId);
+        
+        if (!success) {
+            this.showToast('该单元没有单词数据');
+            return;
+        }
+        
+        this.renderWordMemoryTraining();
+    },
+    
+    // 渲染训练页面
+    renderWordMemoryTraining() {
+        const task = WordMemoryModule.getCurrentTask();
+        
+        if (!task) {
+            this.showWordMemoryComplete();
+            return;
+        }
+        
+        const { word, direction, taskIndex } = task;
+        const progress = WordMemoryModule.getProgress();
+        const modeLabel = direction === 'en_to_cn' ? '英译中' : '中译英';
+        const modeClass = direction === 'en_to_cn' ? 'en-to-cn' : 'cn-to-en';
+        
+        // 生成选项
+        const wordIndex = task.wordIndex;
+        const correctAnswer = direction === 'en_to_cn' ? word.chinese : word.word;
+        const otherWords = this.state.words?.filter((w, i) => i !== wordIndex) || [];
+        const distractors = [];
+        
+        while (distractors.length < 2 && otherWords.length > 0) {
+            const randomIndex = Math.floor(Math.random() * otherWords.length);
+            const distractorWord = otherWords.splice(randomIndex, 1)[0];
+            const distractor = direction === 'en_to_cn' ? distractorWord.chinese : distractorWord.word;
+            if (!distractors.includes(distractor) && distractor !== correctAnswer) {
+                distractors.push(distractor);
+            }
+        }
+        
+        // 如果单词不够，使用一些通用干扰项
+        if (distractors.length < 2) {
+            const fallbackCn = ['苹果', '香蕉', '橙子', '葡萄', '西瓜', '草莓', '芒果', '菠萝'];
+            const fallbackEn = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'mango', 'pineapple'];
+            const fallback = direction === 'en_to_cn' ? fallbackCn : fallbackEn;
+            
+            while (distractors.length < 2) {
+                const randomFallback = fallback[Math.floor(Math.random() * fallback.length)];
+                if (!distractors.includes(randomFallback) && randomFallback !== correctAnswer) {
+                    distractors.push(randomFallback);
+                }
+            }
+        }
+        
+        const options = WordMemoryModule.shuffle([correctAnswer, ...distractors]);
+        
+        // 渲染页面
+        const html = `
+            <div class="word-memory-training">
+                <!-- 进度条 -->
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${progress.percentage}%"></div>
+                    <div class="progress-text">${progress.current}/${progress.total}</div>
+                </div>
+                
+                <!-- 主卡片 -->
+                <div class="word-memory-card-display">
+                    <span class="mode-label ${modeClass}">${modeLabel}</span>
+                    
+                    <div class="word-memory-main">
+                        ${direction === 'en_to_cn' ? `
+                            <div class="word-memory-word" onclick="TTSModule.speakWord('${word.word}')">${word.word}</div>
+                            <div class="word-memory-phonetic" onclick="TTSModule.speakWord('${word.word}')">${word.phonetic || ''}</div>
+                        ` : `
+                            <div class="word-memory-chinese">${word.chinese}</div>
+                        `}
+                    </div>
+                    
+                    <!-- 熟练度按钮 -->
+                    <div class="proficiency-buttons" id="proficiency-buttons">
+                        <button class="proficiency-btn strange" onclick="App.handleMemoryFeedback(0)">
+                            <span class="emoji">😨</span>
+                            <span class="label">陌生</span>
+                        </button>
+                        <button class="proficiency-btn vague" onclick="App.handleMemoryFeedback(1)">
+                            <span class="emoji">🤔</span>
+                            <span class="label">模糊</span>
+                        </button>
+                        <button class="proficiency-btn mastered" onclick="App.handleMemoryFeedback(2)">
+                            <span class="emoji">😎</span>
+                            <span class="label">熟练</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 选项区域 -->
+                <div class="word-memory-options" id="word-memory-options">
+                    ${options.map((option, index) => `
+                        <div class="word-memory-option" 
+                             data-option="${option}" 
+                             onclick="App.handleWordOption(this, '${option.replace(/'/g, "\\'")}')">
+                            ${option}
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        this.setContent(html);
+        
+        // 播放发音（英译中模式）
+        if (direction === 'en_to_cn') {
+            setTimeout(() => {
+                TTSModule.speakWord(word.word);
+            }, 300);
+        }
+    },
+    
+    // 处理选项点击
+    handleWordOption(element, selectedOption) {
+        // 防止重复点击
+        if (element.classList.contains('correct') || element.classList.contains('wrong')) {
+            return;
+        }
+        
+        const result = WordMemoryModule.handleAnswer(selectedOption);
+        
+        if (result) {
+            const options = document.querySelectorAll('.word-memory-option');
+            
+            options.forEach(opt => {
+                opt.onclick = null; // 移除点击事件
+                
+                if (opt.dataset.option === result.correctAnswer) {
+                    opt.classList.add('correct');
+                } else if (opt.dataset.option === selectedOption && !result.isCorrect) {
+                    opt.classList.add('wrong');
+                }
+            });
+            
+            // 如果答错，震动
+            if (!result.isCorrect) {
+                this.vibrateDevice();
+            }
+            
+            // 如果答对，显示提示
+            if (result.isCorrect) {
+                this.showToast('✓ 回答正确！', 1000);
+            }
+        }
+    },
+    
+    // 处理熟练度反馈
+    handleMemoryFeedback(status) {
+        const isComplete = WordMemoryModule.handleMemoryFeedback(status);
+        
+        if (isComplete) {
+            this.showWordMemoryComplete();
+        } else {
+            this.renderWordMemoryTraining();
+        }
+    },
+    
+    // 显示通关界面
+    showWordMemoryComplete() {
+        const stats = WordMemoryModule.getStats();
+        const unitName = WordMemoryModule.state.selectedUnit === 'all' 
+            ? '全部单元' 
+            : `Unit ${WordMemoryModule.state.selectedUnit.replace('unit', '')}`;
+        
+        const html = `
+            <div class="word-memory-complete">
+                <div class="complete-icon">🎉</div>
+                <h1>恭喜通关！</h1>
+                
+                <div class="stats-card">
+                    <div class="stats-title">📊 本次训练统计</div>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">训练范围</span>
+                        <span class="stat-value">${unitName}</span>
+                    </div>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">掌握单词</span>
+                        <span class="stat-value highlight">${stats.mastered}个</span>
+                    </div>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">总练习次数</span>
+                        <span class="stat-value">${stats.reviewed}次</span>
+                    </div>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">平均每词</span>
+                        <span class="stat-value">${stats.avgReviewCount}次</span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="App.restartWordMemory()">
+                        🔄 再来一轮
+                    </button>
+                    <button class="action-btn secondary" onclick="App.renderHome()">
+                        🏠 返回首页
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        this.setContent(html);
+        
+        // 更新学习记录
+        StorageModule.incrementWordsLearned(stats.mastered);
+    },
+    
+    // 重新开始
+    restartWordMemory() {
+        const unitId = WordMemoryModule.state.selectedUnit;
+        this.startWordMemory(unitId);
+    },
+    
+    // 震动反馈
+    vibrateDevice() {
+        if ('vibrate' in navigator) {
+            navigator.vibrate([100, 50, 100]);
+        }
+    }
+});
+
 // 启动应用
 document.addEventListener('DOMContentLoaded', () => {
     App.init();
@@ -24940,6 +25962,7 @@ window.TTSModule = TTSModule;
 window.QuestionGenerator = QuestionGenerator;
 window.ReviewEngine = ReviewEngine;
 window.QUESTION_TYPES = QUESTION_TYPES;
+window.WordMemoryModule = WordMemoryModule;
     </script>
 </body>
 </html>
