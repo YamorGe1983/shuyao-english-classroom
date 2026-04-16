@@ -253,6 +253,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--space-md);
 }
 
+.home-page {
+    min-height: calc(100vh - var(--nav-height));
+    background: var(--bg-primary);
+}
+
 .welcome-page {
     text-align: center;
     padding: var(--space-xl);
@@ -3050,6 +3055,13 @@ function getCurrentTextbook() {
     return GRADES[gradeId] || GRADES['grade3_2'];
 }
 
+// 获取当前年级名称
+function getCurrentGradeName() {
+    const gradeId = StorageModule.getCurrentGrade();
+    const grade = GRADES[gradeId] || GRADES['grade3_2'];
+    return grade ? grade.name : '三年级下';
+}
+
 const StorageModule = {
     PREFIX: 'englearn_',
     
@@ -3753,6 +3765,20 @@ const TTS = {
     getAvailableVoices: () => TTSModule.getAvailableVoices(),
     setVoice: (voiceId) => TTSModule.setVoice(voiceId)
 };
+
+/**
+ * 获取音标音频URL
+ * 使用GitHub上的IPA音标音频资源
+ */
+function getPhoneticAudioUrl(phoneticSymbol) {
+    // GitHub音频资源基础URL
+    const baseUrl = 'https://raw.githubusercontent.com/joshstephenson/PhoneticFlashCards/master/ipa_audio/';
+    
+    // 直接返回音标对应的音频文件URL
+    // 音标符号需要编码
+    const encodedSymbol = encodeURIComponent(phoneticSymbol);
+    return baseUrl + encodedSymbol + '.mp3';
+}
 
 /**
  * 音标音频播放模块
