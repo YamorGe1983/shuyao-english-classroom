@@ -3100,7 +3100,7 @@ const GRADES = {
 // ==================== DataLoader Module ====================
 const DataLoader = {
     _cache: {},
-    VERSION: '1.0.0',
+    VERSION: '1.0.1',  // 版本升级，强制刷新缓存
     
     async loadGrade(gradeId) {
         // 内存缓存
@@ -3108,35 +3108,66 @@ const DataLoader = {
             return this._cache[gradeId];
         }
         
-        // localStorage缓存
+        // localStorage缓存 - 增强错误处理
         const cacheKey = `englearn_${gradeId}`;
-        const cached = localStorage.getItem(cacheKey);
-        if (cached) {
-            try {
+        try {
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) {
                 const data = JSON.parse(cached);
-                if (data._version === this.VERSION) {
+                if (data && data._version === this.VERSION && data.modules) {
                     this._cache[gradeId] = data;
                     return data;
+                } else {
+                    // 版本不匹配或数据不完整，清除缓存
+                    localStorage.removeItem(cacheKey);
                 }
-            } catch (e) {}
+            }
+        } catch (e) {
+            // 缓存数据损坏，清除缓存
+            console.warn('缓存数据损坏，已清除:', cacheKey);
+            localStorage.removeItem(cacheKey);
         }
         
         // 从服务器加载
-        const response = await fetch(`./data/english/${gradeId}.json`);
-        const data = await response.json();
-        data._version = this.VERSION;
-        
-        // 缓存
-        this._cache[gradeId] = data;
         try {
-            localStorage.setItem(cacheKey, JSON.stringify(data));
-        } catch (e) {}
-        
-        return data;
+            const response = await fetch(`./data/english/${gradeId}.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            data._version = this.VERSION;
+            
+            // 验证数据完整性
+            if (!data.modules || !Array.isArray(data.modules)) {
+                throw new Error('数据格式错误：缺少modules');
+            }
+            
+            // 缓存
+            this._cache[gradeId] = data;
+            try {
+                localStorage.setItem(cacheKey, JSON.stringify(data));
+            } catch (e) {
+                console.warn('缓存保存失败:', e);
+            }
+            
+            return data;
+        } catch (error) {
+            console.error('加载年级数据失败:', gradeId, error);
+            // 返回GRADES中的元数据作为降级方案
+            return GRADES[gradeId] || GRADES['grade3_2'];
+        }
     },
     
     async preloadAll() {
         return Promise.all(Object.keys(GRADES).map(id => this.loadGrade(id)));
+    },
+    
+    // 清除所有缓存
+    clearCache() {
+        this._cache = {};
+        Object.keys(GRADES).forEach(id => {
+            localStorage.removeItem(`englearn_${id}`);
+        });
     }
 };
 
