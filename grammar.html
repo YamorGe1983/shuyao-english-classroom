@@ -2205,8 +2205,13 @@
     }
 
     function checkTypeA(question) {
-        const userAnswer = selectedWords.join(' ');
-        return userAnswer === question.answer;
+        // 拼接用户答案，并处理标点符号前的空格
+        let userAnswer = selectedWords.join(' ');
+        // 标准化：去掉标点符号前的空格
+        userAnswer = userAnswer.replace(/\s+([.,!?])/g, '$1');
+        // 标准化答案也处理一下
+        const correctAnswer = question.answer.replace(/s+([.,!?])/g, '$1');
+        return userAnswer === correctAnswer;
     }
 
     function checkTypeB(question) {

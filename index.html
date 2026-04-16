@@ -3869,60 +3869,56 @@ const TTS = {
 };
 
 /**
- * 获取音标音频URL
- * 使用GitHub上的IPA音标音频资源
- */
-function getPhoneticAudioUrl(phoneticSymbol) {
-    // GitHub音频资源基础URL
-    const baseUrl = 'https://raw.githubusercontent.com/joshstephenson/PhoneticFlashCards/master/ipa_audio/';
-    
-    // 直接返回音标对应的音频文件URL
-    // 音标符号需要编码
-    const encodedSymbol = encodeURIComponent(phoneticSymbol);
-    return baseUrl + encodedSymbol + '.mp3';
-}
-
-/**
  * 音标音频播放模块
- * 使用GitHub音频资源，失败时fallback到TTS
+ * 使用TTS朗读音标符号作为主要方案
  */
 const PhoneticAudioModule = {
-    audioCache: {},
+    // 音标符号到可朗读文本的映射
+    phoneticToSpeech: {
+        // 单元音
+        'i': 'ih', 'ɪ': 'ih', 'e': 'eh', 'æ': 'ae', 'ʌ': 'uh', 'ə': 'uh', 'ɜ': 'er',
+        'ɑ': 'ah', 'ɒ': 'ah', 'ɔ': 'aw', 'ʊ': 'uh', 'u': 'oo',
+        // 双元音
+        'eɪ': 'ay', 'aɪ': 'eye', 'ɔɪ': 'oy', 'aʊ': 'ow', 'əʊ': 'oh', 'ɪə': 'ear', 'eə': 'air', 'ʊə': 'oor',
+        // 辅音
+        'p': 'p', 'b': 'b', 't': 't', 'd': 'd', 'k': 'k', 'g': 'g',
+        'f': 'f', 'v': 'v', 'θ': 'th', 'ð': 'the', 's': 's', 'z': 'z',
+        'ʃ': 'sh', 'ʒ': 'zh', 'h': 'h', 'r': 'r',
+        'tʃ': 'ch', 'dʒ': 'j', 'tr': 'tr', 'dr': 'dr', 'ts': 'ts', 'dz': 'dz',
+        'm': 'm', 'n': 'n', 'ŋ': 'ng', 'l': 'l', 'j': 'y', 'w': 'w'
+    },
     
+    // 播放音标
     play(audioName) {
-        return new Promise((resolve, reject) => {
-            if (this.audioCache[audioName]) {
-                this.audioCache[audioName].currentTime = 0;
-                this.audioCache[audioName].play().then(resolve).catch(reject);
-                return;
-            }
+        return new Promise((resolve) => {
+            // 清理输入（移除斜杠）
+            const cleanName = audioName.replace(/\//g, '').trim();
             
-            const audio = new Audio(getPhoneticAudioUrl(audioName));
-            this.audioCache[audioName] = audio;
+            // 获取可朗读的文本
+            let speechText = this.phoneticToSpeech[cleanName] || cleanName;
             
-            audio.onended = () => resolve();
-            audio.onerror = () => {
-                console.warn('音标音频加载失败，使用TTS代替');
-                TTS.speak(audioName).then(resolve);
-            };
-            
-            audio.play().catch(() => {
-                TTS.speak(audioName).then(resolve);
+            // 使用TTS朗读
+            TTS.speak(speechText, {
+                rate: 0.7,  // 慢速发音
+                pitch: 1.0
+            }).then(() => {
+                resolve();
+            }).catch(() => {
+                // 如果TTS失败，静默解决
+                resolve();
             });
         });
     },
     
+    // 预加载 - TTS不需要预加载
     preload(audioNames) {
-        audioNames.forEach(name => {
-            if (!this.audioCache[name]) {
-                const audio = new Audio(getPhoneticAudioUrl(name));
-                this.audioCache[name] = audio;
-            }
-        });
+        // TTS不需要预加载，直接返回
+        return Promise.resolve();
     },
     
+    // 清理缓存 - TTS不需要缓存
     clearCache() {
-        this.audioCache = {};
+        // TTS不需要清理缓存
     }
 };
 
