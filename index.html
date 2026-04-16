@@ -888,6 +888,120 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(0.95);
 }
 
+/* 熟练度按钮 */
+.memory-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.memory-btn {
+    flex: 1;
+    max-width: 110px;
+    padding: 12px 8px;
+    border-radius: 24px;
+    border: 3px solid;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: white;
+}
+
+.memory-btn .emoji {
+    font-size: 24px;
+}
+
+.memory-btn.strange {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+.memory-btn.strange:hover {
+    background: #fdf2f2;
+}
+
+.memory-btn.fuzzy {
+    border-color: #f39c12;
+    color: #f39c12;
+}
+.memory-btn.fuzzy:hover {
+    background: #fefbf0;
+}
+
+.memory-btn.mastered {
+    border-color: #27ae60;
+    color: #27ae60;
+}
+.memory-btn.mastered:hover {
+    background: #f0fdf4;
+}
+
+/* 三选一选项按钮 */
+.word-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 16px 16px;
+}
+
+.word-option-btn {
+    padding: 18px 20px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.word-option-btn:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.word-option-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.word-option-btn.correct {
+    background: #d4edda;
+    border-color: #27ae60;
+    color: #27ae60;
+}
+
+.word-option-btn.wrong {
+    background: #f8d7da;
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+/* 反馈提示 */
+.feedback-hint {
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 8px 16px;
+}
+
+.feedback-hint.correct {
+    background: #d4edda;
+    color: #27ae60;
+}
+
+.feedback-hint.wrong {
+    background: #f8d7da;
+    color: #e74c3c;
+}
+
 /* 复习卡片页 */
 .review-card-page {
     padding: var(--space-sm);
@@ -22942,13 +23056,6 @@ const App = {
                     </div>
                 ` : ''}
                 
-                <!-- 单词强化训练入口 -->
-                <div class="word-memory-card" onclick="App.showWordMemoryUnitSelect()">
-                    <div class="card-icon">🎯</div>
-                    <h3>单词强化训练</h3>
-                    <p>双向检测 · 动态循环 · 科学记忆</p>
-                </div>
-                
                 <!-- 学习模块 -->
                 <div class="section-title">
                     <span>📖</span> 选择学习内容
@@ -23134,7 +23241,7 @@ const App = {
         this.setContent(html);
     },
 
-    // ==================== 单词学习 ====================
+    // ==================== 单词学习（动态队列版）====================
     
     async startUnitVocabulary(unitId) {
         const textbook = await getCurrentTextbookAsync();
@@ -23149,132 +23256,233 @@ const App = {
             unitId: unitId,
             moduleId: unit.module
         }));
-        AppState.currentCardIndex = 0;
+        
+        // 创建动态任务队列（每个单词2个任务：英译中+中译英）
+        const words = unit.vocabulary;
+        const tasks = [];
+        words.forEach((word, index) => {
+            tasks.push({ wordIndex: index, direction: 'en_to_cn', status: 0 });
+            tasks.push({ wordIndex: index, direction: 'cn_to_en', status: 0 });
+        });
+        
+        // 初始化状态
+        AppState.currentTasks = tasks;
+        AppState.taskQueue = tasks.map((_, i) => i);
+        this.shuffleArray(AppState.taskQueue);
+        AppState.currentTaskIndex = 0;
+        AppState.memoryStats = { total: tasks.length, mastered: 0 };
+        AppState.answerGiven = false;
         AppState.sessionStartTime = Date.now();
         
         this.renderVocabularyCard();
     },
     
+    // 数组随机打乱
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    },
+    
     renderVocabularyCard() {
-        const card = AppState.currentCards[AppState.currentCardIndex];
-        if (!card) {
+        // 检查队列是否为空
+        if (AppState.taskQueue.length === 0) {
             this.showLearningComplete();
             return;
         }
         
-        const total = AppState.currentCards.length;
-        const progress = Math.round((AppState.currentCardIndex / total) * 100);
-        const wordKey = `${card.unitId}_${card.word}`;
-        const isFavourite = StorageModule.isFavourite(wordKey);
-        const wordProgress = StorageModule.getWordProgress(wordKey);
+        const taskIndex = AppState.taskQueue[0];
+        const task = AppState.currentTasks[taskIndex];
+        const word = AppState.currentCards[task.wordIndex];
+        const direction = task.direction;
+        
+        // 计算进度
+        const completed = AppState.memoryStats.total - AppState.taskQueue.length;
+        const progress = Math.round((completed / AppState.memoryStats.total) * 100);
+        
+        // 根据方向显示不同内容
+        let displayContent;
+        if (direction === 'en_to_cn') {
+            // 英译中：显示英文，选中文
+            displayContent = `
+                <h1 class="word-text">${word.word}</h1>
+                <p class="word-phonetic">${word.phonetic || ''}</p>
+            `;
+        } else {
+            // 中译英：显示中文
+            displayContent = `
+                <h1 class="word-text">${word.chinese}</h1>
+            `;
+        }
+        
+        // 生成三选一选项
+        const options = this.generateWordOptions(word, direction);
+        const optionsHtml = options.map((opt, i) => `
+            <button class="word-option-btn ${opt.isCorrect ? 'correct-option' : ''}" 
+                    data-index="${i}" 
+                    data-correct="${opt.isCorrect}"
+                    onclick="App.handleWordAnswer(this, ${opt.isCorrect})">
+                ${opt.text}
+            </button>
+        `).join('');
+        
+        const modeLabel = direction === 'en_to_cn' ? '🔤 英译中' : '🇨🇳 中译英';
         
         const html = `
-            <div class="vocabulary-page" style="padding:16px;">
+            <div class="vocabulary-page">
+                <!-- 进度 -->
                 <div class="learning-header">
                     <button class="back-btn" onclick="App.confirmExit()">← 退出</button>
                     <div class="learning-progress">
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: ${progress}%"></div>
                         </div>
-                        <span class="progress-text">${AppState.currentCardIndex + 1} / ${total}</span>
+                        <span class="progress-text">
+                            ${modeLabel}
+                            | 已掌握 ${AppState.memoryStats.mastered}/${AppState.memoryStats.total}
+                        </span>
                     </div>
-                    <button class="fav-btn" onclick="App.toggleFavourite('${wordKey}', ${JSON.stringify(card).replace(/"/g, '&quot;')})">
-                        ${isFavourite ? '❤️' : '🤍'}
-                    </button>
                 </div>
                 
+                <!-- 单词卡片 -->
                 <div class="word-card" id="word-card">
                     <div class="word-main">
-                        <h1 class="word-text">${card.word}</h1>
-                        <p class="word-phonetic">${card.phonetic || ''}</p>
-                        <p class="word-chinese">${card.chinese}</p>
+                        ${displayContent}
                     </div>
-                    
-                    <button class="speak-btn" onclick="App.speakWord('${card.word}')">
+                    <button class="speak-btn" onclick="App.speakWord('${word.word}')">
                         🔊 点击发音
                     </button>
                 </div>
                 
-                <div class="card-actions">
-                    <button class="action-btn secondary" onclick="App.previousCard()">
-                        ← 上一个
+                <!-- 熟练度按钮 -->
+                <div class="memory-buttons" id="memory-buttons">
+                    <button class="memory-btn strange" onclick="App.handleMemoryFeedback(0)">
+                        😨 陌生
                     </button>
-                    <button class="action-btn primary" onclick="App.nextCard()">
-                        下一个 →
+                    <button class="memory-btn fuzzy" onclick="App.handleMemoryFeedback(1)">
+                        🤔 模糊
+                    </button>
+                    <button class="memory-btn mastered" onclick="App.handleMemoryFeedback(2)">
+                        😎 熟练
                     </button>
                 </div>
                 
-                <div class="card-info">
-                    ${wordProgress ? `
-                        <span class="status-tag ${wordProgress.status}">${MemoryModule.getStatusDescription(wordProgress)}</span>
-                    ` : '<span class="status-tag new">新单词</span>'}
+                <!-- 三选一选项 -->
+                <div class="word-options" id="word-options">
+                    ${optionsHtml}
                 </div>
+                
+                <!-- 反馈区域 -->
+                <div id="word-feedback"></div>
             </div>
         `;
         
         this.setContent(html);
         
-        setTimeout(() => {
-            TTS.speakWord(card.word);
-        }, 500);
+        // 英译中模式自动播放发音
+        if (direction === 'en_to_cn') {
+            setTimeout(() => {
+                App.speakWord(word.word);
+            }, 500);
+        }
+    },
+    
+    // 生成三选一选项
+    generateWordOptions(word, direction) {
+        const correctAnswer = direction === 'en_to_cn' ? word.chinese : word.word;
+        const correctIndex = Math.floor(Math.random() * 3);
+        
+        // 从同单元其他单词获取干扰项
+        const otherWords = AppState.currentCards.filter(w => w.word !== word.word);
+        const shuffledOthers = this.shuffleArray([...otherWords]);
+        const distractors = shuffledOthers.slice(0, 2).map(w => ({
+            text: direction === 'en_to_cn' ? w.chinese : w.word,
+            isCorrect: false
+        }));
+        
+        // 如果单词不够，使用通用干扰项
+        if (distractors.length < 2) {
+            const fallbackCn = ['苹果', '香蕉', '橙子', '葡萄', '西瓜', '草莓', '芒果', '菠萝', '猫', '狗', '书', '桌子'];
+            const fallbackEn = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'mango', 'pineapple', 'cat', 'dog', 'book', 'desk'];
+            const fallback = direction === 'en_to_cn' ? fallbackCn : fallbackEn;
+            
+            while (distractors.length < 2) {
+                const randomFallback = fallback[Math.floor(Math.random() * fallback.length)];
+                if (!distractors.find(d => d.text === randomFallback) && randomFallback !== correctAnswer) {
+                    distractors.push({ text: randomFallback, isCorrect: false });
+                }
+            }
+        }
+        
+        const options = [...distractors];
+        options.splice(correctIndex, 0, { text: correctAnswer, isCorrect: true });
+        
+        return options;
+    },
+    
+    // 处理答题
+    handleWordAnswer(element, isCorrect) {
+        if (AppState.answerGiven) return;
+        AppState.answerGiven = true;
+        
+        const buttons = document.querySelectorAll('.word-option-btn');
+        buttons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.dataset.correct === 'true') {
+                btn.classList.add('correct');
+            } else if (btn === element) {
+                btn.classList.add('wrong');
+            }
+        });
+        
+        if (!isCorrect) {
+            // 答错：震动反馈
+            if (navigator.vibrate) navigator.vibrate(100);
+            // 显示提示
+            const feedback = document.getElementById('word-feedback');
+            if (feedback) {
+                feedback.innerHTML = '<div class="feedback-hint wrong">答错了，请选择熟练度继续</div>';
+            }
+        } else {
+            const feedback = document.getElementById('word-feedback');
+            if (feedback) {
+                feedback.innerHTML = '<div class="feedback-hint correct">✓ 回答正确！请选择熟练度</div>';
+            }
+        }
+    },
+    
+    // 处理熟练度反馈
+    handleMemoryFeedback(status) {
+        const taskIndex = AppState.taskQueue.shift();
+        AppState.currentTasks[taskIndex].status = status;
+        
+        if (status === 2) {
+            // 熟练：不再添加回队列
+            AppState.memoryStats.mastered++;
+        } else if (status === 1) {
+            // 模糊：插到队列第3位后（间隔重复）
+            const insertPos = Math.min(3, AppState.taskQueue.length);
+            AppState.taskQueue.splice(insertPos, 0, taskIndex);
+        } else {
+            // 陌生：插到队首（优先再练）
+            AppState.taskQueue.unshift(taskIndex);
+        }
+        
+        // 重置答题状态
+        AppState.answerGiven = false;
+        
+        // 显示下一个任务
+        this.renderVocabularyCard();
     },
     
     speakWord(word) {
         TTS.speakWord(word);
     },
     
-    nextCard() {
-        const card = AppState.currentCards[AppState.currentCardIndex];
-        StorageModule.addLearningRecord({
-            type: 'vocabulary',
-            word: card.word,
-            unitId: card.unitId,
-            moduleId: card.moduleId
-        });
-        
-        const wordKey = `${card.unitId}_${card.word}`;
-        if (!StorageModule.getWordProgress(wordKey)) {
-            MemoryModule.scheduleReview(wordKey, {
-                word: card.word,
-                chinese: card.chinese,
-                phonetic: card.phonetic,
-                letterSounds: card.letterSounds || [],
-                unitId: card.unitId,
-                moduleId: card.moduleId
-            });
-        }
-        
-        StorageModule.incrementWordsLearned();
-        
-        AppState.currentCardIndex++;
-        
-        if (AppState.currentCardIndex >= AppState.currentCards.length) {
-            this.showLearningComplete();
-        } else {
-            this.renderVocabularyCard();
-        }
-    },
-    
-    previousCard() {
-        if (AppState.currentCardIndex > 0) {
-            AppState.currentCardIndex--;
-            this.renderVocabularyCard();
-        }
-    },
-    
-    toggleFavourite(wordKey, wordData) {
-        if (StorageModule.isFavourite(wordKey)) {
-            StorageModule.removeFavourite(wordKey);
-            this.showToast('已取消收藏');
-        } else {
-            StorageModule.addFavourite(wordKey, wordData);
-            this.showToast('已添加到收藏');
-        }
-        this.renderVocabularyCard();
-    },
-    
     confirmExit() {
-        this.showModal('确认退出', '你确定要退出学习吗？进度不会丢失。', [
+        this.showModal('确认退出', '你确定要退出学习吗？进度不会保存。', [
             { text: '取消', type: 'secondary', onClick: () => this.closeModal() },
             { text: '确定', type: 'primary', onClick: () => {
                 this.closeModal();
@@ -23287,17 +23495,23 @@ const App = {
         const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[AppState.currentUnit];
         const sessionTime = Math.round((Date.now() - AppState.sessionStartTime) / 1000 / 60);
+        const masteredCount = AppState.memoryStats.mastered;
+        const totalCount = AppState.memoryStats.total;
         
         const html = `
             <div class="complete-page">
                 <div class="complete-icon">🎉</div>
-                <h1>太棒了！</h1>
+                <h1>恭喜通关！</h1>
                 <p class="complete-message">你已经完成了 ${unit?.name || '本次'} 学习</p>
                 
                 <div class="complete-stats">
                     <div class="complete-stat">
-                        <span class="stat-num">${AppState.currentCards.length}</span>
-                        <span class="stat-label">学习单词</span>
+                        <span class="stat-num">${masteredCount}</span>
+                        <span class="stat-label">掌握单词</span>
+                    </div>
+                    <div class="complete-stat">
+                        <span class="stat-num">${totalCount}</span>
+                        <span class="stat-label">总练习次数</span>
                     </div>
                     <div class="complete-stat">
                         <span class="stat-num">${sessionTime || '<1'}</span>
@@ -23317,6 +23531,9 @@ const App = {
         `;
         
         this.setContent(html);
+        
+        // 更新学习记录
+        StorageModule.incrementWordsLearned(masteredCount);
     },
     
     // ==================== 答题复习系统 ====================
