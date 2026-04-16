@@ -4339,6 +4339,107 @@ const ReviewEngine = {
     }
 };
 
+/**
+ * 用户管理模块
+ */
+const UserModule = {
+    STORAGE_KEYS: {
+        USERS: 'users',
+        CURRENT_USER: 'current_user'
+    },
+    
+    AVATARS: ['👧', '👦', '👸', '🦸', '🐱', '🐶', '🐰', '🦊'],
+    
+    // 获取所有用户
+    getUsers() {
+        const users = localStorage.getItem(this.STORAGE_KEYS.USERS);
+        return users ? JSON.parse(users) : [];
+    },
+    
+    // 保存用户列表
+    saveUsers(users) {
+        localStorage.setItem(this.STORAGE_KEYS.USERS, JSON.stringify(users));
+    },
+    
+    // 获取当前用户
+    getCurrentUser() {
+        const currentUserId = localStorage.getItem(this.STORAGE_KEYS.CURRENT_USER);
+        if (!currentUserId) return null;
+        
+        const users = this.getUsers();
+        return users.find(u => u.id === currentUserId) || null;
+    },
+    
+    // 设置当前用户
+    setCurrentUser(userId) {
+        localStorage.setItem(this.STORAGE_KEYS.CURRENT_USER, userId);
+    },
+    
+    // 创建新用户
+    createUser(name, avatar) {
+        const users = this.getUsers();
+        const newUser = {
+            id: 'user_' + Date.now(),
+            name: name || '新用户',
+            avatar: avatar || this.AVATARS[0],
+            createdAt: new Date().toISOString()
+        };
+        
+        users.push(newUser);
+        this.saveUsers(users);
+        this.setCurrentUser(newUser.id);
+        
+        // 初始化用户数据
+        StorageModule.initForUser(newUser.id);
+        
+        return newUser;
+    },
+    
+    // 删除用户
+    deleteUser(userId) {
+        const users = this.getUsers();
+        const filteredUsers = users.filter(u => u.id !== userId);
+        this.saveUsers(filteredUsers);
+        
+        // 清除用户数据
+        StorageModule.clearUserData(userId);
+        
+        // 如果删除的是当前用户，切换到第一个用户
+        if (this.getCurrentUser()?.id === userId) {
+            if (filteredUsers.length > 0) {
+                this.setCurrentUser(filteredUsers[0].id);
+            } else {
+                localStorage.removeItem(this.STORAGE_KEYS.CURRENT_USER);
+            }
+        }
+    },
+    
+    // 检查是否有用户
+    hasUsers() {
+        return this.getUsers().length > 0;
+    },
+    
+    // 获取用户统计数据
+    getUserStats(userId) {
+        // 临时切换到该用户以获取数据
+        const originalUser = this.getCurrentUser();
+        this.setCurrentUser(userId);
+        
+        const stats = {
+            totalWordsLearned: StorageModule.getStatistics().totalWordsLearned || 0,
+            totalReviewsDone: StorageModule.getStatistics().totalReviewsDone || 0,
+            streakDays: StorageModule.getStreakDays()
+        };
+        
+        // 恢复原始用户
+        if (originalUser) {
+            this.setCurrentUser(originalUser.id);
+        }
+        
+        return stats;
+    }
+};
+
 // 应用状态
 const AppState = {
     currentModule: null,
@@ -4367,6 +4468,7 @@ const App = {
             window._ld&&window._ld.status("加载用户数据...");
             if (!UserModule.hasUsers()) {
                 this.renderWelcomePage();
+                window._ld&&window._ld.hide();
             } else {
                 const currentUser = UserModule.getCurrentUser();
                 if (currentUser) { 
@@ -4375,19 +4477,29 @@ const App = {
                     // 先加载当前年级数据，再渲染首页
                     window._ld&&window._ld.status("加载教材数据...");
                     const gradeId = StorageModule.getCurrentGrade();
-                    await DataLoader.loadGrade(gradeId);
+                    try {
+                        await DataLoader.loadGrade(gradeId);
+                    } catch (loadError) {
+                        console.warn('数据加载失败，使用默认数据:', loadError);
+                    }
+                    window._ld&&window._ld.hide();
                     this.renderHome(); 
                 }
                 else { 
+                    window._ld&&window._ld.hide();
                     this.renderUserSelectPage(); 
                 }
             }
             this.bindEvents();
-            window._ld&&window._ld.hide();
         } catch (error) {
             console.error('初始化失败:', error);
-            this.showToast('应用加载完成');
             window._ld&&window._ld.hide();
+            // 确保显示欢迎页面
+            try {
+                this.renderWelcomePage();
+            } catch (e) {
+                this.elements.content.innerHTML = '<div style="padding:20px;text-align:center;"><h2>加载遇到问题</h2><p>请刷新页面重试</p><button onclick="location.reload()" style="padding:12px 24px;margin-top:16px;">刷新</button></div>';
+            }
         }
     },
     
