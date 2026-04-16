@@ -20194,7 +20194,12 @@ const StorageModule = {
     
     // 获取当前年级ID
     getCurrentGrade() {
-        return this.get(this.KEYS.CURRENT_GRADE, 'grade3_2');
+        const grade = this.get(this.KEYS.CURRENT_GRADE, 'grade3_2');
+        // 确保返回字符串类型
+        if (typeof grade === 'object' && grade !== null) {
+            return grade.id || 'grade3_2';
+        }
+        return grade;
     },
     
     // 设置当前年级ID
@@ -22722,7 +22727,7 @@ const App = {
         }
         
         const html = `
-            <div class="review-card-page" style="padding:16px;">
+            <div class="review-card-page" style="padding:16px;padding-bottom:160px;">
                 <div class="learning-header">
                     <button class="back-btn" onclick="App.confirmQuizExit()">← 退出</button>
                     <div class="learning-progress">
