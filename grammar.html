@@ -772,6 +772,109 @@
         opacity: 0.7;
     }
 
+    /* ==================== 题型E: be动词辨析 ==================== */
+    .type-e-container {
+        padding: var(--space-md) 0;
+    }
+
+    .type-e-progress {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: var(--bg-primary);
+        border-radius: var(--radius-md);
+    }
+
+    .type-e-progress .progress-text {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+    }
+
+    .type-e-progress .grammar-point-tag {
+        font-size: var(--font-xs);
+        background: var(--secondary);
+        color: white;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+    }
+
+    .type-e-question {
+        font-size: var(--font-lg);
+        text-align: center;
+        margin: var(--space-lg) 0;
+        color: var(--text-primary);
+    }
+
+    .type-e-choices {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .context-hint {
+        background: linear-gradient(135deg, rgba(116, 185, 255, 0.1) 0%, rgba(162, 210, 255, 0.1) 100%);
+        border-left: 4px solid var(--info);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-md) 0;
+        font-size: var(--font-sm);
+        color: var(--info);
+    }
+
+    /* ==================== 题型F: How提问 ==================== */
+    .type-f-container {
+        padding: var(--space-md) 0;
+    }
+
+    .type-f-progress {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        background: var(--bg-primary);
+        border-radius: var(--radius-md);
+    }
+
+    .type-f-progress .progress-text {
+        font-size: var(--font-sm);
+        color: var(--text-secondary);
+    }
+
+    .type-f-progress .grammar-point-tag {
+        font-size: var(--font-xs);
+        background: var(--primary);
+        color: white;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+    }
+
+    .sentence-display {
+        background: var(--bg-primary);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        text-align: center;
+        font-size: var(--font-lg);
+        margin-bottom: var(--space-lg);
+        color: var(--text-primary);
+    }
+
+    .type-f-hint {
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: var(--font-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .fill-blank-question {
+        font-size: var(--font-lg);
+        text-align: center;
+        margin-bottom: var(--space-md);
+        color: var(--text-primary);
+    }
+
     /* ==================== 提示框 ==================== */
     .hint-box {
         background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CC 100%);
@@ -1896,6 +1999,12 @@
             case 'C':
                 renderTypeC(question, contentDiv);
                 break;
+            case 'E':
+                renderTypeE(question, contentDiv);
+                break;
+            case 'F':
+                renderTypeF(question, contentDiv);
+                break;
         }
         
         // 填充提示内容
@@ -1931,7 +2040,13 @@
     }
 
     function getTypeLabel(type) {
-        const labels = { 'A': '句子重组', 'B': '逻辑连线', 'C': '语境填空' };
+        const labels = { 
+            'A': '句子重组', 
+            'B': '逻辑连线', 
+            'C': '语境填空',
+            'E': 'be动词辨析',
+            'F': 'How提问'
+        };
         return labels[type] || type;
     }
 
@@ -2168,6 +2283,12 @@
             case 'C':
                 isCorrect = checkTypeC(question);
                 break;
+            case 'E':
+                isCorrect = checkTypeE(question);
+                break;
+            case 'F':
+                isCorrect = checkTypeF(question);
+                break;
         }
         
         // 显示反馈
@@ -2222,6 +2343,157 @@
 
     function checkTypeC(question) {
         return selectedChoice === question.answer;
+    }
+
+    // ==================== 题型E：be动词 vs have/has 辨析 ====================
+    // 多选题状态管理
+    let typeEResponses = [];
+    let typeECurrentIndex = 0;
+
+    function renderTypeE(question, container) {
+        typeEResponses = [];
+        typeECurrentIndex = 0;
+        renderTypeEQuestion(question, container);
+    }
+
+    function renderTypeEQuestion(question, container) {
+        const questions = question.content.questions;
+        const currentQ = questions[typeECurrentIndex];
+        const total = questions.length;
+        const progress = `${typeECurrentIndex + 1} / ${total}`;
+        
+        // 高亮提示（如果有context）
+        const contextHint = currentQ.context ? 
+            `<div class="context-hint">💡 ${currentQ.context}</div>` : '';
+        
+        container.innerHTML = `
+            <div class="type-e-container">
+                <div class="type-e-progress">
+                    <span class="progress-text">${progress}</span>
+                    <span class="grammar-point-tag">${question.grammarPoint}</span>
+                </div>
+                <h3 class="question-title type-e-question">${currentQ.sentence}</h3>
+                ${contextHint}
+                <div class="choices-container type-e-choices">
+                    ${currentQ.options.map((choice, i) => `
+                        <button class="choice-btn" data-choice="${choice}" onclick="selectTypeEChoice(this, '${choice.replace(/'/g, "\\'")}')">
+                            ${choice}
+                        </button>
+                    `).join('')}
+                </div>
+                <div class="type-e-feedback" id="typeEFeedback" style="display:none;"></div>
+            </div>
+        `;
+        
+        // 存储当前题目答案
+        container.dataset.currentAnswer = currentQ.answer;
+        container.dataset.currentIndex = typeECurrentIndex;
+    }
+
+    function selectTypeEChoice(element, choice) {
+        if (isAnswered) return;
+        
+        // 移除之前的选中状态
+        document.querySelectorAll('.type-e-choices .choice-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        element.classList.add('selected');
+        document.getElementById('checkBtn').disabled = false;
+    }
+
+    function checkTypeE(question) {
+        const questions = question.content.questions;
+        let allCorrect = true;
+        
+        // 显示所有题目的反馈
+        questions.forEach((q, i) => {
+            const isCorrect = typeEResponses[i] === q.answer;
+            if (!isCorrect) allCorrect = false;
+        });
+        
+        return allCorrect;
+    }
+
+    // ==================== 题型F：How提问句型 ====================
+    // How提问题状态管理
+    let typeFResponses = [];
+    let typeFCurrentIndex = 0;
+    let typeFUserAnswers = [];
+
+    function renderTypeF(question, container) {
+        typeFResponses = [];
+        typeFUserAnswers = [];
+        typeFCurrentIndex = 0;
+        renderTypeFQuestion(question, container);
+    }
+
+    function renderTypeFQuestion(question, container) {
+        const questions = question.content.questions;
+        const currentQ = questions[typeFCurrentIndex];
+        const total = questions.length;
+        const progress = `${typeFCurrentIndex + 1} / ${total}`;
+        
+        // 如果有多个空格的句子
+        let questionHtml = currentQ.sentence;
+        if (currentQ.options) {
+            // 选项形式：填空题
+            questionHtml = `
+                <div class="fill-blank-question">
+                    ${currentQ.sentence}
+                </div>
+                <div class="choices-container">
+                    ${currentQ.options.map((opt, i) => `
+                        <button class="choice-btn" data-option="${opt}" onclick="selectTypeFChoice(this, '${opt.replace(/'/g, "\\'")}')">
+                            ${opt}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            // 直接回答形式
+            questionHtml = `
+                <div class="sentence-display">${currentQ.sentence}</div>
+                <div class="type-f-hint">请用 How 开头写一个问句</div>
+            `;
+        }
+        
+        container.innerHTML = `
+            <div class="type-f-container">
+                <div class="type-f-progress">
+                    <span class="progress-text">${progress}</span>
+                    <span class="grammar-point-tag">${question.grammarPoint}</span>
+                </div>
+                ${questionHtml}
+                <div class="type-f-feedback" id="typeFFeedback" style="display:none;"></div>
+            </div>
+        `;
+        
+        container.dataset.currentAnswer = currentQ.answer;
+        container.dataset.currentIndex = typeFCurrentIndex;
+    }
+
+    function selectTypeFChoice(element, option) {
+        if (isAnswered) return;
+        
+        document.querySelectorAll('.type-f-container .choice-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        
+        element.classList.add('selected');
+        document.getElementById('checkBtn').disabled = false;
+    }
+
+    function checkTypeF(question) {
+        const questions = question.content.questions;
+        let allCorrect = true;
+        
+        questions.forEach((q, i) => {
+            const isCorrect = typeFResponses[i] === q.answer;
+            if (!isCorrect) allCorrect = false;
+        });
+        
+        return allCorrect;
     }
 
     // ==================== 反馈动画 ====================

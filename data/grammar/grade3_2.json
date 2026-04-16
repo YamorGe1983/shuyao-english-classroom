@@ -8,6 +8,7 @@
       "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["I", "am", "a", "student", "."],
+        "distractors": ["is", "are"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "I am a student.",
@@ -20,6 +21,7 @@
       "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["She", "is", "my", "mother", "."],
+        "distractors": ["am", "are"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "She is my mother.",
@@ -31,10 +33,10 @@
       "type": "B",
       "grammarPoint": "be动词搭配",
       "content": {
-        "left": ["They", "He", "She", "It", "We"],
-        "right": ["are", "is", "is", "is", "are"]
+        "left": ["I", "You", "He", "She", "It"],
+        "right": ["am", "are", "is", "is", "is"]
       },
-      "answer": {"They": "are", "He": "is", "She": "is", "It": "is", "We": "are"},
+      "answer": {"I": "am", "You": "are", "He": "is", "She": "is", "It": "is"},
       "hint": "be动词搭配：I用am，you用are，he/she/it用is，复数人称用are。",
       "difficulty": 1
     },
@@ -44,6 +46,7 @@
       "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["You", "are", "my", "friend", "."],
+        "distractors": ["am", "is"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "You are my friend.",
@@ -69,6 +72,7 @@
       "grammarPoint": "be动词搭配",
       "content": {
         "scrambled": ["We", "are", "happy", "today", "."],
+        "distractors": ["is", "am"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "We are happy today.",
@@ -106,6 +110,7 @@
       "grammarPoint": "介词方位",
       "content": {
         "scrambled": ["We", "are", "in", "the", "classroom", "."],
+        "distractors": ["on", "at"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "We are in the classroom.",
@@ -118,6 +123,7 @@
       "grammarPoint": "介词方位",
       "content": {
         "scrambled": ["The", "cat", "is", "on", "the", "box", "."],
+        "distractors": ["in", "under"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "The cat is on the box.",
@@ -127,18 +133,18 @@
     {
       "id": "g3_2_11",
       "type": "B",
-      "grammarPoint": "介词方位",
+      "grammarPoint": "时间介词",
       "content": {
-        "left": ["on the desk", "under the chair", "in the box", "near the door"],
-        "right": ["在桌子上", "在椅子下", "在盒子里", "在门附近"]
+        "left": ["in", "on", "at", "under"],
+        "right": ["the morning", "Monday", "noon", "the chair"]
       },
       "answer": {
-        "on the desk": "在桌子上",
-        "under the chair": "在椅子下",
-        "in the box": "在盒子里",
-        "near the door": "在门附近"
+        "in": "the morning",
+        "on": "Monday",
+        "at": "noon",
+        "under": "the chair"
       },
-      "hint": "介词表示位置关系：on在...上，under在...下，in在...里，near在...附近。",
+      "hint": "介词搭配：in + 时段，on + 具体日期，at + 时间点，其他位置用on/under/near等。",
       "difficulty": 2
     },
     {
@@ -160,6 +166,7 @@
       "grammarPoint": "介词方位",
       "content": {
         "scrambled": ["The", "ball", "is", "under", "the", "bed", "."],
+        "distractors": ["on", "in"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "The ball is under the bed.",
@@ -168,19 +175,15 @@
     },
     {
       "id": "g3_2_14",
-      "type": "B",
+      "type": "C",
       "grammarPoint": "介词方位",
       "content": {
-        "left": ["The bird is ____ the tree.", "The fish is ____ the bowl.", "The picture is ____ the wall.", "The dog is ____ the door."],
-        "right": ["in", "in", "on", "near"]
+        "sentence": "The bird lives ____ the tree. (in/on/under)",
+        "choices": ["in", "on", "under"],
+        "blank": "____"
       },
-      "answer": {
-        "The bird is ____ the tree.": "in",
-        "The fish is ____ the bowl.": "in",
-        "The picture is ____ the wall.": "on",
-        "The dog is ____ the door.": "near"
-      },
-      "hint": "in用于封闭空间，on用于表面，near表示附近。",
+      "answer": "in",
+      "hint": "鸟住在树里面，用in。",
       "difficulty": 2
     },
     {
@@ -189,6 +192,7 @@
       "grammarPoint": "There be句型",
       "content": {
         "scrambled": ["There", "is", "a", "book", "on", "the", "desk", "."],
+        "distractors": ["are", "has"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "There is a book on the desk.",
@@ -214,6 +218,7 @@
       "grammarPoint": "There be句型",
       "content": {
         "scrambled": ["There", "is", "an", "apple", "in", "the", "bag", "."],
+        "distractors": ["is", "some"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "There is an apple in the bag.",
@@ -222,23 +227,6 @@
     },
     {
       "id": "g3_2_18",
-      "type": "B",
-      "grammarPoint": "There be句型",
-      "content": {
-        "left": ["There is a cat.", "There are two dogs.", "There is some water.", "There are many stars."],
-        "right": ["一只猫", "两只狗", "一些水", "许多星星"]
-      },
-      "answer": {
-        "There is a cat.": "一只猫",
-        "There are two dogs.": "两只狗",
-        "There is some water.": "一些水",
-        "There are many stars.": "许多星星"
-      },
-      "hint": "There be句型翻译为'有'，注意单复数。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_19",
       "type": "C",
       "grammarPoint": "There be句型",
       "content": {
@@ -247,15 +235,16 @@
         "blank": "____"
       },
       "answer": "Is",
-      "hint": "pencil是单数，用Is there...？",
+      "hint": "pencil是单数，用Is there...?",
       "difficulty": 2
     },
     {
-      "id": "g3_2_20",
+      "id": "g3_2_19",
       "type": "A",
       "grammarPoint": "There be句型",
       "content": {
         "scrambled": ["There", "are", "three", "boys", "in", "the", "room", "."],
+        "distractors": ["is", "five"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "There are three boys in the room.",
@@ -263,7 +252,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_21",
+      "id": "g3_2_20",
       "type": "C",
       "grammarPoint": "can动词",
       "content": {
@@ -276,11 +265,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_22",
+      "id": "g3_2_21",
       "type": "A",
       "grammarPoint": "can动词",
       "content": {
         "scrambled": ["She", "can", "dance", "very", "well", "."],
+        "distractors": ["cans", "candance"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "She can dance very well.",
@@ -288,24 +278,24 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_23",
+      "id": "g3_2_22",
       "type": "B",
       "grammarPoint": "can动词",
       "content": {
-        "left": ["I can swim.", "You can run.", "He can sing.", "She can draw."],
-        "right": ["我会游泳", "你会跑步", "他会唱歌", "她会画画"]
+        "left": ["can swim", "can run", "can sing", "can draw"],
+        "right": ["会游泳", "会跑步", "会唱歌", "会画画"]
       },
       "answer": {
-        "I can swim.": "我会游泳",
-        "You can run.": "你会跑步",
-        "He can sing.": "他会唱歌",
-        "She can draw.": "她会画画"
+        "can swim": "会游泳",
+        "can run": "会跑步",
+        "can sing": "会唱歌",
+        "can draw": "会画画"
       },
       "hint": "can表示能力，翻译为'会/能'。",
       "difficulty": 2
     },
     {
-      "id": "g3_2_24",
+      "id": "g3_2_23",
       "type": "C",
       "grammarPoint": "can动词",
       "content": {
@@ -314,15 +304,16 @@
         "blank": "____"
       },
       "answer": "Can",
-      "hint": "一般疑问句把can提前，Can you...？你能...吗？",
+      "hint": "一般疑问句把can提前，Can you...? 你能...吗？",
       "difficulty": 3
     },
     {
-      "id": "g3_2_25",
+      "id": "g3_2_24",
       "type": "A",
       "grammarPoint": "can动词",
       "content": {
         "scrambled": ["Can", "you", "see", "the", "bird", "?"],
+        "distractors": ["Can you", "see you"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Can you see the bird?",
@@ -330,7 +321,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_26",
+      "id": "g3_2_25",
       "type": "C",
       "grammarPoint": "like动词",
       "content": {
@@ -343,11 +334,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_27",
+      "id": "g3_2_26",
       "type": "A",
       "grammarPoint": "like动词",
       "content": {
         "scrambled": ["He", "likes", "to", "play", "football", "."],
+        "distractors": ["like", "liking"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "He likes to play football.",
@@ -355,29 +347,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_28",
-      "type": "B",
-      "grammarPoint": "like动词",
-      "content": {
-        "left": ["I like oranges.", "She likes bananas.", "He likes apples.", "We like milk."],
-        "right": ["我喜欢橙子", "她喜欢香蕉", "他喜欢苹果", "我们喜欢牛奶"]
-      },
-      "answer": {
-        "I like oranges.": "我喜欢橙子",
-        "She likes bananas.": "她喜欢香蕉",
-        "He likes apples.": "他喜欢苹果",
-        "We like milk.": "我们喜欢牛奶"
-      },
-      "hint": "like表示喜欢，注意主谓一致。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_29",
+      "id": "g3_2_27",
       "type": "C",
       "grammarPoint": "like动词",
       "content": {
-        "sentence": "Do you ____ ice cream? (like/likes)",
-        "choices": ["like", "likes"],
+        "sentence": "Do you ____ ice cream? (like/likes/liking)",
+        "choices": ["like", "likes", "liking"],
         "blank": "____"
       },
       "answer": "like",
@@ -385,15 +360,84 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_30",
+      "id": "g3_2_28",
       "type": "A",
       "grammarPoint": "like动词",
       "content": {
         "scrambled": ["They", "like", "playing", "in", "the", "park", "."],
+        "distractors": ["likes", "liking"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "They like playing in the park.",
       "hint": "They是复数，动词用原形like。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_29",
+      "type": "E",
+      "grammarPoint": "be动词 vs have/has",
+      "instruction": "选择正确的词填空",
+      "content": {
+        "questions": [
+          {
+            "sentence": "Kitty and I ____ good friends.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "are",
+            "hint": "Kitty and I = 我们俩，是朋友关系'是'，用are"
+          },
+          {
+            "sentence": "Kitty and I ____ new bicycles.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "have",
+            "hint": "我们俩'拥有'自行车，用have"
+          },
+          {
+            "sentence": "The elephant ____ a long nose.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "has",
+            "hint": "大象'有'长鼻子，表示拥有用has"
+          },
+          {
+            "sentence": "The elephant ____ big and grey.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "is",
+            "hint": "大象'是'又大又灰的，表示状态用is"
+          }
+        ]
+      },
+      "answer": ["are", "have", "has", "is"],
+      "hint": "be动词(am/is/are)表示'是'，have/has表示'有'。朋友关系用be动词，拥有东西用have/has。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_30",
+      "type": "E",
+      "grammarPoint": "be动词 vs have/has",
+      "instruction": "选择正确的词填空",
+      "content": {
+        "questions": [
+          {
+            "sentence": "—Are you hungry?—No, but I ____ thirsty.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "am",
+            "hint": "问句Are you...?回答用I am (I'm)"
+          },
+          {
+            "sentence": "—____ you a ruler?—Yes, I ____ one.",
+            "options": ["Have", "Has", "Are", "Is"],
+            "answer": "Have, have",
+            "hint": "问有没有尺子用Have you...?回答用I have one"
+          },
+          {
+            "sentence": "They ____ in the classroom now.",
+            "options": ["am", "is", "are", "have", "has"],
+            "answer": "are",
+            "hint": "表示'在某个地方'用be动词"
+          }
+        ]
+      },
+      "answer": ["am", "Have, have", "are"],
+      "hint": "have表示'拥有'，be动词表示'是'或'在'。",
       "difficulty": 2
     },
     {
@@ -415,6 +459,7 @@
       "grammarPoint": "have/has动词",
       "content": {
         "scrambled": ["She", "has", "a", "beautiful", "dress", "."],
+        "distractors": ["have", "haves"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "She has a beautiful dress.",
@@ -426,14 +471,14 @@
       "type": "B",
       "grammarPoint": "have/has动词",
       "content": {
-        "left": ["I have a book.", "He has a car.", "She has a dog.", "We have a home."],
-        "right": ["我有一本书", "他有一辆车", "她有一只狗", "我们有一个家"]
+        "left": ["have a book", "has a car", "has a dog", "have a home"],
+        "right": ["有一本书", "有一辆车", "有一只狗", "有一个家"]
       },
       "answer": {
-        "I have a book.": "我有一本书",
-        "He has a car.": "他有一辆车",
-        "She has a dog.": "她有一只狗",
-        "We have a home.": "我们有一个家"
+        "have a book": "有一本书",
+        "has a car": "有一辆车",
+        "has a dog": "有一只狗",
+        "have a home": "有一个家"
       },
       "hint": "have/has表示'有'，注意主谓一致。",
       "difficulty": 2
@@ -457,6 +502,7 @@
       "grammarPoint": "have/has动词",
       "content": {
         "scrambled": ["We", "have", "English", "on", "Monday", "."],
+        "distractors": ["has", "having"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "We have English on Monday.",
@@ -482,6 +528,7 @@
       "grammarPoint": "Wh-问句",
       "content": {
         "scrambled": ["What", "is", "this", "?"],
+        "distractors": ["This", "Is"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "What is this?",
@@ -524,6 +571,7 @@
       "grammarPoint": "Wh-问句",
       "content": {
         "scrambled": ["What", "colour", "is", "your", "bag", "?"],
+        "distractors": ["Colour", "Colors"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "What colour is your bag?",
@@ -549,6 +597,7 @@
       "grammarPoint": "Wh-问句",
       "content": {
         "scrambled": ["How", "many", "apples", "do", "you", "have", "?"],
+        "distractors": ["Many", "Much"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "How many apples do you have?",
@@ -557,6 +606,59 @@
     },
     {
       "id": "g3_2_43",
+      "type": "F",
+      "grammarPoint": "How提问句型",
+      "instruction": "用How开头提问",
+      "content": {
+        "questions": [
+          {
+            "sentence": "The apples are hard and smooth.",
+            "answer": "How are the apples?",
+            "type": "be"
+          },
+          {
+            "sentence": "The orange tastes sour.",
+            "answer": "How does the orange taste?",
+            "type": "verb"
+          },
+          {
+            "sentence": "They feel soft.",
+            "answer": "How do they feel?",
+            "type": "verb"
+          }
+        ]
+      },
+      "answer": ["How are the apples?", "How does the orange taste?", "How do they feel?"],
+      "hint": "描述事物状态用be动词，感官动词(taste/feel)后面接形容词。How问状态。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_44",
+      "type": "F",
+      "grammarPoint": "How提问句型-陷阱题",
+      "instruction": "用How开头提问，注意动词形式",
+      "content": {
+        "questions": [
+          {
+            "sentence": "How ____ the pizza ____? (taste)",
+            "options": ["is; taste", "does; taste", "do; tastes"],
+            "answer": "does; taste",
+            "type": "trap",
+            "hint": "taste是感官动词，主语the pizza是单数，用does...taste"
+          },
+          {
+            "sentence": "The cake looks delicious.",
+            "answer": "How does the cake look?",
+            "type": "verb"
+          }
+        ]
+      },
+      "answer": ["does; taste", "How does the cake look?"],
+      "hint": "感官动词(taste/look/sound/smell)用How does/are...+动词提问。",
+      "difficulty": 3
+    },
+    {
+      "id": "g3_2_45",
       "type": "B",
       "grammarPoint": "Wh-问句",
       "content": {
@@ -573,7 +675,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_44",
+      "id": "g3_2_46",
       "type": "C",
       "grammarPoint": "Wh-问句",
       "content": {
@@ -586,11 +688,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_45",
+      "id": "g3_2_47",
       "type": "A",
       "grammarPoint": "Wh-问句",
       "content": {
         "scrambled": ["What", "do", "you", "like", "to", "eat", "?"],
+        "distractors": ["Like", "Does"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "What do you like to eat?",
@@ -598,7 +701,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_46",
+      "id": "g3_2_48",
       "type": "C",
       "grammarPoint": "一般疑问句",
       "content": {
@@ -611,11 +714,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_47",
+      "id": "g3_2_49",
       "type": "A",
       "grammarPoint": "一般疑问句",
       "content": {
         "scrambled": ["Do", "you", "like", "bananas", "?"],
+        "distractors": ["Does", "Like"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Do you like bananas?",
@@ -623,7 +727,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_48",
+      "id": "g3_2_50",
       "type": "B",
       "grammarPoint": "一般疑问句",
       "content": {
@@ -640,7 +744,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_49",
+      "id": "g3_2_51",
       "type": "C",
       "grammarPoint": "一般疑问句",
       "content": {
@@ -653,11 +757,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_50",
+      "id": "g3_2_52",
       "type": "A",
       "grammarPoint": "一般疑问句",
       "content": {
         "scrambled": ["Are", "they", "your", "friends", "?"],
+        "distractors": ["Is", "Do"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Are they your friends?",
@@ -665,7 +770,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_51",
+      "id": "g3_2_53",
       "type": "C",
       "grammarPoint": "指示代词",
       "content": {
@@ -678,11 +783,12 @@
       "difficulty": 1
     },
     {
-      "id": "g3_2_52",
+      "id": "g3_2_54",
       "type": "A",
       "grammarPoint": "指示代词",
       "content": {
         "scrambled": ["That", "is", "my", "father", "."],
+        "distractors": ["This", "Those"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "That is my father.",
@@ -690,7 +796,35 @@
       "difficulty": 1
     },
     {
-      "id": "g3_2_53",
+      "id": "g3_2_55",
+      "type": "C",
+      "grammarPoint": "指示代词-远近区分",
+      "content": {
+        "sentence": "____ are my shoes. They are here. (These/Those)",
+        "choices": ["These", "Those"],
+        "blank": "____",
+        "context": "鞋就在我身边，近处用These"
+      },
+      "answer": "These",
+      "hint": "近处的复数用These，远处用Those。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_56",
+      "type": "C",
+      "grammarPoint": "指示代词-远近区分",
+      "content": {
+        "sentence": "____ are my shoes. They are over there. (These/Those)",
+        "choices": ["These", "Those"],
+        "blank": "____",
+        "context": "鞋在远处，用Those"
+      },
+      "answer": "Those",
+      "hint": "近处的复数用These，远处用Those。",
+      "difficulty": 2
+    },
+    {
+      "id": "g3_2_57",
       "type": "B",
       "grammarPoint": "指示代词",
       "content": {
@@ -707,49 +841,39 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_54",
-      "type": "C",
-      "grammarPoint": "指示代词",
-      "content": {
-        "sentence": "____ are my new shoes. (These/Those)",
-        "choices": ["These", "Those"],
-        "blank": "____"
-      },
-      "answer": "These",
-      "hint": "近处的复数用These。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_55",
+      "id": "g3_2_58",
       "type": "A",
       "grammarPoint": "指示代词",
       "content": {
-        "scrambled": ["These", "are", "red", "flowers", "."],
+        "scrambled": ["These", "are", "blue", "flowers", "."],
+        "distractors": ["Those", "That"],
         "sentence": "将单词组成正确的句子"
       },
-      "answer": "These are red flowers.",
-      "hint": "These are = These're 这些是...。",
+      "answer": "These are blue flowers.",
+      "hint": "These are = These're 这些是...。blue是蓝色的。",
       "difficulty": 2
     },
     {
-      "id": "g3_2_56",
+      "id": "g3_2_59",
       "type": "C",
-      "grammarPoint": "形容词",
+      "grammarPoint": "形容词-语境辨析",
       "content": {
-        "sentence": "The soup is very ____. (hot/cold)",
-        "choices": ["hot", "cold"],
-        "blank": "____"
+        "sentence": "The ice cream is very ____. It's -5°C today. (hot/cold/warm)",
+        "choices": ["hot", "cold", "warm"],
+        "blank": "____",
+        "context": "冰淇淋在-5°C的环境里，一定是cold"
       },
-      "answer": "hot",
-      "hint": "hot表示热的，cold表示冷的。",
+      "answer": "cold",
+      "hint": "冰淇淋是冷的，所以用cold。",
       "difficulty": 2
     },
     {
-      "id": "g3_2_57",
+      "id": "g3_2_60",
       "type": "A",
       "grammarPoint": "形容词",
       "content": {
         "scrambled": ["The", "flower", "is", "beautiful", "."],
+        "distractors": ["beauty", "beautifuly"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "The flower is beautiful.",
@@ -757,7 +881,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_58",
+      "id": "g3_2_61",
       "type": "B",
       "grammarPoint": "形容词",
       "content": {
@@ -774,24 +898,25 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_59",
+      "id": "g3_2_62",
       "type": "C",
       "grammarPoint": "形容词",
       "content": {
-        "sentence": "The coffee smells ____. (good/bad)",
-        "choices": ["good", "bad"],
+        "sentence": "The coffee smells ____. (good/bad/nice)",
+        "choices": ["good", "bad", "nice"],
         "blank": "____"
       },
       "answer": "good",
-      "hint": "good表示好的，bad表示坏的。",
+      "hint": "good表示好的，bad表示坏的，nice表示好的/愉快的。",
       "difficulty": 3
     },
     {
-      "id": "g3_2_60",
+      "id": "g3_2_63",
       "type": "A",
       "grammarPoint": "形容词",
       "content": {
         "scrambled": ["The", "milk", "tastes", "sweet", "."],
+        "distractors": ["sweetly", "sweetness"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "The milk tastes sweet.",
@@ -799,7 +924,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_61",
+      "id": "g3_2_64",
       "type": "C",
       "grammarPoint": "祈使句",
       "content": {
@@ -812,11 +937,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_62",
+      "id": "g3_2_65",
       "type": "A",
       "grammarPoint": "祈使句",
       "content": {
         "scrambled": ["Touch", "your", "nose", "."],
+        "distractors": ["Touchs", "Touches"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Touch your nose.",
@@ -824,7 +950,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_63",
+      "id": "g3_2_66",
       "type": "B",
       "grammarPoint": "祈使句",
       "content": {
@@ -841,7 +967,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_64",
+      "id": "g3_2_67",
       "type": "C",
       "grammarPoint": "祈使句",
       "content": {
@@ -854,11 +980,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_65",
+      "id": "g3_2_68",
       "type": "A",
       "grammarPoint": "祈使句",
       "content": {
         "scrambled": ["Please", "sit", "down", "."],
+        "distractors": ["Sits", "Sitting"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Please sit down.",
@@ -866,7 +993,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_66",
+      "id": "g3_2_69",
       "type": "C",
       "grammarPoint": "人称代词和物主代词",
       "content": {
@@ -879,11 +1006,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_67",
+      "id": "g3_2_70",
       "type": "A",
       "grammarPoint": "人称代词和物主代词",
       "content": {
         "scrambled": ["This", "is", "my", "bag", "."],
+        "distractors": ["I", "me"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "This is my bag.",
@@ -891,7 +1019,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_68",
+      "id": "g3_2_71",
       "type": "B",
       "grammarPoint": "人称代词和物主代词",
       "content": {
@@ -908,7 +1036,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_69",
+      "id": "g3_2_72",
       "type": "C",
       "grammarPoint": "人称代词和物主代词",
       "content": {
@@ -921,11 +1049,12 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_70",
+      "id": "g3_2_73",
       "type": "A",
       "grammarPoint": "人称代词和物主代词",
       "content": {
         "scrambled": ["I", "talk", "to", "myself", "."],
+        "distractors": ["me", "my"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "I talk to myself.",
@@ -933,7 +1062,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_71",
+      "id": "g3_2_74",
       "type": "C",
       "grammarPoint": "时间介词",
       "content": {
@@ -946,11 +1075,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_72",
+      "id": "g3_2_75",
       "type": "A",
       "grammarPoint": "时间介词",
       "content": {
         "scrambled": ["We", "play", "football", "on", "Saturday", "."],
+        "distractors": ["in", "at"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "We play football on Saturday.",
@@ -958,7 +1088,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_73",
+      "id": "g3_2_76",
       "type": "B",
       "grammarPoint": "时间介词",
       "content": {
@@ -975,7 +1105,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_74",
+      "id": "g3_2_77",
       "type": "C",
       "grammarPoint": "时间介词",
       "content": {
@@ -988,11 +1118,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_75",
+      "id": "g3_2_78",
       "type": "A",
       "grammarPoint": "时间介词",
       "content": {
         "scrambled": ["We", "have", "dinner", "at", "home", "."],
+        "distractors": ["in", "on"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "We have dinner at home.",
@@ -1000,7 +1131,7 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_76",
+      "id": "g3_2_79",
       "type": "C",
       "grammarPoint": "序数词",
       "content": {
@@ -1013,11 +1144,12 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_77",
+      "id": "g3_2_80",
       "type": "A",
       "grammarPoint": "序数词",
       "content": {
         "scrambled": ["Monday", "is", "the", "first", "day", "."],
+        "distractors": ["one", "1st"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "Monday is the first day.",
@@ -1025,24 +1157,7 @@
       "difficulty": 2
     },
     {
-      "id": "g3_2_78",
-      "type": "B",
-      "grammarPoint": "序数词",
-      "content": {
-        "left": ["first (1st)", "second (2nd)", "third (3rd)", "fourth (4th)"],
-        "right": ["第一", "第二", "第三", "第四"]
-      },
-      "answer": {
-        "first (1st)": "第一",
-        "second (2nd)": "第二",
-        "third (3rd)": "第三",
-        "fourth (4th)": "第四"
-      },
-      "hint": "序数词表示顺序，前面通常加the。",
-      "difficulty": 2
-    },
-    {
-      "id": "g3_2_79",
+      "id": "g3_2_81",
       "type": "C",
       "grammarPoint": "序数词",
       "content": {
@@ -1055,11 +1170,12 @@
       "difficulty": 3
     },
     {
-      "id": "g3_2_80",
+      "id": "g3_2_82",
       "type": "A",
       "grammarPoint": "序数词",
       "content": {
         "scrambled": ["He", "came", "in", "second", "."],
+        "distractors": ["two", "secondly"],
         "sentence": "将单词组成正确的句子"
       },
       "answer": "He came in second.",
