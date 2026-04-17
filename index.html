@@ -27260,15 +27260,17 @@ if ('serviceWorker' in navigator) {
                     const newWorker = registration.installing;
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            // 发现新版本
+                            // 发现新版本，显示温和提示
                             console.log('[App] New version available!');
-                            if (confirm('发现新版本，是否立即更新？')) {
-                                newWorker.postMessage({ action: 'skipWaiting' });
-                                window.location.reload();
-                            }
+                            showUpdateBanner();
                         }
                     });
                 });
+                
+                // 定期检查更新（每小时一次）
+                setInterval(() => {
+                    registration.update();
+                }, 60 * 60 * 1000);
             })
             .catch(err => {
                 console.log('[App] ServiceWorker registration failed:', err);
@@ -27281,6 +27283,96 @@ if ('serviceWorker' in navigator) {
             window.location.reload();
         }
     });
+}
+
+// 显示更新提示条
+function showUpdateBanner() {
+    // 如果已经显示过，不再重复
+    if (document.getElementById('update-banner')) return;
+    
+    const banner = document.createElement('div');
+    banner.id = 'update-banner';
+    banner.innerHTML = `
+        <div class="update-banner-content">
+            <span>🔔 发现新版本</span>
+            <div class="update-banner-actions">
+                <button class="update-btn-later" onclick="this.parentElement.parentElement.parentElement.remove()">稍后</button>
+                <button class="update-btn-now" onclick="updateNow()">立即更新</button>
+            </div>
+        </div>
+    `;
+    
+    // 添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        #update-banner {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            animation: slideUp 0.3s ease-out;
+            max-width: 90%;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .update-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+        }
+        .update-banner-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .update-btn-later, .update-btn-now {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .update-btn-later {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        .update-btn-now {
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .update-btn-later:hover, .update-btn-now:hover {
+            opacity: 0.9;
+        }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(banner);
+}
+
+// 立即更新
+function updateNow() {
+    const banner = document.getElementById('update-banner');
+    if (banner) {
+        banner.innerHTML = '<div class="update-banner-content"><span>⏳ 正在更新...</span></div>';
+    }
+    
+    // 通知 Service Worker 跳过等待
+    if (navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage({ action: 'skipWaiting' });
+    }
+    
+    // 1秒后刷新页面
+    setTimeout(() => {
+        window.location.reload();
+    }, 1000);
 }
     </script>
 </body>

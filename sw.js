@@ -1,10 +1,15 @@
 /**
  * 舒窈小课堂 Service Worker
  * 提供离线缓存支持
+ * 
+ * 版本更新说明：
+ * - 修改 VERSION 版本号可触发更新
+ * - 用户会收到"有新版本"提示
  */
-const CACHE_NAME = 'shuyao-v1';
-const STATIC_CACHE = 'shuyao-static-v1';
-const DATA_CACHE = 'shuyao-data-v1';
+const VERSION = '2026.04.17.01'; // 版本号格式：年.月.日.序号
+const CACHE_NAME = `shuyao-v${VERSION}`;
+const STATIC_CACHE = `shuyao-static-v${VERSION}`;
+const DATA_CACHE = `shuyao-data-v${VERSION}`;
 
 // 需要缓存的静态资源
 const STATIC_ASSETS = [
@@ -173,3 +178,11 @@ async function syncProgress() {
   // 同步学习进度到服务器（如果未来需要）
   console.log('[SW] Syncing progress...');
 }
+
+// 接收来自页面的消息
+self.addEventListener('message', event => {
+  if (event.data && event.data.action === 'skipWaiting') {
+    console.log('[SW] Skip waiting and activate new version');
+    self.skipWaiting();
+  }
+});
