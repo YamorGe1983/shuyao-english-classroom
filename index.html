@@ -11,6 +11,10 @@
     <meta name="apple-mobile-web-app-title" content="舒窈小课堂">
     <title>舒窈小课堂</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👧</text></svg>">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- iOS 图标 -->
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     
     <!-- DNS预解析和预连接 - 加速外部资源 -->
     <link rel="dns-prefetch" href="https://code.responsivevoice.org">
@@ -27243,6 +27247,41 @@ window.QuestionGenerator = QuestionGenerator;
 window.ReviewEngine = ReviewEngine;
 window.QUESTION_TYPES = QUESTION_TYPES;
 window.WordMemoryModule = WordMemoryModule;
+
+// ==================== PWA / Service Worker ====================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+                console.log('[App] ServiceWorker registered:', registration.scope);
+                
+                // 检查更新
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // 发现新版本
+                            console.log('[App] New version available!');
+                            if (confirm('发现新版本，是否立即更新？')) {
+                                newWorker.postMessage({ action: 'skipWaiting' });
+                                window.location.reload();
+                            }
+                        }
+                    });
+                });
+            })
+            .catch(err => {
+                console.log('[App] ServiceWorker registration failed:', err);
+            });
+    });
+    
+    // 监听来自 Service Worker 的消息
+    navigator.serviceWorker.addEventListener('message', event => {
+        if (event.data && event.data.type === 'SKIP_WAITING') {
+            window.location.reload();
+        }
+    });
+}
     </script>
 </body>
 </html>
