@@ -3043,6 +3043,90 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--space-sm);
 }
 
+/* 下一题按钮样式 - 增大尺寸 */
+.next-question-btn {
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4ECDC4, #44A08D);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+    transition: all 0.2s;
+}
+
+.next-question-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(78, 205, 196, 0.4);
+}
+
+.next-question-btn:active {
+    transform: translateY(0);
+}
+
+/* 选项音标详情样式 */
+.option-phonetic-detail {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.option-phonetic-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    background: white;
+}
+
+.option-phonetic-item.correct {
+    background: rgba(0, 184, 148, 0.15);
+    border: 1px solid var(--success);
+}
+
+.option-phonetic-item.wrong {
+    background: rgba(225, 112, 85, 0.1);
+    border: 1px solid var(--danger);
+}
+
+.option-phonetic-item.selected-wrong {
+    background: rgba(225, 112, 85, 0.2);
+    border: 2px solid var(--danger);
+}
+
+.option-phonetic-label {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.option-phonetic-text {
+    flex: 1;
+}
+
+.option-phonetic-tip {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    padding: 10px;
+    background: rgba(255, 230, 109, 0.2);
+    border-radius: 6px;
+    text-align: left;
+}
+
 /* 新题型样式 */
 .phonetic-word-large {
     font-size: 48px;
@@ -26098,10 +26182,17 @@ const App = {
         feedback.innerHTML = `
             <div class="phonetic-feedback ${isCorrect ? 'correct' : 'wrong'}">
                 <div class="phonetic-feedback-icon">${isCorrect ? '✅' : '❌'}</div>
-                <div>${isCorrect ? '回答正确！' : `回答错误，正确答案是：${q.correctAnswer}`}</div>
-                ${!isCorrect ? `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">${q.word} - ${q.chinese || ''}</div>` : ''}
+                <div>${isCorrect ? '回答正确！' : '回答错误'}</div>
+                ${!isCorrect ? `
+                    <div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
+                        正确答案：<strong>${q.correctAnswer}</strong> ${q.chinese ? '- ' + q.chinese : ''}
+                    </div>
+                    <div class="option-phonetic-tip">
+                        💡 提示：仔细听发音，注意每个字母的发音位置
+                    </div>
+                ` : ''}
             </div>
-            <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
+            <button class="next-question-btn" onclick="App.nextPhoneticQuestion()">
                 ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
             </button>
         `;
@@ -26215,7 +26306,7 @@ const App = {
                     正确率：${state.correctCount} / ${state.correctCount + state.wrongCount}
                 </div>
             </div>
-            <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
+            <button class="next-question-btn" onclick="App.nextPhoneticQuestion()">
                 ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
             </button>
         `;
@@ -26243,17 +26334,68 @@ const App = {
             state.wrongCount++;
         }
         
+        // 获取单词的音标
+        const getWordPhonetic = (word) => {
+            if (PHONETIC_DATA) {
+                for (const type of Object.values(PHONETIC_DATA)) {
+                    for (const cat of type.categories || []) {
+                        for (const sound of cat.sounds || []) {
+                            for (const ex of sound.examples || []) {
+                                if (ex.word === word) {
+                                    return sound.symbol;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return '';
+        };
+        
+        // 生成选项详情
+        const labels = ['A', 'B'];
+        const optionsDetail = `
+            <div class="option-phonetic-detail">
+                ${q.options.map((opt, idx) => {
+                    const phonetic = getWordPhonetic(opt.text);
+                    return `
+                        <div class="option-phonetic-item ${opt.isCorrect ? 'correct' : ''} ${opt.text === selectedWord && !isCorrect ? 'selected-wrong' : ''}">
+                            <span class="option-phonetic-label">${labels[idx]}</span>
+                            <span class="option-phonetic-text">${opt.text} ${phonetic ? '- ' + phonetic : ''}</span>
+                            ${opt.isCorrect ? '<span style="color:var(--success);margin-left:8px;">✓</span>' : ''}
+                            ${opt.text === selectedWord && !isCorrect ? '<span style="color:var(--danger);margin-left:8px;">✗</span>' : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+        
+        // 生成错误提示
+        let tipText = '';
+        if (!isCorrect) {
+            const correctPhonetic = getWordPhonetic(q.correctAnswer);
+            const selectedPhonetic = getWordPhonetic(selectedWord);
+            tipText = `<div class="option-phonetic-tip">
+                💡 提示：${correctPhonetic} 和 ${selectedPhonetic} 发音不同！
+                ${q.tip || ''}
+            </div>`;
+        } else if (q.tip) {
+            tipText = `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">${q.tip}</div>`;
+        }
+        
         // 显示反馈
         const feedback = document.getElementById('phonetic-feedback');
         feedback.innerHTML = `
             <div class="phonetic-feedback ${isCorrect ? 'correct' : 'wrong'}">
                 <div class="phonetic-feedback-icon">${isCorrect ? '✅' : '❌'}</div>
-                <div>${isCorrect ? '回答正确！' : `回答错误，正确答案是：${q.correctAnswer}`}</div>
-                <div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
-                    ${q.tip || ''}
-                </div>
+                <div>${isCorrect ? '回答正确！' : '回答错误'}</div>
+                ${!isCorrect ? `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
+                    正确答案：${q.correctAnswer}
+                </div>` : ''}
+                ${optionsDetail}
+                ${tipText}
             </div>
-            <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
+            <button class="next-question-btn" onclick="App.nextPhoneticQuestion()">
                 ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
             </button>
         `;
@@ -26316,18 +26458,94 @@ const App = {
             state.wrongCount++;
         }
         
+        // 生成选项详情
+        const labels = ['A', 'B', 'C', 'D'];
+        let optionsDetail = '';
+        
+        if (q.type === 'word_to_symbol') {
+            // 看单词选音标 - 选项本身就是音标
+            optionsDetail = `
+                <div class="option-phonetic-detail">
+                    ${q.options.map((opt, idx) => `
+                        <div class="option-phonetic-item ${opt.isCorrect ? 'correct' : ''} ${idx === index && !isCorrect ? 'selected-wrong' : ''}">
+                            <span class="option-phonetic-label">${labels[idx]}</span>
+                            <span class="option-phonetic-text">${opt.text}</span>
+                            ${opt.isCorrect ? '<span style="color:var(--success);margin-left:8px;">✓ 正确答案</span>' : ''}
+                            ${idx === index && !isCorrect ? '<span style="color:var(--danger);margin-left:8px;">✗ 你选了</span>' : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        } else if (q.type === 'symbol_to_word') {
+            // 看音标选单词 - 需要显示每个单词的音标
+            // 获取每个单词对应的音标
+            const getWordPhonetic = (word) => {
+                // 优先从年级单词库查找
+                const gradeWords = App.getWordsWithSoundFromGradeData ? App.getWordsWithSoundFromGradeData(word) : [];
+                if (gradeWords.length > 0) {
+                    return gradeWords[0].phonetic || '';
+                }
+                // 从所有音标库查找
+                if (PHONETIC_DATA) {
+                    for (const type of Object.values(PHONETIC_DATA)) {
+                        for (const cat of type.categories || []) {
+                            for (const sound of cat.sounds || []) {
+                                for (const ex of sound.examples || []) {
+                                    if (ex.word === word) {
+                                        return sound.symbol;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return '';
+            };
+            
+            optionsDetail = `
+                <div class="option-phonetic-detail">
+                    ${q.options.map((opt, idx) => {
+                        const wordPhonetic = getWordPhonetic(opt.text);
+                        return `
+                            <div class="option-phonetic-item ${opt.isCorrect ? 'correct' : ''} ${idx === index && !isCorrect ? 'selected-wrong' : ''}">
+                                <span class="option-phonetic-label">${labels[idx]}</span>
+                                <span class="option-phonetic-text">${opt.text} ${wordPhonetic ? '- ' + wordPhonetic : ''}</span>
+                                ${opt.isCorrect ? '<span style="color:var(--success);margin-left:8px;">✓</span>' : ''}
+                                ${idx === index && !isCorrect ? '<span style="color:var(--danger);margin-left:8px;">✗</span>' : ''}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+        
+        // 生成错误提示
+        let tipText = '';
+        if (!isCorrect) {
+            if (q.type === 'word_to_symbol') {
+                tipText = `<div class="option-phonetic-tip">
+                    💡 提示：${q.word} 中划线部分发 <strong>${q.correctAnswer}</strong> 音，不是 <strong>${selectedOpt.text}</strong>
+                </div>`;
+            } else {
+                tipText = `<div class="option-phonetic-tip">
+                    💡 提示：<strong>${q.correctAnswer}</strong> 含有 ${q.symbol} 音，如 ${q.sound.examples ? q.sound.examples.slice(0, 2).map(e => e.word).join('、') : q.correctAnswer}
+                </div>`;
+            }
+        }
+        
         // 显示反馈
-        const exampleWord = q.sound.examples && q.sound.examples[0] ? q.sound.examples[0].word : '';
         const feedback = document.getElementById('phonetic-feedback');
         feedback.innerHTML = `
             <div class="phonetic-feedback ${isCorrect ? 'correct' : 'wrong'}">
                 <div class="phonetic-feedback-icon">${isCorrect ? '✅' : '❌'}</div>
-                <div>${isCorrect ? '回答正确！' : '回答错误，正确答案是：' + q.correctAnswer}</div>
-                ${exampleWord ? `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
-                    音标: ${q.sound.symbol} | 示例: ${exampleWord}
+                <div>${isCorrect ? '回答正确！' : '回答错误'}</div>
+                ${!isCorrect ? `<div style="margin-top:8px;font-size:14px;color:var(--text-secondary);">
+                    正确答案：${q.correctAnswer}
                 </div>` : ''}
+                ${optionsDetail}
+                ${tipText}
             </div>
-            <button class="primary-btn" style="width:100%;margin-top:16px;" onclick="App.nextPhoneticQuestion()">
+            <button class="next-question-btn" onclick="App.nextPhoneticQuestion()">
                 ${state.currentIndex < state.questions.length - 1 ? '下一题' : '查看结果'}
             </button>
         `;
