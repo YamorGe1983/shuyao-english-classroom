@@ -22111,25 +22111,37 @@ const TTSModule = {
             // 获取合适的语音（iOS需要等待voices加载）
             const getBestVoice = () => {
                 const voices = speechSynthesis.getVoices();
+                
+                // 调试：打印所有可用声音（帮助排查PWA问题）
+                console.log('🎤 可用声音列表:', voices.map(v => `${v.name} (${v.lang})`));
+                
                 let voice = null;
                 
                 if (isChinese) {
                     // 中文声音：优先女声
                     voice = voices.find(v => v.name.includes('Ting-Ting') || v.name.includes('Sin-ji')) ||
-                            voices.find(v => v.lang === 'zh-CN' && v.name.toLowerCase().includes('female')) ||
                             voices.find(v => v.lang === 'zh-CN') || 
                             voices.find(v => v.lang.startsWith('zh'));
                 } else {
                     // 英语声音：优先Karen或Samantha（iOS女声）
-                    voice = voices.find(v => v.name === 'Karen') ||           // 澳大利亚英语女声
-                            voices.find(v => v.name === 'Samantha') ||        // 美国英语女声
-                            voices.find(v => v.name === 'Victoria') ||        // 英国英语女声
-                            voices.find(v => v.lang === 'en-AU') ||           // 澳大利亚英语
-                            voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('female')) ||
-                            voices.find(v => v.lang === 'en-GB' && v.name.toLowerCase().includes('female')) ||
-                            voices.find(v => v.lang === 'en-US') ||           // 美国英语
-                            voices.find(v => v.lang === 'en-GB') ||           // 英国英语
-                            voices.find(v => v.lang.startsWith('en'));        // 任意英语
+                    // 常见iOS男声名称
+                    const maleNames = ['Daniel', 'Alex', 'Tom', 'Fred', 'Junior', 'Ralph', 'Bruce', 'Rocko'];
+                    
+                    // 检查是否是男声
+                    const isMaleVoice = (v) => maleNames.some(m => v.name.includes(m));
+                    
+                    // 优先级：Karen > Samantha > Victoria > en-AU > en-US女声 > en-GB女声 > en-US > en-GB > 任意英语
+                    voice = voices.find(v => v.name.includes('Karen') && !isMaleVoice(v)) ||
+                            voices.find(v => v.name.includes('Samantha') && !isMaleVoice(v)) ||
+                            voices.find(v => v.name.includes('Victoria') && !isMaleVoice(v)) ||
+                            voices.find(v => v.lang === 'en-AU' && !isMaleVoice(v)) ||
+                            voices.find(v => v.lang === 'en-US' && !isMaleVoice(v)) ||
+                            voices.find(v => v.lang === 'en-GB' && !isMaleVoice(v)) ||
+                            voices.find(v => v.lang === 'en-US') ||
+                            voices.find(v => v.lang === 'en-GB') ||
+                            voices.find(v => v.lang.startsWith('en'));
+                    
+                    console.log('🎤 选择的声音:', voice ? `${voice.name} (${voice.lang})` : '未找到');
                 }
                 return voice;
             };
