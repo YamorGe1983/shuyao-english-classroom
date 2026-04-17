@@ -22106,25 +22106,30 @@ const TTSModule = {
             }
             
             const isChinese = this.containsChinese(text);
-            const targetLang = isChinese ? 'zh-CN' : 'en-GB';
+            const targetLang = isChinese ? 'zh-CN' : 'en-US';
             
             // 获取合适的语音（iOS需要等待voices加载）
             const getBestVoice = () => {
                 const voices = speechSynthesis.getVoices();
-                // 优先找英式英语声音
-                let voice = voices.find(v => v.lang === 'en-GB');
-                // 找不到则用美式英语
-                if (!voice && !isChinese) {
-                    voice = voices.find(v => v.lang === 'en-US');
-                }
-                // 再找不到则用任意英语声音
-                if (!voice && !isChinese) {
-                    voice = voices.find(v => v.lang.startsWith('en'));
-                }
-                // 中文声音
+                let voice = null;
+                
                 if (isChinese) {
-                    voice = voices.find(v => v.lang === 'zh-CN') || 
+                    // 中文声音：优先女声
+                    voice = voices.find(v => v.name.includes('Ting-Ting') || v.name.includes('Sin-ji')) ||
+                            voices.find(v => v.lang === 'zh-CN' && v.name.toLowerCase().includes('female')) ||
+                            voices.find(v => v.lang === 'zh-CN') || 
                             voices.find(v => v.lang.startsWith('zh'));
+                } else {
+                    // 英语声音：优先Karen或Samantha（iOS女声）
+                    voice = voices.find(v => v.name === 'Karen') ||           // 澳大利亚英语女声
+                            voices.find(v => v.name === 'Samantha') ||        // 美国英语女声
+                            voices.find(v => v.name === 'Victoria') ||        // 英国英语女声
+                            voices.find(v => v.lang === 'en-AU') ||           // 澳大利亚英语
+                            voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('female')) ||
+                            voices.find(v => v.lang === 'en-GB' && v.name.toLowerCase().includes('female')) ||
+                            voices.find(v => v.lang === 'en-US') ||           // 美国英语
+                            voices.find(v => v.lang === 'en-GB') ||           // 英国英语
+                            voices.find(v => v.lang.startsWith('en'));        // 任意英语
                 }
                 return voice;
             };
