@@ -23523,11 +23523,11 @@ const App = {
                 <div class="quick-actions">
                     <button class="quick-btn primary" onclick="App.startQuizReview()">
                         <span class="quick-icon">📝</span>
-                        <span>答题复习</span>
+                        <span>答题</span>
                     </button>
                     <button class="quick-btn secondary" onclick="App.startRandomReview()">
-                        <span class="quick-icon">🎲</span>
-                        <span>随机练习</span>
+                        <span class="quick-icon">📖</span>
+                        <span>复习</span>
                     </button>
                 </div>
                 
@@ -23613,9 +23613,6 @@ const App = {
                                 <div class="unit-actions">
                                     <button class="unit-action-btn" onclick="event.stopPropagation();App.startUnitVocabulary('${unit.id}')">
                                         📚 单词
-                                    </button>
-                                    <button class="unit-action-btn" onclick="event.stopPropagation();App.startQuizForUnit('${unit.id}')">
-                                        📝 答题
                                     </button>
                                 </div>
                             </div>
