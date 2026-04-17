@@ -23738,6 +23738,10 @@ const App = {
         const word = AppState.currentCards[task.wordIndex];
         const direction = task.direction;
         
+        // 保存当前单词和方向，供 showWordAnswer 使用
+        AppState.currentWord = word;
+        AppState.currentDirection = direction;
+        
         // 计算进度
         const completed = AppState.memoryStats.total - AppState.taskQueue.length;
         const progress = Math.round((completed / AppState.memoryStats.total) * 100);
