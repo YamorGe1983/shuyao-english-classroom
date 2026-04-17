@@ -3266,5 +3266,377 @@
         }
       ]
     }
+  },
+  "grammar": {
+    "choiceQuestions": {
+      "basic": [
+        {
+          "id": "g3_b_001",
+          "question": "I ___ a student.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 0,
+          "explanation": "I用am。"
+        },
+        {
+          "id": "g3_b_002",
+          "question": "She ___ happy.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 1,
+          "explanation": "she是第三人称单数，用is。"
+        },
+        {
+          "id": "g3_b_003",
+          "question": "There ___ a book on the desk.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 1,
+          "explanation": "单数名词a book用There is。"
+        },
+        {
+          "id": "g3_b_004",
+          "question": "There ___ some cats in the room.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2,
+          "explanation": "复数名词cats用There are。"
+        },
+        {
+          "id": "g3_b_005",
+          "question": "___ to the blackboard, please.",
+          "options": [
+            "Look",
+            "Look at",
+            "Looking"
+          ],
+          "answer": 1,
+          "explanation": "祈使句：Look at the blackboard。"
+        },
+        {
+          "id": "g3_b_006",
+          "question": "The cat is ___ the table.",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 1,
+          "explanation": "on表示在...上面。"
+        },
+        {
+          "id": "g3_b_007",
+          "question": "___ you like some water?",
+          "options": [
+            "Do",
+            "Does",
+            "Are"
+          ],
+          "answer": 0,
+          "explanation": "一般疑问句，谓语是like用Do。"
+        },
+        {
+          "id": "g3_b_008",
+          "question": "This is ___ apple.",
+          "options": [
+            "a",
+            "an",
+            "the"
+          ],
+          "answer": 1,
+          "explanation": "apple以元音音素开头，用an。"
+        },
+        {
+          "id": "g3_b_009",
+          "question": "___ is your name?",
+          "options": [
+            "What",
+            "Where",
+            "Who"
+          ],
+          "answer": 0,
+          "explanation": "询问名字用What。"
+        },
+        {
+          "id": "g3_b_010",
+          "question": "Don't ___ late.",
+          "options": [
+            "be",
+            "is",
+            "are"
+          ],
+          "answer": 0,
+          "explanation": "祈使句否定Don't后接be动词原形。"
+        }
+      ],
+      "improved": [
+        {
+          "id": "g3_i_001",
+          "question": "There ___ not ___ milk in the glass.",
+          "options": [
+            "is, some",
+            "are, any",
+            "is, any"
+          ],
+          "answer": 2,
+          "explanation": "否定句中some要变成any。"
+        },
+        {
+          "id": "g3_i_002",
+          "question": "___ the boy ___ his homework?",
+          "options": [
+            "Does, does",
+            "Do, does",
+            "Does, do"
+          ],
+          "answer": 2,
+          "explanation": "一般疑问句：Does he do...? 谓语用原形。"
+        },
+        {
+          "id": "g3_i_003",
+          "question": "The ball is ___ the box and the chair.",
+          "options": [
+            "in",
+            "on",
+            "between"
+          ],
+          "answer": 2,
+          "explanation": "between表示在两者之间。"
+        },
+        {
+          "id": "g3_i_004",
+          "question": "Stand ___, please. Don't stand ___.",
+          "options": [
+            "up, down",
+            "down, up",
+            "on, off"
+          ],
+          "answer": 1,
+          "explanation": "Stand down坐下，Stand up站起来。"
+        },
+        {
+          "id": "g3_i_005",
+          "question": "___ there ___ water in the bottle?",
+          "options": [
+            "Is, any",
+            "Are, some",
+            "Is, some"
+          ],
+          "answer": 0,
+          "explanation": "一般疑问句中some变any。"
+        },
+        {
+          "id": "g3_i_006",
+          "question": "My bag is ___ the table ___ the chair.",
+          "options": [
+            "between, and",
+            "in, of",
+            "on, and"
+          ],
+          "answer": 0,
+          "explanation": "between...and...表示在...和...之间。"
+        },
+        {
+          "id": "g3_i_007",
+          "question": "___ he at home? No, he ___ at school.",
+          "options": [
+            "Is, is",
+            "Is, isn't",
+            "Are, isn't"
+          ],
+          "answer": 1,
+          "explanation": "he用is，否定用isn't。"
+        },
+        {
+          "id": "g3_i_008",
+          "question": "Open the door, ___ you?",
+          "options": [
+            "do",
+            "don't",
+            "does"
+          ],
+          "answer": 1,
+          "explanation": "祈使句的反意疑问句用will you。"
+        }
+      ]
+    },
+    "wordForms": {
+      "basic": [
+        {
+          "id": "g3_wf_b_001",
+          "question": "She ___ (be) happy.",
+          "answer": "is",
+          "hint": "第三人称单数"
+        },
+        {
+          "id": "g3_wf_b_002",
+          "question": "I ___ (be) a student.",
+          "answer": "am",
+          "hint": "第一人称单数"
+        },
+        {
+          "id": "g3_wf_b_003",
+          "question": "There ___ (be) a cat in the box.",
+          "answer": "is",
+          "hint": "单数名词"
+        },
+        {
+          "id": "g3_wf_b_004",
+          "question": "___ (not) late for school!",
+          "answer": "Don't be",
+          "hint": "祈使句否定"
+        },
+        {
+          "id": "g3_wf_b_005",
+          "question": "___ (look) at the picture.",
+          "answer": "Look",
+          "hint": "祈使句"
+        },
+        {
+          "id": "g3_wf_b_006",
+          "question": "The book is ___ the desk. (in)",
+          "answer": "on",
+          "hint": "介词"
+        },
+        {
+          "id": "g3_wf_b_007",
+          "question": "There ___ (be) two books on the table.",
+          "answer": "are",
+          "hint": "复数名词"
+        },
+        {
+          "id": "g3_wf_b_008",
+          "question": "He ___ (have) a new bike.",
+          "answer": "has",
+          "hint": "第三人称单数"
+        }
+      ],
+      "improved": [
+        {
+          "id": "g3_wf_i_001",
+          "question": "There ___ (be not) any water in the cup.",
+          "answer": "isn't",
+          "hint": "there be否定句"
+        },
+        {
+          "id": "g3_wf_i_002",
+          "question": "The bird is ___ the tree. (in/on)",
+          "answer": "in",
+          "hint": "在树上（长在树上用in）"
+        },
+        {
+          "id": "g3_wf_i_003",
+          "question": "___ (close) the door, please.",
+          "answer": "Close",
+          "hint": "祈使句用动词原形"
+        },
+        {
+          "id": "g3_wf_i_004",
+          "question": "There ___ (be) a boy and two girls in the room.",
+          "answer": "is",
+          "hint": "就近原则，靠近be动词的是a boy"
+        },
+        {
+          "id": "g3_wf_i_005",
+          "question": "Don't ___ (be) noisy in the library.",
+          "answer": "be",
+          "hint": "祈使句否定"
+        },
+        {
+          "id": "g3_wf_i_006",
+          "question": "The book is ___ the desk. (in front of)",
+          "answer": "in front of",
+          "hint": "固定搭配"
+        }
+      ]
+    },
+    "sentenceTransform": {
+      "basic": [
+        {
+          "id": "g3_st_b_001",
+          "statement": "I am a student.",
+          "question": "___ you a student?",
+          "answer": "Are",
+          "hint": "一般疑问句"
+        },
+        {
+          "id": "g3_st_b_002",
+          "statement": "She is happy.",
+          "question": "___ she happy?",
+          "answer": "Is",
+          "hint": "一般疑问句"
+        },
+        {
+          "id": "g3_st_b_003",
+          "statement": "There is a book on the desk.",
+          "question": "___ there a book on the desk?",
+          "answer": "Is",
+          "hint": "There be一般疑问句"
+        },
+        {
+          "id": "g3_st_b_004",
+          "statement": "The cat is on the table.",
+          "question": "Where ___ the cat?",
+          "answer": "is",
+          "hint": "询问位置"
+        },
+        {
+          "id": "g3_st_b_005",
+          "statement": "I like apples.",
+          "question": "___, ___ I like apples?",
+          "answer": "Do, yes/no",
+          "hint": "一般疑问句"
+        }
+      ],
+      "improved": [
+        {
+          "id": "g3_st_i_001",
+          "statement": "There are some books in the bag.",
+          "question": "___ there ___ books in the bag?",
+          "answer": "Are, any",
+          "hint": "some变any"
+        },
+        {
+          "id": "g3_st_i_002",
+          "statement": "He is at home.",
+          "question": "___ he ___ at home?",
+          "answer": "Is, /",
+          "hint": "一般疑问句"
+        },
+        {
+          "id": "g3_st_i_003",
+          "statement": "The ball is between the boxes.",
+          "question": "Where ___ the ball?",
+          "answer": "is",
+          "hint": "询问位置"
+        },
+        {
+          "id": "g3_st_i_004",
+          "statement": "There is some milk in the glass.",
+          "question": "___ there ___ milk in the glass?",
+          "answer": "Is, any",
+          "hint": "some变any"
+        },
+        {
+          "id": "g3_st_i_005",
+          "statement": "My bag is under the chair.",
+          "question": "Where ___ your bag?",
+          "answer": "is",
+          "hint": "询问位置"
+        }
+      ]
+    }
   }
 }
