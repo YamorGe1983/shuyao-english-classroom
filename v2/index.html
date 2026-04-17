@@ -7341,9 +7341,9 @@ const App = {
                     <span>📖</span> 选择学习内容
                 </div>
                 
-                <div class="modules-grid">
+                <div class="modules-grid" id="modules-grid">
                     ${getCurrentTextbook().modules.map(mod => `
-                        <div class="module-card" onclick="App.renderModuleDetail('${mod.id}')">
+                        <div class="module-card" data-module-id="${mod.id}">
                             <div class="module-icon">${this.getModuleIcon(mod.id)}</div>
                             <h3>${mod.name}</h3>
                             <p class="module-name-cn">${mod.nameCN}</p>
@@ -7388,13 +7388,38 @@ const App = {
                 
                 <!-- 版本号 -->
                 <div style="position:fixed;bottom:80px;right:16px;font-size:12px;color:#999;z-index:100;">
-                    v2026.04.17.v2.01
+                    v2026.04.17.v2.02
                 </div>
             </div>
         `;
         
         this.setContent(html);
         this.elements.nav.style.display = 'flex';
+        
+        // 为模块卡片绑定点击事件（事件委托）
+        const modulesGrid = document.getElementById('modules-grid');
+        if (modulesGrid) {
+            modulesGrid.addEventListener('click', (e) => {
+                const card = e.target.closest('.module-card');
+                if (card) {
+                    const moduleId = card.dataset.moduleId;
+                    if (moduleId) {
+                        this.renderModuleDetail(moduleId);
+                    }
+                }
+            });
+            // 移动端支持
+            modulesGrid.addEventListener('touchend', (e) => {
+                const card = e.target.closest('.module-card');
+                if (card) {
+                    const moduleId = card.dataset.moduleId;
+                    if (moduleId) {
+                        e.preventDefault();
+                        this.renderModuleDetail(moduleId);
+                    }
+                }
+            }, { passive: false });
+        }
     },
     
     getModuleIcon(moduleId) {
