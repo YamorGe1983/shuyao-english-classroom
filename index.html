@@ -22124,24 +22124,27 @@ const TTSModule = {
                             voices.find(v => v.lang.startsWith('zh'));
                 } else {
                     // 英语声音：优先Karen或Samantha（iOS女声）
-                    // 常见iOS男声名称
-                    const maleNames = ['Daniel', 'Alex', 'Tom', 'Fred', 'Junior', 'Ralph', 'Bruce', 'Rocko'];
+                    // iOS Eloquence 低质量声音列表（需要过滤掉）
+                    const eloquenceVoices = ['Eddy', 'Flo', 'Grandma', 'Grandpa', 'Reed', 'Rocko', 'Sandy', 'Shelley'];
                     
-                    // 检查是否是男声
-                    const isMaleVoice = (v) => maleNames.some(m => v.name.includes(m));
+                    // 检查是否是 Eloquence 低质量声音
+                    const isEloquence = (v) => eloquenceVoices.some(name => v.name.includes(name));
                     
-                    // 优先级：Karen > Samantha > Victoria > en-AU > en-US女声 > en-GB女声 > en-US > en-GB > 任意英语
-                    voice = voices.find(v => v.name.includes('Karen') && !isMaleVoice(v)) ||
-                            voices.find(v => v.name.includes('Samantha') && !isMaleVoice(v)) ||
-                            voices.find(v => v.name.includes('Victoria') && !isMaleVoice(v)) ||
-                            voices.find(v => v.lang === 'en-AU' && !isMaleVoice(v)) ||
-                            voices.find(v => v.lang === 'en-US' && !isMaleVoice(v)) ||
-                            voices.find(v => v.lang === 'en-GB' && !isMaleVoice(v)) ||
-                            voices.find(v => v.lang === 'en-US') ||
-                            voices.find(v => v.lang === 'en-GB') ||
-                            voices.find(v => v.lang.startsWith('en'));
+                    // 优先级：Karen > Samantha > Victoria > en-AU > en-US > en-GB > 任意英语（排除Eloquence）
+                    voice = voices.find(v => v.name.includes('Karen') && !isEloquence(v)) ||
+                            voices.find(v => v.name.includes('Samantha') && !isEloquence(v)) ||
+                            voices.find(v => v.name.includes('Victoria') && !isEloquence(v)) ||
+                            voices.find(v => v.lang === 'en-AU' && !isEloquence(v)) ||
+                            voices.find(v => v.lang === 'en-US' && !isEloquence(v)) ||
+                            voices.find(v => v.lang === 'en-GB' && !isEloquence(v)) ||
+                            voices.find(v => v.lang.startsWith('en') && !isEloquence(v));
                     
-                    console.log('🎤 选择的声音:', voice ? `${voice.name} (${voice.lang})` : '未找到');
+                    // 如果只有 Eloquence 声音可用，返回 null（让 ResponsiveVoice 处理）
+                    if (!voice) {
+                        console.warn('🎤 只检测到 Eloquence 低质量声音，建议使用 ResponsiveVoice');
+                    }
+                    
+                    console.log('🎤 选择的声音:', voice ? `${voice.name} (${voice.lang})` : '无（将使用 ResponsiveVoice）');
                 }
                 return voice;
             };
