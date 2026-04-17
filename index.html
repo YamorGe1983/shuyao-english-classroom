@@ -1006,6 +1006,45 @@ h1, h2, h3, h4, h5, h6 {
     color: #e74c3c;
 }
 
+/* 显示翻译按钮 */
+.show-answer-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 16px;
+}
+
+.show-answer-btn:active {
+    transform: scale(0.98);
+}
+
+/* 翻译显示区域 */
+.translation-display {
+    font-size: var(--font-xxl);
+    color: var(--text-primary);
+    padding: 16px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: var(--radius-lg);
+    margin-top: 16px;
+    font-weight: 500;
+}
+
+/* 单词学习页容器 */
+.vocabulary-page .word-card {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* 复习卡片页 */
 .review-card-page {
     padding: var(--space-sm);
@@ -23622,7 +23661,7 @@ const App = {
         // 根据方向显示不同内容
         let displayContent;
         if (direction === 'en_to_cn') {
-            // 英译中：显示英文，选中文
+            // 英译中：显示英文
             displayContent = `
                 <h1 class="word-text">${word.word}</h1>
                 <p class="word-phonetic">${word.phonetic || ''}</p>
@@ -23633,17 +23672,6 @@ const App = {
                 <h1 class="word-text">${word.chinese}</h1>
             `;
         }
-        
-        // 生成三选一选项
-        const options = this.generateWordOptions(word, direction);
-        const optionsHtml = options.map((opt, i) => `
-            <button class="word-option-btn ${opt.isCorrect ? 'correct-option' : ''}" 
-                    data-index="${i}" 
-                    data-correct="${opt.isCorrect}"
-                    onclick="App.handleWordAnswer(this, ${opt.isCorrect})">
-                ${opt.text}
-            </button>
-        `).join('');
         
         const modeLabel = direction === 'en_to_cn' ? '🔤 英译中' : '🇨🇳 中译英';
         
@@ -23663,32 +23691,44 @@ const App = {
                     </div>
                 </div>
                 
-                <!-- 单词卡片 -->
+                <!-- 单词卡片 - 初始状态 -->
                 <div class="word-card" id="word-card">
                     <div class="word-main">
                         ${displayContent}
                     </div>
-                    <button class="speak-btn" onclick="App.speakWord('${word.word}')">
-                        🔊 点击发音
+                    
+                    <!-- 发音按钮（英译中模式） -->
+                    ${direction === 'en_to_cn' ? `
+                        <button class="speak-btn" onclick="App.speakWord('${word.word}')">
+                            🔊 点击发音
+                        </button>
+                    ` : ''}
+                    
+                    <!-- 显示答案按钮 -->
+                    <button class="show-answer-btn" onclick="App.showWordAnswer()">
+                        👁️ 显示翻译
                     </button>
-                </div>
-                
-                <!-- 熟练度按钮 -->
-                <div class="memory-buttons" id="memory-buttons">
-                    <button class="memory-btn strange" onclick="App.handleMemoryFeedback(0)">
-                        😨 陌生
-                    </button>
-                    <button class="memory-btn fuzzy" onclick="App.handleMemoryFeedback(1)">
-                        🤔 模糊
-                    </button>
-                    <button class="memory-btn mastered" onclick="App.handleMemoryFeedback(2)">
-                        😎 熟练
-                    </button>
-                </div>
-                
-                <!-- 三选一选项 -->
-                <div class="word-options" id="word-options">
-                    ${optionsHtml}
+                    
+                    <!-- 翻译显示区域（默认隐藏，点击后显示） -->
+                    <div id="translation-area" style="display: none;">
+                        <div class="translation-display" id="translation-text"></div>
+                        
+                        <!-- 熟练度按钮 -->
+                        <div class="memory-buttons" id="memory-buttons">
+                            <button class="memory-btn strange" onclick="App.handleMemoryFeedback(0)">
+                                <span class="emoji">😨</span>
+                                <span>陌生</span>
+                            </button>
+                            <button class="memory-btn fuzzy" onclick="App.handleMemoryFeedback(1)">
+                                <span class="emoji">🤔</span>
+                                <span>模糊</span>
+                            </button>
+                            <button class="memory-btn mastered" onclick="App.handleMemoryFeedback(2)">
+                                <span class="emoji">😎</span>
+                                <span>熟练</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 反馈区域 -->
@@ -23704,73 +23744,41 @@ const App = {
                 App.speakWord(word.word);
             }, 500);
         }
+        
+        // 保存当前单词信息到 AppState
+        AppState.currentWord = word;
+        AppState.currentDirection = direction;
     },
     
-    // 生成三选一选项
-    generateWordOptions(word, direction) {
-        const correctAnswer = direction === 'en_to_cn' ? word.chinese : word.word;
-        const correctIndex = Math.floor(Math.random() * 3);
+    // 显示单词答案
+    showWordAnswer() {
+        const word = AppState.currentWord;
+        const direction = AppState.currentDirection;
         
-        // 从同单元其他单词获取干扰项
-        const otherWords = AppState.currentCards.filter(w => w.word !== word.word);
-        const shuffledOthers = this.shuffleArray([...otherWords]);
-        const distractors = shuffledOthers.slice(0, 2).map(w => ({
-            text: direction === 'en_to_cn' ? w.chinese : w.word,
-            isCorrect: false
-        }));
+        // 显示翻译内容
+        const translationArea = document.getElementById('translation-area');
+        const translationText = document.getElementById('translation-text');
         
-        // 如果单词不够，使用通用干扰项
-        if (distractors.length < 2) {
-            const fallbackCn = ['苹果', '香蕉', '橙子', '葡萄', '西瓜', '草莓', '芒果', '菠萝', '猫', '狗', '书', '桌子'];
-            const fallbackEn = ['apple', 'banana', 'orange', 'grape', 'watermelon', 'strawberry', 'mango', 'pineapple', 'cat', 'dog', 'book', 'desk'];
-            const fallback = direction === 'en_to_cn' ? fallbackCn : fallbackEn;
-            
-            while (distractors.length < 2) {
-                const randomFallback = fallback[Math.floor(Math.random() * fallback.length)];
-                if (!distractors.find(d => d.text === randomFallback) && randomFallback !== correctAnswer) {
-                    distractors.push({ text: randomFallback, isCorrect: false });
-                }
-            }
-        }
-        
-        const options = [...distractors];
-        options.splice(correctIndex, 0, { text: correctAnswer, isCorrect: true });
-        
-        return options;
-    },
-    
-    // 处理答题
-    handleWordAnswer(element, isCorrect) {
-        if (AppState.answerGiven) return;
-        AppState.answerGiven = true;
-        
-        const buttons = document.querySelectorAll('.word-option-btn');
-        buttons.forEach(btn => {
-            btn.disabled = true;
-            if (btn.dataset.correct === 'true') {
-                btn.classList.add('correct');
-            } else if (btn === element) {
-                btn.classList.add('wrong');
-            }
-        });
-        
-        if (!isCorrect) {
-            // 答错：震动反馈
-            if (navigator.vibrate) navigator.vibrate(100);
-            // 显示提示
-            const feedback = document.getElementById('word-feedback');
-            if (feedback) {
-                feedback.innerHTML = '<div class="feedback-hint wrong">答错了，请选择熟练度继续</div>';
-            }
+        if (direction === 'en_to_cn') {
+            // 英译中：显示中文翻译
+            translationText.textContent = word.chinese;
+            // 自动播放发音
+            this.speakWord(word.word);
         } else {
-            const feedback = document.getElementById('word-feedback');
-            if (feedback) {
-                feedback.innerHTML = '<div class="feedback-hint correct">✓ 回答正确！请选择熟练度</div>';
-            }
+            // 中译英：显示英文单词
+            translationText.textContent = word.word;
+            // 自动播放发音
+            this.speakWord(word.word);
         }
+        
+        // 显示翻译区域
+        translationArea.style.display = 'block';
+        
+        // 隐藏显示答案按钮
+        document.querySelector('.show-answer-btn').style.display = 'none';
     },
     
-    // 处理熟练度反馈
+    // 处理单词学习熟练度反馈
     handleMemoryFeedback(status) {
         const taskIndex = AppState.taskQueue.shift();
         AppState.currentTasks[taskIndex].status = status;
@@ -23786,9 +23794,6 @@ const App = {
             // 陌生：插到队首（优先再练）
             AppState.taskQueue.unshift(taskIndex);
         }
-        
-        // 重置答题状态
-        AppState.answerGiven = false;
         
         // 显示下一个任务
         this.renderVocabularyCard();
