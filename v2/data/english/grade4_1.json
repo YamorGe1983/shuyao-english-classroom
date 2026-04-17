@@ -1,0 +1,321 @@
+{
+  "id": "grade4_1",
+  "name": "四年级上册",
+  "metadata": {
+    "title": "Oxford English Primary 4 (Shanghai Edition)",
+    "subtitle": "牛津上海版小学英语四年级上册",
+    "totalUnits": 12,
+    "totalModules": 4
+  },
+  "modules": [
+    {
+      "id": "module1",
+      "name": "Getting to know you",
+      "nameCN": "认识你我",
+      "units": [
+        {"id": "unit1", "name": "Meeting new people", "nameCN": "认识新朋友"},
+        {"id": "unit2", "name": "How are you", "nameCN": "你好吗"},
+        {"id": "unit3", "name": "Are you happy", "nameCN": "你开心吗"}
+      ]
+    },
+    {
+      "id": "module2",
+      "name": "Me, my family and friends",
+      "nameCN": "我、家人与朋友",
+      "units": [
+        {"id": "unit4", "name": "Do you have any cousins", "nameCN": "你有表兄弟姐妹吗"},
+        {"id": "unit5", "name": "My friends", "nameCN": "我的朋友"},
+        {"id": "unit6", "name": "Jobs", "nameCN": "职业"}
+      ]
+    },
+    {
+      "id": "module3",
+      "name": "Places and activities",
+      "nameCN": "地点与活动",
+      "units": [
+        {"id": "unit7", "name": "At school", "nameCN": "在学校"},
+        {"id": "unit8", "name": "Shopping", "nameCN": "购物"},
+        {"id": "unit9", "name": "At home", "nameCN": "在家"}
+      ]
+    },
+    {
+      "id": "module4",
+      "name": "The natural world",
+      "nameCN": "自然世界",
+      "units": [
+        {"id": "unit10", "name": "On the farm", "nameCN": "在农场"},
+        {"id": "unit11", "name": "In the park", "nameCN": "在公园"},
+        {"id": "unit12", "name": "Weather and seasons", "nameCN": "天气与季节"}
+      ]
+    }
+  ],
+  "units": {
+    "unit1": {
+      "id": "unit1",
+      "module": "module1",
+      "name": "Meeting new people",
+      "nameCN": "认识新朋友",
+      "topic": "学习介绍他人和询问姓名",
+      "vocabulary": [
+        {"word": "uncle", "chinese": "叔叔/舅舅", "phonetic": "/ˈʌŋkl/", "audio": "uncle"},
+        {"word": "aunt", "chinese": "阿姨/姑姑", "phonetic": "/ɑːnt/", "audio": "aunt"},
+        {"word": "cousin", "chinese": "堂/表兄弟姐妹", "phonetic": "/ˈkʌzn/", "audio": "cousin"},
+        {"word": "grandfather", "chinese": "爷爷/外公", "phonetic": "/ˈɡrænfɑːðə/", "audio": "grandfather"},
+        {"word": "grandmother", "chinese": "奶奶/外婆", "phonetic": "/ˈɡrænmʌðə/", "audio": "grandmother"}
+      ],
+      "sentences": [
+        {"english": "This is my friend.", "chinese": "这是我的朋友。"},
+        {"english": "His name is Tom.", "chinese": "他的名字是Tom。"},
+        {"english": "Her name is Alice.", "chinese": "她的名字是Alice。"},
+        {"english": "Nice to meet you.", "chinese": "很高兴认识你。"}
+      ]
+    },
+    "unit2": {
+      "id": "unit2",
+      "module": "module1",
+      "name": "How are you",
+      "nameCN": "你好吗",
+      "topic": "学习询问和表达感受",
+      "vocabulary": [
+        {"word": "happy", "chinese": "高兴的", "phonetic": "/ˈhæpi/", "audio": "happy"},
+        {"word": "sad", "chinese": "难过的", "phonetic": "/sæd/", "audio": "sad"},
+        {"word": "tired", "chinese": "累的", "phonetic": "/taɪəd/", "audio": "tired"},
+        {"word": "hungry", "chinese": "饿的", "phonetic": "/ˈhʌŋɡri/", "audio": "hungry"},
+        {"word": "thirsty", "chinese": "渴的", "phonetic": "/ˈθɜːsti/", "audio": "thirsty"},
+        {"word": "full", "chinese": "饱的", "phonetic": "/fʊl/", "audio": "full"}
+      ],
+      "sentences": [
+        {"english": "How are you?", "chinese": "你好吗？"},
+        {"english": "I'm happy.", "chinese": "我很高兴。"},
+        {"english": "I'm tired.", "chinese": "我累了。"},
+        {"english": "Have some water.", "chinese": "喝点水吧。"}
+      ]
+    },
+    "unit3": {
+      "id": "unit3",
+      "module": "module1",
+      "name": "Are you happy",
+      "nameCN": "你开心吗",
+      "topic": "学习用can表达能力",
+      "vocabulary": [
+        {"word": "can", "chinese": "会/能", "phonetic": "/kæn/", "audio": "can"},
+        {"word": "paint", "chinese": "画画", "phonetic": "/peɪnt/", "audio": "paint"},
+        {"word": "draw", "chinese": "画", "phonetic": "/drɔː/", "audio": "draw"},
+        {"word": "read", "chinese": "阅读", "phonetic": "/riːd/", "audio": "read"},
+        {"word": "write", "chinese": "写", "phonetic": "/raɪt/", "audio": "write"},
+        {"word": "swim", "chinese": "游泳", "phonetic": "/swɪm/", "audio": "swim"},
+        {"word": "jump", "chinese": "跳", "phonetic": "/dʒʌmp/", "audio": "jump"},
+        {"word": "fly", "chinese": "飞", "phonetic": "/flaɪ/", "audio": "fly"}
+      ],
+      "sentences": [
+        {"english": "I can swim.", "chinese": "我会游泳。"},
+        {"english": "Can you jump?", "chinese": "你会跳吗？"},
+        {"english": "Yes, I can.", "chinese": "是的，我会。"},
+        {"english": "No, I can't.", "chinese": "不，我不会。"}
+      ]
+    },
+    "unit4": {
+      "id": "unit4",
+      "module": "module2",
+      "name": "Do you have any cousins",
+      "nameCN": "你有表兄弟姐妹吗",
+      "topic": "学习询问家庭成员",
+      "vocabulary": [
+        {"word": "cousin", "chinese": "堂/表兄弟姐妹", "phonetic": "/ˈkʌzn/", "audio": "cousin"},
+        {"word": "brother", "chinese": "兄弟", "phonetic": "/ˈbrʌðə/", "audio": "brother"},
+        {"word": "sister", "chinese": "姐妹", "phonetic": "/ˈsɪstə/", "audio": "sister"},
+        {"word": "family", "chinese": "家庭", "phonetic": "/ˈfæməli/", "audio": "family"},
+        {"word": "parent", "chinese": "父母", "phonetic": "/ˈpeərənt/", "audio": "parent"}
+      ],
+      "sentences": [
+        {"english": "Do you have any cousins?", "chinese": "你有表兄弟姐妹吗？"},
+        {"english": "Yes, I have one cousin.", "chinese": "是的，我有一个表兄弟。"},
+        {"english": "No, I don't.", "chinese": "不，我没有。"}
+      ]
+    },
+    "unit5": {
+      "id": "unit5",
+      "module": "module2",
+      "name": "My friends",
+      "nameCN": "我的朋友",
+      "topic": "学习描述朋友",
+      "vocabulary": [
+        {"word": "friend", "chinese": "朋友", "phonetic": "/frend/", "audio": "friend"},
+        {"word": "people", "chinese": "人们", "phonetic": "/ˈpiːpl/", "audio": "people"},
+        {"word": "kind", "chinese": "善良的", "phonetic": "/kaɪnd/", "audio": "kind"},
+        {"word": "tall", "chinese": "高的", "phonetic": "/tɔːl/", "audio": "tall"},
+        {"word": "short", "chinese": "矮的", "phonetic": "/ʃɔːt/", "audio": "short"}
+      ],
+      "sentences": [
+        {"english": "This is my friend.", "chinese": "这是我的朋友。"},
+        {"english": "She is tall.", "chinese": "她很高。"},
+        {"english": "He is kind.", "chinese": "他很善良。"}
+      ]
+    },
+    "unit6": {
+      "id": "unit6",
+      "module": "module2",
+      "name": "Jobs",
+      "nameCN": "职业",
+      "topic": "学习询问和描述职业",
+      "vocabulary": [
+        {"word": "doctor", "chinese": "医生", "phonetic": "/ˈdɒktə/", "audio": "doctor"},
+        {"word": "nurse", "chinese": "护士", "phonetic": "/nɜːs/", "audio": "nurse"},
+        {"word": "teacher", "chinese": "老师", "phonetic": "/ˈtiːtʃə/", "audio": "teacher"},
+        {"word": "firefighter", "chinese": "消防员", "phonetic": "/ˈfaɪəfaɪtə/", "audio": "firefighter"},
+        {"word": "police officer", "chinese": "警官", "phonetic": "/pəˈliːs ɒfɪsə/", "audio": "police_officer"},
+        {"word": "cook", "chinese": "厨师", "phonetic": "/kʊk/", "audio": "cook"},
+        {"word": "bus driver", "chinese": "公交车司机", "phonetic": "/bʌs draɪvə/", "audio": "bus_driver"},
+        {"word": "job", "chinese": "工作", "phonetic": "/dʒɒb/", "audio": "job"}
+      ],
+      "sentences": [
+        {"english": "What does your father do?", "chinese": "你爸爸是做什么的？"},
+        {"english": "He is a doctor.", "chinese": "他是一名医生。"},
+        {"english": "She is a teacher.", "chinese": "她是一名老师。"}
+      ]
+    },
+    "unit7": {
+      "id": "unit7",
+      "module": "module3",
+      "name": "At school",
+      "nameCN": "在学校",
+      "topic": "学习学校设施",
+      "vocabulary": [
+        {"word": "school", "chinese": "学校", "phonetic": "/skuːl/", "audio": "school"},
+        {"word": "classroom", "chinese": "教室", "phonetic": "/ˈklɑːsruːm/", "audio": "classroom"},
+        {"word": "library", "chinese": "图书馆", "phonetic": "/ˈlaɪbrəri/", "audio": "library"},
+        {"word": "canteen", "chinese": "食堂", "phonetic": "/kænˈtiːn/", "audio": "canteen"},
+        {"word": "office", "chinese": "办公室", "phonetic": "/ˈɒfɪs/", "audio": "office"},
+        {"word": "gym", "chinese": "体育馆", "phonetic": "/dʒɪm/", "audio": "gym"},
+        {"word": "computer lab", "chinese": "电脑房", "phonetic": "/kəmˈpjuːtə læb/", "audio": "computer_lab"},
+        {"word": "hall", "chinese": "大厅", "phonetic": "/hɔːl/", "audio": "hall"}
+      ],
+      "sentences": [
+        {"english": "Welcome to our school.", "chinese": "欢迎来到我们学校。"},
+        {"english": "This is the library.", "chinese": "这是图书馆。"},
+        {"english": "Is there a canteen?", "chinese": "有食堂吗？"}
+      ]
+    },
+    "unit8": {
+      "id": "unit8",
+      "module": "module3",
+      "name": "Shopping",
+      "nameCN": "购物",
+      "topic": "学习购物用语",
+      "vocabulary": [
+        {"word": "shop", "chinese": "商店", "phonetic": "/ʃɒp/", "audio": "shop"},
+        {"word": "supermarket", "chinese": "超市", "phonetic": "/ˈsuːpəmɑːkɪt/", "audio": "supermarket"},
+        {"word": "bakery", "chinese": "面包房", "phonetic": "/ˈbeɪkəri/", "audio": "bakery"},
+        {"word": "restaurant", "chinese": "餐馆", "phonetic": "/ˈrestrɒnt/", "audio": "restaurant"},
+        {"word": "post office", "chinese": "邮局", "phonetic": "/pəʊst ɒfɪs/", "audio": "post_office"},
+        {"word": "money", "chinese": "钱", "phonetic": "/ˈmʌni/", "audio": "money"},
+        {"word": "yuan", "chinese": "元", "phonetic": "/juˈɑːn/", "audio": "yuan"}
+      ],
+      "sentences": [
+        {"english": "How much is it?", "chinese": "这个多少钱？"},
+        {"english": "It's ten yuan.", "chinese": "十元。"},
+        {"english": "Can I help you?", "chinese": "我能帮你吗？"},
+        {"english": "I want to buy some bread.", "chinese": "我想买一些面包。"}
+      ]
+    },
+    "unit9": {
+      "id": "unit9",
+      "module": "module3",
+      "name": "At home",
+      "nameCN": "在家",
+      "topic": "学习方位介词",
+      "vocabulary": [
+        {"word": "home", "chinese": "家", "phonetic": "/həʊm/", "audio": "home"},
+        {"word": "behind", "chinese": "在后面", "phonetic": "/bɪˈhaɪnd/", "audio": "behind"},
+        {"word": "in front of", "chinese": "在前面", "phonetic": "/ɪn frʌnt ɒv/", "audio": "in_front_of"},
+        {"word": "next to", "chinese": "紧挨着", "phonetic": "/nekst tuː/", "audio": "next_to"},
+        {"word": "between", "chinese": "在中间", "phonetic": "/bɪˈtwiːn/", "audio": "between"},
+        {"word": "near", "chinese": "在附近", "phonetic": "/nɪə/", "audio": "near"}
+      ],
+      "sentences": [
+        {"english": "Where is the cat?", "chinese": "猫在哪里？"},
+        {"english": "It's behind the door.", "chinese": "它在门后面。"},
+        {"english": "The park is next to the school.", "chinese": "公园紧挨着学校。"}
+      ]
+    },
+    "unit10": {
+      "id": "unit10",
+      "module": "module4",
+      "name": "On the farm",
+      "nameCN": "在农场",
+      "topic": "学习农场相关词汇",
+      "vocabulary": [
+        {"word": "farm", "chinese": "农场", "phonetic": "/fɑːm/", "audio": "farm"},
+        {"word": "hay", "chinese": "干草", "phonetic": "/heɪ/", "audio": "hay"},
+        {"word": "grass", "chinese": "草", "phonetic": "/ɡrɑːs/", "audio": "grass"},
+        {"word": "corn", "chinese": "谷物", "phonetic": "/kɔːn/", "audio": "corn"},
+        {"word": "rubbish", "chinese": "垃圾", "phonetic": "/ˈrʌbɪʃ/", "audio": "rubbish"},
+        {"word": "bin", "chinese": "垃圾桶", "phonetic": "/bɪn/", "audio": "bin"},
+        {"word": "stone", "chinese": "石头", "phonetic": "/stəʊn/", "audio": "stone"}
+      ],
+      "sentences": [
+        {"english": "Don't throw stones.", "chinese": "不要扔石头。"},
+        {"english": "Don't litter.", "chinese": "不要乱扔垃圾。"},
+        {"english": "Welcome to my farm.", "chinese": "欢迎来到我的农场。"}
+      ]
+    },
+    "unit11": {
+      "id": "unit11",
+      "module": "module4",
+      "name": "In the park",
+      "nameCN": "在公园",
+      "topic": "学习公园设施",
+      "vocabulary": [
+        {"word": "park", "chinese": "公园", "phonetic": "/pɑːk/", "audio": "park"},
+        {"word": "aviary", "chinese": "鸟舍", "phonetic": "/ˈeɪviəri/", "audio": "aviary"},
+        {"word": "fountain", "chinese": "喷泉", "phonetic": "/ˈfaʊntɪn/", "audio": "fountain"},
+        {"word": "pond", "chinese": "池塘", "phonetic": "/pɒnd/", "audio": "pond"},
+        {"word": "sketchbook", "chinese": "素描本", "phonetic": "/ˈsketʃbʊk/", "audio": "sketchbook"},
+        {"word": "camera", "chinese": "相机", "phonetic": "/ˈkæmərə/", "audio": "camera"}
+      ],
+      "sentences": [
+        {"english": "Let's go to the park.", "chinese": "我们去公园吧。"},
+        {"english": "What do you have?", "chinese": "你有什么？"},
+        {"english": "I have a camera.", "chinese": "我有一个相机。"}
+      ]
+    },
+    "unit12": {
+      "id": "unit12",
+      "module": "module4",
+      "name": "Weather and seasons",
+      "nameCN": "天气与季节",
+      "topic": "学习天气和月份",
+      "vocabulary": [
+        {"word": "weather", "chinese": "天气", "phonetic": "/ˈweðə/", "audio": "weather"},
+        {"word": "sunny", "chinese": "晴朗的", "phonetic": "/ˈsʌni/", "audio": "sunny"},
+        {"word": "rainy", "chinese": "下雨的", "phonetic": "/ˈreɪni/", "audio": "rainy"},
+        {"word": "cloudy", "chinese": "多云的", "phonetic": "/ˈklaʊdi/", "audio": "cloudy"},
+        {"word": "windy", "chinese": "有风的", "phonetic": "/ˈwɪndi/", "audio": "windy"},
+        {"word": "warm", "chinese": "温暖的", "phonetic": "/wɔːm/", "audio": "warm"},
+        {"word": "hot", "chinese": "热的", "phonetic": "/hɒt/", "audio": "hot"},
+        {"word": "season", "chinese": "季节", "phonetic": "/ˈsiːzn/", "audio": "season"}
+      ],
+      "sentences": [
+        {"english": "How's the weather?", "chinese": "天气怎么样？"},
+        {"english": "It's sunny.", "chinese": "天气晴朗。"},
+        {"english": "In Australia, summer comes in December.", "chinese": "在澳大利亚，夏天在十二月。"}
+      ]
+    }
+  },
+  "grammar": {
+    "choiceQuestions": {
+      "basic": [
+        {"id": "g4_b_001", "question": "There ___ a library in your school?", "options": ["Is", "Are", "Do"], "answer": 0, "explanation": "There be疑问句：单数用Is there。"},
+        {"id": "g4_b_002", "question": "What ___ your father do? He is a doctor.", "options": ["is", "do", "does"], "answer": 2, "explanation": "询问职业：What does...do?"},
+        {"id": "g4_b_003", "question": "How much ___ the apples? They are ten yuan.", "options": ["is", "are", "am"], "answer": 1, "explanation": "apples是复数，用How much are。"},
+        {"id": "g4_b_004", "question": "Don't ___ on the grass.", "options": ["walk", "walking", "walks"], "answer": 0, "explanation": "祈使句否定：Don't + 动词原形。"},
+        {"id": "g4_b_005", "question": "She ___ sing very well.", "options": ["can", "cans", "is"], "answer": 0, "explanation": "情态动词can后接动词原形。"}
+      ],
+      "improved": [
+        {"id": "g4_i_001", "question": "Can she swim? No, she ___.", "options": ["can't", "isn't", "doesn't"], "answer": 0, "explanation": "can的否定回答用can't。"},
+        {"id": "g4_i_002", "question": "What does your mother ___? She is a nurse.", "options": ["do", "does", "is"], "answer": 0, "explanation": "What does...do? 询问职业。"},
+        {"id": "g4_i_003", "question": "How ___ is the bread? It's five yuan.", "options": ["many", "much", "old"], "answer": 1, "explanation": "询问价格用How much。"}
+      ]
+    }
+  }
+}

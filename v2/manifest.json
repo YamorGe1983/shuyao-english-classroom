@@ -1,0 +1,27 @@
+{
+  "name": "舒窈小课堂 V2",
+  "short_name": "舒窈课堂",
+  "description": "小学英语学习工具，支持多年级离线使用",
+  "start_url": "/shuyao-english-classroom/v2/",
+  "scope": "/shuyao-english-classroom/v2/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FF6B6B",
+  "theme_color": "#FF6B6B",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "../icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "../icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "kids"]
+}
