@@ -24625,7 +24625,7 @@ const App = {
                 
                 <!-- 版本号 -->
                 <div style="position:fixed;bottom:80px;right:16px;font-size:12px;color:#999;z-index:100;">
-                    v2026.04.17.05
+                    v2026.04.17.06
                 </div>
             </div>
         `;
@@ -25356,7 +25356,7 @@ const App = {
                     <button class="action-btn primary" onclick="App.startExerciseReview()" style="padding:16px;font-size:18px;">
                         再练一组 🔄
                     </button>
-                    <button class="action-btn secondary" onclick="App.showHome()" style="padding:16px;font-size:18px;">
+                    <button class="action-btn secondary" onclick="App.renderHome()" style="padding:16px;font-size:18px;">
                         返回首页 🏠
                     </button>
                 </div>
@@ -25707,7 +25707,26 @@ const App = {
         this.elements.nav.style.display = 'flex';
     },
     
-    startRandomReview() {
+    async startRandomReview() {
+        const allProgress = StorageModule.getAllWordProgress();
+        const learnedCount = Object.keys(allProgress).length;
+        
+        if (learnedCount < 5) {
+            // 没有足够的已学单词，引导用户去学习
+            this.showModal(
+                '提示',
+                '你需要先学习一些单词才能进行复习哦！\n\n去学习新单词吧～',
+                [
+                    { text: '取消', type: 'secondary', onClick: () => this.closeModal() },
+                    { text: '去学习', type: 'primary', onClick: () => {
+                        this.closeModal();
+                        this.renderHome();
+                    }}
+                ]
+            );
+            return;
+        }
+        
         this.startQuizReview();
     },
     
