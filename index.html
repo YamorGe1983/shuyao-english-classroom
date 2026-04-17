@@ -714,6 +714,130 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+/* ==================== 新答题系统样式 ==================== */
+
+/* 答题卡片 */
+.exercise-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* 题目元信息 */
+.question-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+/* 难度标签 */
+.question-type-badge {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    font-weight: 600;
+}
+
+.question-type-badge.basic {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.question-type-badge.improved {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+.question-type-badge.challenge {
+    background: #FCE4EC;
+    color: #C2185B;
+}
+
+/* 答题输入框 */
+.exercise-input {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-lg);
+    border: 2px solid var(--bg-primary);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.exercise-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.exercise-input:disabled {
+    background: var(--bg-primary);
+    cursor: not-allowed;
+}
+
+/* 答题选项（新样式） */
+.exercise-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.exercise-option-btn {
+    display: flex;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--bg-card);
+    border: 2px solid var(--bg-primary);
+    border-radius: var(--radius-md);
+    font-size: var(--font-lg);
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.exercise-option-btn:hover:not(.disabled) {
+    border-color: var(--primary);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.exercise-option-btn:active:not(.disabled) {
+    transform: scale(0.98);
+}
+
+.exercise-option-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.option-letter {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    margin-right: var(--space-md);
+    font-weight: 600;
+    font-size: var(--font-md);
+}
+
+.option-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* 讲解框 */
+.explanation-box {
+    background: linear-gradient(135deg, #FFF9C4 0%, #FFECB3 100%);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+    border-left: 4px solid #FFC107;
+}
+
 /* 题目标签 */
 .question-type-label {
     background: var(--secondary);
@@ -22991,6 +23115,888 @@ const UserModule = {
     }
 };
 
+/**
+ * ==================== 新答题系统（语法/词形/句型） ====================
+ * 题型：单项选择、词形转换、句型转换
+ */
+
+// 题型枚举
+const EXERCISE_TYPES = {
+    GRAMMAR_CHOICE: 'grammar_choice',    // 单项选择（语法陷阱）
+    WORD_FORM: 'word_form',              // 词形转换
+    SENTENCE_TRANSFORM: 'sentence_transform' // 句型转换
+};
+
+// 难度等级
+const DIFFICULTY = {
+    BASIC: 'basic',      // 基础
+    IMPROVED: 'improved', // 提高
+    CHALLENGE: 'challenge' // 挑战
+};
+
+/**
+ * 答题题库数据
+ */
+const EXERCISE_DATA = {
+    // ========== 单项选择（语法陷阱） ==========
+    grammarTraps: {
+        // 基础难度：be动词选择（is/are）
+        basic: [
+            {
+                id: 'g_b_001',
+                question: 'There ___ a book on the desk.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'There be 句型中，a book 是单数名词，用 is。记住：就近一致原则！'
+            },
+            {
+                id: 'g_b_002',
+                question: 'There ___ many books on the shelf.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'There be 句型中，many books 是复数，用 are。'
+            },
+            {
+                id: 'g_b_003',
+                question: 'There ___ an apple and two bananas.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'There be 句型用"就近原则"，离 be 动词最近的名词是 an apple（单数），所以用 is。'
+            },
+            {
+                id: 'g_b_004',
+                question: 'There ___ two cats and a dog in the room.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'two cats and a dog 离 be 最近的是 two cats（复数），所以用 are。'
+            },
+            {
+                id: 'g_b_005',
+                question: 'There ___ a teacher and many students.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'a teacher 离 be 最近，是单数，所以用 is。'
+            },
+            {
+                id: 'g_b_006',
+                question: 'There ___ some water in the cup.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'water 是不可数名词，看作单数，用 is。'
+            },
+            {
+                id: 'g_b_007',
+                question: 'There ___ some flowers in the garden.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'flowers 是复数名词，用 are。'
+            },
+            {
+                id: 'g_b_008',
+                question: 'There ___ a pen and three pencils.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: '就近原则：离 be 最近的是 a pen（单数），用 is。'
+            },
+            {
+                id: 'g_b_009',
+                question: 'There ___ three boys and a girl.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'three boys 离 be 最近，是复数，用 are。'
+            },
+            {
+                id: 'g_b_010',
+                question: 'There ___ a big tree near the house.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'a big tree 是单数名词，用 is。'
+            }
+        ],
+        // 提高难度：There be vs have/has
+        improved: [
+            {
+                id: 'g_i_001',
+                question: 'There ___ a book on the table. (桌上的书)",
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: '"桌上有一本书"用 There is...on the table，表示"在某处有某物"。'
+            },
+            {
+                id: 'g_i_002',
+                question: 'I ___ a book in my hand.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 2,
+                explanation: '"我手里有一本书"用 I have a book，表示"拥有"。There be 和 have 不要混淆！'
+            },
+            {
+                id: 'g_i_003',
+                question: 'She ___ a beautiful cat.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 3,
+                explanation: 'she 是第三人称单数，用 has 表示"拥有"。'
+            },
+            {
+                id: 'g_i_004',
+                question: 'There ___ some milk in the fridge.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: 'milk 是不可数名词，用 is。'
+            },
+            {
+                id: 'g_i_005',
+                question: 'He ___ two apples.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 3,
+                explanation: 'he 是第三人称单数，用 has。'
+            },
+            {
+                id: 'g_i_006',
+                question: 'There ___ a lot of people in the park.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'a lot of people 表示"很多人"，people 是复数，用 are。'
+            },
+            {
+                id: 'g_i_007',
+                question: 'My mother ___ a new dress.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 3,
+                explanation: 'my mother 是第三人称单数，用 has。'
+            },
+            {
+                id: 'g_i_008',
+                question: 'There ___ an orange and two apples.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 0,
+                explanation: '就近原则：离 be 最近的是 an orange（单数），用 is。'
+            },
+            {
+                id: 'g_i_009',
+                question: 'They ___ a big house.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 2,
+                explanation: 'they 是复数，用 have。'
+            },
+            {
+                id: 'g_i_010',
+                question: 'There ___ many stars in the sky.',
+                options: ['is', 'are', 'have', 'has'],
+                answer: 1,
+                explanation: 'many stars 是复数，用 are。'
+            }
+        ],
+        // 挑战难度：综合语法陷阱
+        challenge: [
+            {
+                id: 'g_c_001',
+                question: 'There ___ a book and two pens ___ the desk.',
+                options: [
+                    'is, on',
+                    'are, on',
+                    'is, in',
+                    'are, in'
+                ],
+                answer: 0,
+                explanation: '就近原则：离 be 最近的是 a book（单数），用 is；"在桌子上"用 on。'
+            },
+            {
+                id: 'g_c_002',
+                question: 'She ___ a sister, and her sister ___ a nice bag.',
+                options: [
+                    'have, have',
+                    'has, have',
+                    'have, has',
+                    'has, has'
+                ],
+                answer: 2,
+                explanation: 'she 用 has（第三人称单数）；her sister 也是第三人称单数，用 has。'
+            },
+            {
+                id: 'g_c_003',
+                question: 'There ___ some bread and two eggs ___ the plate.',
+                options: [
+                    'is, on',
+                    'are, on',
+                    'is, in',
+                    'are, in'
+                ],
+                answer: 0,
+                explanation: '就近原则：some bread 离 be 最近，用 is；"在盘子上"用 on。'
+            },
+            {
+                id: 'g_c_004',
+                question: 'I ___ a pen. There ___ a pen on the table.',
+                options: [
+                    'have, is',
+                    'have, are',
+                    'has, is',
+                    'has, are'
+                ],
+                answer: 0,
+                explanation: 'I 用 have；There be 句型离 be 最近的是 a pen（单数），用 is。'
+            },
+            {
+                id: 'g_c_005',
+                question: 'There ___ three cats and a dog ___ the garden.',
+                options: [
+                    'is, in',
+                    'are, in',
+                    'is, on',
+                    'are, on'
+                ],
+                answer: 1,
+                explanation: 'three cats 离 be 最近（复数），用 are；"在花园里"用 in。'
+            },
+            {
+                id: 'g_c_006',
+                question: 'He ___ a new bike. There ___ a bike near the door.',
+                options: [
+                    'have, is',
+                    'has, is',
+                    'have, are',
+                    'has, are'
+                ],
+                answer: 1,
+                explanation: 'he 是第三人称单数，用 has；a bike 是单数，用 is。'
+            },
+            {
+                id: 'g_c_007',
+                question: 'There ___ some juice and two apples ___ the table.',
+                options: [
+                    'is, on',
+                    'are, on',
+                    'is, in',
+                    'are, in'
+                ],
+                answer: 0,
+                explanation: 'some juice 离 be 最近（单数），用 is；"在桌子上"用 on。'
+            },
+            {
+                id: 'g_c_008',
+                question: 'My parents ___ a beautiful house. There ___ many flowers in it.',
+                options: [
+                    'has, is',
+                    'have, are',
+                    'has, are',
+                    'have, is'
+                ],
+                answer: 1,
+                explanation: 'my parents 是复数，用 have；many flowers 是复数，用 are。'
+            }
+        ]
+    },
+    
+    // ========== 词形转换 ==========
+    wordForms: {
+        // 基础难度：简单复数
+        basic: [
+            {
+                id: 'w_b_001',
+                instruction: '复数形式',
+                base: 'apple',
+                answer: 'apples',
+                explanation: '大多数名词直接加 s：apple → apples'
+            },
+            {
+                id: 'w_b_002',
+                instruction: '复数形式',
+                base: 'banana',
+                answer: 'bananas',
+                explanation: '大多数名词直接加 s：banana → bananas'
+            },
+            {
+                id: 'w_b_003',
+                instruction: '复数形式',
+                base: 'car',
+                answer: 'cars',
+                explanation: '大多数名词直接加 s：car → cars'
+            },
+            {
+                id: 'w_b_004',
+                instruction: '复数形式',
+                base: 'bus',
+                answer: 'buses',
+                explanation: '以 s, x, ch, sh 结尾的名词加 es：bus → buses'
+            },
+            {
+                id: 'w_b_005',
+                instruction: '复数形式',
+                base: 'box',
+                answer: 'boxes',
+                explanation: '以 s, x, ch, sh 结尾加 es：box → boxes'
+            },
+            {
+                id: 'w_b_006',
+                instruction: '复数形式',
+                base: 'cake',
+                answer: 'cakes',
+                explanation: '直接加 s：cake → cakes'
+            },
+            {
+                id: 'w_b_007',
+                instruction: '复数形式',
+                base: 'bird',
+                answer: 'birds',
+                explanation: '直接加 s：bird → birds'
+            },
+            {
+                id: 'w_b_008',
+                instruction: '复数形式',
+                base: 'orange',
+                answer: 'oranges',
+                explanation: '直接加 s：orange → oranges'
+            },
+            {
+                id: 'w_b_009',
+                instruction: '复数形式',
+                base: 'cat',
+                answer: 'cats',
+                explanation: '直接加 s：cat → cats'
+            },
+            {
+                id: 'w_b_010',
+                instruction: '复数形式',
+                base: 'egg',
+                answer: 'eggs',
+                explanation: '以辅音字母+y 结尾，变 y 为 i 加 es：egg → eggs'
+            },
+            {
+                id: 'w_b_011',
+                instruction: '复数形式',
+                base: 'day',
+                answer: 'days',
+                explanation: '以元音字母+y 结尾，直接加 s：day → days'
+            },
+            {
+                id: 'w_b_012',
+                instruction: '复数形式',
+                base: 'toy',
+                answer: 'toys',
+                explanation: '以元音字母+y 结尾，直接加 s：toy → toys'
+            }
+        ],
+        // 提高难度：不规则变化
+        improved: [
+            {
+                id: 'w_i_001',
+                instruction: '复数形式',
+                base: 'child',
+                answer: 'children',
+                explanation: '不规则变化：child → children'
+            },
+            {
+                id: 'w_i_002',
+                instruction: '复数形式',
+                base: 'man',
+                answer: 'men',
+                explanation: 'a → e 不规则变化：man → men'
+            },
+            {
+                id: 'w_i_003',
+                instruction: '复数形式',
+                base: 'woman',
+                answer: 'women',
+                explanation: 'a → e 不规则变化：woman → women'
+            },
+            {
+                id: 'w_i_004',
+                instruction: '复数形式',
+                base: 'foot',
+                answer: 'feet',
+                explanation: '不规则变化：foot → feet'
+            },
+            {
+                id: 'w_i_005',
+                instruction: '复数形式',
+                base: 'tooth',
+                answer: 'teeth',
+                explanation: '不规则变化：tooth → teeth'
+            },
+            {
+                id: 'w_i_006',
+                instruction: '复数形式',
+                base: 'mouse',
+                answer: 'mice',
+                explanation: '不规则变化：mouse → mice'
+            },
+            {
+                id: 'w_i_007',
+                instruction: '复数形式',
+                base: 'fish',
+                answer: 'fish',
+                explanation: '单复数同形：fish（一条鱼/多条鱼都是 fish）'
+            },
+            {
+                id: 'w_i_008',
+                instruction: '复数形式',
+                base: 'sheep',
+                answer: 'sheep',
+                explanation: '单复数同形：sheep'
+            },
+            {
+                id: 'w_i_009',
+                instruction: '复数形式',
+                base: 'deer',
+                answer: 'deer',
+                explanation: '单复数同形：deer'
+            },
+            {
+                id: 'w_i_010',
+                instruction: '复数形式',
+                base: 'person',
+                answer: 'people',
+                explanation: '不规则变化：person → people'
+            }
+        ],
+        // 挑战难度：代词变化
+        challenge: [
+            {
+                id: 'w_c_001',
+                instruction: '物主代词（我的）',
+                base: 'I',
+                answer: 'my',
+                explanation: 'I 的物主代词：my（我的）'
+            },
+            {
+                id: 'w_c_002',
+                instruction: '宾格',
+                base: 'I',
+                answer: 'me',
+                explanation: 'I 的宾格形式：me'
+            },
+            {
+                id: 'w_c_003',
+                instruction: '名词性物主代词',
+                base: 'my',
+                answer: 'mine',
+                explanation: 'my 的名词性物主代词：mine（我的东西）'
+            },
+            {
+                id: 'w_c_004',
+                instruction: '物主代词（你的）',
+                base: 'you',
+                answer: 'your',
+                explanation: 'you 的物主代词：your（你的）'
+            },
+            {
+                id: 'w_c_005',
+                instruction: '宾格',
+                base: 'you',
+                answer: 'you',
+                explanation: 'you 的宾格还是 you'
+            },
+            {
+                id: 'w_c_006',
+                instruction: '名词性物主代词',
+                base: 'your',
+                answer: 'yours',
+                explanation: 'your 的名词性物主代词：yours'
+            },
+            {
+                id: 'w_c_007',
+                instruction: '物主代词（他的）',
+                base: 'he',
+                answer: 'his',
+                explanation: 'he 的物主代词：his（他的）'
+            },
+            {
+                id: 'w_c_008',
+                instruction: '宾格',
+                base: 'he',
+                answer: 'him',
+                explanation: 'he 的宾格形式：him'
+            },
+            {
+                id: 'w_c_009',
+                instruction: '物主代词（她的）',
+                base: 'she',
+                answer: 'her',
+                explanation: 'she 的物主代词：her（她的）'
+            },
+            {
+                id: 'w_c_010',
+                instruction: '宾格',
+                base: 'she',
+                answer: 'her',
+                explanation: 'she 的宾格形式：her'
+            },
+            {
+                id: 'w_c_011',
+                instruction: '名词性物主代词',
+                base: 'his',
+                answer: 'his',
+                explanation: 'his 既是物主代词也是名词性物主代词'
+            },
+            {
+                id: 'w_c_012',
+                instruction: '名词性物主代词',
+                base: 'her',
+                answer: 'hers',
+                explanation: 'her 的名词性物主代词：hers'
+            }
+        ]
+    },
+    
+    // ========== 句型转换 ==========
+    sentenceTemplates: {
+        // 基础难度：否定句
+        basic: [
+            {
+                id: 's_b_001',
+                instruction: '改为否定句',
+                original: 'I can swim.',
+                answer: 'I can\'t swim.',
+                explanation: 'can 的否定句：can + not = can\'t'
+            },
+            {
+                id: 's_b_002',
+                instruction: '改为否定句',
+                original: 'She can sing.',
+                answer: 'She can\'t sing.',
+                explanation: 'can not = can\'t，第三人称也直接加 not'
+            },
+            {
+                id: 's_b_003',
+                instruction: '改为否定句',
+                original: 'He can fly a kite.',
+                answer: 'He can\'t fly a kite.',
+                explanation: 'can\'t + 动词原形'
+            },
+            {
+                id: 's_b_004',
+                instruction: '改为否定句',
+                original: 'We can play football.',
+                answer: 'We can\'t play football.',
+                explanation: 'can\'t + 动词原形'
+            },
+            {
+                id: 's_b_005',
+                instruction: '改为否定句',
+                original: 'They can dance.',
+                answer: 'They can\'t dance.',
+                explanation: 'can\'t + 动词原形'
+            },
+            {
+                id: 's_b_006',
+                instruction: '改为否定句',
+                original: 'I can see a bird.',
+                answer: 'I can\'t see a bird.',
+                explanation: 'can\'t + 动词原形'
+            },
+            {
+                id: 's_b_007',
+                instruction: '改为否定句',
+                original: 'You can come.',
+                answer: 'You can\'t come.',
+                explanation: 'can\'t + 动词原形'
+            },
+            {
+                id: 's_b_008',
+                instruction: '改为否定句',
+                original: 'It can run fast.',
+                answer: 'It can\'t run fast.',
+                explanation: 'can\'t + 动词原形'
+            }
+        ],
+        // 提高难度：一般疑问句
+        improved: [
+            {
+                id: 's_i_001',
+                instruction: '改为一般疑问句',
+                original: 'I can swim.',
+                answer: 'Can you swim?',
+                explanation: 'Can 提前，I 变 you，肯定句变问号'
+            },
+            {
+                id: 's_i_002',
+                instruction: '改为一般疑问句',
+                original: 'She can sing.',
+                answer: 'Can she sing?',
+                explanation: 'Can 提前，句子其余部分不变，肯定句变问号'
+            },
+            {
+                id: 's_i_003',
+                instruction: '改为一般疑问句',
+                original: 'He can fly a kite.',
+                answer: 'Can he fly a kite?',
+                explanation: 'Can 提到句首，其他顺序不变'
+            },
+            {
+                id: 's_i_004',
+                instruction: '改为一般疑问句',
+                original: 'They can dance.',
+                answer: 'Can they dance?',
+                explanation: 'Can 提到句首'
+            },
+            {
+                id: 's_i_005',
+                instruction: '改为一般疑问句',
+                original: 'We can play football.',
+                answer: 'Can you play football?',
+                explanation: 'Can 提前，We 变 you'
+            },
+            {
+                id: 's_i_006',
+                instruction: '改为一般疑问句',
+                original: 'There is a book on the desk.',
+                answer: 'Is there a book on the desk?',
+                explanation: 'There be 句型：be 动词提前'
+            },
+            {
+                id: 's_i_007',
+                instruction: '改为一般疑问句',
+                original: 'There are some flowers.',
+                answer: 'Are there any flowers?',
+                explanation: 'There be：be 动词提前，some 变 any'
+            },
+            {
+                id: 's_i_008',
+                instruction: '改为一般疑问句',
+                original: 'You like apples.',
+                answer: 'Do you like apples?',
+                explanation: '一般现在时：Do + 主语 + 动词原形？'
+            },
+            {
+                id: 's_i_009',
+                instruction: '改为一般疑问句',
+                original: 'He likes oranges.',
+                answer: 'Does he like oranges?',
+                explanation: '第三人称单数：Does + 主语 + 动词原形？'
+            },
+            {
+                id: 's_i_010',
+                instruction: '改为一般疑问句',
+                original: 'I have a cat.',
+                answer: 'Do you have a cat?',
+                explanation: 'Have 句型：Do + 主语 + have...?'
+            }
+        ],
+        // 挑战难度：划线提问
+        challenge: [
+            {
+                id: 's_c_001',
+                instruction: '对划线部分提问',
+                original: 'I can swim on Sundays.',
+                underline: 'swim',
+                answer: 'What can you do on Sundays?',
+                explanation: '对动作提问用 What...do?'
+            },
+            {
+                id: 's_c_002',
+                instruction: '对划线部分提问',
+                original: 'She can sing a song.',
+                underline: 'a song',
+                answer: 'What can she sing?',
+                explanation: '对宾语提问：What + 一般疑问句？'
+            },
+            {
+                id: 's_c_003',
+                instruction: '对划线部分提问',
+                original: 'He can fly a kite in the park.',
+                underline: 'in the park',
+                answer: 'Where can he fly a kite?',
+                explanation: '对地点提问用 Where?'
+            },
+            {
+                id: 's_c_004',
+                instruction: '对划线部分提问',
+                original: 'There are five apples on the table.',
+                underline: 'five',
+                answer: 'How many apples are there on the table?',
+                explanation: '对数量提问用 How many?'
+            },
+            {
+                id: 's_c_005',
+                instruction: '对划线部分提问',
+                original: 'I like red apples.',
+                underline: 'red',
+                answer: 'What colour apples do you like?',
+                explanation: '对颜色提问用 What colour?'
+            },
+            {
+                id: 's_c_006',
+                instruction: '对划线部分提问',
+                original: 'She is a teacher.',
+                underline: 'teacher',
+                answer: 'What is she?',
+                explanation: '对职业提问用 What is/are + 主语?'
+            },
+            {
+                id: 's_c_007',
+                instruction: '对划线部分提问',
+                original: 'It is Monday today.',
+                underline: 'Monday',
+                answer: 'What day is it today?',
+                explanation: '对星期提问用 What day?'
+            },
+            {
+                id: 's_c_008',
+                instruction: '对划线部分提问',
+                original: 'The book is on the desk.',
+                underline: 'on the desk',
+                answer: 'Where is the book?',
+                explanation: '对地点提问用 Where?'
+            }
+        ]
+    }
+};
+
+/**
+ * 答题引擎
+ * 生成和批改三种题型：单项选择、词形转换、句型转换
+ */
+const ExerciseEngine = {
+    // 洗牌算法
+    shuffle(array) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    },
+    
+    // 生成一套完整练习（15题）
+    generateQuiz(difficulty = null) {
+        // 如果没有指定难度，随机分配
+        const quiz = [];
+        
+        // 基础题5题
+        const basicCount = difficulty === 'challenge' ? 0 : (difficulty === 'improved' ? 2 : 5);
+        // 提高题6题
+        const improvedCount = difficulty === 'basic' ? 3 : (difficulty === 'challenge' ? 2 : 6);
+        // 挑战题4题
+        const challengeCount = 15 - basicCount - improvedCount;
+        
+        // 生成各类型题目
+        for (let i = 0; i < basicCount; i++) {
+            quiz.push(this.generateQuestion(EXERCISE_TYPES.GRAMMAR_CHOICE, DIFFICULTY.BASIC));
+        }
+        for (let i = 0; i < improvedCount; i++) {
+            quiz.push(this.generateQuestion(EXERCISE_TYPES.WORD_FORM, DIFFICULTY.IMPROVED));
+        }
+        for (let i = 0; i < challengeCount; i++) {
+            quiz.push(this.generateQuestion(EXERCISE_TYPES.SENTENCE_TRANSFORM, DIFFICULTY.CHALLENGE));
+        }
+        
+        return this.shuffle(quiz);
+    },
+    
+    // 生成单题
+    generateQuestion(type, difficulty) {
+        switch (type) {
+            case EXERCISE_TYPES.GRAMMAR_CHOICE:
+                return this.generateGrammarChoice(difficulty);
+            case EXERCISE_TYPES.WORD_FORM:
+                return this.generateWordForm(difficulty);
+            case EXERCISE_TYPES.SENTENCE_TRANSFORM:
+                return this.generateSentenceTransform(difficulty);
+            default:
+                return this.generateGrammarChoice(difficulty);
+        }
+    },
+    
+    // 生成单项选择题
+    generateGrammarChoice(difficulty) {
+        const questions = EXERCISE_DATA.grammarTraps[difficulty];
+        const q = questions[Math.floor(Math.random() * questions.length)];
+        return {
+            type: EXERCISE_TYPES.GRAMMAR_CHOICE,
+            difficulty: difficulty,
+            difficultyLabel: difficulty === 'basic' ? '基础' : (difficulty === 'improved' ? '提高' : '挑战'),
+            ...q
+        };
+    },
+    
+    // 生成词形转换题
+    generateWordForm(difficulty) {
+        const questions = EXERCISE_DATA.wordForms[difficulty];
+        const q = questions[Math.floor(Math.random() * questions.length)];
+        return {
+            type: EXERCISE_TYPES.WORD_FORM,
+            difficulty: difficulty,
+            difficultyLabel: difficulty === 'basic' ? '基础' : (difficulty === 'improved' ? '提高' : '挑战'),
+            ...q
+        };
+    },
+    
+    // 生成句型转换题
+    generateSentenceTransform(difficulty) {
+        const questions = EXERCISE_DATA.sentenceTemplates[difficulty];
+        const q = questions[Math.floor(Math.random() * questions.length)];
+        return {
+            type: EXERCISE_TYPES.SENTENCE_TRANSFORM,
+            difficulty: difficulty,
+            difficultyLabel: difficulty === 'basic' ? '基础' : (difficulty === 'improved' ? '提高' : '挑战'),
+            ...q
+        };
+    },
+    
+    // 检查答案
+    checkAnswer(question, userAnswer) {
+        if (!userAnswer || !userAnswer.trim()) {
+            return { correct: false, correctAnswer: question.answer };
+        }
+        
+        switch (question.type) {
+            case EXERCISE_TYPES.GRAMMAR_CHOICE:
+                const userIdx = parseInt(userAnswer);
+                return {
+                    correct: userIdx === question.answer,
+                    correctAnswer: question.answer,
+                    userAnswer: userIdx
+                };
+                
+            case EXERCISE_TYPES.WORD_FORM:
+            case EXERCISE_TYPES.SENTENCE_TRANSFORM:
+                // 忽略大小写和空格差异
+                const normalized = (str) => str.toLowerCase().trim().replace(/'/g, "'");
+                return {
+                    correct: normalized(userAnswer) === normalized(question.answer),
+                    correctAnswer: question.answer,
+                    userAnswer: userAnswer
+                };
+                
+            default:
+                return { correct: false, correctAnswer: question.answer };
+        }
+    },
+    
+    // 获取讲解
+    getExplanation(question) {
+        return question.explanation || '这是一道语法练习题，注意观察句子结构哦！';
+    },
+    
+    // 获取题型名称
+    getTypeName(type) {
+        switch (type) {
+            case EXERCISE_TYPES.GRAMMAR_CHOICE:
+                return '单项选择';
+            case EXERCISE_TYPES.WORD_FORM:
+                return '词形转换';
+            case EXERCISE_TYPES.SENTENCE_TRANSFORM:
+                return '句型转换';
+            default:
+                return '练习题';
+        }
+    },
+    
+    // 获取题型图标
+    getTypeIcon(type) {
+        switch (type) {
+            case EXERCISE_TYPES.GRAMMAR_CHOICE:
+                return '📝';
+            case EXERCISE_TYPES.WORD_FORM:
+                return '🔄';
+            case EXERCISE_TYPES.SENTENCE_TRANSFORM:
+                return '✨';
+            default:
+                return '📚';
+        }
+    }
+};
+
 // 应用状态
 const AppState = {
     currentModule: null,
@@ -23544,7 +24550,11 @@ const App = {
                 <div class="section-title" style="margin-top:24px;">
                     <span>📝</span> 语法练习
                 </div>
-                <button class="quick-btn secondary" onclick="App.startGrammarPractice()" style="width:100%;justify-content:center;">
+                <button class="quick-btn primary" onclick="App.startExerciseReview()" style="width:100%;justify-content:center;">
+                    <span class="quick-icon">🎯</span>
+                    <span>语法陷阱题 · 词形转换 · 句型转换</span>
+                </button>
+                <button class="quick-btn secondary" onclick="App.startGrammarPractice()" style="width:100%;justify-content:center;margin-top:8px;">
                     <span class="quick-icon">🔤</span>
                     <span>句子重组 · 逻辑连线 · 填空</span>
                 </button>
@@ -23967,6 +24977,346 @@ const App = {
         AppState.sessionStartTime = Date.now();
         
         this.renderQuizQuestion();
+    },
+    
+    /**
+     * 启动语法练习答题系统
+     * @param {string} difficulty - 难度级别: 'basic', 'improved', 'challenge', 或 null（随机混合）
+     */
+    startExerciseReview(difficulty = null) {
+        AppState.quizMode = 'exercise';
+        AppState.exerciseDifficulty = difficulty;
+        
+        // 使用 ExerciseEngine 生成15题
+        AppState.currentQuiz = ExerciseEngine.generateQuiz(difficulty);
+        AppState.currentQuizIndex = 0;
+        AppState.reviewResults = [];
+        AppState.sessionStartTime = Date.now();
+        
+        this.renderExerciseQuestion();
+    },
+    
+    /**
+     * 渲染语法练习题目
+     */
+    renderExerciseQuestion() {
+        if (AppState.currentQuizIndex >= AppState.currentQuiz.length) {
+            this.showExerciseComplete();
+            return;
+        }
+        
+        const question = AppState.currentQuiz[AppState.currentQuizIndex];
+        const total = AppState.currentQuiz.length;
+        const progress = Math.round((AppState.currentQuizIndex / total) * 100);
+        const typeName = ExerciseEngine.getTypeName(question.type);
+        const typeIcon = ExerciseEngine.getTypeIcon(question.type);
+        
+        let questionHtml = '';
+        
+        switch (question.type) {
+            case EXERCISE_TYPES.GRAMMAR_CHOICE:
+                questionHtml = `
+                    <p class="question-text" style="font-size:22px;margin-bottom:20px;">${question.question}</p>
+                `;
+                break;
+                
+            case EXERCISE_TYPES.WORD_FORM:
+                questionHtml = `
+                    <p class="question-text" style="font-size:18px;margin-bottom:8px;color:var(--text-secondary);">${question.instruction}</p>
+                    <p class="question-text" style="font-size:28px;margin-bottom:20px;">${question.base}</p>
+                    <div class="input-wrapper" style="margin-bottom:20px;">
+                        <input type="text" 
+                               id="exercise-answer-input" 
+                               class="exercise-input"
+                               placeholder="请输入答案..."
+                               autocomplete="off"
+                               autocapitalize="off">
+                    </div>
+                `;
+                break;
+                
+            case EXERCISE_TYPES.SENTENCE_TRANSFORM:
+                questionHtml = `
+                    <p class="question-text" style="font-size:18px;margin-bottom:8px;color:var(--text-secondary);">${question.instruction}</p>
+                    <p class="question-text" style="font-size:22px;margin-bottom:8px;">原句：${question.original}</p>
+                    ${question.underline ? `<p style="font-size:16px;color:var(--info);margin-bottom:20px;">（对 "${question.underline}" 提问）</p>` : ''}
+                    <div class="input-wrapper" style="margin-bottom:20px;">
+                        <input type="text" 
+                               id="exercise-answer-input" 
+                               class="exercise-input"
+                               placeholder="请输入转换后的句子..."
+                               autocomplete="off">
+                    </div>
+                `;
+                break;
+        }
+        
+        let optionsHtml = '';
+        if (question.type === EXERCISE_TYPES.GRAMMAR_CHOICE) {
+            optionsHtml = `
+                <div class="exercise-options">
+                    ${question.options.map((opt, i) => `
+                        <button class="exercise-option-btn" onclick="App.selectExerciseAnswer(${i})">
+                            <span class="option-letter">${String.fromCharCode(65 + i)}</span>
+                            <span class="option-text">${opt}</span>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            // 填空题添加提交按钮
+            optionsHtml = `
+                <button class="submit-answer-btn" onclick="App.submitExerciseAnswer()" style="
+                    width:100%;
+                    padding:14px;
+                    background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+                    color:white;
+                    border:none;
+                    border-radius:var(--radius-md);
+                    font-size:var(--font-lg);
+                    font-weight:600;
+                    cursor:pointer;
+                    margin-top:var(--space-md);
+                    box-shadow:var(--shadow-md);
+                ">提交答案 ✓</button>
+            `;
+        }
+        
+        const html = `
+            <div class="review-card-page exercise-page" style="padding:16px;padding-bottom:160px;">
+                <div class="learning-header">
+                    <button class="back-btn" onclick="App.confirmQuizExit()">← 退出</button>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                        <span class="progress-text">第 ${AppState.currentQuizIndex + 1} / ${total} 题</span>
+                    </div>
+                </div>
+                
+                <div class="review-word-card exercise-card">
+                    <div class="question-meta">
+                        <span class="question-type-badge ${question.difficulty}">${question.difficultyLabel}</span>
+                        <span class="question-type-label">${typeIcon} ${typeName}</span>
+                    </div>
+                    ${questionHtml}
+                </div>
+                
+                ${optionsHtml}
+                
+                <div class="quiz-feedback correct" id="quiz-feedback-correct" style="display:none;">
+                    <div class="feedback-icon">🎉</div>
+                    <div class="feedback-text">回答正确！</div>
+                </div>
+                
+                <div class="quiz-feedback wrong" id="quiz-feedback-wrong" style="display:none;">
+                    <div class="feedback-icon">😢</div>
+                    <div class="feedback-text" id="wrong-answer-text">正确答案是：</div>
+                </div>
+            </div>
+        `;
+        
+        this.setContent(html);
+        AppState.cardStartTime = Date.now();
+        
+        // 自动聚焦输入框（对于非选择题）并添加回车提交
+        if (question.type !== EXERCISE_TYPES.GRAMMAR_CHOICE) {
+            setTimeout(() => {
+                const input = document.getElementById('exercise-answer-input');
+                if (input) {
+                    input.focus();
+                    // 添加回车提交事件
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter' && !input.disabled) {
+                            this.submitExerciseAnswer();
+                        }
+                    });
+                }
+            }, 100);
+        }
+    },
+    
+    /**
+     * 选择语法练习答案（选择题）
+     */
+    selectExerciseAnswer(optionIndex) {
+        const question = AppState.currentQuiz[AppState.currentQuizIndex];
+        const result = ExerciseEngine.checkAnswer(question, optionIndex.toString());
+        this.showExerciseFeedback(result);
+    },
+    
+    /**
+     * 提交语法练习答案（填空题）
+     */
+    submitExerciseAnswer() {
+        const input = document.getElementById('exercise-answer-input');
+        if (!input) return;
+        
+        const userAnswer = input.value.trim();
+        if (!userAnswer) {
+            this.showToast('请输入答案');
+            return;
+        }
+        
+        const question = AppState.currentQuiz[AppState.currentQuizIndex];
+        const result = ExerciseEngine.checkAnswer(question, userAnswer);
+        this.showExerciseFeedback(result);
+    },
+    
+    /**
+     * 显示语法练习反馈
+     */
+    showExerciseFeedback(result) {
+        const correctDiv = document.getElementById('quiz-feedback-correct');
+        const wrongDiv = document.getElementById('quiz-feedback-wrong');
+        
+        if (result.correct) {
+            correctDiv.style.display = 'flex';
+            wrongDiv.style.display = 'none';
+            AppState.reviewResults.push({ correct: true });
+        } else {
+            correctDiv.style.display = 'none';
+            wrongDiv.style.display = 'flex';
+            
+            const wrongText = document.getElementById('wrong-answer-text');
+            if (wrongText) {
+                let answerText = result.correctAnswer;
+                if (typeof result.correctAnswer === 'number') {
+                    const question = AppState.currentQuiz[AppState.currentQuizIndex];
+                    answerText = question.options[result.correctAnswer];
+                }
+                wrongText.innerHTML = `正确答案是：<strong>${answerText}</strong>`;
+            }
+        }
+        
+        // 显示讲解
+        const question = AppState.currentQuiz[AppState.currentQuizIndex];
+        const explanation = ExerciseEngine.getExplanation(question);
+        
+        // 添加讲解区域
+        const card = document.querySelector('.exercise-card');
+        if (card && !document.getElementById('explanation-box')) {
+            const explanationDiv = document.createElement('div');
+            explanationDiv.id = 'explanation-box';
+            explanationDiv.className = 'explanation-box';
+            explanationDiv.innerHTML = `
+                <div style="font-size:14px;color:var(--text-secondary);margin-bottom:4px;">💡 讲解</div>
+                <div style="font-size:16px;">${explanation}</div>
+            `;
+            card.appendChild(explanationDiv);
+        }
+        
+        // 禁用输入框
+        const input = document.getElementById('exercise-answer-input');
+        if (input) {
+            input.disabled = true;
+        }
+        
+        // 禁用选项按钮和提交按钮
+        document.querySelectorAll('.exercise-option-btn').forEach(btn => {
+            btn.disabled = true;
+            btn.classList.add('disabled');
+        });
+        
+        // 禁用提交按钮
+        document.querySelectorAll('.submit-answer-btn').forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+        });
+        
+        // 记录答题结果
+        AppState.reviewResults.push({ 
+            correct: result.correct,
+            question: question
+        });
+        
+        // 添加下一题按钮
+        this.addNextButton();
+    },
+    
+    /**
+     * 添加下一题按钮
+     */
+    addNextButton() {
+        if (document.getElementById('next-exercise-btn')) return;
+        
+        const isLastQuestion = AppState.currentQuizIndex >= AppState.currentQuiz.length - 1;
+        const btnText = isLastQuestion ? '查看结果' : '下一题';
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.id = 'next-exercise-btn';
+        nextBtn.className = 'action-btn primary';
+        nextBtn.style.cssText = 'position:fixed;bottom:90px;left:16px;right:16px;max-width:400px;margin:0 auto;padding:16px;font-size:18px;border-radius:16px;';
+        nextBtn.innerHTML = btnText;
+        nextBtn.onclick = () => this.nextExercise();
+        
+        document.querySelector('.exercise-page').appendChild(nextBtn);
+    },
+    
+    /**
+     * 下一题
+     */
+    nextExercise() {
+        AppState.currentQuizIndex++;
+        this.renderExerciseQuestion();
+    },
+    
+    /**
+     * 显示答题完成
+     */
+    showExerciseComplete() {
+        const total = AppState.reviewResults.length;
+        const correct = AppState.reviewResults.filter(r => r.correct).length;
+        const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+        const duration = Math.round((Date.now() - AppState.sessionStartTime) / 1000);
+        const minutes = Math.floor(duration / 60);
+        const seconds = duration % 60;
+        
+        let message = '';
+        if (accuracy >= 90) {
+            message = '太棒了！🌟';
+        } else if (accuracy >= 70) {
+            message = '做得不错！💪';
+        } else if (accuracy >= 50) {
+            message = '继续加油！📚';
+        } else {
+            message = '多练习一下哦！💪';
+        }
+        
+        const html = `
+            <div class="review-complete-page" style="padding:20px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:64px;margin-bottom:16px;">${accuracy >= 70 ? '🎉' : '💪'}</div>
+                <h2 style="font-size:28px;margin-bottom:8px;">${message}</h2>
+                <p style="color:var(--text-secondary);margin-bottom:24px;">用时 ${minutes}分${seconds}秒</p>
+                
+                <div class="result-summary" style="background:var(--bg-card);border-radius:16px;padding:24px;margin-bottom:24px;text-align:left;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+                        <span style="color:var(--text-secondary);">正确率</span>
+                        <span style="font-size:24px;font-weight:600;color:${accuracy >= 70 ? 'var(--success)' : 'var(--danger)'};">${accuracy}%</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+                        <span style="color:var(--text-secondary);">正确</span>
+                        <span style="color:var(--success);font-weight:600;">${correct} 题</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;">
+                        <span style="color:var(--text-secondary);">错误</span>
+                        <span style="color:var(--danger);font-weight:600;">${total - correct} 题</span>
+                    </div>
+                </div>
+                
+                <div style="display:flex;flex-direction:column;gap:12px;">
+                    <button class="action-btn primary" onclick="App.startExerciseReview()" style="padding:16px;font-size:18px;">
+                        再练一组 🔄
+                    </button>
+                    <button class="action-btn secondary" onclick="App.showHome()" style="padding:16px;font-size:18px;">
+                        返回首页 🏠
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        this.setContent(html);
     },
     
     async startQuizReview() {
@@ -27239,6 +28589,9 @@ window.QuestionGenerator = QuestionGenerator;
 window.ReviewEngine = ReviewEngine;
 window.QUESTION_TYPES = QUESTION_TYPES;
 window.WordMemoryModule = WordMemoryModule;
+window.ExerciseEngine = ExerciseEngine;
+window.EXERCISE_TYPES = EXERCISE_TYPES;
+window.DIFFICULTY = DIFFICULTY;
 
 // ==================== PWA / Service Worker ====================
 if ('serviceWorker' in navigator) {
