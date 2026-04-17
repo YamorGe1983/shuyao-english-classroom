@@ -23650,7 +23650,12 @@ const EXERCISE_DATA = {
                 base: 'I',
                 question: 'I→ ______（物主代词（我的））',
                 options: ["my", "me", "I", "mine"],
-  sentenceTemplates: {
+                answer: 0,
+                explanation: 'I 的物主代词是 my'
+            }
+        ]
+    },
+    sentenceTemplates: {
         // 基础难度：否定句
         basic: [
             {
@@ -23902,106 +23907,6 @@ const EXERCISE_DATA = {
                 explanation: '对地点提问用 Where?'
             }
         ]
-    }book on the desk.',
-                answer: 'Is there a book on the desk?',
-                explanation: 'There be 句型：be 动词提前'
-            },
-            {
-                id: 's_i_007',
-                instruction: '改为一般疑问句',
-                original: 'There are some flowers.',
-                answer: 'Are there any flowers?',
-                explanation: 'There be：be 动词提前，some 变 any'
-            },
-            {
-                id: 's_i_008',
-                instruction: '改为一般疑问句',
-                original: 'You like apples.',
-                answer: 'Do you like apples?',
-                explanation: '一般现在时：Do + 主语 + 动词原形？'
-            },
-            {
-                id: 's_i_009',
-                instruction: '改为一般疑问句',
-                original: 'He likes oranges.',
-                answer: 'Does he like oranges?',
-                explanation: '第三人称单数：Does + 主语 + 动词原形？'
-            },
-            {
-                id: 's_i_010',
-                instruction: '改为一般疑问句',
-                original: 'I have a cat.',
-                answer: 'Do you have a cat?',
-                explanation: 'Have 句型：Do + 主语 + have...?'
-            }
-        ],
-        // 挑战难度：划线提问
-        challenge: [
-            {
-                id: 's_c_001',
-                instruction: '对划线部分提问',
-                original: 'I can swim on Sundays.',
-                underline: 'swim',
-                answer: 'What can you do on Sundays?',
-                explanation: '对动作提问用 What...do?'
-            },
-            {
-                id: 's_c_002',
-                instruction: '对划线部分提问',
-                original: 'She can sing a song.',
-                underline: 'a song',
-                answer: 'What can she sing?',
-                explanation: '对宾语提问：What + 一般疑问句？'
-            },
-            {
-                id: 's_c_003',
-                instruction: '对划线部分提问',
-                original: 'He can fly a kite in the park.',
-                underline: 'in the park',
-                answer: 'Where can he fly a kite?',
-                explanation: '对地点提问用 Where?'
-            },
-            {
-                id: 's_c_004',
-                instruction: '对划线部分提问',
-                original: 'There are five apples on the table.',
-                underline: 'five',
-                answer: 'How many apples are there on the table?',
-                explanation: '对数量提问用 How many?'
-            },
-            {
-                id: 's_c_005',
-                instruction: '对划线部分提问',
-                original: 'I like red apples.',
-                underline: 'red',
-                answer: 'What colour apples do you like?',
-                explanation: '对颜色提问用 What colour?'
-            },
-            {
-                id: 's_c_006',
-                instruction: '对划线部分提问',
-                original: 'She is a teacher.',
-                underline: 'teacher',
-                answer: 'What is she?',
-                explanation: '对职业提问用 What is/are + 主语?'
-            },
-            {
-                id: 's_c_007',
-                instruction: '对划线部分提问',
-                original: 'It is Monday today.',
-                underline: 'Monday',
-                answer: 'What day is it today?',
-                explanation: '对星期提问用 What day?'
-            },
-            {
-                id: 's_c_008',
-                instruction: '对划线部分提问',
-                original: 'The book is on the desk.',
-                underline: 'on the desk',
-                answer: 'Where is the book?',
-                explanation: '对地点提问用 Where?'
-            }
-        ]
     }
 };
 
@@ -24114,11 +24019,11 @@ const ExerciseEngine = {
             case EXERCISE_TYPES.WORD_FORM:
             case EXERCISE_TYPES.SENTENCE_TRANSFORM:
                 // 选择题：答案已转换为索引
-                const userIdx = parseInt(userAnswer);
+                const idx = parseInt(userAnswer);
                 return {
-                    correct: userIdx === question.answer,
+                    correct: idx === question.answer,
                     correctAnswer: question.answer,
-                    userAnswer: userIdx
+                    userAnswer: idx
                 };
                 
             default:
