@@ -6,28 +6,28 @@
  * - 修改 VERSION 版本号可触发更新
  * - 用户会收到"有新版本"提示
  */
-const VERSION = '2026.04.17.07'; // 版本号格式：年.月.日.序号
+const VERSION = '2026.04.17.08'; // 版本号格式：年.月.日.序号
 const CACHE_NAME = `shuyao-v${VERSION}`;
 const STATIC_CACHE = `shuyao-static-v${VERSION}`;
 const DATA_CACHE = `shuyao-data-v${VERSION}`;
 
 // 需要缓存的静态资源
 const STATIC_ASSETS = [
-  '/',
-  '/english-learning-app/index.html',
-  '/english-learning-app/grammar.html',
-  '/english-learning-app/icons/icon-192.png',
-  '/english-learning-app/icons/icon-512.png',
-  '/english-learning-app/icons/icon-maskable.png'
+  '/shuyao-english-classroom/',
+  '/shuyao-english-classroom/index.html',
+  '/shuyao-english-classroom/grammar.html',
+  '/shuyao-english-classroom/icons/icon-192.png',
+  '/shuyao-english-classroom/icons/icon-512.png',
+  '/shuyao-english-classroom/icons/icon-maskable.png'
 ];
 
 // 数据文件列表
 const DATA_FILES = [
-  '/english-learning-app/data/english/grade3_2.json',
-  '/english-learning-app/data/english/grade4_1.json',
-  '/english-learning-app/data/english/grade4_2.json',
-  '/english-learning-app/data/english/grade5_1.json',
-  '/english-learning-app/data/english/grade5_2.json'
+  '/shuyao-english-classroom/data/english/grade3_2.json',
+  '/shuyao-english-classroom/data/english/grade4_1.json',
+  '/shuyao-english-classroom/data/english/grade4_2.json',
+  '/shuyao-english-classroom/data/english/grade5_1.json',
+  '/shuyao-english-classroom/data/english/grade5_2.json'
 ];
 
 // 音标音频基础URL
