@@ -24718,22 +24718,13 @@ const App = {
                     <p class="unit-topic">${unit.topic}</p>
                 </div>
                 
-                <!-- 学习选项 -->
+                <!-- 单词学习入口 -->
                 <div class="learning-options">
                     <div class="learning-option-card" onclick="App.startUnitVocabulary('${unitId}')">
                         <div class="option-icon">📚</div>
                         <div class="option-content">
                             <h3>单词学习</h3>
                             <p>学习 ${unit.vocabulary?.length || 0} 个单词</p>
-                        </div>
-                        <div class="option-arrow">→</div>
-                    </div>
-                    
-                    <div class="learning-option-card" onclick="App.startQuizForUnit('${unitId}')">
-                        <div class="option-icon">📝</div>
-                        <div class="option-content">
-                            <h3>答题练习</h3>
-                            <p>5种题型综合练习</p>
                         </div>
                         <div class="option-arrow">→</div>
                     </div>

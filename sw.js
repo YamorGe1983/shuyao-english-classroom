@@ -6,7 +6,7 @@
  * - 修改 VERSION 版本号可触发更新
  * - 用户会收到"有新版本"提示
  */
-const VERSION = '2026.04.17.03'; // 版本号格式：年.月.日.序号
+const VERSION = '2026.04.17.04'; // 版本号格式：年.月.日.序号
 const CACHE_NAME = `shuyao-v${VERSION}`;
 const STATIC_CACHE = `shuyao-static-v${VERSION}`;
 const DATA_CACHE = `shuyao-data-v${VERSION}`;
