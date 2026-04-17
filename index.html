@@ -23803,15 +23803,15 @@ const App = {
                         
                         <!-- 熟练度按钮 -->
                         <div class="memory-buttons" id="memory-buttons">
-                            <button class="memory-btn strange" onclick="App.handleMemoryFeedback(0)">
+                            <button class="memory-btn strange" onclick="App.handleVocabularyFeedback(0)">
                                 <span class="emoji">😨</span>
                                 <span>陌生</span>
                             </button>
-                            <button class="memory-btn fuzzy" onclick="App.handleMemoryFeedback(1)">
+                            <button class="memory-btn fuzzy" onclick="App.handleVocabularyFeedback(1)">
                                 <span class="emoji">🤔</span>
                                 <span>模糊</span>
                             </button>
-                            <button class="memory-btn mastered" onclick="App.handleMemoryFeedback(2)">
+                            <button class="memory-btn mastered" onclick="App.handleVocabularyFeedback(2)">
                                 <span class="emoji">😎</span>
                                 <span>熟练</span>
                             </button>
@@ -23867,7 +23867,7 @@ const App = {
     },
     
     // 处理单词学习熟练度反馈
-    handleMemoryFeedback(status) {
+    handleVocabularyFeedback(status) {
         const taskIndex = AppState.taskQueue.shift();
         AppState.currentTasks[taskIndex].status = status;
         
