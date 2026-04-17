@@ -797,6 +797,55 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-sm);
 }
 
+/* ==================== 答题反馈图标 ==================== */
+.answer-feedback {
+    font-size: 24px;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.answer-feedback.correct {
+    color: #4CAF50;
+    animation: feedbackPopIn 0.3s ease-out;
+}
+
+.answer-feedback.wrong {
+    color: #F44336;
+    animation: feedbackPopIn 0.3s ease-out;
+}
+
+@keyframes feedbackPopIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 选项按钮选中状态 */
+.exercise-option-btn.selected {
+    border-color: var(--primary);
+    background: rgba(255, 107, 107, 0.15);
+}
+
+.exercise-option-btn.correct {
+    border-color: var(--success);
+    background: rgba(0, 184, 148, 0.15);
+}
+
+.exercise-option-btn.wrong {
+    border-color: var(--danger);
+    background: rgba(225, 112, 85, 0.15);
+}
+
+
 .exercise-option-btn:hover:not(.disabled) {
     border-color: var(--primary);
     background: rgba(255, 107, 107, 0.05);
@@ -23395,84 +23444,108 @@ const EXERCISE_DATA = {
                 id: 'w_b_001',
                 instruction: '复数形式',
                 base: 'apple',
-                answer: 'apples',
+                question: 'apple→ ______（复数）',
+                options: ["apples", "apple", "appls", "applies"],
+                answer: 0,
                 explanation: '大多数名词直接加 s：apple → apples'
             },
             {
                 id: 'w_b_002',
                 instruction: '复数形式',
                 base: 'banana',
-                answer: 'bananas',
+                question: 'banana→ ______（复数）',
+                options: ["bananas", "banana", "bananaes", "bananaies"],
+                answer: 0,
                 explanation: '大多数名词直接加 s：banana → bananas'
             },
             {
                 id: 'w_b_003',
                 instruction: '复数形式',
                 base: 'car',
-                answer: 'cars',
+                question: 'car→ ______（复数）',
+                options: ["cars", "car", "cares", "caries"],
+                answer: 0,
                 explanation: '大多数名词直接加 s：car → cars'
             },
             {
                 id: 'w_b_004',
                 instruction: '复数形式',
                 base: 'bus',
-                answer: 'buses',
+                question: 'bus→ ______（复数）',
+                options: ["buses", "bus", "buss", "busies"],
+                answer: 0,
                 explanation: '以 s, x, ch, sh 结尾的名词加 es：bus → buses'
             },
             {
                 id: 'w_b_005',
                 instruction: '复数形式',
                 base: 'box',
-                answer: 'boxes',
+                question: 'box→ ______（复数）',
+                options: ["boxes", "box", "boxs", "boxies"],
+                answer: 0,
                 explanation: '以 s, x, ch, sh 结尾加 es：box → boxes'
             },
             {
                 id: 'w_b_006',
                 instruction: '复数形式',
                 base: 'cake',
-                answer: 'cakes',
+                question: 'cake→ ______（复数）',
+                options: ["cakes", "cake", "caks", "cakies"],
+                answer: 0,
                 explanation: '直接加 s：cake → cakes'
             },
             {
                 id: 'w_b_007',
                 instruction: '复数形式',
                 base: 'bird',
-                answer: 'birds',
+                question: 'bird→ ______（复数）',
+                options: ["birds", "bird", "birdes", "birdies"],
+                answer: 0,
                 explanation: '直接加 s：bird → birds'
             },
             {
                 id: 'w_b_008',
                 instruction: '复数形式',
                 base: 'orange',
-                answer: 'oranges',
+                question: 'orange→ ______（复数）',
+                options: ["oranges", "orange", "orangs", "orangies"],
+                answer: 0,
                 explanation: '直接加 s：orange → oranges'
             },
             {
                 id: 'w_b_009',
                 instruction: '复数形式',
                 base: 'cat',
-                answer: 'cats',
+                question: 'cat→ ______（复数）',
+                options: ["cats", "cat", "cates", "caties"],
+                answer: 0,
                 explanation: '直接加 s：cat → cats'
             },
             {
                 id: 'w_b_010',
                 instruction: '复数形式',
                 base: 'egg',
-                answer: 'eggs',
+                question: 'egg→ ______（复数）',
+                options: ["eggs", "egg", "egges", "eggies"],
+                answer: 0,
                 explanation: '以辅音字母+y 结尾，变 y 为 i 加 es：egg → eggs'
             },
             {
                 id: 'w_b_011',
                 instruction: '复数形式',
                 base: 'day',
-                answer: 'days',
+                question: 'day→ ______（复数）',
+                options: ["days", "day", "dayes", "dayies"],
+                answer: 0,
                 explanation: '以元音字母+y 结尾，直接加 s：day → days'
             },
             {
                 id: 'w_b_012',
                 instruction: '复数形式',
                 base: 'toy',
-                answer: 'toys',
+                question: 'toy→ ______（复数）',
+                options: ["toys", "toy", "toyes", "toyies"],
+                answer: 0,
                 explanation: '以元音字母+y 结尾，直接加 s：toy → toys'
             }
         ],
@@ -23482,70 +23555,90 @@ const EXERCISE_DATA = {
                 id: 'w_i_001',
                 instruction: '复数形式',
                 base: 'child',
-                answer: 'children',
+                question: 'child→ ______（复数）',
+                options: ["children", "childs", "childrens", "childes"],
+                answer: 0,
                 explanation: '不规则变化：child → children'
             },
             {
                 id: 'w_i_002',
                 instruction: '复数形式',
                 base: 'man',
-                answer: 'men',
+                question: 'man→ ______（复数）',
+                options: ["men", "mans", "manes", "manen"],
+                answer: 0,
                 explanation: 'a → e 不规则变化：man → men'
             },
             {
                 id: 'w_i_003',
                 instruction: '复数形式',
                 base: 'woman',
-                answer: 'women',
+                question: 'woman→ ______（复数）',
+                options: ["women", "womans", "womanes", "womanen"],
+                answer: 0,
                 explanation: 'a → e 不规则变化：woman → women'
             },
             {
                 id: 'w_i_004',
                 instruction: '复数形式',
                 base: 'foot',
-                answer: 'feet',
+                question: 'foot→ ______（复数）',
+                options: ["feet", "foots", "footes", "footen"],
+                answer: 0,
                 explanation: '不规则变化：foot → feet'
             },
             {
                 id: 'w_i_005',
                 instruction: '复数形式',
                 base: 'tooth',
-                answer: 'teeth',
+                question: 'tooth→ ______（复数）',
+                options: ["teeth", "tooths", "toothes", "toothen"],
+                answer: 0,
                 explanation: '不规则变化：tooth → teeth'
             },
             {
                 id: 'w_i_006',
                 instruction: '复数形式',
                 base: 'mouse',
-                answer: 'mice',
+                question: 'mouse→ ______（复数）',
+                options: ["mice", "mouses", "mousees", "mouseen"],
+                answer: 0,
                 explanation: '不规则变化：mouse → mice'
             },
             {
                 id: 'w_i_007',
                 instruction: '复数形式',
                 base: 'fish',
-                answer: 'fish',
+                question: 'fish→ ______（复数）',
+                options: ["fish", "fishs", "fishes", "fishies"],
+                answer: 0,
                 explanation: '单复数同形：fish（一条鱼/多条鱼都是 fish）'
             },
             {
                 id: 'w_i_008',
                 instruction: '复数形式',
                 base: 'sheep',
-                answer: 'sheep',
+                question: 'sheep→ ______（复数）',
+                options: ["sheep", "sheeps", "sheepes", "sheepies"],
+                answer: 0,
                 explanation: '单复数同形：sheep'
             },
             {
                 id: 'w_i_009',
                 instruction: '复数形式',
                 base: 'deer',
-                answer: 'deer',
+                question: 'deer→ ______（复数）',
+                options: ["deer", "deers", "deeres", "deeries"],
+                answer: 0,
                 explanation: '单复数同形：deer'
             },
             {
                 id: 'w_i_010',
                 instruction: '复数形式',
                 base: 'person',
-                answer: 'people',
+                question: 'person→ ______（复数）',
+                options: ["people", "persons", "persones", "person"],
+                answer: 0,
                 explanation: '不规则变化：person → people'
             }
         ],
@@ -23555,148 +23648,82 @@ const EXERCISE_DATA = {
                 id: 'w_c_001',
                 instruction: '物主代词（我的）',
                 base: 'I',
-                answer: 'my',
-                explanation: 'I 的物主代词：my（我的）'
-            },
-            {
-                id: 'w_c_002',
-                instruction: '宾格',
-                base: 'I',
-                answer: 'me',
-                explanation: 'I 的宾格形式：me'
-            },
-            {
-                id: 'w_c_003',
-                instruction: '名词性物主代词',
-                base: 'my',
-                answer: 'mine',
-                explanation: 'my 的名词性物主代词：mine（我的东西）'
-            },
-            {
-                id: 'w_c_004',
-                instruction: '物主代词（你的）',
-                base: 'you',
-                answer: 'your',
-                explanation: 'you 的物主代词：your（你的）'
-            },
-            {
-                id: 'w_c_005',
-                instruction: '宾格',
-                base: 'you',
-                answer: 'you',
-                explanation: 'you 的宾格还是 you'
-            },
-            {
-                id: 'w_c_006',
-                instruction: '名词性物主代词',
-                base: 'your',
-                answer: 'yours',
-                explanation: 'your 的名词性物主代词：yours'
-            },
-            {
-                id: 'w_c_007',
-                instruction: '物主代词（他的）',
-                base: 'he',
-                answer: 'his',
-                explanation: 'he 的物主代词：his（他的）'
-            },
-            {
-                id: 'w_c_008',
-                instruction: '宾格',
-                base: 'he',
-                answer: 'him',
-                explanation: 'he 的宾格形式：him'
-            },
-            {
-                id: 'w_c_009',
-                instruction: '物主代词（她的）',
-                base: 'she',
-                answer: 'her',
-                explanation: 'she 的物主代词：her（她的）'
-            },
-            {
-                id: 'w_c_010',
-                instruction: '宾格',
-                base: 'she',
-                answer: 'her',
-                explanation: 'she 的宾格形式：her'
-            },
-            {
-                id: 'w_c_011',
-                instruction: '名词性物主代词',
-                base: 'his',
-                answer: 'his',
-                explanation: 'his 既是物主代词也是名词性物主代词'
-            },
-            {
-                id: 'w_c_012',
-                instruction: '名词性物主代词',
-                base: 'her',
-                answer: 'hers',
-                explanation: 'her 的名词性物主代词：hers'
-            }
-        ]
-    },
-    
-    // ========== 句型转换 ==========
-    sentenceTemplates: {
+                question: 'I→ ______（物主代词（我的））',
+                options: ["my", "me", "I", "mine"],
+  sentenceTemplates: {
         // 基础难度：否定句
         basic: [
             {
                 id: 's_b_001',
                 instruction: '改为否定句',
                 original: 'I can swim.',
-                answer: 'I can\'t swim.',
-                explanation: 'can 的否定句：can + not = can\'t'
+                question: 'I can swim.→ 改为否定句',
+                options: ["I can\'t swim.", "I cannot swim.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can 的否定句：can + not = can\'
             },
             {
                 id: 's_b_002',
                 instruction: '改为否定句',
                 original: 'She can sing.',
-                answer: 'She can\'t sing.',
-                explanation: 'can not = can\'t，第三人称也直接加 not'
+                question: 'She can sing.→ 改为否定句',
+                options: ["She can\'t sing.", "She cannot sing.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can not = can\'
             },
             {
                 id: 's_b_003',
                 instruction: '改为否定句',
                 original: 'He can fly a kite.',
-                answer: 'He can\'t fly a kite.',
-                explanation: 'can\'t + 动词原形'
+                question: 'He can fly a kite.→ 改为否定句',
+                options: ["He can\'t fly a kite.", "He cannot fly a kite.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             },
             {
                 id: 's_b_004',
                 instruction: '改为否定句',
                 original: 'We can play football.',
-                answer: 'We can\'t play football.',
-                explanation: 'can\'t + 动词原形'
+                question: 'We can play football.→ 改为否定句',
+                options: ["We can\'t play football.", "We cannot play football.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             },
             {
                 id: 's_b_005',
                 instruction: '改为否定句',
                 original: 'They can dance.',
-                answer: 'They can\'t dance.',
-                explanation: 'can\'t + 动词原形'
+                question: 'They can dance.→ 改为否定句',
+                options: ["They can\'t dance.", "They cannot dance.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             },
             {
                 id: 's_b_006',
                 instruction: '改为否定句',
                 original: 'I can see a bird.',
-                answer: 'I can\'t see a bird.',
-                explanation: 'can\'t + 动词原形'
+                question: 'I can see a bird.→ 改为否定句',
+                options: ["I can\'t see a bird.", "I cannot see a bird.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             },
             {
                 id: 's_b_007',
                 instruction: '改为否定句',
                 original: 'You can come.',
-                answer: 'You can\'t come.',
-                explanation: 'can\'t + 动词原形'
+                question: 'You can come.→ 改为否定句',
+                options: ["You can\'t come.", "You cannot come.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             },
             {
                 id: 's_b_008',
                 instruction: '改为否定句',
                 original: 'It can run fast.',
-                answer: 'It can\'t run fast.',
-                explanation: 'can\'t + 动词原形'
+                question: 'It can run fast.→ 改为否定句',
+                options: ["It can\'t run fast.", "It cannot run fast.", "I don't can swim.", "I can not swim."],
+                answer: 0,
+                explanation: 'can\'
             }
         ],
         // 提高难度：一般疑问句
@@ -23705,41 +23732,177 @@ const EXERCISE_DATA = {
                 id: 's_i_001',
                 instruction: '改为一般疑问句',
                 original: 'I can swim.',
-                answer: 'Can you swim?',
+                question: 'I can swim.→ 改为一般疑问句',
+                options: ["Can you swim?", "You I can swim?", "I can swim.", "i can swim."],
+                answer: 0,
                 explanation: 'Can 提前，I 变 you，肯定句变问号'
             },
             {
                 id: 's_i_002',
                 instruction: '改为一般疑问句',
                 original: 'She can sing.',
-                answer: 'Can she sing?',
+                question: 'She can sing.→ 改为一般疑问句',
+                options: ["Can she sing?", "You she can sing?", "She can sing.", "she can sing."],
+                answer: 0,
                 explanation: 'Can 提前，句子其余部分不变，肯定句变问号'
             },
             {
                 id: 's_i_003',
                 instruction: '改为一般疑问句',
                 original: 'He can fly a kite.',
-                answer: 'Can he fly a kite?',
+                question: 'He can fly a kite.→ 改为一般疑问句',
+                options: ["Can he fly a kite?", "You he can sing?", "He can fly a kite.", "he can fly a kite."],
+                answer: 0,
                 explanation: 'Can 提到句首，其他顺序不变'
             },
             {
                 id: 's_i_004',
                 instruction: '改为一般疑问句',
                 original: 'They can dance.',
-                answer: 'Can they dance?',
+                question: 'They can dance.→ 改为一般疑问句',
+                options: ["Can they dance?", "You they can dance?", "They can dance.", "they can dance."],
+                answer: 0,
                 explanation: 'Can 提到句首'
             },
             {
                 id: 's_i_005',
                 instruction: '改为一般疑问句',
                 original: 'We can play football.',
-                answer: 'Can you play football?',
+                question: 'We can play football.→ 改为一般疑问句',
+                options: ["Can you play football?", "You we can play?", "We can play football.", "we can play football."],
+                answer: 0,
                 explanation: 'Can 提前，We 变 you'
             },
             {
                 id: 's_i_006',
                 instruction: '改为一般疑问句',
                 original: 'There is a book on the desk.',
+                question: 'There is a book on the desk.→ 改为一般疑问句',
+                options: ["Is there a book on the desk?", "? There is a book on the desk.", "There is a book on the desk.", "there is a book on the desk."],
+                answer: 0,
+                explanation: 'There be 句型：be 动词提前'
+            },
+            {
+                id: 's_i_007',
+                instruction: '改为一般疑问句',
+                original: 'There are some flowers.',
+                question: 'There are some flowers.→ 改为一般疑问句',
+                options: ["Are there any flowers?", "? There are some flowers.", "There are some flowers.", "there are some flowers."],
+                answer: 0,
+                explanation: 'There be：be 动词提前，some 变 any'
+            },
+            {
+                id: 's_i_008',
+                instruction: '改为一般疑问句',
+                original: 'You like apples.',
+                question: 'You like apples.→ 改为一般疑问句',
+                options: ["Do you like apples?", "? You like apples.", "You like apples.", "you like apples."],
+                answer: 0,
+                explanation: '一般现在时：Do + 主语 + 动词原形？'
+            },
+            {
+                id: 's_i_009',
+                instruction: '改为一般疑问句',
+                original: 'He likes oranges.',
+                question: 'He likes oranges.→ 改为一般疑问句',
+                options: ["Does he like oranges?", "You he can sing?", "He likes oranges.", "he likes oranges."],
+                answer: 0,
+                explanation: '第三人称单数：Does + 主语 + 动词原形？'
+            },
+            {
+                id: 's_i_010',
+                instruction: '改为一般疑问句',
+                original: 'I have a cat.',
+                question: 'I have a cat.→ 改为一般疑问句',
+                options: ["Do you have a cat?", "You I can swim?", "I have a cat.", "i have a cat."],
+                answer: 0,
+                explanation: 'Have 句型：Do + 主语 + have...?'
+            }
+        ],
+        // 挑战难度：划线提问
+        challenge: [
+            {
+                id: 's_c_001',
+                instruction: '对划线部分提问',
+                original: 'I can swim on Sundays.',
+                underline: "swim",
+                question: 'I can swim on Sundays.→ 对划线部分提问',
+                options: ["What can you do on Sundays?", "How can you do?", "Where can you do?", "Who can you do?"],
+                answer: 0,
+                explanation: '对动作提问用 What...do?'
+            },
+            {
+                id: 's_c_002',
+                instruction: '对划线部分提问',
+                original: 'She can sing a song.',
+                underline: "a song",
+                question: 'She can sing a song.→ 对划线部分提问',
+                options: ["What can she sing?", "How can you do?", "Where can you do?", "Who can you do?"],
+                answer: 0,
+                explanation: '对宾语提问：What + 一般疑问句？'
+            },
+            {
+                id: 's_c_003',
+                instruction: '对划线部分提问',
+                original: 'He can fly a kite in the park.',
+                underline: "in the park",
+                question: 'He can fly a kite in the park.→ 对划线部分提问',
+                options: ["Where can he fly a kite?", "How can you do?", "Where can you do?", "Who can you do?"],
+                answer: 0,
+                explanation: '对地点提问用 Where?'
+            },
+            {
+                id: 's_c_004',
+                instruction: '对划线部分提问',
+                original: 'There are five apples on the table.',
+                underline: "five",
+                question: 'There are five apples on the table.→ 对划线部分提问',
+                options: ["How many apples are there on the table?", "How How many apples are there on the table?", "Where How many apples are there on the table?", "Who How many apples are there on the table?"],
+                answer: 0,
+                explanation: '对数量提问用 How many?'
+            },
+            {
+                id: 's_c_005',
+                instruction: '对划线部分提问',
+                original: 'I like red apples.',
+                underline: "red",
+                question: 'I like red apples.→ 对划线部分提问',
+                options: ["What colour apples do you like?", "How can you do?", "Where can you do?", "Who can you do?"],
+                answer: 0,
+                explanation: '对颜色提问用 What colour?'
+            },
+            {
+                id: 's_c_006',
+                instruction: '对划线部分提问',
+                original: 'She is a teacher.',
+                underline: "teacher",
+                question: 'She is a teacher.→ 对划线部分提问',
+                options: ["What is she?", "How What is she?", "Where What is she?", "Who What is she?"],
+                answer: 0,
+                explanation: '对职业提问用 What is/are + 主语?'
+            },
+            {
+                id: 's_c_007',
+                instruction: '对划线部分提问',
+                original: 'It is Monday today.',
+                underline: "Monday",
+                question: 'It is Monday today.→ 对划线部分提问',
+                options: ["What day is it today?", "How What day is it today?", "Where What day is it today?", "Who What day is it today?"],
+                answer: 0,
+                explanation: '对星期提问用 What day?'
+            },
+            {
+                id: 's_c_008',
+                instruction: '对划线部分提问',
+                original: 'The book is on the desk.',
+                underline: "on the desk",
+                question: 'The book is on the desk.→ 对划线部分提问',
+                options: ["Where is the book?", "How Where is the book?", "Where Where is the book?", "Who Where is the book?"],
+                answer: 0,
+                explanation: '对地点提问用 Where?'
+            }
+        ]
+    }book on the desk.',
                 answer: 'Is there a book on the desk?',
                 explanation: 'There be 句型：be 动词提前'
             },
@@ -23950,12 +24113,12 @@ const ExerciseEngine = {
                 
             case EXERCISE_TYPES.WORD_FORM:
             case EXERCISE_TYPES.SENTENCE_TRANSFORM:
-                // 忽略大小写和空格差异
-                const normalized = (str) => str.toLowerCase().trim().replace(/'/g, "'");
+                // 选择题：答案已转换为索引
+                const userIdx = parseInt(userAnswer);
                 return {
-                    correct: normalized(userAnswer) === normalized(question.answer),
+                    correct: userIdx === question.answer,
                     correctAnswer: question.answer,
-                    userAnswer: userAnswer
+                    userAnswer: userIdx
                 };
                 
             default:
@@ -25023,15 +25186,7 @@ const App = {
             case EXERCISE_TYPES.WORD_FORM:
                 questionHtml = `
                     <p class="question-text" style="font-size:18px;margin-bottom:8px;color:var(--text-secondary);">${question.instruction}</p>
-                    <p class="question-text" style="font-size:28px;margin-bottom:20px;">${question.base}</p>
-                    <div class="input-wrapper" style="margin-bottom:20px;">
-                        <input type="text" 
-                               id="exercise-answer-input" 
-                               class="exercise-input"
-                               placeholder="请输入答案..."
-                               autocomplete="off"
-                               autocapitalize="off">
-                    </div>
+                    <p class="question-text" style="font-size:28px;margin-bottom:20px;">${question.question}</p>
                 `;
                 break;
                 
@@ -25040,19 +25195,13 @@ const App = {
                     <p class="question-text" style="font-size:18px;margin-bottom:8px;color:var(--text-secondary);">${question.instruction}</p>
                     <p class="question-text" style="font-size:22px;margin-bottom:8px;">原句：${question.original}</p>
                     ${question.underline ? `<p style="font-size:16px;color:var(--info);margin-bottom:20px;">（对 "${question.underline}" 提问）</p>` : ''}
-                    <div class="input-wrapper" style="margin-bottom:20px;">
-                        <input type="text" 
-                               id="exercise-answer-input" 
-                               class="exercise-input"
-                               placeholder="请输入转换后的句子..."
-                               autocomplete="off">
-                    </div>
                 `;
                 break;
         }
         
         let optionsHtml = '';
-        if (question.type === EXERCISE_TYPES.GRAMMAR_CHOICE) {
+        // 所有题型都显示选择题选项
+        if (question.options && question.options.length > 0) {
             optionsHtml = `
                 <div class="exercise-options">
                     ${question.options.map((opt, i) => `
@@ -25062,23 +25211,6 @@ const App = {
                         </button>
                     `).join('')}
                 </div>
-            `;
-        } else {
-            // 填空题添加提交按钮
-            optionsHtml = `
-                <button class="submit-answer-btn" onclick="App.submitExerciseAnswer()" style="
-                    width:100%;
-                    padding:14px;
-                    background:linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-                    color:white;
-                    border:none;
-                    border-radius:var(--radius-md);
-                    font-size:var(--font-lg);
-                    font-weight:600;
-                    cursor:pointer;
-                    margin-top:var(--space-md);
-                    box-shadow:var(--shadow-md);
-                ">提交答案 ✓</button>
             `;
         }
         
@@ -25142,6 +25274,24 @@ const App = {
     selectExerciseAnswer(optionIndex) {
         const question = AppState.currentQuiz[AppState.currentQuizIndex];
         const result = ExerciseEngine.checkAnswer(question, optionIndex.toString());
+        
+        // 添加选项按钮状态和反馈图标
+        const options = document.querySelectorAll('.exercise-option-btn');
+        options.forEach((btn, i) => {
+            btn.disabled = true;
+            if (i === optionIndex) {
+                btn.classList.add('selected');
+                // 添加反馈图标
+                const feedback = document.createElement('span');
+                feedback.className = 'answer-feedback ' + (result.correct ? 'correct' : 'wrong');
+                feedback.textContent = result.correct ? '✓' : '✗';
+                btn.appendChild(feedback);
+            }
+            if (i === question.answer) {
+                btn.classList.add('correct');
+            }
+        });
+        
         this.showExerciseFeedback(result);
     },
     
