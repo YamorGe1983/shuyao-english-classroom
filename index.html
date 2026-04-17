@@ -22479,7 +22479,7 @@ const QUESTION_TYPES = {
     EN_TO_CN: 'en_to_cn',
     CN_TO_EN: 'cn_to_en',
     LISTEN_CHOOSE: 'listen_choose',
-    SPELLING: 'spelling',
+    SPELLING: 'spelling',  // 已废弃：混淆项无意义
     PHONETIC: 'phonetic',
     MINIMAL_PAIR: 'minimal_pair'  // 最小对立体辨析
 };
@@ -22668,7 +22668,7 @@ const ReviewEngine = {
     },
     
     pickQuestionType(word) {
-        const types = ['en_to_cn', 'cn_to_en', 'listen_choose', 'spelling'];
+        const types = ['en_to_cn', 'cn_to_en', 'listen_choose'];
         
         if (word.letterSounds && word.letterSounds.length > 0) {
             types.push('phonetic');
@@ -22685,8 +22685,7 @@ const ReviewEngine = {
                 return QuestionGenerator.generateCnToEn(word, allWords);
             case QUESTION_TYPES.LISTEN_CHOOSE:
                 return QuestionGenerator.generateListenChoose(word, allWords);
-            case QUESTION_TYPES.SPELLING:
-                return QuestionGenerator.generateSpelling(word);
+            // 拼写辨析已删除（混淆项无意义）
             case QUESTION_TYPES.PHONETIC:
                 const letterGroup = word.letterSounds[Math.floor(Math.random() * word.letterSounds.length)];
                 return QuestionGenerator.generatePhonetic(word, letterGroup);
@@ -23830,12 +23829,16 @@ const App = {
         
         this.setContent(html);
         
-        // 英译中模式自动播放发音
-        if (direction === 'en_to_cn') {
-            setTimeout(() => {
+        // 自动播放发音
+        setTimeout(() => {
+            if (direction === 'en_to_cn') {
+                // 英译中：读英文
                 App.speakWord(word.word);
-            }, 500);
-        }
+            } else {
+                // 中译英：读中文
+                TTS.speakChinese(word.chinese);
+            }
+        }, 500);
         
         // 保存当前单词信息到 AppState
         AppState.currentWord = word;
@@ -24043,14 +24046,6 @@ const App = {
                         🔊 点击听音
                     </button>
                     <p class="question-text" style="font-size:20px;margin-top:16px;">请选择你听到的单词</p>
-                `;
-                break;
-                
-            case QUESTION_TYPES.SPELLING:
-                questionHtml = `
-                    <div class="question-type-label">拼写辨析</div>
-                    <button class="audio-btn-large" onclick="TTS.speak('${question.word}')">🔊 点击播放发音</button>
-                    <p class="question-text" style="font-size:20px;margin-top:16px;">🎧 听发音，选出正确的拼写</p>
                 `;
                 break;
                 
