@@ -13,9 +13,21 @@
       "name": "Changes and differences",
       "nameCN": "变化与差异",
       "units": [
-        {"id": "unit1", "name": "Tidy up!", "nameCN": "整理！"},
-        {"id": "unit2", "name": "Watch it grow", "nameCN": "观察生长"},
-        {"id": "unit3", "name": "How noisy!", "nameCN": "好吵啊！"}
+        {
+          "id": "unit1",
+          "name": "Tidy up!",
+          "nameCN": "整理！"
+        },
+        {
+          "id": "unit2",
+          "name": "Watch it grow",
+          "nameCN": "观察生长"
+        },
+        {
+          "id": "unit3",
+          "name": "How noisy!",
+          "nameCN": "好吵啊！"
+        }
       ]
     },
     {
@@ -23,9 +35,21 @@
       "name": "My favourite things",
       "nameCN": "我喜爱的事物",
       "units": [
-        {"id": "unit4", "name": "Food and drinks", "nameCN": "食物与饮料"},
-        {"id": "unit5", "name": "Seasons", "nameCN": "季节"},
-        {"id": "unit6", "name": "Holidays", "nameCN": "节日"}
+        {
+          "id": "unit4",
+          "name": "Food and drinks",
+          "nameCN": "食物与饮料"
+        },
+        {
+          "id": "unit5",
+          "name": "Seasons",
+          "nameCN": "季节"
+        },
+        {
+          "id": "unit6",
+          "name": "Holidays",
+          "nameCN": "节日"
+        }
       ]
     },
     {
@@ -33,9 +57,21 @@
       "name": "Things around us",
       "nameCN": "我们周围的事物",
       "units": [
-        {"id": "unit7", "name": "Asking the way", "nameCN": "问路"},
-        {"id": "unit8", "name": "Weather", "nameCN": "天气"},
-        {"id": "unit9", "name": "Seeing the doctor", "nameCN": "看医生"}
+        {
+          "id": "unit7",
+          "name": "Asking the way",
+          "nameCN": "问路"
+        },
+        {
+          "id": "unit8",
+          "name": "Weather",
+          "nameCN": "天气"
+        },
+        {
+          "id": "unit9",
+          "name": "Seeing the doctor",
+          "nameCN": "看医生"
+        }
       ]
     },
     {
@@ -43,9 +79,21 @@
       "name": "More things to learn",
       "nameCN": "更多学习内容",
       "units": [
-        {"id": "unit10", "name": "Museums", "nameCN": "博物馆"},
-        {"id": "unit11", "name": "Western holidays", "nameCN": "西方节日"},
-        {"id": "unit12", "name": "The giant's garden", "nameCN": "巨人的花园"}
+        {
+          "id": "unit10",
+          "name": "Museums",
+          "nameCN": "博物馆"
+        },
+        {
+          "id": "unit11",
+          "name": "Western holidays",
+          "nameCN": "西方节日"
+        },
+        {
+          "id": "unit12",
+          "name": "The giant's garden",
+          "nameCN": "巨人的花园"
+        }
       ]
     }
   ],
@@ -57,30 +105,131 @@
       "nameCN": "整理！",
       "topic": "学习物主代词和整理词汇",
       "vocabulary": [
-        {"word": "tidy", "chinese": "整洁的", "phonetic": "/ˈtaɪdi/", "audio": "tidy"},
-        {"word": "sock", "chinese": "短袜", "phonetic": "/sɒk/", "audio": "sock"},
-        {"word": "cap", "chinese": "帽子", "phonetic": "/kæp/", "audio": "cap"},
-        {"word": "crayon", "chinese": "蜡笔", "phonetic": "/ˈkreɪən/", "audio": "crayon"},
-        {"word": "umbrella", "chinese": "雨伞", "phonetic": "/ʌmˈbrelə/", "audio": "umbrella"},
-        {"word": "mine", "chinese": "我的", "phonetic": "/maɪn/", "audio": "mine"},
-        {"word": "yours", "chinese": "你的", "phonetic": "/jɔːz/", "audio": "yours"},
-        {"word": "hers", "chinese": "她的", "phonetic": "/hɜːz/", "audio": "hers"},
-        {"word": "theirs", "chinese": "他们的", "phonetic": "/ðeəz/", "audio": "theirs"},
-        {"word": "tidy up", "chinese": "整理", "phonetic": "/ˈtaɪdi ʌp/", "audio": "tidy up"},
-        {"word": "put", "chinese": "放", "phonetic": "/pʊt/", "audio": "put"},
-        {"word": "let", "chinese": "让", "phonetic": "/let/", "audio": "let"}
+        {
+          "word": "tidy",
+          "chinese": "整洁的",
+          "phonetic": "/ˈtaɪdi/",
+          "audio": "tidy"
+        },
+        {
+          "word": "sock",
+          "chinese": "短袜",
+          "phonetic": "/sɒk/",
+          "audio": "sock"
+        },
+        {
+          "word": "cap",
+          "chinese": "帽子",
+          "phonetic": "/kæp/",
+          "audio": "cap"
+        },
+        {
+          "word": "crayon",
+          "chinese": "蜡笔",
+          "phonetic": "/ˈkreɪən/",
+          "audio": "crayon"
+        },
+        {
+          "word": "umbrella",
+          "chinese": "雨伞",
+          "phonetic": "/ʌmˈbrelə/",
+          "audio": "umbrella"
+        },
+        {
+          "word": "mine",
+          "chinese": "我的",
+          "phonetic": "/maɪn/",
+          "audio": "mine"
+        },
+        {
+          "word": "yours",
+          "chinese": "你的",
+          "phonetic": "/jɔːz/",
+          "audio": "yours"
+        },
+        {
+          "word": "hers",
+          "chinese": "她的",
+          "phonetic": "/hɜːz/",
+          "audio": "hers"
+        },
+        {
+          "word": "theirs",
+          "chinese": "他们的",
+          "phonetic": "/ðeəz/",
+          "audio": "theirs"
+        },
+        {
+          "word": "tidy up",
+          "chinese": "整理",
+          "phonetic": "/ˈtaɪdi ʌp/",
+          "audio": "tidy up"
+        },
+        {
+          "word": "put",
+          "chinese": "放",
+          "phonetic": "/pʊt/",
+          "audio": "put"
+        },
+        {
+          "word": "let",
+          "chinese": "让",
+          "phonetic": "/let/",
+          "audio": "let"
+        }
       ],
       "sentences": [
-        {"english": "What a mess!", "chinese": "真乱啊！"},
-        {"english": "Whose sock is this?", "chinese": "这是谁的袜子？"},
-        {"english": "It's mine.", "chinese": "是我的。"},
-        {"english": "Put it on the bed.", "chinese": "把它放在床上。"}
+        {
+          "english": "What a mess!",
+          "chinese": "真乱啊！"
+        },
+        {
+          "english": "Whose sock is this?",
+          "chinese": "这是谁的袜子？"
+        },
+        {
+          "english": "It's mine.",
+          "chinese": "是我的。"
+        },
+        {
+          "english": "Put it on the bed.",
+          "chinese": "把它放在床上。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "sock / Whose / is / this / ?", "answer": "Whose sock is this?", "explanation": "询问归属：Whose + 名词 + is this?"},
-        {"type": "sentence_reorder", "question": "mine / It's / .", "answer": "It's mine.", "explanation": "用名词性物主代词回答：It's + mine/yours/his/hers。"},
-        {"type": "logic_match", "question": "将形容词性物主代词与名词性物主代词配对：my, your, her, their, mine, yours, hers, theirs", "answer": "my↔mine, your↔yours, her↔hers, their↔theirs", "explanation": "形容词性物主代词后接名词，名词性物主代词单独使用。"},
-        {"type": "context_fill", "question": "This is _____ (my/mine) book. The book is _____ (my/mine).", "answer": "my, mine", "explanation": "my后接名词，mine单独使用。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'放'用英语怎么说？",
+          "options": [
+            "crayon",
+            "put",
+            "umbrella"
+          ],
+          "answer": "put",
+          "audio": "put"
+        },
+        {
+          "type": "choice",
+          "question": "'短袜'用英语怎么说？",
+          "options": [
+            "sock",
+            "tidy up",
+            "cap"
+          ],
+          "answer": "sock",
+          "audio": "sock"
+        },
+        {
+          "type": "choice",
+          "question": "'整洁的'用英语怎么说？",
+          "options": [
+            "let",
+            "tidy",
+            "sock"
+          ],
+          "answer": "tidy",
+          "audio": "tidy"
+        }
       ]
     },
     "unit2": {
@@ -90,29 +239,125 @@
       "nameCN": "观察生长",
       "topic": "学习动物生命周期和过去时",
       "vocabulary": [
-        {"word": "egg", "chinese": "蛋", "phonetic": "/eɡ/", "audio": "egg"},
-        {"word": "caterpillar", "chinese": "毛毛虫", "phonetic": "/ˈkætəpɪlə/", "audio": "caterpillar"},
-        {"word": "cocoon", "chinese": "茧", "phonetic": "/kəˈkuːn/", "audio": "cocoon"},
-        {"word": "butterfly", "chinese": "蝴蝶", "phonetic": "/ˈbʌtəflaɪ/", "audio": "butterfly"},
-        {"word": "chicken", "chinese": "小鸡", "phonetic": "/ˈtʃɪkɪn/", "audio": "chicken"},
-        {"word": "duckling", "chinese": "小鸭", "phonetic": "/ˈdʌklɪŋ/", "audio": "duckling"},
-        {"word": "puppy", "chinese": "小狗", "phonetic": "/ˈpʌpi/", "audio": "puppy"},
-        {"word": "grow", "chinese": "生长", "phonetic": "/ɡrəʊ/", "audio": "grow"},
-        {"word": "fly", "chinese": "飞", "phonetic": "/flaɪ/", "audio": "fly"},
-        {"word": "was", "chinese": "是(is/am的过去式)", "phonetic": "/wɒz/", "audio": "was"},
-        {"word": "were", "chinese": "是(are的过去式)", "phonetic": "/wɜː/", "audio": "were"}
+        {
+          "word": "egg",
+          "chinese": "蛋",
+          "phonetic": "/eɡ/",
+          "audio": "egg"
+        },
+        {
+          "word": "caterpillar",
+          "chinese": "毛毛虫",
+          "phonetic": "/ˈkætəpɪlə/",
+          "audio": "caterpillar"
+        },
+        {
+          "word": "cocoon",
+          "chinese": "茧",
+          "phonetic": "/kəˈkuːn/",
+          "audio": "cocoon"
+        },
+        {
+          "word": "butterfly",
+          "chinese": "蝴蝶",
+          "phonetic": "/ˈbʌtəflaɪ/",
+          "audio": "butterfly"
+        },
+        {
+          "word": "chicken",
+          "chinese": "小鸡",
+          "phonetic": "/ˈtʃɪkɪn/",
+          "audio": "chicken"
+        },
+        {
+          "word": "duckling",
+          "chinese": "小鸭",
+          "phonetic": "/ˈdʌklɪŋ/",
+          "audio": "duckling"
+        },
+        {
+          "word": "puppy",
+          "chinese": "小狗",
+          "phonetic": "/ˈpʌpi/",
+          "audio": "puppy"
+        },
+        {
+          "word": "grow",
+          "chinese": "生长",
+          "phonetic": "/ɡrəʊ/",
+          "audio": "grow"
+        },
+        {
+          "word": "fly",
+          "chinese": "飞",
+          "phonetic": "/flaɪ/",
+          "audio": "fly"
+        },
+        {
+          "word": "was",
+          "chinese": "是(is/am的过去式)",
+          "phonetic": "/wɒz/",
+          "audio": "was"
+        },
+        {
+          "word": "were",
+          "chinese": "是(are的过去式)",
+          "phonetic": "/wɜː/",
+          "audio": "were"
+        }
       ],
       "sentences": [
-        {"english": "It was an egg.", "chinese": "它过去是一个蛋。"},
-        {"english": "Now it is a caterpillar.", "chinese": "现在它是一只毛毛虫。"},
-        {"english": "Do you know how it grows?", "chinese": "你知道它是怎么长大的吗？"},
-        {"english": "It was a caterpillar. Now it is a butterfly.", "chinese": "它过去是毛毛虫。现在是蝴蝶。"}
+        {
+          "english": "It was an egg.",
+          "chinese": "它过去是一个蛋。"
+        },
+        {
+          "english": "Now it is a caterpillar.",
+          "chinese": "现在它是一只毛毛虫。"
+        },
+        {
+          "english": "Do you know how it grows?",
+          "chinese": "你知道它是怎么长大的吗？"
+        },
+        {
+          "english": "It was a caterpillar. Now it is a butterfly.",
+          "chinese": "它过去是毛毛虫。现在是蝴蝶。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "was / It / an / egg / .", "answer": "It was an egg.", "explanation": "过去时描述：主语 + was/were + 名词/形容词。was用于单数，were用于复数。"},
-        {"type": "sentence_reorder", "question": "is / Now / it / a / caterpillar / .", "answer": "Now it is a caterpillar.", "explanation": "现在时描述：Now + 主语 + is + 名词。"},
-        {"type": "logic_match", "question": "将动物与生长阶段配对：butterfly, chicken, duck, egg, caterpillar, cocoon, chick, duckling", "answer": "butterfly: egg→caterpillar→cocoon→butterfly, chicken: egg→chick, duck: egg→duckling", "explanation": "不同动物有不同的生长过程。"},
-        {"type": "context_fill", "question": "They _____ (was/were) small. Now they are big.", "answer": "were", "explanation": "复数用were，单数用was。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'蝴蝶'用英语怎么说？",
+          "options": [
+            "was",
+            "chicken",
+            "butterfly"
+          ],
+          "answer": "butterfly",
+          "audio": "butterfly"
+        },
+        {
+          "type": "choice",
+          "question": "'飞'用英语怎么说？",
+          "options": [
+            "butterfly",
+            "grow",
+            "fly"
+          ],
+          "answer": "fly",
+          "audio": "fly"
+        },
+        {
+          "type": "choice",
+          "question": "'蛋'用英语怎么说？",
+          "options": [
+            "caterpillar",
+            "butterfly",
+            "egg"
+          ],
+          "answer": "egg",
+          "audio": "egg"
+        }
       ]
     },
     "unit3": {
@@ -122,31 +367,137 @@
       "nameCN": "好吵啊！",
       "topic": "学习噪音词汇和过去时",
       "vocabulary": [
-        {"word": "drill", "chinese": "钻孔机", "phonetic": "/drɪl/", "audio": "drill"},
-        {"word": "lorry", "chinese": "卡车", "phonetic": "/ˈlɒri/", "audio": "lorry"},
-        {"word": "bus", "chinese": "公共汽车", "phonetic": "/bʌs/", "audio": "bus"},
-        {"word": "car", "chinese": "小汽车", "phonetic": "/kɑː/", "audio": "car"},
-        {"word": "motorbike", "chinese": "摩托车", "phonetic": "/ˈməʊtəbaɪk/", "audio": "motorbike"},
-        {"word": "noise", "chinese": "噪音", "phonetic": "/nɔɪz/", "audio": "noise"},
-        {"word": "hear", "chinese": "听见", "phonetic": "/hɪə/", "audio": "hear"},
-        {"word": "heard", "chinese": "听见(过去式)", "phonetic": "/hɜːd/", "audio": "heard"},
-        {"word": "sit", "chinese": "坐", "phonetic": "/sɪt/", "audio": "sit"},
-        {"word": "sat", "chinese": "坐(过去式)", "phonetic": "/sæt/", "audio": "sat"},
-        {"word": "loud", "chinese": "大声的", "phonetic": "/laʊd/", "audio": "loud"},
-        {"word": "quiet", "chinese": "安静的", "phonetic": "/ˈkwaɪət/", "audio": "quiet"},
-        {"word": "noisy", "chinese": "吵闹的", "phonetic": "/ˈnɔɪzi/", "audio": "noisy"}
+        {
+          "word": "drill",
+          "chinese": "钻孔机",
+          "phonetic": "/drɪl/",
+          "audio": "drill"
+        },
+        {
+          "word": "lorry",
+          "chinese": "卡车",
+          "phonetic": "/ˈlɒri/",
+          "audio": "lorry"
+        },
+        {
+          "word": "bus",
+          "chinese": "公共汽车",
+          "phonetic": "/bʌs/",
+          "audio": "bus"
+        },
+        {
+          "word": "car",
+          "chinese": "小汽车",
+          "phonetic": "/kɑː/",
+          "audio": "car"
+        },
+        {
+          "word": "motorbike",
+          "chinese": "摩托车",
+          "phonetic": "/ˈməʊtəbaɪk/",
+          "audio": "motorbike"
+        },
+        {
+          "word": "noise",
+          "chinese": "噪音",
+          "phonetic": "/nɔɪz/",
+          "audio": "noise"
+        },
+        {
+          "word": "hear",
+          "chinese": "听见",
+          "phonetic": "/hɪə/",
+          "audio": "hear"
+        },
+        {
+          "word": "heard",
+          "chinese": "听见(过去式)",
+          "phonetic": "/hɜːd/",
+          "audio": "heard"
+        },
+        {
+          "word": "sit",
+          "chinese": "坐",
+          "phonetic": "/sɪt/",
+          "audio": "sit"
+        },
+        {
+          "word": "sat",
+          "chinese": "坐(过去式)",
+          "phonetic": "/sæt/",
+          "audio": "sat"
+        },
+        {
+          "word": "loud",
+          "chinese": "大声的",
+          "phonetic": "/laʊd/",
+          "audio": "loud"
+        },
+        {
+          "word": "quiet",
+          "chinese": "安静的",
+          "phonetic": "/ˈkwaɪət/",
+          "audio": "quiet"
+        },
+        {
+          "word": "noisy",
+          "chinese": "吵闹的",
+          "phonetic": "/ˈnɔɪzi/",
+          "audio": "noisy"
+        }
       ],
       "sentences": [
-        {"english": "What's that noise?", "chinese": "那是什么噪音？"},
-        {"english": "I heard a drill.", "chinese": "我听到了钻孔机的声音。"},
-        {"english": "It was too loud.", "chinese": "它太吵了。"},
-        {"english": "It was quiet. Now it is noisy.", "chinese": "之前很安静。现在很吵。"}
+        {
+          "english": "What's that noise?",
+          "chinese": "那是什么噪音？"
+        },
+        {
+          "english": "I heard a drill.",
+          "chinese": "我听到了钻孔机的声音。"
+        },
+        {
+          "english": "It was too loud.",
+          "chinese": "它太吵了。"
+        },
+        {
+          "english": "It was quiet. Now it is noisy.",
+          "chinese": "之前很安静。现在很吵。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "that / What's / noise / ?", "answer": "What's that noise?", "explanation": "询问噪音：What's that noise?"},
-        {"type": "sentence_reorder", "question": "heard / I / a / drill / .", "answer": "I heard a drill.", "explanation": "过去时：主语 + 动词过去式。hear的过去式是heard。"},
-        {"type": "logic_match", "question": "将动词与过去式配对：hear, sit, is, are, heard, sat, was, were", "answer": "hear↔heard, sit↔sat, is↔was, are↔were", "explanation": "不规则动词的过去式需要记住。"},
-        {"type": "context_fill", "question": "I _____ (hear/heard) a loud noise yesterday.", "answer": "heard", "explanation": "yesterday表示过去，用过去式heard。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'噪音'用英语怎么说？",
+          "options": [
+            "hear",
+            "noise",
+            "car"
+          ],
+          "answer": "noise",
+          "audio": "noise"
+        },
+        {
+          "type": "choice",
+          "question": "'摩托车'用英语怎么说？",
+          "options": [
+            "heard",
+            "motorbike",
+            "lorry"
+          ],
+          "answer": "motorbike",
+          "audio": "motorbike"
+        },
+        {
+          "type": "choice",
+          "question": "'公共汽车'用英语怎么说？",
+          "options": [
+            "bus",
+            "noise",
+            "loud"
+          ],
+          "answer": "bus",
+          "audio": "bus"
+        }
       ]
     },
     "unit4": {
@@ -156,33 +507,149 @@
       "nameCN": "食物与饮料",
       "topic": "学习食物词汇和过去时",
       "vocabulary": [
-        {"word": "meat", "chinese": "肉", "phonetic": "/miːt/", "audio": "meat"},
-        {"word": "pork", "chinese": "猪肉", "phonetic": "/pɔːk/", "audio": "pork"},
-        {"word": "beef", "chinese": "牛肉", "phonetic": "/biːf/", "audio": "beef"},
-        {"word": "chicken", "chinese": "鸡肉", "phonetic": "/ˈtʃɪkɪn/", "audio": "chicken"},
-        {"word": "fish", "chinese": "鱼肉", "phonetic": "/fɪʃ/", "audio": "fish"},
-        {"word": "vegetable", "chinese": "蔬菜", "phonetic": "/ˈvedʒtəbl/", "audio": "vegetable"},
-        {"word": "tomato", "chinese": "西红柿", "phonetic": "/təˈmɑːtəʊ/", "audio": "tomato"},
-        {"word": "potato", "chinese": "土豆", "phonetic": "/pəˈteɪtəʊ/", "audio": "potato"},
-        {"word": "carrot", "chinese": "胡萝卜", "phonetic": "/ˈkærət/", "audio": "carrot"},
-        {"word": "cabbage", "chinese": "卷心菜", "phonetic": "/ˈkæbɪdʒ/", "audio": "cabbage"},
-        {"word": "bean", "chinese": "豆类", "phonetic": "/biːn/", "audio": "bean"},
-        {"word": "healthy", "chinese": "健康的", "phonetic": "/ˈhelθi/", "audio": "healthy"},
-        {"word": "had", "chinese": "吃/有(have的过去式)", "phonetic": "/hæd/", "audio": "had"},
-        {"word": "did", "chinese": "做(do的过去式)", "phonetic": "/dɪd/", "audio": "did"},
-        {"word": "keep...away", "chinese": "远离", "phonetic": "/kiːp əˈweɪ/", "audio": "keep away"}
+        {
+          "word": "meat",
+          "chinese": "肉",
+          "phonetic": "/miːt/",
+          "audio": "meat"
+        },
+        {
+          "word": "pork",
+          "chinese": "猪肉",
+          "phonetic": "/pɔːk/",
+          "audio": "pork"
+        },
+        {
+          "word": "beef",
+          "chinese": "牛肉",
+          "phonetic": "/biːf/",
+          "audio": "beef"
+        },
+        {
+          "word": "chicken",
+          "chinese": "鸡肉",
+          "phonetic": "/ˈtʃɪkɪn/",
+          "audio": "chicken"
+        },
+        {
+          "word": "fish",
+          "chinese": "鱼肉",
+          "phonetic": "/fɪʃ/",
+          "audio": "fish"
+        },
+        {
+          "word": "vegetable",
+          "chinese": "蔬菜",
+          "phonetic": "/ˈvedʒtəbl/",
+          "audio": "vegetable"
+        },
+        {
+          "word": "tomato",
+          "chinese": "西红柿",
+          "phonetic": "/təˈmɑːtəʊ/",
+          "audio": "tomato"
+        },
+        {
+          "word": "potato",
+          "chinese": "土豆",
+          "phonetic": "/pəˈteɪtəʊ/",
+          "audio": "potato"
+        },
+        {
+          "word": "carrot",
+          "chinese": "胡萝卜",
+          "phonetic": "/ˈkærət/",
+          "audio": "carrot"
+        },
+        {
+          "word": "cabbage",
+          "chinese": "卷心菜",
+          "phonetic": "/ˈkæbɪdʒ/",
+          "audio": "cabbage"
+        },
+        {
+          "word": "bean",
+          "chinese": "豆类",
+          "phonetic": "/biːn/",
+          "audio": "bean"
+        },
+        {
+          "word": "healthy",
+          "chinese": "健康的",
+          "phonetic": "/ˈhelθi/",
+          "audio": "healthy"
+        },
+        {
+          "word": "had",
+          "chinese": "吃/有(have的过去式)",
+          "phonetic": "/hæd/",
+          "audio": "had"
+        },
+        {
+          "word": "did",
+          "chinese": "做(do的过去式)",
+          "phonetic": "/dɪd/",
+          "audio": "did"
+        },
+        {
+          "word": "keep...away",
+          "chinese": "远离",
+          "phonetic": "/kiːp əˈweɪ/",
+          "audio": "keep away"
+        }
       ],
       "sentences": [
-        {"english": "What did you have for breakfast?", "chinese": "你早饭吃了什么？"},
-        {"english": "I had some bread and milk.", "chinese": "我吃了一些面包和牛奶。"},
-        {"english": "Is it healthy?", "chinese": "它健康吗？"},
-        {"english": "An apple a day keeps the doctor away.", "chinese": "一天一个苹果，医生远离我。"}
+        {
+          "english": "What did you have for breakfast?",
+          "chinese": "你早饭吃了什么？"
+        },
+        {
+          "english": "I had some bread and milk.",
+          "chinese": "我吃了一些面包和牛奶。"
+        },
+        {
+          "english": "Is it healthy?",
+          "chinese": "它健康吗？"
+        },
+        {
+          "english": "An apple a day keeps the doctor away.",
+          "chinese": "一天一个苹果，医生远离我。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "did / What / you / have / for breakfast / ?", "answer": "What did you have for breakfast?", "explanation": "过去时疑问句：What did + 主语 + 动词原形?"},
-        {"type": "sentence_reorder", "question": "had / I / some / bread / and / milk / .", "answer": "I had some bread and milk.", "explanation": "过去时回答：主语 + had + 食物。have的过去式是had。"},
-        {"type": "logic_match", "question": "将食物与类别配对：pork, beef, chicken, tomato, potato, carrot, meat, vegetable", "answer": "pork, beef, chicken↔meat, tomato, potato, carrot↔vegetable", "explanation": "肉类和蔬菜是两大类食物。"},
-        {"type": "context_fill", "question": "I _____ (have/had) some fish and vegetables for dinner yesterday.", "answer": "had", "explanation": "yesterday表示过去，用过去式had。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'胡萝卜'用英语怎么说？",
+          "options": [
+            "pork",
+            "carrot",
+            "cabbage"
+          ],
+          "answer": "carrot",
+          "audio": "carrot"
+        },
+        {
+          "type": "choice",
+          "question": "'猪肉'用英语怎么说？",
+          "options": [
+            "fish",
+            "bean",
+            "pork"
+          ],
+          "answer": "pork",
+          "audio": "pork"
+        },
+        {
+          "type": "choice",
+          "question": "'西红柿'用英语怎么说？",
+          "options": [
+            "tomato",
+            "healthy",
+            "meat"
+          ],
+          "answer": "tomato",
+          "audio": "tomato"
+        }
       ]
     },
     "unit5": {
@@ -192,34 +659,155 @@
       "nameCN": "季节",
       "topic": "学习天气形容词和温度",
       "vocabulary": [
-        {"word": "cloudy", "chinese": "多云的", "phonetic": "/ˈklaʊdi/", "audio": "cloudy"},
-        {"word": "sunny", "chinese": "晴朗的", "phonetic": "/ˈsʌni/", "audio": "sunny"},
-        {"word": "rainy", "chinese": "下雨的", "phonetic": "/ˈreɪni/", "audio": "rainy"},
-        {"word": "windy", "chinese": "多风的", "phonetic": "/ˈwɪndi/", "audio": "windy"},
-        {"word": "snowy", "chinese": "下雪的", "phonetic": "/ˈsnəʊi/", "audio": "snowy"},
-        {"word": "stormy", "chinese": "暴风雨的", "phonetic": "/ˈstɔːmi/", "audio": "stormy"},
-        {"word": "foggy", "chinese": "有雾的", "phonetic": "/ˈfɒɡi/", "audio": "foggy"},
-        {"word": "cloud", "chinese": "云", "phonetic": "/klaʊd/", "audio": "cloud"},
-        {"word": "sun", "chinese": "太阳", "phonetic": "/sʌn/", "audio": "sun"},
-        {"word": "rain", "chinese": "雨", "phonetic": "/reɪn/", "audio": "rain"},
-        {"word": "wind", "chinese": "风", "phonetic": "/wɪnd/", "audio": "wind"},
-        {"word": "snow", "chinese": "雪", "phonetic": "/snəʊ/", "audio": "snow"},
-        {"word": "storm", "chinese": "风暴", "phonetic": "/stɔːm/", "audio": "storm"},
-        {"word": "fog", "chinese": "雾", "phonetic": "/fɒɡ/", "audio": "fog"},
-        {"word": "temperature", "chinese": "温度", "phonetic": "/ˈtemprətʃə/", "audio": "temperature"},
-        {"word": "degree", "chinese": "度数", "phonetic": "/dɪˈɡriː/", "audio": "degree"}
+        {
+          "word": "cloudy",
+          "chinese": "多云的",
+          "phonetic": "/ˈklaʊdi/",
+          "audio": "cloudy"
+        },
+        {
+          "word": "sunny",
+          "chinese": "晴朗的",
+          "phonetic": "/ˈsʌni/",
+          "audio": "sunny"
+        },
+        {
+          "word": "rainy",
+          "chinese": "下雨的",
+          "phonetic": "/ˈreɪni/",
+          "audio": "rainy"
+        },
+        {
+          "word": "windy",
+          "chinese": "多风的",
+          "phonetic": "/ˈwɪndi/",
+          "audio": "windy"
+        },
+        {
+          "word": "snowy",
+          "chinese": "下雪的",
+          "phonetic": "/ˈsnəʊi/",
+          "audio": "snowy"
+        },
+        {
+          "word": "stormy",
+          "chinese": "暴风雨的",
+          "phonetic": "/ˈstɔːmi/",
+          "audio": "stormy"
+        },
+        {
+          "word": "foggy",
+          "chinese": "有雾的",
+          "phonetic": "/ˈfɒɡi/",
+          "audio": "foggy"
+        },
+        {
+          "word": "cloud",
+          "chinese": "云",
+          "phonetic": "/klaʊd/",
+          "audio": "cloud"
+        },
+        {
+          "word": "sun",
+          "chinese": "太阳",
+          "phonetic": "/sʌn/",
+          "audio": "sun"
+        },
+        {
+          "word": "rain",
+          "chinese": "雨",
+          "phonetic": "/reɪn/",
+          "audio": "rain"
+        },
+        {
+          "word": "wind",
+          "chinese": "风",
+          "phonetic": "/wɪnd/",
+          "audio": "wind"
+        },
+        {
+          "word": "snow",
+          "chinese": "雪",
+          "phonetic": "/snəʊ/",
+          "audio": "snow"
+        },
+        {
+          "word": "storm",
+          "chinese": "风暴",
+          "phonetic": "/stɔːm/",
+          "audio": "storm"
+        },
+        {
+          "word": "fog",
+          "chinese": "雾",
+          "phonetic": "/fɒɡ/",
+          "audio": "fog"
+        },
+        {
+          "word": "temperature",
+          "chinese": "温度",
+          "phonetic": "/ˈtemprətʃə/",
+          "audio": "temperature"
+        },
+        {
+          "word": "degree",
+          "chinese": "度数",
+          "phonetic": "/dɪˈɡriː/",
+          "audio": "degree"
+        }
       ],
       "sentences": [
-        {"english": "What's the weather like in winter?", "chinese": "冬天的天气怎么样？"},
-        {"english": "It's cold and snowy.", "chinese": "又冷又下雪。"},
-        {"english": "What was the temperature yesterday?", "chinese": "昨天的温度是多少？"},
-        {"english": "It was 5 degrees.", "chinese": "是5度。"}
+        {
+          "english": "What's the weather like in winter?",
+          "chinese": "冬天的天气怎么样？"
+        },
+        {
+          "english": "It's cold and snowy.",
+          "chinese": "又冷又下雪。"
+        },
+        {
+          "english": "What was the temperature yesterday?",
+          "chinese": "昨天的温度是多少？"
+        },
+        {
+          "english": "It was 5 degrees.",
+          "chinese": "是5度。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "weather / What's / like / the / in winter / ?", "answer": "What's the weather like in winter?", "explanation": "询问天气：What's the weather like in + 季节?"},
-        {"type": "sentence_reorder", "question": "temperature / What / the / was / yesterday / ?", "answer": "What was the temperature yesterday?", "explanation": "询问过去温度：What was the temperature?"},
-        {"type": "logic_match", "question": "将名词与形容词配对：cloud, sun, rain, wind, snow, fog, cloudy, sunny, rainy, windy, snowy, foggy", "answer": "cloud↔cloudy, sun↔sunny, rain↔rainy, wind↔windy, snow↔snowy, fog↔foggy", "explanation": "天气名词加y变成形容词。"},
-        {"type": "context_fill", "question": "The temperature _____ (is/was) 25 degrees yesterday.", "answer": "was", "explanation": "yesterday表示过去，用was。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'下雨的'用英语怎么说？",
+          "options": [
+            "temperature",
+            "rainy",
+            "sunny"
+          ],
+          "answer": "rainy",
+          "audio": "rainy"
+        },
+        {
+          "type": "choice",
+          "question": "'雾'用英语怎么说？",
+          "options": [
+            "fog",
+            "cloud",
+            "wind"
+          ],
+          "answer": "fog",
+          "audio": "fog"
+        },
+        {
+          "type": "choice",
+          "question": "'多风的'用英语怎么说？",
+          "options": [
+            "windy",
+            "degree",
+            "foggy"
+          ],
+          "answer": "windy",
+          "audio": "windy"
+        }
       ]
     },
     "unit6": {
@@ -229,27 +817,113 @@
       "nameCN": "节日",
       "topic": "学习节日词汇",
       "vocabulary": [
-        {"word": "holiday", "chinese": "节日/假期", "phonetic": "/ˈhɒlədeɪ/", "audio": "holiday"},
-        {"word": "New Year", "chinese": "新年", "phonetic": "/njuː jɪə/", "audio": "New Year"},
-        {"word": "Spring Festival", "chinese": "春节", "phonetic": "/sprɪŋ ˈfestɪvl/", "audio": "Spring Festival"},
-        {"word": "Mid-autumn Festival", "chinese": "中秋节", "phonetic": "/mɪd ˈɔːtəm ˈfestɪvl/", "audio": "Mid-autumn Festival"},
-        {"word": "National Day", "chinese": "国庆节", "phonetic": "/ˈnæʃnəl deɪ/", "audio": "National Day"},
-        {"word": "Children's Day", "chinese": "儿童节", "phonetic": "/ˈtʃɪldrənz deɪ/", "audio": "Children's Day"},
-        {"word": "celebrate", "chinese": "庆祝", "phonetic": "/ˈselɪbreɪt/", "audio": "celebrate"},
-        {"word": "visit", "chinese": "拜访", "phonetic": "/ˈvɪzɪt/", "audio": "visit"},
-        {"word": "tradition", "chinese": "传统", "phonetic": "/trəˈdɪʃn/", "audio": "tradition"}
+        {
+          "word": "holiday",
+          "chinese": "节日/假期",
+          "phonetic": "/ˈhɒlədeɪ/",
+          "audio": "holiday"
+        },
+        {
+          "word": "New Year",
+          "chinese": "新年",
+          "phonetic": "/njuː jɪə/",
+          "audio": "New Year"
+        },
+        {
+          "word": "Spring Festival",
+          "chinese": "春节",
+          "phonetic": "/sprɪŋ ˈfestɪvl/",
+          "audio": "Spring Festival"
+        },
+        {
+          "word": "Mid-autumn Festival",
+          "chinese": "中秋节",
+          "phonetic": "/mɪd ˈɔːtəm ˈfestɪvl/",
+          "audio": "Mid-autumn Festival"
+        },
+        {
+          "word": "National Day",
+          "chinese": "国庆节",
+          "phonetic": "/ˈnæʃnəl deɪ/",
+          "audio": "National Day"
+        },
+        {
+          "word": "Children's Day",
+          "chinese": "儿童节",
+          "phonetic": "/ˈtʃɪldrənz deɪ/",
+          "audio": "Children's Day"
+        },
+        {
+          "word": "celebrate",
+          "chinese": "庆祝",
+          "phonetic": "/ˈselɪbreɪt/",
+          "audio": "celebrate"
+        },
+        {
+          "word": "visit",
+          "chinese": "拜访",
+          "phonetic": "/ˈvɪzɪt/",
+          "audio": "visit"
+        },
+        {
+          "word": "tradition",
+          "chinese": "传统",
+          "phonetic": "/trəˈdɪʃn/",
+          "audio": "tradition"
+        }
       ],
       "sentences": [
-        {"english": "When is Spring Festival?", "chinese": "春节是什么时候？"},
-        {"english": "It's in January or February.", "chinese": "在一月或二月。"},
-        {"english": "How do you celebrate it?", "chinese": "你怎么庆祝它？"},
-        {"english": "We visit relatives and friends.", "chinese": "我们拜访亲戚朋友。"}
+        {
+          "english": "When is Spring Festival?",
+          "chinese": "春节是什么时候？"
+        },
+        {
+          "english": "It's in January or February.",
+          "chinese": "在一月或二月。"
+        },
+        {
+          "english": "How do you celebrate it?",
+          "chinese": "你怎么庆祝它？"
+        },
+        {
+          "english": "We visit relatives and friends.",
+          "chinese": "我们拜访亲戚朋友。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "is / When / Spring Festival / ?", "answer": "When is Spring Festival?", "explanation": "询问节日时间：When is + 节日?"},
-        {"type": "sentence_reorder", "question": "do / How / you / celebrate / it / ?", "answer": "How do you celebrate it?", "explanation": "询问庆祝方式：How do you celebrate + 节日?"},
-        {"type": "logic_match", "question": "将节日与日期配对：New Year, Children's Day, National Day, Mid-autumn Festival, January 1st, June 1st, October 1st, September/October", "answer": "New Year↔January 1st, Children's Day↔June 1st, National Day↔October 1st, Mid-autumn Festival↔September/October", "explanation": "记住重要节日的日期。"},
-        {"type": "context_fill", "question": "Spring Festival is _____ (in/on) January or February.", "answer": "in", "explanation": "月份前用in，具体日期前用on。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'新年'用英语怎么说？",
+          "options": [
+            "National Day",
+            "New Year",
+            "Spring Festival"
+          ],
+          "answer": "New Year",
+          "audio": "new year"
+        },
+        {
+          "type": "choice",
+          "question": "'春节'用英语怎么说？",
+          "options": [
+            "celebrate",
+            "Children's Day",
+            "Spring Festival"
+          ],
+          "answer": "Spring Festival",
+          "audio": "spring festival"
+        },
+        {
+          "type": "choice",
+          "question": "'国庆节'用英语怎么说？",
+          "options": [
+            "visit",
+            "National Day",
+            "celebrate"
+          ],
+          "answer": "National Day",
+          "audio": "national day"
+        }
       ]
     },
     "unit7": {
@@ -259,29 +933,125 @@
       "nameCN": "问路",
       "topic": "学习问路和交通方式",
       "vocabulary": [
-        {"word": "ask the way", "chinese": "问路", "phonetic": "/ɑːsk ðə weɪ/", "audio": "ask the way"},
-        {"word": "get to", "chinese": "到达", "phonetic": "/ɡet tuː/", "audio": "get to"},
-        {"word": "want to", "chinese": "想要", "phonetic": "/wɒnt tuː/", "audio": "want to"},
-        {"word": "by metro", "chinese": "乘地铁", "phonetic": "/baɪ ˈmetrəʊ/", "audio": "by metro"},
-        {"word": "by taxi", "chinese": "乘出租车", "phonetic": "/baɪ ˈtæksi/", "audio": "by taxi"},
-        {"word": "get on", "chinese": "上车", "phonetic": "/ɡet ɒn/", "audio": "get on"},
-        {"word": "get off", "chinese": "下车", "phonetic": "/ɡet ɒf/", "audio": "get off"},
-        {"word": "walk to", "chinese": "步行去", "phonetic": "/wɔːk tuː/", "audio": "walk to"},
-        {"word": "cinema", "chinese": "电影院", "phonetic": "/ˈsɪnəmə/", "audio": "cinema"},
-        {"word": "station", "chinese": "车站", "phonetic": "/ˈsteɪʃn/", "audio": "station"},
-        {"word": "park", "chinese": "公园", "phonetic": "/pɑːk/", "audio": "park"}
+        {
+          "word": "ask the way",
+          "chinese": "问路",
+          "phonetic": "/ɑːsk ðə weɪ/",
+          "audio": "ask the way"
+        },
+        {
+          "word": "get to",
+          "chinese": "到达",
+          "phonetic": "/ɡet tuː/",
+          "audio": "get to"
+        },
+        {
+          "word": "want to",
+          "chinese": "想要",
+          "phonetic": "/wɒnt tuː/",
+          "audio": "want to"
+        },
+        {
+          "word": "by metro",
+          "chinese": "乘地铁",
+          "phonetic": "/baɪ ˈmetrəʊ/",
+          "audio": "by metro"
+        },
+        {
+          "word": "by taxi",
+          "chinese": "乘出租车",
+          "phonetic": "/baɪ ˈtæksi/",
+          "audio": "by taxi"
+        },
+        {
+          "word": "get on",
+          "chinese": "上车",
+          "phonetic": "/ɡet ɒn/",
+          "audio": "get on"
+        },
+        {
+          "word": "get off",
+          "chinese": "下车",
+          "phonetic": "/ɡet ɒf/",
+          "audio": "get off"
+        },
+        {
+          "word": "walk to",
+          "chinese": "步行去",
+          "phonetic": "/wɔːk tuː/",
+          "audio": "walk to"
+        },
+        {
+          "word": "cinema",
+          "chinese": "电影院",
+          "phonetic": "/ˈsɪnəmə/",
+          "audio": "cinema"
+        },
+        {
+          "word": "station",
+          "chinese": "车站",
+          "phonetic": "/ˈsteɪʃn/",
+          "audio": "station"
+        },
+        {
+          "word": "park",
+          "chinese": "公园",
+          "phonetic": "/pɑːk/",
+          "audio": "park"
+        }
       ],
       "sentences": [
-        {"english": "Excuse me, how can I get to the cinema?", "chinese": "打扰一下，我该怎么去电影院？"},
-        {"english": "You can take the metro.", "chinese": "你可以乘地铁。"},
-        {"english": "Get off at Park Station.", "chinese": "在公园站下车。"},
-        {"english": "Walk along this road and turn left.", "chinese": "沿着这条路走，然后左转。"}
+        {
+          "english": "Excuse me, how can I get to the cinema?",
+          "chinese": "打扰一下，我该怎么去电影院？"
+        },
+        {
+          "english": "You can take the metro.",
+          "chinese": "你可以乘地铁。"
+        },
+        {
+          "english": "Get off at Park Station.",
+          "chinese": "在公园站下车。"
+        },
+        {
+          "english": "Walk along this road and turn left.",
+          "chinese": "沿着这条路走，然后左转。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "can / how / I / get to / the cinema / ?", "answer": "How can I get to the cinema?", "explanation": "问路：How can I get to + 地点?"},
-        {"type": "sentence_reorder", "question": "can / the / take / You / metro / .", "answer": "You can take the metro.", "explanation": "建议交通方式：You can take + 交通工具。"},
-        {"type": "logic_match", "question": "将交通方式与表达配对：by metro, by taxi, get on, get off, take the metro, take a taxi, 上车, 下车", "answer": "by metro↔take the metro, by taxi↔take a taxi, get on↔上车, get off↔下车", "explanation": "不同的交通表达方式。"},
-        {"type": "context_fill", "question": "Get _____ (on/off) at the third station.", "answer": "off", "explanation": "下车用get off，上车用get on。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'问路'用英语怎么说？",
+          "options": [
+            "ask the way",
+            "want to",
+            "get on"
+          ],
+          "answer": "ask the way",
+          "audio": "ask the way"
+        },
+        {
+          "type": "choice",
+          "question": "'上车'用英语怎么说？",
+          "options": [
+            "by metro",
+            "get on",
+            "cinema"
+          ],
+          "answer": "get on",
+          "audio": "get on"
+        },
+        {
+          "type": "choice",
+          "question": "'下车'用英语怎么说？",
+          "options": [
+            "by taxi",
+            "get off",
+            "want to"
+          ],
+          "answer": "get off",
+          "audio": "get off"
+        }
       ]
     },
     "unit8": {
@@ -291,27 +1061,113 @@
       "nameCN": "天气",
       "topic": "学习天气描述",
       "vocabulary": [
-        {"word": "yesterday", "chinese": "昨天", "phonetic": "/ˈjestədeɪ/", "audio": "yesterday"},
-        {"word": "today", "chinese": "今天", "phonetic": "/təˈdeɪ/", "audio": "today"},
-        {"word": "tomorrow", "chinese": "明天", "phonetic": "/təˈmɒrəʊ/", "audio": "tomorrow"},
-        {"word": "sunny", "chinese": "晴朗的", "phonetic": "/ˈsʌni/", "audio": "sunny"},
-        {"word": "rainy", "chinese": "下雨的", "phonetic": "/ˈreɪni/", "audio": "rainy"},
-        {"word": "cloudy", "chinese": "多云的", "phonetic": "/ˈklaʊdi/", "audio": "cloudy"},
-        {"word": "windy", "chinese": "多风的", "phonetic": "/ˈwɪndi/", "audio": "windy"},
-        {"word": "warm", "chinese": "温暖的", "phonetic": "/wɔːm/", "audio": "warm"},
-        {"word": "cool", "chinese": "凉爽的", "phonetic": "/kuːl/", "audio": "cool"}
+        {
+          "word": "yesterday",
+          "chinese": "昨天",
+          "phonetic": "/ˈjestədeɪ/",
+          "audio": "yesterday"
+        },
+        {
+          "word": "today",
+          "chinese": "今天",
+          "phonetic": "/təˈdeɪ/",
+          "audio": "today"
+        },
+        {
+          "word": "tomorrow",
+          "chinese": "明天",
+          "phonetic": "/təˈmɒrəʊ/",
+          "audio": "tomorrow"
+        },
+        {
+          "word": "sunny",
+          "chinese": "晴朗的",
+          "phonetic": "/ˈsʌni/",
+          "audio": "sunny"
+        },
+        {
+          "word": "rainy",
+          "chinese": "下雨的",
+          "phonetic": "/ˈreɪni/",
+          "audio": "rainy"
+        },
+        {
+          "word": "cloudy",
+          "chinese": "多云的",
+          "phonetic": "/ˈklaʊdi/",
+          "audio": "cloudy"
+        },
+        {
+          "word": "windy",
+          "chinese": "多风的",
+          "phonetic": "/ˈwɪndi/",
+          "audio": "windy"
+        },
+        {
+          "word": "warm",
+          "chinese": "温暖的",
+          "phonetic": "/wɔːm/",
+          "audio": "warm"
+        },
+        {
+          "word": "cool",
+          "chinese": "凉爽的",
+          "phonetic": "/kuːl/",
+          "audio": "cool"
+        }
       ],
       "sentences": [
-        {"english": "How was the weather yesterday?", "chinese": "昨天天气怎么样？"},
-        {"english": "It was sunny and warm.", "chinese": "又晴朗又温暖。"},
-        {"english": "What's the weather like today?", "chinese": "今天天气怎么样？"},
-        {"english": "It's cloudy and cool.", "chinese": "又多云又凉爽。"}
+        {
+          "english": "How was the weather yesterday?",
+          "chinese": "昨天天气怎么样？"
+        },
+        {
+          "english": "It was sunny and warm.",
+          "chinese": "又晴朗又温暖。"
+        },
+        {
+          "english": "What's the weather like today?",
+          "chinese": "今天天气怎么样？"
+        },
+        {
+          "english": "It's cloudy and cool.",
+          "chinese": "又多云又凉爽。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "was / How / the weather / yesterday / ?", "answer": "How was the weather yesterday?", "explanation": "询问过去天气：How was the weather? 用was。"},
-        {"type": "sentence_reorder", "question": "sunny / It / was / warm / and / .", "answer": "It was sunny and warm.", "explanation": "过去时描述天气：It was + 天气形容词。"},
-        {"type": "logic_match", "question": "将时间与动词配对：yesterday, today, tomorrow, was, is, will be", "answer": "yesterday↔was, today↔is, tomorrow↔will be", "explanation": "不同时间用不同的时态。"},
-        {"type": "context_fill", "question": "Yesterday it _____ (is/was) rainy. Today it _____ (is/was) sunny.", "answer": "was, is", "explanation": "yesterday用过去式was，today用现在式is。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'凉爽的'用英语怎么说？",
+          "options": [
+            "windy",
+            "cool",
+            "rainy"
+          ],
+          "answer": "cool",
+          "audio": "cool"
+        },
+        {
+          "type": "choice",
+          "question": "'下雨的'用英语怎么说？",
+          "options": [
+            "sunny",
+            "today",
+            "rainy"
+          ],
+          "answer": "rainy",
+          "audio": "rainy"
+        },
+        {
+          "type": "choice",
+          "question": "'多云的'用英语怎么说？",
+          "options": [
+            "warm",
+            "cloudy",
+            "today"
+          ],
+          "answer": "cloudy",
+          "audio": "cloudy"
+        }
       ]
     },
     "unit9": {
@@ -321,28 +1177,119 @@
       "nameCN": "看医生",
       "topic": "学习看病词汇和建议",
       "vocabulary": [
-        {"word": "doctor", "chinese": "医生", "phonetic": "/ˈdɒktə/", "audio": "doctor"},
-        {"word": "headache", "chinese": "头痛", "phonetic": "/ˈhedeɪk/", "audio": "headache"},
-        {"word": "fever", "chinese": "发烧", "phonetic": "/ˈfiːvə/", "audio": "fever"},
-        {"word": "toothache", "chinese": "牙痛", "phonetic": "/ˈtuːθeɪk/", "audio": "toothache"},
-        {"word": "cold", "chinese": "感冒", "phonetic": "/kəʊld/", "audio": "cold"},
-        {"word": "cough", "chinese": "咳嗽", "phonetic": "/kɒf/", "audio": "cough"},
-        {"word": "medicine", "chinese": "药", "phonetic": "/ˈmedsn/", "audio": "medicine"},
-        {"word": "should", "chinese": "应该", "phonetic": "/ʃʊd/", "audio": "should"},
-        {"word": "take a rest", "chinese": "休息", "phonetic": "/teɪk ə rest/", "audio": "take a rest"},
-        {"word": "drink water", "chinese": "喝水", "phonetic": "/drɪŋk ˈwɔːtə/", "audio": "drink water"}
+        {
+          "word": "doctor",
+          "chinese": "医生",
+          "phonetic": "/ˈdɒktə/",
+          "audio": "doctor"
+        },
+        {
+          "word": "headache",
+          "chinese": "头痛",
+          "phonetic": "/ˈhedeɪk/",
+          "audio": "headache"
+        },
+        {
+          "word": "fever",
+          "chinese": "发烧",
+          "phonetic": "/ˈfiːvə/",
+          "audio": "fever"
+        },
+        {
+          "word": "toothache",
+          "chinese": "牙痛",
+          "phonetic": "/ˈtuːθeɪk/",
+          "audio": "toothache"
+        },
+        {
+          "word": "cold",
+          "chinese": "感冒",
+          "phonetic": "/kəʊld/",
+          "audio": "cold"
+        },
+        {
+          "word": "cough",
+          "chinese": "咳嗽",
+          "phonetic": "/kɒf/",
+          "audio": "cough"
+        },
+        {
+          "word": "medicine",
+          "chinese": "药",
+          "phonetic": "/ˈmedsn/",
+          "audio": "medicine"
+        },
+        {
+          "word": "should",
+          "chinese": "应该",
+          "phonetic": "/ʃʊd/",
+          "audio": "should"
+        },
+        {
+          "word": "take a rest",
+          "chinese": "休息",
+          "phonetic": "/teɪk ə rest/",
+          "audio": "take a rest"
+        },
+        {
+          "word": "drink water",
+          "chinese": "喝水",
+          "phonetic": "/drɪŋk ˈwɔːtə/",
+          "audio": "drink water"
+        }
       ],
       "sentences": [
-        {"english": "What's the matter with you?", "chinese": "你怎么了？"},
-        {"english": "I have a headache.", "chinese": "我头痛。"},
-        {"english": "You should take a rest.", "chinese": "你应该休息一下。"},
-        {"english": "You should drink more water.", "chinese": "你应该多喝水。"}
+        {
+          "english": "What's the matter with you?",
+          "chinese": "你怎么了？"
+        },
+        {
+          "english": "I have a headache.",
+          "chinese": "我头痛。"
+        },
+        {
+          "english": "You should take a rest.",
+          "chinese": "你应该休息一下。"
+        },
+        {
+          "english": "You should drink more water.",
+          "chinese": "你应该多喝水。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "matter / What's / with you / the / ?", "answer": "What's the matter with you?", "explanation": "询问病情：What's the matter with you?"},
-        {"type": "sentence_reorder", "question": "should / You / take / a rest / .", "answer": "You should take a rest.", "explanation": "给建议：You should + 动词原形。"},
-        {"type": "logic_match", "question": "将症状与建议配对：headache, fever, toothache, cough, take a rest, take medicine, go to the dentist, drink warm water", "answer": "headache↔take a rest, fever↔take medicine, toothache↔go to the dentist, cough↔drink warm water", "explanation": "不同症状有不同的建议。"},
-        {"type": "context_fill", "question": "You _____ (should/shouldn't) eat too much candy. It's bad for your teeth.", "answer": "shouldn't", "explanation": "shouldn't表示不应该。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'发烧'用英语怎么说？",
+          "options": [
+            "headache",
+            "fever",
+            "should"
+          ],
+          "answer": "fever",
+          "audio": "fever"
+        },
+        {
+          "type": "choice",
+          "question": "'喝水'用英语怎么说？",
+          "options": [
+            "cold",
+            "take a rest",
+            "drink water"
+          ],
+          "answer": "drink water",
+          "audio": "drink water"
+        },
+        {
+          "type": "choice",
+          "question": "'药'用英语怎么说？",
+          "options": [
+            "headache",
+            "cold",
+            "medicine"
+          ],
+          "answer": "medicine",
+          "audio": "medicine"
+        }
       ]
     },
     "unit10": {
@@ -352,27 +1299,113 @@
       "nameCN": "博物馆",
       "topic": "学习博物馆类型和表达意愿",
       "vocabulary": [
-        {"word": "museum", "chinese": "博物馆", "phonetic": "/mjuˈziːəm/", "audio": "museum"},
-        {"word": "science museum", "chinese": "科技馆", "phonetic": "/ˈsaɪəns mjuˈziːəm/", "audio": "science museum"},
-        {"word": "art museum", "chinese": "美术馆", "phonetic": "/ɑːt mjuˈziːəm/", "audio": "art museum"},
-        {"word": "history museum", "chinese": "历史博物馆", "phonetic": "/ˈhɪstri mjuˈziːəm/", "audio": "history museum"},
-        {"word": "insect museum", "chinese": "昆虫馆", "phonetic": "/ˈɪnsekt mjuˈziːəm/", "audio": "insect museum"},
-        {"word": "car museum", "chinese": "汽车馆", "phonetic": "/kɑː mjuˈziːəm/", "audio": "car museum"},
-        {"word": "railway museum", "chinese": "铁路博物馆", "phonetic": "/ˈreɪlweɪ mjuˈziːəm/", "audio": "railway museum"},
-        {"word": "visit", "chinese": "参观", "phonetic": "/ˈvɪzɪt/", "audio": "visit"},
-        {"word": "want to", "chinese": "想要", "phonetic": "/wɒnt tuː/", "audio": "want to"}
+        {
+          "word": "museum",
+          "chinese": "博物馆",
+          "phonetic": "/mjuˈziːəm/",
+          "audio": "museum"
+        },
+        {
+          "word": "science museum",
+          "chinese": "科技馆",
+          "phonetic": "/ˈsaɪəns mjuˈziːəm/",
+          "audio": "science museum"
+        },
+        {
+          "word": "art museum",
+          "chinese": "美术馆",
+          "phonetic": "/ɑːt mjuˈziːəm/",
+          "audio": "art museum"
+        },
+        {
+          "word": "history museum",
+          "chinese": "历史博物馆",
+          "phonetic": "/ˈhɪstri mjuˈziːəm/",
+          "audio": "history museum"
+        },
+        {
+          "word": "insect museum",
+          "chinese": "昆虫馆",
+          "phonetic": "/ˈɪnsekt mjuˈziːəm/",
+          "audio": "insect museum"
+        },
+        {
+          "word": "car museum",
+          "chinese": "汽车馆",
+          "phonetic": "/kɑː mjuˈziːəm/",
+          "audio": "car museum"
+        },
+        {
+          "word": "railway museum",
+          "chinese": "铁路博物馆",
+          "phonetic": "/ˈreɪlweɪ mjuˈziːəm/",
+          "audio": "railway museum"
+        },
+        {
+          "word": "visit",
+          "chinese": "参观",
+          "phonetic": "/ˈvɪzɪt/",
+          "audio": "visit"
+        },
+        {
+          "word": "want to",
+          "chinese": "想要",
+          "phonetic": "/wɒnt tuː/",
+          "audio": "want to"
+        }
       ],
       "sentences": [
-        {"english": "I want to visit the insect museum.", "chinese": "我想参观昆虫馆。"},
-        {"english": "Let's go to the science museum.", "chinese": "让我们去科技馆吧。"},
-        {"english": "Which museum do you want to visit?", "chinese": "你想参观哪个博物馆？"},
-        {"english": "I like the art museum.", "chinese": "我喜欢美术馆。"}
+        {
+          "english": "I want to visit the insect museum.",
+          "chinese": "我想参观昆虫馆。"
+        },
+        {
+          "english": "Let's go to the science museum.",
+          "chinese": "让我们去科技馆吧。"
+        },
+        {
+          "english": "Which museum do you want to visit?",
+          "chinese": "你想参观哪个博物馆？"
+        },
+        {
+          "english": "I like the art museum.",
+          "chinese": "我喜欢美术馆。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "want / I / to / visit / the insect museum / .", "answer": "I want to visit the insect museum.", "explanation": "表达意愿：I want to + 动词原形。"},
-        {"type": "sentence_reorder", "question": "museum / Which / you / do / want / to visit / ?", "answer": "Which museum do you want to visit?", "explanation": "询问选择：Which + 名词 + do you want to + 动词?"},
-        {"type": "logic_match", "question": "将博物馆与展品配对：science museum, art museum, insect museum, car museum, paintings, cars, insects, experiments", "answer": "science museum↔experiments, art museum↔paintings, insect museum↔insects, car museum↔cars", "explanation": "不同博物馆有不同的展品。"},
-        {"type": "context_fill", "question": "I want _____ (visit/to visit) the history museum.", "answer": "to visit", "explanation": "want后面跟to + 动词原形。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'科技馆'用英语怎么说？",
+          "options": [
+            "science museum",
+            "insect museum",
+            "history museum"
+          ],
+          "answer": "science museum",
+          "audio": "science museum"
+        },
+        {
+          "type": "choice",
+          "question": "'昆虫馆'用英语怎么说？",
+          "options": [
+            "insect museum",
+            "car museum",
+            "art museum"
+          ],
+          "answer": "insect museum",
+          "audio": "insect museum"
+        },
+        {
+          "type": "choice",
+          "question": "'历史博物馆'用英语怎么说？",
+          "options": [
+            "history museum",
+            "insect museum",
+            "science museum"
+          ],
+          "answer": "history museum",
+          "audio": "history museum"
+        }
       ]
     },
     "unit11": {
@@ -382,26 +1415,107 @@
       "nameCN": "西方节日",
       "topic": "学习西方节日",
       "vocabulary": [
-        {"word": "Christmas", "chinese": "圣诞节", "phonetic": "/ˈkrɪsməs/", "audio": "Christmas"},
-        {"word": "Halloween", "chinese": "万圣节", "phonetic": "/ˌhæləʊˈiːn/", "audio": "Halloween"},
-        {"word": "Thanksgiving", "chinese": "感恩节", "phonetic": "/θæŋksˈɡɪvɪŋ/", "audio": "Thanksgiving"},
-        {"word": "Easter", "chinese": "复活节", "phonetic": "/ˈiːstə/", "audio": "Easter"},
-        {"word": "decorate", "chinese": "装饰", "phonetic": "/ˈdekəreɪt/", "audio": "decorate"},
-        {"word": "celebrate", "chinese": "庆祝", "phonetic": "/ˈselɪbreɪt/", "audio": "celebrate"},
-        {"word": "tradition", "chinese": "传统", "phonetic": "/trəˈdɪʃn/", "audio": "tradition"},
-        {"word": "present", "chinese": "礼物", "phonetic": "/ˈpreznt/", "audio": "present"}
+        {
+          "word": "Christmas",
+          "chinese": "圣诞节",
+          "phonetic": "/ˈkrɪsməs/",
+          "audio": "Christmas"
+        },
+        {
+          "word": "Halloween",
+          "chinese": "万圣节",
+          "phonetic": "/ˌhæləʊˈiːn/",
+          "audio": "Halloween"
+        },
+        {
+          "word": "Thanksgiving",
+          "chinese": "感恩节",
+          "phonetic": "/θæŋksˈɡɪvɪŋ/",
+          "audio": "Thanksgiving"
+        },
+        {
+          "word": "Easter",
+          "chinese": "复活节",
+          "phonetic": "/ˈiːstə/",
+          "audio": "Easter"
+        },
+        {
+          "word": "decorate",
+          "chinese": "装饰",
+          "phonetic": "/ˈdekəreɪt/",
+          "audio": "decorate"
+        },
+        {
+          "word": "celebrate",
+          "chinese": "庆祝",
+          "phonetic": "/ˈselɪbreɪt/",
+          "audio": "celebrate"
+        },
+        {
+          "word": "tradition",
+          "chinese": "传统",
+          "phonetic": "/trəˈdɪʃn/",
+          "audio": "tradition"
+        },
+        {
+          "word": "present",
+          "chinese": "礼物",
+          "phonetic": "/ˈpreznt/",
+          "audio": "present"
+        }
       ],
       "sentences": [
-        {"english": "When is Christmas?", "chinese": "圣诞节是什么时候？"},
-        {"english": "It's on the 25th of December.", "chinese": "是12月25日。"},
-        {"english": "Merry Christmas!", "chinese": "圣诞快乐！"},
-        {"english": "What do you do at Halloween?", "chinese": "你在万圣节做什么？"}
+        {
+          "english": "When is Christmas?",
+          "chinese": "圣诞节是什么时候？"
+        },
+        {
+          "english": "It's on the 25th of December.",
+          "chinese": "是12月25日。"
+        },
+        {
+          "english": "Merry Christmas!",
+          "chinese": "圣诞快乐！"
+        },
+        {
+          "english": "What do you do at Halloween?",
+          "chinese": "你在万圣节做什么？"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "is / When / Christmas / ?", "answer": "When is Christmas?", "explanation": "询问节日时间：When is + 节日?"},
-        {"type": "sentence_reorder", "question": "on / 25th / It's / the / of / December / .", "answer": "It's on the 25th of December.", "explanation": "表达日期：It's on the + 序数词 + of + 月份。"},
-        {"type": "logic_match", "question": "将节日与日期配对：Christmas, Halloween, Easter, Thanksgiving, December 25th, October 31st, March/April, November", "answer": "Christmas↔December 25th, Halloween↔October 31st, Easter↔March/April, Thanksgiving↔November", "explanation": "记住西方重要节日的日期。"},
-        {"type": "context_fill", "question": "Christmas is _____ (in/on) December 25th.", "answer": "on", "explanation": "具体日期前用on。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'圣诞节'用英语怎么说？",
+          "options": [
+            "Christmas",
+            "Halloween",
+            "decorate"
+          ],
+          "answer": "Christmas",
+          "audio": "christmas"
+        },
+        {
+          "type": "choice",
+          "question": "'装饰'用英语怎么说？",
+          "options": [
+            "Thanksgiving",
+            "decorate",
+            "present"
+          ],
+          "answer": "decorate",
+          "audio": "decorate"
+        },
+        {
+          "type": "choice",
+          "question": "'感恩节'用英语怎么说？",
+          "options": [
+            "celebrate",
+            "Thanksgiving",
+            "Halloween"
+          ],
+          "answer": "Thanksgiving",
+          "audio": "thanksgiving"
+        }
       ]
     },
     "unit12": {
@@ -411,29 +1525,353 @@
       "nameCN": "巨人的花园",
       "topic": "学习故事词汇",
       "vocabulary": [
-        {"word": "giant", "chinese": "巨人", "phonetic": "/ˈdʒaɪənt/", "audio": "giant"},
-        {"word": "garden", "chinese": "花园", "phonetic": "/ˈɡɑːdn/", "audio": "garden"},
-        {"word": "wall", "chinese": "墙", "phonetic": "/wɔːl/", "audio": "wall"},
-        {"word": "spring", "chinese": "春天", "phonetic": "/sprɪŋ/", "audio": "spring"},
-        {"word": "winter", "chinese": "冬天", "phonetic": "/ˈwɪntə/", "audio": "winter"},
-        {"word": "child", "chinese": "孩子", "phonetic": "/tʃaɪld/", "audio": "child"},
-        {"word": "children", "chinese": "孩子们", "phonetic": "/ˈtʃɪldrən/", "audio": "children"},
-        {"word": "play", "chinese": "玩", "phonetic": "/pleɪ/", "audio": "play"},
-        {"word": "beautiful", "chinese": "美丽的", "phonetic": "/ˈbjuːtɪfl/", "audio": "beautiful"},
-        {"word": "happy", "chinese": "快乐的", "phonetic": "/ˈhæpi/", "audio": "happy"},
-        {"word": "sad", "chinese": "悲伤的", "phonetic": "/sæd/", "audio": "sad"}
+        {
+          "word": "giant",
+          "chinese": "巨人",
+          "phonetic": "/ˈdʒaɪənt/",
+          "audio": "giant"
+        },
+        {
+          "word": "garden",
+          "chinese": "花园",
+          "phonetic": "/ˈɡɑːdn/",
+          "audio": "garden"
+        },
+        {
+          "word": "wall",
+          "chinese": "墙",
+          "phonetic": "/wɔːl/",
+          "audio": "wall"
+        },
+        {
+          "word": "spring",
+          "chinese": "春天",
+          "phonetic": "/sprɪŋ/",
+          "audio": "spring"
+        },
+        {
+          "word": "winter",
+          "chinese": "冬天",
+          "phonetic": "/ˈwɪntə/",
+          "audio": "winter"
+        },
+        {
+          "word": "child",
+          "chinese": "孩子",
+          "phonetic": "/tʃaɪld/",
+          "audio": "child"
+        },
+        {
+          "word": "children",
+          "chinese": "孩子们",
+          "phonetic": "/ˈtʃɪldrən/",
+          "audio": "children"
+        },
+        {
+          "word": "play",
+          "chinese": "玩",
+          "phonetic": "/pleɪ/",
+          "audio": "play"
+        },
+        {
+          "word": "beautiful",
+          "chinese": "美丽的",
+          "phonetic": "/ˈbjuːtɪfl/",
+          "audio": "beautiful"
+        },
+        {
+          "word": "happy",
+          "chinese": "快乐的",
+          "phonetic": "/ˈhæpi/",
+          "audio": "happy"
+        },
+        {
+          "word": "sad",
+          "chinese": "悲伤的",
+          "phonetic": "/sæd/",
+          "audio": "sad"
+        }
       ],
       "sentences": [
-        {"english": "There is a beautiful garden.", "chinese": "有一个美丽的花园。"},
-        {"english": "The giant builds a wall.", "chinese": "巨人建了一堵墙。"},
-        {"english": "The children cannot play in the garden.", "chinese": "孩子们不能在花园里玩了。"},
-        {"english": "Spring comes to the garden again.", "chinese": "春天又来到了花园。"}
+        {
+          "english": "There is a beautiful garden.",
+          "chinese": "有一个美丽的花园。"
+        },
+        {
+          "english": "The giant builds a wall.",
+          "chinese": "巨人建了一堵墙。"
+        },
+        {
+          "english": "The children cannot play in the garden.",
+          "chinese": "孩子们不能在花园里玩了。"
+        },
+        {
+          "english": "Spring comes to the garden again.",
+          "chinese": "春天又来到了花园。"
+        }
       ],
-      "grammar": [
-        {"type": "sentence_reorder", "question": "is / There / a / beautiful / garden / .", "answer": "There is a beautiful garden.", "explanation": "There be句型：There is + 单数名词。"},
-        {"type": "sentence_reorder", "question": "The / giant / builds / a / wall / .", "answer": "The giant builds a wall.", "explanation": "一般现在时：主语 + 动词第三人称单数。"},
-        {"type": "logic_match", "question": "按故事顺序排列：wall, spring, children, winter, happy, sad", "answer": "children→happy→giant builds wall→winter→sad→children return→spring", "explanation": "巨人的花园故事：孩子们玩耍→巨人建墙→冬天来了→孩子们回来→春天来了。"},
-        {"type": "context_fill", "question": "The children _____ (play/plays) in the garden every day.", "answer": "play", "explanation": "主语children是复数，动词用原形。"}
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'玩'用英语怎么说？",
+          "options": [
+            "wall",
+            "sad",
+            "play"
+          ],
+          "answer": "play",
+          "audio": "play"
+        },
+        {
+          "type": "choice",
+          "question": "'花园'用英语怎么说？",
+          "options": [
+            "happy",
+            "garden",
+            "spring"
+          ],
+          "answer": "garden",
+          "audio": "garden"
+        },
+        {
+          "type": "choice",
+          "question": "'美丽的'用英语怎么说？",
+          "options": [
+            "happy",
+            "spring",
+            "beautiful"
+          ],
+          "answer": "beautiful",
+          "audio": "beautiful"
+        }
+      ]
+    }
+  },
+  "grammar": {
+    "choiceQuestions": {
+      "basic": [
+        {
+          "id": "g5b_b_01",
+          "question": "It ___ an egg yesterday.",
+          "options": [
+            "was",
+            "is",
+            "are"
+          ],
+          "answer": 0,
+          "explanation": "yesterday表示过去，用was。学生常忘记使用过去式，或混淆be动词的过去形式。"
+        },
+        {
+          "id": "g5b_b_02",
+          "question": "They ___ happy last week.",
+          "options": [
+            "were",
+            "was",
+            "are"
+          ],
+          "answer": 0,
+          "explanation": "复数主语(They)过去时用were。was用于单数，are是现在时。last week提示过去时间。"
+        },
+        {
+          "id": "g5b_b_03",
+          "question": "I ___ a nice dinner yesterday evening.",
+          "options": [
+            "had",
+            "have",
+            "has"
+          ],
+          "answer": 0,
+          "explanation": "yesterday evening表示过去，用过去式had。学生常忘记变化或误用has（第三人称单数现在时）。"
+        },
+        {
+          "id": "g5b_b_04",
+          "question": "He ___ to school by bus yesterday.",
+          "options": [
+            "went",
+            "goed",
+            "goes"
+          ],
+          "answer": 0,
+          "explanation": "go的过去式是went，是不规则变化。goed不是正确形式，goes是现在时态。Yesterday提示用过去式。"
+        },
+        {
+          "id": "g5b_b_05",
+          "question": "The bread ___ five yuan yesterday.",
+          "options": [
+            "was",
+            "is",
+            "were"
+          ],
+          "answer": 0,
+          "explanation": "bread是不可数名词作主语，用was。yesterday提示过去时。were用于复数主语。"
+        },
+        {
+          "id": "g5b_b_06",
+          "question": "It ___ snowing heavily last night.",
+          "options": [
+            "was",
+            "is",
+            "were"
+          ],
+          "answer": 0,
+          "explanation": "It + 天气/温度结构用was。last night提示过去时间。学生可能混淆为there be句型用were。"
+        },
+        {
+          "id": "g5b_b_07",
+          "question": "Halloween is ___ October 31st.",
+          "options": [
+            "on",
+            "in",
+            "at"
+          ],
+          "answer": 0,
+          "explanation": "具体日期用介词on。October 31st是具体日期，in October是月份，at October 31st不正确。"
+        },
+        {
+          "id": "g5b_b_08",
+          "question": "Christmas is ___ the 25th of December.",
+          "options": [
+            "on",
+            "in",
+            "at"
+          ],
+          "answer": 0,
+          "explanation": "具体日期用介词on。the 25th of December是具体日期。节日名称+具体日期时用on。"
+        },
+        {
+          "id": "g5b_b_09",
+          "question": "You should ___ more water every day.",
+          "options": [
+            "drink",
+            "drinks",
+            "dranked"
+          ],
+          "answer": 0,
+          "explanation": "should是情态动词，后接动词原形drink。drinks是第三人称单数现在时，dranked是错误形式。"
+        },
+        {
+          "id": "g5b_b_10",
+          "question": "It ___ a beautiful garden last year.",
+          "options": [
+            "was",
+            "is",
+            "be"
+          ],
+          "answer": 0,
+          "explanation": "last year表示过去，用was。花园是单数，用was。学生可能误用is或忘记使用be动词。"
+        }
+      ],
+      "improved": [
+        {
+          "id": "g5b_i_01",
+          "question": "It ___ a cocoon. Now it is a butterfly.",
+          "options": [
+            "was",
+            "is",
+            "were"
+          ],
+          "answer": 0,
+          "explanation": "it是单数主语，句子描述过去情况用was。Now it is是现在时的对比，帮助判断用过去时。"
+        },
+        {
+          "id": "g5b_i_02",
+          "question": "The children ___ in the park yesterday afternoon.",
+          "options": [
+            "played",
+            "play",
+            "plays"
+          ],
+          "answer": 0,
+          "explanation": "The children是复数主语，yesterday afternoon提示过去时间，用过去式played。注意play的过去式直接加-ed。"
+        },
+        {
+          "id": "g5b_i_03",
+          "question": "Where ___ you ___ last Sunday?",
+          "options": [
+            "did, go",
+            "do, went",
+            "did, went"
+          ],
+          "answer": 0,
+          "explanation": "过去时疑问句结构：Did + 主语 + 动词原形？did已表示过去，动词用原形go。do...went形式矛盾。"
+        },
+        {
+          "id": "g5b_i_04",
+          "question": "I ___ the doctor because I was ill.",
+          "options": [
+            "saw",
+            "see",
+            "seen"
+          ],
+          "answer": 0,
+          "explanation": "because I was ill说明是过去时间，用saw。see的过去式是saw（不规则变化），seen需要与have连用构成完成时。"
+        },
+        {
+          "id": "g5b_i_05",
+          "question": "You should ___ to school on time.",
+          "options": [
+            "come",
+            "came",
+            "coming"
+          ],
+          "answer": 0,
+          "explanation": "should是情态动词，后接动词原形come。came是过去式，coming是现在分词，都不符合should的用法。"
+        },
+        {
+          "id": "g5b_i_06",
+          "question": "What ___ the weather ___ yesterday?",
+          "options": [
+            "was, like",
+            "is, like",
+            "did, like"
+          ],
+          "answer": 0,
+          "explanation": "询问过去天气用What was the weather like? is改为was。did like问的是'是否喜欢'，不是问天气状况。"
+        },
+        {
+          "id": "g5b_i_07",
+          "question": "There ___ a lot of snow last winter.",
+          "options": [
+            "was",
+            "is",
+            "are"
+          ],
+          "answer": 0,
+          "explanation": "snow是不可数名词，用was。last winter提示过去时间。学生可能误用there be的复数形式are。"
+        },
+        {
+          "id": "g5b_i_08",
+          "question": "The baby ___ cute last year. Now she can walk.",
+          "options": [
+            "was",
+            "is",
+            "were"
+          ],
+          "answer": 0,
+          "explanation": "last year提示过去时间，baby是单数用was。Now she can walk是现在时的对比，帮助判断用过去时。"
+        },
+        {
+          "id": "g5b_i_09",
+          "question": "I ___ some beautiful flowers in the garden.",
+          "options": [
+            "saw",
+            "seen",
+            "see"
+          ],
+          "answer": 0,
+          "explanation": "句子没有明确时间标志，但描述经历用一般过去式saw。seen必须与have连用(had seen)，see是现在时。"
+        },
+        {
+          "id": "g5b_i_10",
+          "question": "The giant ___ a wall around his beautiful garden.",
+          "options": [
+            "built",
+            "build",
+            "builds"
+          ],
+          "answer": 0,
+          "explanation": "描述故事/童话中的事件用过去时built。The giant's garden暗示这是一个故事场景，故事叙述都用过去时。"
+        }
       ]
     }
   }

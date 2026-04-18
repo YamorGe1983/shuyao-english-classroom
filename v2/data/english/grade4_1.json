@@ -181,6 +181,41 @@
           "english": "Nice to meet you.",
           "chinese": "很高兴认识你。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'名字'用英语怎么说？",
+          "options": [
+            "my",
+            "name",
+            "her"
+          ],
+          "answer": "name",
+          "audio": "name"
+        },
+        {
+          "type": "choice",
+          "question": "'同班同学'用英语怎么说？",
+          "options": [
+            "mask",
+            "my",
+            "classmate"
+          ],
+          "answer": "classmate",
+          "audio": "classmate"
+        },
+        {
+          "type": "choice",
+          "question": "'她的'用英语怎么说？",
+          "options": [
+            "classmate",
+            "her",
+            "desk"
+          ],
+          "answer": "her",
+          "audio": "her"
+        }
       ]
     },
     "unit2": {
@@ -278,6 +313,41 @@
           "english": "She can draw very well.",
           "chinese": "她画画很好。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'写'用英语怎么说？",
+          "options": [
+            "paint",
+            "very",
+            "write"
+          ],
+          "answer": "write",
+          "audio": "write"
+        },
+        {
+          "type": "choice",
+          "question": "'非常'用英语怎么说？",
+          "options": [
+            "very",
+            "fly",
+            "high"
+          ],
+          "answer": "very",
+          "audio": "very"
+        },
+        {
+          "type": "choice",
+          "question": "'高的'用英语怎么说？",
+          "options": [
+            "swim",
+            "high",
+            "very"
+          ],
+          "answer": "high",
+          "audio": "high"
+        }
       ]
     },
     "unit3": {
@@ -365,6 +435,41 @@
           "english": "I'm hungry. I want a biscuit.",
           "chinese": "我饿了。我想吃块饼干。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'新的'用英语怎么说？",
+          "options": [
+            "new",
+            "tired",
+            "thirsty"
+          ],
+          "answer": "new",
+          "audio": "new"
+        },
+        {
+          "type": "choice",
+          "question": "'饱的'用英语怎么说？",
+          "options": [
+            "full",
+            "back",
+            "sad"
+          ],
+          "answer": "full",
+          "audio": "full"
+        },
+        {
+          "type": "choice",
+          "question": "'饿的'用英语怎么说？",
+          "options": [
+            "hungry",
+            "full",
+            "new"
+          ],
+          "answer": "hungry",
+          "audio": "hungry"
+        }
       ]
     },
     "unit4": {
@@ -439,6 +544,41 @@
         {
           "english": "We eat mooncakes on Mid-autumn Day.",
           "chinese": "中秋节我们吃月饼。"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'阿姨/姑姑'用英语怎么说？",
+          "options": [
+            "riddle",
+            "Mid-autumn Day",
+            "aunt"
+          ],
+          "answer": "aunt",
+          "audio": "aunt"
+        },
+        {
+          "type": "choice",
+          "question": "'中秋节'用英语怎么说？",
+          "options": [
+            "aunt",
+            "riddle",
+            "Mid-autumn Day"
+          ],
+          "answer": "Mid-autumn Day",
+          "audio": "mid-autumn day"
+        },
+        {
+          "type": "choice",
+          "question": "'叔叔/舅舅'用英语怎么说？",
+          "options": [
+            "uncle",
+            "visit",
+            "aunt"
+          ],
+          "answer": "uncle",
+          "audio": "uncle"
         }
       ]
     },
@@ -536,6 +676,41 @@
         {
           "english": "It's dangerous but exciting.",
           "chinese": "这很危险但也令人兴奋。"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'医生'用英语怎么说？",
+          "options": [
+            "police station",
+            "doctor",
+            "bus driver"
+          ],
+          "answer": "doctor",
+          "audio": "doctor"
+        },
+        {
+          "type": "choice",
+          "question": "'老师'用英语怎么说？",
+          "options": [
+            "teacher",
+            "nurse",
+            "fire station"
+          ],
+          "answer": "teacher",
+          "audio": "teacher"
+        },
+        {
+          "type": "choice",
+          "question": "'帮助'用英语怎么说？",
+          "options": [
+            "doctor",
+            "cook",
+            "help"
+          ],
+          "answer": "help",
+          "audio": "help"
         }
       ]
     },
@@ -636,6 +811,41 @@
           "english": "My friend likes ice cream.",
           "chinese": "我的朋友喜欢冰淇淋。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'粉色的'用英语怎么说？",
+          "options": [
+            "pink",
+            "shorts",
+            "jeans"
+          ],
+          "answer": "pink",
+          "audio": "pink"
+        },
+        {
+          "type": "choice",
+          "question": "'T恤'用英语怎么说？",
+          "options": [
+            "jeans",
+            "T-shirt",
+            "bread"
+          ],
+          "answer": "T-shirt",
+          "audio": "t-shirt"
+        },
+        {
+          "type": "choice",
+          "question": "'女式衬衫'用英语怎么说？",
+          "options": [
+            "coat",
+            "blouse",
+            "jeans"
+          ],
+          "answer": "blouse",
+          "audio": "blouse"
+        }
       ]
     },
     "unit7": {
@@ -732,6 +942,41 @@
         {
           "english": "We have lunch at 12 o'clock.",
           "chinese": "我们12点吃午饭。"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'电脑房'用英语怎么说？",
+          "options": [
+            "building",
+            "computer lab",
+            "in front of"
+          ],
+          "answer": "computer lab",
+          "audio": "computer lab"
+        },
+        {
+          "type": "choice",
+          "question": "'体育馆'用英语怎么说？",
+          "options": [
+            "lesson",
+            "gym",
+            "office"
+          ],
+          "answer": "gym",
+          "audio": "gym"
+        },
+        {
+          "type": "choice",
+          "question": "'课'用英语怎么说？",
+          "options": [
+            "far",
+            "lesson",
+            "near"
+          ],
+          "answer": "lesson",
+          "audio": "lesson"
         }
       ]
     },
@@ -832,6 +1077,41 @@
           "english": "Is there a bakery near here?",
           "chinese": "这附近有面包房吗？"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'在...之间'用英语怎么说？",
+          "options": [
+            "bakery",
+            "restaurant",
+            "between"
+          ],
+          "answer": "between",
+          "audio": "between"
+        },
+        {
+          "type": "choice",
+          "question": "'商店'用英语怎么说？",
+          "options": [
+            "supermarket",
+            "shop",
+            "post office"
+          ],
+          "answer": "shop",
+          "audio": "shop"
+        },
+        {
+          "type": "choice",
+          "question": "'城市'用英语怎么说？",
+          "options": [
+            "some",
+            "restaurant",
+            "city"
+          ],
+          "answer": "city",
+          "audio": "city"
+        }
       ]
     },
     "unit9": {
@@ -916,6 +1196,41 @@
         {
           "english": "I have some biscuits.",
           "chinese": "我有一些饼干。"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'一条面包'用英语怎么说？",
+          "options": [
+            "a loaf of bread",
+            "buy",
+            "a bottle of water"
+          ],
+          "answer": "a loaf of bread",
+          "audio": "a loaf of bread"
+        },
+        {
+          "type": "choice",
+          "question": "'有'用英语怎么说？",
+          "options": [
+            "a loaf of bread",
+            "a bottle of water",
+            "have"
+          ],
+          "answer": "have",
+          "audio": "have"
+        },
+        {
+          "type": "choice",
+          "question": "'一块巧克力'用英语怎么说？",
+          "options": [
+            "have",
+            "a bar of chocolate",
+            "a packet of sweets"
+          ],
+          "answer": "a bar of chocolate",
+          "audio": "a bar of chocolate"
         }
       ]
     },
@@ -1022,6 +1337,41 @@
           "english": "Don't litter. Put the rubbish in the bin.",
           "chinese": "不要乱扔垃圾，把垃圾放进垃圾桶。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'草'用英语怎么说？",
+          "options": [
+            "rubbish",
+            "visit",
+            "grass"
+          ],
+          "answer": "grass",
+          "audio": "grass"
+        },
+        {
+          "type": "choice",
+          "question": "'乱扔垃圾'用英语怎么说？",
+          "options": [
+            "pick",
+            "hay",
+            "litter"
+          ],
+          "answer": "litter",
+          "audio": "litter"
+        },
+        {
+          "type": "choice",
+          "question": "'农场'用英语怎么说？",
+          "options": [
+            "pick",
+            "stone",
+            "farm"
+          ],
+          "answer": "farm",
+          "audio": "farm"
+        }
       ]
     },
     "unit11": {
@@ -1106,6 +1456,41 @@
         {
           "english": "I have a sketchbook. I can draw pictures.",
           "chinese": "我有素描本。我可以画画。"
+        }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'池塘'用英语怎么说？",
+          "options": [
+            "sketchbook",
+            "road",
+            "pond"
+          ],
+          "answer": "pond",
+          "audio": "pond"
+        },
+        {
+          "type": "choice",
+          "question": "'素描本'用英语怎么说？",
+          "options": [
+            "road",
+            "sketchbook",
+            "cap"
+          ],
+          "answer": "sketchbook",
+          "audio": "sketchbook"
+        },
+        {
+          "type": "choice",
+          "question": "'帽子'用英语怎么说？",
+          "options": [
+            "cap",
+            "sketchbook",
+            "camera"
+          ],
+          "answer": "cap",
+          "audio": "cap"
         }
       ]
     },
@@ -1276,6 +1661,41 @@
           "english": "It's always warm in Shanghai in autumn.",
           "chinese": "上海秋天总是很温暖。"
         }
+      ],
+      "exercises": [
+        {
+          "type": "choice",
+          "question": "'下雨的'用英语怎么说？",
+          "options": [
+            "September",
+            "rainy",
+            "windy"
+          ],
+          "answer": "rainy",
+          "audio": "rainy"
+        },
+        {
+          "type": "choice",
+          "question": "'干燥的'用英语怎么说？",
+          "options": [
+            "dry",
+            "warm",
+            "China"
+          ],
+          "answer": "dry",
+          "audio": "dry"
+        },
+        {
+          "type": "choice",
+          "question": "'十一月'用英语怎么说？",
+          "options": [
+            "January",
+            "September",
+            "November"
+          ],
+          "answer": "November",
+          "audio": "november"
+        }
       ]
     }
   },
@@ -1283,348 +1703,226 @@
     "choiceQuestions": {
       "basic": [
         {
-          "id": "g4_b_001",
-          "question": "There ___ a library in your school?",
-          "options": [
-            "is",
-            "are",
-            "do"
-          ],
-          "answer": 0,
-          "explanation": "There be句型：单数用There is。"
-        },
-        {
-          "id": "g4_b_002",
-          "question": "What ___ your father do? He is a doctor.",
-          "options": [
-            "is",
-            "do",
-            "does"
-          ],
-          "answer": 2,
-          "explanation": "询问职业用What does...do?"
-        },
-        {
-          "id": "g4_b_003",
-          "question": "How much ___ the apples? They are ten yuan.",
-          "options": [
-            "is",
-            "are",
-            "am"
-          ],
-          "answer": 1,
-          "explanation": "apples是复数，用How much are。"
-        },
-        {
-          "id": "g4_b_004",
-          "question": "Don't ___ on the grass.",
-          "options": [
-            "walk",
-            "walking",
-            "walks"
-          ],
-          "answer": 0,
-          "explanation": "祈使句否定：Don't + 动词原形。"
-        },
-        {
-          "id": "g4_b_005",
-          "question": "She ___ sing very well.",
+          "id": "g4a_b_01",
+          "question": "She ___ swim very well.",
           "options": [
             "can",
             "cans",
-            "is can"
+            "can to"
           ],
           "answer": 0,
-          "explanation": "情态动词can后接动词原形。"
+          "explanation": "can后接动词原形，没有人称和数的变化。"
         },
         {
-          "id": "g4_b_006",
-          "question": "___ you have a friend?",
+          "id": "g4a_b_02",
+          "question": "___ you paint? Yes, I can.",
           "options": [
+            "Can",
             "Do",
-            "Does",
-            "Is"
+            "Does"
           ],
           "answer": 0,
-          "explanation": "一般疑问句：Do you...? 谓语是have。"
+          "explanation": "情态动词can直接提前构成疑问句。"
         },
         {
-          "id": "g4_b_007",
-          "question": "The cat is ___ the desk.",
+          "id": "g4a_b_03",
+          "question": "This is ___ book.",
           "options": [
-            "in front of",
-            "next to",
-            "between"
+            "I",
+            "my",
+            "me"
           ],
           "answer": 1,
-          "explanation": "next to表示紧挨着，符合语境。"
+          "explanation": "my是形容词性物主代词，后接名词。"
         },
         {
-          "id": "g4_b_008",
-          "question": "___ there a supermarket near here?",
+          "id": "g4a_b_04",
+          "question": "___ name is Tom.",
           "options": [
-            "Is",
-            "Are",
-            "Do"
+            "His",
+            "He",
+            "Him"
           ],
           "answer": 0,
-          "explanation": "there be句型，supermarket是单数，用Is there。"
+          "explanation": "his是形容词性物主代词，修饰名词name。"
+        },
+        {
+          "id": "g4a_b_05",
+          "question": "There ___ a book on the desk.",
+          "options": [
+            "is",
+            "has",
+            "have"
+          ],
+          "answer": 0,
+          "explanation": "there be表示某地有某物，be动词根据就近名词决定。has是误用have的第三人称形式，但there be句型不用has/have。"
+        },
+        {
+          "id": "g4a_b_06",
+          "question": "There ___ some books on the desk.",
+          "options": [
+            "is",
+            "are",
+            "have"
+          ],
+          "answer": 1,
+          "explanation": "复数名词books用There are。学生常误用there have代替there are。"
+        },
+        {
+          "id": "g4a_b_07",
+          "question": "The cat is ___ the table.",
+          "options": [
+            "in",
+            "on",
+            "under"
+          ],
+          "answer": 2,
+          "explanation": "under表示在...下面。"
+        },
+        {
+          "id": "g4a_b_08",
+          "question": "The book is ___ the bag.",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0,
+          "explanation": "in表示在...里面。"
+        },
+        {
+          "id": "g4a_b_09",
+          "question": "___ much is the bread? It's five yuan.",
+          "options": [
+            "How",
+            "What",
+            "Where"
+          ],
+          "answer": 0,
+          "explanation": "How much询问价格，What much不是正确搭配。"
+        },
+        {
+          "id": "g4a_b_10",
+          "question": "___ the blackboard, please.",
+          "options": [
+            "Look at",
+            "Look",
+            "See"
+          ],
+          "answer": 0,
+          "explanation": "祈使句Look at表示看向某物，Look后需接at才是完整表达。"
         }
       ],
       "improved": [
         {
-          "id": "g4_i_001",
-          "question": "Can she swim? No, she ___.",
+          "id": "g4a_i_01",
+          "question": "___ you like apples? Yes, I ___.",
           "options": [
-            "can't",
-            "isn't",
-            "doesn't"
+            "Do, do",
+            "Does, does",
+            "Do, does"
           ],
           "answer": 0,
-          "explanation": "can的否定回答用can't。"
+          "explanation": "主语是you，用Do；回答用I do。"
         },
         {
-          "id": "g4_i_002",
-          "question": "What does your mother ___? She is a nurse.",
+          "id": "g4a_i_02",
+          "question": "___ he like music? Yes, he ___.",
           "options": [
-            "do",
-            "does",
-            "is"
-          ],
-          "answer": 0,
-          "explanation": "What does...do? 询问职业。"
-        },
-        {
-          "id": "g4_i_003",
-          "question": "How ___ is the bread? It's five yuan.",
-          "options": [
-            "many",
-            "much",
-            "old"
+            "Do, do",
+            "Does, does",
+            "Does, do"
           ],
           "answer": 1,
-          "explanation": "询问价格用How much。"
+          "explanation": "主语是he，用Does；回答用he does。注意：疑问句用does，但动词用原形like。"
         },
         {
-          "id": "g4_i_004",
-          "question": "There ___ some water in the bottle.",
+          "id": "g4a_i_03",
+          "question": "What ___ your father ___?",
+          "options": [
+            "does, do",
+            "do, does",
+            "does, does"
+          ],
+          "answer": 0,
+          "explanation": "询问职业：What does + 主语 + do? 主语是your father，第三人称单数用does。"
+        },
+        {
+          "id": "g4a_i_04",
+          "question": "There ___ a pen and some books.",
+          "options": [
+            "is",
+            "are",
+            "have"
+          ],
+          "answer": 0,
+          "explanation": "there be就近原则，a pen是单数，所以用is。学生常误用are或have。"
+        },
+        {
+          "id": "g4a_i_05",
+          "question": "How ___ the weather today?",
           "options": [
             "is",
             "are",
             "do"
           ],
           "answer": 0,
-          "explanation": "water是不可数名词，用There is。"
+          "explanation": "weather是不可数名词，用is。学生可能误用are或受do you...句型影响。"
         },
         {
-          "id": "g4_i_005",
-          "question": "___ the book ___ on the desk?",
+          "id": "g4a_i_06",
+          "question": "I can draw ___.",
           "options": [
-            "Is, /",
-            "Does, /",
-            "Is, is"
-          ],
-          "answer": 0,
-          "explanation": "There be句型的一般疑问句：Is the book on the desk?"
-        },
-        {
-          "id": "g4_i_006",
-          "question": "I want to buy ___ sweets.",
-          "options": [
-            "a packet of",
-            "some packet of",
-            "any"
-          ],
-          "answer": 0,
-          "explanation": "a packet of表示一包，与sweets搭配。"
-        },
-        {
-          "id": "g4_i_007",
-          "question": "The library is ___ the classroom.",
-          "options": [
-            "in front of",
-            "in the front of",
-            "front of"
+            "good",
+            "well",
+            "nice"
           ],
           "answer": 1,
-          "explanation": "in the front of表示在...内部的前面。"
+          "explanation": "修饰动词用副词well。good是形容词，nice虽可作副词但不正式。"
         },
         {
-          "id": "g4_i_008",
-          "question": "In Australia, ___ is hot in December.",
+          "id": "g4a_i_07",
+          "question": "The ball is ___ the chair.",
           "options": [
-            "it",
-            "this",
-            "that"
+            "behind",
+            "behind of",
+            "in front"
           ],
           "answer": 0,
-          "explanation": "在描述天气时，用it作主语。"
-        }
-      ]
-    },
-    "wordForms": {
-      "basic": [
-        {
-          "id": "g4_wf_b_001",
-          "question": "She ___ (have) a new friend.",
-          "answer": "has",
-          "hint": "第三人称单数"
+          "explanation": "behind表示在...后面。behind of是错误搭配，in front of才正确。"
         },
         {
-          "id": "g4_wf_b_002",
-          "question": "I can ___ (swim) very fast.",
-          "answer": "swim",
-          "hint": "can后面用动词原形"
+          "id": "g4a_i_08",
+          "question": "___ some water in the glass.",
+          "options": [
+            "There is",
+            "There are",
+            "Here are"
+          ],
+          "answer": 0,
+          "explanation": "water是不可数名词，用There is。are与water不匹配。"
         },
         {
-          "id": "g4_wf_b_003",
-          "question": "There ___ (be) a book on the desk.",
-          "answer": "is",
-          "hint": "单数名词"
+          "id": "g4a_i_09",
+          "question": "Her name is Alice. ___ is a teacher.",
+          "options": [
+            "He",
+            "She",
+            "It"
+          ],
+          "answer": 1,
+          "explanation": "Alice是女性，用She。He是男性，It指物。"
         },
         {
-          "id": "g4_wf_b_004",
-          "question": "Don't ___ (throw) stones!",
-          "answer": "throw",
-          "hint": "祈使句否定"
-        },
-        {
-          "id": "g4_wf_b_005",
-          "question": "My mother is a ___. She helps sick people. (nurse)",
-          "answer": "nurse",
-          "hint": "职业名称"
-        },
-        {
-          "id": "g4_wf_b_006",
-          "question": "It's ___ today. (sun)",
-          "answer": "sunny",
-          "hint": "天气形容词"
-        },
-        {
-          "id": "g4_wf_b_007",
-          "question": "There are ___ (many) books in the library.",
-          "answer": "many",
-          "hint": "可数名词复数"
-        },
-        {
-          "id": "g4_wf_b_008",
-          "question": "I want ___ (buy) a loaf of bread.",
-          "answer": "to buy",
-          "hint": "want to do something"
-        }
-      ],
-      "improved": [
-        {
-          "id": "g4_wf_i_001",
-          "question": "The children ___ (be) in the park yesterday.",
-          "answer": "were",
-          "hint": "过去式be动词复数"
-        },
-        {
-          "id": "g4_wf_i_002",
-          "question": "She can ___ (draw) pictures very ___ (good).",
-          "answer": "draw; well",
-          "hint": "can后接动词原形；修饰动词用副词"
-        },
-        {
-          "id": "g4_wf_i_003",
-          "question": "There ___ (be not) any water in the cup.",
-          "answer": "isn't",
-          "hint": "there be否定句"
-        },
-        {
-          "id": "g4_wf_i_004",
-          "question": "How ___ (much) bread do you want?",
-          "answer": "much",
-          "hint": "不可数名词提问"
-        },
-        {
-          "id": "g4_wf_i_005",
-          "question": "The park is ___ (far away) from here.",
-          "answer": "far away",
-          "hint": "固定搭配"
-        },
-        {
-          "id": "g4_wf_i_006",
-          "question": "My uncle is a ___. He helps people in danger. (fire)",
-          "answer": "firefighter",
-          "hint": "职业名称"
-        }
-      ]
-    },
-    "sentenceTransform": {
-      "basic": [
-        {
-          "id": "g4_st_b_001",
-          "statement": "She can swim.",
-          "question": "___ she swim?",
-          "answer": "Can",
-          "hint": "一般疑问句"
-        },
-        {
-          "id": "g4_st_b_002",
-          "statement": "He is a firefighter.",
-          "question": "What ___ he ___?",
-          "answer": "does, do",
-          "hint": "询问职业"
-        },
-        {
-          "id": "g4_st_b_003",
-          "statement": "There is a book on the desk.",
-          "question": "___ there a book on the desk?",
-          "answer": "Is",
-          "hint": "There be一般疑问句"
-        },
-        {
-          "id": "g4_st_b_004",
-          "statement": "I want to buy a loaf of bread.",
-          "question": "What ___ you ___?",
-          "answer": "do, want",
-          "hint": "询问想要什么"
-        },
-        {
-          "id": "g4_st_b_005",
-          "statement": "The cat is behind the door.",
-          "question": "Where ___ the cat?",
-          "answer": "is",
-          "hint": "询问位置"
-        }
-      ],
-      "improved": [
-        {
-          "id": "g4_st_i_001",
-          "statement": "There are some apples in the basket.",
-          "question": "___ there ___ apples in the basket?",
-          "answer": "Are, any",
-          "hint": "一般疑问句some变any"
-        },
-        {
-          "id": "g4_st_i_002",
-          "statement": "I can draw very well.",
-          "question": "___ ___ she draw?",
-          "answer": "Can, well",
-          "hint": "一般疑问句改为第三人称"
-        },
-        {
-          "id": "g4_st_i_003",
-          "statement": "The bread is five yuan.",
-          "question": "How ___ ___ the bread?",
-          "answer": "much, is",
-          "hint": "询问价格"
-        },
-        {
-          "id": "g4_st_i_004",
-          "statement": "My father is a doctor.",
-          "question": "What ___ your father ___?",
-          "answer": "does, do",
-          "hint": "询问职业"
-        },
-        {
-          "id": "g4_st_i_005",
-          "statement": "There is a park near my home.",
-          "question": "Is ___ a park near your home?",
-          "answer": "there",
-          "hint": "一般疑问句"
+          "id": "g4a_i_10",
+          "question": "___ apple a day keeps the doctor away.",
+          "options": [
+            "A",
+            "An",
+            "The"
+          ],
+          "answer": 1,
+          "explanation": "apple以元音音素/eɪ/开头，用An。a用于辅音音素开头。"
         }
       ]
     }
