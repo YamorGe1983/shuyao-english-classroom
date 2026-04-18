@@ -1,0 +1,474 @@
+{
+  "id": "grade5_1",
+  "name": "五年级上册",
+  "metadata": {
+    "title": "Oxford English Primary 5 (Shanghai Edition)",
+    "subtitle": "牛津上海版小学英语五年级上册",
+    "totalUnits": 12,
+    "totalModules": 4
+  },
+  "modules": [
+    {
+      "id": "module1",
+      "name": "Getting to know you",
+      "nameCN": "认识你我",
+      "units": [
+        {"id": "unit1", "name": "My future", "nameCN": "我的未来/梦想"},
+        {"id": "unit2", "name": "Going to school", "nameCN": "去上学"},
+        {"id": "unit3", "name": "My birthday", "nameCN": "我的生日"}
+      ]
+    },
+    {
+      "id": "module2",
+      "name": "Relationships",
+      "nameCN": "关系",
+      "units": [
+        {"id": "unit4", "name": "My family", "nameCN": "我的家庭"},
+        {"id": "unit5", "name": "Friends", "nameCN": "朋友"},
+        {"id": "unit6", "name": "Going out", "nameCN": "外出"}
+      ]
+    },
+    {
+      "id": "module3",
+      "name": "Places and activities",
+      "nameCN": "地点与活动",
+      "units": [
+        {"id": "unit7", "name": "Around the city", "nameCN": "城市周围"},
+        {"id": "unit8", "name": "In the forest", "nameCN": "在森林里"},
+        {"id": "unit9", "name": "Seeing the doctor", "nameCN": "看医生"}
+      ]
+    },
+    {
+      "id": "module4",
+      "name": "The natural world",
+      "nameCN": "自然世界",
+      "units": [
+        {"id": "unit10", "name": "Plants", "nameCN": "植物"},
+        {"id": "unit11", "name": "Animals", "nameCN": "动物"},
+        {"id": "unit12", "name": "Weather", "nameCN": "天气"}
+      ]
+    }
+  ],
+  "units": {
+    "unit1": {
+      "id": "unit1",
+      "module": "module1",
+      "name": "My future",
+      "nameCN": "我的未来/梦想",
+      "topic": "学习职业名称和表达梦想",
+      "vocabulary": [
+        {"word": "pilot", "chinese": "飞行员", "phonetic": "/ˈpaɪlət/", "audio": "pilot"},
+        {"word": "teacher", "chinese": "老师", "phonetic": "/ˈtiːtʃə/", "audio": "teacher"},
+        {"word": "doctor", "chinese": "医生", "phonetic": "/ˈdɒktə/", "audio": "doctor"},
+        {"word": "cook", "chinese": "厨师", "phonetic": "/kʊk/", "audio": "cook"},
+        {"word": "writer", "chinese": "作家", "phonetic": "/ˈraɪtə/", "audio": "writer"},
+        {"word": "shop assistant", "chinese": "店员", "phonetic": "/ʃɒp əˈsɪstənt/", "audio": "shop assistant"},
+        {"word": "firefighter", "chinese": "消防员", "phonetic": "/ˈfaɪəfaɪtə/", "audio": "firefighter"},
+        {"word": "police officer", "chinese": "警官", "phonetic": "/pəˈliːs ˈɒfɪsə/", "audio": "police officer"},
+        {"word": "vet", "chinese": "兽医", "phonetic": "/vet/", "audio": "vet"},
+        {"word": "lifeguard", "chinese": "救生员", "phonetic": "/ˈlaɪfɡɑːd/", "audio": "lifeguard"},
+        {"word": "farmer", "chinese": "农民", "phonetic": "/ˈfɑːmə/", "audio": "farmer"},
+        {"word": "worker", "chinese": "工人", "phonetic": "/ˈwɜːkə/", "audio": "worker"},
+        {"word": "want to be", "chinese": "想要成为", "phonetic": "/wɒnt tuː biː/", "audio": "want to be"},
+        {"word": "dream", "chinese": "梦想", "phonetic": "/driːm/", "audio": "dream"},
+        {"word": "future", "chinese": "未来", "phonetic": "/ˈfjuːtʃə/", "audio": "future"},
+        {"word": "save", "chinese": "救/储蓄", "phonetic": "/seɪv/", "audio": "save"},
+        {"word": "teach", "chinese": "教", "phonetic": "/tiːtʃ/", "audio": "teach"},
+        {"word": "fly", "chinese": "飞", "phonetic": "/flaɪ/", "audio": "fly"}
+      ],
+      "sentences": [
+        {"english": "What do you want to be in the future?", "chinese": "你将来想做什么？"},
+        {"english": "I want to be a pilot.", "chinese": "我想成为一名飞行员。"},
+        {"english": "I want to fly a plane.", "chinese": "我想开飞机。"},
+        {"english": "What does he do?", "chinese": "他是做什么工作的？"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "want / you / do / What / be / to / in the future / ?", "answer": "What do you want to be in the future?", "explanation": "询问未来梦想：What do you want to be?"},
+        {"type": "sentence_reorder", "question": "be / want / I / to / a / pilot / .", "answer": "I want to be a pilot.", "explanation": "表达梦想：I want to be + 职业。"},
+        {"type": "logic_match", "question": "将职业与工作内容配对：pilot, teacher, doctor, firefighter, fly, teach, save, help sick people", "answer": "pilot↔fly, teacher↔teach, doctor↔help sick people, firefighter↔save", "explanation": "不同职业有不同的工作内容。"},
+        {"type": "context_fill", "question": "He _____ (want/wants) to be a doctor.", "answer": "wants", "explanation": "第三人称单数，want要加s。"}
+      ]
+    },
+    "unit2": {
+      "id": "unit2",
+      "module": "module1",
+      "name": "Going to school",
+      "nameCN": "去上学",
+      "topic": "学习交通方式表达",
+      "vocabulary": [
+        {"word": "by bus", "chinese": "乘公交", "phonetic": "/baɪ bʌs/", "audio": "by bus"},
+        {"word": "by underground", "chinese": "乘地铁", "phonetic": "/baɪ ˈʌndəɡraʊnd/", "audio": "by underground"},
+        {"word": "by car", "chinese": "乘小汽车", "phonetic": "/baɪ kɑː/", "audio": "by car"},
+        {"word": "by bicycle", "chinese": "骑自行车", "phonetic": "/baɪ ˈbaɪsɪkl/", "audio": "by bicycle"},
+        {"word": "on foot", "chinese": "步行", "phonetic": "/ɒn fʊt/", "audio": "on foot"},
+        {"word": "take a bus", "chinese": "乘公交", "phonetic": "/teɪk ə bʌs/", "audio": "take a bus"},
+        {"word": "ride a bicycle", "chinese": "骑自行车", "phonetic": "/raɪd ə ˈbaɪsɪkl/", "audio": "ride a bicycle"},
+        {"word": "walk to", "chinese": "步行去", "phonetic": "/wɔːk tuː/", "audio": "walk to"},
+        {"word": "station", "chinese": "车站", "phonetic": "/ˈsteɪʃn/", "audio": "station"},
+        {"word": "stop", "chinese": "站点", "phonetic": "/stɒp/", "audio": "stop"},
+        {"word": "way", "chinese": "路", "phonetic": "/weɪ/", "audio": "way"}
+      ],
+      "sentences": [
+        {"english": "How do you go to school?", "chinese": "你怎么去上学？"},
+        {"english": "I go to school by underground.", "chinese": "我乘地铁去上学。"},
+        {"english": "I take a bus to school.", "chinese": "我乘公交去上学。"},
+        {"english": "I walk to school.", "chinese": "我步行去上学。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "you / How / do / go / to school / ?", "answer": "How do you go to school?", "explanation": "询问交通方式：How do you go to + 地点?"},
+        {"type": "sentence_reorder", "question": "school / I / go to / by bus / .", "answer": "I go to school by bus.", "explanation": "表达交通方式：go to + 地点 + by + 交通工具。"},
+        {"type": "logic_match", "question": "将两种表达方式配对：by bus, by bicycle, on foot, take a bus, ride a bicycle, walk", "answer": "by bus↔take a bus, by bicycle↔ride a bicycle, on foot↔walk", "explanation": "同一种交通方式有两种表达方法。"},
+        {"type": "context_fill", "question": "It takes about 20 _____ (minute/minutes).", "answer": "minutes", "explanation": "20分钟用复数minutes。"}
+      ]
+    },
+    "unit3": {
+      "id": "unit3",
+      "module": "module1",
+      "name": "My birthday",
+      "nameCN": "我的生日",
+      "topic": "学习序数词和日期表达",
+      "vocabulary": [
+        {"word": "first", "chinese": "第一", "phonetic": "/fɜːst/", "audio": "first"},
+        {"word": "second", "chinese": "第二", "phonetic": "/ˈsekənd/", "audio": "second"},
+        {"word": "third", "chinese": "第三", "phonetic": "/θɜːd/", "audio": "third"},
+        {"word": "fifth", "chinese": "第五", "phonetic": "/fɪfθ/", "audio": "fifth"},
+        {"word": "twelfth", "chinese": "第十二", "phonetic": "/twelfθ/", "audio": "twelfth"},
+        {"word": "twentieth", "chinese": "第二十", "phonetic": "/ˈtwentiəθ/", "audio": "twentieth"},
+        {"word": "date", "chinese": "日期", "phonetic": "/deɪt/", "audio": "date"},
+        {"word": "day", "chinese": "日子", "phonetic": "/deɪ/", "audio": "day"},
+        {"word": "month", "chinese": "月份", "phonetic": "/mʌnθ/", "audio": "month"},
+        {"word": "party", "chinese": "聚会", "phonetic": "/ˈpɑːti/", "audio": "party"},
+        {"word": "cake", "chinese": "蛋糕", "phonetic": "/keɪk/", "audio": "cake"},
+        {"word": "present", "chinese": "礼物", "phonetic": "/ˈpreznt/", "audio": "present"},
+        {"word": "candle", "chinese": "蜡烛", "phonetic": "/ˈkændl/", "audio": "candle"},
+        {"word": "wish", "chinese": "愿望", "phonetic": "/wɪʃ/", "audio": "wish"},
+        {"word": "blow", "chinese": "吹", "phonetic": "/bləʊ/", "audio": "blow"},
+        {"word": "invite", "chinese": "邀请", "phonetic": "/ɪnˈvaɪt/", "audio": "invite"},
+        {"word": "begin", "chinese": "开始", "phonetic": "/bɪˈɡɪn/", "audio": "begin"}
+      ],
+      "sentences": [
+        {"english": "When is your birthday?", "chinese": "你的生日是什么时候？"},
+        {"english": "It's on the first of June.", "chinese": "是六月一日。"},
+        {"english": "What's the date today?", "chinese": "今天是几号？"},
+        {"english": "Happy Birthday!", "chinese": "生日快乐！"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "birthday / is / your / When / ?", "answer": "When is your birthday?", "explanation": "询问生日：When is your birthday?"},
+        {"type": "sentence_reorder", "question": "on / first / It's / of / the / June / .", "answer": "It's on the first of June.", "explanation": "表达日期：It's on the + 序数词 + of + 月份。"},
+        {"type": "logic_match", "question": "将基数词转换为序数词：one, two, three, five, twelve, twenty, first, second, third, fifth, twelfth, twentieth", "answer": "one↔first, two↔second, three↔third, five↔fifth, twelve↔twelfth, twenty↔twentieth", "explanation": "序数词有特殊变化规则，需要记住。"},
+        {"type": "context_fill", "question": "My birthday is on the _____ (three/third) of May.", "answer": "third", "explanation": "日期用序数词，third是third的序数词。"}
+      ]
+    },
+    "unit4": {
+      "id": "unit4",
+      "module": "module2",
+      "name": "My family",
+      "nameCN": "我的家庭",
+      "topic": "学习家庭成员和物主代词",
+      "vocabulary": [
+        {"word": "parents", "chinese": "父母", "phonetic": "/ˈpeərənts/", "audio": "parents"},
+        {"word": "grandparents", "chinese": "祖父母", "phonetic": "/ˈɡrænpeərənts/", "audio": "grandparents"},
+        {"word": "uncle", "chinese": "叔叔/舅舅", "phonetic": "/ˈʌŋkl/", "audio": "uncle"},
+        {"word": "aunt", "chinese": "阿姨/姑姑", "phonetic": "/ɑːnt/", "audio": "aunt"},
+        {"word": "cousin", "chinese": "堂/表兄弟姐妹", "phonetic": "/ˈkʌzn/", "audio": "cousin"},
+        {"word": "brother", "chinese": "兄弟", "phonetic": "/ˈbrʌðə/", "audio": "brother"},
+        {"word": "sister", "chinese": "姐妹", "phonetic": "/ˈsɪstə/", "audio": "sister"},
+        {"word": "wallet", "chinese": "钱包", "phonetic": "/ˈwɒlɪt/", "audio": "wallet"},
+        {"word": "watch", "chinese": "手表", "phonetic": "/wɒtʃ/", "audio": "watch"},
+        {"word": "calculator", "chinese": "计算器", "phonetic": "/ˈkælkjuleɪtə/", "audio": "calculator"},
+        {"word": "hairdryer", "chinese": "吹风机", "phonetic": "/ˈheədraɪə/", "audio": "hairdryer"},
+        {"word": "teapot", "chinese": "茶壶", "phonetic": "/ˈtiːpɒt/", "audio": "teapot"},
+        {"word": "skateboard", "chinese": "滑板", "phonetic": "/ˈskeɪtbɔːd/", "audio": "skateboard"},
+        {"word": "mine", "chinese": "我的", "phonetic": "/maɪn/", "audio": "mine"},
+        {"word": "yours", "chinese": "你的", "phonetic": "/jɔːz/", "audio": "yours"},
+        {"word": "his", "chinese": "他的", "phonetic": "/hɪz/", "audio": "his"},
+        {"word": "hers", "chinese": "她的", "phonetic": "/hɜːz/", "audio": "hers"},
+        {"word": "ours", "chinese": "我们的", "phonetic": "/aʊəz/", "audio": "ours"},
+        {"word": "theirs", "chinese": "他们的", "phonetic": "/ðeəz/", "audio": "theirs"}
+      ],
+      "sentences": [
+        {"english": "Whose wallet is this?", "chinese": "这是谁的钱包？"},
+        {"english": "It's my father's.", "chinese": "它是我爸爸的。"},
+        {"english": "It's his.", "chinese": "是他的。"},
+        {"english": "This is my book. The book is mine.", "chinese": "这是我的书。这本书是我的。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "wallet / is / Whose / this / ?", "answer": "Whose wallet is this?", "explanation": "询问归属：Whose + 名词 + is this?"},
+        {"type": "sentence_reorder", "question": "my / father's / It's / .", "answer": "It's my father's.", "explanation": "回答归属：It's + 人名's。"},
+        {"type": "logic_match", "question": "将形容词性物主代词与名词性物主代词配对：my, your, his, her, our, their, mine, yours, his, hers, ours, theirs", "answer": "my↔mine, your↔yours, his↔his, her↔hers, our↔ours, their↔theirs", "explanation": "形容词性物主代词后接名词，名词性物主代词单独使用。"},
+        {"type": "context_fill", "question": "This is _____ (my/mine) book. The book is _____ (my/mine).", "answer": "my, mine", "explanation": "my后接名词，mine单独使用。"}
+      ]
+    },
+    "unit5": {
+      "id": "unit5",
+      "module": "module2",
+      "name": "Friends",
+      "nameCN": "朋友",
+      "topic": "学习比较和并列表达",
+      "vocabulary": [
+        {"word": "same", "chinese": "相同的", "phonetic": "/seɪm/", "audio": "same"},
+        {"word": "different", "chinese": "不同的", "phonetic": "/ˈdɪfrənt/", "audio": "different"},
+        {"word": "both", "chinese": "两者都", "phonetic": "/bəʊθ/", "audio": "both"},
+        {"word": "quiet", "chinese": "安静的", "phonetic": "/ˈkwaɪət/", "audio": "quiet"},
+        {"word": "loud", "chinese": "大声的", "phonetic": "/laʊd/", "audio": "loud"},
+        {"word": "active", "chinese": "活跃的", "phonetic": "/ˈæktɪv/", "audio": "active"},
+        {"word": "share", "chinese": "分享", "phonetic": "/ʃeə/", "audio": "share"},
+        {"word": "help", "chinese": "帮助", "phonetic": "/help/", "audio": "help"},
+        {"word": "play", "chinese": "玩", "phonetic": "/pleɪ/", "audio": "play"},
+        {"word": "study", "chinese": "学习", "phonetic": "/ˈstʌdi/", "audio": "study"},
+        {"word": "friend", "chinese": "朋友", "phonetic": "/frend/", "audio": "friend"},
+        {"word": "classmate", "chinese": "同班同学", "phonetic": "/ˈklɑːsmeɪt/", "audio": "classmate"}
+      ],
+      "sentences": [
+        {"english": "We are in the same class.", "chinese": "我们在同一个班级。"},
+        {"english": "We are in different classes.", "chinese": "我们在不同的班级。"},
+        {"english": "We both like reading.", "chinese": "我们都喜欢阅读。"},
+        {"english": "Both Alice and Kitty like sports.", "chinese": "Alice和Kitty都喜欢运动。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "same / the / in / are / We / class / .", "answer": "We are in the same class.", "explanation": "表达相同：in the same + 名词（单数）。"},
+        {"type": "sentence_reorder", "question": "both / reading / like / We / .", "answer": "We both like reading.", "explanation": "表达两者都：主语 + both + 动词。"},
+        {"type": "logic_match", "question": "将反义词配对：same, different, quiet, loud, same class, different classes", "answer": "same↔different, quiet↔loud, same class↔different classes", "explanation": "记住这些常用的反义词对。"},
+        {"type": "context_fill", "question": "_____ (Both/All) Alice and Kitty are my friends.", "answer": "Both", "explanation": "两者都用Both...and...，三者及以上用All。"}
+      ]
+    },
+    "unit6": {
+      "id": "unit6",
+      "module": "module2",
+      "name": "Going out",
+      "nameCN": "外出",
+      "topic": "学习外出活动词汇",
+      "vocabulary": [
+        {"word": "cinema", "chinese": "电影院", "phonetic": "/ˈsɪnəmə/", "audio": "cinema"},
+        {"word": "museum", "chinese": "博物馆", "phonetic": "/mjuˈziːəm/", "audio": "museum"},
+        {"word": "park", "chinese": "公园", "phonetic": "/pɑːk/", "audio": "park"},
+        {"word": "zoo", "chinese": "动物园", "phonetic": "/zuː/", "audio": "zoo"},
+        {"word": "beach", "chinese": "海滩", "phonetic": "/biːtʃ/", "audio": "beach"},
+        {"word": "picnic", "chinese": "野餐", "phonetic": "/ˈpɪknɪk/", "audio": "picnic"},
+        {"word": "go shopping", "chinese": "去购物", "phonetic": "/ɡəʊ ˈʃɒpɪŋ/", "audio": "go shopping"},
+        {"word": "go swimming", "chinese": "去游泳", "phonetic": "/ɡəʊ ˈswɪmɪŋ/", "audio": "go swimming"},
+        {"word": "go hiking", "chinese": "去徒步", "phonetic": "/ɡəʊ ˈhaɪkɪŋ/", "audio": "go hiking"}
+      ],
+      "sentences": [
+        {"english": "Where do you want to go?", "chinese": "你想去哪里？"},
+        {"english": "I want to go to the cinema.", "chinese": "我想去电影院。"},
+        {"english": "Let's go to the park.", "chinese": "让我们去公园吧。"},
+        {"english": "What do you want to do?", "chinese": "你想做什么？"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "want / Where / you / do / go / to / ?", "answer": "Where do you want to go?", "explanation": "询问想去哪里：Where do you want to go?"},
+        {"type": "sentence_reorder", "question": "to / go / I / want / to / the / cinema / .", "answer": "I want to go to the cinema.", "explanation": "表达想去某地：I want to go to + 地点。"},
+        {"type": "logic_match", "question": "将地点与活动配对：cinema, park, beach, zoo, watch a film, have a picnic, swim, see animals", "answer": "cinema↔watch a film, park↔have a picnic, beach↔swim, zoo↔see animals", "explanation": "不同地点适合不同的活动。"},
+        {"type": "context_fill", "question": "Let's _____ (go/going) to the museum.", "answer": "go", "explanation": "Let's后面跟动词原形。"}
+      ]
+    },
+    "unit7": {
+      "id": "unit7",
+      "module": "module3",
+      "name": "Around the city",
+      "nameCN": "城市周围",
+      "topic": "学习问路和指路",
+      "vocabulary": [
+        {"word": "get to", "chinese": "到达", "phonetic": "/ɡet tuː/", "audio": "get to"},
+        {"word": "turn left", "chinese": "左转", "phonetic": "/tɜːn left/", "audio": "turn left"},
+        {"word": "turn right", "chinese": "右转", "phonetic": "/tɜːn raɪt/", "audio": "turn right"},
+        {"word": "walk along", "chinese": "沿着...走", "phonetic": "/wɔːk əˈlɒŋ/", "audio": "walk along"},
+        {"word": "crossing", "chinese": "十字路口", "phonetic": "/ˈkrɒsɪŋ/", "audio": "crossing"},
+        {"word": "straight", "chinese": "直的", "phonetic": "/streɪt/", "audio": "straight"},
+        {"word": "on the left", "chinese": "在左边", "phonetic": "/ɒn ðə left/", "audio": "on the left"},
+        {"word": "on the right", "chinese": "在右边", "phonetic": "/ɒn ðə raɪt/", "audio": "on the right"},
+        {"word": "between", "chinese": "在...中间", "phonetic": "/bɪˈtwiːn/", "audio": "between"},
+        {"word": "next to", "chinese": "紧挨着", "phonetic": "/nekst tuː/", "audio": "next to"},
+        {"word": "near", "chinese": "在...附近", "phonetic": "/nɪə/", "audio": "near"},
+        {"word": "museum", "chinese": "博物馆", "phonetic": "/mjuˈziːəm/", "audio": "museum"},
+        {"word": "bakery", "chinese": "面包房", "phonetic": "/ˈbeɪkəri/", "audio": "bakery"},
+        {"word": "hotel", "chinese": "酒店", "phonetic": "/həʊˈtel/", "audio": "hotel"},
+        {"word": "hospital", "chinese": "医院", "phonetic": "/ˈhɒspɪtl/", "audio": "hospital"}
+      ],
+      "sentences": [
+        {"english": "Excuse me. How do I get to the museum?", "chinese": "打扰一下。我该怎么去博物馆？"},
+        {"english": "Walk along this road.", "chinese": "沿着这条路走。"},
+        {"english": "Turn left at the second crossing.", "chinese": "在第二个十字路口左转。"},
+        {"english": "It's on your left.", "chinese": "它在你左边。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "do / I / How / get to / the museum / ?", "answer": "How do I get to the museum?", "explanation": "问路：How do I get to + 地点?"},
+        {"type": "sentence_reorder", "question": "road / this / Walk / along / .", "answer": "Walk along this road.", "explanation": "指路：Walk along + 道路。"},
+        {"type": "logic_match", "question": "将方位词与介词配对：left, right, between, next to, on, on, in", "answer": "left↔on the left, right↔on the right, between↔in between, next to↔near", "explanation": "记住方位介词的搭配。"},
+        {"type": "context_fill", "question": "Turn left _____ (at/in) the first crossing.", "answer": "at", "explanation": "在某个路口用at the + 序数词 + crossing。"}
+      ]
+    },
+    "unit8": {
+      "id": "unit8",
+      "module": "module3",
+      "name": "In the forest",
+      "nameCN": "在森林里",
+      "topic": "学习水的循环和顺序副词",
+      "vocabulary": [
+        {"word": "water", "chinese": "水", "phonetic": "/ˈwɔːtə/", "audio": "water"},
+        {"word": "drop", "chinese": "水滴", "phonetic": "/drɒp/", "audio": "drop"},
+        {"word": "river", "chinese": "河", "phonetic": "/ˈrɪvə/", "audio": "river"},
+        {"word": "sea", "chinese": "海", "phonetic": "/siː/", "audio": "sea"},
+        {"word": "rain", "chinese": "雨", "phonetic": "/reɪn/", "audio": "rain"},
+        {"word": "cloud", "chinese": "云", "phonetic": "/klaʊd/", "audio": "cloud"},
+        {"word": "sky", "chinese": "天空", "phonetic": "/skaɪ/", "audio": "sky"},
+        {"word": "first", "chinese": "首先", "phonetic": "/fɜːst/", "audio": "first"},
+        {"word": "next", "chinese": "接下来", "phonetic": "/nekst/", "audio": "next"},
+        {"word": "then", "chinese": "然后", "phonetic": "/ðen/", "audio": "then"},
+        {"word": "finally", "chinese": "最后", "phonetic": "/ˈfaɪnəli/", "audio": "finally"},
+        {"word": "boil", "chinese": "煮沸", "phonetic": "/bɔɪl/", "audio": "boil"},
+        {"word": "pour", "chinese": "倒", "phonetic": "/pɔː/", "audio": "pour"},
+        {"word": "drink", "chinese": "喝", "phonetic": "/drɪŋk/", "audio": "drink"},
+        {"word": "tea", "chinese": "茶", "phonetic": "/tiː/", "audio": "tea"},
+        {"word": "journey", "chinese": "旅程", "phonetic": "/ˈdʒɜːni/", "audio": "journey"},
+        {"word": "useful", "chinese": "有用的", "phonetic": "/ˈjuːsfl/", "audio": "useful"}
+      ],
+      "sentences": [
+        {"english": "Where does water come from?", "chinese": "水从哪里来？"},
+        {"english": "It comes from the rain.", "chinese": "它来自雨水。"},
+        {"english": "First, wash the cup.", "chinese": "首先，洗杯子。"},
+        {"english": "Then, put the tea leaves in.", "chinese": "然后，放入茶叶。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "water / Where / come from / does / ?", "answer": "Where does water come from?", "explanation": "询问来源：Where does + 主语 + come from?"},
+        {"type": "sentence_reorder", "question": "First / wash / the cup / . / Then / put / tea leaves / in / the / .", "answer": "First, wash the cup. Then, put the tea leaves in.", "explanation": "描述过程：First... Then... Finally... 顺序副词。"},
+        {"type": "logic_match", "question": "将水的循环步骤按顺序排列：rain, cloud, river, sea, sky", "answer": "sea→cloud→rain→river→sea", "explanation": "水循环：水蒸发成云→云变成雨→雨落入河流→河流流入大海。"},
+        {"type": "context_fill", "question": "First, boil the water. _____ (Next/Finally), pour it into the cup.", "answer": "Next", "explanation": "表示接下来的步骤用Next。"}
+      ]
+    },
+    "unit9": {
+      "id": "unit9",
+      "module": "module3",
+      "name": "Seeing the doctor",
+      "nameCN": "看医生",
+      "topic": "学习看病相关词汇",
+      "vocabulary": [
+        {"word": "doctor", "chinese": "医生", "phonetic": "/ˈdɒktə/", "audio": "doctor"},
+        {"word": "headache", "chinese": "头痛", "phonetic": "/ˈhedeɪk/", "audio": "headache"},
+        {"word": "fever", "chinese": "发烧", "phonetic": "/ˈfiːvə/", "audio": "fever"},
+        {"word": "toothache", "chinese": "牙痛", "phonetic": "/ˈtuːθeɪk/", "audio": "toothache"},
+        {"word": "cold", "chinese": "感冒", "phonetic": "/kəʊld/", "audio": "cold"},
+        {"word": "cough", "chinese": "咳嗽", "phonetic": "/kɒf/", "audio": "cough"},
+        {"word": "medicine", "chinese": "药", "phonetic": "/ˈmedsn/", "audio": "medicine"},
+        {"word": "hospital", "chinese": "医院", "phonetic": "/ˈhɒspɪtl/", "audio": "hospital"},
+        {"word": "sick", "chinese": "生病的", "phonetic": "/sɪk/", "audio": "sick"},
+        {"word": "hurt", "chinese": "疼痛", "phonetic": "/hɜːt/", "audio": "hurt"},
+        {"word": "take medicine", "chinese": "吃药", "phonetic": "/teɪk ˈmedsn/", "audio": "take medicine"},
+        {"word": "have a rest", "chinese": "休息", "phonetic": "/hæv ə rest/", "audio": "have a rest"}
+      ],
+      "sentences": [
+        {"english": "What's the matter?", "chinese": "怎么了？"},
+        {"english": "I have a headache.", "chinese": "我头痛。"},
+        {"english": "You should take a rest.", "chinese": "你应该休息一下。"},
+        {"english": "You should take some medicine.", "chinese": "你应该吃点药。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "matter / the / What's / ?", "answer": "What's the matter?", "explanation": "询问病情：What's the matter? 或 What's wrong?"},
+        {"type": "sentence_reorder", "question": "a / have / I / headache / .", "answer": "I have a headache.", "explanation": "描述症状：I have a + 症状（headache/toothache等）。"},
+        {"type": "logic_match", "question": "将症状与建议配对：headache, fever, toothache, take medicine, have a rest, go to the dentist", "answer": "headache↔have a rest, fever↔take medicine, toothache↔go to the dentist", "explanation": "不同症状有不同的处理建议。"},
+        {"type": "context_fill", "question": "You _____ (should/shouldn't) eat too much candy.", "answer": "shouldn't", "explanation": "should的否定形式是shouldn't，表示不应该。"}
+      ]
+    },
+    "unit10": {
+      "id": "unit10",
+      "module": "module4",
+      "name": "Plants",
+      "nameCN": "植物",
+      "topic": "学习植物部位和生长需求",
+      "vocabulary": [
+        {"word": "root", "chinese": "根", "phonetic": "/ruːt/", "audio": "root"},
+        {"word": "stem", "chinese": "茎", "phonetic": "/stem/", "audio": "stem"},
+        {"word": "leaf", "chinese": "叶子", "phonetic": "/liːf/", "audio": "leaf"},
+        {"word": "flower", "chinese": "花", "phonetic": "/ˈflaʊə/", "audio": "flower"},
+        {"word": "seed", "chinese": "种子", "phonetic": "/siːd/", "audio": "seed"},
+        {"word": "sun", "chinese": "太阳", "phonetic": "/sʌn/", "audio": "sun"},
+        {"word": "light", "chinese": "光", "phonetic": "/laɪt/", "audio": "light"},
+        {"word": "air", "chinese": "空气", "phonetic": "/eə/", "audio": "air"},
+        {"word": "water", "chinese": "水", "phonetic": "/ˈwɔːtə/", "audio": "water"},
+        {"word": "soil", "chinese": "土壤", "phonetic": "/sɔɪl/", "audio": "soil"},
+        {"word": "grow", "chinese": "生长", "phonetic": "/ɡrəʊ/", "audio": "grow"},
+        {"word": "plant", "chinese": "种植", "phonetic": "/plɑːnt/", "audio": "plant"}
+      ],
+      "sentences": [
+        {"english": "What do plants need?", "chinese": "植物需要什么？"},
+        {"english": "They need water, light and air.", "chinese": "它们需要水、光和空气。"},
+        {"english": "Water the plants.", "chinese": "给植物浇水。"},
+        {"english": "Don't pick the flowers.", "chinese": "不要摘花。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "do / What / plants / need / ?", "answer": "What do plants need?", "explanation": "询问需求：What do + 主语 + need?"},
+        {"type": "sentence_reorder", "question": "need / They / water / light / and / air / .", "answer": "They need water, light and air.", "explanation": "列举需求：They need + A, B and C。"},
+        {"type": "logic_match", "question": "将植物部位与功能配对：root, stem, leaf, flower, absorb water, transport water, make food, make seeds", "answer": "root↔absorb water, stem↔transport water, leaf↔make food, flower↔make seeds", "explanation": "植物的各个部位有不同的功能。"},
+        {"type": "context_fill", "question": "_____ (Don't/Not) pick the flowers!", "answer": "Don't", "explanation": "否定祈使句用Don't + 动词原形。"}
+      ]
+    },
+    "unit11": {
+      "id": "unit11",
+      "module": "module4",
+      "name": "Animals",
+      "nameCN": "动物",
+      "topic": "学习动物名称和习性",
+      "vocabulary": [
+        {"word": "wild goose", "chinese": "大雁", "phonetic": "/waɪld ɡuːs/", "audio": "wild goose"},
+        {"word": "bear", "chinese": "熊", "phonetic": "/beə/", "audio": "bear"},
+        {"word": "snake", "chinese": "蛇", "phonetic": "/sneɪk/", "audio": "snake"},
+        {"word": "frog", "chinese": "青蛙", "phonetic": "/frɒɡ/", "audio": "frog"},
+        {"word": "fish", "chinese": "鱼", "phonetic": "/fɪʃ/", "audio": "fish"},
+        {"word": "fly", "chinese": "飞", "phonetic": "/flaɪ/", "audio": "fly"},
+        {"word": "migrate", "chinese": "迁徙", "phonetic": "/maɪˈɡreɪt/", "audio": "migrate"},
+        {"word": "hibernate", "chinese": "冬眠", "phonetic": "/ˈhaɪbəneɪt/", "audio": "hibernate"},
+        {"word": "sleep", "chinese": "睡觉", "phonetic": "/sliːp/", "audio": "sleep"},
+        {"word": "swim", "chinese": "游泳", "phonetic": "/swɪm/", "audio": "swim"},
+        {"word": "spring", "chinese": "春天", "phonetic": "/sprɪŋ/", "audio": "spring"},
+        {"word": "summer", "chinese": "夏天", "phonetic": "/ˈsʌmə/", "audio": "summer"},
+        {"word": "autumn", "chinese": "秋天", "phonetic": "/ˈɔːtəm/", "audio": "autumn"},
+        {"word": "winter", "chinese": "冬天", "phonetic": "/ˈwɪntə/", "audio": "winter"},
+        {"word": "north", "chinese": "北方", "phonetic": "/nɔːθ/", "audio": "north"},
+        {"word": "south", "chinese": "南方", "phonetic": "/saʊθ/", "audio": "south"}
+      ],
+      "sentences": [
+        {"english": "Where do wild geese live in winter?", "chinese": "大雁冬天住在哪里？"},
+        {"english": "They live in the south.", "chinese": "它们住在南方。"},
+        {"english": "Wild geese fly to the south in autumn.", "chinese": "大雁在秋天飞向南方。"},
+        {"english": "Bears sleep in winter.", "chinese": "熊在冬天睡觉（冬眠）。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "do / Where / wild geese / live / in winter / ?", "answer": "Where do wild geese live in winter?", "explanation": "询问地点：Where do + 主语 + live?"},
+        {"type": "sentence_reorder", "question": "geese / Wild / fly / the south / to / in autumn / .", "answer": "Wild geese fly to the south in autumn.", "explanation": "描述迁徙：主语 + fly to + 方向 + in + 季节。"},
+        {"type": "logic_match", "question": "将动物与习性配对：wild goose, bear, frog, snake, migrate, hibernate, swim", "answer": "wild goose↔migrate, bear↔hibernate, frog↔hibernate, snake↔hibernate", "explanation": "有些动物会迁徙，有些会冬眠。"},
+        {"type": "context_fill", "question": "Wild geese fly to the _____ (north/south) in autumn.", "answer": "south", "explanation": "大雁秋天飞向南方过冬。"}
+      ]
+    },
+    "unit12": {
+      "id": "unit12",
+      "module": "module4",
+      "name": "Weather",
+      "nameCN": "天气",
+      "topic": "学习天气词汇和表达",
+      "vocabulary": [
+        {"word": "sunny", "chinese": "晴朗的", "phonetic": "/ˈsʌni/", "audio": "sunny"},
+        {"word": "rainy", "chinese": "下雨的", "phonetic": "/ˈreɪni/", "audio": "rainy"},
+        {"word": "cloudy", "chinese": "多云的", "phonetic": "/ˈklaʊdi/", "audio": "cloudy"},
+        {"word": "windy", "chinese": "多风的", "phonetic": "/ˈwɪndi/", "audio": "windy"},
+        {"word": "snowy", "chinese": "下雪的", "phonetic": "/ˈsnəʊi/", "audio": "snowy"},
+        {"word": "warm", "chinese": "温暖的", "phonetic": "/wɔːm/", "audio": "warm"},
+        {"word": "hot", "chinese": "热的", "phonetic": "/hɒt/", "audio": "hot"},
+        {"word": "cool", "chinese": "凉爽的", "phonetic": "/kuːl/", "audio": "cool"},
+        {"word": "cold", "chinese": "冷的", "phonetic": "/kəʊld/", "audio": "cold"},
+        {"word": "weather", "chinese": "天气", "phonetic": "/ˈweðə/", "audio": "weather"}
+      ],
+      "sentences": [
+        {"english": "How's the weather today?", "chinese": "今天天气怎么样？"},
+        {"english": "It's sunny and warm.", "chinese": "又晴朗又温暖。"},
+        {"english": "What's the weather like in summer?", "chinese": "夏天的天气怎么样？"},
+        {"english": "It's hot and sunny.", "chinese": "又热又晴朗。"}
+      ],
+      "grammar": [
+        {"type": "sentence_reorder", "question": "weather / How's / today / the / ?", "answer": "How's the weather today?", "explanation": "询问天气：How's the weather? 或 What's the weather like?"},
+        {"type": "sentence_reorder", "question": "sunny / It's / warm / and / .", "answer": "It's sunny and warm.", "explanation": "描述天气：It's + 天气形容词。"},
+        {"type": "logic_match", "question": "将季节与天气配对：spring, summer, autumn, winter, warm, hot, cool, cold", "answer": "spring↔warm, summer↔hot, autumn↔cool, winter↔cold", "explanation": "不同季节有不同的天气特点。"},
+        {"type": "context_fill", "question": "It's _____ (rain/rainy) today. Take an umbrella.", "answer": "rainy", "explanation": "描述天气用形容词rainy，不是动词rain。"}
+      ]
+    }
+  }
+}
