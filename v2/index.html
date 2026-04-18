@@ -4002,8 +4002,52 @@ const GRADES = {
             {"id": "module3", "name": "Places and activities", "nameCN": "地点与活动", "units": [{"id":"unit7"},{"id":"unit8"},{"id":"unit9"}]},
             {"id": "module4", "name": "The natural world", "nameCN": "自然世界", "units": [{"id":"unit10"},{"id":"unit11"},{"id":"unit12"}]}
         ]
+    },
+    "grade4_2": {
+        "id": "grade4_2",
+        "name": "四年级下",
+        "metadata": {
+            "title": "Oxford English Primary 4B (Shanghai Edition)",
+            "subtitle": "牛津上海版小学英语四年级下册",
+            "totalUnits": 12
+        },
+        "modules": [
+            {"id": "module1", "name": "Using my five senses", "nameCN": "运用我的五官", "units": [{"id":"unit1"},{"id":"unit2"},{"id":"unit3"}]},
+            {"id": "module2", "name": "My favourite things", "nameCN": "我喜爱的事物", "units": [{"id":"unit4"},{"id":"unit5"},{"id":"unit6"}]},
+            {"id": "module3", "name": "My colourful life", "nameCN": "我多彩的生活", "units": [{"id":"unit7"},{"id":"unit8"},{"id":"unit9"}]},
+            {"id": "module4", "name": "More things to learn", "nameCN": "更多学习内容", "units": [{"id":"unit10"},{"id":"unit11"},{"id":"unit12"}]}
+        ]
+    },
+    "grade5_1": {
+        "id": "grade5_1",
+        "name": "五年级上",
+        "metadata": {
+            "title": "Oxford English Primary 5A (Shanghai Edition)",
+            "subtitle": "牛津上海版小学英语五年级上册",
+            "totalUnits": 12
+        },
+        "modules": [
+            {"id": "module1", "name": "Getting to know you", "nameCN": "认识你我", "units": [{"id":"unit1"},{"id":"unit2"},{"id":"unit3"}]},
+            {"id": "module2", "name": "Relationships", "nameCN": "关系", "units": [{"id":"unit4"},{"id":"unit5"},{"id":"unit6"}]},
+            {"id": "module3", "name": "Places and activities", "nameCN": "地点与活动", "units": [{"id":"unit7"},{"id":"unit8"},{"id":"unit9"}]},
+            {"id": "module4", "name": "The natural world", "nameCN": "自然世界", "units": [{"id":"unit10"},{"id":"unit11"},{"id":"unit12"}]}
+        ]
+    },
+    "grade5_2": {
+        "id": "grade5_2",
+        "name": "五年级下",
+        "metadata": {
+            "title": "Oxford English Primary 5B (Shanghai Edition)",
+            "subtitle": "牛津上海版小学英语五年级下册",
+            "totalUnits": 12
+        },
+        "modules": [
+            {"id": "module1", "name": "Changes and differences", "nameCN": "变化与差异", "units": [{"id":"unit1"},{"id":"unit2"},{"id":"unit3"}]},
+            {"id": "module2", "name": "My favourite things", "nameCN": "我喜爱的事物", "units": [{"id":"unit4"},{"id":"unit5"},{"id":"unit6"}]},
+            {"id": "module3", "name": "Things around us", "nameCN": "我们周围的事物", "units": [{"id":"unit7"},{"id":"unit8"},{"id":"unit9"}]},
+            {"id": "module4", "name": "More things to learn", "nameCN": "更多学习内容", "units": [{"id":"unit10"},{"id":"unit11"},{"id":"unit12"}]}
+        ]
     }
-    // 更多年级可在此添加
 };
 
 // ==================== DataLoader Module (V2) ====================
@@ -4015,7 +4059,10 @@ const DataLoader = {
     // 数据文件路径映射
     DATA_PATHS: {
         'grade3_2': 'data/english/grade3_2.json',
-        'grade4_1': 'data/english/grade4_1.json'
+        'grade4_1': 'data/english/grade4_1.json',
+        'grade4_2': 'data/english/grade4_2.json',
+        'grade5_1': 'data/english/grade5_1.json',
+        'grade5_2': 'data/english/grade5_2.json'
     },
     
     async loadGrade(gradeId) {
@@ -7408,7 +7455,7 @@ const App = {
                 
                 <!-- 版本号 -->
                 <div style="position:fixed;bottom:80px;right:16px;font-size:12px;color:#999;z-index:100;">
-                    v2026.04.17.v2.04
+                    v2026.04.18.v2.05
                 </div>
             </div>
         `;
