@@ -102,6 +102,20 @@
     
     /* 导航高度 */
     --nav-height: 70px;
+    
+    /* 学科主题色 */
+    --subject-english: #FF6B6B;
+    --subject-english-light: #FF8E8E;
+    --subject-math: #9B59B6;
+    --subject-math-light: #AB7BC7;
+    --subject-chinese: #27AE60;
+    --subject-chinese-light: #3DD881;
+}
+
+/* 动态学科主题色 - 根据当前学科切换 */
+:root {
+    --current-subject-color: var(--subject-english);
+    --current-subject-light: var(--subject-english-light);
 }
 
 /* ==================== 基础样式 ==================== */
@@ -298,9 +312,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subject-tab.active {
-    background: var(--primary);
+    background: var(--current-subject-color);
     color: white;
-    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .subject-tab .tab-icon {
@@ -308,19 +322,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 学科专属颜色 */
-.subject-tab[data-subject="math"].active {
-    background: #4A90D9;
-    box-shadow: 0 2px 8px rgba(74, 144, 217, 0.3);
+.subject-tab[data-subject="english"].active {
+    background: var(--subject-english);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
 }
 
-.subject-tab[data-subject="chinese"].active {
-    background: #9B59B6;
+.subject-tab[data-subject="math"].active {
+    background: var(--subject-math);
     box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
 }
 
-.subject-tab[data-subject="english"].active {
-    background: #FF6B6B;
-    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+.subject-tab[data-subject="chinese"].active {
+    background: var(--subject-chinese);
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
 }
 
 /* 学科内容区 */
@@ -7486,6 +7500,16 @@ const App = {
         const streakDays = StorageModule.getStreakDays();
         const reviewCount = MemoryModule.getReviewCount();
         
+        // 获取数学统计数据
+        const mathHistory = JSON.parse(localStorage.getItem('mathHistory') || '[]');
+        const mathStats = {
+            total: mathHistory.reduce((sum, h) => sum + h.total, 0),
+            correct: mathHistory.reduce((sum, h) => sum + h.correct, 0),
+            accuracy: mathHistory.length > 0 
+                ? Math.round(mathHistory.reduce((sum, h) => sum + h.correct, 0) / mathHistory.reduce((sum, h) => sum + h.total, 0) * 100) 
+                : 0
+        };
+        
         const now = new Date();
         const midExam = new Date(now.getFullYear(), 3, 30);
         const finalExam = new Date(now.getFullYear(), 5, 15);
@@ -7562,11 +7586,47 @@ const App = {
                         </div>
                     </div>
                 </div>
+                
+                <!-- 学习模块 -->
+                <div class="section-title">
+                    <span>📖</span> 选择学习内容
+                </div>
+                
+                <div class="modules-grid" id="modules-grid">
+                    ${getCurrentTextbook().modules.map(mod => `
+                        <div class="module-card" data-module-id="${mod.id}">
+                            <div class="module-icon">${this.getModuleIcon(mod.id)}</div>
+                            <h3>${mod.name}</h3>
+                            <p class="module-name-cn">${mod.nameCN}</p>
+                            <span class="module-units">${mod.units.length}个单元</span>
+                        </div>
+                    `).join('')}
                 </div>
                 </div>
                 
                 <!-- 数学内容 -->
                 <div id="content-math" class="subject-content">
+                    <!-- 数学欢迎卡片 -->
+                    <div class="welcome-card" style="background: linear-gradient(135deg, #9B59B6, #8E44AD);">
+                        <div class="welcome-icon">📐</div>
+                        <h1>数学练习</h1>
+                        <p class="welcome-subtitle">三年级下册</p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-number">${mathStats.total}</span>
+                                <span class="stat-label">总题数</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">${mathStats.correct}</span>
+                                <span class="stat-label">答对</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">${mathStats.accuracy}%</span>
+                                <span class="stat-label">正确率</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="math-modules-grid">
                         <div class="math-module-card" onclick="App.startMathPractice('basic')">
                             <div class="math-icon">📏</div>
@@ -7593,7 +7653,28 @@ const App = {
                 
                 <!-- 语文内容 -->
                 <div id="content-chinese" class="subject-content">
-                    <div class="coming-soon">
+                    <!-- 语文欢迎卡片 -->
+                    <div class="welcome-card" style="background: linear-gradient(135deg, #27AE60, #1E8449);">
+                        <div class="welcome-icon">📚</div>
+                        <h1>语文学习</h1>
+                        <p class="welcome-subtitle">三年级下册</p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-number">-</span>
+                                <span class="stat-label">总题数</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">-</span>
+                                <span class="stat-label">待开发</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">-</span>
+                                <span class="stat-label">敬请期待</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="coming-soon" style="margin-top: 24px;">
                         <div class="soon-icon">🚧</div>
                         <h3>语文模块开发中</h3>
                         <p>敬请期待！</p>
@@ -7621,22 +7702,6 @@ const App = {
                         <div class="reminder-arrow">→</div>
                     </div>
                 ` : ''}
-                
-                <!-- 学习模块 -->
-                <div class="section-title">
-                    <span>📖</span> 选择学习内容
-                </div>
-                
-                <div class="modules-grid" id="modules-grid">
-                    ${getCurrentTextbook().modules.map(mod => `
-                        <div class="module-card" data-module-id="${mod.id}">
-                            <div class="module-icon">${this.getModuleIcon(mod.id)}</div>
-                            <h3>${mod.name}</h3>
-                            <p class="module-name-cn">${mod.nameCN}</p>
-                            <span class="module-units">${mod.units.length}个单元</span>
-                        </div>
-                    `).join('')}
-                </div>
                 
                 <!-- 快速开始 -->
                 <div class="section-title">
@@ -11773,9 +11838,9 @@ const SUBJECTS = {
 };
 
 const SUBJECT_CONFIG = {
-    english: { name: '英语', icon: '📖' },
-    math: { name: '数学', icon: '📐' },
-    chinese: { name: '语文', icon: '📚' }
+    english: { name: '英语', icon: '📖', color: '#FF6B6B' },
+    math: { name: '数学', icon: '📐', color: '#9B59B6' },
+    chinese: { name: '语文', icon: '📚', color: '#27AE60' }
 };
 
 const SubjectManager = {
@@ -11816,6 +11881,9 @@ const SubjectManager = {
     switchSubject(subject) {
         this.setCurrent(subject);
         
+        // 更新主题色
+        this.updateThemeColor(subject);
+        
         // 更新标签样式
         document.querySelectorAll('.subject-tab').forEach(tab => {
             tab.classList.toggle('active', tab.dataset.subject === subject);
@@ -11823,6 +11891,27 @@ const SubjectManager = {
         
         // 更新内容显示
         this.updateContentDisplay(subject);
+    },
+    
+    // 更新主题色
+    updateThemeColor(subject) {
+        const config = SUBJECT_CONFIG[subject];
+        if (config && config.color) {
+            document.documentElement.style.setProperty('--current-subject-color', config.color);
+            // 根据主色计算浅色
+            const lightColor = this.adjustColorBrightness(config.color, 20);
+            document.documentElement.style.setProperty('--current-subject-light', lightColor);
+        }
+    },
+    
+    // 调整颜色亮度
+    adjustColorBrightness(hex, percent) {
+        const num = parseInt(hex.replace('#', ''), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = Math.min(255, (num >> 16) + amt);
+        const G = Math.min(255, ((num >> 8) & 0x00FF) + amt);
+        const B = Math.min(255, (num & 0x0000FF) + amt);
+        return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
     },
     
     // 更新内容显示
