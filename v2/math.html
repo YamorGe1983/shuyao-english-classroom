@@ -49,6 +49,108 @@
             padding-bottom: 100px;
         }
         
+        /* 选择页面 */
+        .select-page {
+            text-align: center;
+            padding-top: 40px;
+        }
+        
+        .select-page .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .select-page .subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .level-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .level-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border: 3px solid transparent;
+        }
+        
+        .level-card:active {
+            transform: scale(0.98);
+        }
+        
+        .level-card:hover {
+            border-color: var(--primary-light);
+        }
+        
+        .level-card.basic {
+            border-left: 4px solid var(--success);
+        }
+        
+        .level-card.advanced {
+            border-left: 4px solid var(--accent);
+        }
+        
+        .level-card.all {
+            border-left: 4px solid var(--primary);
+        }
+        
+        .level-card .level-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+        
+        .level-card h3 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .level-card .level-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .level-card .level-count {
+            display: inline-block;
+            background: var(--bg-primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* 返回按钮 */
+        .back-btn {
+            background: var(--bg-secondary);
+            border: none;
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+        
+        .back-btn:active {
+            transform: scale(0.95);
+        }
+        
         /* 顶部状态栏 */
         .header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -66,7 +168,7 @@
             margin-bottom: 12px;
         }
         
-        .back-btn {
+        .header-top .back-btn {
             background: rgba(255,255,255,0.2);
             border: none;
             color: white;
@@ -77,9 +179,10 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            box-shadow: none;
         }
         
-        .back-btn:active {
+        .header-top .back-btn:active {
             transform: scale(0.95);
         }
         
@@ -215,20 +318,13 @@
             opacity: 0.7;
         }
         
-        .option-btn.show-correct {
-            border-color: var(--success);
-            background: rgba(0, 184, 148, 0.1);
-        }
-        
-        .option-btn.show-correct .option-letter {
-            background: var(--success);
-            color: white;
+        .option-btn:not(.correct):not(.wrong):not(.disabled) {
+            cursor: pointer;
         }
         
         @keyframes correctPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         @keyframes wrongShake {
@@ -237,239 +333,133 @@
             75% { transform: translateX(8px); }
         }
         
-        /* 解释框 */
-        .explanation-box {
-            background: linear-gradient(135deg, #FFF9C4 0%, #FFECB3 100%);
+        /* 解析区域 */
+        .explanation-card {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CC 100%);
             border-radius: 16px;
             padding: 16px;
             margin-top: 16px;
-            border-left: 4px solid #FFC107;
-            animation: slideUp 0.3s ease;
+            border-left: 4px solid var(--accent);
         }
         
-        .explanation-title {
+        .explanation-label {
+            font-size: 14px;
             font-weight: 600;
-            color: #F57C00;
+            color: #B8860B;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
         
         .explanation-text {
-            color: #5D4037;
-            font-size: 15px;
+            font-size: 16px;
+            color: var(--text-primary);
             line-height: 1.6;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         /* 下一题按钮 */
         .next-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 16px;
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 16px;
             border-radius: 16px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 16px rgba(74, 144, 217, 0.3);
+            margin-top: 20px;
             transition: all 0.2s ease;
         }
         
         .next-btn:active {
             transform: scale(0.98);
+            background: var(--primary-dark);
         }
         
         .next-btn:disabled {
-            opacity: 0.5;
+            background: #ccc;
             cursor: not-allowed;
         }
         
-        /* 结果页面 */
-        .result-card {
+        /* 完成页面 */
+        .complete-card {
             background: white;
             border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 32px;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
-        .result-icon {
-            font-size: 64px;
+        .complete-icon {
+            font-size: 80px;
             margin-bottom: 16px;
         }
         
-        .result-title {
-            font-size: 24px;
+        .complete-title {
+            font-size: 28px;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 8px;
         }
         
-        .result-subtitle {
-            color: var(--text-secondary);
+        .complete-score {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 24px;
         }
         
-        .result-stats {
+        .complete-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
             margin-bottom: 24px;
         }
         
         .stat-item {
             background: var(--bg-primary);
-            padding: 16px 8px;
             border-radius: 12px;
+            padding: 16px;
         }
         
         .stat-value {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary);
         }
         
         .stat-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-        
-        .accuracy-ring {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 24px;
-            position: relative;
-        }
-        
-        .accuracy-ring svg {
-            transform: rotate(-90deg);
-        }
-        
-        .accuracy-ring circle {
-            fill: none;
-            stroke-width: 10;
-        }
-        
-        .accuracy-ring .bg {
-            stroke: #E8E8E8;
-        }
-        
-        .accuracy-ring .progress {
-            stroke: var(--success);
-            stroke-linecap: round;
-            transition: stroke-dashoffset 1s ease;
-        }
-        
-        .accuracy-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-        
-        .accuracy-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--success);
-        }
-        
-        .accuracy-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-        
-        /* 错题列表 */
-        .wrong-list {
-            margin-top: 24px;
-            text-align: left;
-        }
-        
-        .wrong-list-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--danger);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .wrong-item {
-            background: rgba(225, 112, 85, 0.1);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 8px;
-        }
-        
-        .wrong-question {
             font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-        
-        .wrong-answer {
-            font-size: 12px;
-            color: var(--danger);
-            margin-bottom: 4px;
-        }
-        
-        .wrong-explanation {
-            font-size: 12px;
             color: var(--text-secondary);
-            line-height: 1.5;
         }
         
-        /* 操作按钮 */
-        .action-buttons {
+        .complete-actions {
             display: flex;
+            flex-direction: column;
             gap: 12px;
-            margin-top: 24px;
         }
         
-        .action-btn {
-            flex: 1;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 16px;
+        .retry-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
-            border: none;
         }
         
-        .action-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .action-btn.primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-        }
-        
-        .action-btn.secondary {
+        .home-btn {
+            width: 100%;
+            padding: 16px;
             background: var(--bg-primary);
             color: var(--text-primary);
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
         }
         
         /* Toast提示 */
@@ -484,452 +474,444 @@
             border-radius: 12px;
             font-size: 16px;
             z-index: 1000;
-            animation: toastFade 1.5s ease forwards;
+            animation: fadeIn 0.3s ease;
         }
         
-        @keyframes toastFade {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         }
         
-        /* 开始页面 */
-        .start-card {
-            background: white;
-            border-radius: 20px;
-            padding: 32px 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-        
-        .start-icon {
-            font-size: 80px;
-            margin-bottom: 16px;
-        }
-        
-        .start-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-        
-        .start-desc {
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-        
-        .start-info {
-            background: var(--bg-primary);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 24px;
-        }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #E8E8E8;
-        }
-        
-        .info-item:last-child {
-            border-bottom: none;
-        }
-        
-        .info-label {
-            color: var(--text-secondary);
-        }
-        
-        .info-value {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .start-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 16px;
-            font-size: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(74, 144, 217, 0.3);
-            transition: all 0.2s ease;
-        }
-        
-        .start-btn:active {
-            transform: scale(0.98);
+        /* 隐藏类 */
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
     <div class="container" id="app">
-        <!-- 内容由JS动态渲染 -->
+        <!-- 难度选择页面 -->
+        <div id="select-page" class="select-page">
+            <button class="back-btn" onclick="goBack()">
+                ← 返回
+            </button>
+            
+            <div class="title">📐 数学练习</div>
+            <div class="subtitle">选择练习难度，开始挑战吧！</div>
+            
+            <div class="level-cards">
+                <div class="level-card basic" onclick="startPractice('basic')">
+                    <div class="level-icon">📏</div>
+                    <h3>基础练习</h3>
+                    <div class="level-desc">填单位 · 单位换算</div>
+                    <div class="level-count">共30题</div>
+                </div>
+                
+                <div class="level-card advanced" onclick="startPractice('advanced')">
+                    <div class="level-icon">🧮</div>
+                    <h3>进阶练习</h3>
+                    <div class="level-desc">比大小 · 判断 · 排序 · 应用</div>
+                    <div class="level-count">共20题</div>
+                </div>
+                
+                <div class="level-card all" onclick="startPractice('all')">
+                    <div class="level-icon">📐</div>
+                    <h3>综合练习</h3>
+                    <div class="level-desc">全部题目大挑战</div>
+                    <div class="level-count">共50题</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 练习页面 -->
+        <div id="practice-page" class="hidden">
+            <div class="header">
+                <div class="header-top">
+                    <button class="back-btn" onclick="confirmExit()">
+                        ← 返回
+                    </button>
+                    <div class="timer">
+                        ⏱️ <span id="timer-display">00:00</span>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress-text">
+                        <span id="current-q">1</span> / <span id="total-q">30</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-type" id="question-type">填单位</div>
+                <div class="question-text" id="question-text">
+                    手机长约15（    ）
+                </div>
+            </div>
+            
+            <div class="options-container" id="options-container">
+                <!-- 选项将动态生成 -->
+            </div>
+            
+            <div class="explanation-card hidden" id="explanation-card">
+                <div class="explanation-label">💡 解析</div>
+                <div class="explanation-text" id="explanation-text"></div>
+            </div>
+            
+            <button class="next-btn hidden" id="next-btn" onclick="nextQuestion()">
+                下一题 →
+            </button>
+        </div>
+        
+        <!-- 完成页面 -->
+        <div id="complete-page" class="hidden">
+            <div class="complete-card">
+                <div class="complete-icon" id="complete-icon">🎉</div>
+                <div class="complete-title" id="complete-title">练习完成！</div>
+                <div class="complete-score" id="complete-score">85分</div>
+                
+                <div class="complete-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-correct">0</div>
+                        <div class="stat-label">正确</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-wrong">0</div>
+                        <div class="stat-label">错误</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-time">00:00</div>
+                        <div class="stat-label">用时</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="stat-accuracy">0%</div>
+                        <div class="stat-label">正确率</div>
+                    </div>
+                </div>
+                
+                <div class="complete-actions">
+                    <button class="retry-btn" onclick="retryPractice()">
+                        🔄 再来一次
+                    </button>
+                    <button class="home-btn" onclick="goHome()">
+                        🏠 返回首页
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
-        // 数学单位练习应用
-        const MathUnitsApp = {
-            questions: [],
-            currentIndex: 0,
-            answers: [],
-            startTime: null,
-            timerInterval: null,
-            
-            // 初始化
-            async init() {
-                await this.loadQuestions();
-                this.showStartPage();
-            },
-            
-            // 加载题目
-            async loadQuestions() {
-                try {
-                    const response = await fetch('data/math/units.json');
-                    const data = await response.json();
-                    this.questions = data.questions;
-                } catch (error) {
-                    console.error('加载题目失败:', error);
-                    this.showToast('加载失败，请刷新重试');
-                }
-            },
-            
-            // 显示开始页面
-            showStartPage() {
-                const app = document.getElementById('app');
-                app.innerHTML = `
-                    <div class="start-card">
-                        <div class="start-icon">📏📐</div>
-                        <h1 class="start-title">数学单位练习</h1>
-                        <p class="start-desc">
-                            长度单位和面积单位练习<br>
-                            贴近生活的趣味题目
-                        </p>
-                        <div class="start-info">
-                            <div class="info-item">
-                                <span class="info-label">题目数量</span>
-                                <span class="info-value">${this.questions.length}题</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">题型类型</span>
-                                <span class="info-value">选择、判断</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">单位类型</span>
-                                <span class="info-value">mm/cm/dm/m/km</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label">面积单位</span>
-                                <span class="info-value">mm²/cm²/dm²/m²/km²</span>
-                            </div>
-                        </div>
-                        <button class="start-btn" onclick="MathUnitsApp.startExercise()">
-                            🚀 开始答题
-                        </button>
-                    </div>
-                `;
-            },
-            
-            // 开始答题
-            startExercise() {
-                this.currentIndex = 0;
-                this.answers = [];
-                this.startTime = Date.now();
-                this.startTimer();
-                this.showQuestion();
-            },
-            
-            // 开始计时器
-            startTimer() {
-                this.timerInterval = setInterval(() => {
-                    this.updateTimerDisplay();
-                }, 1000);
-            },
-            
-            // 更新计时器显示
-            updateTimerDisplay() {
-                const timerEl = document.getElementById('timer');
-                if (timerEl) {
-                    const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
-                    const minutes = Math.floor(elapsed / 60);
-                    const seconds = elapsed % 60;
-                    timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-                }
-            },
-            
-            // 获取用时（秒）
-            getElapsedSeconds() {
-                return Math.floor((Date.now() - this.startTime) / 1000);
-            },
-            
-            // 显示题目
-            showQuestion() {
-                const question = this.questions[this.currentIndex];
-                const progress = ((this.currentIndex) / this.questions.length) * 100;
-                const typeLabel = this.getTypeLabel(question.type);
-                const typeName = this.getTypeName(question.type);
-                
-                const app = document.getElementById('app');
-                app.innerHTML = `
-                    <!-- 顶部状态栏 -->
-                    <div class="header">
-                        <div class="header-top">
-                            <button class="back-btn" onclick="MathUnitsApp.confirmExit()">
-                                ← 返回
-                            </button>
-                            <div class="timer" id="timer">
-                                00:00
-                            </div>
-                        </div>
-                        <div class="progress-info">
-                            <div class="progress-text">第 ${this.currentIndex + 1} 题 / 共 ${this.questions.length} 题</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${progress}%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 题目卡片 -->
-                    <div class="question-card">
-                        <span class="question-type">${typeLabel}</span>
-                        <div class="question-text">${question.question}</div>
-                    </div>
-                    
-                    <!-- 选项 -->
-                    <div class="options-container" id="options-container">
-                        ${question.options.map((opt, idx) => `
-                            <button class="option-btn" onclick="MathUnitsApp.selectOption(${idx})" data-index="${idx}">
-                                <span class="option-letter">${String.fromCharCode(65 + idx)}</span>
-                                <span>${opt}</span>
-                            </button>
-                        `).join('')}
-                    </div>
-                `;
-            },
-            
-            // 获取题型标签
-            getTypeLabel(type) {
-                const labels = {
-                    'fill_unit': '📝 填单位',
-                    'compare': '⚖️ 比大小',
-                    'judge': '❓ 判断题'
-                };
-                return labels[type] || '📝 选择题';
-            },
-            
-            // 获取题型名称
-            getTypeName(type) {
-                const names = {
-                    'fill_unit': '填单位',
-                    'compare': '比大小',
-                    'judge': '判断题'
-                };
-                return names[type] || '选择题';
-            },
-            
-            // 选择选项
-            selectOption(index) {
-                const question = this.questions[this.currentIndex];
-                const isCorrect = index === question.answer;
-                const buttons = document.querySelectorAll('.option-btn');
-                
-                // 禁用所有按钮
-                buttons.forEach(btn => btn.classList.add('disabled'));
-                
-                // 标记正确答案和错误答案
-                buttons.forEach((btn, idx) => {
-                    if (idx === question.answer) {
-                        btn.classList.add('correct');
-                    } else if (idx === index && !isCorrect) {
-                        btn.classList.add('wrong');
-                    }
-                });
-                
-                // 记录答案
-                this.answers.push({
-                    questionId: question.id,
-                    question: question.question,
-                    selectedIndex: index,
-                    selectedOption: question.options[index],
-                    correctIndex: question.answer,
-                    correctOption: question.options[question.answer],
-                    isCorrect: isCorrect,
-                    explanation: question.explanation
-                });
-                
-                // 显示解释或下一题按钮
-                const app = document.getElementById('app');
-                const optionsContainer = document.getElementById('options-container');
-                
-                let feedbackHTML = '';
-                if (!isCorrect) {
-                    feedbackHTML = `
-                        <div class="explanation-box">
-                            <div class="explanation-title">💡 正确答案：${question.options[question.answer]}</div>
-                            <div class="explanation-text">${question.explanation}</div>
-                        </div>
-                    `;
-                }
-                
-                const isLast = this.currentIndex === this.questions.length - 1;
-                feedbackHTML += `
-                    <button class="next-btn" onclick="MathUnitsApp.nextQuestion()">
-                        ${isLast ? '🎉 查看结果' : '下一题 →'}
-                    </button>
-                `;
-                
-                optionsContainer.insertAdjacentHTML('afterend', feedbackHTML);
-            },
-            
-            // 下一题
-            nextQuestion() {
-                this.currentIndex++;
-                if (this.currentIndex >= this.questions.length) {
-                    this.showResult();
-                } else {
-                    this.showQuestion();
-                }
-            },
-            
-            // 显示结果
-            showResult() {
-                clearInterval(this.timerInterval);
-                
-                const total = this.questions.length;
-                const correct = this.answers.filter(a => a.isCorrect).length;
-                const wrong = total - correct;
-                const accuracy = Math.round((correct / total) * 100);
-                const elapsed = this.getElapsedSeconds();
-                const minutes = Math.floor(elapsed / 60);
-                const seconds = elapsed % 60;
-                const timeStr = minutes > 0 ? `${minutes}分${seconds}秒` : `${seconds}秒`;
-                
-                // 根据正确率显示不同图标
-                let emoji = '🌟';
-                let title = '太棒了！';
-                if (accuracy >= 90) {
-                    emoji = '🎉';
-                    title = '太棒了！';
-                } else if (accuracy >= 70) {
-                    emoji = '👍';
-                    title = '还不错！';
-                } else if (accuracy >= 50) {
-                    emoji = '💪';
-                    title = '继续加油！';
-                } else {
-                    emoji = '📚';
-                    title = '需要多练习！';
-                }
-                
-                // 计算圆环周长
-                const circumference = 2 * Math.PI * 50;
-                const offset = circumference - (accuracy / 100) * circumference;
-                
-                let wrongListHTML = '';
-                if (wrong > 0) {
-                    const wrongAnswers = this.answers.filter(a => !a.isCorrect);
-                    wrongListHTML = `
-                        <div class="wrong-list">
-                            <div class="wrong-list-title">
-                                📝 错题回顾 (${wrong}题)
-                            </div>
-                            ${wrongAnswers.map(w => `
-                                <div class="wrong-item">
-                                    <div class="wrong-question">${w.question}</div>
-                                    <div class="wrong-answer">你的答案：${w.selectedOption} ❌</div>
-                                    <div class="wrong-answer">正确答案：${w.correctOption} ✓</div>
-                                    <div class="wrong-explanation">💡 ${w.explanation}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                }
-                
-                const app = document.getElementById('app');
-                app.innerHTML = `
-                    <div class="result-card">
-                        <div class="result-icon">${emoji}</div>
-                        <h2 class="result-title">${title}</h2>
-                        <p class="result-subtitle">已完成数学单位练习</p>
-                        
-                        <!-- 正确率圆环 -->
-                        <div class="accuracy-ring">
-                            <svg width="120" height="120">
-                                <circle class="bg" cx="60" cy="60" r="50"></circle>
-                                <circle class="progress" cx="60" cy="60" r="50" 
-                                    stroke-dasharray="${circumference}" 
-                                    stroke-dashoffset="${offset}"></circle>
-                            </svg>
-                            <div class="accuracy-text">
-                                <div class="accuracy-value">${accuracy}%</div>
-                                <div class="accuracy-label">正确率</div>
-                            </div>
-                        </div>
-                        
-                        <!-- 统计数据 -->
-                        <div class="result-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">${correct}</div>
-                                <div class="stat-label">答对</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">${wrong}</div>
-                                <div class="stat-label">答错</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">${timeStr}</div>
-                                <div class="stat-label">用时</div>
-                            </div>
-                        </div>
-                        
-                        <!-- 错题列表 -->
-                        ${wrongListHTML}
-                        
-                        <!-- 操作按钮 -->
-                        <div class="action-buttons">
-                            <button class="action-btn secondary" onclick="MathUnitsApp.showStartPage()">
-                                返回首页
-                            </button>
-                            <button class="action-btn primary" onclick="MathUnitsApp.startExercise()">
-                                再练一次
-                            </button>
-                        </div>
-                    </div>
-                `;
-            },
-            
-            // 确认退出
-            confirmExit() {
-                if (this.currentIndex > 0 && this.currentIndex < this.questions.length) {
-                    if (confirm('确定要退出吗？当前进度将不会保存。')) {
-                        clearInterval(this.timerInterval);
-                        window.location.href = 'index.html';
-                    }
-                } else {
-                    clearInterval(this.timerInterval);
-                    window.location.href = 'index.html';
-                }
-            },
-            
-            // Toast提示
-            showToast(message) {
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.textContent = message;
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 1500);
-            }
-        };
+        // 全局状态
+        let mathData = null;
+        let currentLevel = 'basic';
+        let questions = [];
+        let currentIndex = 0;
+        let correctCount = 0;
+        let wrongQuestions = [];
+        let timerInterval = null;
+        let startTime = null;
+        let answered = false;
         
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            MathUnitsApp.init();
-        });
+        // 加载数据
+        async function loadData() {
+            try {
+                const response = await fetch('data/math/units.json');
+                mathData = await response.json();
+                console.log('数学数据加载成功:', mathData);
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                showToast('加载数据失败');
+            }
+        }
+        
+        // 从URL获取难度参数
+        function getLevelFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('level') || '';
+        }
+        
+        // 初始化
+        async function init() {
+            await loadData();
+            
+            const level = getLevelFromURL();
+            if (level && ['basic', 'advanced', 'all'].includes(level)) {
+                // 直接开始练习
+                startPractice(level);
+            }
+            // 否则显示选择页面
+        }
+        
+        // 开始练习
+        function startPractice(level) {
+            currentLevel = level;
+            currentIndex = 0;
+            correctCount = 0;
+            wrongQuestions = [];
+            answered = false;
+            
+            // 根据难度筛选题目
+            if (level === 'basic') {
+                questions = [...mathData.levels.basic.questions];
+            } else if (level === 'advanced') {
+                questions = [...mathData.levels.advanced.questions];
+            } else {
+                // 全部题目
+                questions = [
+                    ...mathData.levels.basic.questions,
+                    ...mathData.levels.advanced.questions
+                ];
+            }
+            
+            // 打乱题目顺序
+            questions = shuffleArray(questions);
+            
+            // 更新UI
+            document.getElementById('select-page').classList.add('hidden');
+            document.getElementById('practice-page').classList.remove('hidden');
+            document.getElementById('complete-page').classList.add('hidden');
+            
+            document.getElementById('total-q').textContent = questions.length;
+            
+            // 开始计时
+            startTime = new Date();
+            startTimer();
+            
+            // 显示第一题
+            showQuestion();
+        }
+        
+        // 打乱数组
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+        
+        // 显示题目
+        function showQuestion() {
+            if (currentIndex >= questions.length) {
+                showComplete();
+                return;
+            }
+            
+            const q = questions[currentIndex];
+            answered = false;
+            
+            // 更新进度
+            document.getElementById('current-q').textContent = currentIndex + 1;
+            document.getElementById('progress-fill').style.width = 
+                ((currentIndex) / questions.length * 100) + '%';
+            
+            // 更新题目类型
+            const typeMap = {
+                'fill_unit': '填单位',
+                'convert': '单位换算',
+                'compare': '比大小',
+                'judge': '判断',
+                'sort': '排序',
+                'application': '应用题'
+            };
+            document.getElementById('question-type').textContent = typeMap[q.type] || '练习';
+            
+            // 更新题目
+            document.getElementById('question-text').innerHTML = q.question;
+            
+            // 生成选项
+            const container = document.getElementById('options-container');
+            const letters = ['A', 'B', 'C', 'D'];
+            container.innerHTML = q.options.map((opt, idx) => `
+                <button class="option-btn" onclick="selectAnswer(${idx})" data-index="${idx}">
+                    <span class="option-letter">${letters[idx]}</span>
+                    <span>${opt}</span>
+                </button>
+            `).join('');
+            
+            // 隐藏解析和下一题按钮
+            document.getElementById('explanation-card').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+        
+        // 选择答案
+        function selectAnswer(index) {
+            if (answered) return;
+            answered = true;
+            
+            const q = questions[currentIndex];
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            // 禁用所有按钮
+            buttons.forEach(btn => btn.classList.add('disabled'));
+            
+            // 标记正确和错误
+            if (index === q.answer) {
+                buttons[index].classList.add('correct');
+                correctCount++;
+            } else {
+                buttons[index].classList.add('wrong');
+                buttons[q.answer].classList.add('correct');
+                
+                // 记录错题
+                wrongQuestions.push({
+                    question: q.question,
+                    yourAnswer: q.options[index],
+                    correctAnswer: q.options[q.answer],
+                    explanation: q.explanation
+                });
+            }
+            
+            // 显示解析
+            document.getElementById('explanation-card').classList.remove('hidden');
+            document.getElementById('explanation-text').textContent = q.explanation;
+            
+            // 显示下一题按钮
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.classList.remove('hidden');
+            
+            if (currentIndex === questions.length - 1) {
+                nextBtn.textContent = '查看成绩 🏆';
+            } else {
+                nextBtn.textContent = '下一题 →';
+            }
+        }
+        
+        // 下一题
+        function nextQuestion() {
+            currentIndex++;
+            showQuestion();
+        }
+        
+        // 完成练习
+        function showComplete() {
+            stopTimer();
+            
+            // 停止计时
+            const endTime = new Date();
+            const timeDiff = endTime - startTime;
+            const minutes = Math.floor(timeDiff / 60000);
+            const seconds = Math.floor((timeDiff % 60000) / 1000);
+            const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // 计算分数和正确率
+            const total = questions.length;
+            const accuracy = Math.round((correctCount / total) * 100);
+            const score = Math.round((correctCount / total) * 100);
+            
+            // 更新完成页面
+            if (accuracy >= 90) {
+                document.getElementById('complete-icon').textContent = '🏆';
+                document.getElementById('complete-title').textContent = '太棒了！';
+            } else if (accuracy >= 70) {
+                document.getElementById('complete-icon').textContent = '🎉';
+                document.getElementById('complete-title').textContent = '做得不错！';
+            } else if (accuracy >= 50) {
+                document.getElementById('complete-icon').textContent = '💪';
+                document.getElementById('complete-title').textContent = '继续加油！';
+            } else {
+                document.getElementById('complete-icon').textContent = '📚';
+                document.getElementById('complete-title').textContent = '多练习一下！';
+            }
+            
+            document.getElementById('complete-score').textContent = score + '分';
+            document.getElementById('stat-correct').textContent = correctCount;
+            document.getElementById('stat-wrong').textContent = total - correctCount;
+            document.getElementById('stat-time').textContent = timeStr;
+            document.getElementById('stat-accuracy').textContent = accuracy + '%';
+            
+            // 保存记录
+            saveHistory({
+                level: currentLevel,
+                levelName: currentLevel === 'basic' ? '基础练习' : 
+                          currentLevel === 'advanced' ? '进阶练习' : '综合练习',
+                score: score,
+                correct: correctCount,
+                total: total,
+                time: timeStr,
+                date: new Date().toISOString()
+            });
+            
+            // 切换页面
+            document.getElementById('practice-page').classList.add('hidden');
+            document.getElementById('complete-page').classList.remove('hidden');
+        }
+        
+        // 保存历史记录
+        function saveHistory(record) {
+            const history = JSON.parse(localStorage.getItem('mathHistory') || '[]');
+            history.unshift(record);
+            // 只保留最近20条
+            if (history.length > 20) {
+                history.pop();
+            }
+            localStorage.setItem('mathHistory', JSON.stringify(history));
+        }
+        
+        // 计时器
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
+        function stopTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+        
+        function updateTimer() {
+            if (!startTime) return;
+            
+            const now = new Date();
+            const diff = now - startTime;
+            const minutes = Math.floor(diff / 60000);
+            const seconds = Math.floor((diff % 60000) / 1000);
+            
+            document.getElementById('timer-display').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // 重新练习
+        function retryPractice() {
+            startPractice(currentLevel);
+        }
+        
+        // 返回首页
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+        
+        // 返回
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+        
+        // 确认退出
+        function confirmExit() {
+            if (confirm('确定要退出练习吗？当前进度将不会保存。')) {
+                goBack();
+            }
+        }
+        
+        // 显示Toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 2000);
+        }
+        
+        // 启动
+        init();
     </script>
 </body>
 </html>

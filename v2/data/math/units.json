@@ -1,635 +1,421 @@
 {
   "id": "math_units",
   "title": "单位练习",
-  "description": "长度和面积单位练习",
-  "questions": [
-    {
-      "id": "u001",
-      "type": "fill_unit",
-      "question": "手机长约15（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "手机长度约10-20厘米，用cm最合适。mm太小（一枚硬币厚约2mm），dm太大（门宽约8dm）。"
+  "grade": "三年级下册",
+  "levels": {
+    "basic": {
+      "title": "基础练习",
+      "description": "填单位 · 单位换算",
+      "count": 30,
+      "questions": [
+        {
+          "id": "b001",
+          "type": "fill_unit",
+          "question": "手机长约15（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 1,
+          "explanation": "手机长度约10-20厘米，用cm合适。mm太小（硬币厚约2mm），dm太大（门宽约8dm）。"
+        },
+        {
+          "id": "b002",
+          "type": "fill_unit",
+          "question": "数学书封面面积约470（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 1,
+          "explanation": "数学书约20cm×23cm=460cm²，用cm²最合适。mm²太小，dm²/m²太大。"
+        },
+        {
+          "id": "b003",
+          "type": "fill_unit",
+          "question": "教室面积约50（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 3,
+          "explanation": "普通教室约50平方米，用m²最合适。"
+        },
+        {
+          "id": "b004",
+          "type": "fill_unit",
+          "question": "硬币厚度约2（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 0,
+          "explanation": "硬币厚度约2毫米，用mm最合适。"
+        },
+        {
+          "id": "b005",
+          "type": "fill_unit",
+          "question": "课桌高约7（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 2,
+          "explanation": "课桌高度约70厘米，即7分米，用dm最合适。"
+        },
+        {
+          "id": "b006",
+          "type": "fill_unit",
+          "question": "手帕面积约400（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 1,
+          "explanation": "手帕约20cm×20cm=400cm²，用cm²最合适。"
+        },
+        {
+          "id": "b007",
+          "type": "fill_unit",
+          "question": "小红身高约140（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 1,
+          "explanation": "小学生身高约140厘米，用cm最合适。"
+        },
+        {
+          "id": "b008",
+          "type": "fill_unit",
+          "question": "上海到北京约1200（    ）",
+          "options": ["mm", "cm", "dm", "km"],
+          "answer": 3,
+          "explanation": "城市间距离用千米，1200千米是合适的距离。"
+        },
+        {
+          "id": "b009",
+          "type": "fill_unit",
+          "question": "铅笔长约18（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 1,
+          "explanation": "铅笔长度约18厘米，用cm最合适。"
+        },
+        {
+          "id": "b010",
+          "type": "fill_unit",
+          "question": "邮票面积约6（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 1,
+          "explanation": "邮票很小，面积约6平方厘米，用cm²最合适。"
+        },
+        {
+          "id": "b011",
+          "type": "fill_unit",
+          "question": "橡皮长约4（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 1,
+          "explanation": "橡皮长度约4厘米，用cm最合适。"
+        },
+        {
+          "id": "b012",
+          "type": "fill_unit",
+          "question": "黑板宽约4（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 3,
+          "explanation": "黑板宽度约4米，用m最合适。"
+        },
+        {
+          "id": "b013",
+          "type": "fill_unit",
+          "question": "树高约8（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 3,
+          "explanation": "树的高度约8米，用m最合适。"
+        },
+        {
+          "id": "b014",
+          "type": "fill_unit",
+          "question": "一元硬币直径约25（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 0,
+          "explanation": "硬币直径约25毫米，用mm最合适。"
+        },
+        {
+          "id": "b015",
+          "type": "fill_unit",
+          "question": "银行卡面积约40（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 1,
+          "explanation": "银行卡约8.5cm×5cm=42.5cm²，用cm²最合适。"
+        },
+        {
+          "id": "b016",
+          "type": "fill_unit",
+          "question": "蚂蚁身长约5（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 0,
+          "explanation": "蚂蚁很小，身长约5毫米，用mm最合适。"
+        },
+        {
+          "id": "b017",
+          "type": "fill_unit",
+          "question": "标准足球场面积约7100（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 3,
+          "explanation": "标准足球场约7100平方米，用m²最合适。"
+        },
+        {
+          "id": "b018",
+          "type": "fill_unit",
+          "question": "学校跑道长约400（    ）",
+          "options": ["mm", "cm", "dm", "m"],
+          "answer": 3,
+          "explanation": "标准跑道一圈约400米，用m最合适。"
+        },
+        {
+          "id": "b019",
+          "type": "fill_unit",
+          "question": "长江长度约6300（    ）",
+          "options": ["mm", "cm", "dm", "km"],
+          "answer": 3,
+          "explanation": "河流长度用千米，长江约6300千米。"
+        },
+        {
+          "id": "b020",
+          "type": "fill_unit",
+          "question": "指甲盖面积约1（    ）",
+          "options": ["mm²", "cm²", "dm²", "m²"],
+          "answer": 1,
+          "explanation": "指甲盖很小，面积约1平方厘米，用cm²最合适。"
+        },
+        {
+          "id": "b021",
+          "type": "convert",
+          "question": "8m² = ____ dm²",
+          "options": ["80", "800", "8000"],
+          "answer": 1,
+          "explanation": "1m²=100dm²，所以8m²=8×100=800dm²。"
+        },
+        {
+          "id": "b022",
+          "type": "convert",
+          "question": "3m = ____ cm",
+          "options": ["30", "300", "3000"],
+          "answer": 1,
+          "explanation": "1m=100cm，所以3m=3×100=300cm。"
+        },
+        {
+          "id": "b023",
+          "type": "convert",
+          "question": "600mm = ____ dm",
+          "options": ["6", "60", "6000"],
+          "answer": 0,
+          "explanation": "10mm=1cm，10cm=1dm，所以600mm=60cm=6dm。"
+        },
+        {
+          "id": "b024",
+          "type": "convert",
+          "question": "10000cm² = ____ m²",
+          "options": ["1", "10", "100"],
+          "answer": 0,
+          "explanation": "10000cm²=1m²，因为100cm×100cm=1m×1m。"
+        },
+        {
+          "id": "b025",
+          "type": "convert",
+          "question": "7dm = ____ cm",
+          "options": ["70", "700", "7"],
+          "answer": 0,
+          "explanation": "1dm=10cm，所以7dm=7×10=70cm。"
+        },
+        {
+          "id": "b026",
+          "type": "convert",
+          "question": "5km = ____ m",
+          "options": ["500", "5000", "50000"],
+          "answer": 1,
+          "explanation": "1km=1000m，所以5km=5×1000=5000m。"
+        },
+        {
+          "id": "b027",
+          "type": "convert",
+          "question": "200dm² = ____ m²",
+          "options": ["2", "20", "0.2"],
+          "answer": 0,
+          "explanation": "100dm²=1m²，所以200dm²=200÷100=2m²。"
+        },
+        {
+          "id": "b028",
+          "type": "convert",
+          "question": "4m² = ____ cm²",
+          "options": ["400", "4000", "40000"],
+          "answer": 2,
+          "explanation": "1m²=10000cm²，所以4m²=4×10000=40000cm²。"
+        },
+        {
+          "id": "b029",
+          "type": "convert",
+          "question": "150cm = ____ dm",
+          "options": ["15", "1500", "1.5"],
+          "answer": 0,
+          "explanation": "10cm=1dm，所以150cm=150÷10=15dm。"
+        },
+        {
+          "id": "b030",
+          "type": "convert",
+          "question": "3000m = ____ km",
+          "options": ["3", "30", "300"],
+          "answer": 0,
+          "explanation": "1000m=1km，所以3000m=3000÷1000=3km。"
+        }
+      ]
     },
-    {
-      "id": "u002",
-      "type": "fill_unit",
-      "question": "一枚硬币厚约2（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 0,
-      "explanation": "一枚硬币厚度约2毫米，用mm最合适。太薄了用cm不准确，cm会显得太厚。"
-    },
-    {
-      "id": "u003",
-      "type": "fill_unit",
-      "question": "铅笔长约18（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "铅笔长度约15-20厘米，用cm最合适。mm太小，dm太大（一支铅笔长不到2dm）。"
-    },
-    {
-      "id": "u004",
-      "type": "fill_unit",
-      "question": "课桌高约7（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 2,
-      "explanation": "课桌高度约70厘米，即7分米，用dm最合适。cm太小（700cm太高），m太小（0.7m太矮）。"
-    },
-    {
-      "id": "u005",
-      "type": "fill_unit",
-      "question": "教室长约8（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 3,
-      "explanation": "教室长度约8米，用m最合适。太短了用dm（80dm=8m一样但通常说8米），cm/mm都太小。"
-    },
-    {
-      "id": "u006",
-      "type": "fill_unit",
-      "question": "小红身高约140（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "小学生身高约140厘米，用cm最合适。也可以说1.4m，但一般用cm。mm太小，dm太小（14dm=140cm但口语不这样说）。"
-    },
-    {
-      "id": "u007",
-      "type": "fill_unit",
-      "question": "橡皮长约4（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "橡皮长度约4厘米，用cm最合适。mm太小（40mm=4cm但口语不说），dm太大。"
-    },
-    {
-      "id": "u008",
-      "type": "fill_unit",
-      "question": "数学书宽约2（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "数学书宽度约20厘米，即2分米，但通常用cm说约20cm。这里填cm更合适。"
-    },
-    {
-      "id": "u009",
-      "type": "fill_unit",
-      "question": "一层楼高约3（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 3,
-      "explanation": "一层楼的高度约3米，用m最合适。cm/mm都太小，dm太大（30dm=3m但通常说3米）。"
-    },
-    {
-      "id": "u010",
-      "type": "fill_unit",
-      "question": "蚂蚁身长约5（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 0,
-      "explanation": "蚂蚁身长约5毫米，用mm最合适。cm太大，dm/m更大，都不合适。"
-    },
-    {
-      "id": "u011",
-      "type": "fill_unit",
-      "question": "一张A4纸厚约0.1（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 0,
-      "explanation": "一张A4纸厚度约0.1毫米，用mm最合适。0.1cm=1mm，太厚了；其他单位更大。"
-    },
-    {
-      "id": "u012",
-      "type": "fill_unit",
-      "question": "黑板长约4（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 2,
-      "explanation": "黑板长度约4米，但也可以说40dm。在小学题中常用m，不过这里选项有dm，选dm也正确。"
-    },
-    {
-      "id": "u013",
-      "type": "fill_unit",
-      "question": "门宽约9（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 2,
-      "explanation": "普通门的宽度约90厘米，即9分米，用dm最合适。用m的话是0.9m，口语一般说9分米。"
-    },
-    {
-      "id": "u014",
-      "type": "fill_unit",
-      "question": "操场跑道长约200（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 3,
-      "explanation": "操场跑道一圈约200米，用m最合适。其他单位都不合适：cm/mm太小，km太大。"
-    },
-    {
-      "id": "u015",
-      "type": "fill_unit",
-      "question": "北京到上海约1200（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 3,
-      "explanation": "北京到上海的距离约1200千米，用km最合适。长距离路程用km，其他单位都不合适。"
-    },
-    {
-      "id": "u016",
-      "type": "fill_unit",
-      "question": "邮票面积约6（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 1,
-      "explanation": "邮票面积约6平方厘米，用cm²最合适。mm²太小，dm²/m²太大。"
-    },
-    {
-      "id": "u017",
-      "type": "fill_unit",
-      "question": "数学书封面约3（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 2,
-      "explanation": "数学书封面面积约3平方分米，用dm²最合适。cm²太小，m²太大。"
-    },
-    {
-      "id": "u018",
-      "type": "fill_unit",
-      "question": "教室地面约50（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 3,
-      "explanation": "教室地面面积约50平方米，用m²最合适。cm²/dm²太小，km²太大。"
-    },
-    {
-      "id": "u019",
-      "type": "fill_unit",
-      "question": "橡皮面约4（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 1,
-      "explanation": "橡皮面积约4平方厘米，用cm²最合适。mm²太小，dm²/m²太大。"
-    },
-    {
-      "id": "u020",
-      "type": "fill_unit",
-      "question": "指甲盖约1（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 1,
-      "explanation": "指甲盖面积约1平方厘米，用cm²最合适。mm²太小（10mm²已经很大了），dm²/m²太大。"
-    },
-    {
-      "id": "u021",
-      "type": "fill_unit",
-      "question": "天安门广场约44（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "km²"
-      ],
-      "answer": 3,
-      "explanation": "天安门广场面积约44万平方米，即0.44平方千米，用km²最合适。m²太小，cm²/dm²更小。"
-    },
-    {
-      "id": "u022",
-      "type": "fill_unit",
-      "question": "课桌面约24（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 2,
-      "explanation": "课桌面面积约24平方分米，用dm²最合适。cm²太小（2400cm²=24dm²但口语说24平方分米），m²太大。"
-    },
-    {
-      "id": "u023",
-      "type": "fill_unit",
-      "question": "一元硬币直径约25（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 0,
-      "explanation": "一元硬币直径约25毫米，用mm最合适。cm太大（2.5cm=25mm），dm/m更大。"
-    },
-    {
-      "id": "u024",
-      "type": "fill_unit",
-      "question": "字典厚约4（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "字典厚度约4厘米，用cm最合适。mm太小，dm太大（4dm=40cm太厚了）。"
-    },
-    {
-      "id": "u025",
-      "type": "fill_unit",
-      "question": "爸爸身高约175（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "成年人身高约175厘米，用cm最合适。也可以说1.75m，但一般用cm。mm太小，dm太小（17.5dm=175cm但口语不说）。"
-    },
-    {
-      "id": "u026",
-      "type": "fill_unit",
-      "question": "课本长度约26（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "课本长度约26厘米，用cm最合适。mm太小（260mm=26cm但口语不说mm），dm太大。"
-    },
-    {
-      "id": "u027",
-      "type": "fill_unit",
-      "question": "粉笔长约10（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "粉笔长度约10厘米，用cm最合适。mm太小（100mm=10cm但口语不说），dm太大。"
-    },
-    {
-      "id": "u028",
-      "type": "fill_unit",
-      "question": "学校操场面积约2000（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 3,
-      "explanation": "学校操场面积约2000平方米，用m²最合适。cm²/dm²太小，km²太大。"
-    },
-    {
-      "id": "u029",
-      "type": "fill_unit",
-      "question": "手帕面积约4（    ）",
-      "options": [
-        "mm²",
-        "cm²",
-        "dm²",
-        "m²"
-      ],
-      "answer": 2,
-      "explanation": "手帕面积约4平方分米，用dm²最合适。cm²太小，m²太大。"
-    },
-    {
-      "id": "u030",
-      "type": "fill_unit",
-      "question": "树叶长约8（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "树叶长度约8厘米，用cm最合适。mm太小（80mm=8cm但一般说8厘米），dm太大。"
-    },
-    {
-      "id": "u031",
-      "type": "fill_unit",
-      "question": "圆珠笔长约14（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "圆珠笔长度约14厘米，用cm最合适。mm太小，dm太大（1.4dm=14cm但口语说14厘米）。"
-    },
-    {
-      "id": "u032",
-      "type": "fill_unit",
-      "question": "西瓜直径约30（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "西瓜直径约30厘米，用cm最合适。mm太小（300mm太具体），dm太大（3dm=30cm但口语一般说30厘米）。"
-    },
-    {
-      "id": "u033",
-      "type": "fill_unit",
-      "question": "小明一步长约50（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "小学生一步长约50厘米，用cm最合适。mm太小，dm太大（5dm=50cm但口语说50厘米）。"
-    },
-    {
-      "id": "u034",
-      "type": "fill_unit",
-      "question": "床长约2（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 3,
-      "explanation": "单人床长度约2米，用m最合适。cm/mm太小，dm太小（20dm=2m但一般说2米）。"
-    },
-    {
-      "id": "u035",
-      "type": "fill_unit",
-      "question": "图钉长约1（    ）",
-      "options": [
-        "mm",
-        "cm",
-        "dm",
-        "m"
-      ],
-      "answer": 1,
-      "explanation": "图钉长度约1厘米，用cm最合适。mm太小（10mm=1cm，但一般说1厘米），dm太大。"
-    },
-    {
-      "id": "u036",
-      "type": "compare",
-      "question": "5cm ○ 50mm",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "5cm = 50mm，因为1cm = 10mm，所以5cm = 5×10mm = 50mm，它们相等。"
-    },
-    {
-      "id": "u037",
-      "type": "compare",
-      "question": "3m ○ 30dm",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "3m = 30dm，因为1m = 10dm，所以3m = 3×10dm = 30dm，它们相等。"
-    },
-    {
-      "id": "u038",
-      "type": "compare",
-      "question": "100cm ○ 1m",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "100cm = 1m，因为100cm = 100÷100m = 1m，它们相等。"
-    },
-    {
-      "id": "u039",
-      "type": "compare",
-      "question": "2dm² ○ 200cm²",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "2dm² = 200cm²，因为1dm² = 100cm²，所以2dm² = 2×100cm² = 200cm²，它们相等。"
-    },
-    {
-      "id": "u040",
-      "type": "compare",
-      "question": "5m² ○ 500dm²",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "5m² = 500dm²，因为1m² = 100dm²，所以5m² = 5×100dm² = 500dm²，它们相等。"
-    },
-    {
-      "id": "u041",
-      "type": "compare",
-      "question": "80mm ○ 8cm",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "80mm = 8cm，因为10mm = 1cm，所以80mm = 80÷10cm = 8cm，它们相等。"
-    },
-    {
-      "id": "u042",
-      "type": "compare",
-      "question": "1m² ○ 10000cm²",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "1m² = 10000cm²，因为1m² = 100dm²，1dm² = 100cm²，所以1m² = 100×100cm² = 10000cm²，它们相等。"
-    },
-    {
-      "id": "u043",
-      "type": "compare",
-      "question": "40dm ○ 4m",
-      "options": [
-        ">",
-        "<",
-        "="
-      ],
-      "answer": 2,
-      "explanation": "40dm = 4m，因为10dm = 1m，所以40dm = 40÷10m = 4m，它们相等。"
-    },
-    {
-      "id": "u044",
-      "type": "judge",
-      "question": "一棵树高10cm，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 1,
-      "explanation": "不对！树的高度一般用米(m)来表示。10cm只有一支铅笔那么长，一棵树不可能只有这么矮。正确应该是10m左右。"
-    },
-    {
-      "id": "u045",
-      "type": "judge",
-      "question": "一块橡皮厚5mm，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 0,
-      "explanation": "对！橡皮厚度约5毫米，用mm最合适。这也是常见的橡皮厚度。"
-    },
-    {
-      "id": "u046",
-      "type": "judge",
-      "question": "教室面积约1000m²，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 0,
-      "explanation": "对！教室面积约50-60平方米，但说1000m²也没错，只是偏大一点。不过这个大小是可能的。"
-    },
-    {
-      "id": "u047",
-      "type": "judge",
-      "question": "小明身高1.5m，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 0,
-      "explanation": "对！小学生身高1.5米是合理的，约150厘米。这和平时说一米五是一样的。"
-    },
-    {
-      "id": "u048",
-      "type": "judge",
-      "question": "一只蚂蚁长5m，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 1,
-      "explanation": "不对！蚂蚁非常小，身长约5毫米(mm)，5米太夸张了，那比人还高！"
-    },
-    {
-      "id": "u049",
-      "type": "judge",
-      "question": "数学书封面约2dm²，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 0,
-      "explanation": "对！数学书封面面积约2平方分米(dm²)是合理的，大约20cm×20cm=400cm²=4dm²，说2dm²偏小但可以接受。"
-    },
-    {
-      "id": "u050",
-      "type": "judge",
-      "question": "从家到学校500km，对吗？",
-      "options": [
-        "对",
-        "不对"
-      ],
-      "answer": 1,
-      "explanation": "不对！从家到学校的距离不可能有500千米，那太远了！一般家到学校只有几千米(km)，用m更合适，比如500m。"
+    "advanced": {
+      "title": "进阶练习",
+      "description": "比大小 · 判断 · 排序 · 应用",
+      "count": 20,
+      "questions": [
+        {
+          "id": "a001",
+          "type": "compare",
+          "question": "7m² ○ 700cm²",
+          "options": [">", "<", "="],
+          "answer": 0,
+          "explanation": "7m²=70000cm²，70000>700，所以7m²>700cm²。"
+        },
+        {
+          "id": "a002",
+          "type": "compare",
+          "question": "10m5dm ○ 105dm",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "10m5dm=100dm+5dm=105dm，两边相等。"
+        },
+        {
+          "id": "a003",
+          "type": "compare",
+          "question": "310cm ○ 31dm",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "310cm=31dm，两边相等。"
+        },
+        {
+          "id": "a004",
+          "type": "compare",
+          "question": "5cm ○ 50mm",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "5cm=50mm，两边相等。"
+        },
+        {
+          "id": "a005",
+          "type": "compare",
+          "question": "3m² ○ 300dm²",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "3m²=300dm²，两边相等。"
+        },
+        {
+          "id": "a006",
+          "type": "compare",
+          "question": "2km ○ 2000m",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "2km=2000m，两边相等。"
+        },
+        {
+          "id": "a007",
+          "type": "compare",
+          "question": "100cm² ○ 1dm²",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "100cm²=1dm²，两边相等。"
+        },
+        {
+          "id": "a008",
+          "type": "compare",
+          "question": "50dm ○ 5m",
+          "options": [">", "<", "="],
+          "answer": 2,
+          "explanation": "50dm=5m，两边相等。"
+        },
+        {
+          "id": "a009",
+          "type": "compare",
+          "question": "8000m ○ 9km",
+          "options": [">", "<", "="],
+          "answer": 1,
+          "explanation": "8000m=8km，8km<9km，所以<。"
+        },
+        {
+          "id": "a010",
+          "type": "compare",
+          "question": "15dm² ○ 150cm²",
+          "options": [">", "<", "="],
+          "answer": 0,
+          "explanation": "15dm²=1500cm²，1500>150，所以>。"
+        },
+        {
+          "id": "a011",
+          "type": "judge",
+          "question": "1米大于1平方分米",
+          "options": ["对", "错"],
+          "answer": 1,
+          "explanation": "错！长度和面积是不同的量，不能直接比较大小。就像不能说5米比3公斤大一样。"
+        },
+        {
+          "id": "a012",
+          "type": "judge",
+          "question": "6米比5米40厘米多60厘米",
+          "options": ["对", "错"],
+          "answer": 0,
+          "explanation": "对！5米40厘米=540厘米，6米=600厘米，600-540=60厘米。"
+        },
+        {
+          "id": "a013",
+          "type": "judge",
+          "question": "10个1m²就是1000dm²",
+          "options": ["对", "错"],
+          "answer": 0,
+          "explanation": "对！10×1m²=10m²=1000dm²，正确。1m²=100dm²，10m²=1000dm²。"
+        },
+        {
+          "id": "a014",
+          "type": "judge",
+          "question": "一棵树高10cm",
+          "options": ["对", "错"],
+          "answer": 1,
+          "explanation": "错！树的高度一般用米(m)来表示，10cm只有一支铅笔那么长，太矮了！"
+        },
+        {
+          "id": "a015",
+          "type": "judge",
+          "question": "游泳池底面积200m²，用4dm²瓷砖需要5000块",
+          "options": ["对", "错"],
+          "answer": 0,
+          "explanation": "对！200m²=20000dm²，20000÷4=5000块，正确。"
+        },
+        {
+          "id": "a016",
+          "type": "sort",
+          "question": "把下列面积从大到小排列：3dm²3cm²、30dm²、300cm²、3m²",
+          "options": ["3m² > 30dm² > 3dm²3cm² > 300cm²", "30dm² > 3m² > 3dm²3cm² > 300cm²", "3m² > 3dm²3cm² > 30dm² > 300cm²"],
+          "answer": 0,
+          "explanation": "3m²=300dm²=30000cm²；30dm²=3000cm²；3dm²3cm²=303cm²；300cm²=300cm²。从大到小：3m²(30000cm²) > 30dm²(3000cm²) > 3dm²3cm²(303cm²) > 300cm²(300cm²)。"
+        },
+        {
+          "id": "a017",
+          "type": "sort",
+          "question": "把下列长度从大到小排列：5m、500cm、50dm、5km",
+          "options": ["5km > 50dm > 5m > 500cm", "5km > 5m > 50dm > 500cm", "5m > 5km > 50dm > 500cm"],
+          "answer": 0,
+          "explanation": "5km=5000m；50dm=5m；5m=5m；500cm=5m。所以从大到小：5km > 50dm = 5m = 500cm。"
+        },
+        {
+          "id": "a018",
+          "type": "sort",
+          "question": "把下列面积从小到大排列：200cm²、2dm²、2m²、2000mm²",
+          "options": ["2000mm² < 200cm² < 2dm² < 2m²", "2m² < 2dm² < 200cm² < 2000mm²", "2000mm² < 2dm² < 200cm² < 2m²"],
+          "answer": 0,
+          "explanation": "2000mm²=2cm²；200cm²=200cm²；2dm²=200cm²；2m²=20000cm²。从小到大：2000mm²(2cm²) < 200cm² = 2dm² < 2m²。"
+        },
+        {
+          "id": "a019",
+          "type": "application",
+          "question": "李明在200米直道上跑了5个来回，一共跑了多少米？合多少千米？",
+          "options": ["1000米=1千米", "2000米=2千米", "1000米=10千米"],
+          "answer": 1,
+          "explanation": "一个来回是200×2=400米，5个来回是400×5=2000米=2千米。"
+        },
+        {
+          "id": "a020",
+          "type": "application",
+          "question": "一块正方形菜地，边长是20米，它的面积是多少平方米？合多少平方分米？",
+          "options": ["400m²=40000dm²", "40m²=4000dm²", "400m²=4000dm²"],
+          "answer": 0,
+          "explanation": "面积=20×20=400m²，400m²=400×100=40000dm²。"
+        }
+      ]
     }
-  ]
+  }
 }

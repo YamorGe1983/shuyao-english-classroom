@@ -266,6 +266,178 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-primary);
 }
 
+/* ==================== 学科切换栏 ==================== */
+.subject-tabs {
+    display: flex;
+    background: white;
+    border-radius: 16px;
+    padding: 4px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.subject-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 8px;
+    border: none;
+    background: transparent;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #636E72;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.subject-tab:active {
+    transform: scale(0.95);
+}
+
+.subject-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.subject-tab .tab-icon {
+    font-size: 18px;
+}
+
+/* 学科专属颜色 */
+.subject-tab[data-subject="math"].active {
+    background: #4A90D9;
+    box-shadow: 0 2px 8px rgba(74, 144, 217, 0.3);
+}
+
+.subject-tab[data-subject="chinese"].active {
+    background: #9B59B6;
+    box-shadow: 0 2px 8px rgba(155, 89, 182, 0.3);
+}
+
+.subject-tab[data-subject="english"].active {
+    background: #FF6B6B;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+/* 学科内容区 */
+.subject-content {
+    display: none;
+}
+
+.subject-content.active {
+    display: block;
+}
+
+/* 数学模块卡片 */
+.math-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.math-module-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.math-module-card:active {
+    transform: scale(0.95);
+}
+
+.math-module-card:hover {
+    border-color: #4A90D9;
+}
+
+.math-module-card .math-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.math-module-card h3 {
+    font-size: 16px;
+    color: #2D3436;
+    margin-bottom: 4px;
+}
+
+.math-module-card .math-desc {
+    font-size: 12px;
+    color: #636E72;
+}
+
+/* 语文模块卡片 */
+.chinese-modules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.chinese-module-card {
+    background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.chinese-module-card:active {
+    transform: scale(0.95);
+}
+
+.chinese-module-card .chinese-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.chinese-module-card h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.chinese-module-card .chinese-desc {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* 敬请期待提示 */
+.coming-soon {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 16px;
+    margin-top: 16px;
+}
+
+.coming-soon .soon-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.coming-soon h3 {
+    font-size: 18px;
+    color: #2D3436;
+    margin-bottom: 8px;
+}
+
+.coming-soon p {
+    font-size: 14px;
+    color: #636E72;
+}
+
+
 .welcome-page {
     text-align: center;
     padding: var(--space-xl);
@@ -7323,6 +7495,9 @@ const App = {
         const daysToFinal = Math.max(0, Math.ceil((finalExam - now) / (1000 * 60 * 60 * 24)));
         const daysToSummer = Math.max(0, Math.ceil((summerVacation - now) / (1000 * 60 * 60 * 24)));
         
+        const currentSubject = SubjectManager.getCurrent();
+        const subjectConfig = SUBJECT_CONFIG[currentSubject];
+        
         const html = `
             <div class="home-page" style="padding:16px;padding-bottom:120px;">
                 <!-- 头部切换区域 -->
@@ -7337,6 +7512,13 @@ const App = {
                         <span style="margin-left:auto;">▼</span>
                     </div>
                 </div>
+                
+                <!-- 学科切换栏 -->
+                ${SubjectManager.renderTabs(currentSubject)}
+                
+                <!-- 英语内容 -->
+                <div id="content-english" class="subject-content ${currentSubject === 'english' ? 'active' : ''}">
+
                 
                 <!-- 欢迎区域 -->
                 <div class="welcome-card">
@@ -7380,8 +7562,45 @@ const App = {
                         </div>
                     </div>
                 </div>
+                </div>
+                </div>
                 
-                <!-- 随身听 -->
+                <!-- 数学内容 -->
+                <div id="content-math" class="subject-content">
+                    <div class="math-modules-grid">
+                        <div class="math-module-card" onclick="App.startMathPractice('basic')">
+                            <div class="math-icon">📏</div>
+                            <h3>基础练习</h3>
+                            <p class="math-desc">填单位·单位换算<br>共30题</p>
+                        </div>
+                        <div class="math-module-card" onclick="App.startMathPractice('advanced')">
+                            <div class="math-icon">🧮</div>
+                            <h3>进阶练习</h3>
+                            <p class="math-desc">比大小·判断·排序<br>共20题</p>
+                        </div>
+                        <div class="math-module-card" onclick="App.startMathPractice('all')">
+                            <div class="math-icon">📐</div>
+                            <h3>综合练习</h3>
+                            <p class="math-desc">全部题目<br>共50题</p>
+                        </div>
+                        <div class="math-module-card" onclick="App.showMathHistory()">
+                            <div class="math-icon">📊</div>
+                            <h3>练习记录</h3>
+                            <p class="math-desc">查看历史成绩</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 语文内容 -->
+                <div id="content-chinese" class="subject-content">
+                    <div class="coming-soon">
+                        <div class="soon-icon">🚧</div>
+                        <h3>语文模块开发中</h3>
+                        <p>敬请期待！</p>
+                    </div>
+                </div>
+                
+                <!-- 随身听（英语专属） -->
                 <div class="morning-listen-card" onclick="App.showUnitSelectPage()">
                     <div class="morning-icon">🎧</div>
                     <div class="morning-content">
@@ -11545,6 +11764,133 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 暴露到全局
+
+// ==================== 学科切换管理 ====================
+const SUBJECTS = {
+    ENGLISH: 'english',
+    MATH: 'math',
+    CHINESE: 'chinese'
+};
+
+const SUBJECT_CONFIG = {
+    english: { name: '英语', icon: '📖' },
+    math: { name: '数学', icon: '📐' },
+    chinese: { name: '语文', icon: '📚' }
+};
+
+const SubjectManager = {
+    STORAGE_KEY: 'currentSubject',
+    
+    // 获取当前学科
+    getCurrent() {
+        return localStorage.getItem(this.STORAGE_KEY) || SUBJECTS.ENGLISH;
+    },
+    
+    // 设置当前学科
+    setCurrent(subject) {
+        localStorage.setItem(this.STORAGE_KEY, subject);
+    },
+    
+    // 渲染学科切换栏
+    renderTabs(currentSubject) {
+        const tabs = Object.entries(SUBJECT_CONFIG).map(([key, config]) => {
+            const isActive = key === currentSubject;
+            return `
+                <button class="subject-tab ${isActive ? 'active' : ''}" 
+                        data-subject="${key}" 
+                        onclick="SubjectManager.switchSubject('${key}')">
+                    <span class="tab-icon">${config.icon}</span>
+                    <span>${config.name}</span>
+                </button>
+            `;
+        }).join('');
+        
+        return `
+            <div class="subject-tabs">
+                ${tabs}
+            </div>
+        `;
+    },
+    
+    // 切换学科
+    switchSubject(subject) {
+        this.setCurrent(subject);
+        
+        // 更新标签样式
+        document.querySelectorAll('.subject-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.subject === subject);
+        });
+        
+        // 更新内容显示
+        this.updateContentDisplay(subject);
+    },
+    
+    // 更新内容显示
+    updateContentDisplay(subject) {
+        // 隐藏所有内容
+        document.querySelectorAll('.subject-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // 显示对应学科内容
+        const targetContent = document.getElementById(`content-${subject}`);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    }
+};
+
+
+
+// ==================== 数学练习相关函数 ====================
+
+// 启动数学练习
+App.startMathPractice = function(level) {
+    // 跳转到math.html并传递难度参数
+    window.location.href = 'math.html?level=' + level;
+};
+
+// 显示数学练习记录
+App.showMathHistory = function() {
+    const history = JSON.parse(localStorage.getItem('mathHistory') || '[]');
+    
+    if (history.length === 0) {
+        this.showToast('暂无练习记录');
+        return;
+    }
+    
+    const html = \`
+        <div class="home-page" style="padding:16px;padding-bottom:120px;">
+            <button class="back-btn" onclick="App.renderHome()" style="margin-bottom:16px;">
+                ← 返回首页
+            </button>
+            
+            <h2 style="text-align:center;margin-bottom:20px;">📊 数学练习记录</h2>
+            
+            <div class="history-list">
+                \${history.map((item, index) => \`
+                    <div class="history-item" style="background:white;border-radius:16px;padding:16px;margin-bottom:12px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-weight:600;">\${item.levelName}</span>
+                            <span style="color:#4A90D9;font-weight:600;">\${item.score}分</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:14px;color:#636E72;">
+                            <span>正确\${item.correct}/\${item.total}题</span>
+                            <span>\${item.time}</span>
+                        </div>
+                        <div style="margin-top:8px;font-size:12px;color:#999;">
+                            \${new Date(item.date).toLocaleDateString()}
+                        </div>
+                    </div>
+                \`).join('')}
+            </div>
+        </div>
+    \`;
+    
+    this.setContent(html);
+};
+
+
 window.App = App;
 window.UserModule = UserModule;
 window.StorageModule = StorageModule;
