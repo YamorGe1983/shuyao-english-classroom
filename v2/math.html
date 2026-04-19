@@ -588,6 +588,10 @@
     <script>
         // ==================== 数学模块 ====================
         const MathModule = {
+            // 当前年级
+            currentGrade: null,
+            gradeData: null,
+            
             // 当前选中的模块
             currentModule: null,
             
@@ -611,16 +615,43 @@
                 }
             },
 
-            // 模块列表
-            modules: [
-                { id: 'units', name: '单位练习', nameCN: '长度·面积·重量·时间', icon: '📏', desc: '各种单位换算和应用' },
-                { id: 'perimeter_area', name: '周长与面积', nameCN: '图形计算', icon: '📐', desc: '长方形、正方形' }
-            ],
+            // 模块列表（从年级数据动态生成）
+            modules: [],
 
-            // 初始化
-            init() {
+            // 初始化 - 异步加载年级数据
+            async init() {
+                // 获取年级参数
+                const urlParams = new URLSearchParams(window.location.search);
+                this.currentGrade = urlParams.get('grade') || localStorage.getItem('currentGrade') || 'grade3_2';
+                localStorage.setItem('currentGrade', this.currentGrade);
+                
                 this.loadStats();
-                this.renderHome();
+                
+                // 加载年级数据
+                try {
+                    const response = await fetch(`data/math/${this.currentGrade}.json`);
+                    this.gradeData = await response.json();
+                    
+                    // 动态生成模块列表
+                    this.modules = this.gradeData.modules.map(m => ({
+                        id: m.id,
+                        name: m.nameCN || m.name,
+                        nameCN: m.nameCN || m.name,
+                        icon: m.id === 'units' ? '📏' : '📐',
+                        desc: m.description || ''
+                    }));
+                    
+                    this.renderHome();
+                } catch (e) {
+                    console.error('加载年级数据失败:', e);
+                    document.getElementById('app').innerHTML = `
+                        <div class="header"><h1>🧮 加载失败</h1></div>
+                        <div style="text-align:center;padding:40px;">
+                            <p>无法加载数学数据，请刷新重试</p>
+                            <button onclick="location.reload()" style="margin-top:20px;padding:12px 24px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;">刷新</button>
+                        </div>
+                    `;
+                }
             },
 
             // 加载统计
@@ -663,11 +694,12 @@
             // 渲染首页
             renderHome() {
                 const app = document.getElementById('app');
+                const gradeName = this.gradeData ? this.gradeData.name : '三年级下';
                 app.innerHTML = `
                     <div class="header">
                         <button class="back-btn" onclick="location.href='index.html'">←</button>
                         <h1>🧮 数学练习</h1>
-                        <button class="back-btn" onclick="MathModule.resetStats()" style="font-size:14px;">重置</button>
+                        <span style="font-size:12px;color:var(--text-secondary);">${gradeName}</span>
                     </div>
                     
                     <!-- 总统计 -->
@@ -757,42 +789,45 @@
                 this.renderHome();
             },
 
-            // 开始练习
+            // 开始练习 - 从年级数据获取题目
             async startPractice() {
                 if (!this.currentModule) {
                     this.showToast('请先选择模块');
                     return;
                 }
 
-                // 加载题目数据
-                try {
-                    const response = await fetch(`data/math/${this.currentModule}.json`);
-                    const data = await response.json();
-                    
-                    // 根据难度筛选
-                    let questions = data.questions;
-                    if (this.currentDifficulty > 0) {
-                        questions = questions.filter(q => q.difficulty === this.currentDifficulty);
-                    }
-
-                    if (questions.length === 0) {
-                        this.showToast('该难度暂无题目');
-                        return;
-                    }
-
-                    // 随机打乱顺序
-                    questions = this.shuffleArray([...questions]);
-                    
-                    // 只取10题
-                    this.currentQuestions = questions.slice(0, 10);
-                    this.currentIndex = 0;
-                    this.userAnswers = [];
-
-                    this.renderQuestion();
-                } catch (e) {
-                    console.error('加载题目失败:', e);
-                    this.showToast('加载失败，请重试');
+                if (!this.gradeData) {
+                    this.showToast('数据未加载，请刷新');
+                    return;
                 }
+
+                // 从年级数据中找到对应模块
+                const moduleData = this.gradeData.modules.find(m => m.id === this.currentModule);
+                if (!moduleData || !moduleData.questions) {
+                    this.showToast('模块数据不存在');
+                    return;
+                }
+
+                // 根据难度筛选
+                let questions = moduleData.questions;
+                if (this.currentDifficulty > 0) {
+                    questions = questions.filter(q => q.difficulty === this.currentDifficulty);
+                }
+
+                if (questions.length === 0) {
+                    this.showToast('该难度暂无题目');
+                    return;
+                }
+
+                // 随机打乱顺序
+                questions = this.shuffleArray([...questions]);
+                
+                // 只取10题
+                this.currentQuestions = questions.slice(0, 10);
+                this.currentIndex = 0;
+                this.userAnswers = [];
+
+                this.renderQuestion();
             },
 
             // 渲染题目
