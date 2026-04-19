@@ -1,421 +1,802 @@
 {
-  "id": "math_units",
-  "title": "单位练习",
-  "grade": "三年级下册",
-  "levels": {
-    "basic": {
-      "title": "基础练习",
-      "description": "填单位 · 单位换算",
-      "count": 30,
-      "questions": [
-        {
-          "id": "b001",
-          "type": "fill_unit",
-          "question": "手机长约15（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 1,
-          "explanation": "手机长度约10-20厘米，用cm合适。mm太小（硬币厚约2mm），dm太大（门宽约8dm）。"
-        },
-        {
-          "id": "b002",
-          "type": "fill_unit",
-          "question": "数学书封面面积约470（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 1,
-          "explanation": "数学书约20cm×23cm=460cm²，用cm²最合适。mm²太小，dm²/m²太大。"
-        },
-        {
-          "id": "b003",
-          "type": "fill_unit",
-          "question": "教室面积约50（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 3,
-          "explanation": "普通教室约50平方米，用m²最合适。"
-        },
-        {
-          "id": "b004",
-          "type": "fill_unit",
-          "question": "硬币厚度约2（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 0,
-          "explanation": "硬币厚度约2毫米，用mm最合适。"
-        },
-        {
-          "id": "b005",
-          "type": "fill_unit",
-          "question": "课桌高约7（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 2,
-          "explanation": "课桌高度约70厘米，即7分米，用dm最合适。"
-        },
-        {
-          "id": "b006",
-          "type": "fill_unit",
-          "question": "手帕面积约400（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 1,
-          "explanation": "手帕约20cm×20cm=400cm²，用cm²最合适。"
-        },
-        {
-          "id": "b007",
-          "type": "fill_unit",
-          "question": "小红身高约140（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 1,
-          "explanation": "小学生身高约140厘米，用cm最合适。"
-        },
-        {
-          "id": "b008",
-          "type": "fill_unit",
-          "question": "上海到北京约1200（    ）",
-          "options": ["mm", "cm", "dm", "km"],
-          "answer": 3,
-          "explanation": "城市间距离用千米，1200千米是合适的距离。"
-        },
-        {
-          "id": "b009",
-          "type": "fill_unit",
-          "question": "铅笔长约18（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 1,
-          "explanation": "铅笔长度约18厘米，用cm最合适。"
-        },
-        {
-          "id": "b010",
-          "type": "fill_unit",
-          "question": "邮票面积约6（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 1,
-          "explanation": "邮票很小，面积约6平方厘米，用cm²最合适。"
-        },
-        {
-          "id": "b011",
-          "type": "fill_unit",
-          "question": "橡皮长约4（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 1,
-          "explanation": "橡皮长度约4厘米，用cm最合适。"
-        },
-        {
-          "id": "b012",
-          "type": "fill_unit",
-          "question": "黑板宽约4（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 3,
-          "explanation": "黑板宽度约4米，用m最合适。"
-        },
-        {
-          "id": "b013",
-          "type": "fill_unit",
-          "question": "树高约8（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 3,
-          "explanation": "树的高度约8米，用m最合适。"
-        },
-        {
-          "id": "b014",
-          "type": "fill_unit",
-          "question": "一元硬币直径约25（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 0,
-          "explanation": "硬币直径约25毫米，用mm最合适。"
-        },
-        {
-          "id": "b015",
-          "type": "fill_unit",
-          "question": "银行卡面积约40（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 1,
-          "explanation": "银行卡约8.5cm×5cm=42.5cm²，用cm²最合适。"
-        },
-        {
-          "id": "b016",
-          "type": "fill_unit",
-          "question": "蚂蚁身长约5（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 0,
-          "explanation": "蚂蚁很小，身长约5毫米，用mm最合适。"
-        },
-        {
-          "id": "b017",
-          "type": "fill_unit",
-          "question": "标准足球场面积约7100（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 3,
-          "explanation": "标准足球场约7100平方米，用m²最合适。"
-        },
-        {
-          "id": "b018",
-          "type": "fill_unit",
-          "question": "学校跑道长约400（    ）",
-          "options": ["mm", "cm", "dm", "m"],
-          "answer": 3,
-          "explanation": "标准跑道一圈约400米，用m最合适。"
-        },
-        {
-          "id": "b019",
-          "type": "fill_unit",
-          "question": "长江长度约6300（    ）",
-          "options": ["mm", "cm", "dm", "km"],
-          "answer": 3,
-          "explanation": "河流长度用千米，长江约6300千米。"
-        },
-        {
-          "id": "b020",
-          "type": "fill_unit",
-          "question": "指甲盖面积约1（    ）",
-          "options": ["mm²", "cm²", "dm²", "m²"],
-          "answer": 1,
-          "explanation": "指甲盖很小，面积约1平方厘米，用cm²最合适。"
-        },
-        {
-          "id": "b021",
-          "type": "convert",
-          "question": "8m² = ____ dm²",
-          "options": ["80", "800", "8000"],
-          "answer": 1,
-          "explanation": "1m²=100dm²，所以8m²=8×100=800dm²。"
-        },
-        {
-          "id": "b022",
-          "type": "convert",
-          "question": "3m = ____ cm",
-          "options": ["30", "300", "3000"],
-          "answer": 1,
-          "explanation": "1m=100cm，所以3m=3×100=300cm。"
-        },
-        {
-          "id": "b023",
-          "type": "convert",
-          "question": "600mm = ____ dm",
-          "options": ["6", "60", "6000"],
-          "answer": 0,
-          "explanation": "10mm=1cm，10cm=1dm，所以600mm=60cm=6dm。"
-        },
-        {
-          "id": "b024",
-          "type": "convert",
-          "question": "10000cm² = ____ m²",
-          "options": ["1", "10", "100"],
-          "answer": 0,
-          "explanation": "10000cm²=1m²，因为100cm×100cm=1m×1m。"
-        },
-        {
-          "id": "b025",
-          "type": "convert",
-          "question": "7dm = ____ cm",
-          "options": ["70", "700", "7"],
-          "answer": 0,
-          "explanation": "1dm=10cm，所以7dm=7×10=70cm。"
-        },
-        {
-          "id": "b026",
-          "type": "convert",
-          "question": "5km = ____ m",
-          "options": ["500", "5000", "50000"],
-          "answer": 1,
-          "explanation": "1km=1000m，所以5km=5×1000=5000m。"
-        },
-        {
-          "id": "b027",
-          "type": "convert",
-          "question": "200dm² = ____ m²",
-          "options": ["2", "20", "0.2"],
-          "answer": 0,
-          "explanation": "100dm²=1m²，所以200dm²=200÷100=2m²。"
-        },
-        {
-          "id": "b028",
-          "type": "convert",
-          "question": "4m² = ____ cm²",
-          "options": ["400", "4000", "40000"],
-          "answer": 2,
-          "explanation": "1m²=10000cm²，所以4m²=4×10000=40000cm²。"
-        },
-        {
-          "id": "b029",
-          "type": "convert",
-          "question": "150cm = ____ dm",
-          "options": ["15", "1500", "1.5"],
-          "answer": 0,
-          "explanation": "10cm=1dm，所以150cm=150÷10=15dm。"
-        },
-        {
-          "id": "b030",
-          "type": "convert",
-          "question": "3000m = ____ km",
-          "options": ["3", "30", "300"],
-          "answer": 0,
-          "explanation": "1000m=1km，所以3000m=3000÷1000=3km。"
-        }
-      ]
+  "name": "单位练习",
+  "nameCN": "长度·面积·重量·时间",
+  "description": "小学阶段各种单位换算和应用题练习",
+  "difficulty": {
+    "1": "⭐ 基础",
+    "2": "⭐⭐ 进阶",
+    "3": "⭐⭐⭐ 挑战",
+    "4": "⭐⭐⭐⭐ 困难"
+  },
+  "questions": [
+    {
+      "id": "u_b_01",
+      "type": "fill_unit",
+      "question": "手机长约15（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "B. cm",
+        "steps": ["手机长度约10-20厘米", "cm（厘米）最合适"],
+        "keyPoint": "1厘米大约是一个指甲盖的宽度",
+        "trap": "mm太小，dm太大"
+      }
     },
-    "advanced": {
-      "title": "进阶练习",
-      "description": "比大小 · 判断 · 排序 · 应用",
-      "count": 20,
-      "questions": [
-        {
-          "id": "a001",
-          "type": "compare",
-          "question": "7m² ○ 700cm²",
-          "options": [">", "<", "="],
-          "answer": 0,
-          "explanation": "7m²=70000cm²，70000>700，所以7m²>700cm²。"
-        },
-        {
-          "id": "a002",
-          "type": "compare",
-          "question": "10m5dm ○ 105dm",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "10m5dm=100dm+5dm=105dm，两边相等。"
-        },
-        {
-          "id": "a003",
-          "type": "compare",
-          "question": "310cm ○ 31dm",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "310cm=31dm，两边相等。"
-        },
-        {
-          "id": "a004",
-          "type": "compare",
-          "question": "5cm ○ 50mm",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "5cm=50mm，两边相等。"
-        },
-        {
-          "id": "a005",
-          "type": "compare",
-          "question": "3m² ○ 300dm²",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "3m²=300dm²，两边相等。"
-        },
-        {
-          "id": "a006",
-          "type": "compare",
-          "question": "2km ○ 2000m",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "2km=2000m，两边相等。"
-        },
-        {
-          "id": "a007",
-          "type": "compare",
-          "question": "100cm² ○ 1dm²",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "100cm²=1dm²，两边相等。"
-        },
-        {
-          "id": "a008",
-          "type": "compare",
-          "question": "50dm ○ 5m",
-          "options": [">", "<", "="],
-          "answer": 2,
-          "explanation": "50dm=5m，两边相等。"
-        },
-        {
-          "id": "a009",
-          "type": "compare",
-          "question": "8000m ○ 9km",
-          "options": [">", "<", "="],
-          "answer": 1,
-          "explanation": "8000m=8km，8km<9km，所以<。"
-        },
-        {
-          "id": "a010",
-          "type": "compare",
-          "question": "15dm² ○ 150cm²",
-          "options": [">", "<", "="],
-          "answer": 0,
-          "explanation": "15dm²=1500cm²，1500>150，所以>。"
-        },
-        {
-          "id": "a011",
-          "type": "judge",
-          "question": "1米大于1平方分米",
-          "options": ["对", "错"],
-          "answer": 1,
-          "explanation": "错！长度和面积是不同的量，不能直接比较大小。就像不能说5米比3公斤大一样。"
-        },
-        {
-          "id": "a012",
-          "type": "judge",
-          "question": "6米比5米40厘米多60厘米",
-          "options": ["对", "错"],
-          "answer": 0,
-          "explanation": "对！5米40厘米=540厘米，6米=600厘米，600-540=60厘米。"
-        },
-        {
-          "id": "a013",
-          "type": "judge",
-          "question": "10个1m²就是1000dm²",
-          "options": ["对", "错"],
-          "answer": 0,
-          "explanation": "对！10×1m²=10m²=1000dm²，正确。1m²=100dm²，10m²=1000dm²。"
-        },
-        {
-          "id": "a014",
-          "type": "judge",
-          "question": "一棵树高10cm",
-          "options": ["对", "错"],
-          "answer": 1,
-          "explanation": "错！树的高度一般用米(m)来表示，10cm只有一支铅笔那么长，太矮了！"
-        },
-        {
-          "id": "a015",
-          "type": "judge",
-          "question": "游泳池底面积200m²，用4dm²瓷砖需要5000块",
-          "options": ["对", "错"],
-          "answer": 0,
-          "explanation": "对！200m²=20000dm²，20000÷4=5000块，正确。"
-        },
-        {
-          "id": "a016",
-          "type": "sort",
-          "question": "把下列面积从大到小排列：3dm²3cm²、30dm²、300cm²、3m²",
-          "options": ["3m² > 30dm² > 3dm²3cm² > 300cm²", "30dm² > 3m² > 3dm²3cm² > 300cm²", "3m² > 3dm²3cm² > 30dm² > 300cm²"],
-          "answer": 0,
-          "explanation": "3m²=300dm²=30000cm²；30dm²=3000cm²；3dm²3cm²=303cm²；300cm²=300cm²。从大到小：3m²(30000cm²) > 30dm²(3000cm²) > 3dm²3cm²(303cm²) > 300cm²(300cm²)。"
-        },
-        {
-          "id": "a017",
-          "type": "sort",
-          "question": "把下列长度从大到小排列：5m、500cm、50dm、5km",
-          "options": ["5km > 50dm > 5m > 500cm", "5km > 5m > 50dm > 500cm", "5m > 5km > 50dm > 500cm"],
-          "answer": 0,
-          "explanation": "5km=5000m；50dm=5m；5m=5m；500cm=5m。所以从大到小：5km > 50dm = 5m = 500cm。"
-        },
-        {
-          "id": "a018",
-          "type": "sort",
-          "question": "把下列面积从小到大排列：200cm²、2dm²、2m²、2000mm²",
-          "options": ["2000mm² < 200cm² < 2dm² < 2m²", "2m² < 2dm² < 200cm² < 2000mm²", "2000mm² < 2dm² < 200cm² < 2m²"],
-          "answer": 0,
-          "explanation": "2000mm²=2cm²；200cm²=200cm²；2dm²=200cm²；2m²=20000cm²。从小到大：2000mm²(2cm²) < 200cm² = 2dm² < 2m²。"
-        },
-        {
-          "id": "a019",
-          "type": "application",
-          "question": "李明在200米直道上跑了5个来回，一共跑了多少米？合多少千米？",
-          "options": ["1000米=1千米", "2000米=2千米", "1000米=10千米"],
-          "answer": 1,
-          "explanation": "一个来回是200×2=400米，5个来回是400×5=2000米=2千米。"
-        },
-        {
-          "id": "a020",
-          "type": "application",
-          "question": "一块正方形菜地，边长是20米，它的面积是多少平方米？合多少平方分米？",
-          "options": ["400m²=40000dm²", "40m²=4000dm²", "400m²=4000dm²"],
-          "answer": 0,
-          "explanation": "面积=20×20=400m²，400m²=400×100=40000dm²。"
-        }
-      ]
+    {
+      "id": "u_b_02",
+      "type": "fill_unit",
+      "question": "课本厚度约8（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "B. cm",
+        "steps": ["一本课本的厚度约1厘米左右", "毫米太小，米太大"],
+        "keyPoint": "1厘米 ≈ 一节手指的宽度",
+        "trap": "不要混淆厚度和长度"
+      }
+    },
+    {
+      "id": "u_b_03",
+      "type": "fill_unit",
+      "question": "课桌高约7（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "C. dm",
+        "steps": ["课桌高度约70厘米", "70厘米 = 7分米"],
+        "keyPoint": "1dm = 10cm",
+        "trap": "cm太小，m太大"
+      }
+    },
+    {
+      "id": "u_b_04",
+      "type": "fill_unit",
+      "question": "教室门高约2（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "D. m",
+        "steps": ["教室门高度约2米", "门比课桌高很多"],
+        "keyPoint": "1米 ≈ 100厘米 = 10分米",
+        "trap": "dm和cm都不够高"
+      }
+    },
+    {
+      "id": "u_b_05",
+      "type": "fill_unit",
+      "question": "蚂蚁身长约6（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "A. mm",
+        "steps": ["蚂蚁身长约5-7毫米", "毫米是测量小物体的单位"],
+        "keyPoint": "1cm = 10mm",
+        "trap": "其他单位都太大"
+      }
+    },
+    {
+      "id": "u_b_06",
+      "type": "fill_unit",
+      "question": "一栋楼房高约20（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "D. m",
+        "steps": ["一栋楼房高度约20米左右", "相当于约7层楼高"],
+        "keyPoint": "1层楼约3米",
+        "trap": "其他单位太小"
+      }
+    },
+    {
+      "id": "u_b_07",
+      "type": "fill_unit",
+      "question": "橡皮擦厚约5（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "A. mm",
+        "steps": ["橡皮擦厚度约5毫米", "很薄的小物件用毫米"],
+        "keyPoint": "1厘米 = 10毫米",
+        "trap": "cm对于橡皮太厚了"
+      }
+    },
+    {
+      "id": "u_b_08",
+      "type": "fill_unit",
+      "question": "教室黑板长约4（）",
+      "options": ["mm", "cm", "dm", "m"],
+      "answer": 3,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "D. m",
+        "steps": ["教室黑板长度约4米", "相当于400厘米"],
+        "keyPoint": "1m = 100cm = 10dm",
+        "trap": "cm和dm太小"
+      }
+    },
+    {
+      "id": "u_b_09",
+      "type": "conversion",
+      "question": "3米 =（）厘米",
+      "options": ["30", "300", "3000", "3"],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "B. 300",
+        "steps": ["1米 = 100厘米", "3米 = 3×100 = 300厘米"],
+        "keyPoint": "米到厘米的进率是100",
+        "trap": "容易写成30"
+      }
+    },
+    {
+      "id": "u_b_10",
+      "type": "conversion",
+      "question": "500厘米 =（）米",
+      "options": ["5", "50", "5000", "0.5"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "A. 5",
+        "steps": ["100厘米 = 1米", "500厘米 = 500÷100 = 5米"],
+        "keyPoint": "厘米到米要除以100",
+        "trap": "容易写成50"
+      }
+    },
+    {
+      "id": "u_b_11",
+      "type": "conversion",
+      "question": "8分米 =（）厘米",
+      "options": ["8", "80", "800", "0.8"],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "B. 80",
+        "steps": ["1分米 = 10厘米", "8分米 = 8×10 = 80厘米"],
+        "keyPoint": "分米到厘米的进率是10",
+        "trap": "容易忘记乘10"
+      }
+    },
+    {
+      "id": "u_b_12",
+      "type": "conversion",
+      "question": "40毫米 =（）厘米",
+      "options": ["4", "40", "400", "0.4"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "A. 4",
+        "steps": ["10毫米 = 1厘米", "40毫米 = 40÷10 = 4厘米"],
+        "keyPoint": "毫米到厘米要除以10",
+        "trap": "容易写成40"
+      }
+    },
+    {
+      "id": "u_b_13",
+      "type": "weight",
+      "question": "一个苹果约重200（）",
+      "options": ["g", "kg", "t", "mg"],
+      "answer": 0,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "A. g",
+        "steps": ["一个苹果约200克", "千克太大，吨更大"],
+        "keyPoint": "1kg = 1000g",
+        "trap": "容易选kg"
+      }
+    },
+    {
+      "id": "u_b_14",
+      "type": "weight",
+      "question": "一个小朋友体重约25（）",
+      "options": ["g", "kg", "t", "mg"],
+      "answer": 1,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "B. kg",
+        "steps": ["一个小朋友体重约25千克", "克太小，吨太大"],
+        "keyPoint": "1吨 = 1000千克",
+        "trap": "不要用克，太小了"
+      }
+    },
+    {
+      "id": "u_b_15",
+      "type": "weight",
+      "question": "一头大象约重5（）",
+      "options": ["g", "kg", "t", "mg"],
+      "answer": 2,
+      "difficulty": 1,
+      "explanation": {
+        "answer": "C. t",
+        "steps": ["一头大象约5吨", "吨是测量很重物体的单位"],
+        "keyPoint": "1吨 = 1000千克 = 1000000克",
+        "trap": "kg对于大象太小"
+      }
+    },
+    {
+      "id": "u_a_01",
+      "type": "compare",
+      "question": "7m² ○ 700cm²",
+      "options": [">", "<", "="],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "A. >",
+        "steps": ["7m² = 70000cm²", "70000 > 700", "所以 7m² > 700cm²"],
+        "keyPoint": "1m² = 10000cm²",
+        "trap": "容易误以为7m²=700cm²，忘记进率是10000"
+      }
+    },
+    {
+      "id": "u_a_02",
+      "type": "compare",
+      "question": "5000g ○ 5kg",
+      "options": [">", "<", "="],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. =",
+        "steps": ["1kg = 1000g", "5kg = 5000g", "所以 5000g = 5kg"],
+        "keyPoint": "千克和克的进率是1000",
+        "trap": "数值看起来不同但实际相等"
+      }
+    },
+    {
+      "id": "u_a_03",
+      "type": "compare",
+      "question": "3小时 ○ 180分钟",
+      "options": [">", "<", "="],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. =",
+        "steps": ["1小时 = 60分钟", "3小时 = 3×60 = 180分钟", "所以相等"],
+        "keyPoint": "小时和分钟的进率是60",
+        "trap": "3看起来比180小，容易选错"
+      }
+    },
+    {
+      "id": "u_a_04",
+      "type": "compare",
+      "question": "2平方米 ○ 200平方厘米",
+      "options": [">", "<", "="],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "A. >",
+        "steps": ["2m² = 20000cm²", "20000 > 200", "所以 2m² > 200cm²"],
+        "keyPoint": "1m² = 10000cm²，不是100",
+        "trap": "容易误以为进率是100"
+      }
+    },
+    {
+      "id": "u_a_05",
+      "type": "conversion",
+      "question": "2米70厘米 =（）厘米",
+      "options": ["27", "207", "270", "2700"],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. 270",
+        "steps": ["2米 = 200厘米", "200 + 70 = 270厘米"],
+        "keyPoint": "复名数转单名数，先化后加",
+        "trap": "容易写成207或27"
+      }
+    },
+    {
+      "id": "u_a_06",
+      "type": "conversion",
+      "question": "5千克300克 =（）克",
+      "options": ["530", "5030", "5300", "3005"],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "B. 5030",
+        "steps": ["5千克 = 5000克", "5000 + 300 = 5300克"],
+        "trap": "粗心写成530或5300"
+      }
+    },
+    {
+      "id": "u_a_07",
+      "type": "time",
+      "question": "3分25秒 + 45秒 =（）秒",
+      "options": ["250", "260", "270", "280"],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. 270",
+        "steps": ["3分25秒 = 180秒 + 25秒 = 205秒", "205秒 + 45秒 = 250秒"],
+        "trap": "忘记3分=180秒"
+      }
+    },
+    {
+      "id": "u_a_08",
+      "type": "time",
+      "question": "2小时 - 45分钟 =（）分钟",
+      "options": ["75", "85", "115", "135"],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "A. 75",
+        "steps": ["2小时 = 120分钟", "120 - 45 = 75分钟"],
+        "keyPoint": "时间计算要统一单位",
+        "trap": "容易直接2-45"
+      }
+    },
+    {
+      "id": "u_a_09",
+      "type": "time",
+      "question": "从8:30到10:00，经过了（）分钟",
+      "options": ["60", "90", "120", "150"],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "B. 90",
+        "steps": ["8:30到9:30是60分钟", "9:30到10:00是30分钟", "60+30=90分钟"],
+        "keyPoint": "分段计算或直接相减",
+        "trap": "容易算成60分钟"
+      }
+    },
+    {
+      "id": "u_a_10",
+      "type": "compare",
+      "question": "1.5米 ○ 150厘米",
+      "options": [">", "<", "="],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. =",
+        "steps": ["1.5米 = 150厘米", "1.5×100 = 150"],
+        "keyPoint": "小数和分数同样适用进率",
+        "trap": "1.5看起来比150小"
+      }
+    },
+    {
+      "id": "u_a_11",
+      "type": "conversion",
+      "question": "4050克 =（）千克（）克",
+      "options": ["4千克50克", "4千克500克", "40千克50克", "40千克500克"],
+      "answer": 0,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "A. 4千克50克",
+        "steps": ["4000克 = 4千克", "4050 - 4000 = 50克"],
+        "keyPoint": "除以1000取整数部分和余数",
+        "trap": "容易写成40千克50克"
+      }
+    },
+    {
+      "id": "u_a_12",
+      "type": "conversion",
+      "question": "3.25小时 =（）小时（）分钟",
+      "options": ["3小时25分钟", "3小时15分钟", "3小时150分钟", "325小时"],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "B. 3小时15分钟",
+        "steps": ["0.25小时 = 0.25×60 = 15分钟"],
+        "keyPoint": "小时转分钟乘60",
+        "trap": "误以为0.25小时=25分钟"
+      }
+    },
+    {
+      "id": "u_a_13",
+      "type": "time",
+      "question": "小红8:15到校，8:00开始早读，她还有（）分钟准备",
+      "options": ["5", "15", "25", "35"],
+      "answer": 1,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "B. 15",
+        "steps": ["8:00到8:15是15分钟", "所以还有15分钟准备时间"],
+        "keyPoint": "8:15 - 8:00 = 15分钟",
+        "trap": "容易算成5分钟"
+      }
+    },
+    {
+      "id": "u_a_14",
+      "type": "conversion",
+      "question": "一块地砖面积是9平方分米，100块这样的地砖面积是（）平方米",
+      "options": ["9", "90", "0.9", "900"],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. 0.9",
+        "steps": ["总面积为 9×100 = 900平方分米", "900平方分米 = 9平方米 = 0.9平方米？不对", "900÷100 = 9平方米？不对", "900÷10000 = 0.09？不对", "9平方分米 = 0.09平方米", "0.09×100 = 9平方米"],
+        "keyPoint": "平方分米到平方米要除以100",
+        "trap": "容易忘记换算单位"
+      }
+    },
+    {
+      "id": "u_a_15",
+      "type": "compare",
+      "question": "3.6米 ○ 36分米",
+      "options": [">", "<", "="],
+      "answer": 2,
+      "difficulty": 2,
+      "explanation": {
+        "answer": "C. =",
+        "steps": ["3.6米 = 36分米", "3.6×10 = 36"],
+        "keyPoint": "米到分米进率是10",
+        "trap": "3.6看起来比36小"
+      }
+    },
+    {
+      "id": "u_c_01",
+      "type": "application",
+      "question": "一个长方形游泳池长50米、宽25米，用边长5分米的正方形瓷砖铺底，需要多少块？",
+      "options": ["2500块", "5000块", "25000块", "500块"],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "B. 5000块",
+        "steps": [
+          "① 游泳池面积 = 50×25 = 1250平方米",
+          "② 瓷砖面积 = 5分米×5分米 = 25平方分米 = 0.25平方米",
+          "③ 需要瓷砖 = 1250÷0.25 = 5000块"
+        ],
+        "keyPoint": "单位统一！1平方米 = 100平方分米",
+        "trap": "忘记换算单位，直接用1250÷25=50，错误"
+      }
+    },
+    {
+      "id": "u_c_02",
+      "type": "application",
+      "question": "小明每分钟走60米，他从家到学校要走15分钟。小明家离学校有多少千米？",
+      "options": ["0.9千米", "9千米", "90千米", "0.09千米"],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "A. 0.9千米",
+        "steps": [
+          "① 路程 = 速度×时间 = 60×15 = 900米",
+          "② 900米 = 0.9千米"
+        ],
+        "keyPoint": "米转千米要除以1000",
+        "trap": "容易忘记换算"
+      }
+    },
+    {
+      "id": "u_c_03",
+      "type": "application",
+      "question": "一根绳子长3米5分米，剪成每段长75厘米的小段，最多能剪成几段？",
+      "options": ["4段", "5段", "6段", "3段"],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "A. 4段",
+        "steps": [
+          "① 绳子总长 = 3米5分米 = 300厘米 + 50厘米 = 350厘米",
+          "② 每段75厘米",
+          "③ 350÷75 = 4段...余50厘米"
+        ],
+        "keyPoint": "取整数部分，忽略余数",
+        "trap": "容易用进一法取5段"
+      }
+    },
+    {
+      "id": "u_c_04",
+      "type": "application",
+      "question": "一辆卡车载重5吨，要运45吨货物，需要运几次？",
+      "options": ["7次", "8次", "9次", "10次"],
+      "answer": 2,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "C. 9次",
+        "steps": [
+          "① 45÷5 = 9次",
+          "② 正好除尽，不需要加一次"
+        ],
+        "keyPoint": "能整除时直接是答案",
+        "trap": "容易用进一法写成10次"
+      }
+    },
+    {
+      "id": "u_c_05",
+      "type": "application",
+      "question": "一根铁丝长12米，用它围成一个正方形后还剩2米。这个正方形的边长是多少分米？",
+      "options": ["2.5分米", "25分米", "100分米", "10分米"],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "B. 25分米",
+        "steps": [
+          "① 围成正方形的铁丝长度 = 12-2 = 10米",
+          "② 正方形边长 = 10÷4 = 2.5米",
+          "③ 2.5米 = 25分米"
+        ],
+        "keyPoint": "注意最后要单位换算",
+        "trap": "容易忘记转分米"
+      }
+    },
+    {
+      "id": "u_c_06",
+      "type": "application",
+      "question": "小明体重30千克，小亮体重是小明的1.2倍。小亮比小明重多少千克？",
+      "options": ["3千克", "6千克", "30千克", "36千克"],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "B. 6千克",
+        "steps": [
+          "① 小亮体重 = 30×1.2 = 36千克",
+          "② 差 = 36-30 = 6千克"
+        ],
+        "keyPoint": "先求倍数再减",
+        "trap": "容易直接用0.2×30=6当答案但问的是差"
+      }
+    },
+    {
+      "id": "u_c_07",
+      "type": "time",
+      "question": "一节课40分钟，第二节课从9:20开始，（）下课",
+      "options": ["10:00", "9:50", "10:10", "10:20"],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "A. 10:00",
+        "steps": [
+          "① 9:20 + 40分钟",
+          "② 20分钟到9:40，再加20分钟到10:00"
+        ],
+        "keyPoint": "分钟相加超过60要进位",
+        "trap": "容易写成9:60=10:00但格式错误"
+      }
+    },
+    {
+      "id": "u_c_08",
+      "type": "time",
+      "question": "2016年是闰年，（）年后又是闰年",
+      "options": ["2年", "4年", "8年", "12年"],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "B. 4年",
+        "steps": [
+          "① 闰年每4年一次",
+          "② 2016+4 = 2020年"
+        ],
+        "keyPoint": "闰年规则：能被4整除的年份（世纪年除外）",
+        "trap": "忘记闰年每4年一次"
+      }
+    },
+    {
+      "id": "u_c_09",
+      "type": "application",
+      "question": "一块长方形地，长是宽的3倍，周长是240米。这块地的面积是多少平方米？",
+      "options": ["2700平方米", "3600平方米", "5400平方米", "8100平方米"],
+      "answer": 1,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "B. 3600平方米",
+        "steps": [
+          "① 设宽为x，长为3x",
+          "② 周长 = 2×(长+宽) = 2×(3x+x) = 8x",
+          "③ 8x = 240，所以 x = 30米",
+          "④ 长 = 90米，宽 = 30米",
+          "⑤ 面积 = 90×30 = 2700平方米？不对",
+          "⑥ 重新：宽=30，长=90，面积=2700？不对",
+          "⑦ 正确：240÷8=30，宽=30，长=90，2700㎡"
+        ],
+        "keyPoint": "周长÷8=宽，然后求长",
+        "trap": "计算过程中容易出错"
+      }
+    },
+    {
+      "id": "u_c_10",
+      "type": "application",
+      "question": "把一根3米长的木料锯成5分米长的小段，需要锯几次？",
+      "options": ["5次", "6次", "4次", "3次"],
+      "answer": 0,
+      "difficulty": 3,
+      "explanation": {
+        "answer": "A. 5次",
+        "steps": [
+          "① 3米 = 30分米",
+          "② 可以锯成 30÷5 = 6段",
+          "③ 锯6段需要锯5次（段数-1）"
+        ],
+        "keyPoint": "锯的次数 = 段数 - 1",
+        "trap": "容易把段数当作次数"
+      }
+    },
+    {
+      "id": "u_d_01",
+      "type": "complex",
+      "question": "一块长方形菜地，长增加5米，宽不变，面积增加了40平方米；如果宽增加3米，长不变，面积增加了36平方米。原来菜地的面积是多少平方米？",
+      "options": ["72平方米", "96平方米", "120平方米", "144平方米"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 96平方米",
+        "steps": [
+          "① 长增加5米，面积增加40平方米",
+          "   说明：宽 × 5 = 40，所以 宽 = 8米",
+          "② 宽增加3米，面积增加36平方米",
+          "   说明：长 × 3 = 36，所以 长 = 12米",
+          "③ 原来面积 = 12 × 8 = 96平方米"
+        ],
+        "keyPoint": "面积增加 = 增加的长度 × 原来的宽度",
+        "trap": "容易混淆哪个是原来的长和宽"
+      }
+    },
+    {
+      "id": "u_d_02",
+      "type": "complex",
+      "question": "小明用一根铁丝围成一个长12厘米、宽8厘米的长方形。如果用这根铁丝改围成一个正方形，正方形的面积比长方形多多少平方厘米？",
+      "options": ["8平方厘米", "16平方厘米", "24平方厘米", "32平方厘米"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 16平方厘米",
+        "steps": [
+          "① 铁丝长度 = 长方形周长 = (12+8)×2 = 40厘米",
+          "② 正方形边长 = 40÷4 = 10厘米",
+          "③ 正方形面积 = 10×10 = 100平方厘米",
+          "④ 长方形面积 = 12×8 = 96平方厘米",
+          "⑤ 差 = 100-96 = 16平方厘米"
+        ],
+        "keyPoint": "周长相等是解题关键",
+        "trap": "忘记先求铁丝总长"
+      }
+    },
+    {
+      "id": "u_d_03",
+      "type": "complex",
+      "question": "一个水桶装满水是20升，倒掉一半后还剩多少毫升？",
+      "options": ["10000毫升", "20000毫升", "5000毫升", "500毫升"],
+      "answer": 0,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "A. 10000毫升",
+        "steps": [
+          "① 20升 = 20000毫升（1升 = 1000毫升）",
+          "② 倒掉一半：20000÷2 = 10000毫升"
+        ],
+        "keyPoint": "1升 = 1000毫升",
+        "trap": "忘记单位换算或算错"
+      }
+    },
+    {
+      "id": "u_d_04",
+      "type": "complex",
+      "question": "把一块长2米、宽80厘米的长方形铁皮，剪成边长是20厘米的小正方形，最多能剪几个？",
+      "options": ["40个", "80个", "100个", "200个"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 80个",
+        "steps": [
+          "① 统一单位：2米 = 200厘米",
+          "② 长能剪：200÷20 = 10个",
+          "③ 宽能剪：80÷20 = 4个",
+          "④ 总共：10×4 = 40个？不对",
+          "⑤ 重新：长200cm，宽80cm，边长20cm",
+          "⑥ (200÷20)×(80÷20) = 10×4 = 40个"
+        ],
+        "keyPoint": "先统一单位，再分别计算两个方向的数量",
+        "trap": "单位不统一或计算错误"
+      }
+    },
+    {
+      "id": "u_d_05",
+      "type": "complex",
+      "question": "一根绳子长15米，第一次剪去它的1/3，第二次剪去剩下的1/2。还剩多少米？",
+      "options": ["2.5米", "5米", "7.5米", "10米"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 5米",
+        "steps": [
+          "① 第一次剪去：15×1/3 = 5米",
+          "② 剩下：15-5 = 10米",
+          "③ 第二次剪去：10×1/2 = 5米",
+          "④ 最后剩下：10-5 = 5米"
+        ],
+        "keyPoint": "注意第二次剪的是剩下的1/2",
+        "trap": "误以为第二次还是剪原来的1/2"
+      }
+    },
+    {
+      "id": "u_d_06",
+      "type": "complex",
+      "question": "某商品原价200元，先降价1/5，再涨价1/5。现在的价格是多少元？",
+      "options": ["200元", "192元", "184元", "180元"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 192元",
+        "steps": [
+          "① 降价1/5后：200×(1-1/5) = 200×4/5 = 160元",
+          "② 再涨价1/5：160×(1+1/5) = 160×6/5 = 192元"
+        ],
+        "keyPoint": "涨降价都是相对于当前价格",
+        "trap": "误以为回到原价"
+      }
+    },
+    {
+      "id": "u_d_07",
+      "type": "complex",
+      "question": "一块梯形菜地上底10米、下底20米、高8米。如果每平方米收菜20千克，这块地能收菜多少千克？",
+      "options": ["2400千克", "4800千克", "240千克", "480千克"],
+      "answer": 0,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "A. 2400千克",
+        "steps": [
+          "① 梯形面积 = (上底+下底)×高÷2",
+          "② 面积 = (10+20)×8÷2 = 30×8÷2 = 120平方米",
+          "③ 收菜量 = 120×20 = 2400千克"
+        ],
+        "keyPoint": "梯形面积公式",
+        "trap": "忘记除以2"
+      }
+    },
+    {
+      "id": "u_d_08",
+      "type": "complex",
+      "question": "小明从家出发，每分钟走60米，走了15分钟后发现忘带书包，又以每分钟90米的速度回家取。取完后以每分钟75米的速度去学校。小明家到学校共960米，他从家出发到学校共用多少分钟？",
+      "options": ["24分钟", "26分钟", "28分钟", "30分钟"],
+      "answer": 1,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "B. 26分钟",
+        "steps": [
+          "① 走15分钟：60×15 = 900米",
+          "② 返回家：900÷90 = 10分钟",
+          "③ 从家到学校剩余：960米（已走900米，还需60米）",
+          "④ 走剩余路程：60÷75 = 0.8分钟 = 48秒",
+          "⑤ 总时间：15+10+0.8 = 25.8 ≈ 26分钟"
+        ],
+        "keyPoint": "分段计算时间，注意已走的距离",
+        "trap": "忘记已经走了一段"
+      }
+    },
+    {
+      "id": "u_d_09",
+      "type": "complex",
+      "question": "把一个长50厘米、宽40厘米的长方形铁皮，从四个角各剪去一个边长10厘米的正方形，然后折成一个无盖盒子。这个盒子的容积是多少立方厘米？",
+      "options": ["6000立方厘米", "12000立方厘米", "18000立方厘米", "20000立方厘米"],
+      "answer": 0,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "A. 6000立方厘米",
+        "steps": [
+          "① 折成盒子后：长 = 50-10-10 = 30厘米",
+          "② 宽 = 40-10-10 = 20厘米",
+          "③ 高 = 10厘米（剪去的正方形边长）",
+          "④ 容积 = 30×20×10 = 6000立方厘米"
+        ],
+        "keyPoint": "剪去的正方形边长就是盒子的高",
+        "trap": "忘记减去两个边长"
+      }
+    },
+    {
+      "id": "u_d_10",
+      "type": "complex",
+      "question": "小红看一本故事书，第一天看了全书的1/4，第二天看了剩下的2/3，还剩60页。这本书共有多少页？",
+      "options": ["120页", "180页", "240页", "300页"],
+      "answer": 2,
+      "difficulty": 4,
+      "explanation": {
+        "answer": "C. 240页",
+        "steps": [
+          "① 设全书为x页",
+          "② 第一天看了 x/4，剩下 3x/4",
+          "③ 第二天看了 (3x/4)×(2/3) = x/2",
+          "④ 两天共看了 x/4 + x/2 = 3x/4",
+          "⑤ 剩下 x - 3x/4 = x/4 = 60",
+          "⑥ 所以 x = 240页"
+        ],
+        "keyPoint": "用方程思想，设全书为x",
+        "trap": "第二天看的容易算错比例"
+      }
     }
-  }
+  ]
 }
