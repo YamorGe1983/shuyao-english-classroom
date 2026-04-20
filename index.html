@@ -27009,7 +27009,7 @@ const App = {
         const phoneticMap = this.phoneticState.phoneticMap;
         const patterns = Object.keys(phoneticMap);
         
-        let html = \`
+        let html = `
             <div class="phonetic-select-page">
                 <button class="back-btn" onclick="App.showPhoneticMain()">
                     ← 返回
@@ -27026,28 +27026,28 @@ const App = {
                 </div>
                 
                 <div class="phonetic-sections">
-        \`;
+        `;
         
         patterns.forEach((pattern) => {
             const data = phoneticMap[pattern];
-            html += \`
-                <div class="phonetic-section" data-pattern="\${pattern}">
+            html += `
+                <div class="phonetic-section" data-pattern="${pattern}">
                     <div class="phonetic-section-header">
                         <span class="section-tag textbook-tag">规则</span>
-                        <span class="section-name">\${pattern} (\${data.description})</span>
-                        <button class="category-select-btn" onclick="App.selectPhoneticPattern('\${pattern}')">全选</button>
+                        <span class="section-name">${pattern} (${data.description})</span>
+                        <button class="category-select-btn" onclick="App.selectPhoneticPattern('${pattern}')">全选</button>
                     </div>
                     <div class="vocab-tags" style="padding: 10px;">
-                        \${data.examples.map((word, wIndex) => {
+                        ${data.examples.map((word, wIndex) => {
                             const globalIndex = examples.findIndex(e => e.word === word);
-                            return \`<span class="vocab-tag" data-index="\${globalIndex}" onclick="App.toggleTextbookWord(\${globalIndex}, event)">\${word}</span>\`;
+                            return `<span class="vocab-tag" data-index="${globalIndex}" onclick="App.toggleTextbookWord(${globalIndex}, event)">${word}</span>`;
                         }).join('')}
                     </div>
                 </div>
-            \`;
+            `;
         });
         
-        html += \`
+        html += `
                 </div>
                 
                 <div class="phonetic-selected-summary" id="phonetic-selected-summary" style="display: none;">
@@ -27058,14 +27058,14 @@ const App = {
                     🎯 开始练习 (<span id="selected-count">0</span> 个)
                 </button>
             </div>
-        \`;
+        `;
         
         this.setContent(html);
     },
     
     toggleTextbookWord(index, event) {
         event.stopPropagation();
-        const tag = document.querySelector(\`[data-index="\${index}"]\`);
+        const tag = document.querySelector(`[data-index="${index}"]`);
         if (!tag) return;
         
         let selected = this.phoneticState.selectedExamples || [];
@@ -27197,15 +27197,15 @@ const App = {
         const total = questions.length;
         const progress = Math.round((state.currentIndex / total) * 100);
         
-        const html = \`
+        const html = `
             <div class="phonetic-practice-page">
                 <div class="learning-header">
                     <button class="back-btn" onclick="App.confirmPhoneticExit()">← 退出</button>
                     <div class="learning-progress">
                         <div class="progress-bar">
-                            <div class="progress-fill" style="width: \${progress}%"></div>
+                            <div class="progress-fill" style="width: ${progress}%"></div>
                         </div>
-                        <span class="progress-text">\${state.currentIndex + 1}/\${total} | 正确: \${state.correctCount} 错误: \${state.wrongCount}</span>
+                        <span class="progress-text">${state.currentIndex + 1}/${total} | 正确: ${state.correctCount} 错误: ${state.wrongCount}</span>
                     </div>
                 </div>
                 
@@ -27213,23 +27213,23 @@ const App = {
                     <div class="phonetic-question-type">📖 教材词汇音标练习</div>
                     
                     <div class="phonetic-word-display">
-                        <h1 class="phonetic-word">\${q.word}</h1>
-                        <button class="phonetic-audio-btn" onclick="App.speakWord('\${q.word}')">🔊</button>
+                        <h1 class="phonetic-word">${q.word}</h1>
+                        <button class="phonetic-audio-btn" onclick="App.speakWord('${q.word}')">🔊</button>
                     </div>
                     
-                    <p class="phonetic-question-tip">找出 "\${q.letter}" 对应的音标，并练习发音</p>
+                    <p class="phonetic-question-tip">找出 "${q.letter}" 对应的音标，并练习发音</p>
                     
                     <div class="phonetic-spell-container">
                         <div class="phonetic-spell-hint">
                             <span class="label">字母组合：</span>
-                            <span class="highlight">\${q.letter}</span>
+                            <span class="highlight">${q.letter}</span>
                             <span class="label">→ 发音：</span>
-                            <span class="phonetic-value">\${q.phonetic}</span>
+                            <span class="phonetic-value">${q.phonetic}</span>
                         </div>
                         
                         <div class="phonetic-rule-info">
-                            <span class="rule-label">规则：</span>\${q.pattern}
-                            <span class="rule-desc">\${q.description}</span>
+                            <span class="rule-label">规则：</span>${q.pattern}
+                            <span class="rule-desc">${q.description}</span>
                         </div>
                     </div>
                     
@@ -27238,7 +27238,7 @@ const App = {
                     </button>
                 </div>
             </div>
-        \`;
+        `;
         
         this.setContent(html);
         
@@ -27264,17 +27264,17 @@ const App = {
         const total = state.questions.length;
         const accuracy = total > 0 ? Math.round((state.correctCount / total) * 100) : 0;
         
-        const html = \`
+        const html = `
             <div class="complete-page">
                 <div class="complete-icon">🎉</div>
                 <h1>教材音标练习完成！</h1>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-value">\${total}</div>
+                        <div class="stat-value">${total}</div>
                         <div class="stat-label">总题数</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">\${accuracy}%</div>
+                        <div class="stat-value">${accuracy}%</div>
                         <div class="stat-label">正确率</div>
                     </div>
                 </div>
@@ -27288,7 +27288,7 @@ const App = {
                     </button>
                 </div>
             </div>
-        \`;
+        `;
         
         this.setContent(html);
     },
