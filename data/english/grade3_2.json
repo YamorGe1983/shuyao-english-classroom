@@ -110,98 +110,112 @@
           "chinese": "听",
           "phonetic": "/ˈlɪsn/",
           "audio": "listen",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hear",
           "chinese": "听见",
           "phonetic": "/hɪə(r)/",
           "audio": "hear",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "look",
           "chinese": "看",
           "phonetic": "/lʊk/",
           "audio": "look",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "see",
           "chinese": "看见",
           "phonetic": "/siː/",
           "audio": "see",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "aeroplane",
           "chinese": "飞机",
           "phonetic": "/ˈeərəpleɪn/",
           "audio": "aeroplane",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "plane",
           "chinese": "飞机",
           "phonetic": "/pleɪn/",
           "audio": "plane",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "bus",
           "chinese": "巴士",
           "phonetic": "/bʌs/",
           "audio": "bus",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "ship",
           "chinese": "轮船",
           "phonetic": "/ʃɪp/",
           "audio": "ship",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "car",
           "chinese": "小汽车",
           "phonetic": "/kɑː(r)/",
           "audio": "car",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "van",
           "chinese": "货车",
           "phonetic": "/væn/",
           "audio": "van",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "train",
           "chinese": "火车",
           "phonetic": "/treɪn/",
           "audio": "train",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "taxi",
           "chinese": "出租车",
           "phonetic": "/ˈtæksi/",
           "audio": "taxi",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "else",
           "chinese": "其他的",
           "phonetic": "/els/",
           "audio": "else",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "circle",
           "chinese": "圆形",
           "phonetic": "/ˈsɜːkl/",
           "audio": "circle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "draw",
@@ -236,7 +250,8 @@
           "chinese": "牙签",
           "phonetic": "/ˈtuːθpɪk/",
           "audio": "toothpick",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "spin",
@@ -257,7 +272,8 @@
           "chinese": "孩子（单）",
           "phonetic": "/tʃaɪld/",
           "audio": "child",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "children",
@@ -271,7 +287,8 @@
           "chinese": "雨点",
           "phonetic": "/ˈreɪndrɒp/",
           "audio": "raindrop",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "fall",
@@ -309,7 +326,8 @@
         },
         {
           "english": "see some children",
-          "chinese": "看见一些孩子"
+          "chinese": "看见一些孩子",
+          "needSpell": true
         },
         {
           "english": "draw a circle",
@@ -321,7 +339,8 @@
         },
         {
           "english": "use a toothpick",
-          "chinese": "使用一根牙签"
+          "chinese": "使用一根牙签",
+          "needSpell": true
         },
         {
           "english": "spin the spinner",
@@ -345,7 +364,8 @@
         },
         {
           "english": "look at the girl",
-          "chinese": "看那个女孩"
+          "chinese": "看那个女孩",
+          "needSpell": true
         },
         {
           "english": "listen to the teacher",
@@ -356,7 +376,8 @@
         {
           "english": "What can you hear?",
           "chinese": "你能听见什么？",
-          "audio": "what_can_you_hear"
+          "audio": "what_can_you_hear",
+          "needSpell": true
         },
         {
           "english": "I can hear a ship.",
@@ -432,28 +453,32 @@
           "chinese": "感觉",
           "phonetic": "/fiːl/",
           "audio": "feel",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "touch",
           "chinese": "触摸",
           "phonetic": "/tʌtʃ/",
           "audio": "touch",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "pineapple",
           "chinese": "菠萝",
           "phonetic": "/ˈpaɪnæpl/",
           "audio": "pineapple",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "cake",
           "chinese": "蛋糕",
           "phonetic": "/keɪk/",
           "audio": "cake",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "glass",
@@ -474,7 +499,8 @@
           "chinese": "熊",
           "phonetic": "/beə(r)/",
           "audio": "bear",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "desk",
@@ -488,84 +514,96 @@
           "chinese": "面包",
           "phonetic": "/bred/",
           "audio": "bread",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "banana",
           "chinese": "香蕉",
           "phonetic": "/bəˈnɑːnə/",
           "audio": "banana",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "rough",
           "chinese": "粗糙的",
           "phonetic": "/rʌf/",
           "audio": "rough",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "smooth",
           "chinese": "光滑的",
           "phonetic": "/smuːð/",
           "audio": "smooth",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hard",
           "chinese": "硬的",
           "phonetic": "/hɑːd/",
           "audio": "hard",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "soft",
           "chinese": "软的",
           "phonetic": "/sɒft/",
           "audio": "soft",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hungry",
           "chinese": "饿的",
           "phonetic": "/ˈhʌŋɡri/",
           "audio": "hungry",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "thirsty",
           "chinese": "渴的",
           "phonetic": "/ˈθɜːsti/",
           "audio": "thirsty",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "supermarket",
           "chinese": "超市",
           "phonetic": "/ˈsuːpəmɑːkɪt/",
           "audio": "supermarket",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "pie",
           "chinese": "派",
           "phonetic": "/paɪ/",
           "audio": "pie",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "yummy",
           "chinese": "美味的",
           "phonetic": "/ˈjʌmi/",
           "audio": "yummy",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "food",
           "chinese": "食物",
           "phonetic": "/fuːd/",
           "audio": "food",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "let's",
@@ -634,31 +672,38 @@
       "phrases": [
         {
           "english": "rough and soft",
-          "chinese": "粗糙而柔软"
+          "chinese": "粗糙而柔软",
+          "needSpell": true
         },
         {
           "english": "smooth and hard",
-          "chinese": "光滑而坚硬"
+          "chinese": "光滑而坚硬",
+          "needSpell": true
         },
         {
           "english": "rough and hard",
-          "chinese": "又粗糙又硬"
+          "chinese": "又粗糙又硬",
+          "needSpell": true
         },
         {
           "english": "soft and nice",
-          "chinese": "柔软而美味"
+          "chinese": "柔软而美味",
+          "needSpell": true
         },
         {
           "english": "go and get some food",
-          "chinese": "去买些食物"
+          "chinese": "去买些食物",
+          "needSpell": true
         },
         {
           "english": "touch and feel",
-          "chinese": "触摸与感觉"
+          "chinese": "触摸与感觉",
+          "needSpell": true
         },
         {
           "english": "with my hands and fingers",
-          "chinese": "用我的手和手指"
+          "chinese": "用我的手和手指",
+          "needSpell": true
         },
         {
           "english": "some bread",
@@ -685,7 +730,8 @@
         {
           "english": "How does the bag feel?",
           "chinese": "这个书包摸起来怎么样？",
-          "audio": "how_does_the_bag_feel"
+          "audio": "how_does_the_bag_feel",
+          "needSpell": true
         },
         {
           "english": "It's rough and soft.",
@@ -695,7 +741,8 @@
         {
           "english": "How do the glasses feel?",
           "chinese": "这些杯子摸起来怎么样？",
-          "audio": "how_do_the_glasses_feel"
+          "audio": "how_do_the_glasses_feel",
+          "needSpell": true
         },
         {
           "english": "They're smooth and hard.",
@@ -764,84 +811,96 @@
           "chinese": "糖果；甜的",
           "phonetic": "/swiːt/",
           "audio": "sweet",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sour",
           "chinese": "酸的",
           "phonetic": "/ˈsaʊə(r)/",
           "audio": "sour",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "salty",
           "chinese": "咸的",
           "phonetic": "/ˈsɔːlti/",
           "audio": "salty",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "bitter",
           "chinese": "苦的",
           "phonetic": "/ˈbɪtə(r)/",
           "audio": "bitter",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "lemon",
           "chinese": "柠檬",
           "phonetic": "/ˈlemən/",
           "audio": "lemon",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "salt",
           "chinese": "盐",
           "phonetic": "/sɔːlt/",
           "audio": "salt",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "coffee",
           "chinese": "咖啡",
           "phonetic": "/ˈkɒfi/",
           "audio": "coffee",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "now",
           "chinese": "现在",
           "phonetic": "/naʊ/",
           "audio": "now",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "close",
           "chinese": "关",
           "phonetic": "/kləʊz/",
           "audio": "close",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "or",
           "chinese": "否则",
           "phonetic": "/ɔː(r)/",
           "audio": "or",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "night",
           "chinese": "夜晚",
           "phonetic": "/naɪt/",
           "audio": "night",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "right",
           "chinese": "好的",
           "phonetic": "/raɪt/",
           "audio": "right",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sometimes",
@@ -855,14 +914,16 @@
           "chinese": "喝",
           "phonetic": "/drɪŋk/",
           "audio": "drink",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sleep",
           "chinese": "睡觉",
           "phonetic": "/sliːp/",
           "audio": "sleep",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "photograph",
@@ -875,15 +936,18 @@
       "phrases": [
         {
           "english": "close your eyes",
-          "chinese": "闭上你的眼睛"
+          "chinese": "闭上你的眼睛",
+          "needSpell": true
         },
         {
           "english": "smell the lemon",
-          "chinese": "闻闻这个柠檬"
+          "chinese": "闻闻这个柠檬",
+          "needSpell": true
         },
         {
           "english": "taste the coffee",
-          "chinese": "尝尝这咖啡"
+          "chinese": "尝尝这咖啡",
+          "needSpell": true
         },
         {
           "english": "sea water",
@@ -899,11 +963,13 @@
         },
         {
           "english": "how much",
-          "chinese": "多少钱"
+          "chinese": "多少钱",
+          "needSpell": true
         },
         {
           "english": "how many",
-          "chinese": "多少（+名词复数）"
+          "chinese": "多少（+名词复数）",
+          "needSpell": true
         },
         {
           "english": "in the photograph",
@@ -911,22 +977,26 @@
         },
         {
           "english": "at night",
-          "chinese": "在夜晚"
+          "chinese": "在夜晚",
+          "needSpell": true
         },
         {
           "english": "his toy whale",
-          "chinese": "他的玩具鲸"
+          "chinese": "他的玩具鲸",
+          "needSpell": true
         },
         {
           "english": "its white tail",
-          "chinese": "它的白尾巴"
+          "chinese": "它的白尾巴",
+          "needSpell": true
         }
       ],
       "sentences": [
         {
           "english": "How does the lemon smell?",
           "chinese": "这柠檬闻起来有怎样的气味？",
-          "audio": "how_does_the_lemon_smell"
+          "audio": "how_does_the_lemon_smell",
+          "needSpell": true
         },
         {
           "english": "It's nice.",
@@ -936,7 +1006,8 @@
         {
           "english": "How does the coffee taste?",
           "chinese": "这咖啡尝起来有怎样的味道？",
-          "audio": "how_does_the_coffee_taste"
+          "audio": "how_does_the_coffee_taste",
+          "needSpell": true
         },
         {
           "english": "It's bitter.",
@@ -956,7 +1027,8 @@
         {
           "english": "How many apples?",
           "chinese": "你想要多少只苹果？",
-          "audio": "how_many_apples"
+          "audio": "how_many_apples",
+          "needSpell": true
         },
         {
           "english": "Six, please.",
@@ -966,7 +1038,8 @@
         {
           "english": "How much are they?",
           "chinese": "它们多少钱？",
-          "audio": "how_much_are_they"
+          "audio": "how_much_are_they",
+          "needSpell": true
         },
         {
           "english": "They're ten yuan.",
@@ -998,42 +1071,48 @@
           "chinese": "动物",
           "phonetic": "/ˈænɪml/",
           "audio": "animal",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "tiger",
           "chinese": "老虎",
           "phonetic": "/ˈtaɪɡə(r)/",
           "audio": "tiger",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "lion",
           "chinese": "狮子",
           "phonetic": "/ˈlaɪən/",
           "audio": "lion",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "panda",
           "chinese": "熊猫",
           "phonetic": "/ˈpændə/",
           "audio": "panda",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "monkey",
           "chinese": "猴子",
           "phonetic": "/ˈmʌŋki/",
           "audio": "monkey",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "elephant",
           "chinese": "大象",
           "phonetic": "/ˈelɪfənt/",
           "audio": "elephant",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hippo",
@@ -1061,14 +1140,16 @@
           "chinese": "长颈鹿",
           "phonetic": "/dʒəˈrɑːf/",
           "audio": "giraffe",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "zebra",
           "chinese": "斑马",
           "phonetic": "/ˈzebrə/",
           "audio": "zebra",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "snake",
@@ -1082,7 +1163,8 @@
           "chinese": "公牛",
           "phonetic": "/bʊl/",
           "audio": "bull",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "don't",
@@ -1103,77 +1185,88 @@
           "chinese": "可爱的",
           "phonetic": "/kjuːt/",
           "audio": "cute",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "clever",
           "chinese": "聪明的",
           "phonetic": "/ˈklevə(r)/",
           "audio": "clever",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "strong",
           "chinese": "强壮的",
           "phonetic": "/strɒŋ/",
           "audio": "strong",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hat",
           "chinese": "帽子",
           "phonetic": "/hæt/",
           "audio": "hat",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "uncle",
           "chinese": "叔叔",
           "phonetic": "/ˈʌŋkl/",
           "audio": "uncle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "take",
           "chinese": "拿/取",
           "phonetic": "/teɪk/",
           "audio": "take",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "rest",
           "chinese": "休息",
           "phonetic": "/rest/",
           "audio": "rest",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "angry",
           "chinese": "生气的",
           "phonetic": "/ˈæŋɡri/",
           "audio": "angry",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "finally",
           "chinese": "最后",
           "phonetic": "/ˈfaɪnəli/",
           "audio": "finally",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "kind",
           "chinese": "种类，亲切的",
           "phonetic": "/kaɪnd/",
           "audio": "kind",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "clock",
           "chinese": "钟",
           "phonetic": "/klɒk/",
           "audio": "clock",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "o'clock",
@@ -1187,14 +1280,16 @@
           "chinese": "岩石",
           "phonetic": "/rɒk/",
           "audio": "rock",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "Jack",
           "chinese": "杰克",
           "phonetic": "/dʒæk/",
           "audio": "jack",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "tick-tock",
@@ -1207,11 +1302,13 @@
       "phrases": [
         {
           "english": "my favourite things",
-          "chinese": "我最喜欢的事物"
+          "chinese": "我最喜欢的事物",
+          "needSpell": true
         },
         {
           "english": "all kinds of animals",
-          "chinese": "各种动物"
+          "chinese": "各种动物",
+          "needSpell": true
         },
         {
           "english": "so strong",
@@ -1219,11 +1316,13 @@
         },
         {
           "english": "a hot summer day",
-          "chinese": "一个炎热的夏日"
+          "chinese": "一个炎热的夏日",
+          "needSpell": true
         },
         {
           "english": "take a rest",
-          "chinese": "休息一下"
+          "chinese": "休息一下",
+          "needSpell": true
         },
         {
           "english": "Uncle Bai",
@@ -1231,15 +1330,18 @@
         },
         {
           "english": "jump into the tree",
-          "chinese": "跳到树上"
+          "chinese": "跳到树上",
+          "needSpell": true
         },
         {
           "english": "get his hats back",
-          "chinese": "拿回他的帽子"
+          "chinese": "拿回他的帽子",
+          "needSpell": true
         },
         {
           "english": "sit on a rock",
-          "chinese": "坐在岩石上"
+          "chinese": "坐在岩石上",
+          "needSpell": true
         },
         {
           "english": "six o'clock",
@@ -1250,7 +1352,8 @@
         {
           "english": "Do you like elephants?",
           "chinese": "你喜欢大象吗？",
-          "audio": "do_you_like_elephants"
+          "audio": "do_you_like_elephants",
+          "needSpell": true
         },
         {
           "english": "Yes, I do.",
@@ -1265,7 +1368,8 @@
         {
           "english": "Do the monkeys like the hats?",
           "chinese": "这些猴子喜欢帽子吗？",
-          "audio": "do_the_monkeys_like_the_hats"
+          "audio": "do_the_monkeys_like_the_hats",
+          "needSpell": true
         },
         {
           "english": "Yes, they do.",
@@ -1280,7 +1384,8 @@
         {
           "english": "Does Uncle Bai get his hats back?",
           "chinese": "白叔叔拿回他的帽子了吗？",
-          "audio": "does_uncle_bai_get_his_hats_back"
+          "audio": "does_uncle_bai_get_his_hats_back",
+          "needSpell": true
         },
         {
           "english": "Yes, he does.",
@@ -1319,42 +1424,48 @@
           "chinese": "玩具",
           "phonetic": "/tɔɪ/",
           "audio": "toy",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "skateboard",
           "chinese": "滑板",
           "phonetic": "/ˈskeɪtbɔːd/",
           "audio": "skateboard",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "doll",
           "chinese": "洋娃娃",
           "phonetic": "/dɒl/",
           "audio": "doll",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "lovely",
           "chinese": "可爱的",
           "phonetic": "/ˈlʌvli/",
           "audio": "lovely",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "toy train",
           "chinese": "玩具火车",
           "phonetic": "/tɔɪ treɪn/",
           "audio": "toy_train",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "robot",
           "chinese": "机器人",
           "phonetic": "/ˈrəʊbɒt/",
           "audio": "robot",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "foil",
@@ -1396,21 +1507,24 @@
           "chinese": "乐趣",
           "phonetic": "/fʌn/",
           "audio": "fun",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "funny",
           "chinese": "有趣的",
           "phonetic": "/ˈfʌni/",
           "audio": "funny",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "walk",
           "chinese": "行走",
           "phonetic": "/wɔːk/",
           "audio": "walk",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sorry",
@@ -1424,7 +1538,8 @@
           "chinese": "墙",
           "phonetic": "/wɔːl/",
           "audio": "wall",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "behind",
@@ -1438,14 +1553,16 @@
           "chinese": "风筝",
           "phonetic": "/kaɪt/",
           "audio": "kite",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "bicycle",
           "chinese": "自行车",
           "phonetic": "/ˈbaɪsɪkl/",
           "audio": "bicycle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "transformer",
@@ -1470,7 +1587,8 @@
         },
         {
           "english": "a tall wall",
-          "chinese": "一面高墙"
+          "chinese": "一面高墙",
+          "needSpell": true
         },
         {
           "english": "on the wall",
@@ -1482,7 +1600,8 @@
         },
         {
           "english": "ride a skateboard",
-          "chinese": "滑滑板"
+          "chinese": "滑滑板",
+          "needSpell": true
         },
         {
           "english": "stick the buttons",
@@ -1493,7 +1612,8 @@
         {
           "english": "What do you like?",
           "chinese": "你喜欢什么？",
-          "audio": "what_do_you_like"
+          "audio": "what_do_you_like",
+          "needSpell": true
         },
         {
           "english": "I like robots. They are super.",
@@ -1578,42 +1698,48 @@
           "chinese": "衣服",
           "phonetic": "/kləʊðz/",
           "audio": "clothes",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "these",
           "chinese": "这些",
           "phonetic": "/ðiːz/",
           "audio": "these",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "those",
           "chinese": "那些",
           "phonetic": "/ðəʊz/",
           "audio": "those",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hat",
           "chinese": "帽子",
           "phonetic": "/hæt/",
           "audio": "hat",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "gloves",
           "chinese": "手套",
           "phonetic": "/ɡlʌvz/",
           "audio": "gloves",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "trousers",
           "chinese": "裤子",
           "phonetic": "/ˈtraʊzəz/",
           "audio": "trousers",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "scarf",
@@ -1627,21 +1753,24 @@
           "chinese": "夹克衫",
           "phonetic": "/ˈdʒækɪt/",
           "audio": "jacket",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "socks",
           "chinese": "短袜",
           "phonetic": "/sɒks/",
           "audio": "socks",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "shoes",
           "chinese": "鞋子",
           "phonetic": "/ʃuːz/",
           "audio": "shoes",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "shirt",
@@ -1669,14 +1798,16 @@
           "chinese": "连衣裙",
           "phonetic": "/dres/",
           "audio": "dress",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "shorts",
           "chinese": "短裤",
           "phonetic": "/ʃɔːts/",
           "audio": "shorts",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "coat",
@@ -1690,7 +1821,8 @@
           "chinese": "毛衣",
           "phonetic": "/ˈswetə(r)/",
           "audio": "sweater",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "T-shirt",
@@ -1704,42 +1836,48 @@
           "chinese": "双",
           "phonetic": "/peə(r)/",
           "audio": "pair",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "funny",
           "chinese": "有趣的",
           "phonetic": "/ˈfʌni/",
           "audio": "funny",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "picture",
           "chinese": "图片",
           "phonetic": "/ˈpɪktʃə(r)/",
           "audio": "picture",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "word",
           "chinese": "单词",
           "phonetic": "/wɜːd/",
           "audio": "word",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "horse",
           "chinese": "马",
           "phonetic": "/hɔːs/",
           "audio": "horse",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "zebra",
           "chinese": "斑马",
           "phonetic": "/ˈzebrə/",
           "audio": "zebra",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "toe",
@@ -1760,49 +1898,57 @@
           "chinese": "英语",
           "phonetic": "/ˈɪŋɡlɪʃ/",
           "audio": "english",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hurry",
           "chinese": "赶紧",
           "phonetic": "/ˈhʌri/",
           "audio": "hurry",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "miss",
           "chinese": "错过",
           "phonetic": "/mɪs/",
           "audio": "miss",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "pupil",
           "chinese": "小学生",
           "phonetic": "/ˈpjuːpl/",
           "audio": "pupil",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "clean",
           "chinese": "打扫",
           "phonetic": "/kliːn/",
           "audio": "clean",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         }
       ],
       "phrases": [
         {
           "english": "a pair of gloves",
-          "chinese": "一副手套"
+          "chinese": "一副手套",
+          "needSpell": true
         },
         {
           "english": "two pairs of socks",
-          "chinese": "两双短袜"
+          "chinese": "两双短袜",
+          "needSpell": true
         },
         {
           "english": "a pair of trousers",
-          "chinese": "一条长裤"
+          "chinese": "一条长裤",
+          "needSpell": true
         },
         {
           "english": "have a try",
@@ -1810,7 +1956,8 @@
         },
         {
           "english": "miss the bus",
-          "chinese": "错过公交车"
+          "chinese": "错过公交车",
+          "needSpell": true
         },
         {
           "english": "beside the gloves",
@@ -1822,7 +1969,8 @@
         },
         {
           "english": "in the classroom",
-          "chinese": "在教室里"
+          "chinese": "在教室里",
+          "needSpell": true
         },
         {
           "english": "for my hands",
@@ -1830,7 +1978,8 @@
         },
         {
           "english": "clean the glass",
-          "chinese": "擦（窗）玻璃"
+          "chinese": "擦（窗）玻璃",
+          "needSpell": true
         }
       ],
       "sentences": [
@@ -1847,7 +1996,8 @@
         {
           "english": "What are these?",
           "chinese": "这些是什么？",
-          "audio": "what_are_these"
+          "audio": "what_are_these",
+          "needSpell": true
         },
         {
           "english": "They are gloves.",
@@ -1867,7 +2017,8 @@
         {
           "english": "What are those?",
           "chinese": "那些是什么？",
-          "audio": "what_are_those"
+          "audio": "what_are_those",
+          "needSpell": true
         },
         {
           "english": "They are scarves.",
@@ -1940,49 +2091,56 @@
           "chinese": "形状",
           "phonetic": "/ʃeɪp/",
           "audio": "shape",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "circle",
           "chinese": "圆形",
           "phonetic": "/ˈsɜːkl/",
           "audio": "circle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "square",
           "chinese": "正方形",
           "phonetic": "/skweə(r)/",
           "audio": "square",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "triangle",
           "chinese": "三角形",
           "phonetic": "/ˈtraɪæŋɡl/",
           "audio": "triangle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "star",
           "chinese": "星形",
           "phonetic": "/stɑː(r)/",
           "audio": "star",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "rectangle",
           "chinese": "长方形",
           "phonetic": "/ˈrektæŋɡl/",
           "audio": "rectangle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "house",
           "chinese": "房子",
           "phonetic": "/haʊs/",
           "audio": "house",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "picture",
@@ -1996,21 +2154,24 @@
           "chinese": "在…之后",
           "phonetic": "/ˈɑːftə(r)/",
           "audio": "after",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "home",
           "chinese": "家",
           "phonetic": "/həʊm/",
           "audio": "home",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "hungry",
           "chinese": "饥饿的",
           "phonetic": "/ˈhʌŋɡri/",
           "audio": "hungry",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "thirsty",
@@ -2024,84 +2185,97 @@
           "chinese": "边",
           "phonetic": "/saɪd/",
           "audio": "side",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "angle",
           "chinese": "角",
           "phonetic": "/ˈæŋɡl/",
           "audio": "angle",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "light",
           "chinese": "灯",
           "phonetic": "/laɪt/",
           "audio": "light",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "bright",
           "chinese": "明亮的",
           "phonetic": "/braɪt/",
           "audio": "bright",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "coat",
           "chinese": "外套",
           "phonetic": "/kəʊt/",
           "audio": "coat",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "so",
           "chinese": "太…",
           "phonetic": "/səʊ/",
           "audio": "so",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "fan",
           "chinese": "风扇",
           "phonetic": "/fæn/",
           "audio": "fan",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "like",
           "chinese": "像",
           "phonetic": "/laɪk/",
           "audio": "like",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "biscuit",
           "chinese": "饼干",
           "phonetic": "/ˈbɪskɪt/",
           "audio": "biscuit",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "off",
           "chinese": "断开",
           "phonetic": "/ɒf/",
           "audio": "off",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         }
       ],
       "phrases": [
         {
           "english": "make a house",
-          "chinese": "造一间房"
+          "chinese": "造一间房",
+          "needSpell": true
         },
         {
           "english": "a beautiful house",
-          "chinese": "一座漂亮的房子"
+          "chinese": "一座漂亮的房子",
+          "needSpell": true
         },
         {
           "english": "turn off the light",
-          "chinese": "关灯"
+          "chinese": "关灯",
+          "needSpell": true
         },
         {
           "english": "turn on the TV",
@@ -2109,34 +2283,41 @@
         },
         {
           "english": "take off the coat",
-          "chinese": "脱下外套"
+          "chinese": "脱下外套",
+          "needSpell": true
         },
         {
           "english": "put on the jacket",
-          "chinese": "穿上夹克"
+          "chinese": "穿上夹克",
+          "needSpell": true
         },
         {
           "english": "go home",
-          "chinese": "回家"
+          "chinese": "回家",
+          "needSpell": true
         },
         {
           "english": "after school",
-          "chinese": "放学后"
+          "chinese": "放学后",
+          "needSpell": true
         },
         {
           "english": "two small squares",
-          "chinese": "两个小正方形"
+          "chinese": "两个小正方形",
+          "needSpell": true
         },
         {
           "english": "a big triangle",
-          "chinese": "一个大三角形"
+          "chinese": "一个大三角形",
+          "needSpell": true
         }
       ],
       "sentences": [
         {
           "english": "How many shapes?",
           "chinese": "有几种形状？",
-          "audio": "how_many_shapes"
+          "audio": "how_many_shapes",
+          "needSpell": true
         },
         {
           "english": "There are four shapes.",
@@ -2146,7 +2327,8 @@
         {
           "english": "How many stars?",
           "chinese": "有几个星形？",
-          "audio": "how_many_stars"
+          "audio": "how_many_stars",
+          "needSpell": true
         },
         {
           "english": "There is one.",
@@ -2156,7 +2338,8 @@
         {
           "english": "What shape is the book?",
           "chinese": "这本书是什么形状？",
-          "audio": "what_shape_is_the_book"
+          "audio": "what_shape_is_the_book",
+          "needSpell": true
         },
         {
           "english": "It's a rectangle.",
@@ -2166,7 +2349,8 @@
         {
           "english": "What shapes are the rulers?",
           "chinese": "这些尺是什么形状？",
-          "audio": "what_shapes_are_the_rulers"
+          "audio": "what_shapes_are_the_rulers",
+          "needSpell": true
         },
         {
           "english": "They are triangles.",
@@ -2203,126 +2387,144 @@
           "chinese": "红色的",
           "phonetic": "/red/",
           "audio": "red",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "orange",
           "chinese": "橙色的",
           "phonetic": "/ˈɒrɪndʒ/",
           "audio": "orange",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "yellow",
           "chinese": "黄色的",
           "phonetic": "/ˈjeləʊ/",
           "audio": "yellow",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "green",
           "chinese": "绿色的",
           "phonetic": "/ɡriːn/",
           "audio": "green",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "blue",
           "chinese": "蓝色的",
           "phonetic": "/bluː/",
           "audio": "blue",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "white",
           "chinese": "白色的",
           "phonetic": "/waɪt/",
           "audio": "white",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "black",
           "chinese": "黑色的",
           "phonetic": "/blæk/",
           "audio": "black",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "purple",
           "chinese": "紫色的",
           "phonetic": "/ˈpɜːpl/",
           "audio": "purple",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "violet",
           "chinese": "紫罗兰色的",
           "phonetic": "/ˈvaɪələt/",
           "audio": "violet",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "brown",
           "chinese": "棕色的",
           "phonetic": "/braʊn/",
           "audio": "brown",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "grey",
           "chinese": "灰色的",
           "phonetic": "/ɡreɪ/",
           "audio": "grey",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "pink",
           "chinese": "粉色的",
           "phonetic": "/pɪŋk/",
           "audio": "pink",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "colourful",
           "chinese": "彩色的",
           "phonetic": "/ˈkʌləfl/",
           "audio": "colourful",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "rainbow",
           "chinese": "彩虹",
           "phonetic": "/ˈreɪnbəʊ/",
           "audio": "rainbow",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sky",
           "chinese": "天空",
           "phonetic": "/skaɪ/",
           "audio": "sky",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sea",
           "chinese": "大海",
           "phonetic": "/siː/",
           "audio": "sea",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "mountain",
           "chinese": "山",
           "phonetic": "/ˈmaʊntən/",
           "audio": "mountain",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "river",
           "chinese": "河流",
           "phonetic": "/ˈrɪvə(r)/",
           "audio": "river",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "nature",
@@ -2336,14 +2538,16 @@
           "chinese": "蚂蚁",
           "phonetic": "/ænt/",
           "audio": "ant",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "grasshopper",
           "chinese": "蚱蜢",
           "phonetic": "/ˈɡrɑːshɒpə(r)/",
           "audio": "grasshopper",
-          "letterSounds": []
+          "letterSounds": [],
+          "needSpell": true
         },
         {
           "word": "sleep",
@@ -2356,19 +2560,23 @@
       "phrases": [
         {
           "english": "in the sky",
-          "chinese": "在空中"
+          "chinese": "在空中",
+          "needSpell": true
         },
         {
           "english": "in the sea",
-          "chinese": "在海里"
+          "chinese": "在海里",
+          "needSpell": true
         },
         {
           "english": "light blue",
-          "chinese": "浅蓝色"
+          "chinese": "浅蓝色",
+          "needSpell": true
         },
         {
           "english": "dark blue",
-          "chinese": "深蓝色"
+          "chinese": "深蓝色",
+          "needSpell": true
         },
         {
           "english": "in spring",
@@ -2442,7 +2650,8 @@
         {
           "english": "What colour is the sky?",
           "chinese": "天空是什么颜色？",
-          "audio": "what_colour_is_the_sky"
+          "audio": "what_colour_is_the_sky",
+          "needSpell": true
         },
         {
           "english": "It's blue.",
@@ -2452,7 +2661,8 @@
         {
           "english": "What colour are the leaves in spring?",
           "chinese": "春天里叶子是什么颜色？",
-          "audio": "what_colour_are_the_leaves"
+          "audio": "what_colour_are_the_leaves",
+          "needSpell": true
         },
         {
           "english": "They're green.",

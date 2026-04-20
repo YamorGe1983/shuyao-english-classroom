@@ -8599,24 +8599,41 @@ const App = {
             const unit = textbook.units[unitId];
             
             if (scope === 'unit') {
-                words = (unit.vocabulary || []).map(v => ({
+                // 只选择标记了needSpell的内容
+                words = (unit.vocabulary || []).filter(v => v.needSpell).map(v => ({
                     word: v.word,
                     chinese: v.chinese,
+                    type: 'word',
                     unitId: unitId
                 }));
+                const phrases = (unit.phrases || []).filter(p => p.needSpell).map(p => ({
+                    word: p.english,
+                    chinese: p.chinese,
+                    type: 'phrase',
+                    unitId: unitId
+                }));
+                const sentences = (unit.sentences || []).filter(s => s.needSpell).map(s => ({
+                    word: s.english,
+                    chinese: s.chinese,
+                    type: 'sentence',
+                    unitId: unitId
+                }));
+                words = [...words, ...phrases, ...sentences];
             } else if (scope === 'module') {
                 const moduleId = unit.module;
                 textbook.modules.forEach(mod => {
                     if (mod.id === moduleId) {
                         mod.units.forEach(u => {
                             const unitData = textbook.units[u.id];
-                            if (unitData && unitData.vocabulary) {
-                                unitData.vocabulary.forEach(v => {
-                                    words.push({
-                                        word: v.word,
-                                        chinese: v.chinese,
-                                        unitId: u.id
-                                    });
+                            if (unitData) {
+                                (unitData.vocabulary || []).filter(v => v.needSpell).forEach(v => {
+                                    words.push({ word: v.word, chinese: v.chinese, type: 'word', unitId: u.id });
+                                });
+                                (unitData.phrases || []).filter(p => p.needSpell).forEach(p => {
+                                    words.push({ word: p.english, chinese: p.chinese, type: 'phrase', unitId: u.id });
+                                });
+                                (unitData.sentences || []).filter(s => s.needSpell).forEach(s => {
+                                    words.push({ word: s.english, chinese: s.chinese, type: 'sentence', unitId: u.id });
                                 });
                             }
                         });
