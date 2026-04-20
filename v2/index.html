@@ -8375,7 +8375,7 @@ const App = {
         const completedUnits = StorageModule.getCompletedUnits();
         
         const html = `
-            <div class="module-detail-page" style="padding:16px;">
+            <div class="module-detail-page" style="padding:16px;padding-bottom:100px;">
                 <button class="back-btn" onclick="App.renderHome()">
                     ← 返回首页
                 </button>
@@ -8415,8 +8415,11 @@ const App = {
                                 <div class="unit-progress-text">${completion}% 完成</div>
                                 
                                 <div class="unit-actions">
-                                    <button class="unit-action-btn" onclick="event.stopPropagation();App.startUnitVocabulary('${unitId}')">
+                                    <button class="unit-action-btn primary" onclick="event.stopPropagation();App.startUnitVocabulary('${unitId}')">
                                         📚 单词
+                                    </button>
+                                    <button class="unit-action-btn" onclick="event.stopPropagation();App.showSpellTestSelect('${unitId}')">
+                                        ✏️ 默写
                                     </button>
                                 </div>
                             </div>
@@ -8493,7 +8496,7 @@ const App = {
     showSpellTestSelect(unitId) {
         AppState.spellTestUnitId = unitId;
         const html = `
-            <div class="spell-test-select">
+            <div class="spell-test-select" style="padding-bottom:100px;">
                 <button class="back-btn" onclick="App.renderUnitDetail('${unitId}')">
                     ← 返回单元
                 </button>
@@ -8657,7 +8660,7 @@ const App = {
         const current = test.currentIndex + 1;
         
         const html = `
-            <div class="spell-test-page">
+            <div class="spell-test-page" style="padding-bottom:100px;">
                 <div class="spell-test-top">
                     <span class="spell-progress">第 ${current}/${total} 个单词</span>
                     <button class="spell-exit-btn" onclick="App.confirmExitSpellTest()">退出</button>
@@ -8819,7 +8822,7 @@ const App = {
         const results = test.results;
         
         const html = `
-            <div class="spell-result-page">
+            <div class="spell-result-page" style="padding-bottom:100px;">
                 <div class="spell-result-header">
                     <h1>📝 默写完成</h1>
                     <p>共 ${results.length} 个单词</p>
