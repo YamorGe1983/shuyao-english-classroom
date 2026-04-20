@@ -21532,6 +21532,237 @@ function getCurrentGradeName() {
     return grade ? grade.name : '三年级下';
 }
 
+
+/**
+ * SM-2 间隔重复算法模块
+ * 基于 SuperMemo SM-2 算法实现
+ */
+
+const SM2Module = {
+    DEFAULT_EASE_FACTOR: 2.5,
+    MIN_EASE_FACTOR: 1.3,
+    
+    getTodayString() {
+        const today = new Date();
+        return today.toISOString().split('T')[0];
+    },
+    
+    calculate(quality, easeFactor, interval = 0, repetitions = 0) {
+        let newEaseFactor = easeFactor || this.DEFAULT_EASE_FACTOR;
+        let newInterval = interval;
+        let newRepetitions = repetitions;
+        
+        if (quality >= 3) {
+            if (newRepetitions === 0) {
+                newInterval = 1;
+            } else if (newRepetitions === 1) {
+                newInterval = 6;
+            } else {
+                newInterval = Math.round(newInterval * newEaseFactor);
+            }
+            newRepetitions += 1;
+            newEaseFactor = newEaseFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+        } else {
+            newRepetitions = 0;
+            newInterval = 1;
+            newEaseFactor = newEaseFactor - 0.2;
+        }
+        
+        newEaseFactor = Math.max(this.MIN_EASE_FACTOR, newEaseFactor);
+        const nextReview = this.addDays(new Date(), newInterval);
+        
+        return {
+            easeFactor: Math.round(newEaseFactor * 100) / 100,
+            interval: newInterval,
+            nextReview: nextReview.toISOString().split('T')[0],
+            nextReviewFull: nextReview.toISOString(),
+            repetitions: newRepetitions
+        };
+    },
+    
+    addDays(date, days) {
+        const result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
+    },
+    
+    isDue(nextReview) {
+        const today = this.getTodayString();
+        if (!nextReview) return true;
+        const reviewDate = nextReview.split('T')[0];
+        return reviewDate <= today;
+    },
+    
+    getWordProgress(wordKey) {
+        const allProgress = this.getAllProgress();
+        return allProgress[wordKey] || null;
+    },
+    
+    getAllProgress() {
+        try {
+            const data = localStorage.getItem('sm2_word_progress');
+            return data ? JSON.parse(data) : {};
+        } catch (e) {
+            return {};
+        }
+    },
+    
+    saveAllProgress(progress) {
+        try {
+            localStorage.setItem('sm2_word_progress', JSON.stringify(progress));
+        } catch (e) {
+            console.error('保存单词进度失败:', e);
+        }
+    },
+    
+    updateWordProgress(wordKey, quality) {
+        const allProgress = this.getAllProgress();
+        const current = allProgress[wordKey] || {
+            easeFactor: this.DEFAULT_EASE_FACTOR,
+            interval: 0,
+            repetitions: 0,
+            reviewCount: 0,
+            lastQuality: null
+        };
+        
+        const result = this.calculate(
+            quality,
+            current.easeFactor,
+            current.interval,
+            current.repetitions
+        );
+        
+        allProgress[wordKey] = {
+            ...current,
+            ...result,
+            reviewCount: (current.reviewCount || 0) + 1,
+            lastReview: new Date().toISOString(),
+            lastQuality: quality
+        };
+        
+        this.saveAllProgress(allProgress);
+        return allProgress[wordKey];
+    },
+    
+    getTodayReviewWords(limit = 20) {
+        const allProgress = this.getAllProgress();
+        const dueWords = [];
+        
+        for (const [wordKey, progress] of Object.entries(allProgress)) {
+            if (this.isDue(progress.nextReview)) {
+                dueWords.push({ wordKey, ...progress });
+            }
+        }
+        
+        dueWords.sort((a, b) => {
+            const dateA = a.nextReview || '9999-12-31';
+            const dateB = b.nextReview || '9999-12-31';
+            return dateA.localeCompare(dateB);
+        });
+        
+        return limit ? dueWords.slice(0, limit) : dueWords;
+    },
+    
+    getTodayReviewCount() {
+        return this.getTodayReviewWords().length;
+    },
+    
+    getReviewStats() {
+        const allProgress = this.getAllProgress();
+        const todayCount = this.getTodayReviewCount();
+        
+        const mastered = Object.values(allProgress).filter(p => 
+            p.repetitions >= 4 && p.interval >= 21
+        ).length;
+        
+        const learning = Object.values(allProgress).filter(p => 
+            p.repetitions > 0 && p.repetitions < 4
+        ).length;
+        
+        const newWords = Object.values(allProgress).filter(p => 
+            p.repetitions === 0 || p.reviewCount === 1
+        ).length;
+        
+        return {
+            totalWords: Object.keys(allProgress).length,
+            todayCount,
+            mastered,
+            learning,
+            newWords,
+            masteryRate: Object.keys(allProgress).length > 0 
+                ? Math.round((mastered / Object.keys(allProgress).length) * 100) 
+                : 0
+        };
+    },
+    
+    statusToQuality(status) {
+        switch (status) {
+            case 0: return 1;
+            case 1: return 3;
+            case 2: return 5;
+            default: return 3;
+        }
+    },
+    
+    getMasteryLevel(progress) {
+        if (!progress || !progress.repetitions) {
+            return { level: 'new', text: '新单词' };
+        }
+        
+        const interval = progress.interval || 0;
+        const reps = progress.repetitions || 0;
+        
+        if (interval >= 21 && reps >= 4) {
+            return { level: 'mastered', text: '已掌握' };
+        } else if (reps >= 2) {
+            return { level: 'learning', text: '学习中' };
+        } else if (reps >= 1) {
+            return { level: 'familiar', text: '认识' };
+        } else {
+            return { level: 'new', text: '新单词' };
+        }
+    },
+    
+    initWordProgress(wordKey) {
+        const allProgress = this.getAllProgress();
+        if (!allProgress[wordKey]) {
+            allProgress[wordKey] = {
+                easeFactor: this.DEFAULT_EASE_FACTOR,
+                interval: 0,
+                repetitions: 0,
+                nextReview: this.getTodayString(),
+                reviewCount: 0,
+                lastReview: null,
+                lastQuality: null
+            };
+            this.saveAllProgress(allProgress);
+        }
+        return allProgress[wordKey];
+    },
+    
+    removeWordProgress(wordKey) {
+        const allProgress = this.getAllProgress();
+        delete allProgress[wordKey];
+        this.saveAllProgress(allProgress);
+    },
+    
+    clearAllProgress() {
+        localStorage.removeItem('sm2_word_progress');
+    },
+    
+    exportProgress() {
+        return this.getAllProgress();
+    },
+    
+    importProgress(data) {
+        if (data && typeof data === 'object') {
+            this.saveAllProgress(data);
+            return true;
+        }
+        return false;
+    }
+};
+
 const StorageModule = {
     PREFIX: 'englearn_',
     
@@ -24579,7 +24810,8 @@ const App = {
         const reviewStats = MemoryModule.getReviewStats();
         const todayWords = StorageModule.getTodayWordsLearned();
         const streakDays = StorageModule.getStreakDays();
-        const reviewCount = MemoryModule.getReviewCount();
+        // 使用SM-2算法的复习计数
+        const reviewCount = SM2Module.getTodayReviewCount();
         
         const now = new Date();
         const midExam = new Date(now.getFullYear(), 3, 30);
@@ -25093,15 +25325,27 @@ const App = {
         const taskIndex = AppState.taskQueue.shift();
         AppState.currentTasks[taskIndex].status = status;
         
+        // 使用SM-2算法更新单词进度
+        const word = AppState.currentWord;
+        if (word && word.word) {
+            const wordKey = `${AppState.currentUnit}_${word.word}`;
+            const quality = SM2Module.statusToQuality(status);
+            SM2Module.updateWordProgress(wordKey, quality);
+            
+            const progress = SM2Module.getWordProgress(wordKey);
+            if (progress) {
+                const mastery = SM2Module.getMasteryLevel(progress);
+                console.log(`单词 ${word.word} 复习完成: ${mastery.text}, 下次复习: ${progress.nextReview}, 间隔: ${progress.interval}天`);
+            }
+        }
+        
+        // 原有队列逻辑保持不变
         if (status === 2) {
-            // 熟练：不再添加回队列
             AppState.memoryStats.mastered++;
         } else if (status === 1) {
-            // 模糊：插到队列第3位后（间隔重复）
             const insertPos = Math.min(3, AppState.taskQueue.length);
             AppState.taskQueue.splice(insertPos, 0, taskIndex);
         } else {
-            // 陌生：插到队首（优先再练）
             AppState.taskQueue.unshift(taskIndex);
         }
         
