@@ -4316,9 +4316,31 @@ const GRADES = {
 // ==================== DataLoader Module (V2) ====================
 const DataLoader = {
     _cache: {},
-    VERSION: '2.1.2',  // 修复：真正从外部JSON加载数据
+    VERSION: '2.1.3',  // 数据版本，更新时需递增
+    
+    // 检查并清理过期缓存
+    _checkAndCleanCache() {
+        const versionKey = 'englearn_data_version';
+        const cachedVersion = localStorage.getItem(versionKey);
+        
+        if (cachedVersion !== this.VERSION) {
+            console.log('检测到新版本数据，清理旧缓存...');
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('englearn_data_') && key !== versionKey) {
+                    localStorage.removeItem(key);
+                }
+            });
+            localStorage.setItem(versionKey, this.VERSION);
+        }
+    },
     
     async loadGrade(gradeId) {
+        // 首次加载时检查版本
+        if (!this._versionChecked) {
+            this._checkAndCleanCache();
+            this._versionChecked = true;
+        }
+        
         // 确保gradeId是字符串
         if (typeof gradeId !== 'string') {
             console.warn('gradeId不是字符串，使用默认值:', gradeId);
@@ -4382,8 +4404,10 @@ const DataLoader = {
         Object.keys(GRADES).forEach(id => {
             localStorage.removeItem(`englearn_data_${id}`);
         });
+        localStorage.removeItem('englearn_data_version');
     }
 };
+
 
 
 // 异步获取教材数据
