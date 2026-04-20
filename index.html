@@ -21470,7 +21470,7 @@ const GRADES = {
 // ==================== DataLoader Module ====================
 const DataLoader = {
     _cache: {},
-    VERSION: '2.1.1',  // 版本升级，GRADES已包含完整数据
+    VERSION: '2.1.2',  // 修复：真正从外部JSON加载数据
     
     async loadGrade(gradeId) {
         // 确保gradeId是字符串
@@ -21484,13 +21484,44 @@ const DataLoader = {
             return this._cache[gradeId];
         }
         
-        // GRADES已经包含完整数据，直接返回
+        // localStorage缓存
+        const cacheKey = `englearn_data_${gradeId}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            try {
+                const data = JSON.parse(cached);
+                if (data && data.units) {
+                    this._cache[gradeId] = data;
+                    return data;
+                }
+            } catch (e) {
+                console.warn('缓存解析失败:', e);
+            }
+        }
+        
+        // 从外部JSON文件加载
+        try {
+            const response = await fetch(`data/english/${gradeId}.json`);
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data.units) {
+                    this._cache[gradeId] = data;
+                    localStorage.setItem(cacheKey, JSON.stringify(data));
+                    console.log(`从外部JSON加载 ${gradeId} 成功`);
+                    return data;
+                }
+            }
+        } catch (e) {
+            console.warn('外部JSON加载失败，使用内嵌数据:', e);
+        }
+        
+        // 降级到GRADES内嵌数据
         if (GRADES[gradeId] && GRADES[gradeId].units) {
             this._cache[gradeId] = GRADES[gradeId];
             return GRADES[gradeId];
         }
         
-        // 降级到默认年级
+        // 最终降级
         console.warn('找不到年级数据:', gradeId, '，使用默认年级');
         return GRADES['grade3_2'];
     },
@@ -21503,10 +21534,11 @@ const DataLoader = {
     clearCache() {
         this._cache = {};
         Object.keys(GRADES).forEach(id => {
-            localStorage.removeItem(`englearn_${id}`);
+            localStorage.removeItem(`englearn_data_${id}`);
         });
     }
 };
+
 
 // 异步获取教材数据
 async function getCurrentTextbookAsync() {

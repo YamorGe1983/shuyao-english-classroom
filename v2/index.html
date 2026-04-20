@@ -4316,17 +4316,7 @@ const GRADES = {
 // ==================== DataLoader Module (V2) ====================
 const DataLoader = {
     _cache: {},
-    _loading: {},
-    VERSION: '2.1.1',  // V2版本：支持外部JSON加载
-    
-    // 数据文件路径映射
-    DATA_PATHS: {
-        'grade3_2': 'data/english/grade3_2.json',
-        'grade4_1': 'data/english/grade4_1.json',
-        'grade4_2': 'data/english/grade4_2.json',
-        'grade5_1': 'data/english/grade5_1.json',
-        'grade5_2': 'data/english/grade5_2.json'
-    },
+    VERSION: '2.1.2',  // 修复：真正从外部JSON加载数据
     
     async loadGrade(gradeId) {
         // 确保gradeId是字符串
@@ -4340,126 +4330,61 @@ const DataLoader = {
             return this._cache[gradeId];
         }
         
-        // 防止重复加载
-        if (this._loading[gradeId]) {
-            return this._loading[gradeId];
-        }
-        
-        // 检查年级是否存在
-        if (!GRADES[gradeId]) {
-            console.warn('未知年级:', gradeId, '，使用默认年级');
-            gradeId = 'grade3_2';
-        }
-        
-        // 加载数据
-        this._loading[gradeId] = this._fetchGradeData(gradeId);
-        const data = await this._loading[gradeId];
-        delete this._loading[gradeId];
-        
-        return data;
-    },
-    
-    async _fetchGradeData(gradeId) {
-        const path = this.DATA_PATHS[gradeId];
-        if (!path) {
-            console.error('找不到数据路径:', gradeId);
-            return this._getFallbackData(gradeId);
-        }
-        
-        try {
-            // 尝试从localStorage获取缓存
-            const cachedData = this._getFromLocalStorage(gradeId);
-            if (cachedData && cachedData.units) {
-                console.log('从localStorage加载:', gradeId);
-                this._cache[gradeId] = cachedData;
-                return cachedData;
+        // localStorage缓存
+        const cacheKey = `englearn_data_${gradeId}`;
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            try {
+                const data = JSON.parse(cached);
+                if (data && data.units) {
+                    this._cache[gradeId] = data;
+                    return data;
+                }
+            } catch (e) {
+                console.warn('缓存解析失败:', e);
             }
-            
-            // 从外部JSON加载
-            console.log('从服务器加载:', path);
-            const response = await fetch(path);
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            
-            const data = await response.json();
-            
-            // 合并元数据
-            const fullData = {
-                ...GRADES[gradeId],
-                ...data
-            };
-            
-            // 缓存数据
-            this._cache[gradeId] = fullData;
-            this._saveToLocalStorage(gradeId, fullData);
-            
-            console.log('加载完成:', gradeId, '单元数:', Object.keys(data.units || {}).length);
-            return fullData;
-            
-        } catch (error) {
-            console.error('加载数据失败:', gradeId, error);
-            return this._getFallbackData(gradeId);
         }
-    },
-    
-    _getFromLocalStorage(gradeId) {
+        
+        // 从外部JSON文件加载
         try {
-            const key = `englearn_grade_${gradeId}`;
-            const cached = localStorage.getItem(key);
-            if (cached) {
-                return JSON.parse(cached);
+            const response = await fetch(`data/english/${gradeId}.json`);
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data.units) {
+                    this._cache[gradeId] = data;
+                    localStorage.setItem(cacheKey, JSON.stringify(data));
+                    console.log(`从外部JSON加载 ${gradeId} 成功`);
+                    return data;
+                }
             }
         } catch (e) {
-            console.warn('读取localStorage失败:', e);
+            console.warn('外部JSON加载失败，使用内嵌数据:', e);
         }
-        return null;
-    },
-    
-    _saveToLocalStorage(gradeId, data) {
-        try {
-            const key = `englearn_grade_${gradeId}`;
-            // 只缓存必要的字段
-            const cacheData = {
-                id: data.id,
-                name: data.name,
-                modules: data.modules,
-                units: data.units
-            };
-            localStorage.setItem(key, JSON.stringify(cacheData));
-        } catch (e) {
-            console.warn('保存到localStorage失败:', e);
+        
+        // 降级到GRADES内嵌数据
+        if (GRADES[gradeId] && GRADES[gradeId].units) {
+            this._cache[gradeId] = GRADES[gradeId];
+            return GRADES[gradeId];
         }
-    },
-    
-    _getFallbackData(gradeId) {
-        // 返回空数据结构
-        return {
-            ...GRADES[gradeId],
-            modules: [],
-            units: {}
-        };
+        
+        // 最终降级
+        console.warn('找不到年级数据:', gradeId, '，使用默认年级');
+        return GRADES['grade3_2'];
     },
     
     async preloadAll() {
-        const gradeIds = Object.keys(GRADES);
-        return Promise.all(gradeIds.map(id => this.loadGrade(id)));
+        return Promise.all(Object.keys(GRADES).map(id => this.loadGrade(id)));
     },
     
     // 清除所有缓存
     clearCache() {
         this._cache = {};
         Object.keys(GRADES).forEach(id => {
-            localStorage.removeItem(`englearn_grade_${id}`);
+            localStorage.removeItem(`englearn_data_${id}`);
         });
-    },
-    
-    // 清除指定年级缓存
-    clearGradeCache(gradeId) {
-        delete this._cache[gradeId];
-        localStorage.removeItem(`englearn_grade_${gradeId}`);
     }
 };
+
 
 // 异步获取教材数据
 async function getCurrentTextbookAsync() {
