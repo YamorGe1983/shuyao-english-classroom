@@ -110,7 +110,7 @@
                 
                 <div class="game24-numbers">
                     ${nums.map((n, i) => `
-                        <div class="game24-card" data-index="${i}" data-value="${n}">
+                        <div class="game24-card" data-index="${i}" data-value="${n}" onclick="Game24.selectCard(${i})">
                             <span class="game24-num">${n}</span>
                         </div>
                     `).join('')}
