@@ -26900,7 +26900,7 @@ const App = {
             console.warn('获取教材音标数据失败:', e);
         }
         
-        const html = \`
+        const html = `
             <div class="phonetic-main-page">
                 <button class="back-btn" onclick="App.renderHome()">
                     ← 返回首页
@@ -26911,15 +26911,15 @@ const App = {
                     <p class="page-subtitle">学习48个国际音标</p>
                 </div>
                 
-                \${textbookPhoneticCount > 0 ? \`
+                ${textbookPhoneticCount > 0 ? `
                 <button class="phonetic-type-btn" onclick="App.showPhoneticFromTextbook()">
                     <span class="icon">📖</span>
                     <span class="text">
                         <span class="title">教材词汇</span>
-                        <span class="desc">用本教材词汇练习 \${textbookPhoneticCount} 个</span>
+                        <span class="desc">用本教材词汇练习 ${textbookPhoneticCount} 个</span>
                     </span>
                 </button>
-                \` : ''}
+                ` : ''}
                 
                 <button class="phonetic-type-btn" onclick="App.showPhoneticSelectAll()">
                     <span class="icon">🎯</span>
@@ -26953,7 +26953,7 @@ const App = {
                     </span>
                 </button>
             </div>
-        \`;
+        `;
         this.setContent(html);
     },
     
