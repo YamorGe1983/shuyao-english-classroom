@@ -1222,6 +1222,83 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
+/* 词组卡片样式 */
+.word-card.phrase-card {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    border-left: 4px solid #4CAF50;
+}
+
+.word-text.phrase-text {
+    color: #2E7D32;
+    font-size: var(--font-xl);
+}
+
+/* 类型标签 */
+.type-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.type-tag.word {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    color: white;
+}
+
+.type-tag.phrase {
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+    color: white;
+}
+
+/* 词汇预览标签 */
+.vocab-tag.phrase-tag {
+    background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
+    color: #2E7D32;
+    border: 1px solid #81C784;
+}
+
+/* 教材音标相关样式 */
+.phonetic-rule-info {
+    background: #E3F2FD;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    margin-top: 12px;
+    font-size: var(--font-sm);
+}
+
+.phonetic-rule-info .rule-label {
+    color: #1565C0;
+    font-weight: 600;
+}
+
+.phonetic-rule-info .rule-desc {
+    color: #1976D2;
+    margin-left: 8px;
+}
+
+.section-tag.textbook-tag {
+    background: linear-gradient(135deg, #9575CD 0%, #7E57C2 100%);
+    color: white;
+}
+
+.phonetic-selected-summary {
+    background: #F5F5F5;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin: 16px 0;
+}
+
+.vocab-tag.selected {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    color: white;
+    border-color: var(--primary);
+}
+
+
+
 /* 复习卡片页 */
 .review-card-page {
     padding: var(--space-sm);
@@ -24748,8 +24825,8 @@ const App = {
                     <div class="learning-option-card" onclick="App.startUnitVocabulary('${unitId}')">
                         <div class="option-icon">📚</div>
                         <div class="option-content">
-                            <h3>单词学习</h3>
-                            <p>学习 ${unit.vocabulary?.length || 0} 个单词</p>
+                            <h3>单词词组</h3>
+                            <p>学习 ${unit.vocabulary?.length || 0} 个单词 + ${unit.phrases?.length || 0} 个词组</p>
                         </div>
                         <div class="option-arrow">→</div>
                     </div>
@@ -24759,10 +24836,13 @@ const App = {
                 <div class="vocab-preview">
                     <h3>📝 词汇预览</h3>
                     <div class="vocab-tags">
-                        ${(unit.vocabulary || []).slice(0, 8).map(v => `
+                        ${((unit.vocabulary || []).slice(0, 5).map(v => `
                             <span class="vocab-tag">${v.word}</span>
-                        `).join('')}
-                        ${(unit.vocabulary?.length || 0) > 8 ? `<span class="vocab-tag more">+${unit.vocabulary.length - 8}</span>` : ''}
+                        `)).join('')}
+                        ${((unit.phrases || []).slice(0, 5).map(p => `
+                            <span class="vocab-tag phrase-tag">${p.english?.split(' ').slice(0, 3).join(' ')}</span>
+                        `)).join('')}
+                        ${((unit.vocabulary?.length || 0) + (unit.phrases?.length || 0)) > 8 ? `<span class="vocab-tag more">+${(unit.vocabulary?.length || 0) + (unit.phrases?.length || 0) - 8}</span>` : ''}
                     </div>
                 </div>
             </div>
@@ -24776,23 +24856,52 @@ const App = {
     async startUnitVocabulary(unitId) {
         const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
-        if (!unit || !unit.vocabulary) return;
+        if (!unit) return;
         
         AppState.currentUnit = unitId;
         AppState.learningMode = 'vocabulary';
-        AppState.currentCards = unit.vocabulary.map((v, i) => ({
+        
+        // 合并单词和词组
+        const words = unit.vocabulary || [];
+        const phrases = unit.phrases || [];
+        
+        // 创建卡片列表：单词 + 词组
+        const wordCards = words.map((v, i) => ({
             ...v,
+            _type: 'word',
             index: i,
             unitId: unitId,
             moduleId: unit.module
         }));
+        const phraseCards = phrases.map((p, i) => ({
+            ...p,
+            _type: 'phrase',
+            word: p.english,  // 统一使用 word 字段
+            chinese: p.chinese,
+            index: words.length + i,
+            unitId: unitId,
+            moduleId: unit.module
+        }));
         
-        // 创建动态任务队列（每个单词2个任务：英译中+中译英）
-        const words = unit.vocabulary;
+        AppState.currentCards = [...wordCards, ...phraseCards];
+        
+        // 如果没有内容则返回
+        if (AppState.currentCards.length === 0) {
+            alert('暂无学习内容');
+            return;
+        }
+        
+        // 创建动态任务队列（每个单词/词组2个任务：英译中+中译英）
+        const cards = AppState.currentCards;
         const tasks = [];
-        words.forEach((word, index) => {
-            tasks.push({ wordIndex: index, direction: 'en_to_cn', status: 0 });
-            tasks.push({ wordIndex: index, direction: 'cn_to_en', status: 0 });
+        cards.forEach((card, index) => {
+            // 词组只有英译中模式（词组不支持中译英）
+            if (card._type === 'phrase') {
+                tasks.push({ wordIndex: index, direction: 'en_to_cn', status: 0 });
+            } else {
+                tasks.push({ wordIndex: index, direction: 'en_to_cn', status: 0 });
+                tasks.push({ wordIndex: index, direction: 'cn_to_en', status: 0 });
+            }
         });
         
         // 初始化状态
@@ -24827,6 +24936,7 @@ const App = {
         const task = AppState.currentTasks[taskIndex];
         const word = AppState.currentCards[task.wordIndex];
         const direction = task.direction;
+        const isPhrase = word._type === 'phrase';
         
         // 保存当前单词和方向，供 showWordAnswer 使用
         AppState.currentWord = word;
@@ -24836,22 +24946,44 @@ const App = {
         const completed = AppState.memoryStats.total - AppState.taskQueue.length;
         const progress = Math.round((completed / AppState.memoryStats.total) * 100);
         
-        // 根据方向显示不同内容
+        // 根据类型和方向显示不同内容
         let displayContent;
-        if (direction === 'en_to_cn') {
-            // 英译中：显示英文
+        let modeLabel;
+        let speakBtn = '';
+        
+        if (isPhrase) {
+            // 词组卡片：只显示英文词组
+            modeLabel = '📝 词组';
+            displayContent = `
+                <h1 class="word-text phrase-text">${word.word}</h1>
+            `;
+            speakBtn = `
+                <button class="speak-btn" onclick="App.speakWord('${word.word}')">
+                    🔊 点击发音
+                </button>
+            `;
+        } else if (direction === 'en_to_cn') {
+            // 单词英译中：显示英文和音标
+            modeLabel = '🔤 英译中';
             displayContent = `
                 <h1 class="word-text">${word.word}</h1>
                 <p class="word-phonetic">${word.phonetic || ''}</p>
             `;
+            speakBtn = `
+                <button class="speak-btn" onclick="App.speakWord('${word.word}')">
+                    🔊 点击发音
+                </button>
+            `;
         } else {
-            // 中译英：显示中文
+            // 单词中译英：显示中文
+            modeLabel = '🇨🇳 中译英';
             displayContent = `
                 <h1 class="word-text">${word.chinese}</h1>
             `;
         }
         
-        const modeLabel = direction === 'en_to_cn' ? '🔤 英译中' : '🇨🇳 中译英';
+        // 类型标签
+        const typeLabel = isPhrase ? '<span class="type-tag phrase">词组</span>' : '<span class="type-tag word">单词</span>';
         
         const html = `
             <div class="vocabulary-page">
@@ -24863,24 +24995,20 @@ const App = {
                             <div class="progress-fill" style="width: ${progress}%"></div>
                         </div>
                         <span class="progress-text">
-                            ${modeLabel}
+                            ${typeLabel} ${modeLabel}
                             | 已掌握 ${AppState.memoryStats.mastered}/${AppState.memoryStats.total}
                         </span>
                     </div>
                 </div>
                 
-                <!-- 单词卡片 - 初始状态 -->
-                <div class="word-card" id="word-card">
+                <!-- 单词/词组卡片 - 初始状态 -->
+                <div class="word-card ${isPhrase ? 'phrase-card' : ''}" id="word-card">
                     <div class="word-main">
                         ${displayContent}
                     </div>
                     
-                    <!-- 发音按钮（英译中模式） -->
-                    ${direction === 'en_to_cn' ? `
-                        <button class="speak-btn" onclick="App.speakWord('${word.word}')">
-                            🔊 点击发音
-                        </button>
-                    ` : ''}
+                    <!-- 发音按钮 -->
+                    ${speakBtn}
                     
                     <!-- 显示答案按钮 -->
                     <button class="show-answer-btn" onclick="App.showWordAnswer()">
@@ -24918,8 +25046,8 @@ const App = {
         
         // 自动播放发音
         setTimeout(() => {
-            if (direction === 'en_to_cn') {
-                // 英译中：读英文
+            if (isPhrase || direction === 'en_to_cn') {
+                // 词组或英译中：读英文
                 App.speakWord(word.word);
             } else {
                 // 中译英：读中文
@@ -26512,6 +26640,414 @@ const App = {
         this.setContent(html);
     },
     
+    async showPhoneticMain() {
+        // 获取当前教材的音标例词统计
+        let textbookPhoneticCount = 0;
+        try {
+            const textbook = await getCurrentTextbookAsync();
+            if (textbook && textbook.units) {
+                Object.values(textbook.units).forEach(unit => {
+                    if (unit.phonetics && unit.phonetics.examples) {
+                        textbookPhoneticCount += unit.phonetics.examples.length;
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn('获取教材音标数据失败:', e);
+        }
+        
+        const html = \`
+            <div class="phonetic-main-page">
+                <button class="back-btn" onclick="App.renderHome()">
+                    ← 返回首页
+                </button>
+                
+                <div class="page-header">
+                    <h1>🎵 音标练习</h1>
+                    <p class="page-subtitle">学习48个国际音标</p>
+                </div>
+                
+                \${textbookPhoneticCount > 0 ? \`
+                <button class="phonetic-type-btn" onclick="App.showPhoneticFromTextbook()">
+                    <span class="icon">📖</span>
+                    <span class="text">
+                        <span class="title">教材词汇</span>
+                        <span class="desc">用本教材词汇练习 \${textbookPhoneticCount} 个</span>
+                    </span>
+                </button>
+                \` : ''}
+                
+                <button class="phonetic-type-btn" onclick="App.showPhoneticSelectAll()">
+                    <span class="icon">🎯</span>
+                    <span class="text">
+                        <span class="title">全部音标</span>
+                        <span class="desc">48个音标统一选择练习</span>
+                    </span>
+                </button>
+                
+                <button class="phonetic-type-btn" onclick="App.showPhoneticSelect('vowels')">
+                    <span class="icon">🌟</span>
+                    <span class="text">
+                        <span class="title">元音练习</span>
+                        <span class="desc">学习20个元音音标</span>
+                    </span>
+                </button>
+                
+                <button class="phonetic-type-btn" onclick="App.showPhoneticSelect('consonants')">
+                    <span class="icon">🔤</span>
+                    <span class="text">
+                        <span class="title">辅音练习</span>
+                        <span class="desc">学习28个辅音音标</span>
+                    </span>
+                </button>
+                
+                <button class="phonetic-type-btn" onclick="App.startFullPhoneticPractice()">
+                    <span class="icon">🚀</span>
+                    <span class="text">
+                        <span class="title">快速开始</span>
+                        <span class="desc">直接开始全部练习</span>
+                    </span>
+                </button>
+            </div>
+        \`;
+        this.setContent(html);
+    },
+    
+    // 教材词汇音标练习
+    async showPhoneticFromTextbook() {
+        try {
+            const textbook = await getCurrentTextbookAsync();
+            if (!textbook || !textbook.units) {
+                alert('无法获取教材数据');
+                return;
+            }
+            
+            const allExamples = [];
+            const phoneticMap = {};
+            
+            Object.values(textbook.units).forEach(unit => {
+                if (unit.phonetics) {
+                    if (unit.phonetics.pattern && unit.phonetics.examples) {
+                        phoneticMap[unit.phonetics.pattern] = {
+                            description: unit.phonetics.description,
+                            examples: unit.phonetics.examples
+                        };
+                        unit.phonetics.examples.forEach(word => {
+                            allExamples.push({
+                                word: word,
+                                pattern: unit.phonetics.pattern,
+                                description: unit.phonetics.description,
+                                phonetic: unit.phonetics.phonetic || ''
+                            });
+                        });
+                    }
+                }
+            });
+            
+            if (allExamples.length === 0) {
+                alert('教材中暂无音标练习内容');
+                return;
+            }
+            
+            this.phoneticState.textbookExamples = allExamples;
+            this.phoneticState.phoneticMap = phoneticMap;
+            
+            this.renderTextbookPhoneticSelect();
+            
+        } catch (e) {
+            console.error('获取教材音标失败:', e);
+            alert('获取教材音标失败');
+        }
+    },
+    
+    renderTextbookPhoneticSelect() {
+        const examples = this.phoneticState.textbookExamples;
+        const phoneticMap = this.phoneticState.phoneticMap;
+        const patterns = Object.keys(phoneticMap);
+        
+        let html = \`
+            <div class="phonetic-select-page">
+                <button class="back-btn" onclick="App.showPhoneticMain()">
+                    ← 返回
+                </button>
+                
+                <div class="page-header">
+                    <h1>📖 教材音标</h1>
+                    <p class="page-subtitle">选择音标规则进行练习</p>
+                </div>
+                
+                <div class="phonetic-selection-header">
+                    <span class="selected-label">已选 <strong id="total-selected">0</strong> 个词汇</span>
+                    <button class="select-all-btn" onclick="App.selectAllTextbookPhonetics()">全选</button>
+                </div>
+                
+                <div class="phonetic-sections">
+        \`;
+        
+        patterns.forEach((pattern) => {
+            const data = phoneticMap[pattern];
+            html += \`
+                <div class="phonetic-section" data-pattern="\${pattern}">
+                    <div class="phonetic-section-header">
+                        <span class="section-tag textbook-tag">规则</span>
+                        <span class="section-name">\${pattern} (\${data.description})</span>
+                        <button class="category-select-btn" onclick="App.selectPhoneticPattern('\${pattern}')">全选</button>
+                    </div>
+                    <div class="vocab-tags" style="padding: 10px;">
+                        \${data.examples.map((word, wIndex) => {
+                            const globalIndex = examples.findIndex(e => e.word === word);
+                            return \`<span class="vocab-tag" data-index="\${globalIndex}" onclick="App.toggleTextbookWord(\${globalIndex}, event)">\${word}</span>\`;
+                        }).join('')}
+                    </div>
+                </div>
+            \`;
+        });
+        
+        html += \`
+                </div>
+                
+                <div class="phonetic-selected-summary" id="phonetic-selected-summary" style="display: none;">
+                    <div class="selected-list" id="selected-list"></div>
+                </div>
+                
+                <button class="phonetic-practice-btn" id="practice-btn" onclick="App.startTextbookPhoneticPractice()" style="display: none;">
+                    🎯 开始练习 (<span id="selected-count">0</span> 个)
+                </button>
+            </div>
+        \`;
+        
+        this.setContent(html);
+    },
+    
+    toggleTextbookWord(index, event) {
+        event.stopPropagation();
+        const tag = document.querySelector(\`[data-index="\${index}"]\`);
+        if (!tag) return;
+        
+        let selected = this.phoneticState.selectedExamples || [];
+        const idx = selected.indexOf(index);
+        
+        if (idx > -1) {
+            selected.splice(idx, 1);
+            tag.classList.remove('selected');
+        } else {
+            selected.push(index);
+            tag.classList.add('selected');
+        }
+        
+        this.phoneticState.selectedExamples = selected;
+        this.updatePhoneticSelectionSummary();
+    },
+    
+    selectAllTextbookPhonetics() {
+        const examples = this.phoneticState.textbookExamples;
+        this.phoneticState.selectedExamples = examples.map((_, i) => i);
+        
+        document.querySelectorAll('.vocab-tag[data-index]').forEach(tag => {
+            tag.classList.add('selected');
+        });
+        
+        this.updatePhoneticSelectionSummary();
+    },
+    
+    selectPhoneticPattern(pattern) {
+        const phoneticMap = this.phoneticState.phoneticMap;
+        const examples = this.phoneticState.textbookExamples;
+        const data = phoneticMap[pattern];
+        
+        if (!data) return;
+        
+        let selected = this.phoneticState.selectedExamples || [];
+        
+        data.examples.forEach(word => {
+            const idx = examples.findIndex(e => e.word === word);
+            if (idx > -1 && !selected.includes(idx)) {
+                selected.push(idx);
+            }
+        });
+        
+        this.phoneticState.selectedExamples = selected;
+        
+        document.querySelectorAll('.vocab-tag[data-index]').forEach(tag => {
+            const idx = parseInt(tag.dataset.index);
+            if (selected.includes(idx)) {
+                tag.classList.add('selected');
+            }
+        });
+        
+        this.updatePhoneticSelectionSummary();
+    },
+    
+    updatePhoneticSelectionSummary() {
+        const selected = this.phoneticState.selectedExamples || [];
+        const summary = document.getElementById('phonetic-selected-summary');
+        const btn = document.getElementById('practice-btn');
+        const count = document.getElementById('selected-count');
+        
+        if (selected.length > 0) {
+            summary.style.display = 'block';
+            btn.style.display = 'block';
+            count.textContent = selected.length;
+            document.getElementById('total-selected').textContent = selected.length;
+        } else {
+            summary.style.display = 'none';
+            btn.style.display = 'none';
+        }
+    },
+    
+    startTextbookPhoneticPractice() {
+        const selected = this.phoneticState.selectedExamples || [];
+        if (selected.length === 0) {
+            alert('请先选择要练习的词汇');
+            return;
+        }
+        
+        const examples = this.phoneticState.textbookExamples;
+        const selectedExamples = selected.map(i => examples[i]);
+        
+        const questions = this.generateTextbookPhoneticQuestions(selectedExamples);
+        
+        this.phoneticState.questions = questions;
+        this.phoneticState.currentIndex = 0;
+        this.phoneticState.correctCount = 0;
+        this.phoneticState.wrongCount = 0;
+        
+        this.renderTextbookPhoneticQuestion();
+    },
+    
+    generateTextbookPhoneticQuestions(examples) {
+        const questions = [];
+        
+        examples.forEach(item => {
+            const word = item.word;
+            const pattern = item.pattern;
+            
+            const regex = new RegExp(pattern.replace(/[\[\](){}?*+.^$|]/g, '\\ $'), 'gi');
+            const matches = word.match(regex);
+            
+            if (matches && matches[0]) {
+                questions.push({
+                    type: 'word_to_phonetic',
+                    word: word,
+                    letter: matches[0],
+                    phonetic: item.phonetic,
+                    pattern: item.pattern,
+                    description: item.description
+                });
+            }
+        });
+        
+        return questions;
+    },
+    
+    renderTextbookPhoneticQuestion() {
+        const state = this.phoneticState;
+        const questions = state.questions;
+        
+        if (state.currentIndex >= questions.length) {
+            this.showTextbookPhoneticComplete();
+            return;
+        }
+        
+        const q = questions[state.currentIndex];
+        const total = questions.length;
+        const progress = Math.round((state.currentIndex / total) * 100);
+        
+        const html = \`
+            <div class="phonetic-practice-page">
+                <div class="learning-header">
+                    <button class="back-btn" onclick="App.confirmPhoneticExit()">← 退出</button>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: \${progress}%"></div>
+                        </div>
+                        <span class="progress-text">\${state.currentIndex + 1}/\${total} | 正确: \${state.correctCount} 错误: \${state.wrongCount}</span>
+                    </div>
+                </div>
+                
+                <div class="phonetic-question-card">
+                    <div class="phonetic-question-type">📖 教材词汇音标练习</div>
+                    
+                    <div class="phonetic-word-display">
+                        <h1 class="phonetic-word">\${q.word}</h1>
+                        <button class="phonetic-audio-btn" onclick="App.speakWord('\${q.word}')">🔊</button>
+                    </div>
+                    
+                    <p class="phonetic-question-tip">找出 "\${q.letter}" 对应的音标，并练习发音</p>
+                    
+                    <div class="phonetic-spell-container">
+                        <div class="phonetic-spell-hint">
+                            <span class="label">字母组合：</span>
+                            <span class="highlight">\${q.letter}</span>
+                            <span class="label">→ 发音：</span>
+                            <span class="phonetic-value">\${q.phonetic}</span>
+                        </div>
+                        
+                        <div class="phonetic-rule-info">
+                            <span class="rule-label">规则：</span>\${q.pattern}
+                            <span class="rule-desc">\${q.description}</span>
+                        </div>
+                    </div>
+                    
+                    <button class="action-btn primary" onclick="App.nextTextbookPhonetic()" style="margin-top: 20px;">
+                        ✓ 我学会了，继续下一题
+                    </button>
+                </div>
+            </div>
+        \`;
+        
+        this.setContent(html);
+        
+        setTimeout(() => {
+            App.speakWord(q.word);
+        }, 500);
+    },
+    
+    nextTextbookPhonetic() {
+        this.phoneticState.currentIndex++;
+        this.phoneticState.correctCount++;
+        this.renderTextbookPhoneticQuestion();
+    },
+    
+    confirmPhoneticExit() {
+        if (confirm('确定要退出音标练习吗？')) {
+            this.showPhoneticMain();
+        }
+    },
+    
+    showTextbookPhoneticComplete() {
+        const state = this.phoneticState;
+        const total = state.questions.length;
+        const accuracy = total > 0 ? Math.round((state.correctCount / total) * 100) : 0;
+        
+        const html = \`
+            <div class="complete-page">
+                <div class="complete-icon">🎉</div>
+                <h1>教材音标练习完成！</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">\${total}</div>
+                        <div class="stat-label">总题数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">\${accuracy}%</div>
+                        <div class="stat-label">正确率</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <button class="action-btn primary" onclick="App.startTextbookPhoneticPractice()">
+                        🔄 再练一次
+                    </button>
+                    <button class="action-btn secondary" onclick="App.showPhoneticMain()">
+                        ← 返回音标练习
+                    </button>
+                </div>
+            </div>
+        \`;
+        
+        this.setContent(html);
+    },
     // 全部音标统一选择页面
     showPhoneticSelectAll() {
         this.phoneticState.selectedSounds = [];
