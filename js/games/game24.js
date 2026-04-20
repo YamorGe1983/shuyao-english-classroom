@@ -91,6 +91,7 @@
     function render() {
         const container = document.getElementById('game24-container');
         if (!container) return;
+        container.style.display = 'block';
         
         const nums = state.numbers;
         
@@ -376,6 +377,8 @@
     
     function showResult(success, result) {
         const container = document.getElementById('game24-container');
+        if (!container) return;
+        container.style.display = 'block';
         const popup = document.createElement('div');
         popup.className = `game24-result ${success ? 'success' : 'fail'}`;
         popup.innerHTML = `
@@ -389,6 +392,8 @@
     }
     
     function exit() {
+        const container = document.getElementById('game24-container');
+        if (container) container.style.display = 'none';
         // 返回数学首页
         if (typeof App !== 'undefined' && App.showMathMain) {
             App.showMathMain();
