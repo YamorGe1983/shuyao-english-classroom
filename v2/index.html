@@ -8488,15 +8488,7 @@ const App = {
         this.setContent(html);
     },
 
-    // ==================== 单词学习（动态队列版）====================
-    
-    async startUnitVocabulary(unitId) {
-        const textbook = await getCurrentTextbookAsync();
-        const unit = textbook.units[unitId];
-        if (!unit) return;
-        
-
-    // ==================== 单词默写功能 ====================
+// ==================== 单词默写功能 ====================
     
     showSpellTestSelect(unitId) {
         AppState.spellTestUnitId = unitId;
@@ -8912,6 +8904,13 @@ const App = {
         this.renderUnitDetail(AppState.spellTestUnitId);
     },
 
+// ==================== 单词学习（动态队列版）====================
+    
+    async startUnitVocabulary(unitId) {
+        const textbook = await getCurrentTextbookAsync();
+        const unit = textbook.units[unitId];
+        if (!unit) return;
+        
         AppState.currentUnit = unitId;
         AppState.learningMode = 'vocabulary';
         
@@ -8978,6 +8977,9 @@ const App = {
         }
         return array;
     },
+    
+    renderVocabularyCard() {
+        // 检查队列是否为空
     
     renderVocabularyCard() {
         // 检查队列是否为空
@@ -10153,6 +10155,13 @@ const App = {
                     <button class="setting-btn" onclick="App.exportData()">
                         📤 导出学习数据
                     </button>
+                    
+                    <button class="setting-btn danger" style="margin-top:8px;" onclick="App.clearAllCache()">
+                        🗑️ 清理缓存
+                    </button>
+                    <p style="font-size:12px;color:#999;margin-top:4px;">
+                        清理后下次启动会重新加载数据
+                    </p>
                 </div>
                 
                 <!-- 关于 -->
@@ -10207,6 +10216,18 @@ const App = {
     
     toggleAutoPlay(checked) {
         StorageModule.saveSetting('autoPlay', checked);
+    },
+    
+    clearAllCache() {
+        if (confirm('确定要清理所有缓存吗？这不会影响学习进度数据。')) {
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('englearn_data_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            DataLoader._cache = {};
+            this.showToast('缓存已清理，刷新页面生效');
+        }
     },
     
     exportData() {

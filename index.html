@@ -26364,6 +26364,13 @@ const App = {
                     <button class="setting-btn" onclick="App.exportData()">
                         📤 导出学习数据
                     </button>
+                    
+                    <button class="setting-btn danger" style="margin-top:8px;" onclick="App.clearAllCache()">
+                        🗑️ 清理缓存
+                    </button>
+                    <p style="font-size:12px;color:#999;margin-top:4px;">
+                        清理后下次启动会重新加载数据
+                    </p>
                 </div>
                 
                 <!-- 关于 -->
@@ -26418,6 +26425,18 @@ const App = {
     
     toggleAutoPlay(checked) {
         StorageModule.saveSetting('autoPlay', checked);
+    },
+    
+    clearAllCache() {
+        if (confirm('确定要清理所有缓存吗？这不会影响学习进度数据。')) {
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('englearn_data_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            DataLoader._cache = {};
+            this.showToast('缓存已清理，刷新页面生效');
+        }
     },
     
     exportData() {
