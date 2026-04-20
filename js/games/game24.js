@@ -51,6 +51,23 @@
     }
     
     // 全排列
+    
+    // 自定义弹窗（替代alert，避免被浏览器屏蔽）
+    function showAlert(message) {
+        // 移除已有弹窗
+        const existing = document.getElementById('game24-alert');
+        if (existing) existing.remove();
+        
+        const popup = document.createElement('div');
+        popup.id = 'game24-alert';
+        popup.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:24px 32px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:10001;text-align:center;min-width:200px;';
+        popup.innerHTML = `
+            <p style="margin:0 0 16px;font-size:16px;color:#2D3436;">${message}</p>
+            <button onclick="this.parentElement.remove()" style="padding:8px 24px;background:#667eea;color:white;border:none;border-radius:20px;cursor:pointer;font-size:14px;">确定</button>
+        `;
+        document.body.appendChild(popup);
+    }
+
     function permutations(arr) {
         if (arr.length <= 1) return [arr];
         const result = [];
@@ -305,7 +322,7 @@
             const result = calculate(val1, selectedOp === '×' ? '*' : selectedOp === '÷' ? '/' : selectedOp, val2);
             
             if (result === null || (selectedOp === '÷' && val2 === 0)) {
-                alert('除数不能为0！');
+                showAlert('除数不能为0！');
                 return;
             }
             
@@ -335,7 +352,7 @@
     
     function selectOp(op) {
         if (selectedNum === null) {
-            alert('请先选择一个数字！');
+            showAlert('请先选择一个数字！');
             return;
         }
         selectedOp = op;
@@ -367,11 +384,11 @@
     
     function hint() {
         if (state.hints <= 0) {
-            alert('提示次数已用完！');
+            showAlert('提示次数已用完！');
             return;
         }
         state.hints--;
-        alert('提示：尝试使用穷举法找到答案！');
+        showAlert('提示：尝试使用穷举法找到答案！');
         render();
     }
     
