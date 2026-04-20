@@ -7766,6 +7766,12 @@ const App = {
                             <h3>基础练习</h3>
                             <p class="math-desc">填单位·单位换算<br>共30题</p>
                         </div>
+                        <div class="math-module-card" onclick="Game24.init()">
+                            <div class="math-icon">🎯</div>
+                            <h3>24点计算</h3>
+                            <p class="math-desc">四则运算思维训练<br>无限题库</p>
+                        </div>
+                        
                         <div class="math-module-card" onclick="App.startMathPractice('advanced')">
                             <div class="math-icon">🧮</div>
                             <h3>进阶练习</h3>
@@ -12626,5 +12632,8 @@ function updateNow() {
     }, 1000);
 }
     </script>
+    <div id="game24-container"></div>
+    <!-- 24点计算游戏 -->
+    <script src="../js/games/game24.js"></script>
 </body>
 </html>
