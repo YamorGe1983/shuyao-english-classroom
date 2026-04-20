@@ -8357,13 +8357,7 @@ const App = {
     
     async renderModuleDetail(moduleId) {
         console.log('renderModuleDetail called:', moduleId);
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         console.log('textbook:', textbook);
         const module = textbook.modules?.find(m => m.id === moduleId);
         if (!module) {
@@ -8433,13 +8427,7 @@ const App = {
     },
     
     async renderUnitDetail(unitId) {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
         if (!unit) return;
         
@@ -8607,12 +8595,6 @@ const App = {
         if (scope === 'wrongBook') {
             words = this.getSpellWrongWords();
         } else {
-            // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
             const textbook = await getCurrentTextbookAsync();
             const unit = textbook.units[unitId];
             
@@ -8939,13 +8921,7 @@ const App = {
 // ==================== 单词学习（动态队列版）====================
     
     async startUnitVocabulary(unitId) {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
         if (!unit) return;
         
@@ -9226,13 +9202,7 @@ const App = {
     },
     
     async showLearningComplete() {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[AppState.currentUnit];
         const sessionTime = Math.round((Date.now() - AppState.sessionStartTime) / 1000 / 60);
         const masteredCount = AppState.memoryStats.mastered;
@@ -9279,13 +9249,7 @@ const App = {
     // ==================== 答题复习系统 ====================
     
     async startQuizForUnit(unitId) {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const unit = textbook.units[unitId];
         if (!unit || !unit.vocabulary) return;
         
@@ -9633,13 +9597,7 @@ const App = {
     },
     
     async startQuizReview() {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const todayTasks = MemoryModule.getTodayReviewTasks(20);
         
         if (todayTasks.length === 0) {
@@ -10010,13 +9968,7 @@ const App = {
     // ==================== 进度页面 ====================
     
     async renderProgress() {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const stats = StorageModule.getStatistics();
         const reviewStats = MemoryModule.getReviewStats();
         const completedUnits = StorageModule.getCompletedUnits();
@@ -10340,13 +10292,7 @@ const App = {
     
     async showUnitSelectPage() {
         // 确保数据已加载
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         console.log('showUnitSelectPage - textbook:', textbook);
         
         // 检查数据是否完整
@@ -10416,13 +10362,7 @@ const App = {
     },
     
     async toggleModule(moduleId) {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const module = textbook.modules.find(m => m.id === moduleId);
         const checkbox = document.getElementById(`mod-${moduleId}`);
         const isChecked = checkbox.checked;
@@ -10444,13 +10384,7 @@ const App = {
         const checkbox = document.getElementById(`unit-${unitId}`);
         const isChecked = checkbox.checked;
         
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const module = textbook.modules.find(m => 
             m.units.some(u => (u.id || u) === unitId)
         );
@@ -10488,13 +10422,7 @@ const App = {
     },
     
     async showWordSelectPage() {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const state = this.listeningState;
         
         const allWords = [];
@@ -10625,13 +10553,7 @@ const App = {
     },
     
     async findExampleForWord(word, unitIds) {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         for (const unitId of unitIds) {
             const unit = textbook.units[unitId];
             if (unit && unit.sentences) {
@@ -10791,12 +10713,6 @@ const App = {
         // 获取当前教材的音标例词统计
         let textbookPhoneticCount = 0;
         try {
-            // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
             const textbook = await getCurrentTextbookAsync();
             if (textbook && textbook.units) {
                 Object.values(textbook.units).forEach(unit => {
@@ -10869,12 +10785,6 @@ const App = {
     // 教材词汇音标练习
     async showPhoneticFromTextbook() {
         try {
-            // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
             const textbook = await getCurrentTextbookAsync();
             if (!textbook || !textbook.units) {
                 alert('无法获取教材数据');
@@ -13099,13 +13009,7 @@ Object.assign(App, {
     
     // 显示单元选择页面
     async showWordMemoryUnitSelect() {
-        // 强制清除缓存并重新加载，确保获取最新的needSpell数据
-            const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
-            
-            const textbook = await getCurrentTextbookAsync();
+        const textbook = await getCurrentTextbookAsync();
         const gradeName = getCurrentGradeName();
         
         // 计算每个单元的单词数
