@@ -4196,6 +4196,342 @@ h1, h2, h3, h4, h5, h6 {
 }
     /* ==================== Loading Screen ==================== */.loading-screen{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#FF6B6B,#FFE66D);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999}.loading-icon{font-size:64px;animation:bounce 1s infinite}.loading-text{color:#fff;font-size:18px;margin-top:16px;font-weight:500}.loading-spinner{width:40px;height:40px;border:4px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite;margin-top:20px}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}@keyframes spin{to{transform:rotate(360deg)}}
 
+
+/* 单元底部操作按钮 */
+.unit-bottom-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    background: #E8F4FD;
+    border-radius: 16px;
+}
+
+.unit-action-btn {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.unit-action-btn.primary {
+    background: #FF6B6B;
+    color: white;
+}
+
+.unit-action-btn:not(.primary) {
+    background: white;
+    color: #2D3436;
+    border: 2px solid #E0E0E0;
+}
+
+.unit-action-btn:active {
+    transform: scale(0.95);
+}
+
+/* 单词默写选择页面 */
+.spell-test-select {
+    padding: 16px;
+    padding-bottom: 100px;
+}
+
+.spell-test-header {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.spell-test-header h1 {
+    font-size: 24px;
+    color: #2D3436;
+    margin-bottom: 8px;
+}
+
+.spell-test-option-group {
+    margin-bottom: 24px;
+}
+
+.spell-test-option-group h3 {
+    font-size: 16px;
+    color: #2D3436;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.spell-test-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.spell-test-option {
+    flex: 1;
+    min-width: 140px;
+    background: white;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.spell-test-option:has(input:checked) {
+    border-color: #4A90D9;
+    background: #F0F7FF;
+}
+
+.spell-test-option input {
+    width: 20px;
+    height: 20px;
+    accent-color: #4A90D9;
+}
+
+.option-label {
+    font-size: 15px;
+    color: #2D3436;
+}
+
+.spell-test-start-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* 默写进行页面 */
+.spell-test-page {
+    padding: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.spell-test-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.spell-progress {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2D3436;
+}
+
+.spell-exit-btn {
+    padding: 8px 16px;
+    background: #FFE5E5;
+    color: #FF6B6B;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.spell-timer-container {
+    margin: 30px 0;
+}
+
+.spell-timer-bar {
+    height: 8px;
+    background: #E0E0E0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.spell-timer-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #51cf66, #4A90D9);
+    transition: width 1s linear;
+}
+
+.spell-timer-text {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #2D3436;
+    margin-top: 20px;
+}
+
+.spell-word-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.spell-playing {
+    font-size: 24px;
+    color: #4A90D9;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.spell-hint {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #636E72;
+}
+
+.spell-actions {
+    display: flex;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+.spell-action-btn {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.spell-action-btn.pause {
+    background: #FFF3CD;
+    color: #856404;
+}
+
+.spell-action-btn.skip {
+    background: #FFE5E5;
+    color: #FF6B6B;
+}
+
+.spell-action-btn.submit {
+    background: #D4EDDA;
+    color: #155724;
+}
+
+/* 默写结果页面 */
+.spell-result-page {
+    padding: 16px;
+    padding-bottom: 100px;
+}
+
+.spell-result-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.spell-result-header h1 {
+    font-size: 24px;
+    color: #2D3436;
+}
+
+.spell-result-header p {
+    color: #636E72;
+    margin-top: 8px;
+}
+
+.spell-result-list {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.spell-result-header-row {
+    display: flex;
+    padding: 12px 16px;
+    background: #F5F6FA;
+    font-weight: 600;
+    color: #636E72;
+    font-size: 14px;
+}
+
+.spell-result-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.spell-result-item:last-child {
+    border-bottom: none;
+}
+
+.spell-result-item.skipped {
+    background: #FFF3CD;
+}
+
+.col-num {
+    width: 30px;
+    color: #636E72;
+    font-size: 14px;
+}
+
+.col-en {
+    flex: 1;
+    font-weight: 600;
+    color: #2D3436;
+}
+
+.col-cn {
+    flex: 1;
+    color: #636E72;
+    font-size: 14px;
+}
+
+.col-check {
+    width: 40px;
+    text-align: center;
+}
+
+.col-check input {
+    width: 22px;
+    height: 22px;
+    accent-color: #FF6B6B;
+}
+
+.spell-result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.spell-result-btn {
+    padding: 14px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    background: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.spell-result-btn.primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
 </style>
 </head>
 <body>
@@ -8161,6 +8497,15 @@ const App = {
                         ${((unit.vocabulary?.length || 0) + (unit.phrases?.length || 0)) > 8 ? `<span class="vocab-tag more">+${(unit.vocabulary?.length || 0) + (unit.phrases?.length || 0) - 8}</span>` : ''}
                     </div>
                 </div>
+                <!-- 底部操作按钮 -->
+                <div class="unit-bottom-actions">
+                    <button class="unit-action-btn primary" onclick="App.startUnitVocabulary('${unitId}')">
+                        📚 单词
+                    </button>
+                    <button class="unit-action-btn" onclick="App.showSpellTestSelect('${unitId}')">
+                        ✏️ 单词默写
+                    </button>
+                </div>
             </div>
         `;
         
@@ -8174,6 +8519,423 @@ const App = {
         const unit = textbook.units[unitId];
         if (!unit) return;
         
+
+    // ==================== 单词默写功能 ====================
+    
+    showSpellTestSelect(unitId) {
+        AppState.spellTestUnitId = unitId;
+        const html = `
+            <div class="spell-test-select">
+                <button class="back-btn" onclick="App.renderUnitDetail('${unitId}')">
+                    ← 返回单元
+                </button>
+                
+                <div class="spell-test-header">
+                    <h1>✏️ 单词默写</h1>
+                    <p class="page-subtitle">自助听写练习</p>
+                </div>
+                
+                <div class="spell-test-option-group">
+                    <h3>选择范围</h3>
+                    <div class="spell-test-options">
+                        <label class="spell-test-option">
+                            <input type="radio" name="scope" value="unit" checked>
+                            <span class="option-label">当前单元</span>
+                        </label>
+                        <label class="spell-test-option">
+                            <input type="radio" name="scope" value="module">
+                            <span class="option-label">整个模块</span>
+                        </label>
+                        <label class="spell-test-option" id="wrongBookOption" style="display:none;">
+                            <input type="radio" name="scope" value="wrongBook">
+                            <span class="option-label">错题本 (<span id="wrongCount">0</span>个)</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="spell-test-option-group">
+                    <h3>默写模式</h3>
+                    <div class="spell-test-options">
+                        <label class="spell-test-option">
+                            <input type="radio" name="mode" value="cn_to_en" checked>
+                            <span class="option-label">听中文默英文</span>
+                        </label>
+                        <label class="spell-test-option">
+                            <input type="radio" name="mode" value="en_to_en">
+                            <span class="option-label">听英文默英文</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="spell-test-option-group">
+                    <h3>时间设置</h3>
+                    <div class="spell-test-options">
+                        <label class="spell-test-option">
+                            <input type="radio" name="time" value="10" checked>
+                            <span class="option-label">快速（10秒/词）</span>
+                        </label>
+                        <label class="spell-test-option">
+                            <input type="radio" name="time" value="15">
+                            <span class="option-label">标准（15秒/词）</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="spell-test-option-group">
+                    <h3>语速</h3>
+                    <div class="spell-test-options">
+                        <label class="spell-test-option">
+                            <input type="radio" name="speed" value="0.8">
+                            <span class="option-label">慢速</span>
+                        </label>
+                        <label class="spell-test-option">
+                            <input type="radio" name="speed" value="1.0" checked>
+                            <span class="option-label">正常</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="spell-test-start-btn" onclick="App.startSpellTest()">
+                    开始默写
+                </button>
+            </div>
+        `;
+        this.setContent(html);
+        
+        const wrongWords = this.getSpellWrongWords();
+        if (wrongWords.length > 0) {
+            document.getElementById('wrongBookOption').style.display = 'block';
+            document.getElementById('wrongCount').textContent = wrongWords.length;
+        }
+    },
+    
+    getSpellWrongWords() {
+        const data = localStorage.getItem('spellTestWrongBook');
+        return data ? JSON.parse(data) : [];
+    },
+    
+    saveSpellWrongWords(words) {
+        localStorage.setItem('spellTestWrongBook', JSON.stringify(words));
+    },
+    
+    async startSpellTest() {
+        const scope = document.querySelector('input[name="scope"]:checked').value;
+        const mode = document.querySelector('input[name="mode"]:checked').value;
+        const time = parseInt(document.querySelector('input[name="time"]:checked').value);
+        const speed = parseFloat(document.querySelector('input[name="speed"]:checked').value);
+        
+        let words = [];
+        const unitId = AppState.spellTestUnitId;
+        
+        if (scope === 'wrongBook') {
+            words = this.getSpellWrongWords();
+        } else {
+            const textbook = await getCurrentTextbookAsync();
+            const unit = textbook.units[unitId];
+            
+            if (scope === 'unit') {
+                words = (unit.vocabulary || []).map(v => ({
+                    word: v.word,
+                    chinese: v.chinese,
+                    unitId: unitId
+                }));
+            } else if (scope === 'module') {
+                const moduleId = unit.module;
+                textbook.modules.forEach(mod => {
+                    if (mod.id === moduleId) {
+                        mod.units.forEach(u => {
+                            const unitData = textbook.units[u.id];
+                            if (unitData && unitData.vocabulary) {
+                                unitData.vocabulary.forEach(v => {
+                                    words.push({
+                                        word: v.word,
+                                        chinese: v.chinese,
+                                        unitId: u.id
+                                    });
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        }
+        
+        if (words.length === 0) {
+            this.showToast('没有可默写的单词');
+            return;
+        }
+        
+        this.shuffleArray(words);
+        
+        AppState.spellTest = {
+            words: words,
+            mode: mode,
+            timePerWord: time,
+            speed: speed,
+            currentIndex: 0,
+            results: [],
+            isPaused: false,
+            timer: null,
+            speechInterval: null
+        };
+        
+        this.renderSpellTest();
+    },
+    
+    renderSpellTest() {
+        const test = AppState.spellTest;
+        const word = test.words[test.currentIndex];
+        const total = test.words.length;
+        const current = test.currentIndex + 1;
+        
+        const html = `
+            <div class="spell-test-page">
+                <div class="spell-test-top">
+                    <span class="spell-progress">第 ${current}/${total} 个单词</span>
+                    <button class="spell-exit-btn" onclick="App.confirmExitSpellTest()">退出</button>
+                </div>
+                
+                <div class="spell-timer-container">
+                    <div class="spell-timer-bar">
+                        <div class="spell-timer-fill" id="timerFill" style="width:100%"></div>
+                    </div>
+                    <div class="spell-timer-text" id="timerText">${test.timePerWord}秒</div>
+                </div>
+                
+                <div class="spell-word-area">
+                    <div class="spell-playing" id="spellPlaying">
+                        🔊 正在播报...
+                    </div>
+                </div>
+                
+                <div class="spell-actions">
+                    <button class="spell-action-btn pause" id="pauseBtn" onclick="App.toggleSpellPause()">
+                        ⏸️ 暂停
+                    </button>
+                    <button class="spell-action-btn skip" onclick="App.skipSpellWord()">
+                        ⏭️ 不会
+                    </button>
+                    <button class="spell-action-btn submit" onclick="App.submitSpellAnswer()">
+                        ✅ 下一个
+                    </button>
+                </div>
+            </div>
+        `;
+        this.setContent(html);
+        
+        this.startSpellWord();
+    },
+    
+    startSpellWord() {
+        const test = AppState.spellTest;
+        this.speakSpellWord(test.words[test.currentIndex]);
+        this.startSpellTimer();
+    },
+    
+    speakSpellWord(word) {
+        const test = AppState.spellTest;
+        const mode = test.mode;
+        const speed = test.speed;
+        
+        let text = mode === 'cn_to_en' ? word.chinese : word.word;
+        
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = mode === 'cn_to_en' ? 'zh-CN' : 'en-US';
+        utterance.rate = speed;
+        
+        const voices = speechSynthesis.getVoices();
+        if (mode === 'cn_to_en') {
+            const zhVoice = voices.find(v => v.lang.includes('zh'));
+            if (zhVoice) utterance.voice = zhVoice;
+        } else {
+            const enVoice = voices.find(v => v.name.includes('Karen') || v.name.includes('Samantha')) || voices.find(v => v.lang.includes('en'));
+            if (enVoice) utterance.voice = enVoice;
+        }
+        
+        let speakCount = 0;
+        const maxSpeak = 3;
+        const interval = test.timePerWord / 4 * 1000;
+        
+        const doSpeak = () => {
+            if (speakCount < maxSpeak && !test.isPaused) {
+                speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(text);
+                u.lang = utterance.lang;
+                u.rate = utterance.rate;
+                u.voice = utterance.voice;
+                speechSynthesis.speak(u);
+                speakCount++;
+                if (speakCount < maxSpeak) {
+                    test.speechInterval = setTimeout(doSpeak, interval);
+                }
+            }
+        };
+        
+        doSpeak();
+    },
+    
+    startSpellTimer() {
+        const test = AppState.spellTest;
+        let timeLeft = test.timePerWord;
+        const timerFill = document.getElementById('timerFill');
+        const timerText = document.getElementById('timerText');
+        
+        test.timer = setInterval(() => {
+            if (test.isPaused) return;
+            
+            timeLeft--;
+            if (timerFill && timerText) {
+                timerFill.style.width = (timeLeft / test.timePerWord * 100) + '%';
+                timerText.textContent = timeLeft + '秒';
+            }
+            
+            if (timeLeft <= 0) {
+                clearInterval(test.timer);
+                this.submitSpellAnswer();
+            }
+        }, 1000);
+    },
+    
+    toggleSpellPause() {
+        const test = AppState.spellTest;
+        test.isPaused = !test.isPaused;
+        
+        const btn = document.getElementById('pauseBtn');
+        if (btn) btn.innerHTML = test.isPaused ? '▶️ 继续' : '⏸️ 暂停';
+        
+        if (test.isPaused) {
+            speechSynthesis.cancel();
+            clearTimeout(test.speechInterval);
+        } else {
+            this.speakSpellWord(test.words[test.currentIndex]);
+        }
+    },
+    
+    skipSpellWord() {
+        const test = AppState.spellTest;
+        test.results.push({ word: test.words[test.currentIndex], skipped: true });
+        this.nextSpellWord();
+    },
+    
+    submitSpellAnswer() {
+        const test = AppState.spellTest;
+        test.results.push({ word: test.words[test.currentIndex], skipped: false });
+        this.nextSpellWord();
+    },
+    
+    nextSpellWord() {
+        const test = AppState.spellTest;
+        clearInterval(test.timer);
+        clearTimeout(test.speechInterval);
+        speechSynthesis.cancel();
+        
+        test.currentIndex++;
+        if (test.currentIndex >= test.words.length) {
+            this.showSpellTestResult();
+        } else {
+            this.renderSpellTest();
+        }
+    },
+    
+    confirmExitSpellTest() {
+        if (confirm('确定要退出默写吗？当前进度将不会保存。')) {
+            clearInterval(AppState.spellTest.timer);
+            clearTimeout(AppState.spellTest.speechInterval);
+            speechSynthesis.cancel();
+            this.renderUnitDetail(AppState.spellTestUnitId);
+        }
+    },
+    
+    showSpellTestResult() {
+        const test = AppState.spellTest;
+        const results = test.results;
+        
+        const html = `
+            <div class="spell-result-page">
+                <div class="spell-result-header">
+                    <h1>📝 默写完成</h1>
+                    <p>共 ${results.length} 个单词</p>
+                </div>
+                
+                <div class="spell-result-list">
+                    <div class="spell-result-header-row">
+                        <span class="col-num">#</span>
+                        <span class="col-en">英文</span>
+                        <span class="col-cn">中文</span>
+                        <span class="col-check">错</span>
+                    </div>
+                    ${results.map((r, i) => `
+                        <div class="spell-result-item ${r.skipped ? 'skipped' : ''}">
+                            <span class="col-num">${i + 1}</span>
+                            <span class="col-en">${r.word.word}</span>
+                            <span class="col-cn">${r.word.chinese}</span>
+                            <span class="col-check">
+                                <input type="checkbox" id="wrong${i}" data-index="${i}">
+                            </span>
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <div class="spell-result-actions">
+                    <button class="spell-result-btn" onclick="App.addWrongWordsToBook()">
+                        📌 加入错题本
+                    </button>
+                    <button class="spell-result-btn" onclick="App.exportSpellResult()">
+                        📄 导出打印
+                    </button>
+                    <button class="spell-result-btn primary" onclick="App.retrySpellTest()">
+                        🔄 重新默写
+                    </button>
+                    <button class="spell-result-btn" onclick="App.backToUnitFromResult()">
+                        ← 返回单元
+                    </button>
+                </div>
+            </div>
+        `;
+        this.setContent(html);
+    },
+    
+    addWrongWordsToBook() {
+        const checkboxes = document.querySelectorAll('.spell-result-item input[type="checkbox"]:checked');
+        const wrongWords = this.getSpellWrongWords();
+        const results = AppState.spellTest.results;
+        
+        checkboxes.forEach(cb => {
+            const index = parseInt(cb.dataset.index);
+            const word = results[index].word;
+            if (!wrongWords.find(w => w.word === word.word)) {
+                wrongWords.push(word);
+            }
+        });
+        
+        this.saveSpellWrongWords(wrongWords);
+        this.showToast('已添加 ' + checkboxes.length + ' 个单词到错题本');
+    },
+    
+    exportSpellResult() {
+        const results = AppState.spellTest.results;
+        let text = '单词默写记录\n\n';
+        results.forEach((r, i) => {
+            text += (i + 1) + '. ' + r.word.word + ' - ' + r.word.chinese + '\n';
+        });
+        
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '单词默写记录.txt';
+        a.click();
+        URL.revokeObjectURL(url);
+    },
+    
+    retrySpellTest() {
+        this.showSpellTestSelect(AppState.spellTestUnitId);
+    },
+    
+    backToUnitFromResult() {
+        this.renderUnitDetail(AppState.spellTestUnitId);
+    },
+
         AppState.currentUnit = unitId;
         AppState.learningMode = 'vocabulary';
         
