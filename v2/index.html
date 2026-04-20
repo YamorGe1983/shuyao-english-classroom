@@ -8612,8 +8612,20 @@ const App = {
             let textbook = await getCurrentTextbookAsync();
             let unit = textbook.units[unitId];
             
+            // 调试信息
+            console.log('[SpellTest] unitId:', unitId);
+            console.log('[SpellTest] textbook loaded:', !!textbook);
+            console.log('[SpellTest] unit exists:', !!unit);
+            if (unit) {
+                console.log('[SpellTest] unit.vocabulary count:', unit.vocabulary?.length);
+                const needSpellCount = (unit.vocabulary || []).filter(v => v.needSpell).length;
+                console.log('[SpellTest] needSpell count:', needSpellCount);
+            }
+            
             // 检查缓存数据是否有needSpell字段，没有则清除缓存重新加载
             const hasNeedSpell = (unit?.vocabulary || []).some(v => v.needSpell !== undefined);
+            console.log('[SpellTest] hasNeedSpell:', hasNeedSpell);
+            
             if (!hasNeedSpell) {
                 console.log('缓存数据缺少needSpell字段，重新加载...');
                 const cacheKey = `englearn_data_${gradeId}`;
@@ -8621,6 +8633,7 @@ const App = {
                 delete DataLoader._cache[gradeId];
                 textbook = await getCurrentTextbookAsync();
                 unit = textbook.units[unitId];
+                console.log('[SpellTest] 重新加载后 needSpell count:', (unit?.vocabulary || []).filter(v => v.needSpell).length);
             }
             
             if (scope === 'unit') {
@@ -8644,6 +8657,7 @@ const App = {
                     unitId: unitId
                 }));
                 words = [...words, ...phrases, ...sentences];
+                console.log('[SpellTest] words collected:', words.length);
             } else if (scope === 'module') {
                 const moduleId = unit.module;
                 textbook.modules.forEach(mod => {
@@ -8665,18 +8679,6 @@ const App = {
                     }
                 });
             }
-        }
-        
-        // 调试信息
-        console.log('[SpellTest] unitId:', unitId);
-        console.log('[SpellTest] scope:', scope);
-        console.log('[SpellTest] textbook:', textbook);
-        console.log('[SpellTest] unit:', unit);
-        if (unit) {
-            console.log('[SpellTest] unit.vocabulary count:', unit.vocabulary?.length);
-            console.log('[SpellTest] unit.vocabulary sample:', unit.vocabulary?.slice(0, 3));
-            const needSpellCount = (unit.vocabulary || []).filter(v => v.needSpell).length;
-            console.log('[SpellTest] needSpell count:', needSpellCount);
         }
         
         if (words.length === 0) {
