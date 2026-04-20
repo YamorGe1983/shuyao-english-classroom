@@ -8607,14 +8607,21 @@ const App = {
         if (scope === 'wrongBook') {
             words = this.getSpellWrongWords();
         } else {
-            // 强制清除缓存并重新加载，确保获取最新的needSpell数据
+            // 先尝试加载缓存数据
             const gradeId = StorageModule.getCurrentGrade();
-            const cacheKey = `englearn_data_${gradeId}`;
-            localStorage.removeItem(cacheKey);
-            delete DataLoader._cache[gradeId];
+            let textbook = await getCurrentTextbookAsync();
+            let unit = textbook.units[unitId];
             
-            const textbook = await getCurrentTextbookAsync();
-            const unit = textbook.units[unitId];
+            // 检查缓存数据是否有needSpell字段，没有则清除缓存重新加载
+            const hasNeedSpell = (unit?.vocabulary || []).some(v => v.needSpell !== undefined);
+            if (!hasNeedSpell) {
+                console.log('缓存数据缺少needSpell字段，重新加载...');
+                const cacheKey = `englearn_data_${gradeId}`;
+                localStorage.removeItem(cacheKey);
+                delete DataLoader._cache[gradeId];
+                textbook = await getCurrentTextbookAsync();
+                unit = textbook.units[unitId];
+            }
             
             if (scope === 'unit') {
                 // 只选择标记了needSpell的内容
