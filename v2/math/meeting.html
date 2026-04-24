@@ -10,6 +10,7 @@
             --orange: #e67e22;
             --success: #27ae60;
             --primary: #9B59B6;
+            --red: #e74c3c;
             --bg-primary: #F7F9FC;
             --bg-card: #FFFFFF;
             --text-primary: #2D3436;
@@ -86,10 +87,32 @@
         .explain-item .term { font-weight: 600; color: var(--primary); }
         
         #visCanvas {
-            width: 100%; height: 260px; border-radius: var(--radius-sm);
+            width: 100%; height: 220px; border-radius: var(--radius-sm);
             background: linear-gradient(to bottom, #e3f2fd, #f5f5f5);
             display: block;
         }
+        
+        /* 路程差对比图 */
+        .distance-compare {
+            margin-top: 12px; padding: 12px; background: #fafafa;
+            border-radius: var(--radius-sm);
+        }
+        .compare-title { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; text-align: center; }
+        .compare-row { display: flex; align-items: center; margin-bottom: 6px; }
+        .compare-label { width: 60px; font-size: 12px; color: var(--text-secondary); }
+        .compare-bar { flex: 1; height: 16px; background: #e0e0e0; border-radius: 8px; position: relative; overflow: hidden; }
+        .compare-fill { height: 100%; border-radius: 8px; transition: width 0.3s; }
+        .compare-fill.blue { background: linear-gradient(90deg, var(--blue), #64b5f6); }
+        .compare-fill.orange { background: linear-gradient(90deg, var(--orange), #ffb74d); }
+        .compare-extra { font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 4px; }
+        .compare-extra.over { background: #e3f2fd; color: var(--blue); }
+        .compare-extra.under { background: #fff3e0; color: var(--orange); }
+        .diff-indicator {
+            text-align: center; margin-top: 8px; padding: 8px;
+            background: #fff3cd; border-radius: var(--radius-sm);
+            font-size: 13px; color: #856404;
+        }
+        .diff-indicator .value { font-weight: bold; color: var(--red); font-size: 15px; }
         
         .control-buttons {
             display: flex; gap: 8px; justify-content: center;
@@ -103,6 +126,9 @@
         .ctrl-btn.secondary { background: #e9ecef; color: var(--text-primary); }
         .ctrl-btn:hover { transform: translateY(-1px); }
         
+        /* 参数调整区（仅入门和进阶显示） */
+        .param-section { display: block; }
+        .param-section.hidden { display: none; }
         .param-row {
             display: flex; align-items: center; margin-bottom: 12px; gap: 10px;
         }
@@ -126,30 +152,60 @@
             font-size: 14px; color: var(--primary);
         }
         
-        .answer-section {
-            border-top: 1px dashed #ddd; margin-top: 12px; padding-top: 12px;
+        /* 基础题的固定参数显示 */
+        .fixed-params {
+            display: none; padding: 12px; background: #f8f9fa;
+            border-radius: var(--radius-sm); margin-bottom: 12px;
         }
-        .answer-toggle {
-            background: none; border: 1px solid var(--primary); color: var(--primary);
-            padding: 6px 12px; border-radius: var(--radius-sm); cursor: pointer;
-            font-size: 13px; display: flex; align-items: center; gap: 6px;
+        .fixed-params.show { display: block; }
+        .fixed-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+        .fixed-row .label { color: var(--text-secondary); }
+        .fixed-row .value { font-weight: 600; }
+        .fixed-row .value.blue { color: var(--blue); }
+        .fixed-row .value.orange { color: var(--orange); }
+        .fixed-row .value.red { color: var(--red); }
+        
+        /* 解题引导区 */
+        .guide-section {
+            display: none; margin-top: 12px; border-top: 1px dashed #ddd;
+            padding-top: 12px;
         }
-        .answer-toggle:hover { background: #f3e5f5; }
-        .answer-content { display: none; margin-top: 12px; }
-        .answer-content.show { display: block; }
-        .calc-step {
-            padding: 8px 12px; background: #f8f9fa; border-radius: var(--radius-sm);
-            margin-bottom: 8px; font-size: 14px;
+        .guide-section.show { display: block; }
+        
+        .guide-step {
+            padding: 12px; background: #f8f9fa; border-radius: var(--radius-sm);
+            margin-bottom: 10px; border-left: 3px solid var(--primary);
         }
-        .calc-step .label { color: var(--text-secondary); }
-        .calc-step .formula { font-family: monospace; margin-left: 8px; }
-        .calc-step.result { 
-            background: #e8f5e9; font-weight: 600; 
-            border-left: 3px solid var(--success);
+        .guide-step.active { background: #e8f5e9; border-left-color: var(--success); }
+        .guide-step .step-title {
+            font-weight: 600; margin-bottom: 6px; font-size: 14px;
+            display: flex; align-items: center; gap: 6px;
         }
-        .calc-step.pending {
-            background: #fff3cd; border-left: 3px solid var(--orange);
+        .guide-step .step-title .num {
+            width: 20px; height: 20px; background: var(--primary);
+            color: white; border-radius: 50%; font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
         }
+        .guide-step.active .step-title .num { background: var(--success); }
+        .guide-step .step-content { font-size: 13px; line-height: 1.8; }
+        .guide-step .formula {
+            font-family: monospace; background: #fff; padding: 4px 8px;
+            border-radius: 4px; display: inline-block; margin: 4px 0;
+        }
+        .guide-step .highlight-text {
+            background: #fff3cd; padding: 2px 4px; border-radius: 2px;
+            font-weight: 500;
+        }
+        
+        .guide-nav {
+            display: flex; justify-content: center; gap: 8px; margin-top: 12px;
+        }
+        .guide-btn {
+            padding: 8px 20px; border: none; border-radius: var(--radius-sm);
+            font-size: 13px; cursor: pointer; transition: all 0.2s;
+        }
+        .guide-btn.next { background: var(--primary); color: white; }
+        .guide-btn.reset { background: #e9ecef; color: var(--text-primary); }
         
         .live-data {
             display: flex; gap: 12px; flex-wrap: wrap;
@@ -157,12 +213,13 @@
             margin-top: 12px;
         }
         .data-item {
-            flex: 1; min-width: 100px; text-align: center;
+            flex: 1; min-width: 80px; text-align: center;
         }
         .data-item .label { font-size: 11px; color: var(--text-secondary); }
         .data-item .value { font-size: 14px; font-weight: 600; color: var(--primary); }
         .data-item.blue .value { color: var(--blue); }
         .data-item.orange .value { color: var(--orange); }
+        .data-item.result .value { color: var(--success); }
     </style>
 </head>
 <body>
@@ -188,19 +245,59 @@
             <div class="explain-item" id="exp-xiangxiang"><span class="term">"相向而行"</span> — 两人面对面走，你朝我走，我朝你走。</div>
             <div class="explain-item" id="exp-tongshi"><span class="term">"同时出发"</span> — 两人同一时间开始走，没有谁先谁后。</div>
             <div class="explain-item" id="exp-xiangyu"><span class="term">"相遇"</span> — 两人走到了同一个位置，碰到了一起。</div>
-            <div class="explain-item" id="exp-zhongdian"><span class="term">"距中点"</span> — 中点是总路程正中间的位置。距中点24米，说明相遇点不在正中间。</div>
+            <div class="explain-item" id="exp-zhongdian"><span class="term">"距中点"</span> — 中点是总路程正中间的位置。距中点24千米，说明相遇点不在正中间。</div>
             <div class="explain-item" id="exp-huanxing"><span class="term">"环形跑道"</span> — 圆形的跑道，一圈又一圈。反向就是一个人顺时针、一个人逆时针。</div>
+        </div>
+
+        <!-- 基础题专用：固定参数显示 -->
+        <div class="card fixed-params" id="fixedParams">
+            <div class="fixed-row">
+                <span class="label">🚗 甲车速度:</span>
+                <span class="value blue">60 km/h</span>
+            </div>
+            <div class="fixed-row">
+                <span class="label">🚙 乙车速度:</span>
+                <span class="value orange">48 km/h</span>
+            </div>
+            <div class="fixed-row">
+                <span class="label">📍 相遇点距中点:</span>
+                <span class="value red">24 km</span>
+            </div>
         </div>
 
         <div class="card">
             <h3>🎬 可视化演示</h3>
             <canvas id="visCanvas"></canvas>
+            
+            <!-- 路程差对比图（仅基础题显示） -->
+            <div class="distance-compare" id="distanceCompare" style="display:none;">
+                <div class="compare-title">路程对比图</div>
+                <div class="compare-row">
+                    <span class="compare-label">甲车:</span>
+                    <div class="compare-bar">
+                        <div class="compare-fill blue" id="barA" style="width:55%"></div>
+                    </div>
+                    <span class="compare-extra over">+24km</span>
+                </div>
+                <div class="compare-row">
+                    <span class="compare-label">乙车:</span>
+                    <div class="compare-bar">
+                        <div class="compare-fill orange" id="barB" style="width:45%"></div>
+                    </div>
+                    <span class="compare-extra under">-24km</span>
+                </div>
+                <div class="diff-indicator">
+                    甲比乙多走了: <span class="value">48 km</span>
+                </div>
+            </div>
+            
             <div class="control-buttons">
                 <button class="ctrl-btn primary" id="playBtn" onclick="handlePlay()">▶ 开始演示</button>
                 <button class="ctrl-btn secondary" onclick="handleReset()">🔄 重置</button>
-                <button class="ctrl-btn secondary" onclick="handleSpeed()">⏩ <span id="speedLabel">1x</span></button>
+                <button class="ctrl-btn secondary" id="speedBtn" onclick="handleSpeed()">⏩ <span id="speedLabel">1x</span></button>
             </div>
-            <div class="live-data">
+            
+            <div class="live-data" id="liveDataBox">
                 <div class="data-item blue">
                     <div class="label" id="labelA">小明走了</div>
                     <div class="value" id="livePosA">0 米</div>
@@ -209,14 +306,61 @@
                     <div class="label" id="labelB">小红走了</div>
                     <div class="value" id="livePosB">0 米</div>
                 </div>
-                <div class="data-item">
+                <div class="data-item" id="timeItem">
                     <div class="label">已用时间</div>
                     <div class="value" id="liveTime">0 分钟</div>
                 </div>
             </div>
+            
+            <!-- 解题引导区（仅基础题显示） -->
+            <div class="guide-section" id="guideSection">
+                <div class="guide-step" id="guideStep1">
+                    <div class="step-title"><span class="num">1</span> 理解"距中点"</div>
+                    <div class="step-content">
+                        甲车速度<span class="highlight-text">60 km/h</span>，乙车速度<span class="highlight-text">48 km/h</span><br>
+                        甲车快 → <b>超过中点 24 km</b><br>
+                        乙车慢 → <b>离中点还差 24 km</b>
+                    </div>
+                </div>
+                <div class="guide-step" id="guideStep2" style="display:none;">
+                    <div class="step-title"><span class="num">2</span> 计算路程差</div>
+                    <div class="step-content">
+                        甲比乙多走了多远？<br>
+                        <div class="formula">24 + 24 = 48 km</div>
+                        或 <div class="formula">24 × 2 = 48 km</div>
+                    </div>
+                </div>
+                <div class="guide-step" id="guideStep3" style="display:none;">
+                    <div class="step-title"><span class="num">3</span> 计算速度差</div>
+                    <div class="step-content">
+                        甲每小时走 <span class="highlight-text">60 km</span><br>
+                        乙每小时走 <span class="highlight-text">48 km</span><br>
+                        甲每小时比乙多走：<div class="formula">60 - 48 = 12 km/h</div>
+                    </div>
+                </div>
+                <div class="guide-step" id="guideStep4" style="display:none;">
+                    <div class="step-title"><span class="num">4</span> 求相遇时间</div>
+                    <div class="step-content">
+                        要多走 48 km，每小时多走 12 km<br>
+                        需要时间：<div class="formula">48 ÷ 12 = 4 小时</div>
+                    </div>
+                </div>
+                <div class="guide-step" id="guideStep5" style="display:none;">
+                    <div class="step-title"><span class="num">5</span> 求总路程</div>
+                    <div class="step-content">
+                        甲乙每小时共走：<div class="formula">60 + 48 = 108 km/h</div>
+                        走了 4 小时<br>
+                        总路程：<div class="formula">108 × 4 = 432 km</div>
+                    </div>
+                </div>
+                <div class="guide-nav" id="guideNav">
+                    <button class="guide-btn next" id="nextStepBtn" onclick="nextGuideStep()">下一步 →</button>
+                </div>
+            </div>
         </div>
 
-        <div class="card">
+        <!-- 参数调整区（仅入门和进阶显示） -->
+        <div class="card param-section" id="paramSection">
             <h3>🎛️ 参数调整</h3>
             <div class="param-row">
                 <span class="param-label"><span class="dot blue"></span><span id="nameA">小明</span>速度:</span>
@@ -234,22 +378,22 @@
                 <span class="param-value"><span id="valT">5</span> <span id="unitT">分钟</span></span>
             </div>
             
-            <div class="answer-section">
-                <button class="answer-toggle" onclick="toggleAnswer()">
-                    💡 点击查看解题步骤
+            <div style="border-top: 1px dashed #ddd; margin-top: 12px; padding-top: 12px;">
+                <button class="ctrl-btn secondary" onclick="toggleAnswer()" style="width:100%;">
+                    💡 点击查看答案
                 </button>
-                <div class="answer-content" id="answerContent">
-                    <div class="calc-step pending" id="step1">
-                        <span class="label">第一步：<span id="step1Name">小明</span>走了多少？</span>
-                        <span class="formula" id="calcA">60 × 5 = 300 米</span>
+                <div id="answerContent" style="display:none; margin-top: 12px;">
+                    <div style="padding: 8px 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; font-size: 14px;">
+                        <span style="color: var(--text-secondary);"><span id="step1Name">小明</span>走了:</span>
+                        <span style="font-family: monospace; margin-left: 8px;" id="calcA">60 × 5 = 300 米</span>
                     </div>
-                    <div class="calc-step pending" id="step2">
-                        <span class="label">第二步：<span id="step2Name">小红</span>走了多少？</span>
-                        <span class="formula" id="calcB">50 × 5 = 250 米</span>
+                    <div style="padding: 8px 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; font-size: 14px;">
+                        <span style="color: var(--text-secondary);"><span id="step2Name">小红</span>走了:</span>
+                        <span style="font-family: monospace; margin-left: 8px;" id="calcB">50 × 5 = 250 米</span>
                     </div>
-                    <div class="calc-step result" id="step3">
-                        <span class="label">第三步：总路程是多少？</span>
-                        <span class="formula" id="calcTotal">300 + 250 = 550 米</span>
+                    <div style="padding: 8px 12px; background: #e8f5e9; border-radius: 8px; font-size: 14px; font-weight: 600;">
+                        <span style="color: var(--success);">总路程:</span>
+                        <span style="font-family: monospace; margin-left: 8px;" id="calcTotal">300 + 250 = 550 米</span>
                     </div>
                 </div>
             </div>
@@ -265,23 +409,31 @@
                 speedA: 60, speedB: 50, time: 5,
                 unit: '米/分', timeUnit: '分钟', distUnit: '米',
                 nameA: '小明', nameB: '小红',
-                isPerson: true
+                isPerson: true,
+                hasParams: true
             },
             2: {
                 text: '甲乙两车从A、B两地<span class="highlight" onclick="showExplain(\'tongshi\', event)">同时</span>出发<span class="highlight" onclick="showExplain(\'xiangxiang\', event)">相向而行</span>，甲车每小时行60千米，乙车每小时行48千米，两车在<span class="highlight" onclick="showExplain(\'zhongdian\', event)">距中点24千米</span>处相遇。求A、B两地的距离。',
-                goal: '理解"距中点"的含义：甲车快，过了中点；乙车慢，不到中点。',
-                speedA: 60, speedB: 48, time: 4,
+                goal: '理解"距中点"的含义：甲车快，超过中点；乙车慢，不到中点。通过路程差求时间。',
+                speedA: 60, speedB: 48, distToMid: 24,
                 unit: 'km/h', timeUnit: '小时', distUnit: 'km',
                 nameA: '甲车', nameB: '乙车',
-                isPerson: false
+                isPerson: false,
+                hasParams: false,
+                // 计算结果
+                get timeDiff() { return this.speedA - this.speedB; }, // 12
+                get distanceDiff() { return this.distToMid * 2; }, // 48
+                get time() { return this.distanceDiff / this.timeDiff; }, // 4
+                get totalDist() { return (this.speedA + this.speedB) * this.time; } // 432
             },
             3: {
                 text: '甲乙两人从<span class="highlight" onclick="showExplain(\'huanxing\', event)">环形跑道</span>的同一点<span class="highlight" onclick="showExplain(\'tongshi\', event)">同时</span>出发，<span class="highlight" onclick="showExplain(\'xiangxiang\', event)">反向而行</span>。甲每秒跑5米，乙每秒跑3米。跑道周长400米，他们第二次<span class="highlight" onclick="showExplain(\'xiangyu\', event)">相遇</span>需要多少秒？',
-                goal: '理解环形相遇：反向跑一圈，相遇时两人跑的路程和等于跑道周长。',
+                goal: '理解环形相遇：反向跑，相遇时两人跑的路程和等于跑道周长的倍数。',
                 speedA: 5, speedB: 3, time: 100,
                 unit: 'm/s', timeUnit: '秒', distUnit: 'm',
                 nameA: '甲', nameB: '乙',
                 isPerson: true,
+                hasParams: true,
                 isRing: true,
                 perimeter: 400
             }
@@ -296,7 +448,8 @@
         var totalDist = 550;
         var canvas, ctx;
         var lastFrameTime = 0;
-        var met = false; // 是否已相遇
+        var met = false;
+        var currentGuideStep = 0;
 
         window.onload = function() {
             canvas = document.getElementById('visCanvas');
@@ -336,21 +489,42 @@
             document.getElementById('step1Name').textContent = q.nameA;
             document.getElementById('step2Name').textContent = q.nameB;
             
-            // 更新单位
-            document.getElementById('unitA').textContent = q.unit;
-            document.getElementById('unitB').textContent = q.unit;
-            document.getElementById('unitT').textContent = q.timeUnit;
-            
-            // 更新滑块
-            document.getElementById('sliderA').value = q.speedA;
-            document.getElementById('sliderB').value = q.speedB;
-            document.getElementById('sliderT').value = q.time;
-            document.getElementById('valA').textContent = q.speedA;
-            document.getElementById('valB').textContent = q.speedB;
-            document.getElementById('valT').textContent = q.time;
+            // 显示/隐藏参数区
+            if (q.hasParams) {
+                document.getElementById('paramSection').classList.remove('hidden');
+                document.getElementById('fixedParams').classList.remove('show');
+                document.getElementById('distanceCompare').style.display = 'none';
+                document.getElementById('guideSection').classList.remove('show');
+                document.getElementById('timeItem').style.display = 'block';
+                document.getElementById('speedBtn').style.display = 'inline-flex';
+                
+                // 更新单位
+                document.getElementById('unitA').textContent = q.unit;
+                document.getElementById('unitB').textContent = q.unit;
+                document.getElementById('unitT').textContent = q.timeUnit;
+                
+                // 更新滑块
+                document.getElementById('sliderA').value = q.speedA;
+                document.getElementById('sliderB').value = q.speedB;
+                document.getElementById('sliderT').value = q.time;
+                document.getElementById('valA').textContent = q.speedA;
+                document.getElementById('valB').textContent = q.speedB;
+                document.getElementById('valT').textContent = q.time;
+            } else {
+                // 基础题：隐藏参数区，显示固定参数
+                document.getElementById('paramSection').classList.add('hidden');
+                document.getElementById('fixedParams').classList.add('show');
+                document.getElementById('distanceCompare').style.display = 'block';
+                document.getElementById('guideSection').classList.remove('show');
+                document.getElementById('timeItem').style.display = 'none';
+                document.getElementById('speedBtn').style.display = 'none';
+                
+                // 计算基础题的结果
+                totalDist = q.totalDist;
+            }
             
             // 隐藏答案
-            document.getElementById('answerContent').classList.remove('show');
+            document.getElementById('answerContent').style.display = 'none';
             
             handleReset();
             updateCalc();
@@ -367,6 +541,8 @@
 
         function updateCalc() {
             var q = questions[currentLevel];
+            if (!q.hasParams) return;
+            
             var vA = parseInt(document.getElementById('sliderA').value);
             var vB = parseInt(document.getElementById('sliderB').value);
             var vT = parseInt(document.getElementById('sliderT').value);
@@ -381,7 +557,8 @@
         }
 
         function toggleAnswer() {
-            document.getElementById('answerContent').classList.toggle('show');
+            document.getElementById('answerContent').style.display = 
+                document.getElementById('answerContent').style.display === 'none' ? 'block' : 'none';
         }
 
         function handlePlay() {
@@ -402,8 +579,21 @@
             isPlaying = false;
             currentTime = 0;
             met = false;
+            currentGuideStep = 0;
             document.getElementById('playBtn').textContent = '▶ 开始演示';
             if (animId) { cancelAnimationFrame(animId); animId = null; }
+            
+            // 重置引导步骤
+            for (var i = 1; i <= 5; i++) {
+                var step = document.getElementById('guideStep' + i);
+                if (step) {
+                    step.style.display = i === 1 ? 'block' : 'none';
+                    step.classList.remove('active');
+                }
+            }
+            document.getElementById('guideSection').classList.remove('show');
+            document.getElementById('nextStepBtn').textContent = '下一步 →';
+            
             updateLiveData(0);
             drawScene();
         }
@@ -423,37 +613,62 @@
             var delta = (now - lastFrameTime) / 1000;
             lastFrameTime = now;
             
-            var totalTime = parseInt(document.getElementById('sliderT').value);
-            var step = delta * speedMult * (totalTime / 6);
-            currentTime = Math.min(currentTime + step, totalTime);
-            
-            // 检测相遇
             var q = questions[currentLevel];
-            if (q.isRing) {
-                var perimeter = q.perimeter || 400;
-                var vA = parseInt(document.getElementById('sliderA').value);
-                var vB = parseInt(document.getElementById('sliderB').value);
-                met = (vA + vB) * currentTime >= perimeter * 2;
-            } else {
+            
+            if (q.hasParams) {
+                // 有参数的题目：按时间动画
+                var totalTime = parseInt(document.getElementById('sliderT').value);
+                var step = delta * speedMult * (totalTime / 6);
+                currentTime = Math.min(currentTime + step, totalTime);
                 met = currentTime >= totalTime * 0.95;
+            } else {
+                // 基础题：固定动画到相遇
+                var totalTime = q.time;
+                var step = delta * (totalTime / 5);
+                currentTime = Math.min(currentTime + step, totalTime);
+                met = currentTime >= totalTime * 0.9;
             }
             
             drawScene();
             updateLiveData(currentTime);
             
-            if (currentTime >= totalTime) {
+            if (currentTime >= (q.hasParams ? parseInt(document.getElementById('sliderT').value) : q.time)) {
                 isPlaying = false;
                 document.getElementById('playBtn').textContent = '▶ 开始演示';
+                
+                // 基础题：显示引导
+                if (!q.hasParams) {
+                    showGuide();
+                }
                 return;
             }
             
             if (isPlaying) animId = requestAnimationFrame(runAnimation);
         }
 
+        function showGuide() {
+            document.getElementById('guideSection').classList.add('show');
+            document.getElementById('guideStep1').classList.add('active');
+            currentGuideStep = 1;
+        }
+
+        function nextGuideStep() {
+            if (currentGuideStep < 5) {
+                document.getElementById('guideStep' + currentGuideStep).classList.remove('active');
+                currentGuideStep++;
+                document.getElementById('guideStep' + currentGuideStep).style.display = 'block';
+                document.getElementById('guideStep' + currentGuideStep).classList.add('active');
+                
+                if (currentGuideStep === 5) {
+                    document.getElementById('nextStepBtn').textContent = '完成！答案：432 km';
+                }
+            }
+        }
+
         function updateLiveData(t) {
             var q = questions[currentLevel];
-            var vA = parseInt(document.getElementById('sliderA').value);
-            var vB = parseInt(document.getElementById('sliderB').value);
+            var vA = q.hasParams ? parseInt(document.getElementById('sliderA').value) : q.speedA;
+            var vB = q.hasParams ? parseInt(document.getElementById('sliderB').value) : q.speedB;
             var posA = Math.round(vA * t);
             var posB = Math.round(vB * t);
             
@@ -478,325 +693,298 @@
 
         function drawLine(w, h) {
             var q = questions[currentLevel];
-            var pad = 60;
-            var roadY = h * 0.55;
+            var pad = 50;
+            var roadY = h * 0.5;
             var roadW = w - pad * 2;
             
-            // 天空背景
-            var skyGrad = ctx.createLinearGradient(0, 0, 0, h * 0.4);
+            // 天空
+            var skyGrad = ctx.createLinearGradient(0, 0, 0, h * 0.35);
             skyGrad.addColorStop(0, '#87CEEB');
             skyGrad.addColorStop(1, '#E0F7FA');
             ctx.fillStyle = skyGrad;
-            ctx.fillRect(0, 0, w, h * 0.4);
+            ctx.fillRect(0, 0, w, h * 0.35);
             
             // 地面
             ctx.fillStyle = '#C8E6C9';
-            ctx.fillRect(0, h * 0.4, w, h * 0.6);
+            ctx.fillRect(0, h * 0.35, w, h * 0.65);
             
             // 道路
             ctx.fillStyle = '#BDBDBD';
-            ctx.fillRect(pad, roadY - 12, roadW, 24);
+            ctx.fillRect(pad, roadY - 10, roadW, 20);
             
             // 道路中线
             ctx.strokeStyle = '#fff';
             ctx.lineWidth = 2;
-            ctx.setLineDash([8, 8]);
+            ctx.setLineDash([6, 6]);
             ctx.beginPath();
             ctx.moveTo(pad, roadY);
             ctx.lineTo(w - pad, roadY);
             ctx.stroke();
             ctx.setLineDash([]);
             
-            // 房子（A点）
-            if (q.isPerson) {
-                drawHouse(pad, roadY - 50, '#3498db', '小明家');
-                drawHouse(w - pad, roadY - 50, '#e67e22', '小红家');
-            } else {
-                // A/B标签
-                ctx.fillStyle = '#3498db';
-                ctx.font = 'bold 16px sans-serif';
+            // 中点标记（基础题必须显示）
+            var midX = w / 2;
+            if (!q.hasParams || currentLevel === 2) {
+                // 画中点虚线
+                ctx.strokeStyle = '#e74c3c';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                ctx.moveTo(midX, roadY - 40);
+                ctx.lineTo(midX, roadY + 20);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // 中点标签
+                ctx.fillStyle = '#e74c3c';
+                ctx.font = 'bold 11px sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText('A', pad, roadY - 25);
-                ctx.fillStyle = '#e67e22';
-                ctx.fillText('B', w - pad, roadY - 25);
+                ctx.fillText('中点', midX, roadY - 45);
+                
+                // 中点小旗
+                ctx.fillStyle = '#e74c3c';
+                ctx.beginPath();
+                ctx.moveTo(midX, roadY - 35);
+                ctx.lineTo(midX + 12, roadY - 30);
+                ctx.lineTo(midX, roadY - 25);
+                ctx.closePath();
+                ctx.fill();
             }
             
             // 计算位置
-            var vA = parseInt(document.getElementById('sliderA').value);
-            var vB = parseInt(document.getElementById('sliderB').value);
-            var totalTime = parseInt(document.getElementById('sliderT').value);
-            var progress = Math.min(currentTime / totalTime, 1);
+            var posAx, posBx;
+            var showMeetingDist = false;
             
-            // 甲的位置（从A出发向右）
-            var posAx = pad + roadW * progress * (vA / (vA + vB));
-            // 乙的位置（从B出发向左）
-            var posBx = w - pad - roadW * progress * (vB / (vA + vB));
+            if (q.hasParams) {
+                var vA = parseInt(document.getElementById('sliderA').value);
+                var vB = parseInt(document.getElementById('sliderB').value);
+                var totalTime = parseInt(document.getElementById('sliderT').value);
+                var progress = Math.min(currentTime / totalTime, 1);
+                posAx = pad + roadW * progress * (vA / (vA + vB));
+                posBx = w - pad - roadW * progress * (vB / (vA + vB));
+            } else {
+                // 基础题：固定相遇点在中点右侧24km
+                var progress = currentTime / q.time;
+                // 甲走过的路程 = totalDist/2 + 24 = 240
+                var distA = q.totalDist / 2 + q.distToMid;
+                var distB = q.totalDist / 2 - q.distToMid;
+                posAx = pad + (roadW * (q.speedA * currentTime / q.time) / q.totalDist * (distA + distB) / q.totalDist * q.totalDist / (q.speedA + q.speedB) * q.speedA / (q.totalDist / q.time));
+                
+                // 简化：直接按比例
+                var ratioA = q.speedA * currentTime / (q.speedA + q.speedB) / q.time;
+                posAx = pad + roadW * ratioA;
+                posBx = w - pad - roadW * (q.speedB * currentTime / (q.speedA + q.speedB) / q.time);
+                
+                showMeetingDist = met;
+            }
             
-            // 线段图（道路下方）
-            ctx.strokeStyle = '#78909C';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(pad, roadY + 40);
-            ctx.lineTo(w - pad, roadY + 40);
-            ctx.stroke();
+            // 房子/标签
+            if (q.isPerson && currentLevel !== 2) {
+                drawHouse(pad, roadY - 45, '#3498db', q.nameA + '家');
+                drawHouse(w - pad, roadY - 45, '#e67e22', q.nameB + '家');
+            } else {
+                ctx.fillStyle = '#3498db';
+                ctx.font = 'bold 14px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('A', pad, roadY - 20);
+                ctx.fillStyle = '#e67e22';
+                ctx.fillText('B', w - pad, roadY - 20);
+            }
             
-            // 线段图上的位置标记
-            ctx.beginPath();
-            ctx.arc(posAx, roadY + 40, 4, 0, Math.PI * 2);
-            ctx.fillStyle = '#3498db';
-            ctx.fill();
-            
-            ctx.beginPath();
-            ctx.arc(posBx, roadY + 40, 4, 0, Math.PI * 2);
-            ctx.fillStyle = '#e67e22';
-            ctx.fill();
+            // 相遇点到中点的距离标注（基础题）
+            if (showMeetingDist && !q.hasParams) {
+                // 计算相遇点位置
+                var meetX = midX + (q.distToMid / q.totalDist * roadW);
+                
+                // 画距离箭头
+                ctx.strokeStyle = '#e74c3c';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(midX, roadY + 25);
+                ctx.lineTo(meetX, roadY + 25);
+                ctx.stroke();
+                
+                // 箭头
+                ctx.beginPath();
+                ctx.moveTo(meetX - 5, roadY + 22);
+                ctx.lineTo(meetX, roadY + 25);
+                ctx.lineTo(meetX - 5, roadY + 28);
+                ctx.stroke();
+                
+                // 标注文字
+                ctx.fillStyle = '#e74c3c';
+                ctx.font = '11px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('24 km', (midX + meetX) / 2, roadY + 38);
+            }
             
             // 绘制人物/车辆
             if (q.isPerson) {
-                drawPerson(posAx, roadY - 15, '#3498db', true, met);
-                drawPerson(posBx, roadY - 15, '#e67e22', false, met);
-                
-                // 相遇时显示
-                if (met) {
-                    ctx.fillStyle = '#27ae60';
-                    ctx.font = 'bold 14px sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('🎉 相遇啦！', (posAx + posBx) / 2, roadY - 60);
-                }
+                drawPerson(posAx, roadY - 12, '#3498db', true, met);
+                drawPerson(posBx, roadY - 12, '#e67e22', false, met);
             } else {
                 drawCar(posAx, roadY, '#3498db', true);
                 drawCar(posBx, roadY, '#e67e22', false);
-                
-                if (met) {
-                    ctx.fillStyle = '#27ae60';
-                    ctx.font = 'bold 14px sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.fillText('🎉 相遇！', (posAx + posBx) / 2, roadY - 40);
-                }
+            }
+            
+            // 相遇提示
+            if (met) {
+                ctx.fillStyle = '#27ae60';
+                ctx.font = 'bold 13px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('🎉 相遇！', w / 2, roadY - 50);
             }
         }
 
         function drawHouse(x, y, color, label) {
-            // 房顶
             ctx.fillStyle = color;
             ctx.beginPath();
-            ctx.moveTo(x - 20, y + 15);
-            ctx.lineTo(x, y - 5);
-            ctx.lineTo(x + 20, y + 15);
+            ctx.moveTo(x - 15, y + 12);
+            ctx.lineTo(x, y - 3);
+            ctx.lineTo(x + 15, y + 12);
             ctx.closePath();
             ctx.fill();
             
-            // 房身
             ctx.fillStyle = '#FFF';
-            ctx.fillRect(x - 15, y + 15, 30, 25);
+            ctx.fillRect(x - 10, y + 12, 20, 18);
             ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
-            ctx.strokeRect(x - 15, y + 15, 30, 25);
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(x - 10, y + 12, 20, 18);
             
-            // 门
             ctx.fillStyle = color;
-            ctx.fillRect(x - 4, y + 25, 8, 15);
+            ctx.fillRect(x - 3, y + 20, 6, 10);
             
-            // 标签
             ctx.fillStyle = color;
-            ctx.font = '11px sans-serif';
+            ctx.font = '10px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText(label, x, y - 12);
+            ctx.fillText(label, x, y - 10);
         }
 
         function drawPerson(x, y, color, facingRight, isMet) {
-            // 头
             ctx.fillStyle = color;
             ctx.beginPath();
-            ctx.arc(x, y - 20, 8, 0, Math.PI * 2);
+            ctx.arc(x, y - 16, 6, 0, Math.PI * 2);
             ctx.fill();
             
-            // 脸
             ctx.fillStyle = '#FFE0B2';
             ctx.beginPath();
-            ctx.arc(x, y - 20, 6, 0, Math.PI * 2);
+            ctx.arc(x, y - 16, 4, 0, Math.PI * 2);
             ctx.fill();
             
-            // 眼睛和嘴巴
-            ctx.fillStyle = '#333';
-            if (isMet) {
-                // 开心的表情
-                ctx.beginPath();
-                ctx.arc(x - 2, y - 21, 1.5, 0, Math.PI * 2);
-                ctx.arc(x + 2, y - 21, 1.5, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.beginPath();
-                ctx.arc(x, y - 17, 2, 0, Math.PI);
-                ctx.stroke();
-            }
-            
-            // 身体
             ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.moveTo(x, y - 12);
-            ctx.lineTo(x, y + 5);
+            ctx.moveTo(x, y - 10);
+            ctx.lineTo(x, y + 4);
             ctx.stroke();
             
-            // 腿
-            if (!isMet) {
-                var legAngle = facingRight ? 0.3 : -0.3;
-                ctx.beginPath();
-                ctx.moveTo(x, y + 5);
-                ctx.lineTo(x - 6, y + 18);
-                ctx.moveTo(x, y + 5);
-                ctx.lineTo(x + 6, y + 18);
-                ctx.stroke();
-            } else {
-                // 站立
-                ctx.beginPath();
-                ctx.moveTo(x, y + 5);
-                ctx.lineTo(x - 4, y + 18);
-                ctx.moveTo(x, y + 5);
-                ctx.lineTo(x + 4, y + 18);
-                ctx.stroke();
-            }
-            
-            // 手臂
-            ctx.lineWidth = 2;
-            if (!isMet) {
-                ctx.beginPath();
-                ctx.moveTo(x, y - 5);
-                if (facingRight) {
-                    ctx.lineTo(x + 8, y);
-                } else {
-                    ctx.lineTo(x - 8, y);
-                }
-                ctx.stroke();
-            }
+            ctx.beginPath();
+            ctx.moveTo(x, y + 4);
+            ctx.lineTo(x - 4, y + 14);
+            ctx.moveTo(x, y + 4);
+            ctx.lineTo(x + 4, y + 14);
+            ctx.stroke();
         }
 
         function drawCar(x, y, color, facingRight) {
             ctx.fillStyle = color;
-            
-            // 车身
             ctx.beginPath();
             if (facingRight) {
-                ctx.moveTo(x - 18, y - 6);
-                ctx.lineTo(x + 12, y - 6);
-                ctx.lineTo(x + 18, y);
-                ctx.lineTo(x + 12, y + 6);
-                ctx.lineTo(x - 18, y + 6);
+                ctx.moveTo(x - 14, y - 5);
+                ctx.lineTo(x + 10, y - 5);
+                ctx.lineTo(x + 14, y);
+                ctx.lineTo(x + 10, y + 5);
+                ctx.lineTo(x - 14, y + 5);
             } else {
-                ctx.moveTo(x + 18, y - 6);
-                ctx.lineTo(x - 12, y - 6);
-                ctx.lineTo(x - 18, y);
-                ctx.lineTo(x - 12, y + 6);
-                ctx.lineTo(x + 18, y + 6);
+                ctx.moveTo(x + 14, y - 5);
+                ctx.lineTo(x - 10, y - 5);
+                ctx.lineTo(x - 14, y);
+                ctx.lineTo(x - 10, y + 5);
+                ctx.lineTo(x + 14, y + 5);
             }
             ctx.closePath();
             ctx.fill();
             
-            // 车窗
             ctx.fillStyle = '#B3E5FC';
-            ctx.fillRect(x - 8, y - 4, 10, 8);
+            ctx.fillRect(x - 6, y - 3, 8, 6);
             
-            // 车轮
             ctx.fillStyle = '#333';
             ctx.beginPath();
-            ctx.arc(x - 10, y + 6, 4, 0, Math.PI * 2);
-            ctx.arc(x + 10, y + 6, 4, 0, Math.PI * 2);
+            ctx.arc(x - 8, y + 5, 3, 0, Math.PI * 2);
+            ctx.arc(x + 8, y + 5, 3, 0, Math.PI * 2);
             ctx.fill();
         }
 
         function drawRing(w, h) {
             var q = questions[currentLevel];
-            var cx = w / 2;
-            var cy = h / 2;
-            var rx = Math.min(w, h) / 2 - 60;
+            var cx = w / 2, cy = h / 2;
+            var rx = Math.min(w, h) / 2 - 50;
             var ry = rx * 0.6;
             
-            // 背景
             ctx.fillStyle = '#E8F5E9';
             ctx.fillRect(0, 0, w, h);
             
-            // 跑道
             ctx.strokeStyle = '#BDBDBD';
-            ctx.lineWidth = 30;
+            ctx.lineWidth = 25;
             ctx.beginPath();
             ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
             ctx.stroke();
             
-            // 跑道线
             ctx.strokeStyle = '#fff';
             ctx.lineWidth = 2;
-            ctx.setLineDash([10, 10]);
+            ctx.setLineDash([8, 8]);
             ctx.beginPath();
             ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
             ctx.stroke();
             ctx.setLineDash([]);
             
-            // 起点标记
             ctx.fillStyle = '#27ae60';
             ctx.beginPath();
-            ctx.arc(cx + rx, cy, 8, 0, Math.PI * 2);
+            ctx.arc(cx + rx, cy, 6, 0, Math.PI * 2);
             ctx.fill();
             ctx.fillStyle = '#333';
-            ctx.font = '12px sans-serif';
+            ctx.font = '11px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('起点', cx + rx, cy - 20);
+            ctx.fillText('起点', cx + rx, cy - 15);
             
-            // 计算位置
-            var vA = parseInt(document.getElementById('sliderA').value);
-            var vB = parseInt(document.getElementById('sliderB').value);
+            var vA = q.hasParams ? parseInt(document.getElementById('sliderA').value) : q.speedA;
+            var vB = q.hasParams ? parseInt(document.getElementById('sliderB').value) : q.speedB;
             var perimeter = q.perimeter || 400;
             
             var angleA = (currentTime * vA / perimeter) * Math.PI * 2;
             var angleB = (currentTime * vB / perimeter) * Math.PI * 2;
             
-            // 甲（蓝色，顺时针/向下）
             var ax = cx + rx * Math.cos(-angleA);
             var ay = cy + ry * Math.sin(-angleA);
-            drawRunner(ax, ay, '#3498db', '甲');
+            ctx.fillStyle = '#3498db';
+            ctx.beginPath();
+            ctx.arc(ax, ay, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = '7px sans-serif';
+            ctx.fillText('甲', ax, ay + 3);
             
-            // 乙（橙色，逆时针/向上）
             var bx = cx + rx * Math.cos(angleB);
             var by = cy + ry * Math.sin(angleB);
-            drawRunner(bx, by, '#e67e22', '乙');
+            ctx.fillStyle = '#e67e22';
+            ctx.beginPath();
+            ctx.arc(bx, by, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.fillText('乙', bx, by + 3);
             
-            // 相遇提示
             if (met) {
                 ctx.fillStyle = '#27ae60';
-                ctx.font = 'bold 14px sans-serif';
-                ctx.textAlign = 'center';
-                ctx.fillText('🎉 第二次相遇！', cx, cy);
+                ctx.font = 'bold 12px sans-serif';
+                ctx.fillText('🎉 相遇！', cx, cy);
             }
-        }
-
-        function drawRunner(x, y, color, label) {
-            // 头
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.arc(x, y - 8, 6, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // 身体
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(x, y - 2);
-            ctx.lineTo(x, y + 6);
-            ctx.stroke();
-            
-            // 标签
-            ctx.fillStyle = '#fff';
-            ctx.font = '8px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(label, x, y - 6);
         }
 
         function showExplain(term, evt) {
             var items = document.querySelectorAll('.explain-item');
             for (var i = 0; i < items.length; i++) items[i].classList.remove('show');
-            
             var el = document.getElementById('exp-' + term);
             if (el) el.classList.add('show');
-            
             var highs = document.querySelectorAll('.highlight');
             for (var i = 0; i < highs.length; i++) highs[i].classList.remove('active');
             if (evt && evt.target) evt.target.classList.add('active');
