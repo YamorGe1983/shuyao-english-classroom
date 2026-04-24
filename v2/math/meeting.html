@@ -123,11 +123,22 @@
         }
         .highlight:hover { background: #ffc107; }
         .highlight.active { background: var(--primary); color: white; }
+        .explain-item {
+            display: none;
+            padding: 12px;
+            background: #e8f5e9;
+            border-radius: var(--radius-sm);
+            margin-top: 12px;
+            border-left: 4px solid var(--success);
+        }
+        .explain-item.show { display: block; }
+        .explain-item .term { font-weight: 600; color: var(--primary); }
+        .explain-item .meaning { margin-top: 4px; color: var(--text-primary); }
         #visCanvas {
             width: 100%;
             height: 200px;
             border-radius: var(--radius-sm);
-            background: #f0f4f8;
+            background: linear-gradient(to bottom, #e8f4fc, #f0f4f8);
             display: block;
         }
         .control-buttons {
@@ -187,16 +198,6 @@
         .calc-row .label { width: 80px; color: var(--text-secondary); }
         .calc-row .formula { font-family: monospace; }
         .calc-row.result { margin-top: 12px; padding-top: 12px; border-top: 1px dashed #ddd; font-weight: 600; color: var(--success); }
-        .explain-item {
-            display: none;
-            padding: 12px;
-            background: #e8f5e9;
-            border-radius: var(--radius-sm);
-            margin-bottom: 8px;
-        }
-        .explain-item.show { display: block; }
-        .explain-item .term { font-weight: 600; color: var(--primary); }
-        .explain-item .meaning { margin-top: 4px; color: var(--text-primary); }
         .live-data {
             background: var(--bg-card);
             border-radius: var(--radius-md);
@@ -234,6 +235,11 @@
         <div class="card">
             <h3>📍 题目</h3>
             <div class="question-text" id="questionText"></div>
+            <div class="explain-item" id="exp-xiangxiang"><span class="term">"相向而行"</span><div class="meaning">两人从不同地方出发，面对面走，方向相反。</div></div>
+            <div class="explain-item" id="exp-tongshi"><span class="term">"同时出发"</span><div class="meaning">两人同一时间开始走，没有先后。</div></div>
+            <div class="explain-item" id="exp-xiangyu"><span class="term">"相遇"</span><div class="meaning">两人走到同一位置碰到一起。此时路程和=总路程。</div></div>
+            <div class="explain-item" id="exp-zhongdian"><span class="term">"距中点"</span><div class="meaning">中点是总路程一半的位置。距中点24km说明相遇点偏移了。</div></div>
+            <div class="explain-item" id="exp-huanxing"><span class="term">"环形跑道"</span><div class="meaning">闭合的圆形跑道。反向而行=一个顺时针、一个逆时针。</div></div>
         </div>
 
         <div class="card">
@@ -270,16 +276,6 @@
             </div>
         </div>
 
-        <div class="card">
-            <h3>📖 句子解读</h3>
-            <p style="color:var(--text-secondary);font-size:14px;margin-bottom:12px;">点击题目中的高亮词语查看解释</p>
-            <div class="explain-item" id="exp-xiangxiang"><span class="term">"相向而行"</span><div class="meaning">两人从不同地方出发，面对面走，方向相反。</div></div>
-            <div class="explain-item" id="exp-tongshi"><span class="term">"同时出发"</span><div class="meaning">两人同一时间开始走，没有先后。</div></div>
-            <div class="explain-item" id="exp-xiangyu"><span class="term">"相遇"</span><div class="meaning">两人走到同一位置碰到一起。此时路程和=总路程。</div></div>
-            <div class="explain-item" id="exp-zhongdian"><span class="term">"距中点"</span><div class="meaning">中点是总路程一半的位置。距中点24km说明相遇点偏移了。</div></div>
-            <div class="explain-item" id="exp-huanxing"><span class="term">"环形跑道"</span><div class="meaning">闭合的圆形跑道。反向而行=一个顺时针、一个逆时针。</div></div>
-        </div>
-
         <div class="live-data">
             <h4>📊 实时数据</h4>
             <div class="data-row"><span>已用时间:</span><span class="value" id="liveTime">0 h</span></div>
@@ -293,19 +289,19 @@
         // 题目数据
         var questions = {
             1: {
-                text: '小明和小红从家出发，沿一条路<span class="highlight" onclick="showExplain(\'xiangxiang\')">相向而行</span>。小明每分钟走60米，小红每分钟走50米，经过5分钟两人<span class="highlight" onclick="showExplain(\'xiangyu\')">相遇</span>。他们两家相距多少米？',
+                text: '小明和小红从家出发，沿一条路<span class="highlight" onclick="showExplain(\'xiangxiang\', event)">相向而行</span>。小明每分钟走60米，小红每分钟走50米，经过5分钟两人<span class="highlight" onclick="showExplain(\'xiangyu\', event)">相遇</span>。他们两家相距多少米？',
                 goal: '理解相遇问题的基本公式：路程 = (甲速 + 乙速) × 相遇时间',
                 speedA: 60, speedB: 50, time: 5, unit: '米',
                 isRing: false
             },
             2: {
-                text: '甲乙两车从A、B两地<span class="highlight" onclick="showExplain(\'tongshi\')">同时</span>出发<span class="highlight" onclick="showExplain(\'xiangxiang\')">相向而行</span>，甲车每小时行60千米，乙车每小时行48千米，两车在<span class="highlight" onclick="showExplain(\'zhongdian\')">距中点24千米</span>处相遇。求A、B两地的距离。',
+                text: '甲乙两车从A、B两地<span class="highlight" onclick="showExplain(\'tongshi\', event)">同时</span>出发<span class="highlight" onclick="showExplain(\'xiangxiang\', event)">相向而行</span>，甲车每小时行60千米，乙车每小时行48千米，两车在<span class="highlight" onclick="showExplain(\'zhongdian\', event)">距中点24千米</span>处相遇。求A、B两地的距离。',
                 goal: '理解"距中点"的含义，学会推导相遇时间',
                 speedA: 60, speedB: 48, time: 4, unit: 'km',
                 isRing: false
             },
             3: {
-                text: '甲乙两人从<span class="highlight" onclick="showExplain(\'huanxing\')">环形跑道</span>的同一点<span class="highlight" onclick="showExplain(\'tongshi\')">同时</span>出发，<span class="highlight" onclick="showExplain(\'xiangxiang\')">反向而行</span>。甲每秒跑5米，乙每秒跑3米。跑道周长400米，他们第二次<span class="highlight" onclick="showExplain(\'xiangyu\')">相遇</span>需要多少秒？',
+                text: '甲乙两人从<span class="highlight" onclick="showExplain(\'huanxing\', event)">环形跑道</span>的同一点<span class="highlight" onclick="showExplain(\'tongshi\', event)">同时</span>出发，<span class="highlight" onclick="showExplain(\'xiangxiang\', event)">反向而行</span>。甲每秒跑5米，乙每秒跑3米。跑道周长400米，他们第二次<span class="highlight" onclick="showExplain(\'xiangyu\', event)">相遇</span>需要多少秒？',
                 goal: '理解环形相遇问题：总路程 = 周长 × 相遇次数',
                 speedA: 5, speedB: 3, time: 100, unit: 'm', perimeter: 400,
                 isRing: true
@@ -319,9 +315,8 @@
         var currentTime = 0;
         var speedMult = 1;
         var totalDist = 324;
-        var canvas, ctx;
-        var carPosA = 0;
-        var carPosB = 0;
+        var canvas = null;
+        var ctx = null;
 
         // 初始化
         window.onload = function() {
@@ -333,6 +328,7 @@
         };
 
         function resizeCanvas() {
+            if (!canvas) return;
             var rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * 2;
             canvas.height = rect.height * 2;
@@ -384,7 +380,6 @@
             document.getElementById('valT').textContent = vT;
             
             updateCalc();
-            handleReset();
             drawScene();
         }
 
@@ -409,21 +404,25 @@
             if (isPlaying) {
                 isPlaying = false;
                 btn.textContent = '▶ 继续';
-                if (animId) cancelAnimationFrame(animId);
+                if (animId) {
+                    cancelAnimationFrame(animId);
+                    animId = null;
+                }
             } else {
                 isPlaying = true;
                 btn.textContent = '⏸ 暂停';
-                animate();
+                runAnimation();
             }
         }
 
         function handleReset() {
             isPlaying = false;
             currentTime = 0;
-            carPosA = 0;
-            carPosB = 0;
             document.getElementById('playBtn').textContent = '▶ 开始';
-            if (animId) cancelAnimationFrame(animId);
+            if (animId) {
+                cancelAnimationFrame(animId);
+                animId = null;
+            }
             updateLiveData(0);
             drawScene();
         }
@@ -435,15 +434,21 @@
             document.getElementById('speedLabel').textContent = speedMult + 'x';
         }
 
-        var lastT = 0;
-        function animate(t) {
+        var lastFrameTime = 0;
+        function runAnimation(timestamp) {
             if (!isPlaying) return;
-            if (!lastT) lastT = t;
-            var delta = (t - lastT) / 1000;
-            lastT = t;
+            
+            if (lastFrameTime === 0) {
+                lastFrameTime = timestamp || performance.now();
+            }
+            
+            var now = timestamp || performance.now();
+            var delta = (now - lastFrameTime) / 1000; // 秒
+            lastFrameTime = now;
             
             var totalTime = parseInt(document.getElementById('sliderT').value);
-            currentTime += delta * speedMult * (totalTime / 5);
+            var step = delta * speedMult * (totalTime / 8); // 8秒完成动画
+            currentTime = currentTime + step;
             
             if (currentTime >= totalTime) {
                 currentTime = totalTime;
@@ -455,7 +460,7 @@
             updateLiveData(currentTime);
             
             if (isPlaying) {
-                animId = requestAnimationFrame(animate);
+                animId = requestAnimationFrame(runAnimation);
             }
         }
 
@@ -474,7 +479,7 @@
 
         // 绘图
         function drawScene() {
-            if (!ctx) return;
+            if (!ctx || !canvas) return;
             var w = canvas.width / 2;
             var h = canvas.height / 2;
             
@@ -489,121 +494,195 @@
         }
 
         function drawLine(w, h) {
-            var pad = 40;
+            var pad = 50;
             var roadY = h / 2;
             var roadW = w - pad * 2;
             
+            // 背景
+            ctx.fillStyle = '#e8f4fc';
+            ctx.fillRect(0, 0, w, h);
+            
             // 道路
-            ctx.fillStyle = '#e9ecef';
-            ctx.fillRect(pad, roadY - 15, roadW, 30);
+            ctx.fillStyle = '#dfe6e9';
+            ctx.beginPath();
+            ctx.roundRect(pad, roadY - 20, roadW, 40, 8);
+            ctx.fill();
             
-            // 刻度线
-            ctx.strokeStyle = '#adb5bd';
-            ctx.lineWidth = 1;
-            for (var i = 0; i <= 10; i++) {
-                var x = pad + roadW * i / 10;
-                ctx.beginPath();
-                ctx.moveTo(x, roadY - 15);
-                ctx.lineTo(x, roadY + 15);
-                ctx.stroke();
-            }
+            // 道路中线（虚线）
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([10, 10]);
+            ctx.beginPath();
+            ctx.moveTo(pad + 10, roadY);
+            ctx.lineTo(w - pad - 10, roadY);
+            ctx.stroke();
+            ctx.setLineDash([]);
             
-            // A点
+            // A点标签
             ctx.fillStyle = '#3498db';
-            ctx.beginPath();
-            ctx.arc(pad, roadY, 8, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.fillStyle = '#2c3e50';
-            ctx.font = '12px sans-serif';
+            ctx.font = 'bold 14px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('A', pad, roadY - 25);
+            ctx.fillText('A', pad, roadY - 35);
             
-            // B点
+            // B点标签
             ctx.fillStyle = '#e74c3c';
-            ctx.beginPath();
-            ctx.arc(w - pad, roadY, 8, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.fillStyle = '#2c3e50';
-            ctx.fillText('B', w - pad, roadY - 25);
+            ctx.fillText('B', w - pad, roadY - 35);
             
             // 计算位置
             var vA = parseInt(document.getElementById('sliderA').value);
             var vB = parseInt(document.getElementById('sliderB').value);
             var totalTime = parseInt(document.getElementById('sliderT').value);
             
-            carPosA = (vA * currentTime / totalTime) * roadW;
-            carPosB = (vB * currentTime / totalTime) * roadW;
+            // 位置比例 (0-1)
+            var progress = currentTime / totalTime;
             
-            // 甲车
-            ctx.fillStyle = '#3498db';
-            ctx.font = '24px sans-serif';
-            ctx.fillText('🚗', pad + carPosA - 12, roadY + 8);
+            // 甲车位置（从A出发向右）
+            var carAx = pad + roadW * progress * (vA / (vA + vB));
             
-            // 乙车
-            ctx.fillStyle = '#e74c3c';
-            ctx.fillText('🚙', w - pad - carPosB - 12, roadY + 8);
+            // 乙车位置（从B出发向左）
+            var carBx = w - pad - roadW * progress * (vB / (vA + vB));
+            
+            // 绘制甲车（蓝色小车）
+            drawCar(carAx, roadY, '#3498db', true);
+            
+            // 绘制乙车（红色小车）
+            drawCar(carBx, roadY, '#e74c3c', false);
             
             // 距离标注
             ctx.fillStyle = '#9b59b6';
-            ctx.font = '12px sans-serif';
+            ctx.font = 'bold 14px sans-serif';
             ctx.fillText('总路程: ' + totalDist + ' km', w / 2, roadY + 45);
+            
+            // 进度标注
+            if (currentTime > 0) {
+                var elapsed = currentTime.toFixed(1);
+                ctx.fillStyle = '#7f8c8d';
+                ctx.font = '12px sans-serif';
+                ctx.fillText('已过 ' + elapsed + ' 小时', w / 2, roadY + 65);
+            }
+        }
+
+        function drawCar(x, y, color, facingRight) {
+            // 车身
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            if (facingRight) {
+                ctx.moveTo(x - 20, y - 8);
+                ctx.lineTo(x + 15, y - 8);
+                ctx.lineTo(x + 20, y);
+                ctx.lineTo(x + 15, y + 8);
+                ctx.lineTo(x - 20, y + 8);
+            } else {
+                ctx.moveTo(x + 20, y - 8);
+                ctx.lineTo(x - 15, y - 8);
+                ctx.lineTo(x - 20, y);
+                ctx.lineTo(x - 15, y + 8);
+                ctx.lineTo(x + 20, y + 8);
+            }
+            ctx.closePath();
+            ctx.fill();
+            
+            // 车窗
+            ctx.fillStyle = '#74b9ff';
+            ctx.fillRect(x - 10, y - 6, 12, 12);
+            
+            // 车轮
+            ctx.fillStyle = '#2d3436';
+            ctx.beginPath();
+            ctx.arc(x - 12, y + 8, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 12, y + 8, 5, 0, Math.PI * 2);
+            ctx.fill();
         }
 
         function drawRing(w, h) {
             var cx = w / 2;
             var cy = h / 2;
-            var rx = w / 2 - 40;
-            var ry = h / 2 - 20;
+            var rx = w / 2 - 50;
+            var ry = h / 2 - 25;
             
-            // 跑道
+            // 背景
+            ctx.fillStyle = '#e8f4fc';
+            ctx.fillRect(0, 0, w, h);
+            
+            // 跑道外圈
             ctx.strokeStyle = '#bdc3c7';
-            ctx.lineWidth = 20;
+            ctx.lineWidth = 25;
             ctx.beginPath();
             ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // 跑道内圈
+            ctx.strokeStyle = '#f8f9fa';
+            ctx.lineWidth = 15;
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, rx - 15, ry - 10, 0, 0, Math.PI * 2);
             ctx.stroke();
             
             // 起点标记
             ctx.fillStyle = '#27ae60';
             ctx.beginPath();
-            ctx.arc(cx + rx, cy, 6, 0, Math.PI * 2);
+            ctx.arc(cx + rx, cy, 8, 0, Math.PI * 2);
             ctx.fill();
             ctx.fillStyle = '#2c3e50';
             ctx.font = '12px sans-serif';
-            ctx.fillText('起点', cx + rx, cy - 15);
+            ctx.textAlign = 'center';
+            ctx.fillText('起点', cx + rx, cy - 20);
             
             // 计算角度
             var q = questions[currentLevel];
             var perimeter = q.perimeter || 400;
             var vA = parseInt(document.getElementById('sliderA').value);
             var vB = parseInt(document.getElementById('sliderB').value);
-            var totalTime = parseInt(document.getElementById('sliderT').value);
             
             var angleA = (currentTime * vA / perimeter) * Math.PI * 2;
             var angleB = (currentTime * vB / perimeter) * Math.PI * 2;
             
-            // 甲
-            var ax = cx + rx * Math.cos(-angleA);
-            var ay = cy + ry * Math.sin(-angleA);
-            ctx.font = '20px sans-serif';
-            ctx.fillText('🏃', ax - 10, ay + 5);
+            // 甲（蓝色，顺时针）
+            var ax = cx + (rx - 5) * Math.cos(-angleA);
+            var ay = cy + (ry - 5) * Math.sin(-angleA);
+            ctx.fillStyle = '#3498db';
+            ctx.beginPath();
+            ctx.arc(ax, ay, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = '10px sans-serif';
+            ctx.fillText('甲', ax, ay + 4);
             
-            // 乙
-            var bx = cx + rx * Math.cos(angleB);
-            var by = cy + ry * Math.sin(angleB);
-            ctx.fillText('🏃', bx - 10, by + 5);
+            // 乙（红色，逆时针）
+            var bx = cx + (rx - 5) * Math.cos(angleB);
+            var by = cy + (ry - 5) * Math.sin(angleB);
+            ctx.fillStyle = '#e74c3c';
+            ctx.beginPath();
+            ctx.arc(bx, by, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.fillText('乙', bx, by + 4);
         }
 
         // 句子解读
-        function showExplain(term) {
+        function showExplain(term, evt) {
+            // 隐藏所有解释
             var items = document.querySelectorAll('.explain-item');
-            items.forEach(function(el) { el.classList.remove('show'); });
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.remove('show');
+            }
             
+            // 显示选中的
             var el = document.getElementById('exp-' + term);
-            if (el) el.classList.add('show');
+            if (el) {
+                el.classList.add('show');
+            }
             
+            // 高亮选中的词
             var highs = document.querySelectorAll('.highlight');
-            highs.forEach(function(el) { el.classList.remove('active'); });
-            if (event && event.target) event.target.classList.add('active');
+            for (var i = 0; i < highs.length; i++) {
+                highs[i].classList.remove('active');
+            }
+            if (evt && evt.target) {
+                evt.target.classList.add('active');
+            }
         }
     </script>
 </body>
