@@ -749,12 +749,12 @@
                 totalTime = parseInt(document.getElementById('sliderT').value);
                 step = delta * speedMult * (totalTime / 6);
                 currentTime = Math.min(currentTime + step, totalTime);
-                met = currentTime >= totalTime * 0.95;
+                met = currentTime >= totalTime;
                 
                 drawScene();
                 updateLiveData(currentTime);
                 
-                if (currentTime >= totalTime * 0.95) {
+                if (currentTime >= totalTime) {
                     isPlaying = false;
                     document.getElementById('playBtn').textContent = '▶ 开始演示';
                 }
@@ -802,12 +802,12 @@
                 totalTime = q.time;
                 step = delta * (totalTime / 5);
                 currentTime = Math.min(currentTime + step, totalTime);
-                met = currentTime >= totalTime * 0.9;
+                met = currentTime >= totalTime;
                 
                 drawScene();
                 updateLiveData(currentTime);
                 
-                if (currentTime >= totalTime * 0.9) {
+                if (currentTime >= totalTime) {
                     isPlaying = false;
                     document.getElementById('playBtn').textContent = '▶ 开始演示';
                     document.getElementById('showGuideBtn').classList.add('show');
@@ -925,18 +925,39 @@
             
             // 计算位置
             var posAx, posBx;
+            var meetPoint = w / 2;  // 相遇点在中点附近
             
             if (q.hasParams) {
                 var vA = parseInt(document.getElementById('sliderA').value);
                 var vB = parseInt(document.getElementById('sliderB').value);
                 var totalTime = parseInt(document.getElementById('sliderT').value);
                 var progress = Math.min(currentTime / totalTime, 1);
-                posAx = pad + roadW * progress * (vA / (vA + vB));
-                posBx = w - pad - roadW * progress * (vB / (vA + vB));
+                
+                // 计算相遇点（按速度比例）
+                meetPoint = pad + roadW * (vA / (vA + vB));
+                
+                if (met) {
+                    // 相遇时，两车站在一起
+                    posAx = meetPoint;
+                    posBx = meetPoint;
+                } else {
+                    posAx = pad + roadW * progress * (vA / (vA + vB));
+                    posBx = w - pad - roadW * progress * (vB / (vA + vB));
+                }
             } else {
                 var progress = currentTime / q.time;
-                posAx = pad + roadW * progress * (q.speedA / (q.speedA + q.speedB));
-                posBx = w - pad - roadW * progress * (q.speedB / (q.speedA + q.speedB));
+                
+                // 计算相遇点（按速度比例）
+                meetPoint = pad + roadW * (q.speedA / (q.speedA + q.speedB));
+                
+                if (met) {
+                    // 相遇时，两车站在一起
+                    posAx = meetPoint;
+                    posBx = meetPoint;
+                } else {
+                    posAx = pad + roadW * progress * (q.speedA / (q.speedA + q.speedB));
+                    posBx = w - pad - roadW * progress * (q.speedB / (q.speedA + q.speedB));
+                }
             }
             
             // 绘制房子或标签
