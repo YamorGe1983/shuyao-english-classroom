@@ -79,6 +79,51 @@
         }
 
         /* 模块选择 */
+        /* 应用题可视化卡片 */
+        .visual-module-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-md);
+        }
+        .visual-module-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        .visual-icon {
+            font-size: 36px;
+            background: rgba(255,255,255,0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .visual-info {
+            flex: 1;
+            color: white;
+        }
+        .visual-info h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .visual-info p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .visual-arrow {
+            font-size: 20px;
+            color: white;
+            opacity: 0.8;
+        }
+
         .module-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -720,6 +765,17 @@
                             <div class="value">${this.stats.total - this.stats.correct}</div>
                             <div class="label">答错</div>
                         </div>
+                    </div>
+                    
+                    <!-- 应用题可视化 -->
+                    <div class="section-title">📐 应用题可视化</div>
+                    <div class="visual-module-card" onclick="location.href='math/meeting.html'">
+                        <div class="visual-icon">🚶</div>
+                        <div class="visual-info">
+                            <h3>相遇问题</h3>
+                            <p>三人难度递进 · 动画演示 · 分步引导</p>
+                        </div>
+                        <div class="visual-arrow">→</div>
                     </div>
                     
                     <!-- 模块选择 -->
