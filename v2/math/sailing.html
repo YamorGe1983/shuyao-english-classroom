@@ -852,12 +852,12 @@
                     <div class="data-item">
                         <div class="label">顺水船速度</div>
                         <div class="value">500</div>
-                        <div class="formula">400 + 100 = 400 + 100</div>
+                        <div class="formula">400 + 100 = 500 米/分钟</div>
                     </div>
                     <div class="data-item">
                         <div class="label">逆水船速度</div>
                         <div class="value">300</div>
-                        <div class="formula">400 - 100 = 400 - 100</div>
+                        <div class="formula">400 - 100 = 300 米/分钟</div>
                     </div>
                 </div>
             </div>
@@ -872,9 +872,39 @@
                     <div class="title">逆水速度</div>
                     <div class="formula">船速 - 水速</div>
                 </div>
-                <div class="formula-card boat-speed">
-                    <div class="title">船速</div>
-                    <div class="formula">(顺水速 + 逆水速) ÷ 2</div>
+            </div>
+
+            <!-- 步骤演示 -->
+            <div class="steps-demo" id="answerSteps1" style="display:none;">
+                <h3 style="font-size:16px;color:var(--primary);margin-bottom:16px;">📝 分步解答</h3>
+                
+                <div class="step-item" id="step1">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <div class="step-title">静水船</div>
+                        <div class="step-calc">400 × 5</div>
+                        <div class="step-result">= 2000 米</div>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step2">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <div class="step-title">顺水船</div>
+                        <div class="step-calc">400 + 100 = 500 米/分钟</div>
+                        <div class="step-calc" style="margin-top:4px;">500 × 5</div>
+                        <div class="step-result">= 2500 米</div>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step3">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <div class="step-title">逆水船</div>
+                        <div class="step-calc">400 - 100 = 300 米/分钟</div>
+                        <div class="step-calc" style="margin-top:4px;">300 × 5</div>
+                        <div class="step-result">= 1500 米</div>
+                    </div>
                 </div>
             </div>
 
@@ -1139,24 +1169,33 @@
         const BOAT_SPEED = 400;  // 静水船速
         const WATER_SPEED = 100; // 水速
         const TOTAL_TIME = 5;    // 比赛时间（分钟）
+        
+        // 三船实际速度
+        const STILL_SPEED = BOAT_SPEED;      // 静水船: 400
+        const DOWNSTREAM_SPEED = BOAT_SPEED + WATER_SPEED; // 顺水船: 500
+        const UPSTREAM_SPEED = BOAT_SPEED - WATER_SPEED;   // 逆水船: 300
 
         let raceAnimating = false;
         let raceFrame = 0;
         let abPhase = 1;
         let abAnimating = false;
+        let answerStep = 0;
 
         // ====== 入门题：绘制赛道 ======
         const raceCanvas = document.getElementById('raceCanvas');
         const raceCtx = raceCanvas.getContext('2d');
 
-        // 落叶数组
+        // 落叶数组（只在水流赛道上有落叶）
         let leaves = [];
-        for (let i = 0; i < 12; i++) {
+        // 顺水船赛道 (y≈160) 和逆水船赛道 (y≈240) 分布落叶
+        const leafLanes = [160, 240]; // 两条有水流的赛道
+        for (let i = 0; i < 15; i++) {
+            const lane = leafLanes[i % 2];
             leaves.push({
                 x: Math.random() * 860,
-                y: 140 + Math.random() * 160,
+                y: lane - 20 + Math.random() * 40, // 集中在赛道中心
                 size: 8 + Math.random() * 6,
-                speed: 0.5 + Math.random() * 0.3,
+                speed: 0.8 + Math.random() * 0.4, // 所有落叶都向右漂
                 wobble: Math.random() * Math.PI * 2
             });
         }
@@ -1292,18 +1331,21 @@
             // 画落叶
             leaves.forEach(leaf => drawLeaf(raceCtx, leaf));
             
-            // 计算船位置
+            // 计算船位置（增强速度差异）
+            const totalDistance = 800 - 120; // 680像素
+            const stillDistance = STILL_SPEED * TOTAL_TIME;        // 2000米
+            const downDistance = DOWNSTREAM_SPEED * TOTAL_TIME;    // 2500米
+            const upDistance = UPSTREAM_SPEED * TOTAL_TIME;        // 1500米
+            
             let boatPositions;
             if (raceAnimating) {
                 const progress = Math.min(raceFrame / (60 * TOTAL_TIME), 1);
-                const stillSpeed = BOAT_SPEED;
-                const downSpeed = BOAT_SPEED + WATER_SPEED;
-                const upSpeed = BOAT_SPEED - WATER_SPEED;
                 
+                // 每艘船根据实际速度和距离计算位置
                 boatPositions = {
-                    still: 60 + (800 - 120) * (progress * stillSpeed * TOTAL_TIME) / 2000,
-                    downstream: 60 + (800 - 120) * (progress * downSpeed * TOTAL_TIME) / 2500,
-                    upstream: 60 + (800 - 120) * (progress * upSpeed * TOTAL_TIME) / 1500
+                    still: 60 + totalDistance * Math.min(progress * STILL_SPEED * TOTAL_TIME / stillDistance, 1),
+                    downstream: 60 + totalDistance * Math.min(progress * DOWNSTREAM_SPEED * TOTAL_TIME / downDistance, 1),
+                    upstream: 60 + totalDistance * Math.min(progress * UPSTREAM_SPEED * TOTAL_TIME / upDistance, 1)
                 };
             } else {
                 boatPositions = { still: 60, downstream: 60, upstream: 60 };
@@ -1341,18 +1383,23 @@
             raceCtx.font = 'bold 20px sans-serif';
             raceCtx.fillText(`⏱ ${currentTime.toFixed(1)} / ${TOTAL_TIME} 分钟`, 400, 25);
             
-            // 更新落叶
+            // 更新落叶（所有落叶都向右漂，水流方向）
             leaves.forEach(leaf => {
                 leaf.x += leaf.speed;
                 leaf.wobble += 0.05;
-                if (leaf.x > 870) leaf.x = -20;
+                if (leaf.x > 870) {
+                    leaf.x = -20;
+                    // 重新随机分配到任意赛道
+                    leaf.y = 140 + Math.random() * 160;
+                }
             });
             
             if (raceAnimating) {
                 raceFrame++;
                 if (raceFrame >= 60 * TOTAL_TIME) {
                     raceAnimating = false;
-                    document.getElementById('answer1').classList.add('show');
+                    // 逐步显示答案
+                    showAnswerSteps();
                 }
             }
             
@@ -1363,14 +1410,42 @@
             if (!raceAnimating) {
                 raceAnimating = true;
                 raceFrame = 0;
+                answerStep = 0;
                 document.getElementById('answer1').classList.remove('show');
+                document.getElementById('answerSteps1').style.display = 'none';
+                document.getElementById('step1').style.opacity = '0.5';
+                document.getElementById('step2').style.opacity = '0.5';
+                document.getElementById('step3').style.opacity = '0.5';
             }
         }
 
         function resetRace() {
             raceAnimating = false;
             raceFrame = 0;
+            answerStep = 0;
             document.getElementById('answer1').classList.remove('show');
+            document.getElementById('answerSteps1').style.display = 'none';
+            document.getElementById('step1').style.opacity = '0.5';
+            document.getElementById('step2').style.opacity = '0.5';
+            document.getElementById('step3').style.opacity = '0.5';
+        }
+        
+        // 分步显示答案
+        function showAnswerSteps() {
+            document.getElementById('answerSteps1').style.display = 'block';
+            document.getElementById('step1').style.opacity = '1';
+            
+            setTimeout(() => {
+                document.getElementById('step2').style.opacity = '1';
+            }, 800);
+            
+            setTimeout(() => {
+                document.getElementById('step3').style.opacity = '1';
+            }, 1600);
+            
+            setTimeout(() => {
+                document.getElementById('answer1').classList.add('show');
+            }, 2400);
         }
 
         // ====== 基础题：AB往返 ======
