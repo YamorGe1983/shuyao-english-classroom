@@ -198,35 +198,173 @@
         .condition-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
         .condition-item { background: rgba(255,255,255,0.2); padding: 10px; border-radius: var(--radius-sm); text-align: center; }
         .condition-item .label { font-size: 12px; opacity: 0.85; }
-        .condition-item .value { font-size: 18px; font-weight: 700; }
+        /* 入门题专属样式 */
+        .question-box { background: var(--bg-card); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+        .question-box h3 { font-size: 20px; color: var(--primary); margin-bottom: 16px; }
+        .formula-cards { display: flex; justify-content: center; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+        .formula-card-item { background: white; border-radius: var(--radius-md); padding: 16px; text-align: center; min-width: 150px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .formula-card-item .title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .formula-card-item.downstream { border-top: 4px solid #27AE60; }
+        .formula-card-item.upstream { border-top: 4px solid #E67E22; }
+        .formula-card-item .formula { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .steps-demo { margin: 20px 0; }
+        .steps-demo h3 { margin-bottom: 16px; }
+        .step-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: rgba(255,255,255,0.6); border-radius: var(--radius-md); margin-bottom: 12px; transition: opacity 0.3s; }
+        .step-item .step-num { width: 36px; height: 36px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+        .step-item .step-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .step-item .step-calc { font-size: 14px; color: var(--text-secondary); }
+        .step-item .step-result { font-size: 20px; font-weight: 700; color: var(--success); margin-top: 4px; }
+        .answer-box { background: linear-gradient(135deg, #D4EFDF, #ABEBC6); border-radius: var(--radius-lg); padding: 24px; margin-top: 20px; text-align: center; }
+        .answer-box h3 { font-size: 20px; color: var(--success); margin-bottom: 20px; }
+        .answer-value { font-size: 32px; font-weight: 700; color: var(--success); }
+        .answer-unit { font-size: 14px; color: var(--text-secondary); }
     </style>
 </head>
 <body>
     <div class="wave-bg"><div class="wave"></div></div>
     <div class="container">
         <header class="header">
-            <button class="back-btn" onclick="history.back()">←</button>
-            <span class="header-icon">⛵</span>
+            <a href="index.html" class="back-btn">←</a>
+            <span class="header-icon">🚢</span>
             <h1>行船问题</h1>
         </header>
+
+        <!-- 难度选择 -->
         <section class="difficulty-section">
             <div class="section-title">选择难度</div>
             <div class="difficulty-tabs">
                 <div class="diff-tab active" data-level="1">
                     <div class="stars">⭐</div>
-                    <div class="title">基础题</div>
-                    <div style="font-size:12px;color:#666;margin-top:4px">求船速和水速</div>
+                    <div class="title">入门题</div>
+                    <div style="font-size:12px;opacity:0.7">三船赛道对比</div>
                 </div>
                 <div class="diff-tab" data-level="2">
                     <div class="stars">⭐⭐</div>
+                    <div class="title">基础题</div>
+                    <div style="font-size:12px;opacity:0.7">求船速水速</div>
+                </div>
+                <div class="diff-tab" data-level="3">
+                    <div class="stars">⭐⭐⭐</div>
                     <div class="title">进阶题</div>
-                    <div style="font-size:12px;color:#666;margin-top:4px">求路程</div>
+                    <div style="font-size:12px;opacity:0.7">求路程</div>
                 </div>
             </div>
         </section>
 
-        <!-- 基础题 -->
+        <!-- 入门题：三船赛道 -->
         <div id="level1" class="level-content active">
+            <div class="question-box">
+                <h3>⭐ 入门题：三船赛道对比</h3>
+                <div class="question-text">
+                    小船静水速度 <strong>400 米/分钟</strong>，水流速度 <strong>100 米/分钟</strong>。
+                    同时出发 <strong>5 分钟</strong>，静水船、顺水船、逆水船各走多远？
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <div class="canvas-title">🚢 三船赛道对比</div>
+                <div class="canvas-wrapper">
+                    <canvas id="raceCanvas" width="860" height="320"></canvas>
+                </div>
+                <div class="controls">
+                    <button class="ctrl-btn btn-start" onclick="startRace()">▶ 开始</button>
+                    <button class="ctrl-btn btn-reset" onclick="resetRace()">↺ 重置</button>
+                </div>
+            </div>
+
+            <!-- 数据板 -->
+            <div class="data-board">
+                <h3>📊 速度数据</h3>
+                <div class="data-items">
+                    <div class="data-item">
+                        <div class="label">静水船速度</div>
+                        <div class="value">400</div>
+                        <div class="formula">米/分钟</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">顺水船速度</div>
+                        <div class="value">500</div>
+                        <div class="formula">400 + 100 = 500 米/分钟</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">逆水船速度</div>
+                        <div class="value">300</div>
+                        <div class="formula">400 - 100 = 300 米/分钟</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 公式卡片 -->
+            <div class="formula-cards">
+                <div class="formula-card-item downstream">
+                    <div class="title">顺水速度</div>
+                    <div class="formula">船速 + 水速</div>
+                </div>
+                <div class="formula-card-item upstream">
+                    <div class="title">逆水速度</div>
+                    <div class="formula">船速 - 水速</div>
+                </div>
+            </div>
+
+            <!-- 步骤演示 -->
+            <div class="steps-demo" id="answerSteps1" style="display:none;">
+                <h3 style="font-size:16px;color:var(--primary);margin-bottom:16px;">📝 分步解答</h3>
+                
+                <div class="step-item" id="step1" style="opacity:0.5;">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <div class="step-title">静水船</div>
+                        <div class="step-calc">400 × 5</div>
+                        <div class="step-result">= 2000 米</div>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step2" style="opacity:0.5;">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <div class="step-title">顺水船</div>
+                        <div class="step-calc">400 + 100 = 500 米/分钟</div>
+                        <div class="step-calc" style="margin-top:4px;">500 × 5</div>
+                        <div class="step-result">= 2500 米</div>
+                    </div>
+                </div>
+
+                <div class="step-item" id="step3" style="opacity:0.5;">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <div class="step-title">逆水船</div>
+                        <div class="step-calc">400 - 100 = 300 米/分钟</div>
+                        <div class="step-calc" style="margin-top:4px;">300 × 5</div>
+                        <div class="step-result">= 1500 米</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 答案 -->
+            <div class="answer-box" id="answer1">
+                <h3>🎉 答案</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+                    <div>
+                        <div style="font-size:14px;opacity:0.85;">静水船</div>
+                        <div class="answer-value">2000</div>
+                        <div class="answer-unit">米</div>
+                    </div>
+                    <div>
+                        <div style="font-size:14px;opacity:0.85;">顺水船</div>
+                        <div class="answer-value">2500</div>
+                        <div class="answer-unit">米</div>
+                    </div>
+                    <div>
+                        <div style="font-size:14px;opacity:0.85;">逆水船</div>
+                        <div class="answer-value">1500</div>
+                        <div class="answer-unit">米</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 基础题：求船速水速 -->
+        <div id="level2" class="level-content">
             <div class="question-card">
                 <span class="question-badge">🚢 基础题</span>
                 <div class="question-text">
@@ -239,11 +377,11 @@
             <div class="canvas-container">
                 <div class="canvas-title">🚣 观看动画，理解顺水逆水</div>
                 <div class="canvas-wrapper">
-                    <canvas id="raceCanvas" width="860" height="320"></canvas>
+                    <canvas id="raceCanvas2" width="860" height="320"></canvas>
                 </div>
                 <div class="controls">
-                    <button class="ctrl-btn btn-start" onclick="startRace()">▶ 开始动画</button>
-                    <button class="ctrl-btn btn-reset" onclick="resetRace()">↺ 重置</button>
+                    <button class="ctrl-btn btn-start" onclick="startRace2()">▶ 开始动画</button>
+                    <button class="ctrl-btn btn-reset" onclick="resetRace2()">↺ 重置</button>
                 </div>
             </div>
 
@@ -271,7 +409,7 @@
                 </div>
             </div>
 
-            <div class="answer-section" id="answer1">
+            <div class="answer-section" id="answer2">
                 <div class="answer-title">📖 解题步骤与公式推导</div>
                 <div class="answer-content">
                     <div class="formula-card">
@@ -316,8 +454,8 @@
             </div>
         </div>
 
-        <!-- 进阶题 -->
-        <div id="level2" class="level-content">
+        <!-- 进阶题：求路程 -->
+        <div id="level3" class="level-content">
             <div class="question-card">
                 <span class="question-badge">🚀 进阶题</span>
                 <div class="question-text">
@@ -427,24 +565,276 @@
     </div>
 
     <script>
-        // ====== 基础题：竞速动画 ======
+        // ====== 入门题：三船赛道 ======
         const raceCanvas = document.getElementById('raceCanvas');
         const raceCtx = raceCanvas.getContext('2d');
-        const lanes = [{ y: 80, label: '顺水 A→B', speed: 500 }, { y: 160, label: '静水' }, { y: 240, label: '逆水 B→A', speed: 300 }];
-        let boatPositions = { still: 100, downstream: 100, upstream: 760 };
+
+        const STILL_SPEED = 400;
+        const DOWNSTREAM_SPEED = 500;
+        const UPSTREAM_SPEED = 300;
+        const TOTAL_TIME = 5;
+
+        let leaves = [];
+        const leafLanes = [160, 240];
+        for (let i = 0; i < 15; i++) {
+            const lane = leafLanes[i % 2];
+            leaves.push({
+                x: Math.random() * 860,
+                y: lane - 20 + Math.random() * 40,
+                size: 8 + Math.random() * 6,
+                speed: 0.8 + Math.random() * 0.4,
+                wobble: Math.random() * Math.PI * 2
+            });
+        }
+
         let raceAnimating = false;
         let raceFrame = 0;
-        const TOTAL_TIME = 6;
+        let answerStep = 0;
 
-        // 落叶数组
-        let leaves = [];
+        function drawBoat(ctx, x, y, direction = 1, type = 'still') {
+            ctx.save();
+            ctx.translate(x, y);
+            if (direction === -1) ctx.scale(-1, 1);
+            
+            ctx.fillStyle = '#8B4513';
+            ctx.beginPath();
+            ctx.moveTo(-30, 5);
+            ctx.lineTo(-25, 15);
+            ctx.lineTo(25, 15);
+            ctx.lineTo(35, 5);
+            ctx.lineTo(25, -5);
+            ctx.lineTo(-25, -5);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.fillStyle = '#A0522D';
+            ctx.beginPath();
+            ctx.moveTo(-20, -5);
+            ctx.lineTo(20, -5);
+            ctx.lineTo(15, 5);
+            ctx.lineTo(-15, 5);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.strokeStyle = '#654321';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(0, -5);
+            ctx.lineTo(0, -30);
+            ctx.stroke();
+            
+            ctx.fillStyle = type === 'downstream' ? '#27AE60' : (type === 'upstream' ? '#F39C12' : '#3498DB');
+            ctx.beginPath();
+            ctx.moveTo(0, -28);
+            ctx.lineTo(18, -20);
+            ctx.lineTo(0, -8);
+            ctx.closePath();
+            ctx.fill();
+            
+            if (direction === 1) {
+                ctx.fillStyle = 'rgba(39, 174, 96, 0.8)';
+                ctx.beginPath();
+                ctx.moveTo(45, 0);
+                ctx.lineTo(35, -8);
+                ctx.lineTo(35, 8);
+                ctx.closePath();
+                ctx.fill();
+            } else {
+                ctx.fillStyle = 'rgba(231, 76, 60, 0.8)';
+                ctx.beginPath();
+                ctx.moveTo(-45, 0);
+                ctx.lineTo(-35, -8);
+                ctx.lineTo(-35, 8);
+                ctx.closePath();
+                ctx.fill();
+            }
+            
+            ctx.restore();
+        }
+
+        function drawLeaf(ctx, leaf) {
+            ctx.save();
+            ctx.translate(leaf.x, leaf.y);
+            ctx.rotate(leaf.wobble);
+            
+            ctx.fillStyle = '#8B7355';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, leaf.size, leaf.size / 2, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.strokeStyle = '#6B5344';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(-leaf.size, 0);
+            ctx.lineTo(leaf.size, 0);
+            ctx.stroke();
+            
+            ctx.restore();
+        }
+
+        function drawWaterFlow(ctx, y) {
+            ctx.strokeStyle = 'rgba(132, 193, 233, 0.5)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([10, 15]);
+            
+            for (let x = 0; x < 860; x += 40) {
+                const offset = (Date.now() / 50 + x) % 60;
+                ctx.beginPath();
+                ctx.moveTo(x + offset, y);
+                ctx.lineTo(x + offset + 20, y);
+                ctx.stroke();
+            }
+            ctx.setLineDash([]);
+        }
+
+        function drawRace() {
+            raceCtx.clearRect(0, 0, 860, 320);
+            
+            const lanes = [
+                { y: 80, label: '静水船', type: 'still', hasFlow: false },
+                { y: 160, label: '顺水船', type: 'downstream', hasFlow: true },
+                { y: 240, label: '逆水船', type: 'upstream', hasFlow: true }
+            ];
+            
+            lanes.forEach((lane, idx) => {
+                raceCtx.fillStyle = idx % 2 === 0 ? 'rgba(232, 244, 253, 0.5)' : 'rgba(212, 233, 247, 0.5)';
+                raceCtx.fillRect(0, lane.y - 45, 860, 70);
+                
+                if (lane.hasFlow) {
+                    drawWaterFlow(raceCtx, lane.y);
+                }
+                
+                raceCtx.fillStyle = lane.type === 'downstream' ? '#27AE60' : (lane.type === 'upstream' ? '#E67E22' : '#3498DB');
+                raceCtx.font = 'bold 14px sans-serif';
+                raceCtx.fillText(lane.label, 15, lane.y - 28);
+            });
+            
+            leaves.forEach(leaf => drawLeaf(raceCtx, leaf));
+            
+            const totalDistance = 800 - 120;
+            const stillDistance = STILL_SPEED * TOTAL_TIME;
+            const downDistance = DOWNSTREAM_SPEED * TOTAL_TIME;
+            const upDistance = UPSTREAM_SPEED * TOTAL_TIME;
+            
+            let boatPositions;
+            if (raceAnimating) {
+                const progress = Math.min(raceFrame / (60 * TOTAL_TIME), 1);
+                
+                boatPositions = {
+                    still: 60 + totalDistance * Math.min(progress * STILL_SPEED * TOTAL_TIME / stillDistance, 1),
+                    downstream: 60 + totalDistance * Math.min(progress * DOWNSTREAM_SPEED * TOTAL_TIME / downDistance, 1),
+                    upstream: 60 + totalDistance * Math.min(progress * UPSTREAM_SPEED * TOTAL_TIME / upDistance, 1)
+                };
+            } else {
+                boatPositions = { still: 60, downstream: 60, upstream: 60 };
+            }
+            
+            drawBoat(raceCtx, boatPositions.still, lanes[0].y, 1, 'still');
+            drawBoat(raceCtx, boatPositions.downstream, lanes[1].y, 1, 'downstream');
+            drawBoat(raceCtx, boatPositions.upstream, lanes[2].y, -1, 'upstream');
+            
+            raceCtx.strokeStyle = '#27AE60';
+            raceCtx.lineWidth = 4;
+            raceCtx.setLineDash([8, 4]);
+            raceCtx.beginPath();
+            raceCtx.moveTo(820, 30);
+            raceCtx.lineTo(820, 290);
+            raceCtx.stroke();
+            raceCtx.setLineDash([]);
+            
+            raceCtx.fillStyle = '#27AE60';
+            raceCtx.fillRect(815, 25, 10, 50);
+            raceCtx.fillStyle = '#FFF';
+            raceCtx.beginPath();
+            raceCtx.moveTo(825, 25);
+            raceCtx.lineTo(845, 35);
+            raceCtx.lineTo(825, 45);
+            raceCtx.closePath();
+            raceCtx.fill();
+            
+            const currentTime = raceAnimating ? Math.min(raceFrame / 60, TOTAL_TIME) : 0;
+            raceCtx.fillStyle = '#2D3436';
+            raceCtx.font = 'bold 20px sans-serif';
+            raceCtx.fillText('⏱ ' + currentTime.toFixed(1) + ' / ' + TOTAL_TIME + ' 分钟', 400, 25);
+            
+            leaves.forEach(leaf => {
+                leaf.x += leaf.speed;
+                leaf.wobble += 0.05;
+                if (leaf.x > 870) {
+                    leaf.x = -20;
+                    leaf.y = 140 + Math.random() * 160;
+                }
+            });
+            
+            if (raceAnimating) {
+                raceFrame++;
+                if (raceFrame >= 60 * TOTAL_TIME) {
+                    raceAnimating = false;
+                    showAnswerSteps();
+                }
+            }
+            
+            requestAnimationFrame(drawRace);
+        }
+
+        function startRace() {
+            if (!raceAnimating) {
+                raceAnimating = true;
+                raceFrame = 0;
+                answerStep = 0;
+                document.getElementById('answer1').classList.remove('show');
+                document.getElementById('answerSteps1').style.display = 'none';
+                document.getElementById('step1').style.opacity = '0.5';
+                document.getElementById('step2').style.opacity = '0.5';
+                document.getElementById('step3').style.opacity = '0.5';
+            }
+        }
+
+        function resetRace() {
+            raceAnimating = false;
+            raceFrame = 0;
+            answerStep = 0;
+            document.getElementById('answer1').classList.remove('show');
+            document.getElementById('answerSteps1').style.display = 'none';
+            document.getElementById('step1').style.opacity = '0.5';
+            document.getElementById('step2').style.opacity = '0.5';
+            document.getElementById('step3').style.opacity = '0.5';
+        }
+        
+        function showAnswerSteps() {
+            document.getElementById('answerSteps1').style.display = 'block';
+            document.getElementById('step1').style.opacity = '1';
+            
+            setTimeout(() => {
+                document.getElementById('step2').style.opacity = '1';
+            }, 800);
+            
+            setTimeout(() => {
+                document.getElementById('step3').style.opacity = '1';
+            }, 1600);
+            
+            setTimeout(() => {
+                document.getElementById('answer1').classList.add('show');
+            }, 2400);
+        }
+
+        // ====== 基础题：竞速动画 ======
+        const raceCanvas2 = document.getElementById('raceCanvas2');
+        const raceCtx2 = raceCanvas2.getContext('2d');
+        const lanes2 = [{ y: 80, label: '顺水 A→B', speed: 500 }, { y: 160, label: '静水' }, { y: 240, label: '逆水 B→A', speed: 300 }];
+        let boatPositions2 = { still: 100, downstream: 100, upstream: 760 };
+        let raceAnimating2 = false;
+        let raceFrame2 = 0;
+        const TOTAL_TIME2 = 6;
+
+        let leaves2 = [];
         function initLeaves() {
-            leaves = [];
+            leaves2 = [];
             for (let i = 0; i < 12; i++) {
                 const laneIndex = i % 3;
-                leaves.push({
+                leaves2.push({
                     x: Math.random() * 860,
-                    y: lanes[laneIndex].y - 15 + Math.random() * 30,
+                    y: lanes2[laneIndex].y - 15 + Math.random() * 30,
                     size: 8 + Math.random() * 6,
                     speed: 0.8 + Math.random() * 0.5,
                     wobble: Math.random() * Math.PI * 2,
@@ -454,7 +844,7 @@
         }
         initLeaves();
 
-        function drawBoat(ctx, x, y, direction = 1, type = 'still') {
+        function drawBoat2(ctx, x, y, direction = 1, type = 'still') {
             ctx.save();
             ctx.translate(x, y);
             if (direction < 0) ctx.scale(-1, 1);
@@ -476,7 +866,7 @@
             ctx.restore();
         }
 
-        function drawLeaf(ctx, leaf) {
+        function drawLeaf2(ctx, leaf) {
             ctx.save();
             ctx.translate(leaf.x, leaf.y + Math.sin(leaf.wobble) * 4);
             ctx.rotate(Math.sin(leaf.wobble) * 0.3);
@@ -492,111 +882,102 @@
             ctx.restore();
         }
 
-        function drawRace() {
-            raceCtx.clearRect(0, 0, 860, 320);
-            const gradient = raceCtx.createLinearGradient(0, 0, 0, 320);
+        function drawRace2() {
+            raceCtx2.clearRect(0, 0, 860, 320);
+            const gradient = raceCtx2.createLinearGradient(0, 0, 0, 320);
             gradient.addColorStop(0, '#D4E9F7');
             gradient.addColorStop(1, '#B8D4E8');
-            raceCtx.fillStyle = gradient;
-            raceCtx.fillRect(0, 0, 860, 320);
-            raceCtx.strokeStyle = 'rgba(132, 193, 233, 0.3)';
-            raceCtx.lineWidth = 1;
+            raceCtx2.fillStyle = gradient;
+            raceCtx2.fillRect(0, 0, 860, 320);
+            raceCtx2.strokeStyle = 'rgba(132, 193, 233, 0.3)';
+            raceCtx2.lineWidth = 1;
             for (let y = 20; y < 300; y += 25) {
-                raceCtx.beginPath();
+                raceCtx2.beginPath();
                 for (let x = 0; x < 860; x += 4) {
                     const waveY = y + Math.sin((x + Date.now() / 300) / 20) * 3;
-                    if (x === 0) raceCtx.moveTo(x, waveY);
-                    else raceCtx.lineTo(x, waveY);
+                    if (x === 0) raceCtx2.moveTo(x, waveY);
+                    else raceCtx2.lineTo(x, waveY);
                 }
-                raceCtx.stroke();
+                raceCtx2.stroke();
             }
-            raceCtx.strokeStyle = 'rgba(132, 193, 233, 0.5)';
-            raceCtx.lineWidth = 1;
-            raceCtx.setLineDash([5, 5]);
-            raceCtx.beginPath();
-            raceCtx.moveTo(50, 120); raceCtx.lineTo(850, 120);
-            raceCtx.moveTo(50, 200); raceCtx.lineTo(850, 200);
-            raceCtx.stroke();
-            raceCtx.setLineDash([]);
-            raceCtx.fillStyle = '#3498DB';
-            raceCtx.fillRect(20, 30, 50, 280);
-            raceCtx.fillStyle = '#FFF';
-            raceCtx.font = 'bold 32px sans-serif';
-            raceCtx.fillText('A', 35, 175);
-            raceCtx.fillStyle = '#27AE60';
-            raceCtx.fillRect(790, 30, 50, 280);
-            raceCtx.fillStyle = '#FFF';
-            raceCtx.fillText('B', 805, 175);
-            raceCtx.fillStyle = '#27AE60';
-            raceCtx.font = 'bold 14px sans-serif';
-            raceCtx.fillText('顺水 500米/分', 400, 65);
-            raceCtx.fillStyle = '#636E72';
-            raceCtx.fillText('静水 400米/分', 400, 145);
-            raceCtx.fillStyle = '#E67E22';
-            raceCtx.fillText('逆水 300米/分', 400, 225);
-            leaves.forEach(leaf => drawLeaf(raceCtx, leaf));
-            drawBoat(raceCtx, boatPositions.still, lanes[0].y, 1, 'still');
-            drawBoat(raceCtx, boatPositions.downstream, lanes[1].y, 1, 'downstream');
-            drawBoat(raceCtx, boatPositions.upstream, lanes[2].y, -1, 'upstream');
-            raceCtx.strokeStyle = '#27AE60';
-            raceCtx.lineWidth = 4;
-            raceCtx.setLineDash([8, 4]);
-            raceCtx.beginPath();
-            raceCtx.moveTo(820, 30); raceCtx.lineTo(820, 290);
-            raceCtx.stroke();
-            raceCtx.setLineDash([]);
-            raceCtx.fillStyle = '#27AE60';
-            raceCtx.fillRect(815, 25, 10, 50);
-            raceCtx.fillStyle = '#FFF';
-            raceCtx.beginPath();
-            raceCtx.moveTo(825, 25); raceCtx.lineTo(845, 35); raceCtx.lineTo(825, 45);
-            raceCtx.closePath();
-            raceCtx.fill();
-            const currentTime = raceAnimating ? Math.min(raceFrame / 60, TOTAL_TIME) : 0;
-            raceCtx.fillStyle = '#2D3436';
-            raceCtx.font = 'bold 20px sans-serif';
-            raceCtx.fillText('⏱ ' + currentTime.toFixed(1) + ' / ' + TOTAL_TIME + ' 分钟', 400, 25);
-            leaves.forEach(leaf => {
+            raceCtx2.strokeStyle = 'rgba(132, 193, 233, 0.5)';
+            raceCtx2.lineWidth = 1;
+            raceCtx2.setLineDash([5, 5]);
+            raceCtx2.beginPath();
+            raceCtx2.moveTo(50, 120); raceCtx2.lineTo(850, 120);
+            raceCtx2.moveTo(50, 200); raceCtx2.lineTo(850, 200);
+            raceCtx2.stroke();
+            raceCtx2.setLineDash([]);
+            raceCtx2.fillStyle = '#3498DB';
+            raceCtx2.fillRect(20, 30, 50, 280);
+            raceCtx2.fillStyle = '#FFF';
+            raceCtx2.font = 'bold 32px sans-serif';
+            raceCtx2.fillText('A', 35, 175);
+            raceCtx2.fillStyle = '#27AE60';
+            raceCtx2.fillRect(790, 30, 50, 280);
+            raceCtx2.fillStyle = '#FFF';
+            raceCtx2.fillText('B', 805, 175);
+            raceCtx2.fillStyle = '#27AE60';
+            raceCtx2.font = 'bold 14px sans-serif';
+            raceCtx2.fillText('顺水 500米/分', 400, 65);
+            raceCtx2.fillStyle = '#636E72';
+            raceCtx2.fillText('静水 400米/分', 400, 145);
+            raceCtx2.fillStyle = '#E67E22';
+            raceCtx2.fillText('逆水 300米/分', 400, 225);
+            leaves2.forEach(leaf => drawLeaf2(raceCtx2, leaf));
+            drawBoat2(raceCtx2, boatPositions2.still, lanes2[0].y, 1, 'still');
+            drawBoat2(raceCtx2, boatPositions2.downstream, lanes2[1].y, 1, 'downstream');
+            drawBoat2(raceCtx2, boatPositions2.upstream, lanes2[2].y, -1, 'upstream');
+            raceCtx2.strokeStyle = '#27AE60';
+            raceCtx2.lineWidth = 4;
+            raceCtx2.setLineDash([8, 4]);
+            raceCtx2.beginPath();
+            raceCtx2.moveTo(820, 30); raceCtx2.lineTo(820, 290);
+            raceCtx2.stroke();
+            raceCtx2.setLineDash([]);
+            raceCtx2.fillStyle = '#27AE60';
+            raceCtx2.fillRect(815, 25, 10, 50);
+            raceCtx2.fillStyle = '#FFF';
+            raceCtx2.beginPath();
+            raceCtx2.moveTo(825, 25); raceCtx2.lineTo(845, 35); raceCtx2.lineTo(825, 45);
+            raceCtx2.closePath();
+            raceCtx2.fill();
+            const currentTime = raceAnimating2 ? Math.min(raceFrame2 / 60, TOTAL_TIME2) : 0;
+            raceCtx2.fillStyle = '#2D3436';
+            raceCtx2.font = 'bold 20px sans-serif';
+            raceCtx2.fillText('⏱ ' + currentTime.toFixed(1) + ' / ' + TOTAL_TIME2 + ' 分钟', 400, 25);
+            leaves2.forEach(leaf => {
                 leaf.x += leaf.speed;
                 leaf.wobble += 0.05;
                 if (leaf.x > 870) {
                     leaf.x = -20;
-                    leaf.y = lanes[Math.floor(Math.random() * 3)].y - 15 + Math.random() * 30;
+                    leaf.y = lanes2[Math.floor(Math.random() * 3)].y - 15 + Math.random() * 30;
                 }
             });
-            if (raceAnimating) {
-                raceFrame++;
-                boatPositions.downstream = 100 + (raceFrame / (60 * TOTAL_TIME)) * 660;
-                boatPositions.still = 100 + (raceFrame / (60 * TOTAL_TIME)) * 480;
-                boatPositions.upstream = 760 - (raceFrame / (60 * TOTAL_TIME)) * 300;
-                if (raceFrame >= 60 * TOTAL_TIME) {
-                    raceAnimating = false;
-                    showAnswerSteps();
+            if (raceAnimating2) {
+                raceFrame2++;
+                boatPositions2.downstream = 100 + (raceFrame2 / (60 * TOTAL_TIME2)) * 660;
+                boatPositions2.still = 100 + (raceFrame2 / (60 * TOTAL_TIME2)) * 480;
+                boatPositions2.upstream = 760 - (raceFrame2 / (60 * TOTAL_TIME2)) * 300;
+                if (raceFrame2 >= 60 * TOTAL_TIME2) {
+                    raceAnimating2 = false;
+                    document.getElementById('answer2').classList.add('show');
                 }
             }
-            requestAnimationFrame(drawRace);
+            requestAnimationFrame(drawRace2);
         }
 
-        function startRace() {
-            if (!raceAnimating) {
-                raceAnimating = true;
-                raceFrame = 0;
-                answerStep = 0;
-                document.getElementById('answer1').classList.remove('show');
+        function startRace2() {
+            if (!raceAnimating2) {
+                raceAnimating2 = true;
+                raceFrame2 = 0;
             }
         }
 
-        function resetRace() {
-            raceAnimating = false;
-            raceFrame = 0;
-            answerStep = 0;
-            boatPositions = { still: 100, downstream: 100, upstream: 760 };
-            document.getElementById('answer1').classList.remove('show');
-        }
-
-        let answerStep = 0;
-        function showAnswerSteps() {
-            document.getElementById('answer1').classList.add('show');
+        function resetRace2() {
+            raceAnimating2 = false;
+            raceFrame2 = 0;
+            boatPositions2 = { still: 100, downstream: 100, upstream: 760 };
         }
 
         // ====== 基础题：AB往返 ======
@@ -706,7 +1087,7 @@
                 boatX = 100;
             }
             const boatType = abPhase === 1 ? 'downstream' : 'upstream';
-            drawBoat(abCtx, boatX, 140, abDirection, boatType);
+            drawBoat2(abCtx, boatX, 140, abDirection, boatType);
             if (abPhase === 1) {
                 abCtx.fillStyle = '#27AE60';
                 abCtx.font = 'bold 14px sans-serif';
@@ -848,7 +1229,9 @@
             });
         });
 
+        // ====== 初始化 ======
         drawRace();
+        drawRace2();
         drawAB();
         updateGuess();
     </script>
