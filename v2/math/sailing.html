@@ -374,16 +374,7 @@
                 </div>
             </div>
 
-            <div class="canvas-container">
-                <div class="canvas-title">🚣 观看动画，理解顺水逆水</div>
-                <div class="canvas-wrapper">
-                    <canvas id="raceCanvas2" width="860" height="320"></canvas>
-                </div>
-                <div class="controls">
-                    <button class="ctrl-btn btn-start" onclick="startRace2()">▶ 开始动画</button>
-                    <button class="ctrl-btn btn-reset" onclick="resetRace2()">↺ 重置</button>
-                </div>
-            </div>
+            
 
             <div class="data-board">
                 <h3>📊 动画数据</h3>
@@ -712,18 +703,19 @@
             leaves.forEach(leaf => drawLeaf(raceCtx, leaf));
             
             const totalDistance = 800 - 120;
-            const stillDistance = STILL_SPEED * TOTAL_TIME;
-            const downDistance = DOWNSTREAM_SPEED * TOTAL_TIME;
-            const upDistance = UPSTREAM_SPEED * TOTAL_TIME;
             
             let boatPositions;
             if (raceAnimating) {
                 const progress = Math.min(raceFrame / (60 * TOTAL_TIME), 1);
                 
+                // 三艘船以不同速度移动（赛道长度相同）
+                // 顺水船最快：500米/分 → 用时少，先到终点
+                // 静水船中等：400米/分 → 5分钟到达
+                // 逆水船最慢：300米/分 → 用时多，最后到达
                 boatPositions = {
-                    still: 60 + totalDistance * Math.min(progress * STILL_SPEED * TOTAL_TIME / stillDistance, 1),
-                    downstream: 60 + totalDistance * Math.min(progress * DOWNSTREAM_SPEED * TOTAL_TIME / downDistance, 1),
-                    upstream: 60 + totalDistance * Math.min(progress * UPSTREAM_SPEED * TOTAL_TIME / upDistance, 1)
+                    downstream: 60 + totalDistance * Math.min(progress * (DOWNSTREAM_SPEED / STILL_SPEED), 1),
+                    still: 60 + totalDistance * progress,
+                    upstream: 60 + totalDistance * Math.min(progress * (UPSTREAM_SPEED / STILL_SPEED), 1)
                 };
             } else {
                 boatPositions = { still: 60, downstream: 60, upstream: 60 };
@@ -819,12 +811,12 @@
         }
 
         // ====== 基础题：竞速动画 ======
-        const raceCanvas2 = document.getElementById('raceCanvas2');
-        const raceCtx2 = raceCanvas2.getContext('2d');
-        const lanes2 = [{ y: 80, label: '顺水 A→B', speed: 500 }, { y: 160, label: '静水' }, { y: 240, label: '逆水 B→A', speed: 300 }];
-        let boatPositions2 = { still: 100, downstream: 100, upstream: 760 };
-        let raceAnimating2 = false;
-        let raceFrame2 = 0;
+        
+        
+        
+        
+        
+        
         const TOTAL_TIME2 = 6;
 
         let leaves2 = [];
@@ -882,102 +874,12 @@
             ctx.restore();
         }
 
-        function drawRace2() {
-            raceCtx2.clearRect(0, 0, 860, 320);
-            const gradient = raceCtx2.createLinearGradient(0, 0, 0, 320);
-            gradient.addColorStop(0, '#D4E9F7');
-            gradient.addColorStop(1, '#B8D4E8');
-            raceCtx2.fillStyle = gradient;
-            raceCtx2.fillRect(0, 0, 860, 320);
-            raceCtx2.strokeStyle = 'rgba(132, 193, 233, 0.3)';
-            raceCtx2.lineWidth = 1;
-            for (let y = 20; y < 300; y += 25) {
-                raceCtx2.beginPath();
-                for (let x = 0; x < 860; x += 4) {
-                    const waveY = y + Math.sin((x + Date.now() / 300) / 20) * 3;
-                    if (x === 0) raceCtx2.moveTo(x, waveY);
-                    else raceCtx2.lineTo(x, waveY);
-                }
-                raceCtx2.stroke();
-            }
-            raceCtx2.strokeStyle = 'rgba(132, 193, 233, 0.5)';
-            raceCtx2.lineWidth = 1;
-            raceCtx2.setLineDash([5, 5]);
-            raceCtx2.beginPath();
-            raceCtx2.moveTo(50, 120); raceCtx2.lineTo(850, 120);
-            raceCtx2.moveTo(50, 200); raceCtx2.lineTo(850, 200);
-            raceCtx2.stroke();
-            raceCtx2.setLineDash([]);
-            raceCtx2.fillStyle = '#3498DB';
-            raceCtx2.fillRect(20, 30, 50, 280);
-            raceCtx2.fillStyle = '#FFF';
-            raceCtx2.font = 'bold 32px sans-serif';
-            raceCtx2.fillText('A', 35, 175);
-            raceCtx2.fillStyle = '#27AE60';
-            raceCtx2.fillRect(790, 30, 50, 280);
-            raceCtx2.fillStyle = '#FFF';
-            raceCtx2.fillText('B', 805, 175);
-            raceCtx2.fillStyle = '#27AE60';
-            raceCtx2.font = 'bold 14px sans-serif';
-            raceCtx2.fillText('顺水 500米/分', 400, 65);
-            raceCtx2.fillStyle = '#636E72';
-            raceCtx2.fillText('静水 400米/分', 400, 145);
-            raceCtx2.fillStyle = '#E67E22';
-            raceCtx2.fillText('逆水 300米/分', 400, 225);
-            leaves2.forEach(leaf => drawLeaf2(raceCtx2, leaf));
-            drawBoat2(raceCtx2, boatPositions2.still, lanes2[0].y, 1, 'still');
-            drawBoat2(raceCtx2, boatPositions2.downstream, lanes2[1].y, 1, 'downstream');
-            drawBoat2(raceCtx2, boatPositions2.upstream, lanes2[2].y, -1, 'upstream');
-            raceCtx2.strokeStyle = '#27AE60';
-            raceCtx2.lineWidth = 4;
-            raceCtx2.setLineDash([8, 4]);
-            raceCtx2.beginPath();
-            raceCtx2.moveTo(820, 30); raceCtx2.lineTo(820, 290);
-            raceCtx2.stroke();
-            raceCtx2.setLineDash([]);
-            raceCtx2.fillStyle = '#27AE60';
-            raceCtx2.fillRect(815, 25, 10, 50);
-            raceCtx2.fillStyle = '#FFF';
-            raceCtx2.beginPath();
-            raceCtx2.moveTo(825, 25); raceCtx2.lineTo(845, 35); raceCtx2.lineTo(825, 45);
-            raceCtx2.closePath();
-            raceCtx2.fill();
-            const currentTime = raceAnimating2 ? Math.min(raceFrame2 / 60, TOTAL_TIME2) : 0;
-            raceCtx2.fillStyle = '#2D3436';
-            raceCtx2.font = 'bold 20px sans-serif';
-            raceCtx2.fillText('⏱ ' + currentTime.toFixed(1) + ' / ' + TOTAL_TIME2 + ' 分钟', 400, 25);
-            leaves2.forEach(leaf => {
-                leaf.x += leaf.speed;
-                leaf.wobble += 0.05;
-                if (leaf.x > 870) {
-                    leaf.x = -20;
-                    leaf.y = lanes2[Math.floor(Math.random() * 3)].y - 15 + Math.random() * 30;
-                }
-            });
-            if (raceAnimating2) {
-                raceFrame2++;
-                boatPositions2.downstream = 100 + (raceFrame2 / (60 * TOTAL_TIME2)) * 660;
-                boatPositions2.still = 100 + (raceFrame2 / (60 * TOTAL_TIME2)) * 480;
-                boatPositions2.upstream = 760 - (raceFrame2 / (60 * TOTAL_TIME2)) * 300;
-                if (raceFrame2 >= 60 * TOTAL_TIME2) {
-                    raceAnimating2 = false;
-                    document.getElementById('answer2').classList.add('show');
-                }
-            }
-            requestAnimationFrame(drawRace2);
+        
+
+        
         }
 
-        function startRace2() {
-            if (!raceAnimating2) {
-                raceAnimating2 = true;
-                raceFrame2 = 0;
-            }
-        }
-
-        function resetRace2() {
-            raceAnimating2 = false;
-            raceFrame2 = 0;
-            boatPositions2 = { still: 100, downstream: 100, upstream: 760 };
+        ;
         }
 
         // ====== 基础题：AB往返 ======
@@ -1231,7 +1133,7 @@
 
         // ====== 初始化 ======
         drawRace();
-        drawRace2();
+        
         drawAB();
         updateGuess();
     </script>
