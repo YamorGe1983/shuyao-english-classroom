@@ -180,6 +180,51 @@
         .practice-info { font-size:16px; color:var(--text-light); margin:10px 0; }
         .practice-round { font-size:20px; font-weight:700; color:var(--primary); margin:10px 0; }
         #practice-target { display:inline-block; margin:20px auto; }
+
+        /* 自定义默写页 */
+        .custom-input-area {
+            width:90%; max-width:500px; margin:0 auto;
+        }
+        .custom-textarea {
+            width:100%; height:160px; border:2px solid #ddd; border-radius:12px;
+            padding:14px; font-size:20px; font-family:inherit;
+            resize:none; outline:none; transition:border-color 0.2s;
+        }
+        .custom-textarea:focus { border-color:var(--primary); }
+        .custom-hint {
+            font-size:13px; color:var(--text-light); margin:8px 0; text-align:left;
+            line-height:1.6;
+        }
+        .custom-btn-row { margin-top:16px; display:flex; gap:10px; justify-content:center; }
+        .btn-voice-input {
+            background:#FFEAA7; border:none; border-radius:50px;
+            padding:10px 20px; font-size:16px; cursor:pointer;
+            transition:transform 0.15s;
+        }
+        .btn-voice-input:active { transform:scale(0.95); }
+        .btn-voice-input.recording { background:#E17055; color:#fff; animation:pulse-rec 1s infinite; }
+        @keyframes pulse-rec { 0%,100%{opacity:1} 50%{opacity:0.6} }
+        .custom-entry {
+            margin-top:12px; padding:16px 20px; background:#FFF3E0;
+            border-radius:12px; cursor:pointer; display:flex;
+            align-items:center; gap:10px; transition:transform 0.15s;
+        }
+        .custom-entry:active { transform:scale(0.98); }
+        .custom-entry-icon { font-size:24px; }
+        .custom-entry-text { font-size:16px; font-weight:600; color:#E17055; }
+        .custom-entry-sub { font-size:12px; color:#999; margin-top:2px; }
+
+        /* 订正3格并排 */
+        .practice-grids {
+            display:flex; justify-content:center; gap:8px;
+            margin:16px 0; flex-wrap:nowrap;
+        }
+        .practice-grid-item {
+            display:flex; flex-direction:column; align-items:center;
+        }
+        .practice-grid-label {
+            font-size:12px; color:var(--text-light); margin-bottom:4px;
+        }
     </style>
 </head>
 <body>
@@ -191,6 +236,13 @@
         <p>选择要默写的课文</p>
     </div>
     <div id="lessonList" class="lesson-list"></div>
+    <div class="custom-entry" onclick="showPage('page-custom')">
+        <span class="custom-entry-icon">✏️</span>
+        <div>
+            <div class="custom-entry-text">自定义默写</div>
+            <div class="custom-entry-sub">自己输入词组，自由默写</div>
+        </div>
+    </div>
     <button class="wrong-book-btn" id="wrongBookBtn" onclick="startWrongBook()">
         📖 错题本 (<span id="wrongCount">0</span>个字)
     </button>
@@ -240,10 +292,33 @@
     <div class="practice-container">
         <div id="practiceInfo" class="practice-info"></div>
         <div id="practiceRound" class="practice-round"></div>
-        <div id="practice-target"></div>
-        <div style="margin-top:20px;">
+        <div class="practice-grids" id="practiceGrids"></div>
+        <div style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
             <button class="btn btn-secondary" id="btnShowStroke" onclick="showStrokeOrder()">👀 看笔顺</button>
-            <button class="btn btn-primary" id="btnStartQuiz" onclick="startPracticeQuiz()" style="display:none;">✏️ 开始写</button>
+            <button class="btn btn-outline" id="btnSkipPractice" onclick="skipCurrentPractice()">⏭️ 跳过</button>
+        </div>
+    </div>
+</div>
+
+<!-- 页面6：自定义默写输入 -->
+<div id="page-custom" class="page">
+    <div class="select-header">
+        <h1>✏️ 自定义默写</h1>
+        <p>输入要默写的汉字</p>
+    </div>
+    <div class="custom-input-area">
+        <textarea id="customText" class="custom-textarea" placeholder="在此输入汉字…"></textarea>
+        <div class="custom-hint">
+            ⚠️ 仅支持中文汉字，非汉字字符将自动过滤<br>
+            📝 词组之间用 <b>空格</b>、<b>逗号</b> 或 <b>顿号</b> 分隔<br>
+            例：融化 燕子，光彩夺目、荷花
+        </div>
+        <div class="custom-btn-row">
+            <button class="btn-voice-input" id="btnVoiceInput" onclick="toggleVoiceInput()">🎤 语音输入</button>
+            <button class="btn btn-primary" onclick="startCustomDictation()" style="font-size:16px;padding:12px 32px;">开始默写 ➡️</button>
+        </div>
+        <div style="margin-top:16px;">
+            <button class="btn btn-outline" onclick="showPage('page-select')">← 返回</button>
         </div>
     </div>
 </div>
@@ -268,7 +343,9 @@ const State = {
     practiceWrongChars: [],
     practiceIndex: 0,
     practiceRound: 0,
-    practiceWriter: null
+    practiceWriter: null,
+    practiceWriters: [],
+    activeGridIdx: 0
 };
 
 // ==================== 页面切换 ====================
@@ -679,56 +756,88 @@ function showPracticeChar() {
     if (State.practiceIndex >= State.practiceWrongChars.length) {
         document.getElementById('practiceInfo').textContent = '订正完成！所有错字已练习3遍 🎉';
         document.getElementById('practiceRound').textContent = '';
-        document.getElementById('practice-target').innerHTML = `<button class="btn btn-primary" onclick="backToSelect()">🏠 返回</button>`;
+        document.getElementById('practiceGrids').innerHTML = `<button class="btn btn-primary" onclick="backToSelect()">🏠 返回</button>`;
         document.getElementById('btnShowStroke').style.display = 'none';
-        document.getElementById('btnStartQuiz').style.display = 'none';
+        document.getElementById('btnSkipPractice').style.display = 'none';
         return;
     }
     const char = State.practiceWrongChars[State.practiceIndex];
     document.getElementById('practiceInfo').textContent = `订正：第 ${State.practiceIndex + 1} / ${State.practiceWrongChars.length} 个错字「${char}」`;
     document.getElementById('practiceRound').textContent = `第 ${State.practiceRound + 1} / 3 遍`;
 
-    const target = document.getElementById('practice-target');
-    target.innerHTML = '';
-    const div = document.createElement('div');
-    div.id = 'hw-practice';
-    target.appendChild(div);
+    // 3个田字格并排
+    const gridsArea = document.getElementById('practiceGrids');
+    gridsArea.innerHTML = '';
+    State.practiceWriters = [];
 
-    State.practiceWriter = HanziWriter.create('hw-practice', char, {
-        width: 300, height: 300, padding: 15,
-        showOutline: true, showCharacter: false,
-        strokeColor: '#333', drawingColor: '#1a73e8', drawingWidth: 6,
-        leniency: 0.7, showHintAfterMisses: 2, highlightOnComplete: true
-    });
+    // 计算格子大小：3格并排适配屏幕
+    const gridW = Math.min(140, Math.floor((window.innerWidth - 80) / 3));
+
+    for (let i = 0; i < 3; i++) {
+        const item = document.createElement('div');
+        item.className = 'practice-grid-item';
+        const label = document.createElement('div');
+        label.className = 'practice-grid-label';
+        label.textContent = `第${i + 1}遍`;
+        const div = document.createElement('div');
+        div.id = `hw-practice-${i}`;
+        item.appendChild(label);
+        item.appendChild(div);
+        gridsArea.appendChild(item);
+
+        const writer = HanziWriter.create(`hw-practice-${i}`, char, {
+            width: gridW, height: gridW, padding: 8,
+            showOutline: true, showCharacter: false,
+            strokeColor: '#333', drawingColor: '#1a73e8', drawingWidth: 4,
+            leniency: 0.7, showHintAfterMisses: 2, highlightOnComplete: true
+        });
+        State.practiceWriters.push(writer);
+    }
+
+    // 当前活跃格子索引
+    State.activeGridIdx = 0;
+    // 直接触发第一个格子的quiz
+    startGridQuiz(0);
 
     document.getElementById('btnShowStroke').style.display = 'inline-block';
-    document.getElementById('btnStartQuiz').style.display = 'none';
+    document.getElementById('btnSkipPractice').style.display = 'inline-block';
+}
+
+function startGridQuiz(idx) {
+    if (idx >= State.practiceWriters.length) {
+        // 3遍都写完，进入下一个错字
+        State.practiceRound = 0;
+        State.practiceIndex++;
+        setTimeout(showPracticeChar, 500);
+        return;
+    }
+    State.activeGridIdx = idx;
+    State.practiceWriters[idx].quiz({
+        onCorrectStroke: function() {},
+        onMistake: function() {},
+        onComplete: function() {
+            // 当前格写完，进入下一格
+            startGridQuiz(idx + 1);
+        }
+    });
+}
+
+function skipCurrentPractice() {
+    // 跳过当前错字的所有剩余遍数
+    State.practiceRound = 0;
+    State.practiceIndex++;
+    showPracticeChar();
 }
 
 function showStrokeOrder() {
-    if (State.practiceWriter) {
-        State.practiceWriter.animateCharacter({
-            onComplete: function() { document.getElementById('btnStartQuiz').style.display = 'inline-block'; }
+    // 在所有3个格子播放笔顺动画
+    if (State.practiceWriters && State.practiceWriters.length > 0) {
+        State.practiceWriters.forEach(w => {
+            w.hideCharacter();
+            w.showOutline();
         });
-        document.getElementById('btnShowStroke').style.display = 'none';
-    }
-}
-
-function startPracticeQuiz() {
-    if (State.practiceWriter) {
-        document.getElementById('btnStartQuiz').style.display = 'none';
-        State.practiceWriter.quiz({
-            onCorrectStroke: function() {},
-            onMistake: function() {},
-            onComplete: function() {
-                State.practiceRound++;
-                if (State.practiceRound >= 3) {
-                    State.practiceRound = 0;
-                    State.practiceIndex++;
-                }
-                setTimeout(showPracticeChar, 500);
-            }
-        });
+        // 只在第一个格子播放动画，其余显示轮廓
+        State.practiceWriters[0].animateCharacter();
     }
 }
 
