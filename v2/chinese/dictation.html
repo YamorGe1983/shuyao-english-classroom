@@ -136,16 +136,23 @@
             color: var(--text); border:2px solid #eee; border-radius:6px; background:#fff;
         }
         .grading-cell-info { font-size:11px; color:var(--text-light); margin-top:2px; }
-        .grading-cell-btns { display:flex; justify-content:center; gap:10px; }
-        .btn-grade-correct, .btn-grade-wrong {
-            width:50px; height:50px; border-radius:50%; border:none; font-size:22px;
-            cursor:pointer; transition: transform 0.15s;
+        .grading-cell-btns { display:flex; justify-content:center; align-items:center; gap:8px; }
+        .grade-icon { font-size:28px; transition: transform 0.15s; pointer-events:none; }
+        .grade-icon.icon-correct { color:var(--success); }
+        .grade-icon.icon-wrong { color:var(--danger); }
+        .btn-grade-toggle {
+            width:52px; height:52px; border-radius:50%; border:none; font-size:22px;
+            cursor:pointer; transition: transform 0.15s, background 0.2s;
+            display:inline-flex; align-items:center; justify-content:center;
         }
-        .btn-grade-correct { background:var(--success); color:#fff; }
-        .btn-grade-wrong { background:var(--danger); color:#fff; }
-        .btn-grade-correct:active, .btn-grade-wrong:active { transform:scale(0.9); }
-        .btn-grade-correct.selected { box-shadow: 0 0 0 4px rgba(0,184,148,0.4); }
-        .btn-grade-wrong.selected { box-shadow: 0 0 0 4px rgba(225,112,85,0.4); }
+        .btn-grade-toggle:active { transform:scale(0.9); }
+        .btn-grade-toggle.is-correct {
+            background:#e8f8f5; color:var(--text-light); border:2px solid #b2dfdb;
+        }
+        .btn-grade-toggle.is-wrong {
+            background:var(--danger); color:#fff; border:2px solid var(--danger);
+            box-shadow: 0 0 0 4px rgba(225,112,85,0.4);
+        }
         .grading-submit-area { text-align:center; margin-top:24px; }
 
         /* 结果页 */
@@ -552,7 +559,7 @@ function startGrading() {
             State.flatChars.push({ char: c, pinyin: word.pinyin || '', hint: word.hint || word.char });
         });
     });
-    gradingGrades = new Array(State.flatChars.length).fill(null);
+    gradingGrades = new Array(State.flatChars.length).fill(true);
     showPage('page-grading');
     renderGradingTable();
 }
@@ -570,31 +577,31 @@ function renderGradingTable() {
         }
         const correctCell = `<div class="grading-cell-correct">${item.char}</div>`;
         const info = item.pinyin ? item.pinyin : (item.hint || '');
-        const gc = gradingGrades[i] === true ? ' selected' : '';
-        const gw = gradingGrades[i] === false ? ' selected' : '';
+        const isCorrect = gradingGrades[i] === true;
+        const toggleClass = isCorrect ? 'is-correct' : 'is-wrong';
+        const toggleIcon = isCorrect ? '✅' : '❌';
         rows += `<tr>
             <td>${writtenCell}</td>
             <td>${correctCell}<div class="grading-cell-info">${info}</div></td>
             <td><div class="grading-cell-btns">
-                <button class="btn-grade-correct${gc}" onclick="gradeCharAt(${i}, true)">✅</button>
-                <button class="btn-grade-wrong${gw}" onclick="gradeCharAt(${i}, false)">❌</button>
+                <button class="btn-grade-toggle ${toggleClass}" onclick="gradeCharAt(${i})">${toggleIcon}</button>
             </div></td>
         </tr>`;
     });
     area.innerHTML = `<table class="grading-table">
-        <thead><tr><th>孩子写的</th><th>正确字</th><th>判断</th></tr></thead>
+        <thead><tr><th>孩子写的</th><th>正确字</th><th>错？</th></tr></thead>
         <tbody>${rows}</tbody>
     </table>`;
     checkAllGraded();
 }
 
-function gradeCharAt(index, correct) {
-    gradingGrades[index] = correct;
+function gradeCharAt(index) {
+    gradingGrades[index] = !gradingGrades[index]; // 切换：✅↔❌
     renderGradingTable();
 }
 function checkAllGraded() {
-    document.getElementById('btnSubmitGrading').style.display =
-        gradingGrades.every(g => g !== null) ? 'inline-block' : 'none';
+    // 默认全部✅，确认按钮始终显示
+    document.getElementById('btnSubmitGrading').style.display = 'inline-block';
 }
 function submitGrading() {
     State.results = [...gradingGrades];
