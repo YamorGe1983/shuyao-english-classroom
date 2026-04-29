@@ -765,30 +765,48 @@ function showPracticeChar() {
     document.getElementById('practiceInfo').textContent = `订正：第 ${State.practiceIndex + 1} / ${State.practiceWrongChars.length} 个错字「${char}」`;
     document.getElementById('practiceRound').textContent = `第 ${State.practiceRound + 1} / 3 遍`;
 
-    // 3个田字格并排
+    // 3个田字格并排（放大200%）
     const gridsArea = document.getElementById('practiceGrids');
     gridsArea.innerHTML = '';
     State.practiceWriters = [];
 
-    // 计算格子大小：3格并排适配屏幕
-    const gridW = Math.min(140, Math.floor((window.innerWidth - 80) / 3));
+    // 格子大小：280px（原140的200%），3格并排适配屏幕
+    const gridW = Math.min(280, Math.floor((window.innerWidth - 80) / 3));
 
     for (let i = 0; i < 3; i++) {
         const item = document.createElement('div');
         item.className = 'practice-grid-item';
+        item.style.position = 'relative';
+
         const label = document.createElement('div');
         label.className = 'practice-grid-label';
         label.textContent = `第${i + 1}遍`;
+
+        // 田字格背景canvas
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = `position:relative; width:${gridW}px; height:${gridW}px;`;
+        const bgCanvas = document.createElement('canvas');
+        bgCanvas.width = gridW * 2; bgCanvas.height = gridW * 2; // 高清
+        bgCanvas.style.cssText = `position:absolute;top:0;left:0;width:${gridW}px;height:${gridW}px;z-index:0;`;
+        const bgCtx = bgCanvas.getContext('2d');
+        bgCtx.scale(2, 2);
+        drawGridBg(bgCtx, gridW);
+        wrapper.appendChild(bgCanvas);
+
+        // Hanzi Writer 容器叠在canvas上方
         const div = document.createElement('div');
         div.id = `hw-practice-${i}`;
+        div.style.cssText = `position:absolute;top:0;left:0;width:${gridW}px;height:${gridW}px;z-index:1;`;
+        wrapper.appendChild(div);
+
         item.appendChild(label);
-        item.appendChild(div);
+        item.appendChild(wrapper);
         gridsArea.appendChild(item);
 
         const writer = HanziWriter.create(`hw-practice-${i}`, char, {
-            width: gridW, height: gridW, padding: 8,
+            width: gridW, height: gridW, padding: 15,
             showOutline: true, showCharacter: false,
-            strokeColor: '#333', drawingColor: '#1a73e8', drawingWidth: 4,
+            strokeColor: '#333', drawingColor: '#1a73e8', drawingWidth: 5,
             leniency: 0.7, showHintAfterMisses: 2, highlightOnComplete: true
         });
         State.practiceWriters.push(writer);
