@@ -17,7 +17,6 @@
             --primary-light: #FF8E8E;
             --primary-dark: #E85555;
             --secondary: #4ECDC4;
-            --secondary-light: #7EDED7;
             --accent: #FFE66D;
             --success: #00B894;
             --danger: #E17055;
@@ -30,12 +29,9 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: var(--bg); color: var(--text);
             min-height: 100vh;
-            -webkit-user-select: none;
-            user-select: none;
-            -webkit-touch-callout: none;
+            -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
         }
         .page { display:none; min-height:100vh; padding:20px; flex-direction:column; align-items:center; }
         .page.active { display:flex; }
@@ -46,137 +42,104 @@
         .select-header p { color:var(--text-light); margin-top:8px; }
         .lesson-list { width:100%; max-width:600px; }
         .lesson-item {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
+            background: var(--card); border-radius: 16px; padding: 16px 20px;
+            margin-bottom: 12px; box-shadow: var(--shadow); cursor: pointer;
             transition: transform 0.2s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
         }
         .lesson-item:active { transform: scale(0.97); }
         .lesson-name { font-size:18px; font-weight:600; }
         .lesson-count { color:var(--text-light); font-size:14px; }
         .wrong-book-btn {
-            margin-top:20px;
-            background: var(--accent);
-            color: var(--text);
-            border:none;
-            padding:14px 32px;
-            border-radius:25px;
-            font-size:16px;
-            font-weight:600;
-            cursor:pointer;
+            margin-top:20px; background: var(--accent); color: var(--text);
+            border:none; padding:14px 32px; border-radius:25px; font-size:16px; font-weight:600; cursor:pointer;
         }
 
         /* 默写页 */
-        .dictation-header {
-            text-align:center; width:100%; max-width:600px;
-        }
+        .dictation-header { text-align:center; width:100%; max-width:900px; }
         .tip-bar {
-            background: #FFF3E0;
-            color: #E65100;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 16px;
+            background: #FFF3E0; color: #E65100; padding: 10px 16px;
+            border-radius: 12px; font-size: 14px; text-align: center; margin-bottom: 12px;
         }
-        .progress-bar {
-            width:100%; height:8px; background:#eee; border-radius:4px;
-            margin: 12px 0;
-        }
-        .progress-fill {
-            height:100%; background:var(--primary); border-radius:4px;
-            transition: width 0.3s;
-        }
-        .progress-text { text-align:center; color:var(--text-light); font-size:14px; margin-bottom:20px; }
-        .grid-container {
+        .progress-bar { width:100%; height:8px; background:#eee; border-radius:4px; margin: 8px 0; }
+        .progress-fill { height:100%; background:var(--primary); border-radius:4px; transition: width 0.3s; }
+        .progress-text { text-align:center; color:var(--text-light); font-size:14px; margin-bottom:12px; }
+        .word-label { text-align:center; font-size:16px; color:var(--text-light); margin-bottom:8px; }
+
+        /* 田字格并排 */
+        .grid-row {
             display:flex; justify-content:center; align-items:flex-start;
-            gap:16px; flex-wrap:wrap; margin:20px 0;
+            gap:12px; margin:16px 0; flex-wrap:wrap;
         }
-        .char-slot { position:relative; }
-        .char-label {
-            text-align:center; font-size:14px; color:var(--text-light);
-            margin-top:8px;
-        }
+        .char-slot { text-align:center; }
+        .char-slot .slot-hint { font-size:12px; color:#aaa; margin-top:4px; }
+        .char-slot.active-slot .slot-hint { color:var(--primary); font-weight:600; }
+        .char-slot.done-slot canvas { opacity:0.6; }
         canvas.write-canvas {
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            background: #fff;
-            touch-action: none;
+            border: 2px solid #ccc; border-radius: 8px; background: #fff; touch-action: none;
+            display:block;
         }
-        .dictation-btns {
-            display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
-            margin-top:20px;
+        .char-slot.active-slot canvas { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255,107,107,0.3); }
+        .char-slot.done-slot canvas { border-color: var(--success); }
+
+        /* 笔画粗细 */
+        .brush-bar {
+            display:flex; align-items:center; justify-content:center; gap:12px; margin:10px 0;
         }
+        .brush-bar span { font-size:13px; color:var(--text-light); }
+        .brush-btn {
+            width:40px; height:40px; border-radius:50%; border:2px solid #ddd;
+            background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+            transition: border-color 0.2s;
+        }
+        .brush-btn.active { border-color:var(--primary); background:#FFF0F0; }
+        .brush-dot { border-radius:50%; background:#333; }
+
+        .dictation-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px; }
         .btn {
             border:none; padding:12px 24px; border-radius:25px;
-            font-size:15px; font-weight:600; cursor:pointer;
-            transition: transform 0.15s;
+            font-size:15px; font-weight:600; cursor:pointer; transition: transform 0.15s;
         }
         .btn:active { transform:scale(0.95); }
         .btn-primary { background:var(--primary); color:#fff; }
         .btn-secondary { background:var(--secondary); color:#fff; }
         .btn-accent { background:var(--accent); color:var(--text); }
         .btn-outline { background:transparent; border:2px solid #ddd; color:var(--text-light); }
-        .btn-danger { background:var(--danger); color:#fff; }
 
         /* 批改页 */
         .grading-container { width:100%; max-width:900px; }
         .grading-title { text-align:center; font-size:22px; font-weight:700; color:var(--primary); margin-bottom:16px; }
         .grading-table {
-            width:100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
+            width:100%; border-collapse: separate; border-spacing: 0;
+            background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
         }
         .grading-table th {
-            background: #f0f0f0;
-            padding: 12px 8px;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-light);
-            text-align: center;
+            background: #f0f0f0; padding: 12px 8px; font-size: 15px;
+            font-weight: 600; color: var(--text-light); text-align: center;
         }
         .grading-table td {
-            padding: 8px 6px;
-            text-align: center;
-            vertical-align: middle;
+            padding: 8px 6px; text-align: center; vertical-align: middle;
             border-top: 1px solid #f0f0f0;
         }
         .grading-table tr:last-child td { border-bottom: none; }
         .grading-cell-written {
-            width:80px; height:80px; border:2px solid #eee;
-            border-radius:6px; background:#fff;
-            object-fit:contain; display:inline-block;
+            width:80px; height:80px; border:2px solid #eee; border-radius:6px;
+            background:#fff; object-fit:contain; display:inline-block;
         }
         .grading-cell-skip {
-            width:80px; height:80px; display:inline-flex;
-            align-items:center; justify-content:center;
-            color:#ccc; font-size:13px; border:2px solid #eee;
-            border-radius:6px; background:#fff;
+            width:80px; height:80px; display:inline-flex; align-items:center; justify-content:center;
+            color:#ccc; font-size:13px; border:2px solid #eee; border-radius:6px; background:#fff;
         }
         .grading-cell-correct {
-            width:80px; height:80px; display:inline-flex;
-            align-items:center; justify-content:center;
-            font-size:56px;
-            font-family: 'KaiTi', '楷体', 'STKaiti', serif;
-            color: var(--text); border:2px solid #eee;
-            border-radius:6px; background:#fff;
+            width:80px; height:80px; display:inline-flex; align-items:center; justify-content:center;
+            font-size:56px; font-family: 'KaiTi', '楷体', 'STKaiti', serif;
+            color: var(--text); border:2px solid #eee; border-radius:6px; background:#fff;
         }
         .grading-cell-info { font-size:11px; color:var(--text-light); margin-top:2px; }
         .grading-cell-btns { display:flex; justify-content:center; gap:10px; }
         .btn-grade-correct, .btn-grade-wrong {
-            width:50px; height:50px; border-radius:50%;
-            border:none; font-size:22px; cursor:pointer;
-            transition: transform 0.15s;
+            width:50px; height:50px; border-radius:50%; border:none; font-size:22px;
+            cursor:pointer; transition: transform 0.15s;
         }
         .btn-grade-correct { background:var(--success); color:#fff; }
         .btn-grade-wrong { background:var(--danger); color:#fff; }
@@ -190,10 +153,7 @@
             background:var(--card); border-radius:20px; padding:30px;
             box-shadow:var(--shadow); text-align:center; width:100%; max-width:500px;
         }
-        .score-big {
-            font-size:72px; font-weight:800;
-            margin:20px 0;
-        }
+        .score-big { font-size:72px; font-weight:800; margin:20px 0; }
         .score-A { color: var(--success); }
         .score-A- { color: #2ECC71; }
         .score-B { color: var(--secondary); }
@@ -212,9 +172,7 @@
         .practice-container { width:100%; max-width:500px; text-align:center; }
         .practice-info { font-size:16px; color:var(--text-light); margin:10px 0; }
         .practice-round { font-size:20px; font-weight:700; color:var(--primary); margin:10px 0; }
-        #practice-target {
-            display:inline-block; margin:20px auto;
-        }
+        #practice-target { display:inline-block; margin:20px auto; }
     </style>
 </head>
 <body>
@@ -236,15 +194,21 @@
     <div class="dictation-header">
         <div class="tip-bar">✏️ 请一笔一划书写，注意笔顺哦！</div>
         <div class="progress-bar"><div id="dictProgress" class="progress-fill" style="width:0%"></div></div>
-        <div id="dictProgressText" class="progress-text">第 1 / 1 字</div>
+        <div id="dictProgressText" class="progress-text"></div>
     </div>
-    <div id="gridArea" class="grid-container"></div>
+    <div id="wordLabel" class="word-label"></div>
+    <div id="gridArea" class="grid-row"></div>
+    <div class="brush-bar">
+        <span>笔画：</span>
+        <button class="brush-btn" data-size="4" onclick="setBrush(4)"><div class="brush-dot" style="width:6px;height:6px;"></div></button>
+        <button class="brush-btn active" data-size="7" onclick="setBrush(7)"><div class="brush-dot" style="width:10px;height:10px;"></div></button>
+        <button class="brush-btn" data-size="12" onclick="setBrush(12)"><div class="brush-dot" style="width:16px;height:16px;"></div></button>
+    </div>
     <div class="dictation-btns">
         <button class="btn btn-accent" onclick="replayVoice()">🔊 再听一遍</button>
         <button class="btn btn-outline" onclick="undoStroke()">↩️ 撤销</button>
         <button class="btn btn-outline" onclick="clearCanvas()">🗑️ 清除</button>
-        <button class="btn btn-outline" onclick="skipChar()">⏭️ 跳过</button>
-        <button class="btn btn-primary" onclick="nextChar()">下一个 ➡️</button>
+        <button class="btn btn-primary" onclick="nextWord()">下一个 ➡️</button>
     </div>
 </div>
 
@@ -280,17 +244,21 @@
 <script>
 // ==================== 状态管理 ====================
 const State = {
-    wordList: [],       // 当前要默写的所有字 [{char, pinyin, hint, wordHint}]
-    currentIndex: 0,    // 当前默写到第几个字
-    snapshots: [],      // 每个字的手写截图
-    results: [],        // 批改结果 true/false
-    strokes: [],        // 当前canvas的笔画路径
-    currentStroke: [],  // 正在写的笔画
+    wordList: [],       // 乱序后的词组列表 [{char, pinyin, hint, chars}]
+    currentWordIdx: 0,  // 当前第几个词组
+    snapshots: [],      // 每个字的手写截图（按词组→字索引）
+    results: [],        // 批改结果（按字平铺）
+    // 当前词组的Canvas状态
+    canvases: [],       // 当前词组各字的canvas元素
+    ctxs: [],           // 当前词组各字的ctx
+    allStrokes: [],     // 当前词组各字的笔画路径 [charStrokes, ...]
+    allCurrentStroke: [],// 当前正在写的笔画
+    activeSlot: 0,      // 当前正在写第几个字
     isDrawing: false,
-    canvasSize: 420,
-    activeCanvas: null,
-    activeCtx: null,
-    practiceWrongChars: [],  // 需要订正的字
+    brushSize: 7,       // 默认笔画粗细
+    canvasBaseSize: 420,
+    // 订正
+    practiceWrongChars: [],
     practiceIndex: 0,
     practiceRound: 0,
     practiceWriter: null
@@ -327,10 +295,8 @@ async function initSelectPage() {
 }
 
 function updateWrongCount() {
-    const wb = getWrongBook();
-    document.getElementById('wrongCount').textContent = wb.length;
+    document.getElementById('wrongCount').textContent = getWrongBook().length;
 }
-
 function getWrongBook() {
     const d = localStorage.getItem('chineseWrongBook');
     return d ? JSON.parse(d) : [];
@@ -338,112 +304,114 @@ function getWrongBook() {
 function saveWrongBook(wb) {
     localStorage.setItem('chineseWrongBook', JSON.stringify(wb));
 }
-
 function startWrongBook() {
     const wb = getWrongBook();
     if (wb.length === 0) { alert('错题本是空的！'); return; }
-    const words = wb.map(c => ({ char: c, pinyin: '', hint: '', chars: [c], wordHint: '' }));
+    const words = wb.map(c => ({ char: c, pinyin: '', hint: c, chars: [c] }));
     startDictation(words);
 }
 
 // ==================== 默写页 ====================
 function startDictation(words) {
-    // 展开多字词为逐字列表
-    State.wordList = [];
-    words.forEach(w => {
-        const chars = w.chars || [w.char];
-        const hint = w.hint || w.char;
-        chars.forEach((c, i) => {
-            State.wordList.push({
-                char: c,
-                pinyin: w.pinyin || '',
-                hint: hint,
-                wordHint: hint,
-                isLastOfWord: i === chars.length - 1
-            });
-        });
-    });
-    State.currentIndex = 0;
+    // 乱序
+    State.wordList = shuffleArray([...words]);
+    State.currentWordIdx = 0;
     State.snapshots = [];
-    State.results = [];
     showPage('page-dictation');
-    showCurrentChar();
+    showCurrentWord();
 }
 
-function showCurrentChar() {
-    if (State.currentIndex >= State.wordList.length) {
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function showCurrentWord() {
+    if (State.currentWordIdx >= State.wordList.length) {
         startGrading();
         return;
     }
-    const item = State.wordList[State.currentIndex];
+    const word = State.wordList[State.currentWordIdx];
+    const chars = word.chars || [word.char];
     const total = State.wordList.length;
 
     // 进度
-    const pct = (State.currentIndex / total * 100).toFixed(0);
+    const pct = (State.currentWordIdx / total * 100).toFixed(0);
     document.getElementById('dictProgress').style.width = pct + '%';
-    document.getElementById('dictProgressText').textContent = `第 ${State.currentIndex + 1} / ${total} 字`;
+    document.getElementById('dictProgressText').textContent = `第 ${State.currentWordIdx + 1} / ${total} 词`;
 
-    // 创建Canvas
+    // 词组提示
+    document.getElementById('wordLabel').textContent = `共 ${chars.length} 个字`;
+
+    // 创建并排田字格
     const area = document.getElementById('gridArea');
     area.innerHTML = '';
-    const size = State.canvasSize;
-    const canvas = document.createElement('canvas');
-    canvas.className = 'write-canvas';
-    canvas.width = size;
-    canvas.height = size;
-    canvas.style.width = Math.min(size, window.innerWidth - 60) + 'px';
-    canvas.style.height = Math.min(size, window.innerWidth - 60) + 'px';
-    area.appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    State.activeCanvas = canvas;
-    State.activeCtx = ctx;
-    State.strokes = [];
-    State.currentStroke = [];
+    State.canvases = [];
+    State.ctxs = [];
+    State.allStrokes = [];
+    State.allCurrentStroke = [];
+    State.activeSlot = 0;
     State.isDrawing = false;
 
-    drawGridBg(ctx, size);
-    setupCanvasEvents(canvas, ctx, size);
+    // 计算单个格子大小：确保4个格子能并排
+    const maxTotalWidth = Math.min(window.innerWidth - 40, 900);
+    const gap = 12;
+    const gridCount = chars.length;
+    const singleSize = Math.min(State.canvasBaseSize, Math.floor((maxTotalWidth - gap * (gridCount - 1)) / gridCount));
+    const displaySize = Math.min(singleSize, 280); // 显示尺寸上限
+
+    chars.forEach((c, idx) => {
+        const slot = document.createElement('div');
+        slot.className = 'char-slot' + (idx === 0 ? ' active-slot' : '');
+        slot.id = 'slot-' + idx;
+
+        const canvas = document.createElement('canvas');
+        canvas.className = 'write-canvas';
+        canvas.width = singleSize;
+        canvas.height = singleSize;
+        canvas.style.width = displaySize + 'px';
+        canvas.style.height = displaySize + 'px';
+        canvas.dataset.slotIdx = idx;
+
+        const hint = document.createElement('div');
+        hint.className = 'slot-hint';
+        hint.textContent = `第${idx + 1}字`;
+
+        slot.appendChild(canvas);
+        slot.appendChild(hint);
+        area.appendChild(slot);
+
+        const ctx = canvas.getContext('2d');
+        State.canvases.push(canvas);
+        State.ctxs.push(ctx);
+        State.allStrokes.push([]);
+        State.allCurrentStroke.push([]);
+
+        drawGridBg(ctx, singleSize);
+        setupCanvasEvents(canvas, ctx, singleSize, idx);
+    });
 
     // 语音播报
-    speakWord(item.hint || item.char);
+    speakWord(word.hint || word.char);
 }
 
 function drawGridBg(ctx, size) {
     ctx.clearRect(0, 0, size, size);
-    // 外框
-    ctx.strokeStyle = '#999';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#999'; ctx.lineWidth = 2;
     ctx.strokeRect(1, 1, size - 2, size - 2);
-    // 横中线
-    ctx.strokeStyle = '#ddd';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([8, 4]);
-    ctx.beginPath();
-    ctx.moveTo(0, size / 2);
-    ctx.lineTo(size, size / 2);
-    ctx.stroke();
-    // 竖中线
-    ctx.beginPath();
-    ctx.moveTo(size / 2, 0);
-    ctx.lineTo(size / 2, size);
-    ctx.stroke();
-    // 对角线
-    ctx.strokeStyle = '#eee';
-    ctx.lineWidth = 0.5;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(size, size);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(size, 0);
-    ctx.lineTo(0, size);
-    ctx.stroke();
+    ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1; ctx.setLineDash([8, 4]);
+    ctx.beginPath(); ctx.moveTo(0, size / 2); ctx.lineTo(size, size / 2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(size / 2, 0); ctx.lineTo(size / 2, size); ctx.stroke();
+    ctx.strokeStyle = '#eee'; ctx.lineWidth = 0.5; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(size, size); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(size, 0); ctx.lineTo(0, size); ctx.stroke();
     ctx.setLineDash([]);
 }
 
-function setupCanvasEvents(canvas, ctx, size) {
+function setupCanvasEvents(canvas, ctx, size, slotIdx) {
     function getPos(e) {
         const rect = canvas.getBoundingClientRect();
         const scaleX = size / rect.width;
@@ -453,22 +421,23 @@ function setupCanvasEvents(canvas, ctx, size) {
         }
         return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
     }
-
     function onStart(e) {
         e.preventDefault();
         State.isDrawing = true;
+        State.activeSlot = slotIdx;
+        updateActiveSlot();
         const p = getPos(e);
-        State.currentStroke = [p];
+        State.allCurrentStroke[slotIdx] = [p];
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
     }
     function onMove(e) {
         e.preventDefault();
-        if (!State.isDrawing) return;
+        if (!State.isDrawing || State.activeSlot !== slotIdx) return;
         const p = getPos(e);
-        State.currentStroke.push(p);
+        State.allCurrentStroke[slotIdx].push(p);
         ctx.strokeStyle = '#333';
-        ctx.lineWidth = 4;
+        ctx.lineWidth = State.brushSize;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         ctx.lineTo(p.x, p.y);
@@ -478,39 +447,51 @@ function setupCanvasEvents(canvas, ctx, size) {
         e.preventDefault();
         if (!State.isDrawing) return;
         State.isDrawing = false;
-        if (State.currentStroke.length > 0) {
-            State.strokes.push([...State.currentStroke]);
+        if (State.allCurrentStroke[slotIdx] && State.allCurrentStroke[slotIdx].length > 0) {
+            State.allStrokes[slotIdx].push([...State.allCurrentStroke[slotIdx]]);
         }
-        State.currentStroke = [];
+        State.allCurrentStroke[slotIdx] = [];
     }
-
-    // Pointer events (Apple Pencil + mouse)
     canvas.addEventListener('pointerdown', onStart);
     canvas.addEventListener('pointermove', onMove);
     canvas.addEventListener('pointerup', onEnd);
     canvas.addEventListener('pointerleave', onEnd);
 }
 
+function updateActiveSlot() {
+    State.canvases.forEach((_, idx) => {
+        const slot = document.getElementById('slot-' + idx);
+        if (!slot) return;
+        slot.className = 'char-slot' + (idx === State.activeSlot ? ' active-slot' : '');
+    });
+}
+
 function undoStroke() {
-    if (State.strokes.length === 0) return;
-    State.strokes.pop();
-    redrawCanvas();
+    const idx = State.activeSlot;
+    if (State.allStrokes[idx] && State.allStrokes[idx].length > 0) {
+        State.allStrokes[idx].pop();
+        redrawSlot(idx);
+    }
 }
 
 function clearCanvas() {
-    State.strokes = [];
-    redrawCanvas();
+    const idx = State.activeSlot;
+    if (State.allStrokes[idx]) {
+        State.allStrokes[idx] = [];
+        redrawSlot(idx);
+    }
 }
 
-function redrawCanvas() {
-    const ctx = State.activeCtx;
-    const size = State.canvasSize;
+function redrawSlot(idx) {
+    const ctx = State.ctxs[idx];
+    const canvas = State.canvases[idx];
+    const size = canvas.width;
     drawGridBg(ctx, size);
     ctx.strokeStyle = '#333';
-    ctx.lineWidth = 4;
+    ctx.lineWidth = State.brushSize;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    State.strokes.forEach(stroke => {
+    State.allStrokes[idx].forEach(stroke => {
         if (stroke.length < 2) return;
         ctx.beginPath();
         ctx.moveTo(stroke[0].x, stroke[0].y);
@@ -521,21 +502,26 @@ function redrawCanvas() {
     });
 }
 
-function skipChar() {
-    State.snapshots.push(null); // null = 跳过
-    State.currentIndex++;
-    showCurrentChar();
+function nextWord() {
+    // 保存当前词组所有字的截图
+    const word = State.wordList[State.currentWordIdx];
+    const chars = word.chars || [word.char];
+    chars.forEach((_, idx) => {
+        if (State.canvases[idx]) {
+            State.snapshots.push(State.canvases[idx].toDataURL());
+        } else {
+            State.snapshots.push(null);
+        }
+    });
+    State.currentWordIdx++;
+    showCurrentWord();
 }
 
-function nextChar() {
-    // 保存截图
-    if (State.activeCanvas) {
-        State.snapshots.push(State.activeCanvas.toDataURL());
-    } else {
-        State.snapshots.push(null);
-    }
-    State.currentIndex++;
-    showCurrentChar();
+function setBrush(size) {
+    State.brushSize = size;
+    document.querySelectorAll('.brush-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.size) === size);
+    });
 }
 
 // ==================== 语音播报 ====================
@@ -547,19 +533,26 @@ function speakWord(text) {
     u.rate = 0.8;
     window.speechSynthesis.speak(u);
 }
-
 function replayVoice() {
-    if (State.currentIndex < State.wordList.length) {
-        const item = State.wordList[State.currentIndex];
-        speakWord(item.hint || item.char);
+    if (State.currentWordIdx < State.wordList.length) {
+        const word = State.wordList[State.currentWordIdx];
+        speakWord(word.hint || word.char);
     }
 }
 
 // ==================== 批改页 ====================
-let gradingGrades = []; // 每个字的批改结果 null/true/false
+let gradingGrades = [];
 
 function startGrading() {
-    gradingGrades = new Array(State.wordList.length).fill(null);
+    // 展平所有字用于批改
+    State.flatChars = [];
+    State.wordList.forEach(word => {
+        const chars = word.chars || [word.char];
+        chars.forEach(c => {
+            State.flatChars.push({ char: c, pinyin: word.pinyin || '', hint: word.hint || word.char });
+        });
+    });
+    gradingGrades = new Array(State.flatChars.length).fill(null);
     showPage('page-grading');
     renderGradingTable();
 }
@@ -567,34 +560,31 @@ function startGrading() {
 function renderGradingTable() {
     const area = document.getElementById('gradingTableArea');
     let rows = '';
-    State.wordList.forEach((item, i) => {
+    State.flatChars.forEach((item, i) => {
         const snapshot = State.snapshots[i];
         let writtenCell = '';
         if (snapshot) {
             writtenCell = `<img class="grading-cell-written" src="${snapshot}" alt="手写">`;
         } else {
-            writtenCell = `<div class="grading-cell-skip">跳过</div>`;
+            writtenCell = `<div class="grading-cell-skip">未写</div>`;
         }
         const correctCell = `<div class="grading-cell-correct">${item.char}</div>`;
-        const info = item.pinyin ? item.pinyin : (item.wordHint || '');
-        const gradeCorrect = gradingGrades[i] === true ? ' selected' : '';
-        const gradeWrong = gradingGrades[i] === false ? ' selected' : '';
-        const btns = `
-            <button class="btn-grade-correct${gradeCorrect}" onclick="gradeCharAt(${i}, true)">✅</button>
-            <button class="btn-grade-wrong${gradeWrong}" onclick="gradeCharAt(${i}, false)">❌</button>
-        `;
+        const info = item.pinyin ? item.pinyin : (item.hint || '');
+        const gc = gradingGrades[i] === true ? ' selected' : '';
+        const gw = gradingGrades[i] === false ? ' selected' : '';
         rows += `<tr>
             <td>${writtenCell}</td>
             <td>${correctCell}<div class="grading-cell-info">${info}</div></td>
-            <td><div class="grading-cell-btns">${btns}</div></td>
+            <td><div class="grading-cell-btns">
+                <button class="btn-grade-correct${gc}" onclick="gradeCharAt(${i}, true)">✅</button>
+                <button class="btn-grade-wrong${gw}" onclick="gradeCharAt(${i}, false)">❌</button>
+            </div></td>
         </tr>`;
     });
     area.innerHTML = `<table class="grading-table">
         <thead><tr><th>孩子写的</th><th>正确字</th><th>判断</th></tr></thead>
         <tbody>${rows}</tbody>
     </table>`;
-
-    // 检查是否全部批改完毕
     checkAllGraded();
 }
 
@@ -602,12 +592,10 @@ function gradeCharAt(index, correct) {
     gradingGrades[index] = correct;
     renderGradingTable();
 }
-
 function checkAllGraded() {
-    const allDone = gradingGrades.every(g => g !== null);
-    document.getElementById('btnSubmitGrading').style.display = allDone ? 'inline-block' : 'none';
+    document.getElementById('btnSubmitGrading').style.display =
+        gradingGrades.every(g => g !== null) ? 'inline-block' : 'none';
 }
-
 function submitGrading() {
     State.results = [...gradingGrades];
     showResult();
@@ -618,21 +606,13 @@ function showResult() {
     const wrongCount = State.results.filter(r => !r).length;
     const totalCount = State.results.length;
     const rightCount = totalCount - wrongCount;
-
     const score = getScore(wrongCount);
-    const scoreClass = 'score-' + score.replace('-', 'minus-').replace('minus', '');
 
-    // 收集错字
     const wrongChars = [];
-    State.results.forEach((r, i) => {
-        if (!r) wrongChars.push(State.wordList[i].char);
-    });
+    State.results.forEach((r, i) => { if (!r) wrongChars.push(State.flatChars[i].char); });
 
-    // 更新错题本
     const wb = getWrongBook();
-    wrongChars.forEach(c => {
-        if (!wb.includes(c)) wb.push(c);
-    });
+    wrongChars.forEach(c => { if (!wb.includes(c)) wb.push(c); });
     saveWrongBook(wb);
 
     let wrongHtml = '';
@@ -654,45 +634,34 @@ function showResult() {
     showPage('page-result');
 }
 
-function getScore(wrongCount) {
-    if (wrongCount === 0) return 'A';
-    if (wrongCount === 1) return 'A-';
-    if (wrongCount === 2) return 'B';
-    if (wrongCount === 3) return 'B-';
-    if (wrongCount === 4) return 'C';
-    if (wrongCount === 5) return 'C-';
+function getScore(w) {
+    if (w <= 0) return 'A';
+    if (w === 1) return 'A-';
+    if (w === 2) return 'B';
+    if (w === 3) return 'B-';
+    if (w === 4) return 'C';
+    if (w === 5) return 'C-';
     return 'D';
 }
-
-function getScoreClass(score) {
-    const map = {'A':'score-A','A-':'score-A-','B':'score-B','B-':'score-B-','C':'score-C','C-':'score-C-','D':'score-D'};
-    return map[score] || 'score-D';
+function getScoreClass(s) {
+    return {'A':'score-A','A-':'score-A-','B':'score-B','B-':'score-B-','C':'score-C','C-':'score-C-','D':'score-D'}[s] || 'score-D';
 }
 
 function restartDictation() {
-    State.currentIndex = 0;
+    State.currentWordIdx = 0;
     State.snapshots = [];
     State.results = [];
+    State.wordList = shuffleArray([...State.wordList]);
     showPage('page-dictation');
-    showCurrentChar();
+    showCurrentWord();
 }
+function backToSelect() { showPage('page-select'); updateWrongCount(); }
 
-function backToSelect() {
-    showPage('page-select');
-    updateWrongCount();
-}
-
-// ==================== 订正页（Hanzi Writer练字） ====================
+// ==================== 订正页 ====================
 function startPractice() {
-    // 收集所有错字
     State.practiceWrongChars = [];
-    State.results.forEach((r, i) => {
-        if (!r) State.practiceWrongChars.push(State.wordList[i].char);
-    });
-    if (State.practiceWrongChars.length === 0) {
-        alert('没有错字，不需要订正！');
-        return;
-    }
+    State.results.forEach((r, i) => { if (!r) State.practiceWrongChars.push(State.flatChars[i].char); });
+    if (State.practiceWrongChars.length === 0) { alert('没有错字！'); return; }
     State.practiceIndex = 0;
     State.practiceRound = 0;
     showPage('page-practice');
@@ -701,7 +670,6 @@ function startPractice() {
 
 function showPracticeChar() {
     if (State.practiceIndex >= State.practiceWrongChars.length) {
-        // 全部练完
         document.getElementById('practiceInfo').textContent = '订正完成！所有错字已练习3遍 🎉';
         document.getElementById('practiceRound').textContent = '';
         document.getElementById('practice-target').innerHTML = `<button class="btn btn-primary" onclick="backToSelect()">🏠 返回</button>`;
@@ -709,14 +677,10 @@ function showPracticeChar() {
         document.getElementById('btnStartQuiz').style.display = 'none';
         return;
     }
-
     const char = State.practiceWrongChars[State.practiceIndex];
-    const round = State.practiceRound + 1;
-
     document.getElementById('practiceInfo').textContent = `订正：第 ${State.practiceIndex + 1} / ${State.practiceWrongChars.length} 个错字「${char}」`;
-    document.getElementById('practiceRound').textContent = `第 ${round} / 3 遍`;
+    document.getElementById('practiceRound').textContent = `第 ${State.practiceRound + 1} / 3 遍`;
 
-    // 创建Hanzi Writer
     const target = document.getElementById('practice-target');
     target.innerHTML = '';
     const div = document.createElement('div');
@@ -724,17 +688,10 @@ function showPracticeChar() {
     target.appendChild(div);
 
     State.practiceWriter = HanziWriter.create('hw-practice', char, {
-        width: 300,
-        height: 300,
-        padding: 15,
-        showOutline: true,
-        showCharacter: false,
-        strokeColor: '#333',
-        drawingColor: '#1a73e8',
-        drawingWidth: 4,
-        leniency: 0.7,
-        showHintAfterMisses: 2,
-        highlightOnComplete: true
+        width: 300, height: 300, padding: 15,
+        showOutline: true, showCharacter: false,
+        strokeColor: '#333', drawingColor: '#1a73e8', drawingWidth: 6,
+        leniency: 0.7, showHintAfterMisses: 2, highlightOnComplete: true
     });
 
     document.getElementById('btnShowStroke').style.display = 'inline-block';
@@ -744,9 +701,7 @@ function showPracticeChar() {
 function showStrokeOrder() {
     if (State.practiceWriter) {
         State.practiceWriter.animateCharacter({
-            onComplete: function() {
-                document.getElementById('btnStartQuiz').style.display = 'inline-block';
-            }
+            onComplete: function() { document.getElementById('btnStartQuiz').style.display = 'inline-block'; }
         });
         document.getElementById('btnShowStroke').style.display = 'none';
     }
@@ -758,14 +713,12 @@ function startPracticeQuiz() {
         State.practiceWriter.quiz({
             onCorrectStroke: function() {},
             onMistake: function() {},
-            onComplete: function(summary) {
+            onComplete: function() {
                 State.practiceRound++;
                 if (State.practiceRound >= 3) {
-                    // 当前字练完3遍
                     State.practiceRound = 0;
                     State.practiceIndex++;
                 }
-                // 短暂延迟后显示下一轮
                 setTimeout(showPracticeChar, 500);
             }
         });
