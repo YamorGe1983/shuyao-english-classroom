@@ -126,46 +126,64 @@
         .btn-danger { background:var(--danger); color:#fff; }
 
         /* 批改页 */
-        .grading-container { width:100%; max-width:600px; }
-        .grading-card {
-            background:var(--card); border-radius:20px; padding:24px;
-            box-shadow:var(--shadow); margin-bottom:20px; text-align:center;
+        .grading-container { width:100%; max-width:900px; }
+        .grading-title { text-align:center; font-size:22px; font-weight:700; color:var(--primary); margin-bottom:16px; }
+        .grading-table {
+            width:100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
-        .grading-compare {
-            display:flex; justify-content:center; align-items:flex-start;
-            gap:30px; margin:20px 0;
+        .grading-table th {
+            background: #f0f0f0;
+            padding: 12px 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-align: center;
         }
-        .grading-side { text-align:center; }
-        .grading-side label { font-size:13px; color:var(--text-light); display:block; margin-bottom:8px; }
-        .grading-written {
-            width:150px; height:150px; border:2px solid #eee;
-            border-radius:8px; background:#fff;
-            object-fit:contain;
+        .grading-table td {
+            padding: 8px 6px;
+            text-align: center;
+            vertical-align: middle;
+            border-top: 1px solid #f0f0f0;
         }
-        .grading-correct {
-            width:150px; height:150px; display:flex; align-items:center;
-            justify-content:center; font-size:100px;
+        .grading-table tr:last-child td { border-bottom: none; }
+        .grading-cell-written {
+            width:80px; height:80px; border:2px solid #eee;
+            border-radius:6px; background:#fff;
+            object-fit:contain; display:inline-block;
+        }
+        .grading-cell-skip {
+            width:80px; height:80px; display:inline-flex;
+            align-items:center; justify-content:center;
+            color:#ccc; font-size:13px; border:2px solid #eee;
+            border-radius:6px; background:#fff;
+        }
+        .grading-cell-correct {
+            width:80px; height:80px; display:inline-flex;
+            align-items:center; justify-content:center;
+            font-size:56px;
             font-family: 'KaiTi', '楷体', 'STKaiti', serif;
             color: var(--text); border:2px solid #eee;
-            border-radius:8px; background:#fff;
+            border-radius:6px; background:#fff;
         }
-        .grading-info { font-size:13px; color:var(--text-light); margin-top:6px; }
-        .grading-btns {
-            display:flex; justify-content:center; gap:20px; margin-top:16px;
-        }
-        .btn-correct {
-            width:80px; height:80px; border-radius:50%;
-            background:var(--success); color:#fff; border:none;
-            font-size:32px; cursor:pointer;
+        .grading-cell-info { font-size:11px; color:var(--text-light); margin-top:2px; }
+        .grading-cell-btns { display:flex; justify-content:center; gap:10px; }
+        .btn-grade-correct, .btn-grade-wrong {
+            width:50px; height:50px; border-radius:50%;
+            border:none; font-size:22px; cursor:pointer;
             transition: transform 0.15s;
         }
-        .btn-wrong {
-            width:80px; height:80px; border-radius:50%;
-            background:var(--danger); color:#fff; border:none;
-            font-size:32px; cursor:pointer;
-            transition: transform 0.15s;
-        }
-        .btn-correct:active, .btn-wrong:active { transform:scale(0.9); }
+        .btn-grade-correct { background:var(--success); color:#fff; }
+        .btn-grade-wrong { background:var(--danger); color:#fff; }
+        .btn-grade-correct:active, .btn-grade-wrong:active { transform:scale(0.9); }
+        .btn-grade-correct.selected { box-shadow: 0 0 0 4px rgba(0,184,148,0.4); }
+        .btn-grade-wrong.selected { box-shadow: 0 0 0 4px rgba(225,112,85,0.4); }
+        .grading-submit-area { text-align:center; margin-top:24px; }
 
         /* 结果页 */
         .result-card {
@@ -233,8 +251,11 @@
 <!-- 页面3：批改 -->
 <div id="page-grading" class="page">
     <div class="grading-container">
-        <div id="gradingProgress" class="progress-text"></div>
-        <div id="gradingCard" class="grading-card"></div>
+        <div class="grading-title">📝 批改默写</div>
+        <div id="gradingTableArea"></div>
+        <div class="grading-submit-area">
+            <button class="btn btn-primary" id="btnSubmitGrading" onclick="submitGrading()" style="display:none;font-size:18px;padding:14px 40px;">确认批改 ✅</button>
+        </div>
     </div>
 </div>
 
@@ -535,56 +556,61 @@ function replayVoice() {
 }
 
 // ==================== 批改页 ====================
-let gradingIndex = 0;
+let gradingGrades = []; // 每个字的批改结果 null/true/false
 
 function startGrading() {
-    gradingIndex = 0;
-    State.results = [];
+    gradingGrades = new Array(State.wordList.length).fill(null);
     showPage('page-grading');
-    showGradingItem();
+    renderGradingTable();
 }
 
-function showGradingItem() {
-    if (gradingIndex >= State.wordList.length) {
-        showResult();
-        return;
-    }
-    const item = State.wordList[gradingIndex];
-    const snapshot = State.snapshots[gradingIndex];
-    const total = State.wordList.length;
+function renderGradingTable() {
+    const area = document.getElementById('gradingTableArea');
+    let rows = '';
+    State.wordList.forEach((item, i) => {
+        const snapshot = State.snapshots[i];
+        let writtenCell = '';
+        if (snapshot) {
+            writtenCell = `<img class="grading-cell-written" src="${snapshot}" alt="手写">`;
+        } else {
+            writtenCell = `<div class="grading-cell-skip">跳过</div>`;
+        }
+        const correctCell = `<div class="grading-cell-correct">${item.char}</div>`;
+        const info = item.pinyin ? item.pinyin : (item.wordHint || '');
+        const gradeCorrect = gradingGrades[i] === true ? ' selected' : '';
+        const gradeWrong = gradingGrades[i] === false ? ' selected' : '';
+        const btns = `
+            <button class="btn-grade-correct${gradeCorrect}" onclick="gradeCharAt(${i}, true)">✅</button>
+            <button class="btn-grade-wrong${gradeWrong}" onclick="gradeCharAt(${i}, false)">❌</button>
+        `;
+        rows += `<tr>
+            <td>${writtenCell}</td>
+            <td>${correctCell}<div class="grading-cell-info">${info}</div></td>
+            <td><div class="grading-cell-btns">${btns}</div></td>
+        </tr>`;
+    });
+    area.innerHTML = `<table class="grading-table">
+        <thead><tr><th>孩子写的</th><th>正确字</th><th>判断</th></tr></thead>
+        <tbody>${rows}</tbody>
+    </table>`;
 
-    document.getElementById('gradingProgress').textContent = `批改：第 ${gradingIndex + 1} / ${total} 字`;
-
-    let writtenHtml = '';
-    if (snapshot) {
-        writtenHtml = `<img class="grading-written" src="${snapshot}" alt="手写">`;
-    } else {
-        writtenHtml = `<div class="grading-written" style="display:flex;align-items:center;justify-content:center;color:#ccc;font-size:14px;">跳过</div>`;
-    }
-
-    document.getElementById('gradingCard').innerHTML = `
-        <div class="grading-compare">
-            <div class="grading-side">
-                <label>孩子写的</label>
-                ${writtenHtml}
-            </div>
-            <div class="grading-side">
-                <label>正确字</label>
-                <div class="grading-correct">${item.char}</div>
-                <div class="grading-info">${item.pinyin ? item.pinyin + ' · ' : ''}${item.wordHint || ''}</div>
-            </div>
-        </div>
-        <div class="grading-btns">
-            <button class="btn-correct" onclick="gradeChar(true)">✅</button>
-            <button class="btn-wrong" onclick="gradeChar(false)">❌</button>
-        </div>
-    `;
+    // 检查是否全部批改完毕
+    checkAllGraded();
 }
 
-function gradeChar(correct) {
-    State.results.push(correct);
-    gradingIndex++;
-    showGradingItem();
+function gradeCharAt(index, correct) {
+    gradingGrades[index] = correct;
+    renderGradingTable();
+}
+
+function checkAllGraded() {
+    const allDone = gradingGrades.every(g => g !== null);
+    document.getElementById('btnSubmitGrading').style.display = allDone ? 'inline-block' : 'none';
+}
+
+function submitGrading() {
+    State.results = [...gradingGrades];
+    showResult();
 }
 
 // ==================== 结果页 ====================
