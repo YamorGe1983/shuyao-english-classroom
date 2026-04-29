@@ -4,947 +4,750 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="舒窈小课堂 - 语文汉字默写练习">
-    <meta name="theme-color" content="#27AE60">
+    <meta name="theme-color" content="#FF6B6B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="舒窈小课堂">
     <title>语文默写 - 舒窈小课堂</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
-    
-    <!-- Hanzi Writer -->
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-    
     <style>
         :root {
-            --primary: #27AE60;
-            --primary-light: #3DD881;
-            --primary-dark: #1E8449;
-            --bg-primary: #F7F9FC;
-            --bg-card: #FFFFFF;
-            --text-primary: #2D3436;
-            --text-secondary: #636E72;
-            --text-light: #B2BEC3;
+            --primary: #FF6B6B;
+            --primary-light: #FF8E8E;
+            --primary-dark: #E85555;
+            --secondary: #4ECDC4;
+            --secondary-light: #7EDED7;
+            --accent: #FFE66D;
             --success: #00B894;
-            --warning: #FDCB6E;
             --danger: #E17055;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
+            --bg: #F7F9FC;
+            --card: #FFFFFF;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html, body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
-            color: var(--text-primary);
-            background: var(--bg-primary);
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
         }
+        .page { display:none; min-height:100vh; padding:20px; flex-direction:column; align-items:center; }
+        .page.active { display:flex; }
 
-        .page {
-            min-height: 100vh;
-            padding: 16px;
-            padding-bottom: 100px;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 16px;
-            background: rgba(39,174,96,0.1);
-            color: var(--primary);
-            border: none;
-            border-radius: 20px;
-            font-size: 14px;
+        /* 选择页 */
+        .select-header { text-align:center; margin-bottom:30px; }
+        .select-header h1 { font-size:28px; color:var(--primary); }
+        .select-header p { color:var(--text-light); margin-top:8px; }
+        .lesson-list { width:100%; max-width:600px; }
+        .lesson-item {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow);
             cursor: pointer;
-        }
-
-        .page-header {
-            text-align: center;
-            margin: 20px 0 30px;
-        }
-
-        .page-header h1 { font-size: 24px; margin-bottom: 8px; }
-        .page-subtitle { font-size: 14px; color: var(--text-secondary); }
-
-        /* 加载 */
-        .loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 50vh;
-        }
-        .loading-spinner {
-            width: 50px; height: 50px;
-            border: 4px solid #E0E0E0;
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-text { margin-top: 16px; color: var(--text-secondary); }
-
-        /* 单元卡片 */
-        .unit-list { display: flex; flex-direction: column; gap: 16px; }
-        .unit-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .unit-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-        .unit-header {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-        .unit-icon {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-right: 12px;
-        }
-        .unit-name { font-size: 16px; font-weight: 600; }
-        .unit-count { font-size: 13px; color: var(--text-secondary); }
-
-        .unit-lessons { padding: 12px 16px; background: #FAFAFA; }
-        .lesson-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: white;
-            border: 1px solid #E0E0E0;
-            border-radius: var(--radius-sm);
-            margin-bottom: 8px;
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.2s;
-        }
-        .lesson-btn:last-child { margin-bottom: 0; }
-        .lesson-btn:hover { border-color: var(--primary); background: rgba(39,174,96,0.05); }
-        .lesson-btn span { display: block; font-size: 14px; color: var(--text-primary); }
-        .lesson-btn small { font-size: 12px; color: var(--text-secondary); }
-
-        /* 默写页面 */
-        .dictation-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 16px;
-        }
-
-        .dictation-top {
+            transition: transform 0.2s;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
         }
-        .dictation-progress { font-size: 18px; font-weight: 600; }
-        .exit-btn {
-            padding: 8px 16px;
-            background: rgba(225,112,85,0.1);
-            color: var(--danger);
-            border: none;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
+        .lesson-item:active { transform: scale(0.97); }
+        .lesson-name { font-size:18px; font-weight:600; }
+        .lesson-count { color:var(--text-light); font-size:14px; }
+        .wrong-book-btn {
+            margin-top:20px;
+            background: var(--accent);
+            color: var(--text);
+            border:none;
+            padding:14px 32px;
+            border-radius:25px;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
         }
 
-        /* 提示条 */
-        .hint-bar {
-            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-            border: 1px solid #A5D6A7;
-            border-radius: var(--radius-md);
-            padding: 12px 16px;
+        /* 默写页 */
+        .dictation-header {
+            text-align:center; width:100%; max-width:600px;
+        }
+        .tip-bar {
+            background: #FFF3E0;
+            color: #E65100;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 14px;
             text-align: center;
             margin-bottom: 16px;
         }
-        .hint-bar p { font-size: 15px; color: #2E7D32; }
-
-        /* 语音区 */
-        .speech-area { text-align: center; padding: 12px 0; }
-        .speech-hint { font-size: 28px; font-weight: 600; margin-bottom: 4px; }
-        .speech-sub { font-size: 16px; color: var(--text-secondary); margin-bottom: 12px; }
-        .current-char-hint {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 18px;
-            margin-bottom: 12px;
+        .progress-bar {
+            width:100%; height:8px; background:#eee; border-radius:4px;
+            margin: 12px 0;
         }
-        .speech-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
+        .progress-fill {
+            height:100%; background:var(--primary); border-radius:4px;
+            transition: width 0.3s;
         }
-        .speech-btn:active { transform: scale(0.95); }
-        .speech-btn.playing { animation: pulse 1s ease-in-out infinite; }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(0.95); }
+        .progress-text { text-align:center; color:var(--text-light); font-size:14px; margin-bottom:20px; }
+        .grid-container {
+            display:flex; justify-content:center; align-items:flex-start;
+            gap:16px; flex-wrap:wrap; margin:20px 0;
         }
-
-        /* 田字格区 */
-        .character-area {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 0;
+        .char-slot { position:relative; }
+        .char-label {
+            text-align:center; font-size:14px; color:var(--text-light);
+            margin-top:8px;
         }
-
-        .word-container {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .character-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .char-index {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-        .char-index.current { color: var(--primary); font-weight: 600; }
-
-        .character-container {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            touch-action: none;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
+        canvas.write-canvas {
+            border: 2px solid #ccc;
             border-radius: 8px;
-            transition: all 0.2s;
+            background: #fff;
+            touch-action: none;
         }
-        .character-container.active { 
-            transform: scale(1.05);
-            box-shadow: 0 4px 16px rgba(39,174,96,0.3);
+        .dictation-btns {
+            display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+            margin-top:20px;
         }
-        .character-container.completed { opacity: 0.6; }
-        .character-container.error-flash { animation: errorFlash 0.3s; }
-        @keyframes errorFlash {
-            0%, 100% { background-color: transparent; }
-            50% { background-color: rgba(225,112,85,0.4); }
+        .btn {
+            border:none; padding:12px 24px; border-radius:25px;
+            font-size:15px; font-weight:600; cursor:pointer;
+            transition: transform 0.15s;
         }
-        .character-container.correct-flash { animation: correctFlash 0.3s; }
-        @keyframes correctFlash {
-            0%, 100% { background-color: transparent; }
-            50% { background-color: rgba(39,174,96,0.4); }
-        }
+        .btn:active { transform:scale(0.95); }
+        .btn-primary { background:var(--primary); color:#fff; }
+        .btn-secondary { background:var(--secondary); color:#fff; }
+        .btn-accent { background:var(--accent); color:var(--text); }
+        .btn-outline { background:transparent; border:2px solid #ddd; color:var(--text-light); }
+        .btn-danger { background:var(--danger); color:#fff; }
 
-        .grid-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
+        /* 批改页 */
+        .grading-container { width:100%; max-width:600px; }
+        .grading-card {
+            background:var(--card); border-radius:20px; padding:24px;
+            box-shadow:var(--shadow); margin-bottom:20px; text-align:center;
         }
-        .character-target {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+        .grading-compare {
+            display:flex; justify-content:center; align-items:flex-start;
+            gap:30px; margin:20px 0;
         }
-
-        @media (min-width: 768px) {
-            .character-container { width: 120px; height: 120px; }
-            .word-container { gap: 24px; }
+        .grading-side { text-align:center; }
+        .grading-side label { font-size:13px; color:var(--text-light); display:block; margin-bottom:8px; }
+        .grading-written {
+            width:150px; height:150px; border:2px solid #eee;
+            border-radius:8px; background:#fff;
+            object-fit:contain;
         }
-
-        /* 操作按钮 */
-        .action-area {
-            display: flex;
-            gap: 12px;
-            padding: 16px 0;
+        .grading-correct {
+            width:150px; height:150px; display:flex; align-items:center;
+            justify-content:center; font-size:100px;
+            font-family: 'KaiTi', '楷体', 'STKaiti', serif;
+            color: var(--text); border:2px solid #eee;
+            border-radius:8px; background:#fff;
         }
-        .action-btn {
-            flex: 1;
-            padding: 14px;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+        .grading-info { font-size:13px; color:var(--text-light); margin-top:6px; }
+        .grading-btns {
+            display:flex; justify-content:center; gap:20px; margin-top:16px;
         }
-        .action-btn.primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
+        .btn-correct {
+            width:80px; height:80px; border-radius:50%;
+            background:var(--success); color:#fff; border:none;
+            font-size:32px; cursor:pointer;
+            transition: transform 0.15s;
         }
-        .action-btn.secondary { background: #F0F0F0; color: var(--text-primary); }
-        .action-btn.skip { background: rgba(225,112,85,0.1); color: var(--danger); }
-        .action-btn:active { transform: scale(0.98); }
+        .btn-wrong {
+            width:80px; height:80px; border-radius:50%;
+            background:var(--danger); color:#fff; border:none;
+            font-size:32px; cursor:pointer;
+            transition: transform 0.15s;
+        }
+        .btn-correct:active, .btn-wrong:active { transform:scale(0.9); }
 
         /* 结果页 */
-        .result-page { padding: 16px; padding-bottom: 100px; }
-        .result-header { text-align: center; margin: 20px 0; }
-        .result-header h1 { font-size: 24px; margin-bottom: 8px; }
-
-        .grade-display {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 24px;
+        .result-card {
+            background:var(--card); border-radius:20px; padding:30px;
+            box-shadow:var(--shadow); text-align:center; width:100%; max-width:500px;
         }
-        .grade-letter { font-size: 80px; font-weight: bold; line-height: 1; }
-        .grade-a { color: #00B894; }
-        .grade-a-minus { color: #27AE60; }
-        .grade-b { color: #4A90D9; }
-        .grade-b-minus { color: #74B9FF; }
-        .grade-c { color: #FDCB6E; }
-        .grade-c-minus { color: #E17055; }
-        .grade-d { color: #E74C3C; }
-        .grade-desc { font-size: 16px; color: var(--text-secondary); margin-top: 8px; }
-
-        .result-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+        .score-big {
+            font-size:72px; font-weight:800;
+            margin:20px 0;
         }
-        .stat-item { text-align: center; }
-        .stat-value { font-size: 28px; font-weight: bold; }
-        .stat-label { font-size: 12px; color: var(--text-secondary); }
-
-        .result-list {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
-        }
-        .result-group { padding: 14px 16px; border-bottom: 1px solid #F0F0F0; }
-        .result-group:last-child { border-bottom: none; }
-        .result-group-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        .result-word { font-size: 20px; font-weight: 600; margin-right: 12px; }
-        .result-pinyin { font-size: 13px; color: var(--text-secondary); }
-        .result-status-badge { margin-left: auto; font-size: 20px; }
-        .result-chars { display: flex; gap: 8px; }
-        .result-char-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-        .result-char-item .icon { font-size: 12px; }
-        .result-char-item.perfect { background: #E8F5E9; color: #2E7D32; }
-        .result-char-item.error { background: #FFEBEE; color: #C62828; }
-        .result-char-item.skipped { background: #FFF8E1; color: #F57C00; }
-
-        .result-actions { display: flex; flex-direction: column; gap: 12px; }
-        .retry-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .back-home-btn {
-            width: 100%;
-            padding: 16px;
-            background: #F0F0F0;
-            color: var(--text-primary);
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            cursor: pointer;
+        .score-A { color: var(--success); }
+        .score-A- { color: #2ECC71; }
+        .score-B { color: var(--secondary); }
+        .score-B- { color: #3498DB; }
+        .score-C { color: #F39C12; }
+        .score-C- { color: #E67E22; }
+        .score-D { color: var(--danger); }
+        .result-detail { color:var(--text-light); font-size:16px; margin:10px 0; }
+        .wrong-list { text-align:left; margin:20px 0; }
+        .wrong-item {
+            display:inline-block; background:#FFEAA7; border-radius:8px;
+            padding:6px 14px; margin:4px; font-size:18px; font-weight:600;
         }
 
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            z-index: 2000;
-            animation: toastFade 2s ease-out forwards;
-        }
-        @keyframes toastFade {
-            0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        /* 订正页 */
+        .practice-container { width:100%; max-width:500px; text-align:center; }
+        .practice-info { font-size:16px; color:var(--text-light); margin:10px 0; }
+        .practice-round { font-size:20px; font-weight:700; color:var(--primary); margin:10px 0; }
+        #practice-target {
+            display:inline-block; margin:20px auto;
         }
     </style>
 </head>
 <body>
-    <div id="app"></div>
 
-    <script>
-        // ==================== 状态管理 ====================
-        const State = {
-            currentPage: 'home',
-            wordData: null,
-            lessonWords: [],
-            currentWordIndex: 0,
-            currentCharIndex: 0,
-            wordResults: [],
-            writers: {},
-            mistakeCount: 0,
-            totalMistakes: 0
-        };
+<!-- 页面1：选择课文 -->
+<div id="page-select" class="page active">
+    <div class="select-header">
+        <h1>📝 语文默写</h1>
+        <p>选择要默写的课文</p>
+    </div>
+    <div id="lessonList" class="lesson-list"></div>
+    <button class="wrong-book-btn" id="wrongBookBtn" onclick="startWrongBook()">
+        📖 错题本 (<span id="wrongCount">0</span>个字)
+    </button>
+</div>
 
-        // ==================== 数据加载 ====================
-        async function loadWordData() {
-            try {
-                const response = await fetch('../data/chinese/grade3_2.json');
-                if (!response.ok) throw new Error('加载失败');
-                return await response.json();
-            } catch (error) {
-                console.error('加载词库失败:', error);
-                showToast('加载词库失败');
-                return null;
-            }
-        }
+<!-- 页面2：默写 -->
+<div id="page-dictation" class="page">
+    <div class="dictation-header">
+        <div class="tip-bar">✏️ 请一笔一划书写，注意笔顺哦！</div>
+        <div class="progress-bar"><div id="dictProgress" class="progress-fill" style="width:0%"></div></div>
+        <div id="dictProgressText" class="progress-text">第 1 / 1 字</div>
+    </div>
+    <div id="gridArea" class="grid-container"></div>
+    <div class="dictation-btns">
+        <button class="btn btn-accent" onclick="replayVoice()">🔊 再听一遍</button>
+        <button class="btn btn-outline" onclick="undoStroke()">↩️ 撤销</button>
+        <button class="btn btn-outline" onclick="clearCanvas()">🗑️ 清除</button>
+        <button class="btn btn-outline" onclick="skipChar()">⏭️ 跳过</button>
+        <button class="btn btn-primary" onclick="nextChar()">下一个 ➡️</button>
+    </div>
+</div>
 
-        // ==================== 语音播报 ====================
-        function speakWord(text, isWord) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'zh-CN';
-            utterance.rate = isWord ? 0.7 : 0.85;
-            utterance.pitch = 1.1;
-            
-            const btn = document.querySelector('.speech-btn');
-            if (btn) {
-                btn.classList.add('playing');
-                utterance.onend = () => btn.classList.remove('playing');
-                utterance.onerror = () => btn.classList.remove('playing');
-            }
-            window.speechSynthesis.speak(utterance);
-        }
+<!-- 页面3：批改 -->
+<div id="page-grading" class="page">
+    <div class="grading-container">
+        <div id="gradingProgress" class="progress-text"></div>
+        <div id="gradingCard" class="grading-card"></div>
+    </div>
+</div>
 
-        // ==================== 音效 ====================
-        function playSound(type) {
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                
-                if (type === 'correct') {
-                    osc.frequency.value = 880;
-                    osc.type = 'sine';
-                    gain.gain.setValueAtTime(0.3, ctx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
-                    osc.start(ctx.currentTime);
-                    osc.stop(ctx.currentTime + 0.15);
-                } else if (type === 'wrong') {
-                    osc.frequency.value = 220;
-                    osc.type = 'sawtooth';
-                    gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-                    osc.start(ctx.currentTime);
-                    osc.stop(ctx.currentTime + 0.3);
-                } else if (type === 'complete') {
-                    const now = ctx.currentTime;
-                    [523, 659, 784].forEach((freq, i) => {
-                        const o = ctx.createOscillator();
-                        const g = ctx.createGain();
-                        o.connect(g);
-                        g.connect(ctx.destination);
-                        o.frequency.value = freq;
-                        o.type = 'sine';
-                        g.gain.setValueAtTime(0.3, now + i * 0.15);
-                        g.gain.exponentialRampToValueAtTime(0.01, now + i * 0.15 + 0.3);
-                        o.start(now + i * 0.15);
-                        o.stop(now + i * 0.15 + 0.3);
-                    });
-                }
-            } catch (e) {}
-        }
+<!-- 页面4：结果 -->
+<div id="page-result" class="page">
+    <div class="result-card" id="resultCard"></div>
+</div>
 
-        // ==================== Toast ====================
-        function showToast(msg) {
-            const existing = document.querySelector('.toast');
-            if (existing) existing.remove();
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = msg;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2000);
-        }
+<!-- 页面5：订正 -->
+<div id="page-practice" class="page">
+    <div class="practice-container">
+        <div id="practiceInfo" class="practice-info"></div>
+        <div id="practiceRound" class="practice-round"></div>
+        <div id="practice-target"></div>
+        <div style="margin-top:20px;">
+            <button class="btn btn-secondary" id="btnShowStroke" onclick="showStrokeOrder()">👀 看笔顺</button>
+            <button class="btn btn-primary" id="btnStartQuiz" onclick="startPracticeQuiz()" style="display:none;">✏️ 开始写</button>
+        </div>
+    </div>
+</div>
 
-        // ==================== 页面渲染 ====================
-        function render() {
-            const app = document.getElementById('app');
-            switch (State.currentPage) {
-                case 'home': renderHome(app); break;
-                case 'practice': renderPractice(app); break;
-                case 'result': renderResult(app); break;
-            }
-        }
+<script>
+// ==================== 状态管理 ====================
+const State = {
+    wordList: [],       // 当前要默写的所有字 [{char, pinyin, hint, wordHint}]
+    currentIndex: 0,    // 当前默写到第几个字
+    snapshots: [],      // 每个字的手写截图
+    results: [],        // 批改结果 true/false
+    strokes: [],        // 当前canvas的笔画路径
+    currentStroke: [],  // 正在写的笔画
+    isDrawing: false,
+    canvasSize: 420,
+    activeCanvas: null,
+    activeCtx: null,
+    practiceWrongChars: [],  // 需要订正的字
+    practiceIndex: 0,
+    practiceRound: 0,
+    practiceWriter: null
+};
 
-        // ==================== 首页 ====================
-        async function renderHome(container) {
-            container.innerHTML = `
-                <div class="page">
-                    <button class="back-btn" onclick="goBack()">← 返回主页</button>
-                    <div class="page-header">
-                        <h1>📝 语文默写</h1>
-                        <p class="page-subtitle">部编版三年级下册</p>
-                    </div>
-                    <div class="loading">
-                        <div class="loading-spinner"></div>
-                        <p class="loading-text">加载词库中...</p>
-                    </div>
-                </div>
-            `;
-            
-            const data = await loadWordData();
-            if (!data) return;
-            State.wordData = data;
-            
-            const loading = document.querySelector('.loading');
-            if (loading) {
-                loading.remove();
-                const page = document.querySelector('.page');
-                let html = '<div class="unit-list">';
-                
-                data.units.forEach((unit, uIdx) => {
-                    const totalWords = unit.lessons.reduce((sum, l) => sum + l.words.length, 0);
-                    html += `
-                        <div class="unit-card">
-                            <div class="unit-header">
-                                <div class="unit-icon">${['🌸','🏛️','📚','🌺','🎨','⛰️','🌍','🔥'][uIdx] || '📖'}</div>
-                                <div class="unit-info">
-                                    <div class="unit-name">${unit.name}</div>
-                                    <div class="unit-count">${unit.lessons.length}课 · ${totalWords}词</div>
-                                </div>
-                            </div>
-                            <div class="unit-lessons">
-                    `;
-                    unit.lessons.forEach((lesson) => {
-                        html += `
-                            <button class="lesson-btn" onclick="selectLesson(${JSON.stringify(lesson.words).replace(/"/g, '&quot;')}, '${lesson.name}')">
-                                <span>${lesson.name}</span>
-                                <small>${lesson.words.length}个词组</small>
-                            </button>
-                        `;
-                    });
-                    html += '</div></div>';
-                });
-                html += '</div>';
-                page.insertAdjacentHTML('beforeend', html);
-            }
-        }
+// ==================== 页面切换 ====================
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
 
-        // ==================== 选择课文 ====================
-        function selectLesson(words, lessonName) {
-            State.lessonWords = shuffleArray([...words]);
-            State.currentWordIndex = 0;
-            State.currentCharIndex = 0;
-            State.wordResults = [];
-            State.totalMistakes = 0;
-            State.currentPage = 'practice';
-            render();
-        }
+// ==================== 词库加载 ====================
+async function loadWordData() {
+    const resp = await fetch('../data/chinese/grade3_2.json');
+    return await resp.json();
+}
 
-        // ==================== 默写页面 ====================
-        function renderPractice(container) {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            const totalWords = State.lessonWords.length;
-            
-            let gridHTML = '<div class="word-container">';
-            chars.forEach((char, idx) => {
-                const isActive = idx === State.currentCharIndex;
-                const isCompleted = idx < State.currentCharIndex;
-                gridHTML += `
-                    <div class="character-wrapper">
-                        <div class="char-index ${isActive ? 'current' : ''}">第${idx + 1}字</div>
-                        <div class="character-container ${isActive ? 'active' : ''} ${isCompleted ? 'completed' : ''}" id="container-${idx}">
-                            <svg class="grid-bg" viewBox="0 0 100 100">
-                                <rect x="1" y="1" width="98" height="98" fill="none" stroke="#CCC" stroke-width="0.5"/>
-                                <line x1="0" y1="50" x2="100" y2="50" stroke="#E0E0E0" stroke-width="0.5" stroke-dasharray="3,3"/>
-                                <line x1="50" y1="0" x2="50" y2="100" stroke="#E0E0E0" stroke-width="0.5" stroke-dasharray="3,3"/>
-                                <line x1="0" y1="0" x2="100" y2="100" stroke="#F0F0F0" stroke-width="0.3" stroke-dasharray="2,2"/>
-                                <line x1="100" y1="0" x2="0" y2="100" stroke="#F0F0F0" stroke-width="0.3" stroke-dasharray="2,2"/>
-                            </svg>
-                            <div class="character-target" id="target-${idx}"></div>
-                        </div>
-                    </div>
-                `;
-            });
-            gridHTML += '</div>';
-            
-            container.innerHTML = `
-                <div class="dictation-page">
-                    <div class="dictation-top">
-                        <div class="dictation-progress">第 ${State.currentWordIndex + 1}/${totalWords} 词</div>
-                        <button class="exit-btn" onclick="exitPractice()">✕ 退出</button>
-                    </div>
-                    
-                    <div class="hint-bar">
-                        <p>✍️ 请仔细看提示，一笔一划书写哦！</p>
-                    </div>
-                    
-                    <div class="speech-area">
-                        <div class="speech-hint" id="wordHint">${word.char}</div>
-                        <div class="speech-sub" id="pinyinHint">${word.pinyin}</div>
-                        <div class="current-char-hint" id="currentCharHint">
-                            请写：「${chars[State.currentCharIndex]}」
-                        </div>
-                        <button class="speech-btn" onclick="replaySpeech()">🔊 再听一遍</button>
-                    </div>
-                    
-                    <div class="character-area">${gridHTML}</div>
-                    
-                    <div class="action-area">
-                        <button class="action-btn skip" onclick="skipWord()">跳过</button>
-                        <button class="action-btn secondary" onclick="resetChar()">重写</button>
-                        <button class="action-btn primary" onclick="finishChar()">完成</button>
-                    </div>
-                </div>
-            `;
-            
-            setTimeout(() => {
-                initCurrentChar();
-                setTimeout(() => speakWord(word.char, true), 300);
-            }, 100);
-        }
-
-        // ==================== 初始化当前字 ====================
-        function initCurrentChar() {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            const char = chars[State.currentCharIndex];
-            const idx = State.currentCharIndex;
-            
-            if (State.writers[idx]) State.writers[idx] = null;
-            
-            const target = document.getElementById('target-' + idx);
-            if (!target) return;
-            
-            try {
-                State.writers[idx] = HanziWriter.create('target-' + idx, char, {
-                    width: target.offsetWidth || 100,
-                    height: target.offsetHeight || 100,
-                    showOutline: false,
-                    showCharacter: false,
-                    strokeColor: '#27AE60',
-                    drawingColor: '#333',
-                    drawingWidth: 3,
-                    leniency: 0.7,
-                    showHintAfterMisses: 2,
-                    highlightOnComplete: true,
-                    padding: 8
-                });
-                
-                State.writers[idx].quiz({
-                    onMistake: function() {
-                        playSound('wrong');
-                        State.mistakeCount++;
-                        State.totalMistakes++;
-                        const container = document.getElementById('container-' + idx);
-                        container.classList.add('error-flash');
-                        setTimeout(() => container.classList.remove('error-flash'), 300);
-                    },
-                    onCorrectStroke: function() {
-                        playSound('correct');
-                        const container = document.getElementById('container-' + idx);
-                        container.classList.add('correct-flash');
-                        setTimeout(() => container.classList.remove('correct-flash'), 300);
-                    },
-                    onComplete: function() {
-                        playSound('complete');
-                        charComplete(idx);
-                    }
-                });
-            } catch (error) {
-                console.error('初始化失败:', error);
-            }
-        }
-
-        // ==================== 单字完成 ====================
-        function charComplete(idx) {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            
-            const container = document.getElementById('container-' + idx);
-            if (container) {
-                container.classList.add('completed');
-                container.classList.remove('active');
-            }
-            
-            if (State.writers[idx]) {
-                State.writers[idx].animateCharacter();
-            }
-            
-            State.currentCharIndex++;
-            
-            if (State.currentCharIndex >= chars.length) {
-                State.wordResults.push({
-                    word: word.char,
-                    pinyin: word.pinyin,
-                    mistakes: State.mistakeCount,
-                    status: State.mistakeCount === 0 ? 'perfect' : 
-                            State.mistakeCount <= 2 ? 'warning' : 'error'
-                });
-                setTimeout(() => nextWord(), 1500);
-            } else {
-                setTimeout(() => {
-                    const nextContainer = document.getElementById('container-' + State.currentCharIndex);
-                    if (nextContainer) nextContainer.classList.add('active');
-                    const hintEl = document.getElementById('currentCharHint');
-                    if (hintEl) hintEl.textContent = '请写：「' + chars[State.currentCharIndex] + '」';
-                    initCurrentChar();
-                }, 500);
-            }
-        }
-
-        // ==================== 完成当前字（手动） ====================
-        function finishChar() {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            const idx = State.currentCharIndex;
-            
-            if (State.writers[idx]) State.writers[idx] = null;
-            
-            const container = document.getElementById('container-' + idx);
-            if (container) {
-                container.classList.add('completed');
-                container.classList.remove('active');
-            }
-            
-            setTimeout(() => {
-                if (HanziWriter && document.getElementById('target-' + idx)) {
-                    const writer = HanziWriter.create('target-' + idx, chars[idx], {
-                        width: container.offsetWidth || 100,
-                        height: container.offsetHeight || 100,
-                        showOutline: false,
-                        showCharacter: false,
-                        strokeColor: '#27AE60',
-                        drawingColor: '#333',
-                        drawingWidth: 3,
-                        padding: 8
-                    });
-                    writer.animateCharacter();
-                }
-            }, 100);
-            
-            charComplete(idx);
-        }
-
-        // ==================== 重写 ====================
-        function resetChar() {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            const idx = State.currentCharIndex;
-            
-            State.writers[idx] = null;
-            const target = document.getElementById('target-' + idx);
-            if (target) target.innerHTML = '';
-            State.mistakeCount = 0;
-            initCurrentChar();
-            showToast('已重置');
-        }
-
-        // ==================== 下一个词 ====================
-        function nextWord() {
-            State.currentWordIndex++;
-            State.currentCharIndex = 0;
-            State.mistakeCount = 0;
-            State.writers = {};
-            
-            if (State.currentWordIndex >= State.lessonWords.length) {
-                State.currentPage = 'result';
-            }
-            render();
-        }
-
-        // ==================== 跳过 ====================
-        function skipWord() {
-            const word = State.lessonWords[State.currentWordIndex];
-            State.wordResults.push({
-                word: word.char,
-                pinyin: word.pinyin,
-                mistakes: -1,
-                status: 'skipped'
-            });
-            State.writers = {};
-            showToast('已跳过');
-            nextWord();
-        }
-
-        // ==================== 重新播放 ====================
-        function replaySpeech() {
-            const word = State.lessonWords[State.currentWordIndex];
-            const chars = word.chars || [word.char];
-            speakWord(word.char, true);
-            setTimeout(() => {
-                speakWord('请写' + chars[State.currentCharIndex] + '字', false);
-            }, 1200);
-        }
-
-        // ==================== 退出 ====================
-        function exitPractice() {
-            if (confirm('确定要退出默写吗？当前进度将不会保存。')) {
-                State.currentPage = 'home';
-                State.currentWordIndex = 0;
-                State.wordResults = [];
-                State.writers = {};
-                render();
-            }
-        }
-
-        // ==================== 结果页 ====================
-        function renderResult(container) {
-            const total = State.wordResults.length;
-            const perfectCount = State.wordResults.filter(r => r.status === 'perfect').length;
-            const grade = calculateGrade(State.totalMistakes);
-            
-            let resultHTML = '';
-            State.wordResults.forEach((result) => {
-                const statusIcon = result.status === 'perfect' ? '✅' : 
-                                   result.status === 'warning' ? '⚠️' : 
-                                   result.status === 'error' ? '❌' : '⏭️';
-                const statusClass = result.status === 'skipped' ? 'skipped' : 
-                                   result.status === 'error' ? 'error' : 
-                                   result.status === 'warning' ? 'error' : 'perfect';
-                const mistakeText = result.mistakes === -1 ? '跳过' : 
-                                     result.mistakes === 0 ? '完美' : result.mistakes + '笔错';
-                
-                resultHTML += `
-                    <div class="result-group">
-                        <div class="result-group-header">
-                            <div class="result-word">${result.word}</div>
-                            <div class="result-pinyin">${result.pinyin}</div>
-                            <div class="result-status-badge">${statusIcon}</div>
-                        </div>
-                        <div class="result-chars">
-                            ${result.status === 'skipped' ? 
-                                '<div class="result-char-item skipped"><span>跳过</span></div>' :
-                                '<div class="result-char-item ' + statusClass + '"><span class="icon">' + statusIcon + '</span><span>' + mistakeText + '</span></div>'
-                            }
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = `
-                <div class="result-page">
-                    <button class="back-btn" onclick="State.currentPage='home'; render();">← 返回首页</button>
-                    <div class="result-header">
-                        <h1>📝 默写完成</h1>
-                        <p class="page-subtitle">继续保持，下次更好！</p>
-                    </div>
-                    
-                    <div class="grade-display">
-                        <div class="grade-letter ${grade.className}">${grade.letter}</div>
-                        <div class="grade-desc">${grade.desc}</div>
-                        <div class="result-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">${total}</div>
-                                <div class="stat-label">总词数</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">${State.totalMistakes}</div>
-                                <div class="stat-label">总错误</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value" style="color:#00B894;">${perfectCount}</div>
-                                <div class="stat-label">完美</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-list">${resultHTML}</div>
-                    
-                    <div class="result-actions">
-                        <button class="retry-btn" onclick="retry()">🔄 再来一次</button>
-                        <button class="back-home-btn" onclick="State.currentPage='home'; render();">🏠 返回首页</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // ==================== 等级计算 ====================
-        function calculateGrade(mistakes) {
-            if (mistakes === 0) return { letter: 'A', className: 'grade-a', desc: '太棒了！全对！🎉' };
-            if (mistakes === 1) return { letter: 'A-', className: 'grade-a-minus', desc: '很接近完美了！' };
-            if (mistakes === 2) return { letter: 'B', className: 'grade-b', desc: '做得不错，继续加油！' };
-            if (mistakes === 3) return { letter: 'B-', className: 'grade-b-minus', desc: '有进步空间哦！' };
-            if (mistakes === 4) return { letter: 'C', className: 'grade-c', desc: '需要多加练习' };
-            if (mistakes === 5) return { letter: 'C-', className: 'grade-c-minus', desc: '加油！多写几遍' };
-            return { letter: 'D', className: 'grade-d', desc: '别灰心，多多练习！' };
-        }
-
-        // ==================== 重试 ====================
-        function retry() {
-            const words = State.lessonWords.map(function(w) { return {...w}; });
-            selectLesson(words, '重新练习');
-        }
-
-        // ==================== 工具 ====================
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        function goBack() {
-            window.location.href = '../index.html';
-        }
-
-        // ==================== 初始化 ====================
-        document.addEventListener('DOMContentLoaded', function() {
-            render();
+// ==================== 选择页 ====================
+async function initSelectPage() {
+    const data = await loadWordData();
+    const list = document.getElementById('lessonList');
+    list.innerHTML = '';
+    data.units.forEach(unit => {
+        unit.lessons.forEach(lesson => {
+            const totalChars = lesson.words.reduce((s, w) => s + (w.chars ? w.chars.length : 1), 0);
+            const div = document.createElement('div');
+            div.className = 'lesson-item';
+            div.innerHTML = `<span class="lesson-name">${lesson.name}</span><span class="lesson-count">${totalChars}字</span>`;
+            div.onclick = () => startDictation(lesson.words);
+            list.appendChild(div);
         });
-    </script>
+    });
+    updateWrongCount();
+}
+
+function updateWrongCount() {
+    const wb = getWrongBook();
+    document.getElementById('wrongCount').textContent = wb.length;
+}
+
+function getWrongBook() {
+    const d = localStorage.getItem('chineseWrongBook');
+    return d ? JSON.parse(d) : [];
+}
+function saveWrongBook(wb) {
+    localStorage.setItem('chineseWrongBook', JSON.stringify(wb));
+}
+
+function startWrongBook() {
+    const wb = getWrongBook();
+    if (wb.length === 0) { alert('错题本是空的！'); return; }
+    const words = wb.map(c => ({ char: c, pinyin: '', hint: '', chars: [c], wordHint: '' }));
+    startDictation(words);
+}
+
+// ==================== 默写页 ====================
+function startDictation(words) {
+    // 展开多字词为逐字列表
+    State.wordList = [];
+    words.forEach(w => {
+        const chars = w.chars || [w.char];
+        const hint = w.hint || w.char;
+        chars.forEach((c, i) => {
+            State.wordList.push({
+                char: c,
+                pinyin: w.pinyin || '',
+                hint: hint,
+                wordHint: hint,
+                isLastOfWord: i === chars.length - 1
+            });
+        });
+    });
+    State.currentIndex = 0;
+    State.snapshots = [];
+    State.results = [];
+    showPage('page-dictation');
+    showCurrentChar();
+}
+
+function showCurrentChar() {
+    if (State.currentIndex >= State.wordList.length) {
+        startGrading();
+        return;
+    }
+    const item = State.wordList[State.currentIndex];
+    const total = State.wordList.length;
+
+    // 进度
+    const pct = (State.currentIndex / total * 100).toFixed(0);
+    document.getElementById('dictProgress').style.width = pct + '%';
+    document.getElementById('dictProgressText').textContent = `第 ${State.currentIndex + 1} / ${total} 字`;
+
+    // 创建Canvas
+    const area = document.getElementById('gridArea');
+    area.innerHTML = '';
+    const size = State.canvasSize;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'write-canvas';
+    canvas.width = size;
+    canvas.height = size;
+    canvas.style.width = Math.min(size, window.innerWidth - 60) + 'px';
+    canvas.style.height = Math.min(size, window.innerWidth - 60) + 'px';
+    area.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    State.activeCanvas = canvas;
+    State.activeCtx = ctx;
+    State.strokes = [];
+    State.currentStroke = [];
+    State.isDrawing = false;
+
+    drawGridBg(ctx, size);
+    setupCanvasEvents(canvas, ctx, size);
+
+    // 语音播报
+    speakWord(item.hint || item.char);
+}
+
+function drawGridBg(ctx, size) {
+    ctx.clearRect(0, 0, size, size);
+    // 外框
+    ctx.strokeStyle = '#999';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(1, 1, size - 2, size - 2);
+    // 横中线
+    ctx.strokeStyle = '#ddd';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([8, 4]);
+    ctx.beginPath();
+    ctx.moveTo(0, size / 2);
+    ctx.lineTo(size, size / 2);
+    ctx.stroke();
+    // 竖中线
+    ctx.beginPath();
+    ctx.moveTo(size / 2, 0);
+    ctx.lineTo(size / 2, size);
+    ctx.stroke();
+    // 对角线
+    ctx.strokeStyle = '#eee';
+    ctx.lineWidth = 0.5;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(size, size);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(size, 0);
+    ctx.lineTo(0, size);
+    ctx.stroke();
+    ctx.setLineDash([]);
+}
+
+function setupCanvasEvents(canvas, ctx, size) {
+    function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = size / rect.width;
+        const scaleY = size / rect.height;
+        if (e.touches) {
+            return { x: (e.touches[0].clientX - rect.left) * scaleX, y: (e.touches[0].clientY - rect.top) * scaleY };
+        }
+        return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
+    }
+
+    function onStart(e) {
+        e.preventDefault();
+        State.isDrawing = true;
+        const p = getPos(e);
+        State.currentStroke = [p];
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+    }
+    function onMove(e) {
+        e.preventDefault();
+        if (!State.isDrawing) return;
+        const p = getPos(e);
+        State.currentStroke.push(p);
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 4;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+    }
+    function onEnd(e) {
+        e.preventDefault();
+        if (!State.isDrawing) return;
+        State.isDrawing = false;
+        if (State.currentStroke.length > 0) {
+            State.strokes.push([...State.currentStroke]);
+        }
+        State.currentStroke = [];
+    }
+
+    // Pointer events (Apple Pencil + mouse)
+    canvas.addEventListener('pointerdown', onStart);
+    canvas.addEventListener('pointermove', onMove);
+    canvas.addEventListener('pointerup', onEnd);
+    canvas.addEventListener('pointerleave', onEnd);
+}
+
+function undoStroke() {
+    if (State.strokes.length === 0) return;
+    State.strokes.pop();
+    redrawCanvas();
+}
+
+function clearCanvas() {
+    State.strokes = [];
+    redrawCanvas();
+}
+
+function redrawCanvas() {
+    const ctx = State.activeCtx;
+    const size = State.canvasSize;
+    drawGridBg(ctx, size);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    State.strokes.forEach(stroke => {
+        if (stroke.length < 2) return;
+        ctx.beginPath();
+        ctx.moveTo(stroke[0].x, stroke[0].y);
+        for (let i = 1; i < stroke.length; i++) {
+            ctx.lineTo(stroke[i].x, stroke[i].y);
+        }
+        ctx.stroke();
+    });
+}
+
+function skipChar() {
+    State.snapshots.push(null); // null = 跳过
+    State.currentIndex++;
+    showCurrentChar();
+}
+
+function nextChar() {
+    // 保存截图
+    if (State.activeCanvas) {
+        State.snapshots.push(State.activeCanvas.toDataURL());
+    } else {
+        State.snapshots.push(null);
+    }
+    State.currentIndex++;
+    showCurrentChar();
+}
+
+// ==================== 语音播报 ====================
+function speakWord(text) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'zh-CN';
+    u.rate = 0.8;
+    window.speechSynthesis.speak(u);
+}
+
+function replayVoice() {
+    if (State.currentIndex < State.wordList.length) {
+        const item = State.wordList[State.currentIndex];
+        speakWord(item.hint || item.char);
+    }
+}
+
+// ==================== 批改页 ====================
+let gradingIndex = 0;
+
+function startGrading() {
+    gradingIndex = 0;
+    State.results = [];
+    showPage('page-grading');
+    showGradingItem();
+}
+
+function showGradingItem() {
+    if (gradingIndex >= State.wordList.length) {
+        showResult();
+        return;
+    }
+    const item = State.wordList[gradingIndex];
+    const snapshot = State.snapshots[gradingIndex];
+    const total = State.wordList.length;
+
+    document.getElementById('gradingProgress').textContent = `批改：第 ${gradingIndex + 1} / ${total} 字`;
+
+    let writtenHtml = '';
+    if (snapshot) {
+        writtenHtml = `<img class="grading-written" src="${snapshot}" alt="手写">`;
+    } else {
+        writtenHtml = `<div class="grading-written" style="display:flex;align-items:center;justify-content:center;color:#ccc;font-size:14px;">跳过</div>`;
+    }
+
+    document.getElementById('gradingCard').innerHTML = `
+        <div class="grading-compare">
+            <div class="grading-side">
+                <label>孩子写的</label>
+                ${writtenHtml}
+            </div>
+            <div class="grading-side">
+                <label>正确字</label>
+                <div class="grading-correct">${item.char}</div>
+                <div class="grading-info">${item.pinyin ? item.pinyin + ' · ' : ''}${item.wordHint || ''}</div>
+            </div>
+        </div>
+        <div class="grading-btns">
+            <button class="btn-correct" onclick="gradeChar(true)">✅</button>
+            <button class="btn-wrong" onclick="gradeChar(false)">❌</button>
+        </div>
+    `;
+}
+
+function gradeChar(correct) {
+    State.results.push(correct);
+    gradingIndex++;
+    showGradingItem();
+}
+
+// ==================== 结果页 ====================
+function showResult() {
+    const wrongCount = State.results.filter(r => !r).length;
+    const totalCount = State.results.length;
+    const rightCount = totalCount - wrongCount;
+
+    const score = getScore(wrongCount);
+    const scoreClass = 'score-' + score.replace('-', 'minus-').replace('minus', '');
+
+    // 收集错字
+    const wrongChars = [];
+    State.results.forEach((r, i) => {
+        if (!r) wrongChars.push(State.wordList[i].char);
+    });
+
+    // 更新错题本
+    const wb = getWrongBook();
+    wrongChars.forEach(c => {
+        if (!wb.includes(c)) wb.push(c);
+    });
+    saveWrongBook(wb);
+
+    let wrongHtml = '';
+    if (wrongChars.length > 0) {
+        wrongHtml = `<div class="wrong-list"><p style="margin-bottom:8px;">错字：</p>${wrongChars.map(c => `<span class="wrong-item">${c}</span>`).join('')}</div>`;
+    }
+
+    document.getElementById('resultCard').innerHTML = `
+        <h2>默写完成！</h2>
+        <div class="score-big ${getScoreClass(score)}">${score}</div>
+        <div class="result-detail">正确 ${rightCount} / ${totalCount} 字，错误 ${wrongCount} 字</div>
+        ${wrongHtml}
+        <div style="margin-top:24px;">
+            ${wrongChars.length > 0 ? `<button class="btn btn-primary" onclick="startPractice()" style="margin:8px;">📝 开始订正</button>` : ''}
+            <button class="btn btn-secondary" onclick="restartDictation()" style="margin:8px;">🔄 重新默写</button>
+            <button class="btn btn-outline" onclick="backToSelect()" style="margin:8px;">🏠 返回</button>
+        </div>
+    `;
+    showPage('page-result');
+}
+
+function getScore(wrongCount) {
+    if (wrongCount === 0) return 'A';
+    if (wrongCount === 1) return 'A-';
+    if (wrongCount === 2) return 'B';
+    if (wrongCount === 3) return 'B-';
+    if (wrongCount === 4) return 'C';
+    if (wrongCount === 5) return 'C-';
+    return 'D';
+}
+
+function getScoreClass(score) {
+    const map = {'A':'score-A','A-':'score-A-','B':'score-B','B-':'score-B-','C':'score-C','C-':'score-C-','D':'score-D'};
+    return map[score] || 'score-D';
+}
+
+function restartDictation() {
+    State.currentIndex = 0;
+    State.snapshots = [];
+    State.results = [];
+    showPage('page-dictation');
+    showCurrentChar();
+}
+
+function backToSelect() {
+    showPage('page-select');
+    updateWrongCount();
+}
+
+// ==================== 订正页（Hanzi Writer练字） ====================
+function startPractice() {
+    // 收集所有错字
+    State.practiceWrongChars = [];
+    State.results.forEach((r, i) => {
+        if (!r) State.practiceWrongChars.push(State.wordList[i].char);
+    });
+    if (State.practiceWrongChars.length === 0) {
+        alert('没有错字，不需要订正！');
+        return;
+    }
+    State.practiceIndex = 0;
+    State.practiceRound = 0;
+    showPage('page-practice');
+    showPracticeChar();
+}
+
+function showPracticeChar() {
+    if (State.practiceIndex >= State.practiceWrongChars.length) {
+        // 全部练完
+        document.getElementById('practiceInfo').textContent = '订正完成！所有错字已练习3遍 🎉';
+        document.getElementById('practiceRound').textContent = '';
+        document.getElementById('practice-target').innerHTML = `<button class="btn btn-primary" onclick="backToSelect()">🏠 返回</button>`;
+        document.getElementById('btnShowStroke').style.display = 'none';
+        document.getElementById('btnStartQuiz').style.display = 'none';
+        return;
+    }
+
+    const char = State.practiceWrongChars[State.practiceIndex];
+    const round = State.practiceRound + 1;
+
+    document.getElementById('practiceInfo').textContent = `订正：第 ${State.practiceIndex + 1} / ${State.practiceWrongChars.length} 个错字「${char}」`;
+    document.getElementById('practiceRound').textContent = `第 ${round} / 3 遍`;
+
+    // 创建Hanzi Writer
+    const target = document.getElementById('practice-target');
+    target.innerHTML = '';
+    const div = document.createElement('div');
+    div.id = 'hw-practice';
+    target.appendChild(div);
+
+    State.practiceWriter = HanziWriter.create('hw-practice', char, {
+        width: 300,
+        height: 300,
+        padding: 15,
+        showOutline: true,
+        showCharacter: false,
+        strokeColor: '#333',
+        drawingColor: '#1a73e8',
+        drawingWidth: 4,
+        leniency: 0.7,
+        showHintAfterMisses: 2,
+        highlightOnComplete: true
+    });
+
+    document.getElementById('btnShowStroke').style.display = 'inline-block';
+    document.getElementById('btnStartQuiz').style.display = 'none';
+}
+
+function showStrokeOrder() {
+    if (State.practiceWriter) {
+        State.practiceWriter.animateCharacter({
+            onComplete: function() {
+                document.getElementById('btnStartQuiz').style.display = 'inline-block';
+            }
+        });
+        document.getElementById('btnShowStroke').style.display = 'none';
+    }
+}
+
+function startPracticeQuiz() {
+    if (State.practiceWriter) {
+        document.getElementById('btnStartQuiz').style.display = 'none';
+        State.practiceWriter.quiz({
+            onCorrectStroke: function() {},
+            onMistake: function() {},
+            onComplete: function(summary) {
+                State.practiceRound++;
+                if (State.practiceRound >= 3) {
+                    // 当前字练完3遍
+                    State.practiceRound = 0;
+                    State.practiceIndex++;
+                }
+                // 短暂延迟后显示下一轮
+                setTimeout(showPracticeChar, 500);
+            }
+        });
+    }
+}
+
+// ==================== 初始化 ====================
+initSelectPage();
+</script>
 </body>
 </html>
