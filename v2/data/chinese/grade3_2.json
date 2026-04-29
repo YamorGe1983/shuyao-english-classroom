@@ -1,0 +1,61 @@
+{
+  "id": "grade3_2",
+  "name": "三年级下",
+  "metadata": {
+    "title": "部编版小学语文三年级下册",
+    "subtitle": "写字表生字"
+  },
+  "units": [
+    {
+      "id": "unit1",
+      "name": "第一单元",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "name": "古诗三首",
+          "words": [
+            { "char": "融化", "pinyin": "róng huà", "hint": "融化", "strokes": 16, "chars": ["融", "化"] },
+            { "char": "燕子", "pinyin": "yàn zi", "hint": "燕子", "strokes": 16, "chars": ["燕", "子"] },
+            { "char": "鸳鸯", "pinyin": "yuān yāng", "hint": "鸳鸯", "strokes": 20, "chars": ["鸳", "鸯"] },
+            { "char": "惠崇", "pinyin": "huì chóng", "hint": "惠崇", "strokes": 23, "chars": ["惠", "崇"] },
+            { "char": "芦芽", "pinyin": "lú yá", "hint": "芦芽", "strokes": 14, "chars": ["芦", "芽"] },
+            { "char": "短长", "pinyin": "duǎn cháng", "hint": "短长", "strokes": 16, "chars": ["短", "长"] },
+            { "char": "梅花", "pinyin": "méi huā", "hint": "梅花", "strokes": 15, "chars": ["梅", "花"] },
+            { "char": "小溪", "pinyin": "xiǎo xī", "hint": "小溪", "strokes": 16, "chars": ["小", "溪"] },
+            { "char": "春满", "pinyin": "chūn mǎn", "hint": "春满", "strokes": 18, "chars": ["春", "满"] }
+          ]
+        },
+        {
+          "id": "lesson2",
+          "name": "燕子",
+          "words": [
+            { "char": "凑成", "pinyin": "còu chéng", "hint": "凑成", "strokes": 17, "chars": ["凑", "成"] },
+            { "char": "吹拂", "pinyin": "chuī fú", "hint": "吹拂", "strokes": 14, "chars": ["吹", "拂"] },
+            { "char": "集合", "pinyin": "jí hé", "hint": "集合", "strokes": 18, "chars": ["集", "合"] },
+            { "char": "聚集", "pinyin": "jù jí", "hint": "聚集", "strokes": 26, "chars": ["聚", "集"] },
+            { "char": "形状", "pinyin": "xíng zhuàng", "hint": "形状", "strokes": 12, "chars": ["形", "状"] },
+            { "char": "掠过", "pinyin": "lüè guò", "hint": "掠过", "strokes": 16, "chars": ["掠", "过"] },
+            { "char": "偶尔", "pinyin": "ǒu ěr", "hint": "偶尔", "strokes": 16, "chars": ["偶", "尔"] },
+            { "char": "沾水", "pinyin": "zhān shuǐ", "hint": "沾水", "strokes": 12, "chars": ["沾", "水"] },
+            { "char": "疲倦", "pinyin": "pí juàn", "hint": "疲倦", "strokes": 22, "chars": ["疲", "倦"] },
+            { "char": "纤细", "pinyin": "xiān xì", "hint": "纤细", "strokes": 11, "chars": ["纤", "细"] }
+          ]
+        },
+        {
+          "id": "lesson3",
+          "name": "荷花",
+          "words": [
+            { "char": "花瓣", "pinyin": "huā bàn", "hint": "花瓣", "strokes": 23, "chars": ["花", "瓣"] },
+            { "char": "莲蓬", "pinyin": "lián péng", "hint": "莲蓬", "strokes": 26, "chars": ["莲", "蓬"] },
+            { "char": "饱胀", "pinyin": "bǎo zhàng", "hint": "饱胀", "strokes": 15, "chars": ["饱", "胀"] },
+            { "char": "破裂", "pinyin": "pò liè", "hint": "破裂", "strokes": 19, "chars": ["破", "裂"] },
+            { "char": "姿势", "pinyin": "zī shì", "hint": "姿势", "strokes": 17, "chars": ["姿", "势"] },
+            { "char": "仿佛", "pinyin": "fǎng fú", "hint": "仿佛", "strokes": 13, "chars": ["仿", "佛"] },
+            { "char": "随从", "pinyin": "suí cóng", "hint": "随从", "strokes": 16, "chars": ["随", "从"] },
+            { "char": "舞蹈", "pinyin": "wǔ dǎo", "hint": "舞蹈", "strokes": 22, "chars": ["舞", "蹈"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
