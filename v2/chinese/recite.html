@@ -274,11 +274,12 @@ const GRADES = [
     { id: 'grade5_2', name: '五年级下', icon: '📓' }
 ];
 
-let currentGrade = localStorage.getItem('reciteGrade') || 'grade3_2';
+const urlParams = new URLSearchParams(window.location.search);
+let currentGrade = urlParams.get('grade') || localStorage.getItem('current_grade') || 'grade3_2';
 
 function switchGrade(gradeId) {
     currentGrade = gradeId;
-    localStorage.setItem('reciteGrade', gradeId);
+    localStorage.setItem('current_grade', gradeId);
     initSelectPage();
 }
 
