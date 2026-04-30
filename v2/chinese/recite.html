@@ -108,16 +108,26 @@
 
         /* 遮挡状态 */
         .line-card.hidden .line-text {
-            color:transparent; background:repeating-linear-gradient(
-                90deg, var(--text-light), var(--text-light) 18px,
-                transparent 18px, transparent 24px
+            position:relative; color:transparent; user-select:none;
+        }
+        .line-card.hidden .line-text::after {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background:repeating-linear-gradient(
+                90deg, #B0B0B0 0px, #B0B0B0 14px,
+                #D0D0D0 14px, #D0D0D0 18px
             );
-            background-clip:text; -webkit-background-clip:text;
-            border-radius:4px; user-select:none;
+            border-radius:4px;
+        }
+        body.eyecare .line-card.hidden .line-text::after {
+            background:repeating-linear-gradient(
+                90deg, #C4B896 0px, #C4B896 14px,
+                #D8CEAE 14px, #D8CEAE 18px
+            );
         }
         /* 提示状态 */
         .line-card.hint .line-text {
-            color:var(--text-light); opacity:0.6; font-style:italic;
+            color:var(--primary); opacity:0.5; font-style:italic;
+            letter-spacing:2px;
         }
         /* 已背状态 */
         .line-card.revealed .line-text {
