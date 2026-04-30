@@ -11,7 +11,6 @@
     <title>语文默写 - 舒窈小课堂</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <style>
         :root {
             --primary: #FF6B6B;
@@ -267,89 +266,6 @@
         .theme-btn-light { background:#F7F9FC; }
         .theme-btn-eyecare { background:#F5F0E1; }
 
-        /* 海报相关 */
-        .poster-overlay {
-            position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.85); z-index:2000;
-            display:none; flex-direction:column; align-items:center; justify-content:center;
-        }
-        .poster-overlay.show { display:flex; }
-        .poster-img-container {
-            max-width:90vw; max-height:70vh; overflow:auto;
-            border-radius:12px; background:#fff;
-        }
-        .poster-img-container img { display:block; width:100%; max-width:375px; }
-        .poster-actions { margin-top:16px; display:flex; gap:12px; }
-        .poster-close-btn {
-            position:absolute; top:16px; right:16px; width:40px; height:40px;
-            border-radius:50%; background:rgba(255,255,255,0.2); border:none;
-            color:#fff; font-size:24px; cursor:pointer;
-        }
-
-        /* 海报布局 */
-        #share-poster {
-            width:375px; padding:0; font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
-            background:#FFFDF5; color:#4A3F2F; position:absolute; left:-9999px; top:0;
-        }
-        .poster-header {
-            background:linear-gradient(135deg,#FFE0B2,#FFCC80);
-            padding:28px 24px 20px; text-align:center; position:relative; overflow:hidden;
-        }
-        .poster-header::before {
-            content:''; position:absolute; top:0; left:0; width:100%; height:100%;
-            background:repeating-linear-gradient(0deg,transparent,transparent 29px,rgba(0,0,0,0.03) 29px,rgba(0,0,0,0.03) 30px),
-                        repeating-linear-gradient(90deg,transparent,transparent 29px,rgba(0,0,0,0.03) 29px,rgba(0,0,0,0.03) 30px);
-        }
-        .poster-title { font-size:24px; font-weight:800; color:#BF360C; position:relative; }
-        .poster-subtitle { font-size:13px; color:#8D6E63; margin-top:6px; position:relative; }
-        .poster-score-section {
-            text-align:center; padding:24px 20px 16px;
-        }
-        .poster-score-big { font-size:56px; font-weight:900; }
-        .poster-score-detail { font-size:13px; color:#8D6E63; margin-top:8px; }
-        .poster-handwriting {
-            padding:16px 20px;
-        }
-        .poster-handwriting-title {
-            font-size:15px; font-weight:700; color:#5D4037; margin-bottom:12px;
-            text-align:center; border-bottom:2px dashed #D7CCC8; padding-bottom:8px;
-        }
-        .poster-grid {
-            display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
-        }
-        .poster-grid-cell {
-            width:100%; aspect-ratio:1; border:1px solid #D7CCC8; border-radius:6px;
-            background:#FFF8E1; display:flex; align-items:center; justify-content:center;
-            overflow:hidden;
-        }
-        .poster-grid-cell img { width:100%; height:100%; object-fit:contain; }
-        .poster-review {
-            padding:16px 20px;
-        }
-        .poster-review-title {
-            font-size:15px; font-weight:700; color:#5D4037; margin-bottom:12px;
-            text-align:center;
-        }
-        .poster-review-pair {
-            display:flex; align-items:center; justify-content:center; gap:16px;
-            margin-bottom:8px;
-        }
-        .poster-review-char {
-            width:60px; height:60px; border-radius:8px; display:flex;
-            align-items:center; justify-content:center; font-size:40px;
-            font-family:'KaiTi','楷体','STKaiti',serif;
-        }
-        .poster-review-wrong { background:#FFEBEE; border:2px solid #EF5350; }
-        .poster-review-correct { background:#E8F5E9; border:2px solid #66BB6A; }
-        .poster-review-arrow { font-size:20px; color:#8D6E63; }
-        .poster-encourage {
-            text-align:center; font-size:16px; color:#BF360C; padding:16px 20px;
-            font-weight:600; line-height:1.6;
-        }
-        .poster-footer {
-            text-align:right; padding:12px 20px 20px; font-size:11px; color:#BCAAA4;
-            border-top:1px dashed #D7CCC8;
-        }
     </style>
 </head>
 <body>
@@ -1009,8 +925,6 @@ function showResult() {
         ${wrongHtml}
         <div style="margin-top:24px;">
             ${wrongChars.length > 0 ? `<button class="btn btn-primary" onclick="startPractice()" style="margin:8px;">📝 开始订正</button>` : ''}
-            <button class="btn btn-accent" onclick="generatePoster()" style="margin:8px;"
-            >🖼️ 分享海报</button>
             <button class="btn btn-secondary" onclick="restartDictation()" style="margin:8px;">🔄 重新默写</button>
             <button class="btn btn-outline" onclick="backToSelect()" style="margin:8px;">🏠 返回</button>
         </div>
@@ -1219,166 +1133,10 @@ function redrawAllCanvases() {
     setTheme(saved);
 })();
 
-// ==================== 分享海报 ====================
-let posterDataUrl = '';
-
-function generatePoster() {
-    const poster = document.getElementById('share-poster');
-    const wrongCount = State.results.filter(r => !r).length;
-    const totalCount = State.results.length;
-    const rightCount = totalCount - wrongCount;
-    const score = getScore(wrongCount);
-    const scoreClass = getScoreClass(score);
-
-    // 计算用时
-    const elapsed = Math.round((Date.now() - State.startTime) / 1000);
-    const minutes = Math.floor(elapsed / 60);
-    const seconds = elapsed % 60;
-    const timeStr = minutes > 0 ? `${minutes}分${seconds}秒` : `${seconds}秒`;
-    const accuracy = totalCount > 0 ? Math.round((rightCount / totalCount) * 100) : 100;
-
-    // 日期
-    const now = new Date();
-    const dateStr = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日`;
-
-    // 课文名
-    const lessonLabel = State.lessonName || '语文默写';
-
-    // 评分文案
-    const scoreMessages = {
-        'A': '🎉 完美全对！',
-        'A-': '👍 几乎全对！',
-        'B': '💪 还不错！',
-        'B-': '📚 继续加油！',
-        'C': '✏️ 需要多练习',
-        'C-': '📖 加强复习',
-        'D': '🔄 别灰心，再努力'
-    };
-    const scoreMsg = scoreMessages[score] || '继续努力';
-
-    // 手写字迹网格
-    let gridHtml = '';
-    State.snapshots.forEach((snap, i) => {
-        if (snap) {
-            gridHtml += `<div class="poster-grid-cell"><img src="${snap}" alt="字${i+1}"></div>`;
-        } else {
-            const char = State.flatChars[i] ? State.flatChars[i].char : '';
-            gridHtml += `<div class="poster-grid-cell" style="font-size:28px;color:#ccc;">${char}</div>`;
-        }
-    });
-
-    // 错题复盘 or 鼓励语
-    let reviewHtml = '';
-    if (wrongCount > 0) {
-        const wrongChars = [];
-        State.results.forEach((r, i) => { if (!r) wrongChars.push(State.flatChars[i].char); });
-        // 最多展示3个错字
-        const showWrong = wrongChars.slice(0, 3);
-        reviewHtml = `<div class="poster-review">
-            <div class="poster-review-title">📝 错题复盘</div>
-            ${showWrong.map(c => `
-                <div class="poster-review-pair">
-                    <div class="poster-review-char poster-review-wrong">${c}</div>
-                    <div class="poster-review-arrow">→</div>
-                    <div class="poster-review-char poster-review-correct">${c}</div>
-                </div>
-            `).join('')}
-        </div>`;
-    } else {
-        const encourages = [
-            '🌟 字如其人，端正漂亮！继续加油！',
-            '🏆 一笔一划，尽显认真！太棒了！',
-            '✨ 全对！今天也是超厉害的一天！',
-            '🎯 默写满分，实力认证！'
-        ];
-        const enc = encourages[Math.floor(Math.random() * encourages.length)];
-        reviewHtml = `<div class="poster-encourage">${enc}</div>`;
-    }
-
-    // 评分颜色
-    const scoreColors = {
-        'A':'#00B894','A-':'#2ECC71','B':'#4ECDC4','B-':'#3498DB',
-        'C':'#F39C12','C-':'#E67E22','D':'#E17055'
-    };
-
-    poster.innerHTML = `
-        <div class="poster-header">
-            <div class="poster-title">小课堂 · 语文默写挑战</div>
-            <div class="poster-subtitle">${dateStr} · 三年级下册《${lessonLabel}》</div>
-        </div>
-        <div class="poster-score-section">
-            <div class="poster-score-big" style="color:${scoreColors[score] || '#E17055'}">${scoreMsg}</div>
-            <div class="poster-score-detail">用时 ${timeStr} · 正确率 ${accuracy}%</div>
-        </div>
-        <div class="poster-handwriting">
-            <div class="poster-handwriting-title">我的默写作品</div>
-            <div class="poster-grid">${gridHtml}</div>
-        </div>
-        ${reviewHtml}
-        <div class="poster-footer">Created by 舒窈小课堂</div>
-    `;
-
-    // 移到可见位置（但被遮挡）用于截图
-    poster.style.left = '0';
-    poster.style.position = 'fixed';
-    poster.style.zIndex = '-1';
-    poster.style.opacity = '0';
-
-    setTimeout(() => {
-        html2canvas(poster, {
-            scale: 2,
-            backgroundColor: '#FFFDF5',
-            useCORS: true,
-            width: 375,
-            logging: false
-        }).then(canvas => {
-            posterDataUrl = canvas.toDataURL('image/png');
-            // 显示弹窗
-            const container = document.getElementById('posterImgContainer');
-            container.innerHTML = `<img src="${posterDataUrl}" alt="分享海报">`;
-            document.getElementById('posterOverlay').classList.add('show');
-            // 恢复海报容器隐藏
-            poster.style.left = '-9999px';
-            poster.style.position = 'absolute';
-            poster.style.opacity = '';
-        }).catch(err => {
-            alert('海报生成失败，请重试');
-            poster.style.left = '-9999px';
-            poster.style.position = 'absolute';
-            poster.style.opacity = '';
-        });
-    }, 200);
-}
-
-function closePoster() {
-    document.getElementById('posterOverlay').classList.remove('show');
-}
-
-function downloadPoster() {
-    if (!posterDataUrl) return;
-    const a = document.createElement('a');
-    a.href = posterDataUrl;
-    const dateStr = new Date().toLocaleDateString('zh-CN').replace(/\//g, '-');
-    a.download = `语文默写_${State.lessonName || '挑战'}_${dateStr}.png`;
-    a.click();
-}
 
 // ==================== 初始化 ====================
 initSelectPage();
 </script>
-
-<!-- 海报容器（隐藏，用于截图） -->
-<div id="share-poster"></div>
-
-<!-- 海报弹窗 -->
-<div class="poster-overlay" id="posterOverlay">
-    <button class="poster-close-btn" onclick="closePoster()">✕</button>
-    <div class="poster-img-container" id="posterImgContainer"></div>
-    <div class="poster-actions">
-        <button class="btn btn-primary" onclick="downloadPoster()">📥 保存图片</button>
-        <button class="btn btn-outline" style="color:#fff;border-color:#fff;" onclick="closePoster()">关闭</button>
-    </div>
-</div>
 
 </body>
 </html>
