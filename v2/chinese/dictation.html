@@ -495,7 +495,9 @@ const State = {
     practiceWriters: [],
     activeGridIdx: 0,
     startTime: 0,
-    lessonName: ''
+    lessonName: '',
+    isWrongBookMode: false,
+    wrongBookCleared: []
 };
 
 // ==================== 页面切换 ====================
@@ -529,26 +531,83 @@ async function initSelectPage() {
 }
 
 function updateWrongCount() {
-    document.getElementById('wrongCount').textContent = getWrongBook().length;
+    const wb = getWrongBook();
+    document.getElementById('wrongCount').textContent = wb.length;
 }
 function getWrongBook() {
-    const d = localStorage.getItem('chineseWrongBook');
-    return d ? JSON.parse(d) : [];
+    const d = localStorage.getItem('chineseWrongBook2'); // v2结构
+    if (d) return JSON.parse(d);
+    // 兼容旧版纯字数组
+    const old = localStorage.getItem('chineseWrongBook');
+    if (old) {
+        const oldArr = JSON.parse(old);
+        return oldArr.map(c => ({ char: c, word: c, wrongCount: 1, correctCount: 0, lastTime: '' }));
+    }
+    return [];
 }
 function saveWrongBook(wb) {
-    localStorage.setItem('chineseWrongBook', JSON.stringify(wb));
+    localStorage.setItem('chineseWrongBook2', JSON.stringify(wb));
+}
+function addToWrongBook(wrongCharsWithWord) {
+    // wrongCharsWithWord: [{char, word}, ...]
+    const wb = getWrongBook();
+    wrongCharsWithWord.forEach(item => {
+        const existing = wb.find(w => w.char === item.char);
+        if (existing) {
+            existing.wrongCount++;
+            existing.correctCount = 0; // 又错了，归零
+            existing.lastTime = new Date().toISOString().slice(0, 10);
+        } else {
+            wb.push({
+                char: item.char,
+                word: item.word,
+                wrongCount: 1,
+                correctCount: 0,
+                lastTime: new Date().toISOString().slice(0, 10)
+            });
+        }
+    });
+    saveWrongBook(wb);
+}
+function markWrongBookCorrect(chars) {
+    // chars: ['融','化'] 本次写对的字
+    const wb = getWrongBook();
+    const toRemove = [];
+    chars.forEach(c => {
+        const item = wb.find(w => w.char === c);
+        if (item) {
+            item.correctCount++;
+            if (item.correctCount >= 2) {
+                toRemove.push(c);
+            }
+        }
+    });
+    // 移除连续正确2次的
+    const remaining = wb.filter(w => !toRemove.includes(w.char));
+    saveWrongBook(remaining);
+    return toRemove; // 返回被清除的字
 }
 function startWrongBook() {
     const wb = getWrongBook();
     if (wb.length === 0) { alert('错题本是空的！'); return; }
-    const words = wb.map(c => ({ char: c, pinyin: '', hint: c, chars: [c] }));
-    State.lessonName = '自定义默写';
+    // 按词组合并，去重
+    const wordMap = {};
+    wb.forEach(item => {
+        const key = item.word;
+        if (!wordMap[key]) {
+            wordMap[key] = { char: key, pinyin: '', hint: key, chars: key.split('') };
+        }
+    });
+    const words = Object.values(wordMap);
+    State.lessonName = '错题本复习';
+    State.isWrongBookMode = true;
     startDictation(words);
 }
 
 // ==================== 默写页 ====================
 function startDictation(words) {
     State.startTime = Date.now();
+    if (!State.isWrongBookMode) State.isWrongBookMode = false;
     // 乱序
     State.wordList = shuffleArray([...words]);
     State.currentWordIdx = 0;
@@ -786,12 +845,12 @@ function replayVoice() {
 let gradingGrades = [];
 
 function startGrading() {
-    // 展平所有字用于批改
+    // 展平所有字用于批改，保留词组上下文
     State.flatChars = [];
-    State.wordList.forEach(word => {
+    State.wordList.forEach((word, wi) => {
         const chars = word.chars || [word.char];
         chars.forEach(c => {
-            State.flatChars.push({ char: c, pinyin: word.pinyin || '', hint: word.hint || word.char });
+            State.flatChars.push({ char: c, pinyin: word.pinyin || '', hint: word.hint || word.char, wordIdx: wi });
         });
     });
     gradingGrades = new Array(State.flatChars.length).fill(true);
@@ -840,6 +899,17 @@ function checkAllGraded() {
 }
 function submitGrading() {
     State.results = [...gradingGrades];
+    // 错题本模式：记录正确的字
+    if (State.isWrongBookMode) {
+        const correctChars = [];
+        State.results.forEach((r, i) => {
+            if (r) correctChars.push(State.flatChars[i].char);
+        });
+        const removed = markWrongBookCorrect(correctChars);
+        if (removed.length > 0) {
+            State.wrongBookCleared = removed;
+        }
+    }
     showResult();
 }
 
@@ -851,15 +921,32 @@ function showResult() {
     const score = getScore(wrongCount);
 
     const wrongChars = [];
-    State.results.forEach((r, i) => { if (!r) wrongChars.push(State.flatChars[i].char); });
+    const wrongCharsWithWord = [];
+    State.results.forEach((r, i) => {
+        if (!r) {
+            const item = State.flatChars[i];
+            wrongChars.push(item.char);
+            // 找到该字所属的词组
+            const word = State.wordList[item.wordIdx];
+            const wordStr = word ? (word.hint || word.char) : item.char;
+            wrongCharsWithWord.push({ char: item.char, word: wordStr });
+        }
+    });
 
-    const wb = getWrongBook();
-    wrongChars.forEach(c => { if (!wb.includes(c)) wb.push(c); });
-    saveWrongBook(wb);
+    addToWrongBook(wrongCharsWithWord);
 
     let wrongHtml = '';
     if (wrongChars.length > 0) {
         wrongHtml = `<div class="wrong-list"><p style="margin-bottom:8px;">错字：</p>${wrongChars.map(c => `<span class="wrong-item">${c}</span>`).join('')}</div>`;
+    }
+    // 错题本模式：显示清除提示
+    let clearHtml = '';
+    if (State.isWrongBookMode && State.wrongBookCleared && State.wrongBookCleared.length > 0) {
+        clearHtml = `<div class="wrong-list" style="background:#E8F5E9;border-radius:12px;padding:12px;margin-top:12px;">
+            <p style="color:#2E7D32;margin-bottom:4px;">🎉 以下字连续正确2次，已从错题本移除：</p>
+            ${State.wrongBookCleared.map(c => `<span class="wrong-item" style="background:#C8E6C9;">${c}</span>`).join('')}
+        </div>`;
+        State.wrongBookCleared = [];
     }
 
     document.getElementById('resultCard').innerHTML = `
