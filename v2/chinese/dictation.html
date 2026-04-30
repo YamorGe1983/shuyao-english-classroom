@@ -945,6 +945,8 @@ function showResult() {
         ${wrongHtml}
         <div style="margin-top:24px;">
             ${wrongChars.length > 0 ? `<button class="btn btn-primary" onclick="startPractice()" style="margin:8px;">📝 开始订正</button>` : ''}
+            <button class="btn btn-accent" onclick="generatePoster()" style="margin:8px;"
+            >🖼️ 分享海报</button>
             <button class="btn btn-secondary" onclick="restartDictation()" style="margin:8px;">🔄 重新默写</button>
             <button class="btn btn-outline" onclick="backToSelect()" style="margin:8px;">🏠 返回</button>
         </div>
