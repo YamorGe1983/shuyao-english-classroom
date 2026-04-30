@@ -266,6 +266,38 @@
         .theme-btn-light { background:#F7F9FC; }
         .theme-btn-eyecare { background:#F5F0E1; }
 
+        /* 年级切换Tab */
+        .grade-tabs {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            max-width: 600px;
+            overflow-x: auto;
+            padding: 8px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .grade-tabs::-webkit-scrollbar { display: none; }
+        .grade-tab {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            background: var(--card);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            user-select: none;
+        }
+        .grade-tab:active { transform: scale(0.95); }
+        .grade-tab.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -287,6 +319,7 @@
         <h1>📝 语文默写</h1>
         <p>选择要默写的课文</p>
     </div>
+    <div id="gradeTabs" class="grade-tabs"></div>
     <div id="lessonList" class="lesson-list"></div>
     <div class="custom-entry" onclick="showPage('page-custom')">
         <span class="custom-entry-icon">✏️</span>
@@ -410,6 +443,31 @@ const State = {
     wrongBookCleared: []
 };
 
+// ==================== 年级配置 ====================
+const GRADES = [
+    { id: 'grade3_2', name: '三年级下', icon: '📘' },
+    { id: 'grade4_1', name: '四年级上', icon: '📙' },
+    { id: 'grade4_2', name: '四年级下', icon: '📕' },
+    { id: 'grade5_1', name: '五年级上', icon: '📗' },
+    { id: 'grade5_2', name: '五年级下', icon: '📓' }
+];
+
+let currentGrade = localStorage.getItem('dictationGrade') || 'grade3_2';
+
+function switchGrade(gradeId) {
+    currentGrade = gradeId;
+    localStorage.setItem('dictationGrade', gradeId);
+    initSelectPage();
+}
+
+function renderGradeTabs() {
+    const tabsEl = document.getElementById('gradeTabs');
+    if (!tabsEl) return;
+    tabsEl.innerHTML = GRADES.map(g =>
+        `<button class="grade-tab${g.id === currentGrade ? ' active' : ''}" onclick="switchGrade('${g.id}')">${g.icon} ${g.name}</button>`
+    ).join('');
+}
+
 // ==================== 页面切换 ====================
 function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -418,12 +476,13 @@ function showPage(id) {
 
 // ==================== 词库加载 ====================
 async function loadWordData() {
-    const resp = await fetch('../data/chinese/grade3_2.json');
+    const resp = await fetch(`../data/chinese/${currentGrade}.json`);
     return await resp.json();
 }
 
 // ==================== 选择页 ====================
 async function initSelectPage() {
+    renderGradeTabs();
     const data = await loadWordData();
     const list = document.getElementById('lessonList');
     list.innerHTML = '';
