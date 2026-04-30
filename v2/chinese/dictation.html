@@ -51,22 +51,7 @@
             --table-head-bg: #EDE4C8;
             --table-border: #E0D6B8;
         }
-        /* 深色模式 */
-        body.darkmode {
-            --bg: #1A1A2E;
-            --card: #252540;
-            --text: #E0E0E8;
-            --text-light: #9090A8;
-            --shadow: 0 4px 15px rgba(0,0,0,0.3);
-            --canvas-bg: #2A2A45;
-            --grid-border: #505070;
-            --grid-line: #404060;
-            --grid-line2: #353555;
-            --tip-bg: #2A2A45;
-            --tip-color: #D4A843;
-            --table-head-bg: #2A2A45;
-            --table-border: #353555;
-        }
+
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -281,7 +266,6 @@
         .theme-btn.active { border-color:var(--primary); }
         .theme-btn-light { background:#F7F9FC; }
         .theme-btn-eyecare { background:#F5F0E1; }
-        .theme-btn-dark { background:#1A1A2E; }
 
         /* 海报相关 */
         .poster-overlay {
@@ -374,7 +358,6 @@
     <div class="theme-toggle">
         <button class="theme-btn theme-btn-light active" onclick="setTheme('light')" title="默认模式">☀️</button>
         <button class="theme-btn theme-btn-eyecare" onclick="setTheme('eyecare')" title="护眼模式">🌿</button>
-        <button class="theme-btn theme-btn-dark" onclick="setTheme('dark')" title="深色模式">🌙</button>
     </div>
 
 <!-- 页面1：选择课文 -->
@@ -417,6 +400,9 @@
         <button class="btn btn-outline" onclick="clearCanvas()">🗑️ 清除</button>
         <button class="btn btn-primary" onclick="nextWord()">下一个 ➡️</button>
     </div>
+    <div style="margin-top:12px;">
+        <button class="btn btn-outline" onclick="confirmBackToSelect()" style="font-size:13px;padding:8px 16px;">← 返回选择</button>
+    </div>
 </div>
 
 <!-- 页面3：批改 -->
@@ -444,6 +430,9 @@
         <div style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
             <button class="btn btn-secondary" id="btnShowStroke" onclick="showStrokeOrder()">👀 看笔顺</button>
             <button class="btn btn-outline" id="btnSkipPractice" onclick="skipCurrentPractice()">⏭️ 跳过</button>
+        </div>
+        <div style="margin-top:12px;">
+            <button class="btn btn-outline" onclick="backToSelect()" style="font-size:13px;padding:8px 16px;">← 返回选择</button>
         </div>
     </div>
 </div>
@@ -986,6 +975,14 @@ function restartDictation() {
 }
 function backToSelect() { showPage('page-select'); updateWrongCount(); }
 
+function confirmBackToSelect() {
+    if (confirm('确定返回？当前默写进度将丢失。')) {
+        State.isWrongBookMode = false;
+        backToSelect();
+    }
+}
+
+
 // ==================== 订正页 ====================
 function startPractice() {
     State.practiceWrongChars = [];
@@ -1108,20 +1105,46 @@ function showStrokeOrder() {
 
 // ==================== 主题切换 ====================
 function setTheme(theme) {
-    document.body.classList.remove('eyecare', 'darkmode');
+    document.body.classList.remove('eyecare');
     if (theme === 'eyecare') document.body.classList.add('eyecare');
-    if (theme === 'dark') document.body.classList.add('darkmode');
     localStorage.setItem('dictationTheme', theme);
     // 更新按钮状态
     document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.theme-btn-${theme === 'eyecare' ? 'eyecare' : theme === 'dark' ? 'dark' : 'light'}`).classList.add('active');
-    // 重绘当前可见的canvas田字格
+    const btnClass = theme === 'eyecare' ? 'eyecare' : 'light';
+    document.querySelector('.theme-btn-' + btnClass).classList.add('active');
+    // 重绘当前可见的canvas田字格背景（保留笔画）
     if (document.getElementById('page-dictation').classList.contains('active')) {
-        // 重绘默写页田字格背景
-        State.ctxs.forEach((ctx, i) => {
-            if (ctx) drawGridBg(ctx, State.canvases[i].width / 2);
-        });
+        redrawAllCanvases();
     }
+}
+
+function redrawAllCanvases() {
+    // 保存每个canvas的笔画数据，重绘背景后重画笔画
+    State.canvases.forEach((canvas, i) => {
+        const ctx = State.ctxs[i];
+        const size = canvas.width;
+        // 先保存当前画面
+        const imageData = ctx.getImageData(0, 0, size, size);
+        // 重绘背景
+        drawGridBg(ctx, size);
+        // 重绘所有笔画
+        const strokes = State.allStrokes[i];
+        if (strokes && strokes.length > 0) {
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = State.brushSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            strokes.forEach(stroke => {
+                if (stroke.length < 2) return;
+                ctx.beginPath();
+                ctx.moveTo(stroke[0].x, stroke[0].y);
+                for (let j = 1; j < stroke.length; j++) {
+                    ctx.lineTo(stroke[j].x, stroke[j].y);
+                }
+                ctx.stroke();
+            });
+        }
+    });
 }
 
 // 页面加载时恢复主题
