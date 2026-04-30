@@ -1,0 +1,2793 @@
+{
+  "id": "grade4_2",
+  "name": "四年级下",
+  "metadata": {
+    "title": "部编版小学语文四年级下册",
+    "subtitle": "写字表生字"
+  },
+  "units": [
+    {
+      "id": "unit1",
+      "name": "第一单元",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "name": "古诗词三首",
+          "words": [
+            {
+              "char": "住宿",
+              "pinyin": "sù zhù",
+              "hint": "住宿",
+              "strokes": 18,
+              "chars": [
+                "宿",
+                "住"
+              ]
+            },
+            {
+              "char": "徐徐",
+              "pinyin": "xú xú",
+              "hint": "徐徐",
+              "strokes": 16,
+              "chars": [
+                "徐",
+                "徐"
+              ]
+            },
+            {
+              "char": "篱笆",
+              "pinyin": "lí ba",
+              "hint": "篱笆",
+              "strokes": 22,
+              "chars": [
+                "篱",
+                "笆"
+              ]
+            },
+            {
+              "char": "稀疏",
+              "pinyin": "xī shū",
+              "hint": "稀疏",
+              "strokes": 18,
+              "chars": [
+                "稀",
+                "疏"
+              ]
+            },
+            {
+              "char": "杂乱",
+              "pinyin": "zá luàn",
+              "hint": "杂乱",
+              "strokes": 13,
+              "chars": [
+                "杂",
+                "乱"
+              ]
+            },
+            {
+              "char": "锄头",
+              "pinyin": "chú tou",
+              "hint": "锄头",
+              "strokes": 17,
+              "chars": [
+                "锄",
+                "头"
+              ]
+            },
+            {
+              "char": "剥皮",
+              "pinyin": "bō pí",
+              "hint": "剥皮",
+              "strokes": 15,
+              "chars": [
+                "剥",
+                "皮"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson2",
+          "name": "乡下人家",
+          "words": [
+            {
+              "char": "构成",
+              "pinyin": "gòu chéng",
+              "hint": "构成",
+              "strokes": 14,
+              "chars": [
+                "构",
+                "成"
+              ]
+            },
+            {
+              "char": "装饰",
+              "pinyin": "zhuāng shì",
+              "hint": "装饰",
+              "strokes": 18,
+              "chars": [
+                "装",
+                "饰"
+              ]
+            },
+            {
+              "char": "蹲下",
+              "pinyin": "dūn xià",
+              "hint": "蹲下",
+              "strokes": 19,
+              "chars": [
+                "蹲",
+                "下"
+              ]
+            },
+            {
+              "char": "凤凰",
+              "pinyin": "fèng huáng",
+              "hint": "凤凰",
+              "strokes": 9,
+              "chars": [
+                "凤",
+                "凰"
+              ]
+            },
+            {
+              "char": "顺序",
+              "pinyin": "shùn xù",
+              "hint": "顺序",
+              "strokes": 16,
+              "chars": [
+                "顺",
+                "序"
+              ]
+            },
+            {
+              "char": "例子",
+              "pinyin": "lì zi",
+              "hint": "例子",
+              "strokes": 13,
+              "chars": [
+                "例",
+                "子"
+              ]
+            },
+            {
+              "char": "率领",
+              "pinyin": "shuài lǐng",
+              "hint": "率领",
+              "strokes": 17,
+              "chars": [
+                "率",
+                "领"
+              ]
+            },
+            {
+              "char": "寻觅",
+              "pinyin": "xún mì",
+              "hint": "寻觅",
+              "strokes": 18,
+              "chars": [
+                "寻",
+                "觅"
+              ]
+            },
+            {
+              "char": "高耸",
+              "pinyin": "gāo sǒng",
+              "hint": "高耸",
+              "strokes": 18,
+              "chars": [
+                "高",
+                "耸"
+              ]
+            },
+            {
+              "char": "踏步",
+              "pinyin": "tà bù",
+              "hint": "踏步",
+              "strokes": 16,
+              "chars": [
+                "踏",
+                "步"
+              ]
+            },
+            {
+              "char": "倘若",
+              "pinyin": "tǎng ruò",
+              "hint": "倘若",
+              "strokes": 18,
+              "chars": [
+                "倘",
+                "若"
+              ]
+            },
+            {
+              "char": "绘画",
+              "pinyin": "huì huà",
+              "hint": "绘画",
+              "strokes": 20,
+              "chars": [
+                "绘",
+                "画"
+              ]
+            },
+            {
+              "char": "和谐",
+              "pinyin": "hé xié",
+              "hint": "和谐",
+              "strokes": 16,
+              "chars": [
+                "和",
+                "谐"
+              ]
+            },
+            {
+              "char": "寄托",
+              "pinyin": "jì tuō",
+              "hint": "寄托",
+              "strokes": 19,
+              "chars": [
+                "寄",
+                "托"
+              ]
+            },
+            {
+              "char": "睡眠",
+              "pinyin": "shuì mián",
+              "hint": "睡眠",
+              "strokes": 18,
+              "chars": [
+                "睡",
+                "眠"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson3",
+          "name": "天窗",
+          "words": [
+            {
+              "char": "安慰",
+              "pinyin": "ān wèi",
+              "hint": "安慰",
+              "strokes": 14,
+              "chars": [
+                "安",
+                "慰"
+              ]
+            },
+            {
+              "char": "慰藉",
+              "pinyin": "wèi jiè",
+              "hint": "慰藉",
+              "strokes": 20,
+              "chars": [
+                "慰",
+                "藉"
+              ]
+            },
+            {
+              "char": "占卜",
+              "pinyin": "zhān bǔ",
+              "hint": "占卜",
+              "strokes": 14,
+              "chars": [
+                "占",
+                "卜"
+              ]
+            },
+            {
+              "char": "锐利",
+              "pinyin": "ruì lì",
+              "hint": "锐利",
+              "strokes": 17,
+              "chars": [
+                "锐",
+                "利"
+              ]
+            },
+            {
+              "char": "海滩",
+              "pinyin": "hǎi tān",
+              "hint": "海滩",
+              "strokes": 17,
+              "chars": [
+                "海",
+                "滩"
+              ]
+            },
+            {
+              "char": "帐篷",
+              "pinyin": "zhàng peng",
+              "hint": "帐篷",
+              "strokes": 16,
+              "chars": [
+                "帐",
+                "篷"
+              ]
+            },
+            {
+              "char": "闪烁",
+              "pinyin": "shǎn shuò",
+              "hint": "闪烁",
+              "strokes": 14,
+              "chars": [
+                "闪",
+                "烁"
+              ]
+            },
+            {
+              "char": "蝙蝠",
+              "pinyin": "biān fú",
+              "hint": "蝙蝠",
+              "strokes": 22,
+              "chars": [
+                "蝙",
+                "蝠"
+              ]
+            },
+            {
+              "char": "霸气",
+              "pinyin": "bà qì",
+              "hint": "霸气",
+              "strokes": 16,
+              "chars": [
+                "霸",
+                "气"
+              ]
+            },
+            {
+              "char": "老鹰",
+              "pinyin": "lǎo yīng",
+              "hint": "老鹰",
+              "strokes": 13,
+              "chars": [
+                "老",
+                "鹰"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson4",
+          "name": "三月桃花水",
+          "words": [
+            {
+              "char": "绮丽",
+              "pinyin": "qǐ lì",
+              "hint": "绮丽",
+              "strokes": 20,
+              "chars": [
+                "绮",
+                "丽"
+              ]
+            },
+            {
+              "char": "应和",
+              "pinyin": "yìng hè",
+              "hint": "应和",
+              "strokes": 16,
+              "chars": [
+                "应",
+                "和"
+              ]
+            },
+            {
+              "char": "谈心",
+              "pinyin": "tán xīn",
+              "hint": "谈心",
+              "strokes": 18,
+              "chars": [
+                "谈",
+                "心"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit2",
+      "name": "第二单元",
+      "lessons": [
+        {
+          "id": "lesson5",
+          "name": "琥珀",
+          "words": [
+            {
+              "char": "怒吼",
+              "pinyin": "nù hǒu",
+              "hint": "怒吼",
+              "strokes": 12,
+              "chars": [
+                "怒",
+                "吼"
+              ]
+            },
+            {
+              "char": "脂肪",
+              "pinyin": "zhī fáng",
+              "hint": "脂肪",
+              "strokes": 16,
+              "chars": [
+                "脂",
+                "肪"
+              ]
+            },
+            {
+              "char": "擦拭",
+              "pinyin": "cā shì",
+              "hint": "擦拭",
+              "strokes": 18,
+              "chars": [
+                "擦",
+                "拭"
+              ]
+            },
+            {
+              "char": "餐车",
+              "pinyin": "cān chē",
+              "hint": "餐车",
+              "strokes": 18,
+              "chars": [
+                "餐",
+                "车"
+              ]
+            },
+            {
+              "char": "划船",
+              "pinyin": "huá chuán",
+              "hint": "划船",
+              "strokes": 11,
+              "chars": [
+                "划",
+                "船"
+              ]
+            },
+            {
+              "char": "晌午",
+              "pinyin": "shǎng wǔ",
+              "hint": "晌午",
+              "strokes": 14,
+              "chars": [
+                "晌",
+                "午"
+              ]
+            },
+            {
+              "char": "辣椒",
+              "pinyin": "là jiāo",
+              "hint": "辣椒",
+              "strokes": 20,
+              "chars": [
+                "辣",
+                "椒"
+              ]
+            },
+            {
+              "char": "渗透",
+              "pinyin": "shèn tòu",
+              "hint": "渗透",
+              "strokes": 17,
+              "chars": [
+                "渗",
+                "透"
+              ]
+            },
+            {
+              "char": "挣扎",
+              "pinyin": "zhēng zhá",
+              "hint": "挣扎",
+              "strokes": 15,
+              "chars": [
+                "挣",
+                "扎"
+              ]
+            },
+            {
+              "char": "一番",
+              "pinyin": "yī fān",
+              "hint": "一番",
+              "strokes": 13,
+              "chars": [
+                "一",
+                "番"
+              ]
+            },
+            {
+              "char": "掩埋",
+              "pinyin": "yǎn mái",
+              "hint": "掩埋",
+              "strokes": 16,
+              "chars": [
+                "掩",
+                "埋"
+              ]
+            },
+            {
+              "char": "刷子",
+              "pinyin": "shuā zi",
+              "hint": "刷子",
+              "strokes": 14,
+              "chars": [
+                "刷",
+                "子"
+              ]
+            },
+            {
+              "char": "测量",
+              "pinyin": "cè liáng",
+              "hint": "测量",
+              "strokes": 17,
+              "chars": [
+                "测",
+                "量"
+              ]
+            },
+            {
+              "char": "详细",
+              "pinyin": "xiáng xì",
+              "hint": "详细",
+              "strokes": 18,
+              "chars": [
+                "详",
+                "细"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson6",
+          "name": "飞向蓝天的恐龙",
+          "words": [
+            {
+              "char": "笨拙",
+              "pinyin": "bèn zhuō",
+              "hint": "笨拙",
+              "strokes": 21,
+              "chars": [
+                "笨",
+                "拙"
+              ]
+            },
+            {
+              "char": "迟钝",
+              "pinyin": "chí dùn",
+              "hint": "迟钝",
+              "strokes": 14,
+              "chars": [
+                "迟",
+                "钝"
+              ]
+            },
+            {
+              "char": "谈话",
+              "pinyin": "tán huà",
+              "hint": "谈话",
+              "strokes": 18,
+              "chars": [
+                "谈",
+                "话"
+              ]
+            },
+            {
+              "char": "鸽子",
+              "pinyin": "gē zi",
+              "hint": "鸽子",
+              "strokes": 17,
+              "chars": [
+                "鸽",
+                "子"
+              ]
+            },
+            {
+              "char": "毫米",
+              "pinyin": "háo mǐ",
+              "hint": "毫米",
+              "strokes": 15,
+              "chars": [
+                "毫",
+                "米"
+              ]
+            },
+            {
+              "char": "末尾",
+              "pinyin": "mò wěi",
+              "hint": "末尾",
+              "strokes": 11,
+              "chars": [
+                "末",
+                "尾"
+              ]
+            },
+            {
+              "char": "描写",
+              "pinyin": "miáo xiě",
+              "hint": "描写",
+              "strokes": 14,
+              "chars": [
+                "描",
+                "写"
+              ]
+            },
+            {
+              "char": "隧道",
+              "pinyin": "suì dào",
+              "hint": "隧道",
+              "strokes": 21,
+              "chars": [
+                "隧",
+                "道"
+              ]
+            },
+            {
+              "char": "态度",
+              "pinyin": "tài du",
+              "hint": "态度",
+              "strokes": 16,
+              "chars": [
+                "态",
+                "度"
+              ]
+            },
+            {
+              "char": "吨位",
+              "pinyin": "dūn wèi",
+              "hint": "吨位",
+              "strokes": 15,
+              "chars": [
+                "吨",
+                "位"
+              ]
+            },
+            {
+              "char": "头颅",
+              "pinyin": "tóu lú",
+              "hint": "头颅",
+              "strokes": 16,
+              "chars": [
+                "头",
+                "颅"
+              ]
+            },
+            {
+              "char": "膨胀",
+              "pinyin": "péng zhàng",
+              "hint": "膨胀",
+              "strokes": 19,
+              "chars": [
+                "膨",
+                "胀"
+              ]
+            },
+            {
+              "char": "肢体",
+              "pinyin": "zhī tǐ",
+              "hint": "肢体",
+              "strokes": 14,
+              "chars": [
+                "肢",
+                "体"
+              ]
+            },
+            {
+              "char": "机翼",
+              "pinyin": "jī yì",
+              "hint": "机翼",
+              "strokes": 15,
+              "chars": [
+                "机",
+                "翼"
+              ]
+            },
+            {
+              "char": "开辟",
+              "pinyin": "kāi pì",
+              "hint": "开辟",
+              "strokes": 21,
+              "chars": [
+                "开",
+                "辟"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson7",
+          "name": "纳米技术就在我们身边",
+          "words": [
+            {
+              "char": "纳米",
+              "pinyin": "nà mǐ",
+              "hint": "纳米",
+              "strokes": 12,
+              "chars": [
+                "纳",
+                "米"
+              ]
+            },
+            {
+              "char": "拥有",
+              "pinyin": "yōng yǒu",
+              "hint": "拥有",
+              "strokes": 16,
+              "chars": [
+                "拥",
+                "有"
+              ]
+            },
+            {
+              "char": "箱子",
+              "pinyin": "xiāng zi",
+              "hint": "箱子",
+              "strokes": 19,
+              "chars": [
+                "箱",
+                "子"
+              ]
+            },
+            {
+              "char": "臭气",
+              "pinyin": "chòu qì",
+              "hint": "臭气",
+              "strokes": 14,
+              "chars": [
+                "臭",
+                "气"
+              ]
+            },
+            {
+              "char": "蔬菜",
+              "pinyin": "shū cài",
+              "hint": "蔬菜",
+              "strokes": 19,
+              "chars": [
+                "蔬",
+                "菜"
+              ]
+            },
+            {
+              "char": "碳纳米",
+              "pinyin": "tàn nà mǐ",
+              "hint": "碳纳米",
+              "strokes": 18,
+              "chars": [
+                "碳",
+                "纳",
+                "米"
+              ]
+            },
+            {
+              "char": "钢铁",
+              "pinyin": "gāng tiě",
+              "hint": "钢铁",
+              "strokes": 16,
+              "chars": [
+                "钢",
+                "铁"
+              ]
+            },
+            {
+              "char": "隐身",
+              "pinyin": "yǐn shēn",
+              "hint": "隐身",
+              "strokes": 15,
+              "chars": [
+                "隐",
+                "身"
+              ]
+            },
+            {
+              "char": "健康",
+              "pinyin": "jiàn kāng",
+              "hint": "健康",
+              "strokes": 16,
+              "chars": [
+                "健",
+                "康"
+              ]
+            },
+            {
+              "char": "细胞",
+              "pinyin": "xì bāo",
+              "hint": "细胞",
+              "strokes": 16,
+              "chars": [
+                "细",
+                "胞"
+              ]
+            },
+            {
+              "char": "疾病",
+              "pinyin": "jí bìng",
+              "hint": "疾病",
+              "strokes": 18,
+              "chars": [
+                "疾",
+                "病"
+              ]
+            },
+            {
+              "char": "预防",
+              "pinyin": "yù fáng",
+              "hint": "预防",
+              "strokes": 18,
+              "chars": [
+                "预",
+                "防"
+              ]
+            },
+            {
+              "char": "灶台",
+              "pinyin": "zào tái",
+              "hint": "灶台",
+              "strokes": 17,
+              "chars": [
+                "灶",
+                "台"
+              ]
+            },
+            {
+              "char": "需要",
+              "pinyin": "xū yào",
+              "hint": "需要",
+              "strokes": 15,
+              "chars": [
+                "需",
+                "要"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson8",
+          "name": "千年梦圆在今朝",
+          "words": [
+            {
+              "char": "揽月",
+              "pinyin": "lǎn yuè",
+              "hint": "揽月",
+              "strokes": 20,
+              "chars": [
+                "揽",
+                "月"
+              ]
+            },
+            {
+              "char": "火焰",
+              "pinyin": "huǒ yàn",
+              "hint": "火焰",
+              "strokes": 12,
+              "chars": [
+                "火",
+                "焰"
+              ]
+            },
+            {
+              "char": "先驱",
+              "pinyin": "xiān qū",
+              "hint": "先驱",
+              "strokes": 14,
+              "chars": [
+                "先",
+                "驱"
+              ]
+            },
+            {
+              "char": "实践",
+              "pinyin": "shí jiàn",
+              "hint": "实践",
+              "strokes": 15,
+              "chars": [
+                "实",
+                "践"
+              ]
+            },
+            {
+              "char": "党委",
+              "pinyin": "dǎng wěi",
+              "hint": "党委",
+              "strokes": 16,
+              "chars": [
+                "党",
+                "委"
+              ]
+            },
+            {
+              "char": "实施",
+              "pinyin": "shí shī",
+              "hint": "实施",
+              "strokes": 14,
+              "chars": [
+                "实",
+                "施"
+              ]
+            },
+            {
+              "char": "不懈",
+              "pinyin": "bù xiè",
+              "hint": "不懈",
+              "strokes": 15,
+              "chars": [
+                "不",
+                "懈"
+              ]
+            },
+            {
+              "char": "丰碑",
+              "pinyin": "fēng bēi",
+              "hint": "丰碑",
+              "strokes": 10,
+              "chars": [
+                "丰",
+                "碑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit3",
+      "name": "第三单元",
+      "lessons": [
+        {
+          "id": "lesson9",
+          "name": "短诗三首",
+          "words": [
+            {
+              "char": "繁星",
+              "pinyin": "fán xīng",
+              "hint": "繁星",
+              "strokes": 23,
+              "chars": [
+                "繁",
+                "星"
+              ]
+            },
+            {
+              "char": "漫灭",
+              "pinyin": "màn miè",
+              "hint": "漫灭",
+              "strokes": 19,
+              "chars": [
+                "漫",
+                "灭"
+              ]
+            },
+            {
+              "char": "波涛",
+              "pinyin": "bō tāo",
+              "hint": "波涛",
+              "strokes": 13,
+              "chars": [
+                "波",
+                "涛"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson10",
+          "name": "绿",
+          "words": [
+            {
+              "char": "瓶子",
+              "pinyin": "píng zi",
+              "hint": "瓶子",
+              "strokes": 14,
+              "chars": [
+                "瓶",
+                "子"
+              ]
+            },
+            {
+              "char": "拥挤",
+              "pinyin": "yōng jǐ",
+              "hint": "拥挤",
+              "strokes": 18,
+              "chars": [
+                "拥",
+                "挤"
+              ]
+            },
+            {
+              "char": "交叉",
+              "pinyin": "jiāo chā",
+              "hint": "交叉",
+              "strokes": 14,
+              "chars": [
+                "交",
+                "叉"
+              ]
+            },
+            {
+              "char": "挥动",
+              "pinyin": "huī dòng",
+              "hint": "挥动",
+              "strokes": 15,
+              "chars": [
+                "挥",
+                "动"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson11",
+          "name": "白桦",
+          "words": [
+            {
+              "char": "白桦",
+              "pinyin": "bái huà",
+              "hint": "白桦",
+              "strokes": 13,
+              "chars": [
+                "白",
+                "桦"
+              ]
+            },
+            {
+              "char": "涂色",
+              "pinyin": "tú sè",
+              "hint": "涂色",
+              "strokes": 16,
+              "chars": [
+                "涂",
+                "色"
+              ]
+            },
+            {
+              "char": "茸毛",
+              "pinyin": "róng máo",
+              "hint": "茸毛",
+              "strokes": 14,
+              "chars": [
+                "茸",
+                "毛"
+              ]
+            },
+            {
+              "char": "绣花",
+              "pinyin": "xiù huā",
+              "hint": "绣花",
+              "strokes": 18,
+              "chars": [
+                "绣",
+                "花"
+              ]
+            },
+            {
+              "char": "潇洒",
+              "pinyin": "xiāo sǎ",
+              "hint": "潇洒",
+              "strokes": 21,
+              "chars": [
+                "潇",
+                "洒"
+              ]
+            },
+            {
+              "char": "麦穗",
+              "pinyin": "mài suì",
+              "hint": "麦穗",
+              "strokes": 20,
+              "chars": [
+                "麦",
+                "穗"
+              ]
+            },
+            {
+              "char": "朦胧",
+              "pinyin": "méng lóng",
+              "hint": "朦胧",
+              "strokes": 22,
+              "chars": [
+                "朦",
+                "胧"
+              ]
+            },
+            {
+              "char": "寂静",
+              "pinyin": "jì jìng",
+              "hint": "寂静",
+              "strokes": 17,
+              "chars": [
+                "寂",
+                "静"
+              ]
+            },
+            {
+              "char": "朝霞",
+              "pinyin": "zhāo xiá",
+              "hint": "朝霞",
+              "strokes": 19,
+              "chars": [
+                "朝",
+                "霞"
+              ]
+            },
+            {
+              "char": "抹上",
+              "pinyin": "mǒ shàng",
+              "hint": "抹上",
+              "strokes": 14,
+              "chars": [
+                "抹",
+                "上"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson12",
+          "name": "在天晴了的时候",
+          "words": [
+            {
+              "char": "炫耀",
+              "pinyin": "xuàn yào",
+              "hint": "炫耀",
+              "strokes": 19,
+              "chars": [
+                "炫",
+                "耀"
+              ]
+            },
+            {
+              "char": "尘垢",
+              "pinyin": "chén gòu",
+              "hint": "尘垢",
+              "strokes": 14,
+              "chars": [
+                "尘",
+                "垢"
+              ]
+            },
+            {
+              "char": "胆怯",
+              "pinyin": "dǎn qiè",
+              "hint": "胆怯",
+              "strokes": 15,
+              "chars": [
+                "胆",
+                "怯"
+              ]
+            },
+            {
+              "char": "曝晒",
+              "pinyin": "pù shài",
+              "hint": "曝晒",
+              "strokes": 20,
+              "chars": [
+                "曝",
+                "晒"
+              ]
+            },
+            {
+              "char": "赤脚",
+              "pinyin": "chì jiǎo",
+              "hint": "赤脚",
+              "strokes": 12,
+              "chars": [
+                "赤",
+                "脚"
+              ]
+            },
+            {
+              "char": "涉水",
+              "pinyin": "shè shuǐ",
+              "hint": "涉水",
+              "strokes": 16,
+              "chars": [
+                "涉",
+                "水"
+              ]
+            },
+            {
+              "char": "晕车",
+              "pinyin": "yùn chē",
+              "hint": "晕车",
+              "strokes": 16,
+              "chars": [
+                "晕",
+                "车"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit4",
+      "name": "第四单元",
+      "lessons": [
+        {
+          "id": "lesson13",
+          "name": "猫",
+          "words": [
+            {
+              "char": "忧虑",
+              "pinyin": "yōu lǜ",
+              "hint": "忧虑",
+              "strokes": 21,
+              "chars": [
+                "忧",
+                "虑"
+              ]
+            },
+            {
+              "char": "职业",
+              "pinyin": "zhí yè",
+              "hint": "职业",
+              "strokes": 18,
+              "chars": [
+                "职",
+                "业"
+              ]
+            },
+            {
+              "char": "屏幕",
+              "pinyin": "píng mù",
+              "hint": "屏幕",
+              "strokes": 19,
+              "chars": [
+                "屏",
+                "幕"
+              ]
+            },
+            {
+              "char": "磨蹭",
+              "pinyin": "mó cèng",
+              "hint": "磨蹭",
+              "strokes": 21,
+              "chars": [
+                "磨",
+                "蹭"
+              ]
+            },
+            {
+              "char": "稿件",
+              "pinyin": "gǎo jiàn",
+              "hint": "稿件",
+              "strokes": 17,
+              "chars": [
+                "稿",
+                "件"
+              ]
+            },
+            {
+              "char": "腔调",
+              "pinyin": "qiāng diào",
+              "hint": "腔调",
+              "strokes": 20,
+              "chars": [
+                "腔",
+                "调"
+              ]
+            },
+            {
+              "char": "遭殃",
+              "pinyin": "zāo yāng",
+              "hint": "遭殃",
+              "strokes": 17,
+              "chars": [
+                "遭",
+                "殃"
+              ]
+            },
+            {
+              "char": "折断",
+              "pinyin": "zhé duàn",
+              "hint": "折断",
+              "strokes": 14,
+              "chars": [
+                "折",
+                "断"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson14",
+          "name": "母鸡",
+          "words": [
+            {
+              "char": "讨厌",
+              "pinyin": "tǎo yàn",
+              "hint": "讨厌",
+              "strokes": 16,
+              "chars": [
+                "讨",
+                "厌"
+              ]
+            },
+            {
+              "char": "堤坝",
+              "pinyin": "dī bà",
+              "hint": "堤坝",
+              "strokes": 15,
+              "chars": [
+                "堤",
+                "坝"
+              ]
+            },
+            {
+              "char": "忠诚",
+              "pinyin": "zhōng chéng",
+              "hint": "忠诚",
+              "strokes": 16,
+              "chars": [
+                "忠",
+                "诚"
+              ]
+            },
+            {
+              "char": "毒药",
+              "pinyin": "dú yào",
+              "hint": "毒药",
+              "strokes": 17,
+              "chars": [
+                "毒",
+                "药"
+              ]
+            },
+            {
+              "char": "成绩",
+              "pinyin": "chéng jì",
+              "hint": "成绩",
+              "strokes": 13,
+              "chars": [
+                "成",
+                "绩"
+              ]
+            },
+            {
+              "char": "孵化",
+              "pinyin": "fū huà",
+              "hint": "孵化",
+              "strokes": 19,
+              "chars": [
+                "孵",
+                "化"
+              ]
+            },
+            {
+              "char": "警戒",
+              "pinyin": "jǐng jiè",
+              "hint": "警戒",
+              "strokes": 20,
+              "chars": [
+                "警",
+                "戒"
+              ]
+            },
+            {
+              "char": "歪斜",
+              "pinyin": "wāi xié",
+              "hint": "歪斜",
+              "strokes": 14,
+              "chars": [
+                "歪",
+                "斜"
+              ]
+            },
+            {
+              "char": "汤水",
+              "pinyin": "tāng shuǐ",
+              "hint": "汤水",
+              "strokes": 12,
+              "chars": [
+                "汤",
+                "水"
+              ]
+            },
+            {
+              "char": "挖掘",
+              "pinyin": "wā jué",
+              "hint": "挖掘",
+              "strokes": 17,
+              "chars": [
+                "挖",
+                "掘"
+              ]
+            },
+            {
+              "char": "伏击",
+              "pinyin": "fú jī",
+              "hint": "伏击",
+              "strokes": 12,
+              "chars": [
+                "伏",
+                "击"
+              ]
+            },
+            {
+              "char": "啼叫",
+              "pinyin": "tí jiào",
+              "hint": "啼叫",
+              "strokes": 18,
+              "chars": [
+                "啼",
+                "叫"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson15",
+          "name": "白鹅",
+          "words": [
+            {
+              "char": "狂吠",
+              "pinyin": "kuáng fèi",
+              "hint": "狂吠",
+              "strokes": 12,
+              "chars": [
+                "狂",
+                "吠"
+              ]
+            },
+            {
+              "char": "急促",
+              "pinyin": "jí cù",
+              "hint": "急促",
+              "strokes": 16,
+              "chars": [
+                "急",
+                "促"
+              ]
+            },
+            {
+              "char": "颇像",
+              "pinyin": "pō xiàng",
+              "hint": "颇像",
+              "strokes": 17,
+              "chars": [
+                "颇",
+                "像"
+              ]
+            },
+            {
+              "char": "剧痛",
+              "pinyin": "jù tòng",
+              "hint": "剧痛",
+              "strokes": 18,
+              "chars": [
+                "剧",
+                "痛"
+              ]
+            },
+            {
+              "char": "苟且",
+              "pinyin": "gǒu qiě",
+              "hint": "苟且",
+              "strokes": 15,
+              "chars": [
+                "苟",
+                "且"
+              ]
+            },
+            {
+              "char": "譬如",
+              "pinyin": "pì rú",
+              "hint": "譬如",
+              "strokes": 22,
+              "chars": [
+                "譬",
+                "如"
+              ]
+            },
+            {
+              "char": "侍候",
+              "pinyin": "shì hòu",
+              "hint": "侍候",
+              "strokes": 16,
+              "chars": [
+                "侍",
+                "候"
+              ]
+            },
+            {
+              "char": "馆子",
+              "pinyin": "guǎn zi",
+              "hint": "馆子",
+              "strokes": 20,
+              "chars": [
+                "馆",
+                "子"
+              ]
+            },
+            {
+              "char": "附属",
+              "pinyin": "fù shǔ",
+              "hint": "附属",
+              "strokes": 15,
+              "chars": [
+                "附",
+                "属"
+              ]
+            },
+            {
+              "char": "脾气",
+              "pinyin": "pí qì",
+              "hint": "脾气",
+              "strokes": 15,
+              "chars": [
+                "脾",
+                "气"
+              ]
+            },
+            {
+              "char": "敏捷",
+              "pinyin": "mǐn jié",
+              "hint": "敏捷",
+              "strokes": 20,
+              "chars": [
+                "敏",
+                "捷"
+              ]
+            },
+            {
+              "char": "昂首",
+              "pinyin": "áng shǒu",
+              "hint": "昂首",
+              "strokes": 13,
+              "chars": [
+                "昂",
+                "首"
+              ]
+            },
+            {
+              "char": "供养",
+              "pinyin": "gōng yǎng",
+              "hint": "供养",
+              "strokes": 16,
+              "chars": [
+                "供",
+                "养"
+              ]
+            },
+            {
+              "char": "添加",
+              "pinyin": "tiān jiā",
+              "hint": "添加",
+              "strokes": 16,
+              "chars": [
+                "添",
+                "加"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit5",
+      "name": "第五单元",
+      "lessons": [
+        {
+          "id": "lesson16",
+          "name": "海上日出",
+          "words": [
+            {
+              "char": "清静",
+              "pinyin": "qīng jìng",
+              "hint": "清静",
+              "strokes": 16,
+              "chars": [
+                "清",
+                "静"
+              ]
+            },
+            {
+              "char": "扩大",
+              "pinyin": "kuò dà",
+              "hint": "扩大",
+              "strokes": 12,
+              "chars": [
+                "扩",
+                "大"
+              ]
+            },
+            {
+              "char": "范围",
+              "pinyin": "fàn wéi",
+              "hint": "范围",
+              "strokes": 15,
+              "chars": [
+                "范",
+                "围"
+              ]
+            },
+            {
+              "char": "努力",
+              "pinyin": "nǔ lì",
+              "hint": "努力",
+              "strokes": 9,
+              "chars": [
+                "努",
+                "力"
+              ]
+            },
+            {
+              "char": "刹那",
+              "pinyin": "chà nà",
+              "hint": "刹那",
+              "strokes": 14,
+              "chars": [
+                "刹",
+                "那"
+              ]
+            },
+            {
+              "char": "镶边",
+              "pinyin": "xiāng biān",
+              "hint": "镶边",
+              "strokes": 24,
+              "chars": [
+                "镶",
+                "边"
+              ]
+            },
+            {
+              "char": "紫色",
+              "pinyin": "zǐ sè",
+              "hint": "紫色",
+              "strokes": 15,
+              "chars": [
+                "紫",
+                "色"
+              ]
+            },
+            {
+              "char": "不仅",
+              "pinyin": "bù jǐn",
+              "hint": "不仅",
+              "strokes": 11,
+              "chars": [
+                "不",
+                "仅"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson17",
+          "name": "记金华的双龙洞",
+          "words": [
+            {
+              "char": "浙江",
+              "pinyin": "zhè jiāng",
+              "hint": "浙江",
+              "strokes": 16,
+              "chars": [
+                "浙",
+                "江"
+              ]
+            },
+            {
+              "char": "罗列",
+              "pinyin": "luó liè",
+              "hint": "罗列",
+              "strokes": 18,
+              "chars": [
+                "罗",
+                "列"
+              ]
+            },
+            {
+              "char": "杜鹃",
+              "pinyin": "dù juān",
+              "hint": "杜鹃",
+              "strokes": 19,
+              "chars": [
+                "杜",
+                "鹃"
+              ]
+            },
+            {
+              "char": "窄小",
+              "pinyin": "zhǎi xiǎo",
+              "hint": "窄小",
+              "strokes": 16,
+              "chars": [
+                "窄",
+                "小"
+              ]
+            },
+            {
+              "char": "浓郁",
+              "pinyin": "nóng yù",
+              "hint": "浓郁",
+              "strokes": 20,
+              "chars": [
+                "浓",
+                "郁"
+              ]
+            },
+            {
+              "char": "肩膀",
+              "pinyin": "jiān bǎng",
+              "hint": "肩膀",
+              "strokes": 15,
+              "chars": [
+                "肩",
+                "膀"
+              ]
+            },
+            {
+              "char": "臀部",
+              "pinyin": "tún bù",
+              "hint": "臀部",
+              "strokes": 20,
+              "chars": [
+                "臀",
+                "部"
+              ]
+            },
+            {
+              "char": "移动",
+              "pinyin": "yí dòng",
+              "hint": "移动",
+              "strokes": 17,
+              "chars": [
+                "移",
+                "动"
+              ]
+            },
+            {
+              "char": "额头",
+              "pinyin": "é tóu",
+              "hint": "额头",
+              "strokes": 18,
+              "chars": [
+                "额",
+                "头"
+              ]
+            },
+            {
+              "char": "陆地",
+              "pinyin": "lù dì",
+              "hint": "陆地",
+              "strokes": 14,
+              "chars": [
+                "陆",
+                "地"
+              ]
+            },
+            {
+              "char": "乳白",
+              "pinyin": "rǔ bái",
+              "hint": "乳白",
+              "strokes": 13,
+              "chars": [
+                "乳",
+                "白"
+              ]
+            },
+            {
+              "char": "竹笋",
+              "pinyin": "zhú sǔn",
+              "hint": "竹笋",
+              "strokes": 17,
+              "chars": [
+                "竹",
+                "笋"
+              ]
+            },
+            {
+              "char": "源头",
+              "pinyin": "yuán tóu",
+              "hint": "源头",
+              "strokes": 20,
+              "chars": [
+                "源",
+                "头"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit6",
+      "name": "第六单元",
+      "lessons": [
+        {
+          "id": "lesson18",
+          "name": "小英雄雨来",
+          "words": [
+            {
+              "char": "晋察冀",
+              "pinyin": "jìn chá jì",
+              "hint": "晋察冀",
+              "strokes": 19,
+              "chars": [
+                "晋",
+                "察",
+                "冀"
+              ]
+            },
+            {
+              "char": "土炕",
+              "pinyin": "tǔ kàng",
+              "hint": "土炕",
+              "strokes": 11,
+              "chars": [
+                "土",
+                "炕"
+              ]
+            },
+            {
+              "char": "铅笔",
+              "pinyin": "qiān bǐ",
+              "hint": "铅笔",
+              "strokes": 16,
+              "chars": [
+                "铅",
+                "笔"
+              ]
+            },
+            {
+              "char": "迈步",
+              "pinyin": "mài bù",
+              "hint": "迈步",
+              "strokes": 13,
+              "chars": [
+                "迈",
+                "步"
+              ]
+            },
+            {
+              "char": "呜咽",
+              "pinyin": "wū yè",
+              "hint": "呜咽",
+              "strokes": 14,
+              "chars": [
+                "呜",
+                "咽"
+              ]
+            },
+            {
+              "char": "枪栓",
+              "pinyin": "qiāng shuān",
+              "hint": "枪栓",
+              "strokes": 18,
+              "chars": [
+                "枪",
+                "栓"
+              ]
+            },
+            {
+              "char": "胳膊",
+              "pinyin": "gē bo",
+              "hint": "胳膊",
+              "strokes": 18,
+              "chars": [
+                "胳",
+                "膊"
+              ]
+            },
+            {
+              "char": "劫难",
+              "pinyin": "jié nàn",
+              "hint": "劫难",
+              "strokes": 15,
+              "chars": [
+                "劫",
+                "难"
+              ]
+            },
+            {
+              "char": "绸子",
+              "pinyin": "chóu zi",
+              "hint": "绸子",
+              "strokes": 20,
+              "chars": [
+                "绸",
+                "子"
+              ]
+            },
+            {
+              "char": "扒开",
+              "pinyin": "bā kāi",
+              "hint": "扒开",
+              "strokes": 10,
+              "chars": [
+                "扒",
+                "开"
+              ]
+            },
+            {
+              "char": "敌人",
+              "pinyin": "dí rén",
+              "hint": "敌人",
+              "strokes": 15,
+              "chars": [
+                "敌",
+                "人"
+              ]
+            },
+            {
+              "char": "尸体",
+              "pinyin": "shī tǐ",
+              "hint": "尸体",
+              "strokes": 13,
+              "chars": [
+                "尸",
+                "体"
+              ]
+            },
+            {
+              "char": "趁着",
+              "pinyin": "chèn zhe",
+              "hint": "趁着",
+              "strokes": 18,
+              "chars": [
+                "趁",
+                "着"
+              ]
+            },
+            {
+              "char": "慌张",
+              "pinyin": "huāng zhāng",
+              "hint": "慌张",
+              "strokes": 15,
+              "chars": [
+                "慌",
+                "张"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson19",
+          "name": "我们家的男子汉",
+          "words": [
+            {
+              "char": "徽章",
+              "pinyin": "huī zhāng",
+              "hint": "徽章",
+              "strokes": 23,
+              "chars": [
+                "徽",
+                "章"
+              ]
+            },
+            {
+              "char": "谜语",
+              "pinyin": "mí yǔ",
+              "hint": "谜语",
+              "strokes": 20,
+              "chars": [
+                "谜",
+                "语"
+              ]
+            },
+            {
+              "char": "嘴唇",
+              "pinyin": "zuǐ chún",
+              "hint": "嘴唇",
+              "strokes": 17,
+              "chars": [
+                "嘴",
+                "唇"
+              ]
+            },
+            {
+              "char": "和尚",
+              "pinyin": "hé shàng",
+              "hint": "和尚",
+              "strokes": 16,
+              "chars": [
+                "和",
+                "尚"
+              ]
+            },
+            {
+              "char": "荤菜",
+              "pinyin": "hūn cài",
+              "hint": "荤菜",
+              "strokes": 19,
+              "chars": [
+                "荤",
+                "菜"
+              ]
+            },
+            {
+              "char": "倔强",
+              "pinyin": "jué jiàng",
+              "hint": "倔强",
+              "strokes": 18,
+              "chars": [
+                "倔",
+                "强"
+              ]
+            },
+            {
+              "char": "嘱咐",
+              "pinyin": "zhǔ fù",
+              "hint": "嘱咐",
+              "strokes": 16,
+              "chars": [
+                "嘱",
+                "咐"
+              ]
+            },
+            {
+              "char": "沮丧",
+              "pinyin": "jǔ sàng",
+              "hint": "沮丧",
+              "strokes": 16,
+              "chars": [
+                "沮",
+                "丧"
+              ]
+            },
+            {
+              "char": "情绪",
+              "pinyin": "qíng xù",
+              "hint": "情绪",
+              "strokes": 19,
+              "chars": [
+                "情",
+                "绪"
+              ]
+            },
+            {
+              "char": "嘹亮",
+              "pinyin": "liáo liàng",
+              "hint": "嘹亮",
+              "strokes": 21,
+              "chars": [
+                "嘹",
+                "亮"
+              ]
+            },
+            {
+              "char": "轮廓",
+              "pinyin": "lún kuò",
+              "hint": "轮廓",
+              "strokes": 19,
+              "chars": [
+                "轮",
+                "廓"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson20",
+          "name": "芦花鞋",
+          "words": [
+            {
+              "char": "搓手",
+              "pinyin": "cuō shǒu",
+              "hint": "搓手",
+              "strokes": 18,
+              "chars": [
+                "搓",
+                "手"
+              ]
+            },
+            {
+              "char": "葵花",
+              "pinyin": "kuí huā",
+              "hint": "葵花",
+              "strokes": 21,
+              "chars": [
+                "葵",
+                "花"
+              ]
+            },
+            {
+              "char": "祈求",
+              "pinyin": "qí qiú",
+              "hint": "祈求",
+              "strokes": 16,
+              "chars": [
+                "祈",
+                "求"
+              ]
+            },
+            {
+              "char": "遗憾",
+              "pinyin": "yí hàn",
+              "hint": "遗憾",
+              "strokes": 18,
+              "chars": [
+                "遗",
+                "憾"
+              ]
+            },
+            {
+              "char": "污迹",
+              "pinyin": "wū jì",
+              "hint": "污迹",
+              "strokes": 12,
+              "chars": [
+                "污",
+                "迹"
+              ]
+            },
+            {
+              "char": "纸屑",
+              "pinyin": "zhǐ xiè",
+              "hint": "纸屑",
+              "strokes": 17,
+              "chars": [
+                "纸",
+                "屑"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit7",
+      "name": "第七单元",
+      "lessons": [
+        {
+          "id": "lesson21",
+          "name": "古诗三首",
+          "words": [
+            {
+              "char": "芙蓉",
+              "pinyin": "fú róng",
+              "hint": "芙蓉",
+              "strokes": 16,
+              "chars": [
+                "芙",
+                "蓉"
+              ]
+            },
+            {
+              "char": "洛阳",
+              "pinyin": "luò yáng",
+              "hint": "洛阳",
+              "strokes": 15,
+              "chars": [
+                "洛",
+                "阳"
+              ]
+            },
+            {
+              "char": "雁门关",
+              "pinyin": "yàn mén guān",
+              "hint": "雁门关",
+              "strokes": 24,
+              "chars": [
+                "雁",
+                "门",
+                "关"
+              ]
+            },
+            {
+              "char": "砚台",
+              "pinyin": "yàn tái",
+              "hint": "砚台",
+              "strokes": 16,
+              "chars": [
+                "砚",
+                "台"
+              ]
+            },
+            {
+              "char": "乾坤",
+              "pinyin": "qián kūn",
+              "hint": "乾坤",
+              "strokes": 18,
+              "chars": [
+                "乾",
+                "坤"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson22",
+          "name": "文言文二则",
+          "words": [
+            {
+              "char": "囊萤",
+              "pinyin": "náng yíng",
+              "hint": "囊萤",
+              "strokes": 24,
+              "chars": [
+                "囊",
+                "萤"
+              ]
+            },
+            {
+              "char": "恭敬",
+              "pinyin": "gōng jìng",
+              "hint": "恭敬",
+              "strokes": 18,
+              "chars": [
+                "恭",
+                "敬"
+              ]
+            },
+            {
+              "char": "勤奋",
+              "pinyin": "qín fèn",
+              "hint": "勤奋",
+              "strokes": 20,
+              "chars": [
+                "勤",
+                "奋"
+              ]
+            },
+            {
+              "char": "博学",
+              "pinyin": "bó xué",
+              "hint": "博学",
+              "strokes": 20,
+              "chars": [
+                "博",
+                "学"
+              ]
+            },
+            {
+              "char": "贫穷",
+              "pinyin": "pín qióng",
+              "hint": "贫穷",
+              "strokes": 16,
+              "chars": [
+                "贫",
+                "穷"
+              ]
+            },
+            {
+              "char": "焉知",
+              "pinyin": "yān zhī",
+              "hint": "焉知",
+              "strokes": 16,
+              "chars": [
+                "焉",
+                "知"
+              ]
+            },
+            {
+              "char": "相逢",
+              "pinyin": "xiāng féng",
+              "hint": "相逢",
+              "strokes": 18,
+              "chars": [
+                "相",
+                "逢"
+              ]
+            },
+            {
+              "char": "卒业",
+              "pinyin": "zú yè",
+              "hint": "卒业",
+              "strokes": 14,
+              "chars": [
+                "卒",
+                "业"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson23",
+          "name": "诺曼底号遇难记",
+          "words": [
+            {
+              "char": "弥漫",
+              "pinyin": "mí màn",
+              "hint": "弥漫",
+              "strokes": 17,
+              "chars": [
+                "弥",
+                "漫"
+              ]
+            },
+            {
+              "char": "脉搏",
+              "pinyin": "mài bó",
+              "hint": "脉搏",
+              "strokes": 17,
+              "chars": [
+                "脉",
+                "搏"
+              ]
+            },
+            {
+              "char": "剖开",
+              "pinyin": "pōu kāi",
+              "hint": "剖开",
+              "strokes": 17,
+              "chars": [
+                "剖",
+                "开"
+              ]
+            },
+            {
+              "char": "裸露",
+              "pinyin": "luǒ lù",
+              "hint": "裸露",
+              "strokes": 18,
+              "chars": [
+                "裸",
+                "露"
+              ]
+            },
+            {
+              "char": "哭泣",
+              "pinyin": "kū qì",
+              "hint": "哭泣",
+              "strokes": 18,
+              "chars": [
+                "哭",
+                "泣"
+              ]
+            },
+            {
+              "char": "汹涌",
+              "pinyin": "xiōng yǒng",
+              "hint": "汹涌",
+              "strokes": 17,
+              "chars": [
+                "汹",
+                "涌"
+              ]
+            },
+            {
+              "char": "维持",
+              "pinyin": "wéi chí",
+              "hint": "维持",
+              "strokes": 16,
+              "chars": [
+                "维",
+                "持"
+              ]
+            },
+            {
+              "char": "酣睡",
+              "pinyin": "hān shuì",
+              "hint": "酣睡",
+              "strokes": 20,
+              "chars": [
+                "酣",
+                "睡"
+              ]
+            },
+            {
+              "char": "机械",
+              "pinyin": "jī xiè",
+              "hint": "机械",
+              "strokes": 18,
+              "chars": [
+                "机",
+                "械"
+              ]
+            },
+            {
+              "char": "卑微",
+              "pinyin": "bēi wēi",
+              "hint": "卑微",
+              "strokes": 16,
+              "chars": [
+                "卑",
+                "微"
+              ]
+            },
+            {
+              "char": "岗位",
+              "pinyin": "gǎng wèi",
+              "hint": "岗位",
+              "strokes": 15,
+              "chars": [
+                "岗",
+                "位"
+              ]
+            },
+            {
+              "char": "主宰",
+              "pinyin": "zǔ zài",
+              "hint": "主宰",
+              "strokes": 14,
+              "chars": [
+                "主",
+                "宰"
+              ]
+            },
+            {
+              "char": "派遣",
+              "pinyin": "pài qiǎn",
+              "hint": "派遣",
+              "strokes": 17,
+              "chars": [
+                "派",
+                "遣"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson24",
+          "name": "黄继光",
+          "words": [
+            {
+              "char": "战役",
+              "pinyin": "zhàn yì",
+              "hint": "战役",
+              "strokes": 15,
+              "chars": [
+                "战",
+                "役"
+              ]
+            },
+            {
+              "char": "屡次",
+              "pinyin": "lǚ cì",
+              "hint": "屡次",
+              "strokes": 18,
+              "chars": [
+                "屡",
+                "次"
+              ]
+            },
+            {
+              "char": "摧毁",
+              "pinyin": "cuī huǐ",
+              "hint": "摧毁",
+              "strokes": 20,
+              "chars": [
+                "摧",
+                "毁"
+              ]
+            },
+            {
+              "char": "冰雹",
+              "pinyin": "bīng báo",
+              "hint": "冰雹",
+              "strokes": 12,
+              "chars": [
+                "冰",
+                "雹"
+              ]
+            },
+            {
+              "char": "晕倒",
+              "pinyin": "yūn dǎo",
+              "hint": "晕倒",
+              "strokes": 16,
+              "chars": [
+                "晕",
+                "倒"
+              ]
+            },
+            {
+              "char": "胸膛",
+              "pinyin": "xiōng táng",
+              "hint": "胸膛",
+              "strokes": 18,
+              "chars": [
+                "胸",
+                "膛"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit8",
+      "name": "第八单元",
+      "lessons": [
+        {
+          "id": "lesson25",
+          "name": "宝葫芦的秘密",
+          "words": [
+            {
+              "char": "妖怪",
+              "pinyin": "yāo guài",
+              "hint": "妖怪",
+              "strokes": 16,
+              "chars": [
+                "妖",
+                "怪"
+              ]
+            },
+            {
+              "char": "规矩",
+              "pinyin": "guī ju",
+              "hint": "规矩",
+              "strokes": 16,
+              "chars": [
+                "规",
+                "矩"
+              ]
+            },
+            {
+              "char": "乖巧",
+              "pinyin": "guāi qiǎo",
+              "hint": "乖巧",
+              "strokes": 17,
+              "chars": [
+                "乖",
+                "巧"
+              ]
+            },
+            {
+              "char": "撵走",
+              "pinyin": "niǎn zǒu",
+              "hint": "撵走",
+              "strokes": 23,
+              "chars": [
+                "撵",
+                "走"
+              ]
+            },
+            {
+              "char": "丫头",
+              "pinyin": "yā tou",
+              "hint": "丫头",
+              "strokes": 9,
+              "chars": [
+                "丫",
+                "头"
+              ]
+            },
+            {
+              "char": "拽住",
+              "pinyin": "zhuài zhù",
+              "hint": "拽住",
+              "strokes": 19,
+              "chars": [
+                "拽",
+                "住"
+              ]
+            },
+            {
+              "char": "冲撞",
+              "pinyin": "chōng zhuàng",
+              "hint": "冲撞",
+              "strokes": 13,
+              "chars": [
+                "冲",
+                "撞"
+              ]
+            },
+            {
+              "char": "瘦小",
+              "pinyin": "shòu xiǎo",
+              "hint": "瘦小",
+              "strokes": 20,
+              "chars": [
+                "瘦",
+                "小"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson26",
+          "name": "巨人的花园",
+          "words": [
+            {
+              "char": "允许",
+              "pinyin": "yǔn xǔ",
+              "hint": "允许",
+              "strokes": 12,
+              "chars": [
+                "允",
+                "许"
+              ]
+            },
+            {
+              "char": "砌墙",
+              "pinyin": "qì qiáng",
+              "hint": "砌墙",
+              "strokes": 18,
+              "chars": [
+                "砌",
+                "墙"
+              ]
+            },
+            {
+              "char": "覆盖",
+              "pinyin": "fù gài",
+              "hint": "覆盖",
+              "strokes": 18,
+              "chars": [
+                "覆",
+                "盖"
+              ]
+            },
+            {
+              "char": "呼啸",
+              "pinyin": "hū xiào",
+              "hint": "呼啸",
+              "strokes": 16,
+              "chars": [
+                "呼",
+                "啸"
+              ]
+            },
+            {
+              "char": "一缕",
+              "pinyin": "yī lǚ",
+              "hint": "一缕",
+              "strokes": 12,
+              "chars": [
+                "一",
+                "缕"
+              ]
+            },
+            {
+              "char": "凋谢",
+              "pinyin": "diāo xiè",
+              "hint": "凋谢",
+              "strokes": 19,
+              "chars": [
+                "凋",
+                "谢"
+              ]
+            },
+            {
+              "char": "脸颊",
+              "pinyin": "liǎn jiá",
+              "hint": "脸颊",
+              "strokes": 21,
+              "chars": [
+                "脸",
+                "颊"
+              ]
+            },
+            {
+              "char": "拆除",
+              "pinyin": "chāi chú",
+              "hint": "拆除",
+              "strokes": 17,
+              "chars": [
+                "拆",
+                "除"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lesson27",
+          "name": "海的女儿",
+          "words": [
+            {
+              "char": "港湾",
+              "pinyin": "gǎng wān",
+              "hint": "港湾",
+              "strokes": 19,
+              "chars": [
+                "港",
+                "湾"
+              ]
+            },
+            {
+              "char": "宴会",
+              "pinyin": "yàn huì",
+              "hint": "宴会",
+              "strokes": 18,
+              "chars": [
+                "宴",
+                "会"
+              ]
+            },
+            {
+              "char": "睫毛",
+              "pinyin": "jié máo",
+              "hint": "睫毛",
+              "strokes": 21,
+              "chars": [
+                "睫",
+                "毛"
+              ]
+            },
+            {
+              "char": "婚礼",
+              "pinyin": "hūn lǐ",
+              "hint": "婚礼",
+              "strokes": 18,
+              "chars": [
+                "婚",
+                "礼"
+              ]
+            },
+            {
+              "char": "喜讯",
+              "pinyin": "xǐ xùn",
+              "hint": "喜讯",
+              "strokes": 17,
+              "chars": [
+                "喜",
+                "讯"
+              ]
+            },
+            {
+              "char": "挽回",
+              "pinyin": "wǎn huí",
+              "hint": "挽回",
+              "strokes": 18,
+              "chars": [
+                "挽",
+                "回"
+              ]
+            },
+            {
+              "char": "神圣",
+              "pinyin": "shén shèng",
+              "hint": "神圣",
+              "strokes": 18,
+              "chars": [
+                "神",
+                "圣"
+              ]
+            },
+            {
+              "char": "仪式",
+              "pinyin": "yí shì",
+              "hint": "仪式",
+              "strokes": 12,
+              "chars": [
+                "仪",
+                "式"
+              ]
+            },
+            {
+              "char": "旗帜",
+              "pinyin": "qí zhì",
+              "hint": "旗帜",
+              "strokes": 19,
+              "chars": [
+                "旗",
+                "帜"
+              ]
+            },
+            {
+              "char": "陈述",
+              "pinyin": "chén shù",
+              "hint": "陈述",
+              "strokes": 16,
+              "chars": [
+                "陈",
+                "述"
+              ]
+            },
+            {
+              "char": "垫子",
+              "pinyin": "diàn zi",
+              "hint": "垫子",
+              "strokes": 17,
+              "chars": [
+                "垫",
+                "子"
+              ]
+            },
+            {
+              "char": "永恒",
+              "pinyin": "yǒng héng",
+              "hint": "永恒",
+              "strokes": 11,
+              "chars": [
+                "永",
+                "恒"
+              ]
+            },
+            {
+              "char": "抚养",
+              "pinyin": "fǔ yǎng",
+              "hint": "抚养",
+              "strokes": 14,
+              "chars": [
+                "抚",
+                "养"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
