@@ -1,0 +1,422 @@
+{
+  "id": "grade5_1",
+  "name": "五年级上",
+  "metadata": {
+    "title": "部编版小学语文五年级上册",
+    "subtitle": "写字表生字"
+  },
+  "units": [
+    {
+      "id": "unit1",
+      "name": "第一单元",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "name": "白鹭",
+          "words": [
+            { "char": "相宜", "pinyin": "xiāng yí", "hint": "相宜", "strokes": 12, "chars": ["相", "宜"] },
+            { "char": "白鹤", "pinyin": "bái hè", "hint": "白鹤", "strokes": 11, "chars": ["白", "鹤"] },
+            { "char": "嫌弃", "pinyin": "xián qì", "hint": "嫌弃", "strokes": 14, "chars": ["嫌", "弃"] },
+            { "char": "朱红", "pinyin": "zhū hóng", "hint": "朱红", "strokes": 12, "chars": ["朱", "红"] },
+            { "char": "镶嵌", "pinyin": "xiāng qiàn", "hint": "镶嵌", "strokes": 24, "chars": ["镶", "嵌"] },
+            { "char": "镜框", "pinyin": "jìng kuàng", "hint": "镜框", "strokes": 19, "chars": ["镜", "框"] },
+            { "char": "匣子", "pinyin": "xiá zi", "hint": "匣子", "strokes": 9, "chars": ["匣", "子"] },
+            { "char": "哨兵", "pinyin": "shào bīng", "hint": "哨兵", "strokes": 14, "chars": ["哨", "兵"] },
+            { "char": "恩情", "pinyin": "ēn qíng", "hint": "恩情", "strokes": 12, "chars": ["恩", "情"] },
+            { "char": "风韵", "pinyin": "fēng yùn", "hint": "风韵", "strokes": 13, "chars": ["风", "韵"] }
+          ]
+        },
+        {
+          "id": "lesson2",
+          "name": "落花生",
+          "words": [
+            { "char": "一亩", "pinyin": "yī mǔ", "hint": "一亩", "strokes": 5, "chars": ["一", "亩"] },
+            { "char": "播种", "pinyin": "bō zhǒng", "hint": "播种", "strokes": 17, "chars": ["播", "种"] },
+            { "char": "浇水", "pinyin": "jiāo shuǐ", "hint": "浇水", "strokes": 12, "chars": ["浇", "水"] },
+            { "char": "吩咐", "pinyin": "fēn fù", "hint": "吩咐", "strokes": 12, "chars": ["吩", "咐"] },
+            { "char": "亭子", "pinyin": "tíng zi", "hint": "亭子", "strokes": 12, "chars": ["亭", "子"] },
+            { "char": "榨油", "pinyin": "zhà yóu", "hint": "榨油", "strokes": 21, "chars": ["榨", "油"] },
+            { "char": "羡慕", "pinyin": "xiàn mù", "hint": "羡慕", "strokes": 19, "chars": ["羡", "慕"] },
+            { "char": "高矮", "pinyin": "gāo ǎi", "hint": "高矮", "strokes": 17, "chars": ["高", "矮"] }
+          ]
+        },
+        {
+          "id": "lesson3",
+          "name": "桂花雨",
+          "words": [
+            { "char": "懂得", "pinyin": "dǒng de", "hint": "懂得", "strokes": 20, "chars": ["懂", "得"] },
+            { "char": "玉兰", "pinyin": "yù lán", "hint": "玉兰", "strokes": 11, "chars": ["玉", "兰"] },
+            { "char": "箩筐", "pinyin": "luó kuāng", "hint": "箩筐", "strokes": 22, "chars": ["箩", "筐"] },
+            { "char": "外婆", "pinyin": "wài pó", "hint": "外婆", "strokes": 11, "chars": ["外", "婆"] },
+            { "char": "糕点", "pinyin": "gāo diǎn", "hint": "糕点", "strokes": 20, "chars": ["糕", "点"] },
+            { "char": "大饼", "pinyin": "dà bǐng", "hint": "大饼", "strokes": 11, "chars": ["大", "饼"] },
+            { "char": "沉浸", "pinyin": "chén jìn", "hint": "沉浸", "strokes": 18, "chars": ["沉", "浸"] },
+            { "char": "缠绵", "pinyin": "chán mián", "hint": "缠绵", "strokes": 23, "chars": ["缠", "绵"] },
+            { "char": "茶叶", "pinyin": "chá yè", "hint": "茶叶", "strokes": 13, "chars": ["茶", "叶"] },
+            { "char": "捡起", "pinyin": "jiǎn qǐ", "hint": "捡起", "strokes": 13, "chars": ["捡", "起"] }
+          ]
+        },
+        {
+          "id": "lesson4",
+          "name": "珍珠鸟",
+          "words": []
+        }
+      ]
+    },
+    {
+      "id": "unit2",
+      "name": "第二单元",
+      "lessons": [
+        {
+          "id": "lesson5",
+          "name": "搭石",
+          "words": [
+            { "char": "汛期", "pinyin": "xùn qī", "hint": "汛期", "strokes": 11, "chars": ["汛", "期"] },
+            { "char": "访友", "pinyin": "fǎng yǒu", "hint": "访友", "strokes": 11, "chars": ["访", "友"] },
+            { "char": "鞋子", "pinyin": "xié zi", "hint": "鞋子", "strokes": 15, "chars": ["鞋", "子"] },
+            { "char": "挽留", "pinyin": "wǎn liú", "hint": "挽留", "strokes": 16, "chars": ["挽", "留"] },
+            { "char": "相隔", "pinyin": "xiāng gé", "hint": "相隔", "strokes": 14, "chars": ["相", "隔"] },
+            { "char": "懒惰", "pinyin": "lǎn duò", "hint": "懒惰", "strokes": 20, "chars": ["懒", "惰"] },
+            { "char": "稳定", "pinyin": "wěn dìng", "hint": "稳定", "strokes": 14, "chars": ["稳", "定"] },
+            { "char": "平衡", "pinyin": "píng héng", "hint": "平衡", "strokes": 13, "chars": ["平", "衡"] },
+            { "char": "协调", "pinyin": "xié tiáo", "hint": "协调", "strokes": 12, "chars": ["协", "调"] }
+          ]
+        },
+        {
+          "id": "lesson6",
+          "name": "将相和",
+          "words": [
+            { "char": "召集", "pinyin": "zhào jí", "hint": "召集", "strokes": 14, "chars": ["召", "集"] },
+            { "char": "大臣", "pinyin": "dà chén", "hint": "大臣", "strokes": 8, "chars": ["大", "臣"] },
+            { "char": "议论", "pinyin": "yì lùn", "hint": "议论", "strokes": 11, "chars": ["议", "论"] },
+            { "char": "宫殿", "pinyin": "gōng diàn", "hint": "宫殿", "strokes": 15, "chars": ["宫", "殿"] },
+            { "char": "奉献", "pinyin": "fèng xiàn", "hint": "奉献", "strokes": 20, "chars": ["奉", "献"] },
+            { "char": "诺言", "pinyin": "nuò yán", "hint": "诺言", "strokes": 16, "chars": ["诺", "言"] },
+            { "char": "典礼", "pinyin": "diǎn lǐ", "hint": "典礼", "strokes": 13, "chars": ["典", "礼"] },
+            { "char": "抄写", "pinyin": "chāo xiě", "hint": "抄写", "strokes": 13, "chars": ["抄", "写"] },
+            { "char": "犯罪", "pinyin": "fàn zuì", "hint": "犯罪", "strokes": 16, "chars": ["犯", "罪"] },
+            { "char": "胆怯", "pinyin": "dǎn qiè", "hint": "胆怯", "strokes": 15, "chars": ["胆", "怯"] },
+            { "char": "拒绝", "pinyin": "jù jué", "hint": "拒绝", "strokes": 17, "chars": ["拒", "绝"] },
+            { "char": "荆条", "pinyin": "jīng tiáo", "hint": "荆条", "strokes": 15, "chars": ["荆", "条"] }
+          ]
+        },
+        {
+          "id": "lesson7",
+          "name": "什么比猎豹的速度更快",
+          "words": [
+            { "char": "冠军", "pinyin": "guàn jūn", "hint": "冠军", "strokes": 16, "chars": ["冠", "军"] },
+            { "char": "俯身", "pinyin": "fǔ shēn", "hint": "俯身", "strokes": 14, "chars": ["俯", "身"] },
+            { "char": "喷出", "pinyin": "pēn chū", "hint": "喷出", "strokes": 15, "chars": ["喷", "出"] },
+            { "char": "一枚", "pinyin": "yī méi", "hint": "一枚", "strokes": 9, "chars": ["一", "枚"] },
+            { "char": "火箭", "pinyin": "huǒ jiàn", "hint": "火箭", "strokes": 13, "chars": ["火", "箭"] },
+            { "char": "竹筒", "pinyin": "zhú tǒng", "hint": "竹筒", "strokes": 15, "chars": ["竹", "筒"] },
+            { "char": "结束", "pinyin": "jié shù", "hint": "结束", "strokes": 15, "chars": ["结", "束"] },
+            { "char": "赤道", "pinyin": "chì dào", "hint": "赤道", "strokes": 12, "chars": ["赤", "道"] },
+            { "char": "圆圈", "pinyin": "yuán quān", "hint": "圆圈", "strokes": 13, "chars": ["圆", "圈"] },
+            { "char": "布置", "pinyin": "bù zhì", "hint": "布置", "strokes": 13, "chars": ["布", "置"] }
+          ]
+        },
+        {
+          "id": "lesson8",
+          "name": "冀中的地道战",
+          "words": [
+            { "char": "侵略", "pinyin": "qīn luè", "hint": "侵略", "strokes": 16, "chars": ["侵", "略"] },
+            { "char": "粗略", "pinyin": "cū lüè", "hint": "粗略", "strokes": 16, "chars": ["粗", "略"] },
+            { "char": "建筑", "pinyin": "jiàn zhù", "hint": "建筑", "strokes": 16, "chars": ["建", "筑"] },
+            { "char": "堡垒", "pinyin": "bǎo lěi", "hint": "堡垒", "strokes": 19, "chars": ["堡", "垒"] },
+            { "char": "党员", "pinyin": "dǎng yuán", "hint": "党员", "strokes": 13, "chars": ["党", "员"] },
+            { "char": "山丘", "pinyin": "shān qiū", "hint": "山丘", "strokes": 8, "chars": ["山", "丘"] },
+            { "char": "妨碍", "pinyin": "fáng ài", "hint": "妨碍", "strokes": 13, "chars": ["妨", "碍"] },
+            { "char": "隐蔽", "pinyin": "yǐn bì", "hint": "隐蔽", "strokes": 17, "chars": ["隐", "蔽"] },
+            { "char": "陷阱", "pinyin": "xiàn jǐng", "hint": "陷阱", "strokes": 18, "chars": ["陷", "阱"] },
+            { "char": "拐弯", "pinyin": "guǎi wān", "hint": "拐弯", "strokes": 13, "chars": ["拐", "弯"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit3",
+      "name": "第三单元",
+      "lessons": [
+        {
+          "id": "lesson9",
+          "name": "猎人海力布",
+          "words": [
+            { "char": "酬谢", "pinyin": "chóu xiè", "hint": "酬谢", "strokes": 21, "chars": ["酬", "谢"] },
+            { "char": "珍宝", "pinyin": "zhēn bǎo", "hint": "珍宝", "strokes": 13, "chars": ["珍", "宝"] },
+            { "char": "叮嘱", "pinyin": "dīng zhǔ", "hint": "叮嘱", "strokes": 17, "chars": ["叮", "嘱"] },
+            { "char": "崩塌", "pinyin": "bēng tā", "hint": "崩塌", "strokes": 15, "chars": ["崩", "塌"] },
+            { "char": "焦急", "pinyin": "jiāo jí", "hint": "焦急", "strokes": 17, "chars": ["焦", "急"] },
+            { "char": "誓言", "pinyin": "shì yán", "hint": "誓言", "strokes": 16, "chars": ["誓", "言"] },
+            { "char": "说谎", "pinyin": "shuō huǎng", "hint": "说谎", "strokes": 17, "chars": ["说", "谎"] },
+            { "char": "延期", "pinyin": "yán qī", "hint": "延期", "strokes": 11, "chars": ["延", "期"] },
+            { "char": "后悔", "pinyin": "hòu huǐ", "hint": "后悔", "strokes": 13, "chars": ["后", "悔"] },
+            { "char": "扶手", "pinyin": "fú shǒu", "hint": "扶手", "strokes": 11, "chars": ["扶", "手"] }
+          ]
+        },
+        {
+          "id": "lesson10",
+          "name": "牛郎织女（一）",
+          "words": [
+            { "char": "货郎", "pinyin": "huò láng", "hint": "货郎", "strokes": 14, "chars": ["货", "郎"] },
+            { "char": "爹娘", "pinyin": "diē niáng", "hint": "爹娘", "strokes": 13, "chars": ["爹", "娘"] },
+            { "char": "嫂子", "pinyin": "sǎo zi", "hint": "嫂子", "strokes": 15, "chars": ["嫂", "子"] },
+            { "char": "车辆", "pinyin": "chē liàng", "hint": "车辆", "strokes": 11, "chars": ["车", "辆"] },
+            { "char": "歹徒", "pinyin": "dǎi tú", "hint": "歹徒", "strokes": 10, "chars": ["歹", "徒"] },
+            { "char": "罕见", "pinyin": "hǎn jiàn", "hint": "罕见", "strokes": 13, "chars": ["罕", "见"] },
+            { "char": "纱布", "pinyin": "shā bù", "hint": "纱布", "strokes": 10, "chars": ["纱", "布"] },
+            { "char": "妻子", "pinyin": "qī zi", "hint": "妻子", "strokes": 11, "chars": ["妻", "子"] },
+            { "char": "托付", "pinyin": "tuō fù", "hint": "托付", "strokes": 11, "chars": ["托", "付"] },
+            { "char": "游泳", "pinyin": "yóu yǒng", "hint": "游泳", "strokes": 16, "chars": ["游", "泳"] },
+            { "char": "结婚", "pinyin": "jié hūn", "hint": "结婚", "strokes": 16, "chars": ["结", "婚"] },
+            { "char": "辈子", "pinyin": "bèi zi", "hint": "辈子", "strokes": 8, "chars": ["辈", "子"] },
+            { "char": "挨近", "pinyin": "āi jìn", "hint": "挨近", "strokes": 14, "chars": ["挨", "近"] }
+          ]
+        },
+        {
+          "id": "lesson11",
+          "name": "牛郎织女（二）",
+          "words": []
+        }
+      ]
+    },
+    {
+      "id": "unit4",
+      "name": "第四单元",
+      "lessons": [
+        {
+          "id": "lesson12",
+          "name": "古诗三首",
+          "words": [
+            { "char": "祭拜", "pinyin": "jì bài", "hint": "祭拜", "strokes": 15, "chars": ["祭", "拜"] },
+            { "char": "乃至", "pinyin": "nǎi zhì", "hint": "乃至", "strokes": 6, "chars": ["乃", "至"] },
+            { "char": "熏陶", "pinyin": "xūn táo", "hint": "熏陶", "strokes": 17, "chars": ["熏", "陶"] },
+            { "char": "杭州", "pinyin": "háng zhōu", "hint": "杭州", "strokes": 13, "chars": ["杭", "州"] },
+            { "char": "亥时", "pinyin": "hài shí", "hint": "亥时", "strokes": 8, "chars": ["亥", "时"] },
+            { "char": "自恃", "pinyin": "zì shì", "hint": "自恃", "strokes": 14, "chars": ["自", "恃"] },
+            { "char": "悲哀", "pinyin": "bēi āi", "hint": "悲哀", "strokes": 15, "chars": ["悲", "哀"] },
+            { "char": "拘束", "pinyin": "jū shù", "hint": "拘束", "strokes": 14, "chars": ["拘", "束"] }
+          ]
+        },
+        {
+          "id": "lesson13",
+          "name": "少年中国说",
+          "words": [
+            { "char": "倾泻", "pinyin": "qīng xiè", "hint": "倾泻", "strokes": 16, "chars": ["倾", "泻"] },
+            { "char": "潜泳", "pinyin": "qián yǒng", "hint": "潜泳", "strokes": 19, "chars": ["潜", "泳"] },
+            { "char": "试验", "pinyin": "shì yàn", "hint": "试验", "strokes": 16, "chars": ["试", "验"] },
+            { "char": "轮胎", "pinyin": "lún tāi", "hint": "轮胎", "strokes": 15, "chars": ["轮", "胎"] },
+            { "char": "皇帝", "pinyin": "huáng dì", "hint": "皇帝", "strokes": 13, "chars": ["皇", "帝"] },
+            { "char": "履行", "pinyin": "lǚ xíng", "hint": "履行", "strokes": 18, "chars": ["履", "行"] },
+            { "char": "边疆", "pinyin": "biān jiāng", "hint": "边疆", "strokes": 16, "chars": ["边", "疆"] }
+          ]
+        },
+        {
+          "id": "lesson14",
+          "name": "圆明园的毁灭",
+          "words": [
+            { "char": "毁灭", "pinyin": "huǐ miè", "hint": "毁灭", "strokes": 16, "chars": ["毁", "灭"] },
+            { "char": "估计", "pinyin": "gū jì", "hint": "估计", "strokes": 10, "chars": ["估", "计"] },
+            { "char": "拱卫", "pinyin": "gǒng wèi", "hint": "拱卫", "strokes": 14, "chars": ["拱", "卫"] },
+            { "char": "光辉", "pinyin": "guāng huī", "hint": "光辉", "strokes": 12, "chars": ["光", "辉"] },
+            { "char": "辉煌", "pinyin": "huī huáng", "hint": "辉煌", "strokes": 20, "chars": ["辉", "煌"] },
+            { "char": "殿堂", "pinyin": "diàn táng", "hint": "殿堂", "strokes": 19, "chars": ["殿", "堂"] },
+            { "char": "陵园", "pinyin": "líng yuán", "hint": "陵园", "strokes": 17, "chars": ["陵", "园"] },
+            { "char": "浏览", "pinyin": "liú lǎn", "hint": "浏览", "strokes": 14, "chars": ["浏", "览"] },
+            { "char": "境界", "pinyin": "jìng jiè", "hint": "境界", "strokes": 17, "chars": ["境", "界"] },
+            { "char": "宏伟", "pinyin": "hóng wěi", "hint": "宏伟", "strokes": 11, "chars": ["宏", "伟"] },
+            { "char": "唐朝", "pinyin": "táng cháo", "hint": "唐朝", "strokes": 15, "chars": ["唐", "朝"] },
+            { "char": "闯进", "pinyin": "chuǎng jìn", "hint": "闯进", "strokes": 12, "chars": ["闯", "进"] },
+            { "char": "统一", "pinyin": "tǒng yī", "hint": "统一", "strokes": 13, "chars": ["统", "一"] },
+            { "char": "销售", "pinyin": "xiāo shòu", "hint": "销售", "strokes": 18, "chars": ["销", "售"] },
+            { "char": "奉命", "pinyin": "fèng mìng", "hint": "奉命", "strokes": 13, "chars": ["奉", "命"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit5",
+      "name": "第五单元",
+      "lessons": [
+        {
+          "id": "lesson16",
+          "name": "太阳",
+          "words": [
+            { "char": "摄影", "pinyin": "shè yǐng", "hint": "摄影", "strokes": 20, "chars": ["摄", "影"] },
+            { "char": "氏族", "pinyin": "shì zú", "hint": "氏族", "strokes": 9, "chars": ["氏", "族"] },
+            { "char": "繁殖", "pinyin": "fán zhí", "hint": "繁殖", "strokes": 19, "chars": ["繁", "殖"] },
+            { "char": "粮食", "pinyin": "liáng shi", "hint": "粮食", "strokes": 19, "chars": ["粮", "食"] },
+            { "char": "木炭", "pinyin": "mù tàn", "hint": "木炭", "strokes": 9, "chars": ["木", "炭"] },
+            { "char": "地区", "pinyin": "dì qū", "hint": "地区", "strokes": 9, "chars": ["地", "区"] },
+            { "char": "杀菌", "pinyin": "shā jūn", "hint": "杀菌", "strokes": 13, "chars": ["杀", "菌"] },
+            { "char": "治疗", "pinyin": "zhì liáo", "hint": "治疗", "strokes": 16, "chars": ["治", "疗"] }
+          ]
+        },
+        {
+          "id": "lesson17",
+          "name": "松鼠",
+          "words": [
+            { "char": "松鼠", "pinyin": "sōng shǔ", "hint": "松鼠", "strokes": 17, "chars": ["松", "鼠"] },
+            { "char": "清秀", "pinyin": "qīng xiù", "hint": "清秀", "strokes": 11, "chars": ["清", "秀"] },
+            { "char": "玲珑", "pinyin": "líng lóng", "hint": "玲珑", "strokes": 13, "chars": ["玲", "珑"] },
+            { "char": "歇凉", "pinyin": "xiē liáng", "hint": "歇凉", "strokes": 18, "chars": ["歇", "凉"] },
+            { "char": "窝里", "pinyin": "wō lǐ", "hint": "窝里", "strokes": 15, "chars": ["窝", "里"] },
+            { "char": "光滑", "pinyin": "guāng huá", "hint": "光滑", "strokes": 12, "chars": ["光", "滑"] },
+            { "char": "拾取", "pinyin": "shí qǔ", "hint": "拾取", "strokes": 13, "chars": ["拾", "取"] },
+            { "char": "狭窄", "pinyin": "xiá zhǎi", "hint": "狭窄", "strokes": 15, "chars": ["狭", "窄"] },
+            { "char": "勉强", "pinyin": "miǎn qiǎng", "hint": "勉强", "strokes": 16, "chars": ["勉", "强"] },
+            { "char": "梳理", "pinyin": "shū lǐ", "hint": "梳理", "strokes": 18, "chars": ["梳", "理"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit6",
+      "name": "第六单元",
+      "lessons": [
+        {
+          "id": "lesson18",
+          "name": "慈母情深",
+          "words": [
+            { "char": "辞职", "pinyin": "cí zhí", "hint": "辞职", "strokes": 19, "chars": ["辞", "职"] },
+            { "char": "压抑", "pinyin": "yā yì", "hint": "压抑", "strokes": 11, "chars": ["压", "抑"] },
+            { "char": "忙碌", "pinyin": "máng lù", "hint": "忙碌", "strokes": 16, "chars": ["忙", "碌"] },
+            { "char": "吊着", "pinyin": "diào zhe", "hint": "吊着", "strokes": 10, "chars": ["吊", "着"] },
+            { "char": "噪声", "pinyin": "zào shēng", "hint": "噪声", "strokes": 19, "chars": ["噪", "声"] },
+            { "char": "脊背", "pinyin": "jǐ bèi", "hint": "脊背", "strokes": 16, "chars": ["脊", "背"] },
+            { "char": "竟然", "pinyin": "jìng rán", "hint": "竟然", "strokes": 16, "chars": ["竟", "然"] },
+            { "char": "龟裂", "pinyin": "jūn liè", "hint": "龟裂", "strokes": 20, "chars": ["龟", "裂"] },
+            { "char": "忍耐", "pinyin": "rěn nài", "hint": "忍耐", "strokes": 12, "chars": ["忍", "耐"] },
+            { "char": "心酸", "pinyin": "xīn suān", "hint": "心酸", "strokes": 13, "chars": ["心", "酸"] },
+            { "char": "权利", "pinyin": "quán lì", "hint": "权利", "strokes": 12, "chars": ["权", "利"] }
+          ]
+        },
+        {
+          "id": "lesson19",
+          "name": "父爱之舟",
+          "words": [
+            { "char": "蚕茧", "pinyin": "cán jiǎn", "hint": "蚕茧", "strokes": 17, "chars": ["蚕", "茧"] },
+            { "char": "考试", "pinyin": "kǎo shì", "hint": "考试", "strokes": 13, "chars": ["考", "试"] },
+            { "char": "心疼", "pinyin": "xīn téng", "hint": "心疼", "strokes": 13, "chars": ["心", "疼"] },
+            { "char": "凉席", "pinyin": "liáng xí", "hint": "凉席", "strokes": 14, "chars": ["凉", "席"] },
+            { "char": "糖果", "pinyin": "táng guǒ", "hint": "糖果", "strokes": 19, "chars": ["糖", "果"] },
+            { "char": "纸屑", "pinyin": "zhǐ xiè", "hint": "纸屑", "strokes": 13, "chars": ["纸", "屑"] },
+            { "char": "启发", "pinyin": "qǐ fā", "hint": "启发", "strokes": 14, "chars": ["启", "发"] },
+            { "char": "启迪", "pinyin": "qí dí", "hint": "启迪", "strokes": 18, "chars": ["启", "迪"] },
+            { "char": "铁钉", "pinyin": "tiě dīng", "hint": "铁钉", "strokes": 16, "chars": ["铁", "钉"] },
+            { "char": "陪伴", "pinyin": "péi bàn", "hint": "陪伴", "strokes": 16, "chars": ["陪", "伴"] },
+            { "char": "毕业", "pinyin": "bì yè", "hint": "毕业", "strokes": 13, "chars": ["毕", "业"] },
+            { "char": "暑假", "pinyin": "shǔ jià", "hint": "暑假", "strokes": 15, "chars": ["暑", "假"] },
+            { "char": "煮饭", "pinyin": "zhǔ fàn", "hint": "煮饭", "strokes": 18, "chars": ["煮", "饭"] },
+            { "char": "枕头", "pinyin": "zhěn tou", "hint": "枕头", "strokes": 14, "chars": ["枕", "头"] }
+          ]
+        },
+        {
+          "id": "lesson20",
+          "name": "精彩极了和糟糕透了",
+          "words": []
+        }
+      ]
+    },
+    {
+      "id": "unit7",
+      "name": "第七单元",
+      "lessons": [
+        {
+          "id": "lesson21",
+          "name": "古诗词三首",
+          "words": [
+            { "char": "子孙", "pinyin": "zǐ sūn", "hint": "子孙", "strokes": 7, "chars": ["子", "孙"] },
+            { "char": "停泊", "pinyin": "tíng bó", "hint": "停泊", "strokes": 15, "chars": ["停", "泊"] },
+            { "char": "忧愁", "pinyin": "yōu chóu", "hint": "忧愁", "strokes": 17, "chars": ["忧", "愁"] },
+            { "char": "寺庙", "pinyin": "sì miào", "hint": "寺庙", "strokes": 13, "chars": ["寺", "庙"] },
+            { "char": "榆树", "pinyin": "yú shù", "hint": "榆树", "strokes": 18, "chars": ["榆", "树"] },
+            { "char": "河畔", "pinyin": "hé pàn", "hint": "河畔", "strokes": 14, "chars": ["河", "畔"] }
+          ]
+        },
+        {
+          "id": "lesson22",
+          "name": "四季之美",
+          "words": [
+            { "char": "黎明", "pinyin": "lí míng", "hint": "黎明", "strokes": 16, "chars": ["黎", "明"] },
+            { "char": "红晕", "pinyin": "hóng yùn", "hint": "红晕", "strokes": 13, "chars": ["红", "晕"] },
+            { "char": "漆黑", "pinyin": "qī hēi", "hint": "漆黑", "strokes": 17, "chars": ["漆", "黑"] },
+            { "char": "夜幕", "pinyin": "yè mù", "hint": "夜幕", "strokes": 11, "chars": ["夜", "幕"] },
+            { "char": "愈加", "pinyin": "yù jiā", "hint": "愈加", "strokes": 15, "chars": ["愈", "加"] },
+            { "char": "空旷", "pinyin": "kōng kuàng", "hint": "空旷", "strokes": 11, "chars": ["空", "旷"] },
+            { "char": "怡然", "pinyin": "yí rán", "hint": "怡然", "strokes": 13, "chars": ["怡", "然"] },
+            { "char": "安逸", "pinyin": "ān yì", "hint": "安逸", "strokes": 12, "chars": ["安", "逸"] },
+            { "char": "免职", "pinyin": "miǎn zhí", "hint": "免职", "strokes": 13, "chars": ["免", "职"] }
+          ]
+        },
+        {
+          "id": "lesson23",
+          "name": "鸟的天堂",
+          "words": [
+            { "char": "船桨", "pinyin": "chuán jiǎng", "hint": "船桨", "strokes": 16, "chars": ["船", "桨"] },
+            { "char": "榕树", "pinyin": "róng shù", "hint": "榕树", "strokes": 19, "chars": ["榕", "树"] },
+            { "char": "纠正", "pinyin": "jiū zhèng", "hint": "纠正", "strokes": 9, "chars": ["纠", "正"] },
+            { "char": "树桩", "pinyin": "shù zhuāng", "hint": "树桩", "strokes": 16, "chars": ["树", "桩"] },
+            { "char": "涨潮", "pinyin": "zhǎng cháo", "hint": "涨潮", "strokes": 15, "chars": ["涨", "潮"] },
+            { "char": "宝塔", "pinyin": "bǎo tǎ", "hint": "宝塔", "strokes": 12, "chars": ["宝", "塔"] },
+            { "char": "树梢", "pinyin": "shù shāo", "hint": "树梢", "strokes": 16, "chars": ["树", "梢"] },
+            { "char": "无暇", "pinyin": "wú xiá", "hint": "无暇", "strokes": 13, "chars": ["无", "暇"] },
+            { "char": "眉毛", "pinyin": "méi mao", "hint": "眉毛", "strokes": 11, "chars": ["眉", "毛"] },
+            { "char": "抛弃", "pinyin": "pāo qì", "hint": "抛弃", "strokes": 11, "chars": ["抛", "弃"] }
+          ]
+        },
+        {
+          "id": "lesson24",
+          "name": "月迹",
+          "words": []
+        }
+      ]
+    },
+    {
+      "id": "unit8",
+      "name": "第八单元",
+      "lessons": [
+        {
+          "id": "lesson25",
+          "name": "古人谈读书",
+          "words": [
+            { "char": "耻辱", "pinyin": "chǐ rǔ", "hint": "耻辱", "strokes": 13, "chars": ["耻", "辱"] },
+            { "char": "教诲", "pinyin": "jiào huì", "hint": "教诲", "strokes": 16, "chars": ["教", "诲"] },
+            { "char": "称谓", "pinyin": "chēng wèi", "hint": "称谓", "strokes": 15, "chars": ["称", "谓"] },
+            { "char": "朗诵", "pinyin": "lǎng sòng", "hint": "朗诵", "strokes": 16, "chars": ["朗", "诵"] },
+            { "char": "岂止", "pinyin": "qǐ zhǐ", "hint": "岂止", "strokes": 10, "chars": ["岂", "止"] },
+            { "char": "恒心", "pinyin": "héng xīn", "hint": "恒心", "strokes": 13, "chars": ["恒", "心"] },
+            { "char": "窥视", "pinyin": "kuī shì", "hint": "窥视", "strokes": 17, "chars": ["窥", "视"] },
+            { "char": "皆是", "pinyin": "jiē shì", "hint": "皆是", "strokes": 13, "chars": ["皆", "是"] },
+            { "char": "缺少", "pinyin": "quē shǎo", "hint": "缺少", "strokes": 15, "chars": ["缺", "少"] }
+          ]
+        },
+        {
+          "id": "lesson26",
+          "name": "忆读书",
+          "words": [
+            { "char": "舅舅", "pinyin": "jiù jiu", "hint": "舅舅", "strokes": 13, "chars": ["舅", "舅"] },
+            { "char": "津贴", "pinyin": "jīn tiē", "hint": "津贴", "strokes": 15, "chars": ["津", "贴"] },
+            { "char": "斩首", "pinyin": "zhǎn shǒu", "hint": "斩首", "strokes": 15, "chars": ["斩", "首"] },
+            { "char": "期限", "pinyin": "qī xiàn", "hint": "期限", "strokes": 15, "chars": ["期", "限"] },
+            { "char": "凯旋", "pinyin": "kǎi xuán", "hint": "凯旋", "strokes": 13, "chars": ["凯", "旋"] },
+            { "char": "诸葛", "pinyin": "zhū gě", "hint": "诸葛", "strokes": 16, "chars": ["诸", "葛"] },
+            { "char": "讲述", "pinyin": "jiǎng shù", "hint": "讲述", "strokes": 14, "chars": ["讲", "述"] },
+            { "char": "姓贾", "pinyin": "xìng jiǎ", "hint": "姓贾", "strokes": 13, "chars": ["姓", "贾"] },
+            { "char": "衰弱", "pinyin": "shuāi ruò", "hint": "衰弱", "strokes": 16, "chars": ["衰", "弱"] },
+            { "char": "书刊", "pinyin": "shū kān", "hint": "书刊", "strokes": 9, "chars": ["书", "刊"] },
+            { "char": "繁琐", "pinyin": "fán suǒ", "hint": "繁琐", "strokes": 16, "chars": ["繁", "琐"] },
+            { "char": "朴实", "pinyin": "pǔ shí", "hint": "朴实", "strokes": 11, "chars": ["朴", "实"] },
+            { "char": "篇章", "pinyin": "piān zhāng", "hint": "篇章", "strokes": 18, "chars": ["篇", "章"] },
+            { "char": "某人", "pinyin": "mǒu rén", "hint": "某人", "strokes": 9, "chars": ["某", "人"] }
+          ]
+        },
+        {
+          "id": "lesson27",
+          "name": "我的长生果",
+          "words": []
+        }
+      ]
+    }
+  ]
+}
