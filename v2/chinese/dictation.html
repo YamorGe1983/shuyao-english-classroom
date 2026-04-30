@@ -593,6 +593,70 @@ function startWrongBook() {
     startDictation(words);
 }
 
+// ==================== 自定义默写 ====================
+function startCustomDictation() {
+    const raw = document.getElementById('customText').value.trim();
+    if (!raw) { alert('请先输入要默写的汉字！'); return; }
+    // 仅保留中文和分隔符
+    const cleaned = raw.replace(/[^\u4e00-\u9fff\s,，、]/g, '');
+    if (!cleaned.trim()) { alert('未检测到有效汉字，请输入中文！'); return; }
+    // 按分隔符拆分词组
+    const wordStrings = cleaned.split(/[\s,，、]+/).filter(s => s.length > 0);
+    const words = wordStrings.map(ws => {
+        const chars = ws.split('');
+        return { char: ws, pinyin: '', hint: ws, chars: chars };
+    });
+    if (words.length === 0) { alert('未检测到有效词组！'); return; }
+    State.lessonName = '自定义默写';
+    State.isWrongBookMode = false;
+    startDictation(words);
+}
+
+// 语音输入
+let voiceRecognition = null;
+let isRecording = false;
+
+function toggleVoiceInput() {
+    const btn = document.getElementById('btnVoiceInput');
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert('您的浏览器不支持语音识别，请使用iPad自带键盘的麦克风按钮');
+        return;
+    }
+    if (isRecording) {
+        stopVoiceInput();
+        return;
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    voiceRecognition = new SpeechRecognition();
+    voiceRecognition.lang = 'zh-CN';
+    voiceRecognition.continuous = true;
+    voiceRecognition.interimResults = true;
+    voiceRecognition.onresult = function(event) {
+        let transcript = '';
+        for (let i = 0; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+        }
+        const textarea = document.getElementById('customText');
+        // 只保留中文和分隔符
+        const cleaned = transcript.replace(/[^\u4e00-\u9fff\s,，、]/g, '');
+        textarea.value = cleaned;
+    };
+    voiceRecognition.onerror = function() { stopVoiceInput(); };
+    voiceRecognition.onend = function() { stopVoiceInput(); };
+    voiceRecognition.start();
+    isRecording = true;
+    btn.classList.add('recording');
+    btn.textContent = '🔴 录音中…';
+}
+
+function stopVoiceInput() {
+    if (voiceRecognition) { voiceRecognition.stop(); voiceRecognition = null; }
+    isRecording = false;
+    const btn = document.getElementById('btnVoiceInput');
+    btn.classList.remove('recording');
+    btn.textContent = '🎤 语音输入';
+}
+
 // ==================== 默写页 ====================
 function startDictation(words) {
     State.startTime = Date.now();
