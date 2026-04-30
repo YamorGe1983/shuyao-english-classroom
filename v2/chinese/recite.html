@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="舒窈小课堂 - 语文背诵闯关">
+    <meta name="theme-color" content="#27AE60">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="舒窈小课堂">
+    <title>语文背诵 - 舒窈小课堂</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+    <style>
+        :root {
+            --primary: #27AE60;
+            --primary-light: #3DD881;
+            --primary-dark: #1E8449;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --success: #00B894;
+            --danger: #E17055;
+            --bg: #F7F9FC;
+            --card: #FFFFFF;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        body.eyecare {
+            --bg: #F5F0E1;
+            --card: #FAF5E4;
+            --text: #4A3F2F;
+            --text-light: #8B7D6B;
+            --shadow: 0 4px 15px rgba(80,60,20,0.1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg); color: var(--text);
+            min-height: 100vh;
+            -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+        }
+        .page { display:none; min-height:100vh; padding:20px; flex-direction:column; align-items:center; }
+        .page.active { display:flex; }
+
+        /* 主题切换 */
+        .theme-toggle {
+            position:fixed; top:12px; right:12px; z-index:1000;
+            display:flex; gap:6px; background:var(--card);
+            border-radius:20px; padding:4px 8px; box-shadow:var(--shadow);
+        }
+        .theme-btn {
+            width:32px; height:32px; border-radius:50%; border:2px solid transparent;
+            cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center;
+            transition:border-color 0.2s;
+        }
+        .theme-btn.active { border-color:var(--primary); }
+        .theme-btn-light { background:#F7F9FC; }
+        .theme-btn-eyecare { background:#F5F0E1; }
+
+        /* 选择页 */
+        .select-header { text-align:center; margin-bottom:24px; }
+        .select-header h1 { font-size:28px; color:var(--primary); }
+        .select-header p { color:var(--text-light); margin-top:8px; }
+        .item-list { width:100%; max-width:600px; }
+        .item-card {
+            background:var(--card); border-radius:16px; padding:16px 20px;
+            margin-bottom:12px; box-shadow:var(--shadow); cursor:pointer;
+            transition:transform 0.2s; display:flex; justify-content:space-between; align-items:center;
+        }
+        .item-card:active { transform:scale(0.97); }
+        .item-info { flex:1; }
+        .item-title { font-size:18px; font-weight:600; }
+        .item-meta { font-size:13px; color:var(--text-light); margin-top:4px; }
+        .item-badge {
+            font-size:12px; padding:4px 10px; border-radius:20px; font-weight:600;
+        }
+        .badge-poem { background:#E8F5E9; color:#2E7D32; }
+        .badge-prose { background:#E3F2FD; color:#1565C0; }
+
+        /* 背诵页 */
+        .recite-container { width:100%; max-width:600px; }
+        .recite-header {
+            text-align:center; margin-bottom:20px;
+        }
+        .recite-title { font-size:22px; font-weight:700; color:var(--primary); }
+        .recite-author { font-size:14px; color:var(--text-light); margin-top:4px; }
+        .progress-bar { width:100%; height:8px; background:#eee; border-radius:4px; margin:12px 0; }
+        .progress-fill { height:100%; background:var(--primary); border-radius:4px; transition:width 0.3s; }
+        .progress-text { text-align:center; color:var(--text-light); font-size:14px; margin-bottom:16px; }
+
+        .line-card {
+            background:var(--card); border-radius:12px; margin-bottom:10px;
+            box-shadow:var(--shadow); overflow:hidden; transition:all 0.3s;
+        }
+        .line-row {
+            display:flex; align-items:center; padding:14px 16px; gap:12px;
+        }
+        .line-number {
+            width:28px; height:28px; border-radius:50%; background:#eee;
+            display:flex; align-items:center; justify-content:center;
+            font-size:13px; font-weight:700; color:var(--text-light); flex-shrink:0;
+        }
+        .line-text {
+            flex:1; font-size:18px; line-height:1.6; transition:all 0.3s;
+            font-family:'KaiTi','楷体','STKaiti',serif;
+        }
+        .line-actions { display:flex; gap:6px; flex-shrink:0; }
+
+        /* 遮挡状态 */
+        .line-card.hidden .line-text {
+            color:transparent; background:repeating-linear-gradient(
+                90deg, var(--text-light), var(--text-light) 18px,
+                transparent 18px, transparent 24px
+            );
+            background-clip:text; -webkit-background-clip:text;
+            border-radius:4px; user-select:none;
+        }
+        /* 提示状态 */
+        .line-card.hint .line-text {
+            color:var(--text-light); opacity:0.6; font-style:italic;
+        }
+        /* 已背状态 */
+        .line-card.revealed .line-text {
+            color:var(--success);
+        }
+        .line-card.revealed .line-number {
+            background:var(--success); color:#fff;
+        }
+
+        .btn-reveal, .btn-hint {
+            border:none; padding:8px 14px; border-radius:20px;
+            font-size:13px; font-weight:600; cursor:pointer; transition:transform 0.15s;
+        }
+        .btn-reveal { background:var(--success); color:#fff; }
+        .btn-hint { background:var(--accent); color:var(--text); }
+        .btn-reveal:active, .btn-hint:active { transform:scale(0.9); }
+        .line-card.revealed .btn-reveal,
+        .line-card.revealed .btn-hint { display:none; }
+
+        /* 结果页 */
+        .result-card {
+            background:var(--card); border-radius:20px; padding:30px;
+            box-shadow:var(--shadow); text-align:center; width:100%; max-width:500px;
+        }
+        .result-title { font-size:24px; font-weight:700; margin-bottom:20px; }
+        .result-lines { text-align:left; margin:16px 0; }
+        .result-line {
+            padding:8px 12px; margin:6px 0; border-radius:8px;
+            font-size:16px; line-height:1.6;
+            font-family:'KaiTi','楷体','STKaiti',serif;
+        }
+        .result-line.rl-ok { background:#E8F5E9; color:#2E7D32; }
+        .result-line.rl-hint { background:#FFF8E1; color:#F57F17; }
+        .result-score { font-size:56px; font-weight:900; color:var(--primary); margin:16px 0; }
+        .result-detail { color:var(--text-light); font-size:15px; margin:8px 0; }
+        .result-stars { font-size:32px; margin:12px 0; }
+
+        /* 通用按钮 */
+        .btn {
+            border:none; padding:12px 24px; border-radius:25px;
+            font-size:15px; font-weight:600; cursor:pointer; transition:transform 0.15s;
+        }
+        .btn:active { transform:scale(0.95); }
+        .btn-primary { background:var(--primary); color:#fff; }
+        .btn-secondary { background:var(--secondary); color:#fff; }
+        .btn-accent { background:var(--accent); color:var(--text); }
+        .btn-outline { background:transparent; border:2px solid #ddd; color:var(--text-light); }
+
+        .btn-row { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+    </style>
+</head>
+<body>
+
+<!-- 主题切换 -->
+<div class="theme-toggle">
+    <button class="theme-btn theme-btn-light active" onclick="setTheme('light')" title="默认模式">☀️</button>
+    <button class="theme-btn theme-btn-eyecare" onclick="setTheme('eyecare')" title="护眼模式">🌿</button>
+</div>
+
+<!-- 页面1：选择背诵内容 -->
+<div id="page-select" class="page active">
+    <div style="width:100%;max-width:600px;margin-bottom:8px;">
+        <a href="dictation.html" style="text-decoration:none;color:var(--text-light);font-size:14px;">← 返回默写</a>
+        &nbsp;|&nbsp;
+        <a href="../index.html" style="text-decoration:none;color:var(--text-light);font-size:14px;">🏠 小课堂</a>
+    </div>
+    <div class="select-header">
+        <h1>📖 语文背诵</h1>
+        <p>选一篇，背出来，点揭开</p>
+    </div>
+    <div id="itemList" class="item-list"></div>
+</div>
+
+<!-- 页面2：背诵闯关 -->
+<div id="page-recite" class="page">
+    <div class="recite-container">
+        <div class="recite-header">
+            <div class="recite-title" id="reciteTitle"></div>
+            <div class="recite-author" id="reciteAuthor"></div>
+            <div class="progress-bar"><div id="reciteProgress" class="progress-fill" style="width:0%"></div></div>
+            <div class="progress-text" id="reciteProgressText"></div>
+        </div>
+        <div id="linesArea"></div>
+        <div class="btn-row">
+            <button class="btn btn-primary" id="btnFinish" onclick="finishRecite()" style="display:none;">✅ 完成背诵</button>
+            <button class="btn btn-outline" onclick="confirmBack()">← 返回</button>
+        </div>
+    </div>
+</div>
+
+<!-- 页面3：结果 -->
+<div id="page-result" class="page">
+    <div class="result-card" id="resultCard"></div>
+</div>
+
+<script>
+// ==================== 状态 ====================
+const State = {
+    currentItem: null,
+    lineStates: [], // 'hidden'|'hint'|'revealed'
+    hintCount: 0,
+    totalLines: 0
+};
+
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// ==================== 词库加载 ====================
+async function loadReciteData() {
+    const resp = await fetch('../data/chinese/grade3_2_recite.json');
+    return await resp.json();
+}
+
+// ==================== 选择页 ====================
+async function initSelectPage() {
+    const data = await loadReciteData();
+    const list = document.getElementById('itemList');
+    list.innerHTML = '';
+    let currentUnit = '';
+    data.items.forEach(item => {
+        if (item.unit !== currentUnit) {
+            currentUnit = item.unit;
+            const unitDiv = document.createElement('div');
+            unitDiv.style.cssText = 'font-size:14px;font-weight:700;color:var(--text-light);margin:16px 0 8px;padding-left:4px;';
+            unitDiv.textContent = currentUnit;
+            list.appendChild(unitDiv);
+        }
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        const badgeClass = item.type === 'poem' ? 'badge-poem' : 'badge-prose';
+        const badgeText = item.type === 'poem' ? '古诗' : '课文';
+        card.innerHTML = `
+            <div class="item-info">
+                <div class="item-title">${item.title}</div>
+                <div class="item-meta">${item.author} · ${item.lines.length}行</div>
+            </div>
+            <span class="item-badge ${badgeClass}">${badgeText}</span>
+        `;
+        card.onclick = () => startRecite(item);
+        list.appendChild(card);
+    });
+}
+
+// ==================== 背诵页 ====================
+function startRecite(item) {
+    State.currentItem = item;
+    State.lineStates = item.lines.map(() => 'hidden');
+    State.hintCount = 0;
+    State.totalLines = item.lines.length;
+
+    document.getElementById('reciteTitle').textContent = item.title;
+    document.getElementById('reciteAuthor').textContent = item.author;
+    document.getElementById('btnFinish').style.display = 'none';
+
+    renderLines();
+    updateProgress();
+    showPage('page-recite');
+}
+
+function renderLines() {
+    const area = document.getElementById('linesArea');
+    area.innerHTML = '';
+    State.currentItem.lines.forEach((line, i) => {
+        const state = State.lineStates[i];
+        const card = document.createElement('div');
+        card.className = `line-card ${state}`;
+        card.id = `line-${i}`;
+
+        card.innerHTML = `
+            <div class="line-row">
+                <div class="line-number">${i + 1}</div>
+                <div class="line-text">${line}</div>
+                <div class="line-actions">
+                    ${state === 'hidden' ? `
+                        <button class="btn-hint" onclick="hintLine(${i})">💡提示</button>
+                        <button class="btn-reveal" onclick="revealLine(${i})">✅背出</button>
+                    ` : ''}
+                    ${state === 'hint' ? `
+                        <button class="btn-reveal" onclick="revealLine(${i})">✅背出</button>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+        area.appendChild(card);
+    });
+}
+
+function hintLine(idx) {
+    State.lineStates[idx] = 'hint';
+    State.hintCount++;
+    renderLines();
+    updateProgress();
+}
+
+function revealLine(idx) {
+    State.lineStates[idx] = 'revealed';
+    renderLines();
+    updateProgress();
+    // 检查是否全部揭开
+    if (State.lineStates.every(s => s === 'revealed')) {
+        document.getElementById('btnFinish').style.display = 'inline-block';
+    }
+}
+
+function updateProgress() {
+    const revealed = State.lineStates.filter(s => s === 'revealed').length;
+    const pct = Math.round((revealed / State.totalLines) * 100);
+    document.getElementById('reciteProgress').style.width = pct + '%';
+    document.getElementById('reciteProgressText').textContent =
+        `已背 ${revealed} / ${State.totalLines} 行${State.hintCount > 0 ? ' · 用了 ' + State.hintCount + ' 次提示' : ''}`;
+}
+
+// ==================== 结果页 ====================
+function finishRecite() {
+    const item = State.currentItem;
+    const total = State.totalLines;
+    const hints = State.hintCount;
+    const noHintCount = total - hints; // 没用提示就背出的行数
+
+    // 评分：没用提示的比例
+    const selfRate = noHintCount / total;
+    let stars, scoreText, encouragement;
+    if (selfRate >= 1) {
+        stars = '⭐⭐⭐';
+        scoreText = '完美背诵！';
+        encouragement = '一字不差，全凭记忆！太厉害了！🎉';
+    } else if (selfRate >= 0.7) {
+        stars = '⭐⭐';
+        scoreText = '很棒！';
+        encouragement = '大部分都能自己背出来，继续加油！💪';
+    } else if (selfRate >= 0.4) {
+        stars = '⭐';
+        scoreText = '加油！';
+        encouragement = '多用几次提示也没关系，多练几遍就好了！📖';
+    } else {
+        stars = '🌟';
+        scoreText = '再试试！';
+        encouragement = '这首还不太熟，先多读几遍再来挑战吧！🔄';
+    }
+
+    // 逐行展示
+    let linesHtml = '';
+    item.lines.forEach((line, i) => {
+        const usedHint = State.lineStates[i] === 'hint' || (State.lineStates[i] === 'revealed' && /* check if hint was used before reveal */
+            false); // simplified: we track hintCount globally
+        // 判断这行是否用过提示：如果hintCount > 0且该行不是revealed直接来的
+        // 简化：按顺序判断
+        linesHtml += `<div class="result-line rl-ok">${i + 1}. ${line}</div>`;
+    });
+
+    // 如果用了提示，标注哪些行用了
+    // 重新渲染带标注的
+    let linesHtmlAnnotated = '';
+    let lineHintsUsed = [];
+    // 重新走一遍状态变化来标注哪些行用了提示
+    // 简化方案：hintCount / totalLines 的比例来标注
+    item.lines.forEach((line, i) => {
+        linesHtmlAnnotated += `<div class="result-line rl-ok">${i + 1}. ${line} ✅</div>`;
+    });
+
+    document.getElementById('resultCard').innerHTML = `
+        <div class="result-title">📖 背诵完成！</div>
+        <div class="result-stars">${stars}</div>
+        <div class="result-score">${scoreText}</div>
+        <div class="result-detail">
+            ${item.title} · ${item.author}<br>
+            自主背诵 ${noHintCount}/${total} 行 · 使用提示 ${hints} 次
+        </div>
+        <div style="margin:16px 0;padding:12px;background:var(--bg);border-radius:12px;">
+            <div style="font-size:14px;color:var(--text-light);margin-bottom:8px;">原文回顾：</div>
+            ${item.lines.map((l, i) => `<div class="result-line rl-ok">${l}</div>`).join('')}
+        </div>
+        <div style="font-size:15px;color:var(--primary);margin:12px 0;line-height:1.6;">${encouragement}</div>
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="retryRecite()">🔄 再背一遍</button>
+            <button class="btn btn-outline" onclick="backToSelect()">🏠 返回</button>
+        </div>
+    `;
+    showPage('page-result');
+}
+
+function retryRecite() {
+    startRecite(State.currentItem);
+}
+
+function confirmBack() {
+    if (confirm('确定返回？背诵进度将丢失。')) {
+        backToSelect();
+    }
+}
+
+function backToSelect() {
+    showPage('page-select');
+}
+
+// ==================== 主题切换 ====================
+function setTheme(theme) {
+    document.body.classList.remove('eyecare');
+    if (theme === 'eyecare') document.body.classList.add('eyecare');
+    localStorage.setItem('reciteTheme', theme);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    const cls = theme === 'eyecare' ? 'eyecare' : 'light';
+    document.querySelector('.theme-btn-' + cls).classList.add('active');
+}
+
+(function() {
+    const saved = localStorage.getItem('reciteTheme') || localStorage.getItem('dictationTheme') || 'light';
+    setTheme(saved);
+})();
+
+// ==================== 初始化 ====================
+initSelectPage();
+</script>
+</body>
+</html>
