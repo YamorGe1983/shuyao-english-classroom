@@ -785,7 +785,6 @@
                         </div>
                         <div class="visual-arrow">→</div>
                     </div>
-                    
                     <div class="visual-module-card" onclick="location.href='math/sailing.html'" style="background: linear-gradient(135deg, #2980b9 0%, #1a5276 100%);">
                         <div class="visual-icon">⛵</div>
                         <div class="visual-info">
@@ -795,6 +794,8 @@
                         <div class="visual-arrow">→</div>
                     </div>
                     
+                    <!-- 竖式练习 -->
+                    <div class="section-title">✏️ 竖式练习</div>
                     <div class="visual-module-card" onclick="location.href='math/vertical.html'" style="background: linear-gradient(135deg, #16a085 0%, #0e6655 100%);">
                         <div class="visual-icon">📝</div>
                         <div class="visual-info">
@@ -803,55 +804,11 @@
                         </div>
                         <div class="visual-arrow">→</div>
                     </div>
-                    
-                    <!-- 模块选择 -->
-                    <div class="section-title">选择练习模块</div>
-                    <div class="module-list">
-                        ${this.modules.map(m => `
-                            <div class="module-card ${this.currentModule === m.id ? 'selected' : ''}" 
-                                 onclick="MathModule.selectModule('${m.id}')">
-                                <div class="icon">${m.icon}</div>
                                 <h3>${m.name}</h3>
                                 <p>${m.nameCN}</p>
                             </div>
                         `).join('')}
                     </div>
-                    
-                    <!-- 难度选择 -->
-                    <div class="difficulty-section">
-                        <div class="section-title">选择难度（可选）</div>
-                        <div class="difficulty-options">
-                            <button class="diff-btn ${this.currentDifficulty === 0 ? 'active' : ''}" 
-                                    onclick="MathModule.selectDifficulty(0)">全部</button>
-                            <button class="diff-btn ${this.currentDifficulty === 1 ? 'active' : ''}" 
-                                    onclick="MathModule.selectDifficulty(1)">⭐ 基础</button>
-                            <button class="diff-btn ${this.currentDifficulty === 2 ? 'active' : ''}" 
-                                    onclick="MathModule.selectDifficulty(2)">⭐⭐ 进阶</button>
-                            <button class="diff-btn ${this.currentDifficulty === 3 ? 'active' : ''}" 
-                                    onclick="MathModule.selectDifficulty(3)">⭐⭐⭐ 挑战</button>
-                            <button class="diff-btn ${this.currentDifficulty === 4 ? 'active' : ''}" 
-                                    onclick="MathModule.selectDifficulty(4)">⭐⭐⭐⭐ 困难</button>
-                        </div>
-                    </div>
-                    
-                    <!-- 开始按钮 -->
-                    <button class="start-btn" onclick="MathModule.startPractice()" 
-                            ${!this.currentModule ? 'disabled' : ''}>
-                        ${this.currentModule ? '开始练习' : '请先选择模块'}
-                    </button>
-                    
-                    <!-- 各难度统计 -->
-                    <div class="difficulty-section">
-                        <div class="section-title">各难度正确率</div>
-                        ${[1, 2, 3, 4].map(d => {
-                            const s = this.stats.byDifficulty[d];
-                            const pct = s.total > 0 ? Math.round(s.correct / s.total * 100) : 0;
-                            return `
-                                <div class="diff-stats">
-                                    <div class="diff-stat-item">
-                                        <div class="diff-name">${difficultyText(d)}</div>
-                                        <div class="diff-score">${s.correct}/${s.total} (${pct}%)</div>
-                                    </div>
                                 </div>
                             `;
                         }).join('')}

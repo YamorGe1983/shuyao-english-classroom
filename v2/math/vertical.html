@@ -33,6 +33,27 @@
             margin-bottom: 30px;
         }
 
+
+        /* 返回按钮 */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            color: #7f8c8d;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            margin-bottom: 8px;
+        }
+        .back-btn:hover {
+            background: #f0f0f0;
+            color: #2c3e50;
+        }
+
         /* 选择运算类型 */
         .operation-select {
             display: grid;
@@ -850,6 +871,7 @@
 </head>
 <body>
     <div class="container">
+        <button class="back-btn" onclick="location.href='../math.html'">← 返回数学练习</button>
         <h1>📐 竖式计算练习</h1>
 
         <!-- 第一步：选择运算类型 -->
