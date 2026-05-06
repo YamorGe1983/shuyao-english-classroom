@@ -346,47 +346,78 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* 数学模块卡片 */
-.math-modules-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 16px;
+/* 数学模块 - 分类标题 */
+.math-category-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2D3436;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 4px;
 }
 
+/* 数学模块 - 横向卡片列表 */
+.math-category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 数学模块 - 彩色横条卡片 */
 .math-module-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px 16px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 2px solid transparent;
+    color: white;
 }
 
 .math-module-card:active {
-    transform: scale(0.95);
+    transform: scale(0.97);
 }
 
 .math-module-card:hover {
-    border-color: #4A90D9;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .math-module-card .math-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.math-module-card .math-info {
+    flex: 1;
+    min-width: 0;
 }
 
 .math-module-card h3 {
     font-size: 16px;
-    color: #2D3436;
-    margin-bottom: 4px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2px;
 }
 
 .math-module-card .math-desc {
     font-size: 12px;
-    color: #636E72;
+    color: rgba(255,255,255,0.85);
+}
+
+.math-module-card .math-arrow {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    flex-shrink: 0;
 }
 
 /* 语文模块卡片 */
@@ -8253,26 +8284,43 @@ const App = {
                         </div>
                     </div>
                     
-                    <div class="math-modules-grid">
-                        <div class="math-module-card" onclick="App.startMathPractice('basic')">
-                            <div class="math-icon">📏</div>
-                            <h3>基础练习</h3>
-                            <p class="math-desc">填单位·单位换算<br>共30题</p>
+                    <div class="math-category-title">📐 应用题可视化</div>
+                    <div class="math-category-list">
+                        <div class="math-module-card" onclick="location.href='math/meeting.html'" style="background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);">
+                            <div class="math-icon">🚶</div>
+                            <div class="math-info">
+                                <h3>相遇问题</h3>
+                                <p class="math-desc">三人难度递进 · 动画演示 · 分步引导</p>
+                            </div>
+                            <div class="math-arrow">→</div>
                         </div>
-                        <div class="math-module-card" onclick="App.startMathPractice('advanced')">
-                            <div class="math-icon">🧮</div>
-                            <h3>进阶练习</h3>
-                            <p class="math-desc">比大小·判断·排序<br>共20题</p>
+                        <div class="math-module-card" onclick="location.href='math/chasing.html'" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                            <div class="math-icon">🏃</div>
+                            <div class="math-info">
+                                <h3>追及问题</h3>
+                                <p class="math-desc">距离差可视化 · 分段演示 · 环形追及</p>
+                            </div>
+                            <div class="math-arrow">→</div>
                         </div>
-                        <div class="math-module-card" onclick="App.startMathPractice('all')">
-                            <div class="math-icon">📐</div>
-                            <h3>综合练习</h3>
-                            <p class="math-desc">全部题目<br>共50题</p>
+                        <div class="math-module-card" onclick="location.href='math/sailing.html'" style="background: linear-gradient(135deg, #2980b9 0%, #1a5276 100%);">
+                            <div class="math-icon">⛵</div>
+                            <div class="math-info">
+                                <h3>行船问题</h3>
+                                <p class="math-desc">顺水逆水 · 三船竞速 · 往返航行</p>
+                            </div>
+                            <div class="math-arrow">→</div>
                         </div>
-                        <div class="math-module-card" onclick="App.showMathHistory()">
-                            <div class="math-icon">📊</div>
-                            <h3>练习记录</h3>
-                            <p class="math-desc">查看历史成绩</p>
+                    </div>
+
+                    <div class="math-category-title">✏️ 竖式练习</div>
+                    <div class="math-category-list">
+                        <div class="math-module-card" onclick="location.href='math/vertical.html'" style="background: linear-gradient(135deg, #16a085 0%, #0e6655 100%);">
+                            <div class="math-icon">📝</div>
+                            <div class="math-info">
+                                <h3>竖式计算</h3>
+                                <p class="math-desc">手写竖式 · 批改对错 · 计时练习</p>
+                            </div>
+                            <div class="math-arrow">→</div>
                         </div>
                     </div>
                 </div>
