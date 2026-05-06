@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竖式计算</title>
+    <!-- KaTeX CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* 选择运算类型 */
+        .operation-select {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .op-btn {
+            padding: 25px 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .op-btn span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .op-btn.add {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .op-btn.sub {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .op-btn.mul {
+            background: linear-gradient(135deg, #FF9800, #f57c00);
+            color: white;
+        }
+
+        .op-btn.div {
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+            color: white;
+        }
+
+        .op-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .op-btn:active {
+            transform: translateY(0);
+        }
+
+        .op-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 混合题型按钮 */
+        .op-btn.mixed {
+            grid-column: span 4;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 30px 20px;
+            font-size: 1.8rem;
+            border: 4px solid #f39c12;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .op-btn.mixed span {
+            font-size: 1.1rem;
+            color: #ffeaa7;
+        }
+
+        .op-btn.mixed:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            border-color: #f1c40f;
+        }
+
+        /* 隐藏状态区域 */
+        .state-section {
+            display: none;
+        }
+
+        .state-section.active {
+            display: block;
+        }
+
+        /* 进度指示器 */
+        .progress-bar {
+            background: white;
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .progress-text {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .timer-display {
+            font-size: 1.3rem;
+            color: #e74c3c;
+            font-weight: bold;
+            background: #fdf2f2;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .timer-display::before {
+            content: '⏱ ';
+        }
+
+        /* 题目卡片 */
+        .question-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .question-header {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .question-body {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .writing-area {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .canvas-wrapper {
+            position: relative;
+            width: 320px;
+            height: 420px;
+            margin: 0 auto;
+            border: 3px solid #bdc3c7;
+            border-radius: 10px;
+            background: #fafafa;
+            overflow: hidden;
+        }
+
+        .canvas-wrapper canvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        .pen-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px auto 0;
+        }
+
+        .pen-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid #bdc3c7;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .pen-btn.active {
+            border-color: #3498db;
+            background: #ebf5fb;
+            box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+        }
+
+        .pen-btn.eraser-btn.active {
+            border-color: #e74c3c;
+            background: #fdf2f2;
+            box-shadow: 0 0 0 3px rgba(231,76,60,0.2);
+        }
+
+        .pen-dot {
+            border-radius: 50%;
+            background: #2c3e50;
+        }
+
+        .pen-dot.thin { width: 4px; height: 4px; }
+        .pen-dot.medium { width: 8px; height: 8px; }
+        .pen-dot.thick { width: 14px; height: 14px; }
+
+        .clear-btn {
+            display: block;
+            margin: 10px auto 0;
+            padding: 10px 25px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .clear-btn:hover {
+            background: #c0392b;
+        }
+
+        /* 提示文字 */
+        .hint-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        /* 提交按钮 */
+        .submit-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .submit-btn {
+            padding: 18px 60px;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 下一题按钮 */
+        .next-btn {
+            padding: 20px 70px;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(155, 89, 182, 0.4);
+            margin-top: 15px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.5);
+        }
+
+        .next-btn.final {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            box-shadow: 0 5px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        .next-btn.final:hover {
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
+        }
+
+        /* ========== V2 默写批改模式样式 ========== */
+        .review-header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .review-header-bar .review-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .review-header-bar .review-subtitle {
+            font-size: 0.95rem;
+            color: #95a5a6;
+        }
+        .review-all-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .review-question-row {
+            background: white;
+            border-radius: 15px;
+            padding: 18px 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .review-q-num {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #7f8c8d;
+            min-width: 56px;
+            text-align: center;
+        }
+        .review-q-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-width: 0;
+        }
+        .review-q-img {
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            max-height: 100px;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        .review-q-answer {
+            background: #f8f9fa;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 1.1rem;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .review-q-time {
+            font-size: 0.85rem;
+            color: #bdc3c7;
+            min-width: 50px;
+            text-align: center;
+        }
+        .review-mark-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 3px solid #2ecc71;
+            background: #eafaf1;
+            color: #2ecc71;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .review-mark-btn:hover {
+            transform: scale(1.12);
+        }
+        .review-mark-btn.wrong {
+            border-color: #e74c3c;
+            background: #fdf2f2;
+            color: #e74c3c;
+        }
+        .review-mark-btn.wrong:hover {
+            transform: scale(1.12);
+        }
+        @media (max-width: 600px) {
+            .review-question-row {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 14px;
+            }
+            .review-q-content {
+                gap: 10px;
+            }
+            .review-q-img {
+                max-height: 80px;
+                max-width: 140px;
+            }
+            .review-mark-btn {
+                width: 46px;
+                height: 46px;
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ========== 统一对比页样式（V1备用） ========== */
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .result-header {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .time-used {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+            background: #fdf2f2;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .result-body {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .result-item {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .result-image {
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .answer-display {
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            display: block;
+            background: white;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            overflow: auto;
+        }
+
+        /* 判断按钮 */
+        .judgment-section {
+            margin-top: 25px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px dashed #bdc3c7;
+        }
+
+        .judgment-label {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .judgment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .judge-btn {
+            padding: 20px 60px;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .judge-btn.correct {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .judge-btn.wrong {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .judge-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .judge-btn.selected {
+            box-shadow: 0 0 0 5px #f39c12;
+            transform: scale(1.05);
+        }
+
+        /* 统计结果 */
+        .stats-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .stats-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .stats-summary {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .stat-number.correct {
+            color: #2ecc71;
+        }
+
+        .stat-number.wrong {
+            color: #e74c3c;
+        }
+
+        .stat-number.time {
+            color: #3498db;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* 详细表格 */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1rem;
+        }
+
+        .stats-table th,
+        .stats-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ecf0f1;
+        }
+
+        .stats-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .stats-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .stats-table .result-correct {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .stats-table .result-wrong {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .restart-btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .restart-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* ========== 统一对比页导航 ========== */
+        .review-nav {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .review-nav-text {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .review-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .review-nav-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #2c3e50;
+        }
+
+        .review-nav-btn:hover {
+            border-color: #3498db;
+            background: #ebf5fb;
+        }
+
+        .review-nav-btn.current {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .review-nav-btn.answered {
+            background: #d5f5e3;
+            border-color: #27ae60;
+        }
+
+        .review-nav-btn.answered.current {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .operation-select {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .op-btn.mixed {
+                grid-column: span 2;
+            }
+
+            .progress-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .question-body {
+                flex-direction: column;
+            }
+
+            .result-body {
+                flex-direction: column;
+            }
+
+            .canvas-wrapper {
+                width: 100%;
+                height: 350px;
+            }
+
+            .stats-summary {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .judgment-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .judge-btn {
+                padding: 15px 40px;
+                font-size: 1.5rem;
+            }
+
+            .stats-table {
+                font-size: 0.85rem;
+            }
+
+            .stats-table th,
+            .stats-table td {
+                padding: 8px;
+            }
+
+            .review-nav-buttons {
+                gap: 8px;
+            }
+
+            .review-nav-btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ========== KaTeX 渲染容器 ========== */
+        .katex-display {
+            margin: 0 auto !important;
+        }
+        .answer-display .katex {
+            font-size: clamp(1em, 4vw, 1.5em) !important;
+        }
+
+        /* ========== 除法 CSS Grid 渲染 ========== */
+        .division-grid {
+            display: inline-grid;
+            font-family: "Courier New", "FangSong", monospace;
+            font-size: 33px;
+            line-height: 1;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .division-grid .cell {
+            width: 1.1ch;
+            height: 1.3em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        /* 厂字头的横线：被除数行上方 */
+        .division-grid .htop {
+            border-top: 3px solid #2c3e50;
+        }
+
+        /* 厂字头的竖线（被除数左侧） */
+        .division-grid .vline {
+            border-left: 3px solid #2c3e50;
+        }
+
+        /* 减法横线（独立行，高度压缩，不与数字重合） */
+        .division-grid .hline {
+            border-bottom: 3px solid #2c3e50;
+            height: 0.5em;
+        }
+
+        /* 步骤数字（稍灰） */
+        .division-grid .step-num {
+            color: #555;
+        }
+
+        .div-remainder-note {
+            font-size: 20px;
+            color: #7f8c8d;
+            margin-top: 8px;
+            font-weight: bold;
+            font-family: "Courier New", "Consolas", monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 竖式计算练习</h1>
+
+        <!-- 第一步：选择运算类型 -->
+        <div class="operation-select" id="operationSelect">
+            <button class="op-btn add" data-op="add">
+                ➕ 加法
+                <span>三位数加法</span>
+            </button>
+            <button class="op-btn sub" data-op="sub">
+                ➖ 减法
+                <span>三位数减法</span>
+            </button>
+            <button class="op-btn mul" data-op="mul">
+                ✖️ 乘法
+                <span>三位数×两位数</span>
+            </button>
+            <button class="op-btn div" data-op="div">
+                ➗ 除法
+                <span>三位数÷两位数</span>
+            </button>
+            <button class="op-btn mixed" data-op="mixed">
+                🎲 混合10题
+                <span>随机出题·每种运算至少1题</span>
+            </button>
+        </div>
+
+        <!-- 第二步：答题区域 -->
+        <div class="state-section" id="answerSection">
+            <div class="progress-bar">
+                <span class="progress-text" id="progressText">第 1 / 5 题</span>
+                <span class="timer-display" id="timerDisplay">0秒</span>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-header" id="questionHeader">第 1 题</div>
+                <div class="question-body">
+                    <div class="writing-area">
+                        <div class="canvas-wrapper">
+                            <canvas id="writingCanvas"></canvas>
+                        </div>
+                        <div class="pen-controls">
+                            <button class="pen-btn" data-width="2" title="细笔"><span class="pen-dot thin"></span></button>
+                            <button class="pen-btn active" data-width="4" title="中笔"><span class="pen-dot medium"></span></button>
+                            <button class="pen-btn" data-width="7" title="粗笔"><span class="pen-dot thick"></span></button>
+                            <button class="pen-btn eraser-btn" data-width="20" data-eraser="true" title="橡皮擦" style="font-size:18px">🧹</button>
+                        </div>
+                        <button class="clear-btn" id="clearBtn">🗑️ 清除</button>
+                        <div class="hint-text">请在方框内写出竖式计算过程，完成后点击"提交"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="submit-section">
+                <button class="submit-btn" id="submitBtn">✓ 提交并继续</button>
+            </div>
+        </div>
+
+        <!-- 第三步：统一对比页（V2 默写批改模式） -->
+        <div class="state-section" id="resultSection">
+            <div class="review-header-bar">
+                <span class="review-title">📝 批改结果</span>
+                <span class="review-subtitle">点击 ✓ 可切换为 ✗</span>
+            </div>
+            <div class="review-all-cards" id="reviewAllCards">
+                <!-- JS 动态生成 -->
+            </div>
+            <div class="submit-section" style="padding:10px 0 20px;">
+                <button class="next-btn final" id="showStatsBtn">📊 查看统计</button>
+            </div>
+        </div>
+
+        <!-- 第四步：统计汇总 -->
+        <div class="state-section" id="statsSection">
+            <div class="stats-section">
+                <div class="stats-title">🎉 练习完成！</div>
+                
+                <div class="stats-summary">
+                    <div class="stat-item">
+                        <div class="stat-number correct" id="correctCount">0</div>
+                        <div class="stat-label">正确 ✓</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number wrong" id="wrongCount">0</div>
+                        <div class="stat-label">错误 ✗</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number time" id="totalTime">0</div>
+                        <div class="stat-label">总用时（秒）</div>
+                    </div>
+                </div>
+                
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>题号</th>
+                            <th>题目</th>
+                            <th>用时</th>
+                            <th>结果</th>
+                        </tr>
+                    </thead>
+                    <tbody id="statsTableBody">
+                    </tbody>
+                </table>
+                
+                <div class="submit-section">
+                    <button class="restart-btn" id="restartBtn">🔄 再来一组练习</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 全局状态 ====================
+        const state = {
+            operation: null,          // 运算类型
+            totalQuestions: 5,        // 总题数
+            questions: [],            // 题目数组
+            currentIndex: 0,          // 当前题目索引
+            judgments: [],            // 判断结果
+            timeRecords: [],          // 每题用时
+            userAnswers: [],          // 每题用户手写截图
+            startTime: null,
+            timerInterval: null,
+            drawingCanvas: null
+        };
+
+        // ==================== 题目生成 ====================
+        function generateQuestions(op) {
+            const questions = [];
+            
+            if (op === 'mixed') {
+                // 混合10题：每种运算至少1题，剩余6题随机分配
+                const types = ['add', 'sub', 'mul', 'div'];
+                const counts = [1, 1, 1, 1]; // 每种至少1题
+                
+                // 随机分配剩余6题
+                for (let i = 0; i < 6; i++) {
+                    const randomType = types[Math.floor(Math.random() * types.length)];
+                    counts[types.indexOf(randomType)]++;
+                }
+                
+                // 生成每种类型的题目
+                const typeQuestions = {};
+                types.forEach(type => {
+                    typeQuestions[type] = generateQuestionsForType(type, counts[types.indexOf(type)]);
+                });
+                
+                // 合并所有题目并打乱顺序
+                let allQuestions = [];
+                types.forEach(type => {
+                    allQuestions = allQuestions.concat(typeQuestions[type]);
+                });
+                
+                // Fisher-Yates 洗牌
+                for (let i = allQuestions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
+                }
+                
+                return allQuestions;
+            } else {
+                return generateQuestionsForType(op, 5);
+            }
+        }
+        
+        function generateQuestionsForType(op, count) {
+            const questions = [];
+            for (let i = 0; i < count; i++) {
+                let a, b;
+                switch (op) {
+                    case 'add':
+                        // 三年级下学期：三位数+三位数
+                        a = randInt(100, 999);
+                        b = randInt(100, 999);
+                        questions.push({ a, b, answer: a + b, type: 'add' });
+                        break;
+                    case 'sub':
+                        // 三年级下学期：三位数-三位数（结果>=0）
+                        a = randInt(300, 999);
+                        b = randInt(100, a);
+                        questions.push({ a, b, answer: a - b, type: 'sub' });
+                        break;
+                    case 'mul':
+                        // 三年级下学期：三位数×两位数
+                        a = randInt(100, 999);
+                        b = randInt(10, 99);
+                        questions.push({ a, b, answer: a * b, type: 'mul' });
+                        break;
+                    case 'div':
+                        // 三年级下学期：三位数÷两位数（可有余数）
+                        b = randInt(11, 99); // 两位数除数
+                        const quotient = randInt(3, 49); // 商（保证被除数是三位数：最小 3*11=33→不对，需要三位数）
+                        // 要保证 a 是三位数：a = quotient * b + remainder >= 100
+                        // 所以 quotient * b >= 100 - (b-1) = 101 - b
+                        // quotient >= ceil((101 - b) / b)
+                        let minQ = Math.ceil((101 - b) / b);
+                        if (minQ < 1) minQ = 1;
+                        const qDiv = randInt(minQ, 49); // 商不超过49，避免被除数过大
+                        const remDiv = randInt(0, b - 1);
+                        a = qDiv * b + remDiv;
+                        // 确保a是三位数
+                        if (a < 100) a = qDiv * b; // fallback
+                        questions.push({ a, b, answer: qDiv, remainder: remDiv, quotient: qDiv, type: 'div' });
+                        break;
+                }
+            }
+            return questions;
+        }
+
+        function randInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // ==================== KaTeX 竖式 LaTeX 生成 ====================
+
+        /**
+         * 生成加法竖式 LaTeX
+         * 示例：456 + 378 = 834
+         */
+        function generateAdditionLatex(a, b) {
+            const aStr = String(a);
+            const bStr = String(b);
+            const result = a + b;
+            const resultStr = String(result);
+            const maxLen = resultStr.length;
+
+            // 计算进位
+            const carries = [];
+            let carryIn = 0;
+            for (let i = 0; i < maxLen; i++) {
+                const aD = parseInt(aStr[aStr.length - 1 - i] || '0');
+                const bD = parseInt(bStr[bStr.length - 1 - i] || '0');
+                const sum = aD + bD + carryIn;
+                carries[maxLen - 1 - i] = carryIn;
+                carryIn = Math.floor(sum / 10);
+            }
+
+            // 生成进位行
+            let carryLine = '';
+            for (let i = 0; i < maxLen; i++) {
+                if (carries[i] > 0) {
+                    carryLine += `^${carries[i]}`;
+                } else {
+                    carryLine += '\\phantom{^0}';
+                }
+            }
+
+            // 右对齐补空格
+            const aPadded = aStr.padStart(maxLen);
+            const bPadded = bStr.padStart(maxLen);
+
+            let latex = `\\def\\arraystretch{1.5}\\begin{array}{r}`;
+            latex += `\\scriptsize\\color{red}{${carryLine}} \\\\`;
+            latex += `${aPadded} \\\\`;
+            latex += `+\\;\\phantom{0}${bPadded} \\\\`;
+            latex += `\\hline`;
+            latex += `${resultStr}`;
+            latex += `\\end{array}`;
+
+            return latex;
+        }
+
+        /**
+         * 生成减法竖式 LaTeX
+         * 示例：523 - 267 = 256
+         */
+        function generateSubtractionLatex(a, b) {
+            const aStr = String(a);
+            const bStr = String(b);
+            const result = a - b;
+            const resultStr = String(result);
+            const len = aStr.length;
+
+            const aDigits = aStr.split('').map(Number);
+            const bDigits = bStr.padStart(len, '0').split('').map(Number);
+            const afterBorrow = [...aDigits];
+
+            let borrow = 0;
+
+            // 计算借位后每位数字的实际值
+            for (let i = len - 1; i >= 0; i--) {
+                let aD = aDigits[i] - borrow;
+                if (aD < bDigits[i]) {
+                    aD += 10;
+                    borrow = 1;
+                    afterBorrow[i] = aD;
+                } else {
+                    borrow = 0;
+                    afterBorrow[i] = aD;
+                }
+            }
+
+            // 生成借位标记行：被借位的位置显示红色小号"借位后值"
+            let borrowLine = '';
+            for (let i = 0; i < len; i++) {
+                if (afterBorrow[i] !== aDigits[i]) {
+                    // 被借位：显示红色小号上标数字
+                    borrowLine += `\\tiny\\color{red}{${afterBorrow[i]}}`;
+                } else {
+                    borrowLine += '\\phantom{0}';
+                }
+            }
+
+            const bPadded = bStr.padStart(len);
+
+            let latex = `\\def\\arraystretch{1.5}\\begin{array}{r}`;
+            latex += `${borrowLine} \\\\`;
+            latex += `${aStr} \\\\`;
+            latex += `-\\;\\phantom{0}${bPadded} \\\\`;
+            latex += `\\hline`;
+            latex += `${resultStr}`;
+            latex += `\\end{array}`;
+
+            return latex;
+        }
+
+        /**
+         * 生成乘法竖式 LaTeX
+         * 示例：234 × 56 = 13104
+         */
+        function generateMultiplicationLatex(a, b) {
+            const aStr = String(a);
+            const bStr = String(b);
+            const result = a * b;
+            const resultStr = String(result);
+            const maxLen = resultStr.length;
+
+            // 计算部分积
+            const partials = [];
+            for (let i = bStr.length - 1; i >= 0; i--) {
+                const bDigit = parseInt(bStr[i]);
+                const shift = bStr.length - 1 - i;
+                const partialValue = a * bDigit;
+                partials.push({ value: partialValue, shift: shift, digit: bDigit });
+            }
+
+            const aPadded = aStr.padStart(maxLen);
+            const bPadded = bStr.padStart(maxLen);
+
+            let latex = `\\def\\arraystretch{1.5}\\begin{array}{r}`;
+            latex += `${aPadded} \\\\`;
+            latex += `\\times\\;\\phantom{0}${bPadded} \\\\`;
+            latex += `\\hline`;
+
+            if (partials.length === 1) {
+                // 一位数乘数，直接出结果
+                latex += `${resultStr}`;
+            } else {
+                // 多位数乘数，显示部分积（蓝色）
+                partials.forEach(pp => {
+                    const ppStr = String(pp.value);
+                    // 在右对齐array中，末尾加 \phantom{000} 实现左偏移
+                    latex += `\\color{blue}{${ppStr}\\phantom{${'0'.repeat(pp.shift)}}} \\\\`;
+                });
+                latex += `\\hline`;
+                latex += `${resultStr}`;
+            }
+
+            latex += `\\end{array}`;
+            return latex;
+        }
+
+        // ==================== 除法 HTML+CSS 生成 ====================
+
+        /**
+         * 生成长除法竖式 HTML（CSS Grid 单字符网格法）
+         * 示例：847 ÷ 25 = 33...17
+         */
+        function generateDivisionHTML(dividend, divisor) {
+            const dividendStr = String(dividend);
+            const quotient = Math.floor(dividend / divisor);
+            const remainder = dividend % divisor;
+            const quotientStr = String(quotient);
+
+            // 模拟长除法步骤
+            const steps = [];
+            let temp = 0;
+            for (let i = 0; i < dividendStr.length; i++) {
+                temp = temp * 10 + parseInt(dividendStr[i]);
+                let q = Math.floor(temp / divisor);
+                if (q === 0 && steps.length === 0 && i < dividendStr.length - 1) {
+                    continue;
+                }
+                const product = q * divisor;
+                const diff = temp - product;
+                steps.push({
+                    bringDown: temp,
+                    quotientDigit: q,
+                    product: product,
+                    remainder: diff,
+                    dividendPos: i
+                });
+                temp = diff;
+            }
+
+            // 网格参数
+            const divisorLen = String(divisor).length;
+            const dividendLen = dividendStr.length;
+            const totalCols = divisorLen + dividendLen; // 除数+被除数，无间隔
+
+            // 计算总行数（横线占独立行，但高度压缩）
+            let totalRows = 2; // 商 + 被除数
+            steps.forEach((step, idx) => {
+                totalRows += 2; // 乘积 + 横线（压缩高度）
+                totalRows += 1; // 差值或余数
+            });
+
+            // 创建空网格
+            const grid = [];
+            for (let r = 0; r < totalRows; r++) {
+                grid.push([]);
+                for (let c = 0; c < totalCols; c++) {
+                    grid[r].push({ char: '', classes: [] });
+                }
+            }
+
+            // --- 厂字头线条 ---
+            // 竖线：只出现在被除数行(Row 1)的 col=divisorLen 格子左边
+            grid[1][divisorLen].classes.push('vline');
+            // 横线：在被除数行(Row 1)的被除数格子上方画线
+            for (let c = divisorLen; c < totalCols; c++) {
+                grid[1][c].classes.push('htop');
+            }
+            // 商行不加任何线条
+
+            // --- 填充数字 ---
+            // Row 0: 商
+            quotientStr.split('').forEach((ch, idx) => {
+                const col = divisorLen + steps[idx].dividendPos;
+                grid[0][col].char = ch;
+            });
+
+            // Row 1: 除数 + 被除数
+            String(divisor).split('').forEach((ch, idx) => {
+                grid[1][idx].char = ch;
+            });
+            dividendStr.split('').forEach((ch, idx) => {
+                grid[1][divisorLen + idx].char = ch;
+            });
+
+            // 步骤行
+            let currentRow = 2;
+            steps.forEach((step, idx) => {
+                const prodStr = String(step.product);
+                const remStr = String(step.remainder);
+
+                // 乘积行 - 右对齐到 step.dividendPos
+                const prodEndCol = divisorLen + step.dividendPos;
+                const prodStartCol = prodEndCol - prodStr.length + 1;
+                prodStr.split('').forEach((ch, pIdx) => {
+                    grid[currentRow][prodStartCol + pIdx].char = ch;
+                    grid[currentRow][prodStartCol + pIdx].classes.push('step-num');
+                });
+
+                // 横线行（独立行，高度由CSS压缩）
+                for (let c = prodStartCol; c <= prodEndCol; c++) {
+                    grid[currentRow + 1][c].classes.push('hline');
+                }
+
+                // 差值行
+                if (idx < steps.length - 1) {
+                    const nextPos = step.dividendPos + 1;
+                    const nextDigit = dividendStr[nextPos];
+                    const displayStr = remStr + nextDigit;
+                    const displayEndCol = divisorLen + nextPos;
+                    const displayStartCol = displayEndCol - displayStr.length + 1;
+                    displayStr.split('').forEach((ch, dIdx) => {
+                        grid[currentRow + 2][displayStartCol + dIdx].char = ch;
+                        grid[currentRow + 2][displayStartCol + dIdx].classes.push('step-num');
+                    });
+                } else {
+                    if (remainder > 0) {
+                        const remEndCol = divisorLen + step.dividendPos;
+                        const remStartCol = remEndCol - remStr.length + 1;
+                        remStr.split('').forEach((ch, rIdx) => {
+                            grid[currentRow + 2][remStartCol + rIdx].char = ch;
+                            grid[currentRow + 2][remStartCol + rIdx].classes.push('step-num');
+                        });
+                    }
+                }
+
+                currentRow += 3;
+            });
+
+            // --- 渲染 HTML ---
+            let html = `<div class="division-grid" style="grid-template-columns: repeat(${totalCols}, 1.1ch)">`;
+
+            for (let r = 0; r < totalRows; r++) {
+                for (let c = 0; c < totalCols; c++) {
+                    const cell = grid[r][c];
+                    const classStr = cell.classes.length > 0 ? ` class="${cell.classes.join(' ')}"` : '';
+                    const content = cell.char === '' ? '&nbsp;' : cell.char;
+                    html += `<div${classStr}>${content}</div>`;
+                }
+            }
+
+            html += '</div>';
+
+            if (remainder > 0) {
+                html += `<div class="div-remainder-note">余数: ${remainder}</div>`;
+            }
+
+            return html;
+        }
+
+        // ==================== 渲染入口 ====================
+
+        /**
+         * 渲染竖式答案
+         * @param {HTMLElement} container - 渲染目标容器
+         * @param {string} type - 运算类型：add/sub/mul/div
+         * @param {object} data - 题目数据 { a, b }
+         */
+        function renderAnswer(container, type, data) {
+            container.innerHTML = '';
+
+            if (type === 'div') {
+                // 除法用 HTML+CSS
+                container.innerHTML = generateDivisionHTML(data.a, data.b);
+                
+                // 自适应缩放检查
+                setTimeout(() => {
+                    const inner = container.querySelector('.division-grid');
+                    if (inner && inner.scrollWidth > container.clientWidth - 20) {
+                        const scale = (container.clientWidth - 20) / inner.scrollWidth;
+                        inner.style.transform = `scale(${scale})`;
+                        inner.style.transformOrigin = 'center top';
+                    }
+                }, 0);
+            } else {
+                // 加减乘用 KaTeX
+                let latex = '';
+                switch (type) {
+                    case 'add': latex = generateAdditionLatex(data.a, data.b); break;
+                    case 'sub': latex = generateSubtractionLatex(data.a, data.b); break;
+                    case 'mul': latex = generateMultiplicationLatex(data.a, data.b); break;
+                }
+                katex.render(latex, container, {
+                    displayMode: true,
+                    throwOnError: false,
+                    output: 'html'
+                });
+            }
+        }
+
+        // ==================== 手写板 ====================
+        class DrawingCanvas {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.isDrawing = false;
+                this.lastX = 0;
+                this.lastY = 0;
+                this.penWidth = 4;
+                this.isEraser = false;
+                this.eraserWidth = 20;
+                
+                this.setup();
+            }
+
+            setPenWidth(width) {
+                this.penWidth = width;
+                this.isEraser = false;
+                this.ctx.lineWidth = width;
+            }
+
+            setEraser(active) {
+                this.isEraser = active;
+                if (active) {
+                    this.ctx.lineWidth = this.eraserWidth;
+                } else {
+                    this.ctx.lineWidth = this.penWidth;
+                }
+            }
+
+            setup() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = this.canvas.getBoundingClientRect();
+                this.canvas.width = rect.width * dpr;
+                this.canvas.height = rect.height * dpr;
+                this.ctx.scale(dpr, dpr);
+                
+                this.ctx.lineCap = 'round';
+                this.ctx.lineJoin = 'round';
+                this.ctx.lineWidth = this.penWidth;
+                this.ctx.strokeStyle = '#000';
+                
+                this.drawGrid();
+                
+                this.bindEvents();
+            }
+
+            drawGrid() {
+                const width = this.canvas.offsetWidth;
+                const height = this.canvas.offsetHeight;
+                const cellSize = 40;
+                
+                this.ctx.strokeStyle = '#ecf0f1';
+                this.ctx.lineWidth = 1;
+                
+                for (let y = 0; y <= height; y += cellSize) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(0, y);
+                    this.ctx.lineTo(width, y);
+                    this.ctx.stroke();
+                }
+                
+                for (let x = 0; x <= width; x += cellSize) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(x, 0);
+                    this.ctx.lineTo(x, height);
+                    this.ctx.stroke();
+                }
+            }
+
+            bindEvents() {
+                this.canvas.addEventListener('mousedown', (e) => this.startDrawing(e));
+                this.canvas.addEventListener('mousemove', (e) => this.draw(e));
+                this.canvas.addEventListener('mouseup', () => this.stopDrawing());
+                this.canvas.addEventListener('mouseout', () => this.stopDrawing());
+                
+                this.canvas.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    this.startDrawing(e.touches[0]);
+                });
+                this.canvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    this.draw(e.touches[0]);
+                });
+                this.canvas.addEventListener('touchend', () => this.stopDrawing());
+            }
+
+            getPos(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                return {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+            }
+
+            startDrawing(e) {
+                this.isDrawing = true;
+                if (this.isEraser) {
+                    this.ctx.strokeStyle = '#fafafa';
+                    this.ctx.lineWidth = this.eraserWidth;
+                } else {
+                    this.ctx.strokeStyle = '#000';
+                    this.ctx.lineWidth = this.penWidth;
+                }
+                const pos = this.getPos(e);
+                this.lastX = pos.x;
+                this.lastY = pos.y;
+            }
+
+            draw(e) {
+                if (!this.isDrawing) return;
+                
+                if (this.isEraser) {
+                    this.ctx.strokeStyle = '#fafafa';
+                    this.ctx.lineWidth = this.eraserWidth;
+                } else {
+                    this.ctx.strokeStyle = '#000';
+                    this.ctx.lineWidth = this.penWidth;
+                }
+                
+                const pos = this.getPos(e);
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.lastX, this.lastY);
+                this.ctx.lineTo(pos.x, pos.y);
+                this.ctx.stroke();
+                
+                this.lastX = pos.x;
+                this.lastY = pos.y;
+            }
+
+            stopDrawing() {
+                this.isDrawing = false;
+            }
+
+            clear() {
+                const width = this.canvas.offsetWidth;
+                const height = this.canvas.offsetHeight;
+                this.ctx.fillStyle = '#fafafa';
+                this.ctx.fillRect(0, 0, width, height);
+                this.drawGrid();
+                // 恢复笔划颜色和宽度
+                this.ctx.strokeStyle = '#000';
+                this.ctx.lineWidth = this.penWidth;
+            }
+
+            toDataURL() {
+                return this.canvas.toDataURL('image/png');
+            }
+        }
+
+        // ==================== 计时器 ====================
+        function startTimer() {
+            state.startTime = Date.now();
+            if (state.timerInterval) {
+                clearInterval(state.timerInterval);
+            }
+            state.timerInterval = setInterval(updateTimerDisplay, 100);
+            updateTimerDisplay();
+        }
+
+        function stopTimer() {
+            if (state.timerInterval) {
+                clearInterval(state.timerInterval);
+                state.timerInterval = null;
+            }
+            const elapsed = Math.round((Date.now() - state.startTime) / 1000);
+            return elapsed;
+        }
+
+        function updateTimerDisplay() {
+            const elapsed = Math.round((Date.now() - state.startTime) / 1000);
+            const display = document.getElementById('timerDisplay');
+            if (display) {
+                display.textContent = elapsed + '秒';
+            }
+        }
+
+        // ==================== UI 渲染 ====================
+        function showAnswerState() {
+            hideAllSections();
+            document.getElementById('operationSelect').style.display = 'none';
+            document.getElementById('answerSection').classList.add('active');
+            
+            const q = state.questions[state.currentIndex];
+            const questionText = getQuestionText(q);
+            
+            document.getElementById('progressText').textContent = `第 ${state.currentIndex + 1} / ${state.totalQuestions} 题`;
+            document.getElementById('questionHeader').textContent = `第 ${state.currentIndex + 1} 题：${questionText}`;
+            
+            // 清空并重新初始化画布
+            const canvas = document.getElementById('writingCanvas');
+            state.drawingCanvas = new DrawingCanvas(canvas);
+            
+            // 开始计时
+            startTimer();
+        }
+
+        function showResultState() {
+            hideAllSections();
+            document.getElementById('resultSection').classList.add('active');
+            
+            // 默认全部标记为正确
+            state.judgments = state.questions.map(() => 'correct');
+            
+            // 渲染所有题目的批改行
+            renderAllReviewCards();
+        }
+
+        function renderAllReviewCards() {
+            const container = document.getElementById('reviewAllCards');
+            container.innerHTML = '';
+            
+            state.questions.forEach((q, idx) => {
+                const questionText = getQuestionText(q);
+                const timeUsed = state.timeRecords[idx];
+                const type = q.type || state.operation;
+                const judgment = state.judgments[idx];
+                
+                const row = document.createElement('div');
+                row.className = 'review-question-row';
+                
+                // 题号
+                const numDiv = document.createElement('div');
+                numDiv.className = 'review-q-num';
+                numDiv.textContent = `第${idx + 1}题`;
+                row.appendChild(numDiv);
+                
+                // 内容区：手写图 + 正确答案
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'review-q-content';
+                
+                // 手写截图
+                if (state.userAnswers[idx]) {
+                    const img = document.createElement('img');
+                    img.className = 'review-q-img';
+                    img.src = state.userAnswers[idx];
+                    img.alt = '你的答案';
+                    contentDiv.appendChild(img);
+                }
+                
+                // 正确答案
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'review-q-answer';
+                answerDiv.id = `reviewAnswer${idx}`;
+                renderAnswer(answerDiv, type, q);
+                contentDiv.appendChild(answerDiv);
+                
+                row.appendChild(contentDiv);
+                
+                // 用时
+                const timeDiv = document.createElement('div');
+                timeDiv.className = 'review-q-time';
+                timeDiv.textContent = `${timeUsed}秒`;
+                row.appendChild(timeDiv);
+                
+                // 批改按钮：默认✓，点击切换✗
+                const markBtn = document.createElement('button');
+                markBtn.className = 'review-mark-btn' + (judgment === 'wrong' ? ' wrong' : '');
+                markBtn.textContent = judgment === 'wrong' ? '✗' : '✓';
+                markBtn.dataset.index = idx;
+                markBtn.addEventListener('click', () => {
+                    const i = parseInt(markBtn.dataset.index);
+                    if (state.judgments[i] === 'correct') {
+                        state.judgments[i] = 'wrong';
+                        markBtn.textContent = '✗';
+                        markBtn.classList.add('wrong');
+                    } else {
+                        state.judgments[i] = 'correct';
+                        markBtn.textContent = '✓';
+                        markBtn.classList.remove('wrong');
+                    }
+                });
+                row.appendChild(markBtn);
+                
+                container.appendChild(row);
+            });
+        }
+
+        function showStatsState() {
+            hideAllSections();
+            document.getElementById('statsSection').classList.add('active');
+            
+            const correct = state.judgments.filter(j => j === 'correct').length;
+            const wrong = state.judgments.filter(j => j === 'wrong').length;
+            const totalTime = state.timeRecords.reduce((a, b) => a + b, 0);
+            
+            document.getElementById('correctCount').textContent = correct;
+            document.getElementById('wrongCount').textContent = wrong;
+            document.getElementById('totalTime').textContent = totalTime;
+            
+            // 生成表格
+            const tbody = document.getElementById('statsTableBody');
+            tbody.innerHTML = '';
+            
+            state.questions.forEach((q, idx) => {
+                const tr = document.createElement('tr');
+                const questionText = getQuestionText(q);
+                const judgment = state.judgments[idx];
+                const timeUsed = state.timeRecords[idx];
+                
+                tr.innerHTML = `
+                    <td>第 ${idx + 1} 题</td>
+                    <td>${questionText}</td>
+                    <td>${timeUsed}秒</td>
+                    <td class="${judgment === 'correct' ? 'result-correct' : 'result-wrong'}">
+                        ${judgment === 'correct' ? '✓ 正确' : judgment === 'wrong' ? '✗ 错误' : '-'}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function hideAllSections() {
+            document.getElementById('answerSection').classList.remove('active');
+            document.getElementById('resultSection').classList.remove('active');
+            document.getElementById('statsSection').classList.remove('active');
+        }
+
+        function getQuestionText(q) {
+            const type = q.type || state.operation;
+            switch (type) {
+                case 'add':
+                    return `${q.a} + ${q.b} = ?`;
+                case 'sub':
+                    return `${q.a} − ${q.b} = ?`;
+                case 'mul':
+                    return `${q.a} × ${q.b} = ?`;
+                case 'div':
+                    return `${q.a} ÷ ${q.b} = ?`;
+                default:
+                    return '';
+            }
+        }
+
+        function getFullQuestionText(q) {
+            const type = q.type || state.operation;
+            switch (type) {
+                case 'add':
+                    return `${q.a} + ${q.b} = ${q.answer}`;
+                case 'sub':
+                    return `${q.a} − ${q.b} = ${q.answer}`;
+                case 'mul':
+                    return `${q.a} × ${q.b} = ${q.answer}`;
+                case 'div':
+                    return `${q.a} ÷ ${q.b} = ${q.answer}` + (q.remainder !== undefined ? ` …… ${q.remainder}` : '');
+                default:
+                    return '';
+            }
+        }
+
+        // ==================== 事件处理 ====================
+        function init() {
+            // 选择运算类型
+            document.querySelectorAll('.op-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const op = btn.dataset.op;
+                    state.operation = op;
+                    state.totalQuestions = op === 'mixed' ? 10 : 5;
+                    state.questions = generateQuestions(op);
+                    state.currentIndex = 0;
+                    state.judgments = new Array(state.totalQuestions).fill(undefined);
+                    state.timeRecords = [];
+                    state.userAnswers = [];
+                    
+                    // 显示答题区域（第一题）
+                    showAnswerState();
+                });
+            });
+            
+            // 清除按钮
+            document.getElementById('clearBtn').addEventListener('click', () => {
+                if (state.drawingCanvas) {
+                    state.drawingCanvas.clear();
+                }
+            });
+            
+            // 笔触粗细按钮
+            document.querySelectorAll('.pen-btn:not(.eraser-btn)').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.pen-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const width = parseInt(btn.dataset.width);
+                    if (state.drawingCanvas) {
+                        state.drawingCanvas.setPenWidth(width);
+                    }
+                });
+            });
+            
+            // 橡皮擦按钮
+            const eraserBtn = document.querySelector('.eraser-btn');
+            if (eraserBtn) {
+                eraserBtn.addEventListener('click', () => {
+                    document.querySelectorAll('.pen-btn').forEach(b => b.classList.remove('active'));
+                    eraserBtn.classList.add('active');
+                    if (state.drawingCanvas) {
+                        state.drawingCanvas.setEraser(true);
+                    }
+                });
+            }
+            
+            // 提交答案（保存并继续下一题）
+            document.getElementById('submitBtn').addEventListener('click', () => {
+                // 保存当前题目的手写截图
+                const timeUsed = stopTimer();
+                state.timeRecords.push(timeUsed);
+                state.userAnswers.push(state.drawingCanvas.toDataURL('image/png'));
+                
+                if (state.currentIndex >= state.totalQuestions - 1) {
+                    // 所有题目都做完了，进入统一对比页
+                    showResultState();
+                } else {
+                    // 下一题
+                    state.currentIndex++;
+                    showAnswerState();
+                }
+            });
+            
+            // 查看统计按钮
+            document.getElementById('showStatsBtn').addEventListener('click', () => {
+                showStatsState();
+            });
+            
+            // 重新开始
+            document.getElementById('restartBtn').addEventListener('click', () => {
+                state.judgments = [];
+                state.timeRecords = [];
+                state.userAnswers = [];
+                state.currentIndex = 0;
+                
+                hideAllSections();
+                document.getElementById('operationSelect').style.display = 'grid';
+            });
+        }
+
+        // 启动
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
