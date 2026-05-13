@@ -14,45 +14,288 @@
           "id": "lesson1",
           "name": "古诗三首",
           "words": [
-            { "char": "融化", "pinyin": "róng huà", "hint": "融化", "strokes": 16, "chars": ["融", "化"] },
-            { "char": "燕子", "pinyin": "yàn zi", "hint": "燕子", "strokes": 16, "chars": ["燕", "子"] },
-            { "char": "鸳鸯", "pinyin": "yuān yāng", "hint": "鸳鸯", "strokes": 20, "chars": ["鸳", "鸯"] },
-            { "char": "惠崇", "pinyin": "huì chóng", "hint": "惠崇", "strokes": 23, "chars": ["惠", "崇"] },
-            { "char": "芦芽", "pinyin": "lú yá", "hint": "芦芽", "strokes": 14, "chars": ["芦", "芽"] },
-            { "char": "短长", "pinyin": "duǎn cháng", "hint": "短长", "strokes": 16, "chars": ["短", "长"] },
-            { "char": "梅花", "pinyin": "méi huā", "hint": "梅花", "strokes": 15, "chars": ["梅", "花"] },
-            { "char": "小溪", "pinyin": "xiǎo xī", "hint": "小溪", "strokes": 16, "chars": ["小", "溪"] },
-            { "char": "春满", "pinyin": "chūn mǎn", "hint": "春满", "strokes": 18, "chars": ["春", "满"] }
+            {
+              "char": "融化",
+              "pinyin": "róng huà",
+              "hint": "融化",
+              "strokes": 16,
+              "chars": [
+                "融",
+                "化"
+              ]
+            },
+            {
+              "char": "燕子",
+              "pinyin": "yàn zi",
+              "hint": "燕子",
+              "strokes": 16,
+              "chars": [
+                "燕",
+                "子"
+              ]
+            },
+            {
+              "char": "鸳鸯",
+              "pinyin": "yuān yāng",
+              "hint": "鸳鸯",
+              "strokes": 20,
+              "chars": [
+                "鸳",
+                "鸯"
+              ]
+            },
+            {
+              "char": "惠崇",
+              "pinyin": "huì chóng",
+              "hint": "惠崇",
+              "strokes": 23,
+              "chars": [
+                "惠",
+                "崇"
+              ]
+            },
+            {
+              "char": "芦芽",
+              "pinyin": "lú yá",
+              "hint": "芦芽",
+              "strokes": 14,
+              "chars": [
+                "芦",
+                "芽"
+              ]
+            },
+            {
+              "char": "短长",
+              "pinyin": "duǎn cháng",
+              "hint": "短长",
+              "strokes": 16,
+              "chars": [
+                "短",
+                "长"
+              ]
+            },
+            {
+              "char": "梅花",
+              "pinyin": "méi huā",
+              "hint": "梅花",
+              "strokes": 15,
+              "chars": [
+                "梅",
+                "花"
+              ]
+            },
+            {
+              "char": "小溪",
+              "pinyin": "xiǎo xī",
+              "hint": "小溪",
+              "strokes": 16,
+              "chars": [
+                "小",
+                "溪"
+              ]
+            },
+            {
+              "char": "春满",
+              "pinyin": "chūn mǎn",
+              "hint": "春满",
+              "strokes": 18,
+              "chars": [
+                "春",
+                "满"
+              ]
+            }
           ]
         },
         {
           "id": "lesson2",
           "name": "燕子",
           "words": [
-            { "char": "凑成", "pinyin": "còu chéng", "hint": "凑成", "strokes": 17, "chars": ["凑", "成"] },
-            { "char": "吹拂", "pinyin": "chuī fú", "hint": "吹拂", "strokes": 14, "chars": ["吹", "拂"] },
-            { "char": "集合", "pinyin": "jí hé", "hint": "集合", "strokes": 18, "chars": ["集", "合"] },
-            { "char": "聚集", "pinyin": "jù jí", "hint": "聚集", "strokes": 26, "chars": ["聚", "集"] },
-            { "char": "形状", "pinyin": "xíng zhuàng", "hint": "形状", "strokes": 12, "chars": ["形", "状"] },
-            { "char": "掠过", "pinyin": "lüè guò", "hint": "掠过", "strokes": 16, "chars": ["掠", "过"] },
-            { "char": "偶尔", "pinyin": "ǒu ěr", "hint": "偶尔", "strokes": 16, "chars": ["偶", "尔"] },
-            { "char": "沾水", "pinyin": "zhān shuǐ", "hint": "沾水", "strokes": 12, "chars": ["沾", "水"] },
-            { "char": "疲倦", "pinyin": "pí juàn", "hint": "疲倦", "strokes": 22, "chars": ["疲", "倦"] },
-            { "char": "纤细", "pinyin": "xiān xì", "hint": "纤细", "strokes": 11, "chars": ["纤", "细"] }
+            {
+              "char": "凑成",
+              "pinyin": "còu chéng",
+              "hint": "凑成",
+              "strokes": 17,
+              "chars": [
+                "凑",
+                "成"
+              ]
+            },
+            {
+              "char": "吹拂",
+              "pinyin": "chuī fú",
+              "hint": "吹拂",
+              "strokes": 14,
+              "chars": [
+                "吹",
+                "拂"
+              ]
+            },
+            {
+              "char": "集合",
+              "pinyin": "jí hé",
+              "hint": "集合",
+              "strokes": 18,
+              "chars": [
+                "集",
+                "合"
+              ]
+            },
+            {
+              "char": "聚集",
+              "pinyin": "jù jí",
+              "hint": "聚集",
+              "strokes": 26,
+              "chars": [
+                "聚",
+                "集"
+              ]
+            },
+            {
+              "char": "形状",
+              "pinyin": "xíng zhuàng",
+              "hint": "形状",
+              "strokes": 12,
+              "chars": [
+                "形",
+                "状"
+              ]
+            },
+            {
+              "char": "掠过",
+              "pinyin": "lüè guò",
+              "hint": "掠过",
+              "strokes": 16,
+              "chars": [
+                "掠",
+                "过"
+              ]
+            },
+            {
+              "char": "偶尔",
+              "pinyin": "ǒu ěr",
+              "hint": "偶尔",
+              "strokes": 16,
+              "chars": [
+                "偶",
+                "尔"
+              ]
+            },
+            {
+              "char": "沾水",
+              "pinyin": "zhān shuǐ",
+              "hint": "沾水",
+              "strokes": 12,
+              "chars": [
+                "沾",
+                "水"
+              ]
+            },
+            {
+              "char": "疲倦",
+              "pinyin": "pí juàn",
+              "hint": "疲倦",
+              "strokes": 22,
+              "chars": [
+                "疲",
+                "倦"
+              ]
+            },
+            {
+              "char": "纤细",
+              "pinyin": "xiān xì",
+              "hint": "纤细",
+              "strokes": 11,
+              "chars": [
+                "纤",
+                "细"
+              ]
+            }
           ]
         },
         {
           "id": "lesson3",
           "name": "荷花",
           "words": [
-            { "char": "花瓣", "pinyin": "huā bàn", "hint": "花瓣", "strokes": 23, "chars": ["花", "瓣"] },
-            { "char": "莲蓬", "pinyin": "lián péng", "hint": "莲蓬", "strokes": 26, "chars": ["莲", "蓬"] },
-            { "char": "饱胀", "pinyin": "bǎo zhàng", "hint": "饱胀", "strokes": 15, "chars": ["饱", "胀"] },
-            { "char": "破裂", "pinyin": "pò liè", "hint": "破裂", "strokes": 19, "chars": ["破", "裂"] },
-            { "char": "姿势", "pinyin": "zī shì", "hint": "姿势", "strokes": 17, "chars": ["姿", "势"] },
-            { "char": "仿佛", "pinyin": "fǎng fú", "hint": "仿佛", "strokes": 13, "chars": ["仿", "佛"] },
-            { "char": "随从", "pinyin": "suí cóng", "hint": "随从", "strokes": 16, "chars": ["随", "从"] },
-            { "char": "舞蹈", "pinyin": "wǔ dǎo", "hint": "舞蹈", "strokes": 22, "chars": ["舞", "蹈"] }
+            {
+              "char": "花瓣",
+              "pinyin": "huā bàn",
+              "hint": "花瓣",
+              "strokes": 23,
+              "chars": [
+                "花",
+                "瓣"
+              ]
+            },
+            {
+              "char": "莲蓬",
+              "pinyin": "lián péng",
+              "hint": "莲蓬",
+              "strokes": 26,
+              "chars": [
+                "莲",
+                "蓬"
+              ]
+            },
+            {
+              "char": "饱胀",
+              "pinyin": "bǎo zhàng",
+              "hint": "饱胀",
+              "strokes": 15,
+              "chars": [
+                "饱",
+                "胀"
+              ]
+            },
+            {
+              "char": "破裂",
+              "pinyin": "pò liè",
+              "hint": "破裂",
+              "strokes": 19,
+              "chars": [
+                "破",
+                "裂"
+              ]
+            },
+            {
+              "char": "姿势",
+              "pinyin": "zī shì",
+              "hint": "姿势",
+              "strokes": 17,
+              "chars": [
+                "姿",
+                "势"
+              ]
+            },
+            {
+              "char": "仿佛",
+              "pinyin": "fǎng fú",
+              "hint": "仿佛",
+              "strokes": 13,
+              "chars": [
+                "仿",
+                "佛"
+              ]
+            },
+            {
+              "char": "随从",
+              "pinyin": "suí cóng",
+              "hint": "随从",
+              "strokes": 16,
+              "chars": [
+                "随",
+                "从"
+              ]
+            },
+            {
+              "char": "舞蹈",
+              "pinyin": "wǔ dǎo",
+              "hint": "舞蹈",
+              "strokes": 22,
+              "chars": [
+                "舞",
+                "蹈"
+              ]
+            }
           ]
         }
       ]
@@ -65,21 +308,157 @@
           "id": "lesson1",
           "name": "我变成了一棵树",
           "words": [
-            { "char": "形状", "pinyin": "xíng zhuàng", "hint": "形状", "strokes": 14, "chars": ["形", "状"] },
-            { "char": "狐狸", "pinyin": "hú li", "hint": "狐狸", "strokes": 18, "chars": ["狐", "狸"] },
-            { "char": "担心", "pinyin": "dān xīn", "hint": "担心", "strokes": 12, "chars": ["担", "心"] },
-            { "char": "丁零", "pinyin": "dīng líng", "hint": "丁零", "strokes": 15, "chars": ["丁", "零"] },
-            { "char": "失望", "pinyin": "shī wàng", "hint": "失望", "strokes": 16, "chars": ["失", "望"] },
-            { "char": "巧克力", "pinyin": "qiǎo kè lì", "hint": "巧克力", "strokes": 14, "chars": ["巧", "克", "力"] },
-            { "char": "香肠", "pinyin": "xiāng cháng", "hint": "香肠", "strokes": 16, "chars": ["香", "肠"] },
-            { "char": "面包", "pinyin": "miàn bāo", "hint": "面包", "strokes": 14, "chars": ["面", "包"] },
-            { "char": "花生", "pinyin": "huā shēng", "hint": "花生", "strokes": 12, "chars": ["花", "生"] },
-            { "char": "牛奶", "pinyin": "niú nǎi", "hint": "牛奶", "strokes": 9, "chars": ["牛", "奶"] },
-            { "char": "继续", "pinyin": "jì xù", "hint": "继续", "strokes": 21, "chars": ["继", "续"] },
-            { "char": "想念", "pinyin": "xiǎng niàn", "hint": "想念", "strokes": 21, "chars": ["想", "念"] },
-            { "char": "排骨", "pinyin": "pái gǔ", "hint": "排骨", "strokes": 20, "chars": ["排", "骨"] },
-            { "char": "麻烦", "pinyin": "má fan", "hint": "麻烦", "strokes": 21, "chars": ["麻", "烦"] },
-            { "char": "了解", "pinyin": "liǎo jiě", "hint": "了解", "strokes": 15, "chars": ["了", "解"] }
+            {
+              "char": "形状",
+              "pinyin": "xíng zhuàng",
+              "hint": "形状",
+              "strokes": 14,
+              "chars": [
+                "形",
+                "状"
+              ]
+            },
+            {
+              "char": "狐狸",
+              "pinyin": "hú li",
+              "hint": "狐狸",
+              "strokes": 18,
+              "chars": [
+                "狐",
+                "狸"
+              ]
+            },
+            {
+              "char": "担心",
+              "pinyin": "dān xīn",
+              "hint": "担心",
+              "strokes": 12,
+              "chars": [
+                "担",
+                "心"
+              ]
+            },
+            {
+              "char": "丁零",
+              "pinyin": "dīng líng",
+              "hint": "丁零",
+              "strokes": 15,
+              "chars": [
+                "丁",
+                "零"
+              ]
+            },
+            {
+              "char": "失望",
+              "pinyin": "shī wàng",
+              "hint": "失望",
+              "strokes": 16,
+              "chars": [
+                "失",
+                "望"
+              ]
+            },
+            {
+              "char": "巧克力",
+              "pinyin": "qiǎo kè lì",
+              "hint": "巧克力",
+              "strokes": 14,
+              "chars": [
+                "巧",
+                "克",
+                "力"
+              ]
+            },
+            {
+              "char": "香肠",
+              "pinyin": "xiāng cháng",
+              "hint": "香肠",
+              "strokes": 16,
+              "chars": [
+                "香",
+                "肠"
+              ]
+            },
+            {
+              "char": "面包",
+              "pinyin": "miàn bāo",
+              "hint": "面包",
+              "strokes": 14,
+              "chars": [
+                "面",
+                "包"
+              ]
+            },
+            {
+              "char": "花生",
+              "pinyin": "huā shēng",
+              "hint": "花生",
+              "strokes": 12,
+              "chars": [
+                "花",
+                "生"
+              ]
+            },
+            {
+              "char": "牛奶",
+              "pinyin": "niú nǎi",
+              "hint": "牛奶",
+              "strokes": 9,
+              "chars": [
+                "牛",
+                "奶"
+              ]
+            },
+            {
+              "char": "继续",
+              "pinyin": "jì xù",
+              "hint": "继续",
+              "strokes": 21,
+              "chars": [
+                "继",
+                "续"
+              ]
+            },
+            {
+              "char": "想念",
+              "pinyin": "xiǎng niàn",
+              "hint": "想念",
+              "strokes": 21,
+              "chars": [
+                "想",
+                "念"
+              ]
+            },
+            {
+              "char": "排骨",
+              "pinyin": "pái gǔ",
+              "hint": "排骨",
+              "strokes": 20,
+              "chars": [
+                "排",
+                "骨"
+              ]
+            },
+            {
+              "char": "麻烦",
+              "pinyin": "má fan",
+              "hint": "麻烦",
+              "strokes": 21,
+              "chars": [
+                "麻",
+                "烦"
+              ]
+            },
+            {
+              "char": "了解",
+              "pinyin": "liǎo jiě",
+              "hint": "了解",
+              "strokes": 15,
+              "chars": [
+                "了",
+                "解"
+              ]
+            }
           ]
         }
       ]
