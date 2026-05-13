@@ -2,7 +2,7 @@
  * 舒窈小课堂 V2 Service Worker
  * 数据外置版，支持多年级扩展
  */
-const VERSION = '2026.04.17.v2.01';
+const VERSION = '2026.05.14.v2.10';
 const CACHE_NAME = `shuyao-v2-${VERSION}`;
 const DATA_CACHE = `shuyao-data-v2-${VERSION}`;
 
