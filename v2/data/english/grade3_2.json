@@ -2714,6 +2714,301 @@
           }
         ]
       }
+    },
+    "unit9": {
+      "id": "unit9",
+      "module": "module3",
+      "name": "Seasons",
+      "nameCN": "季节",
+      "topic": "学习季节相关词汇，描述四季特征和活动",
+      "vocabulary": [
+        {
+          "word": "season",
+          "chinese": "季节",
+          "phonetic": "/ˈsiːzn/",
+          "audio": "season",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "spring",
+          "chinese": "春天",
+          "phonetic": "/sprɪŋ/",
+          "audio": "spring",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "summer",
+          "chinese": "夏天",
+          "phonetic": "/ˈsʌmə(r)/",
+          "audio": "summer",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "autumn",
+          "chinese": "秋天",
+          "phonetic": "/ˈɔːtəm/",
+          "audio": "autumn",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "winter",
+          "chinese": "冬天",
+          "phonetic": "/ˈwɪntə(r)/",
+          "audio": "winter",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "warm",
+          "chinese": "温暖的",
+          "phonetic": "/wɔːm/",
+          "audio": "warm",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "hot",
+          "chinese": "热的",
+          "phonetic": "/hɒt/",
+          "audio": "hot",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "cool",
+          "chinese": "凉爽的",
+          "phonetic": "/kuːl/",
+          "audio": "cool",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "cold",
+          "chinese": "寒冷的",
+          "phonetic": "/kəʊld/",
+          "audio": "cold",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "plant",
+          "chinese": "种植",
+          "phonetic": "/plɑːnt/",
+          "audio": "plant",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "picnic",
+          "chinese": "野餐",
+          "phonetic": "/ˈpɪknɪk/",
+          "audio": "picnic",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "ice-skate",
+          "chinese": "滑冰",
+          "phonetic": "/ˈaɪs skeɪt/",
+          "audio": "ice_skate",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "ski",
+          "chinese": "滑雪",
+          "phonetic": "/skiː/",
+          "audio": "ski",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "beach",
+          "chinese": "沙滩",
+          "phonetic": "/biːtʃ/",
+          "audio": "beach",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "sandcastle",
+          "chinese": "沙堡",
+          "phonetic": "/ˈsændkɑːsl/",
+          "audio": "sandcastle",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "fun",
+          "chinese": "乐趣",
+          "phonetic": "/fʌn/",
+          "audio": "fun",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "fast",
+          "chinese": "快的",
+          "phonetic": "/fɑːst/",
+          "audio": "fast",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "slowly",
+          "chinese": "慢的",
+          "phonetic": "/ˈsləʊli/",
+          "audio": "slowly",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "shine",
+          "chinese": "照耀",
+          "phonetic": "/ʃaɪn/",
+          "audio": "shine",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "blow",
+          "chinese": "吹",
+          "phonetic": "/bləʊ/",
+          "audio": "blow",
+          "letterSounds": [],
+          "needSpell": true
+        },
+        {
+          "word": "fall",
+          "chinese": "落",
+          "phonetic": "/fɔːl/",
+          "audio": "fall",
+          "letterSounds": [],
+          "needSpell": true
+        }
+      ],
+      "phrases": [
+        {
+          "english": "my favourite season",
+          "chinese": "我最喜欢的季节",
+          "needSpell": true
+        },
+        {
+          "english": "plant a tree",
+          "chinese": "植树",
+          "needSpell": true
+        },
+        {
+          "english": "have a picnic",
+          "chinese": "野餐",
+          "needSpell": true
+        },
+        {
+          "english": "ride a bicycle",
+          "chinese": "骑自行车",
+          "needSpell": true
+        },
+        {
+          "english": "fly a kite",
+          "chinese": "放风筝",
+          "needSpell": true
+        },
+        {
+          "english": "go to the beach",
+          "chinese": "去海滩",
+          "needSpell": true
+        },
+        {
+          "english": "make sandcastles",
+          "chinese": "堆沙堡",
+          "needSpell": true
+        },
+        {
+          "english": "blow and blow",
+          "chinese": "吹啊吹",
+          "needSpell": true
+        },
+        {
+          "english": "shine and shine",
+          "chinese": "照呀照",
+          "needSpell": true
+        },
+        {
+          "english": "fall and fall",
+          "chinese": "落呀落",
+          "needSpell": true
+        },
+        {
+          "english": "in the blue sky",
+          "chinese": "在蓝色的天空",
+          "needSpell": true
+        },
+        {
+          "english": "the black clouds",
+          "chinese": "乌云",
+          "needSpell": true
+        },
+        {
+          "english": "in July",
+          "chinese": "在七月",
+          "needSpell": true
+        },
+        {
+          "english": "in spring",
+          "chinese": "在春天",
+          "needSpell": true
+        }
+      ],
+      "sentences": [
+        {
+          "english": "What season is it?",
+          "chinese": "现在是什么季节？",
+          "audio": "what_season_is_it",
+          "needSpell": true
+        },
+        {
+          "english": "It's spring.",
+          "chinese": "是春天。",
+          "audio": "its_spring"
+        },
+        {
+          "english": "How is the weather in autumn?",
+          "chinese": "秋天天气怎么样？",
+          "audio": "how_is_the_weather",
+          "needSpell": true
+        },
+        {
+          "english": "It's windy and cool.",
+          "chinese": "秋天是刮风而凉爽的。",
+          "audio": "its_windy_and_cool"
+        },
+        {
+          "english": "What can you do in winter?",
+          "chinese": "冬天你们可以做什么？",
+          "audio": "what_can_you_do",
+          "needSpell": true
+        },
+        {
+          "english": "We can ice-skate and ski.",
+          "chinese": "我们可以滑冰和滑雪。",
+          "audio": "we_can_ice_skate"
+        }
+      ],
+      "phonetics": {
+        "pattern": "bl→/bl/",
+        "description": "bl辅音连缀发/bl/音",
+        "examples": [
+          "blow",
+          "black",
+          "blue",
+          "block",
+          "blink"
+        ]
+      }
     }
   }
 }
